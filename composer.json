@@ -18,6 +18,7 @@
     "drupal/console": "^1",
     "drupal/core": "^8",
     "drupal/ctools": "^3.0",
+    "drupal/diff": "^1.0@RC",
     "drupal/geocoder": "2.x-dev",
     "drupal/geolocation": "^1.11",
     "drupal/inline_entity_form": "^1.0@beta",
