@@ -20,6 +20,7 @@
     "drupal/ctools": "^3.0",
     "drupal/geocoder": "2.x-dev",
     "drupal/geolocation": "^1.11",
+    "drupal/inline_entity_form": "^1.0@beta",
     "drupal/pathauto": "^1.0",
     "drupal/simple_block": "^1.0@beta",
     "drupal/token": "^1.0",
