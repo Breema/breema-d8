@@ -1,0 +1,21 @@
+uuid: 55297a22-fdc4-4639-8b5f-c8fda3b57c0a
+langcode: en
+status: true
+dependencies: {  }
+id: content_editor
+label: 'Content editor'
+weight: 2
+is_admin: false
+permissions:
+  - 'access administration pages'
+  - 'access content overview'
+  - 'access contextual links'
+  - 'access in-place editing'
+  - 'access toolbar'
+  - 'administer comments'
+  - 'administer menu'
+  - 'administer nodes'
+  - 'delete terms in tags'
+  - 'edit terms in tags'
+  - 'skip comment approval'
+  - 'view the administration theme'
