@@ -5,6 +5,8 @@ dependencies:
   config:
     - field.field.node.directory_entry.body
     - field.field.node.directory_entry.field_address
+    - field.field.node.directory_entry.field_breema_center_staff
+    - field.field.node.directory_entry.field_breema_clinic_practitioner
     - field.field.node.directory_entry.field_geolocation
     - field.field.node.directory_entry.field_job_title
     - field.field.node.directory_entry.field_name_first
@@ -21,7 +23,7 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 5
+    weight: 6
     settings:
       rows: 9
       summary_rows: 3
@@ -30,19 +32,33 @@ content:
     region: content
   created:
     type: datetime_timestamp
-    weight: 7
+    weight: 8
     region: content
     settings: {  }
     third_party_settings: {  }
   field_address:
-    weight: 4
+    weight: 5
     settings:
       default_country: US
     third_party_settings: {  }
     type: address_default
     region: content
-  field_job_title:
+  field_breema_center_staff:
     weight: 3
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_breema_clinic_practitioner:
+    weight: 4
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_job_title:
+    weight: 2
     settings:
       size: 60
       placeholder: ''
@@ -50,7 +66,7 @@ content:
     type: string_textfield
     region: content
   field_name_first:
-    weight: 1
+    weight: 0
     settings:
       size: 60
       placeholder: ''
@@ -58,7 +74,7 @@ content:
     type: string_textfield
     region: content
   field_name_last:
-    weight: 2
+    weight: 1
     settings:
       size: 60
       placeholder: ''
@@ -67,7 +83,7 @@ content:
     region: content
   path:
     type: path
-    weight: 10
+    weight: 11
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -75,34 +91,26 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 8
+    weight: 9
     region: content
     third_party_settings: {  }
   status:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 11
+    weight: 12
     region: content
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 9
+    weight: 10
     region: content
-    third_party_settings: {  }
-  title:
-    type: string_textfield
-    weight: 0
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 6
+    weight: 7
     settings:
       match_operator: CONTAINS
       size: 60
@@ -111,3 +119,4 @@ content:
     third_party_settings: {  }
 hidden:
   field_geolocation: true
+  title: true

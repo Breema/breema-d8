@@ -5,6 +5,8 @@ dependencies:
   config:
     - field.field.node.directory_entry.body
     - field.field.node.directory_entry.field_address
+    - field.field.node.directory_entry.field_breema_center_staff
+    - field.field.node.directory_entry.field_breema_clinic_practitioner
     - field.field.node.directory_entry.field_geolocation
     - field.field.node.directory_entry.field_job_title
     - field.field.node.directory_entry.field_name_first
@@ -23,19 +25,39 @@ content:
   body:
     label: hidden
     type: text_default
-    weight: 2
+    weight: 4
     settings: {  }
     third_party_settings: {  }
     region: content
   field_address:
-    weight: 1
+    weight: 3
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: address_default
     region: content
+  field_breema_center_staff:
+    weight: 1
+    label: hidden
+    settings:
+      format: custom
+      format_custom_true: 'Breema Center staff'
+      format_custom_false: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_breema_clinic_practitioner:
+    weight: 2
+    label: hidden
+    settings:
+      format: custom
+      format_custom_true: 'Breema Clinic practitioner'
+      format_custom_false: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
   field_geolocation:
-    weight: 3
+    weight: 5
     label: hidden
     settings:
       title: ''
@@ -76,7 +98,7 @@ content:
     type: string
     region: content
   links:
-    weight: 4
+    weight: 6
     region: content
     settings: {  }
     third_party_settings: {  }

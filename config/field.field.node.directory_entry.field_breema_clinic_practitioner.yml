@@ -1,0 +1,23 @@
+uuid: 6e7baad2-a9fd-4dd6-899a-787672d81058
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_breema_clinic_practitioner
+    - node.type.directory_entry
+id: node.directory_entry.field_breema_clinic_practitioner
+field_name: field_breema_clinic_practitioner
+entity_type: node
+bundle: directory_entry
+label: 'Breema Clinic practitioner'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean
