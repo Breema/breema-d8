@@ -37,10 +37,10 @@ settings:
     organization:
       behavior: optional
     givenName:
-      behavior: default
+      behavior: hidden
     additionalName:
-      behavior: default
+      behavior: hidden
     familyName:
-      behavior: default
+      behavior: hidden
   langcode_override: ''
 field_type: address

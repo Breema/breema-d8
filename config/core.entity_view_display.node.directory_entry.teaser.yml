@@ -7,6 +7,8 @@ dependencies:
     - field.field.node.directory_entry.body
     - field.field.node.directory_entry.field_address
     - field.field.node.directory_entry.field_geolocation
+    - field.field.node.directory_entry.field_name_first
+    - field.field.node.directory_entry.field_name_last
     - node.type.directory_entry
   module:
     - address
@@ -31,3 +33,5 @@ content:
 hidden:
   body: true
   field_geolocation: true
+  field_name_first: true
+  field_name_last: true
