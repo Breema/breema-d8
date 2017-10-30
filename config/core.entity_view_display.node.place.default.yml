@@ -5,9 +5,11 @@ dependencies:
   config:
     - field.field.node.place.body
     - field.field.node.place.field_address
+    - field.field.node.place.field_geolocation
     - node.type.place
   module:
     - address
+    - geolocation
     - text
     - user
 id: node.place.default
@@ -24,12 +26,47 @@ content:
     region: content
   field_address:
     weight: 102
-    label: above
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     type: address_default
     region: content
+  field_geolocation:
+    weight: 103
+    label: hidden
+    settings:
+      title: ''
+      set_marker: '1'
+      common_map: ''
+      info_text: ''
+      use_overridden_map_settings: 0
+      google_map_settings:
+        type: ROADMAP
+        zoom: '10'
+        minZoom: 0
+        maxZoom: 18
+        rotateControl: 0
+        mapTypeControl: 1
+        streetViewControl: 1
+        zoomControl: 1
+        fullscreenControl: 0
+        scrollwheel: 1
+        disableDoubleClickZoom: 0
+        draggable: 1
+        height: 400px
+        width: 100%
+        info_auto_display: 1
+        marker_icon_path: ''
+        disableAutoPan: 1
+        style: ''
+        preferScrollingToZooming: 0
+        gestureHandling: auto
+    third_party_settings: {  }
+    type: geolocation_map
+    region: content
   links:
     weight: 100
     region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden: {  }

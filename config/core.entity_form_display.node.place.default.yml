@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.place.body
     - field.field.node.place.field_address
+    - field.field.node.place.field_geolocation
     - node.type.place
   module:
     - address
@@ -68,5 +69,6 @@ content:
     region: content
     third_party_settings: {  }
 hidden:
+  field_geolocation: true
   promote: true
   sticky: true
