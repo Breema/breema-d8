@@ -16,6 +16,7 @@ permissions:
   - 'administer menu'
   - 'administer nodes'
   - 'delete terms in tags'
+  - 'edit field_job_title'
   - 'edit terms in tags'
   - 'skip comment approval'
   - 'view the administration theme'

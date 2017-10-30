@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.directory_entry.body
     - field.field.node.directory_entry.field_address
     - field.field.node.directory_entry.field_geolocation
+    - field.field.node.directory_entry.field_job_title
     - field.field.node.directory_entry.field_name_first
     - field.field.node.directory_entry.field_name_last
     - node.type.directory_entry
@@ -66,8 +67,16 @@ content:
     third_party_settings: {  }
     type: geolocation_map
     region: content
-  links:
+  field_job_title:
     weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  links:
+    weight: 4
     region: content
     settings: {  }
     third_party_settings: {  }

@@ -22,5 +22,6 @@ permissions:
   - 'search content'
   - 'use text format basic_html'
   - 'view directory_entry revisions'
+  - 'view field_job_title'
   - 'view own unpublished content'
   - 'view place revisions'

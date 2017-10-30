@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.directory_entry.body
     - field.field.node.directory_entry.field_address
     - field.field.node.directory_entry.field_geolocation
+    - field.field.node.directory_entry.field_job_title
     - field.field.node.directory_entry.field_name_first
     - field.field.node.directory_entry.field_name_last
     - node.type.directory_entry
@@ -20,10 +21,18 @@ mode: teaser
 content:
   field_address:
     type: address_default
-    weight: 1
+    weight: 2
     region: content
     label: hidden
     settings: {  }
+    third_party_settings: {  }
+  field_job_title:
+    type: string
+    weight: 1
+    region: content
+    label: hidden
+    settings:
+      link_to_entity: false
     third_party_settings: {  }
   links:
     weight: 0
