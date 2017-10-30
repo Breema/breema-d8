@@ -4,8 +4,10 @@ status: true
 dependencies:
   config:
     - field.field.node.place.body
+    - field.field.node.place.field_address
     - node.type.place
   module:
+    - address
     - text
     - user
 id: node.place.default
@@ -19,6 +21,13 @@ content:
     weight: 101
     settings: {  }
     third_party_settings: {  }
+    region: content
+  field_address:
+    weight: 102
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: address_default
     region: content
   links:
     weight: 100

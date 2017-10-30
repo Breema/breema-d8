@@ -4,8 +4,10 @@ status: true
 dependencies:
   config:
     - field.field.node.place.body
+    - field.field.node.place.field_address
     - node.type.place
   module:
+    - address
     - path
     - text
 id: node.place.default
@@ -15,49 +17,42 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 121
+    weight: 2
     settings:
-      rows: 9
-      summary_rows: 3
+      rows: 6
       placeholder: ''
+      summary_rows: 2
     third_party_settings: {  }
     region: content
   created:
     type: datetime_timestamp
-    weight: 10
+    weight: 4
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_address:
+    weight: 1
+    settings:
+      default_country: null
+    third_party_settings: {  }
+    type: address_default
+    region: content
   path:
     type: path
-    weight: 30
+    weight: 5
     region: content
     settings: {  }
-    third_party_settings: {  }
-  promote:
-    type: boolean_checkbox
-    settings:
-      display_label: true
-    weight: 15
-    region: content
     third_party_settings: {  }
   status:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 120
-    region: content
-    third_party_settings: {  }
-  sticky:
-    type: boolean_checkbox
-    settings:
-      display_label: true
-    weight: 16
+    weight: 6
     region: content
     third_party_settings: {  }
   title:
     type: string_textfield
-    weight: -5
+    weight: 0
     region: content
     settings:
       size: 60
@@ -65,11 +60,13 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 5
+    weight: 3
     settings:
       match_operator: CONTAINS
       size: 60
       placeholder: ''
     region: content
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  promote: true
+  sticky: true
