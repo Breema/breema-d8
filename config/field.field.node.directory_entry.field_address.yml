@@ -12,7 +12,7 @@ field_name: field_address
 entity_type: node
 bundle: directory_entry
 label: Address
-description: ''
+description: 'Only include Street address and other details if you practice out of a public location (studio, business, etc). Do not list your private residence.'
 required: true
 translatable: false
 default_value: {  }
