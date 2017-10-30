@@ -1,0 +1,22 @@
+uuid: 1ef767fe-99cc-4b04-a654-73b7a8f79911
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.directory_entry
+  module:
+    - text
+id: node.directory_entry.body
+field_name: body
+entity_type: node
+bundle: directory_entry
+label: Bio
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+field_type: text_with_summary

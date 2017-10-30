@@ -1,0 +1,29 @@
+uuid: 061d7ae7-b0c2-4552-abc9-71754035de08
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.directory_entry.body
+    - node.type.directory_entry
+  module:
+    - text
+    - user
+id: node.directory_entry.teaser
+targetEntityType: node
+bundle: directory_entry
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    region: content
+hidden:
+  field_address: true

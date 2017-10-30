@@ -1,0 +1,18 @@
+uuid: a10af144-68f8-4891-a878-be0e226368bc
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: 'Directory entry'
+type: directory_entry
+description: 'An entry in the international directory.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

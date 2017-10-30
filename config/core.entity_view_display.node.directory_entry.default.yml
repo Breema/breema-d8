@@ -1,0 +1,35 @@
+uuid: fd06209f-bb61-4321-8724-527b5fb5c196
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.directory_entry.body
+    - field.field.node.directory_entry.field_address
+    - node.type.directory_entry
+  module:
+    - address
+    - text
+    - user
+id: node.directory_entry.default
+targetEntityType: node
+bundle: directory_entry
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_address:
+    weight: 102
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: address_default
+    region: content
+  links:
+    weight: 100
+    region: content
+hidden: {  }
