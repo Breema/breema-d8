@@ -14,7 +14,7 @@
     "cweagans/composer-patches": "^1.0",
     "drupal-composer/drupal-scaffold": "^2.0.1",
     "drupal/address": "^1.2",
-    "drupal/auto_entitylabel": "^2.0@beta",
+    "drupal/auto_entitylabel": "2.x-dev",
     "drupal/config_direct_save": "^1.0",
     "drupal/config_installer": "^1.0",
     "drupal/console": "^1",
