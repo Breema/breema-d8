@@ -35,7 +35,7 @@ settings:
     addressLine2:
       behavior: optional
     organization:
-      behavior: optional
+      behavior: hidden
     givenName:
       behavior: hidden
     additionalName:
