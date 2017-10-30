@@ -5,25 +5,27 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.directory_entry.body
+    - field.field.node.directory_entry.field_address
     - node.type.directory_entry
   module:
-    - text
+    - address
     - user
 id: node.directory_entry.teaser
 targetEntityType: node
 bundle: directory_entry
 mode: teaser
 content:
-  body:
+  field_address:
+    type: address_default
+    weight: 1
+    region: content
     label: hidden
-    type: text_summary_or_trimmed
-    weight: 101
-    settings:
-      trim_length: 600
+    settings: {  }
     third_party_settings: {  }
-    region: content
   links:
-    weight: 100
+    weight: 0
     region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
-  field_address: true
+  body: true
