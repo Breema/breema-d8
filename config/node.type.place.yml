@@ -11,7 +11,7 @@ third_party_settings:
     parent: 'main:'
 name: Place
 type: place
-description: ''
+description: 'Locations where events happen.'
 help: ''
 new_revision: true
 preview_mode: 1
