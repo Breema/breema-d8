@@ -1,0 +1,26 @@
+uuid: da0600e4-144f-4629-b7e0-77d62a30ee2b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.place.body
+    - node.type.place
+  module:
+    - text
+    - user
+id: node.place.default
+targetEntityType: node
+bundle: place
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    region: content
+hidden: {  }
