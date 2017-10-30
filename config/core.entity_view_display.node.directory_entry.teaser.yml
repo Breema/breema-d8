@@ -6,6 +6,7 @@ dependencies:
     - core.entity_view_mode.node.teaser
     - field.field.node.directory_entry.body
     - field.field.node.directory_entry.field_address
+    - field.field.node.directory_entry.field_geolocation
     - node.type.directory_entry
   module:
     - address
@@ -29,3 +30,4 @@ content:
     third_party_settings: {  }
 hidden:
   body: true
+  field_geolocation: true

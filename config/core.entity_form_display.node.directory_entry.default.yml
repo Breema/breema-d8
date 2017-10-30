@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.directory_entry.body
     - field.field.node.directory_entry.field_address
+    - field.field.node.directory_entry.field_geolocation
     - node.type.directory_entry
   module:
     - address
@@ -81,4 +82,5 @@ content:
       placeholder: ''
     region: content
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  field_geolocation: true
