@@ -15,10 +15,12 @@ dependencies:
     - field.field.node.directory_entry.field_maximum_certification
     - field.field.node.directory_entry.field_name_first
     - field.field.node.directory_entry.field_name_last
+    - field.field.node.directory_entry.field_telephone
     - node.type.directory_entry
   module:
     - address
     - computed_field
+    - telephone
     - user
 id: node.directory_entry.teaser
 targetEntityType: node
@@ -57,8 +59,16 @@ content:
       cache_unit: -1
       cache_duration: 1
     third_party_settings: {  }
-  links:
+  field_telephone:
+    type: telephone_link
     weight: 4
+    region: content
+    label: hidden
+    settings:
+      title: ''
+    third_party_settings: {  }
+  links:
+    weight: 5
     region: content
     settings: {  }
     third_party_settings: {  }

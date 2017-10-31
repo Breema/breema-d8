@@ -14,11 +14,13 @@ dependencies:
     - field.field.node.directory_entry.field_maximum_certification
     - field.field.node.directory_entry.field_name_first
     - field.field.node.directory_entry.field_name_last
+    - field.field.node.directory_entry.field_telephone
     - node.type.directory_entry
   module:
     - address
     - computed_field
     - geolocation
+    - telephone
     - text
     - user
 id: node.directory_entry.default
@@ -29,12 +31,12 @@ content:
   body:
     label: hidden
     type: text_default
-    weight: 6
+    weight: 7
     settings: {  }
     third_party_settings: {  }
     region: content
   field_address:
-    weight: 5
+    weight: 4
     label: hidden
     settings: {  }
     third_party_settings: {  }
@@ -61,14 +63,14 @@ content:
     type: boolean
     region: content
   field_email:
-    weight: 4
+    weight: 5
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: email_mailto
     region: content
   field_geolocation:
-    weight: 7
+    weight: 8
     label: hidden
     settings:
       title: ''
@@ -118,8 +120,16 @@ content:
     third_party_settings: {  }
     type: computed_string
     region: content
+  field_telephone:
+    weight: 6
+    label: hidden
+    settings:
+      title: ''
+    third_party_settings: {  }
+    type: telephone_link
+    region: content
   links:
-    weight: 8
+    weight: 9
     region: content
     settings: {  }
     third_party_settings: {  }
