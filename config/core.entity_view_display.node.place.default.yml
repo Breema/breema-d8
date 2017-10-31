@@ -20,19 +20,19 @@ content:
   body:
     label: hidden
     type: text_default
-    weight: 101
+    weight: 1
     settings: {  }
     third_party_settings: {  }
     region: content
   field_address:
-    weight: 102
+    weight: 0
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: address_default
     region: content
   field_geolocation:
-    weight: 103
+    weight: 2
     label: hidden
     settings:
       title: ''
@@ -65,7 +65,7 @@ content:
     type: geolocation_map
     region: content
   links:
-    weight: 100
+    weight: 3
     region: content
     settings: {  }
     third_party_settings: {  }
