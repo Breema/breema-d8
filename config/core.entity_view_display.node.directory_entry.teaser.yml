@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.directory_entry.field_address
     - field.field.node.directory_entry.field_breema_center_staff
     - field.field.node.directory_entry.field_breema_clinic_practitioner
+    - field.field.node.directory_entry.field_email
     - field.field.node.directory_entry.field_geolocation
     - field.field.node.directory_entry.field_instructor_certification
     - field.field.node.directory_entry.field_job_title
@@ -31,6 +32,13 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
+  field_email:
+    type: email_mailto
+    weight: 3
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
   field_job_title:
     type: string
     weight: 0
@@ -50,7 +58,7 @@ content:
       cache_duration: 1
     third_party_settings: {  }
   links:
-    weight: 3
+    weight: 4
     region: content
     settings: {  }
     third_party_settings: {  }

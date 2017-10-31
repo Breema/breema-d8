@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.directory_entry.field_address
     - field.field.node.directory_entry.field_breema_center_staff
     - field.field.node.directory_entry.field_breema_clinic_practitioner
+    - field.field.node.directory_entry.field_email
     - field.field.node.directory_entry.field_geolocation
     - field.field.node.directory_entry.field_instructor_certification
     - field.field.node.directory_entry.field_job_title
@@ -26,7 +27,7 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 7
+    weight: 8
     settings:
       rows: 9
       summary_rows: 3
@@ -35,7 +36,7 @@ content:
     region: content
   created:
     type: datetime_timestamp
-    weight: 9
+    weight: 10
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -60,6 +61,14 @@ content:
     third_party_settings: {  }
     type: boolean_checkbox
     region: content
+  field_email:
+    weight: 7
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: email_default
+    region: content
   field_instructor_certification:
     weight: 5
     settings: {  }
@@ -76,7 +85,7 @@ content:
     region: content
   field_maximum_certification:
     type: computed_string_widget
-    weight: 14
+    weight: 15
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -98,7 +107,7 @@ content:
     region: content
   path:
     type: path
-    weight: 12
+    weight: 13
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -106,26 +115,26 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 10
+    weight: 11
     region: content
     third_party_settings: {  }
   status:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 13
+    weight: 14
     region: content
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 11
+    weight: 12
     region: content
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 8
+    weight: 9
     settings:
       match_operator: CONTAINS
       size: 60
