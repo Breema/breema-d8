@@ -7,13 +7,14 @@ dependencies:
     - field.storage.node.field_breema_center_staff
     - field.storage.node.field_breema_clinic_practitioner
     - field.storage.node.field_email
-    - field.storage.node.field_instructor_certification
+    - field.storage.node.field_maximum_certification
     - field.storage.node.field_name_first
     - field.storage.node.field_name_last
     - field.storage.node.field_telephone
     - node.type.directory_entry
   module:
     - address
+    - computed_field
     - node
     - options
     - search
@@ -52,7 +53,7 @@ display:
         type: basic
         options:
           submit_button: Apply
-          reset_button: false
+          reset_button: true
           reset_button_label: Reset
           exposed_sorts_label: 'Sort by'
           expose_sort_order: true
@@ -83,7 +84,7 @@ display:
           row_class: ''
           default_row_class: true
           override: true
-          sticky: false
+          sticky: true
           caption: ''
           summary: ''
           description: ''
@@ -93,10 +94,10 @@ display:
             field_name_last: field_name_last
             field_address: field_address
             field_email: field_email
-            field_telephone: field_telephone
+            field_telephone: field_email
             field_breema_center_staff: field_breema_center_staff
-            field_breema_clinic_practitioner: field_breema_clinic_practitioner
-            field_instructor_certification: field_instructor_certification
+            field_breema_clinic_practitioner: field_breema_center_staff
+            field_maximum_certification: field_maximum_certification
             status: status
             changed: changed
             operations: operations
@@ -131,7 +132,7 @@ display:
               sortable: false
               default_sort_order: asc
               align: ''
-              separator: ''
+              separator: '<br />'
               empty_column: false
               responsive: ''
             field_telephone:
@@ -145,7 +146,7 @@ display:
               sortable: false
               default_sort_order: asc
               align: ''
-              separator: ''
+              separator: '<br />'
               empty_column: false
               responsive: ''
             field_breema_clinic_practitioner:
@@ -155,7 +156,9 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
-            field_instructor_certification:
+            field_maximum_certification:
+              sortable: false
+              default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
@@ -179,7 +182,7 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
-          default: '-1'
+          default: changed
           empty_table: false
       row:
         type: fields
@@ -436,7 +439,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: Email
+          label: Contact
           exclude: false
           alter:
             alter_text: false
@@ -561,7 +564,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: 'Center staff'
+          label: Jobs
           exclude: false
           alter:
             alter_text: false
@@ -605,8 +608,8 @@ display:
           click_sort_column: value
           type: boolean
           settings:
-            format: yes-no
-            format_custom_true: ''
+            format: custom
+            format_custom_true: 'Center staff'
             format_custom_false: ''
           group_column: value
           group_columns: {  }
@@ -659,7 +662,7 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: true
+          element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -670,8 +673,8 @@ display:
           click_sort_column: value
           type: boolean
           settings:
-            format: yes-no
-            format_custom_true: ''
+            format: custom
+            format_custom_true: 'Clinic practitioner'
             format_custom_false: ''
           group_column: value
           group_columns: {  }
@@ -684,14 +687,14 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
-        field_instructor_certification:
-          id: field_instructor_certification
-          table: node__field_instructor_certification
-          field: field_instructor_certification
+        field_maximum_certification:
+          id: field_maximum_certification
+          table: node__field_maximum_certification
+          field: field_maximum_certification
           relationship: none
           group_type: group
           admin_label: ''
-          label: Instructor
+          label: Certification
           exclude: false
           alter:
             alter_text: false
@@ -733,12 +736,15 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
-          type: list_default
-          settings: {  }
+          type: computed_string
+          settings:
+            sanitized: 1
+            cache_unit: '-1'
+            cache_duration: '1'
           group_column: value
           group_columns: {  }
           group_rows: true
-          delta_limit: 2
+          delta_limit: 0
           delta_offset: 0
           delta_reversed: false
           delta_first_last: false
@@ -1454,7 +1460,7 @@ display:
         - 'config:field.storage.node.field_breema_center_staff'
         - 'config:field.storage.node.field_breema_clinic_practitioner'
         - 'config:field.storage.node.field_email'
-        - 'config:field.storage.node.field_instructor_certification'
+        - 'config:field.storage.node.field_maximum_certification'
         - 'config:field.storage.node.field_name_first'
         - 'config:field.storage.node.field_name_last'
         - 'config:field.storage.node.field_telephone'
@@ -1489,7 +1495,7 @@ display:
         - 'config:field.storage.node.field_breema_center_staff'
         - 'config:field.storage.node.field_breema_clinic_practitioner'
         - 'config:field.storage.node.field_email'
-        - 'config:field.storage.node.field_instructor_certification'
+        - 'config:field.storage.node.field_maximum_certification'
         - 'config:field.storage.node.field_name_first'
         - 'config:field.storage.node.field_name_last'
         - 'config:field.storage.node.field_telephone'
