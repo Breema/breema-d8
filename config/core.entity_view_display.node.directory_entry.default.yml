@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.directory_entry.field_address
     - field.field.node.directory_entry.field_breema_center_staff
     - field.field.node.directory_entry.field_breema_clinic_practitioner
+    - field.field.node.directory_entry.field_certification_level
     - field.field.node.directory_entry.field_geolocation
     - field.field.node.directory_entry.field_job_title
     - field.field.node.directory_entry.field_name_first
@@ -15,6 +16,7 @@ dependencies:
   module:
     - address
     - geolocation
+    - options
     - text
     - user
 id: node.directory_entry.default
@@ -25,19 +27,19 @@ content:
   body:
     label: hidden
     type: text_default
-    weight: 4
+    weight: 5
     settings: {  }
     third_party_settings: {  }
     region: content
   field_address:
-    weight: 3
+    weight: 4
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: address_default
     region: content
   field_breema_center_staff:
-    weight: 1
+    weight: 2
     label: hidden
     settings:
       format: custom
@@ -47,7 +49,7 @@ content:
     type: boolean
     region: content
   field_breema_clinic_practitioner:
-    weight: 2
+    weight: 3
     label: hidden
     settings:
       format: custom
@@ -56,8 +58,15 @@ content:
     third_party_settings: {  }
     type: boolean
     region: content
+  field_certification_level:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
   field_geolocation:
-    weight: 5
+    weight: 6
     label: hidden
     settings:
       title: ''
@@ -90,7 +99,7 @@ content:
     type: geolocation_map
     region: content
   field_job_title:
-    weight: 0
+    weight: 1
     label: hidden
     settings:
       link_to_entity: false
@@ -98,7 +107,7 @@ content:
     type: string
     region: content
   links:
-    weight: 6
+    weight: 7
     region: content
     settings: {  }
     third_party_settings: {  }

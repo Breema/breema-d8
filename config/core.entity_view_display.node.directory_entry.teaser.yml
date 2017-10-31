@@ -6,6 +6,9 @@ dependencies:
     - core.entity_view_mode.node.teaser
     - field.field.node.directory_entry.body
     - field.field.node.directory_entry.field_address
+    - field.field.node.directory_entry.field_breema_center_staff
+    - field.field.node.directory_entry.field_breema_clinic_practitioner
+    - field.field.node.directory_entry.field_certification_level
     - field.field.node.directory_entry.field_geolocation
     - field.field.node.directory_entry.field_job_title
     - field.field.node.directory_entry.field_name_first
@@ -13,6 +16,7 @@ dependencies:
     - node.type.directory_entry
   module:
     - address
+    - options
     - user
 id: node.directory_entry.teaser
 targetEntityType: node
@@ -26,6 +30,13 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
+  field_certification_level:
+    type: list_default
+    weight: 0
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
   field_job_title:
     type: string
     weight: 1
@@ -35,12 +46,14 @@ content:
       link_to_entity: false
     third_party_settings: {  }
   links:
-    weight: 0
+    weight: 3
     region: content
     settings: {  }
     third_party_settings: {  }
 hidden:
   body: true
+  field_breema_center_staff: true
+  field_breema_clinic_practitioner: true
   field_geolocation: true
   field_name_first: true
   field_name_last: true
