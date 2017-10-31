@@ -1,0 +1,26 @@
+uuid: ba89522f-56bb-4284-b4ff-4c2d9a74d626
+langcode: en
+status: true
+dependencies:
+  module:
+    - computed_field
+    - field_permissions
+    - node
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: node.field_maximum_certification
+field_name: field_maximum_certification
+entity_type: node
+type: computed_string
+settings:
+  max_length: '128'
+  is_ascii: false
+  case_sensitive: false
+module: computed_field
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

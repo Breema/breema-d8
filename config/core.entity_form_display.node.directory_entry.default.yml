@@ -10,11 +10,13 @@ dependencies:
     - field.field.node.directory_entry.field_geolocation
     - field.field.node.directory_entry.field_instructor_certification
     - field.field.node.directory_entry.field_job_title
+    - field.field.node.directory_entry.field_maximum_certification
     - field.field.node.directory_entry.field_name_first
     - field.field.node.directory_entry.field_name_last
     - node.type.directory_entry
   module:
     - address
+    - computed_field
     - path
     - text
 id: node.directory_entry.default
@@ -72,6 +74,12 @@ content:
     third_party_settings: {  }
     type: string_textfield
     region: content
+  field_maximum_certification:
+    type: computed_string_widget
+    weight: 14
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_name_first:
     weight: 0
     settings:

@@ -10,13 +10,14 @@ dependencies:
     - field.field.node.directory_entry.field_geolocation
     - field.field.node.directory_entry.field_instructor_certification
     - field.field.node.directory_entry.field_job_title
+    - field.field.node.directory_entry.field_maximum_certification
     - field.field.node.directory_entry.field_name_first
     - field.field.node.directory_entry.field_name_last
     - node.type.directory_entry
   module:
     - address
+    - computed_field
     - geolocation
-    - options
     - text
     - user
 id: node.directory_entry.default
@@ -91,13 +92,6 @@ content:
     third_party_settings: {  }
     type: geolocation_map
     region: content
-  field_instructor_certification:
-    weight: 3
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-    type: list_default
-    region: content
   field_job_title:
     weight: 0
     label: hidden
@@ -106,11 +100,22 @@ content:
     third_party_settings: {  }
     type: string
     region: content
+  field_maximum_certification:
+    weight: 3
+    label: hidden
+    settings:
+      sanitized: '1'
+      cache_unit: '-1'
+      cache_duration: '1'
+    third_party_settings: {  }
+    type: computed_string
+    region: content
   links:
     weight: 7
     region: content
     settings: {  }
     third_party_settings: {  }
 hidden:
+  field_instructor_certification: true
   field_name_first: true
   field_name_last: true
