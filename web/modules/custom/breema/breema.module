@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Contains breema.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function breema_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the breema module.
+    case 'help.page.breema':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Custom code for www.breema.com') . '</p>';
+      return $output;
+
+    default:
+  }
+}
