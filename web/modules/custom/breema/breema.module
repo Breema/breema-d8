@@ -22,3 +22,20 @@ function breema_help($route_name, RouteMatchInterface $route_match) {
     default:
   }
 }
+
+/**
+ * Computed field callback function for field_maximum_certification.
+ */
+function computed_field_field_maximum_certification_compute($entity_type_manager, $entity, $fields, $delta) {
+  if (empty($fields['field_instructor_certification'])) {
+    return t('Breema Practitioner');
+  }
+  for ($i=0; $i<=1; $i++) {
+    if (!empty($fields['field_instructor_certification'][$i]['value'])
+        && $fields['field_instructor_certification'][$i]['value'] == 'bodywork'
+    ) {
+      return t('Breema Bodywork Instructor');
+    }
+  }
+  return t('Self Breema Instructor');
+}
