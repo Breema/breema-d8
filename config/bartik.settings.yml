@@ -2,7 +2,7 @@ features:
   node_user_picture: false
   comment_user_picture: false
   comment_user_verification: false
-  favicon: true
+  favicon: false
 logo:
   use_default: false
   path: ''
