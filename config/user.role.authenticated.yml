@@ -25,6 +25,7 @@ permissions:
   - 'view field_breema_center_staff'
   - 'view field_breema_clinic_practitioner'
   - 'view field_certification_level'
+  - 'view field_instructor_certification'
   - 'view field_job_title'
   - 'view own unpublished content'
   - 'view place revisions'

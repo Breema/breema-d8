@@ -19,6 +19,7 @@ permissions:
   - 'edit field_breema_center_staff'
   - 'edit field_breema_clinic_practitioner'
   - 'edit field_certification_level'
+  - 'edit field_instructor_certification'
   - 'edit field_job_title'
   - 'edit terms in tags'
   - 'skip comment approval'

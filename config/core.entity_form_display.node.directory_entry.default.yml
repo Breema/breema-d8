@@ -7,8 +7,8 @@ dependencies:
     - field.field.node.directory_entry.field_address
     - field.field.node.directory_entry.field_breema_center_staff
     - field.field.node.directory_entry.field_breema_clinic_practitioner
-    - field.field.node.directory_entry.field_certification_level
     - field.field.node.directory_entry.field_geolocation
+    - field.field.node.directory_entry.field_instructor_certification
     - field.field.node.directory_entry.field_job_title
     - field.field.node.directory_entry.field_name_first
     - field.field.node.directory_entry.field_name_last
@@ -45,27 +45,27 @@ content:
     type: address_default
     region: content
   field_breema_center_staff:
-    weight: 4
+    weight: 3
     settings:
       display_label: true
     third_party_settings: {  }
     type: boolean_checkbox
     region: content
   field_breema_clinic_practitioner:
-    weight: 5
+    weight: 4
     settings:
       display_label: true
     third_party_settings: {  }
     type: boolean_checkbox
     region: content
-  field_certification_level:
-    weight: 2
+  field_instructor_certification:
+    weight: 5
     settings: {  }
     third_party_settings: {  }
-    type: options_select
+    type: options_buttons
     region: content
   field_job_title:
-    weight: 3
+    weight: 2
     settings:
       size: 60
       placeholder: ''
