@@ -11,11 +11,13 @@ dependencies:
     - field.field.node.directory_entry.field_geolocation
     - field.field.node.directory_entry.field_instructor_certification
     - field.field.node.directory_entry.field_job_title
+    - field.field.node.directory_entry.field_maximum_certification
     - field.field.node.directory_entry.field_name_first
     - field.field.node.directory_entry.field_name_last
     - node.type.directory_entry
   module:
     - address
+    - computed_field
     - user
 id: node.directory_entry.teaser
 targetEntityType: node
@@ -31,11 +33,21 @@ content:
     third_party_settings: {  }
   field_job_title:
     type: string
-    weight: 1
+    weight: 0
     region: content
     label: hidden
     settings:
       link_to_entity: false
+    third_party_settings: {  }
+  field_maximum_certification:
+    type: computed_string
+    weight: 1
+    region: content
+    label: hidden
+    settings:
+      sanitized: true
+      cache_unit: -1
+      cache_duration: 1
     third_party_settings: {  }
   links:
     weight: 3
