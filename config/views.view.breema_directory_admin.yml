@@ -1407,7 +1407,7 @@ display:
           expose:
             operator_id: changed_op
             label: 'Changed time'
-            description: 'Offset from now such as "-2 days"'
+            description: 'Offset from now ("-2 days" or "-10 hours")'
             use_operator: false
             operator: changed_op
             identifier: changed
