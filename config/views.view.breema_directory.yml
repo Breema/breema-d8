@@ -444,7 +444,7 @@ display:
               settings:
                 update_map: '0'
           show_raw_locations: 0
-          even_empty: 1
+          even_empty: 0
           marker_row_number: 0
           context_popup_content: ''
           marker_clusterer: 1
