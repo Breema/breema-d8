@@ -426,22 +426,22 @@ display:
           title_field: none
           centre:
             first_row:
-              enable: true
-              weight: 0
-            fixed_value:
-              weight: 0
-              settings:
-                latitude: ''
-                longitude: ''
+              weight: -10
               enable: false
-            client_location:
-              enable: true
-              weight: 0
-              settings:
-                update_map: '0'
             fit_bounds:
               enable: true
-              weight: 0
+              weight: -9
+            fixed_value:
+              enable: true
+              weight: -8
+              settings:
+                latitude: '-20'
+                longitude: '0'
+            client_location:
+              enable: true
+              weight: -7
+              settings:
+                update_map: '0'
           show_raw_locations: 0
           even_empty: 1
           marker_row_number: 0
@@ -450,10 +450,10 @@ display:
           marker_clusterer_image_path: ''
           marker_clusterer_styles: ''
           google_map_settings:
-            height: 400px
+            height: 500px
             width: 100%
             type: ROADMAP
-            zoom: '3'
+            zoom: '2'
             maxZoom: 18
             minZoom: 0
             mapTypeControl: 1
