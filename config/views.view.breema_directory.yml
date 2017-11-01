@@ -245,7 +245,7 @@ display:
             description: ''
             use_operator: false
             operator: field_address_administrative_area_op
-            identifier: field_address_administrative_area
+            identifier: state
             required: false
             remember: false
             multiple: false
@@ -320,7 +320,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          operator: '='
+          operator: contains
           value: ''
           group: 1
           exposed: true
@@ -337,6 +337,7 @@ display:
             remember_roles:
               authenticated: authenticated
               anonymous: '0'
+              content_editor: '0'
               administrator: '0'
           is_grouped: false
           group_info:
