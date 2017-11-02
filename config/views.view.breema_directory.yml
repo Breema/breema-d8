@@ -377,7 +377,7 @@ display:
           expose:
             label: ''
           plugin_id: standard
-      title: 'Breema directory'
+      title: 'International directory'
       header: {  }
       footer: {  }
       empty:
