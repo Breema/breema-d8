@@ -7,6 +7,7 @@ dependencies:
     - field.storage.node.field_breema_center_staff
     - field.storage.node.field_breema_clinic_practitioner
     - field.storage.node.field_email
+    - field.storage.node.field_job_title
     - field.storage.node.field_maximum_certification
     - field.storage.node.field_name_first
     - field.storage.node.field_name_last
@@ -97,6 +98,7 @@ display:
             field_telephone: field_email
             field_breema_center_staff: field_breema_center_staff
             field_breema_clinic_practitioner: field_breema_center_staff
+            field_job_title: field_breema_center_staff
             field_maximum_certification: field_maximum_certification
             status: status
             changed: changed
@@ -150,6 +152,13 @@ display:
               empty_column: false
               responsive: ''
             field_breema_clinic_practitioner:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_job_title:
               sortable: false
               default_sort_order: asc
               align: ''
@@ -676,6 +685,69 @@ display:
             format: custom
             format_custom_true: 'Clinic practitioner'
             format_custom_false: ''
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_job_title:
+          id: field_job_title
+          table: node__field_job_title
+          field: field_job_title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Job title'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -1486,6 +1558,7 @@ display:
         - 'config:field.storage.node.field_breema_center_staff'
         - 'config:field.storage.node.field_breema_clinic_practitioner'
         - 'config:field.storage.node.field_email'
+        - 'config:field.storage.node.field_job_title'
         - 'config:field.storage.node.field_maximum_certification'
         - 'config:field.storage.node.field_name_first'
         - 'config:field.storage.node.field_name_last'
@@ -1521,6 +1594,7 @@ display:
         - 'config:field.storage.node.field_breema_center_staff'
         - 'config:field.storage.node.field_breema_clinic_practitioner'
         - 'config:field.storage.node.field_email'
+        - 'config:field.storage.node.field_job_title'
         - 'config:field.storage.node.field_maximum_certification'
         - 'config:field.storage.node.field_name_first'
         - 'config:field.storage.node.field_name_last'
