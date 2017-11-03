@@ -1,0 +1,25 @@
+<?php
+
+/**
+ * @file
+ * Contains breema_migrate.module.
+ */
+
+use CommerceGuys\Addressing\Country\CountryRepositoryInterface;
+
+/**
+ * Migration callback function to map country names to country codes.
+ */
+function breema_migrate_map_country_to_code($source_country) {
+  static $country_map = array();
+  if (empty($country_map)) {
+    $country_repository = \Drupal::service('address.country_repository');
+    $country_map = $country_repository->getList();
+    $country_map = array_map('strtolower', $country_map);
+  }
+
+  if (empty($source_country)) {
+    return 'US';
+  }
+  return array_search(strtolower($source_country), $country_map);
+}
