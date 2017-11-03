@@ -23,3 +23,10 @@ function breema_migrate_map_country_to_code($source_country) {
   }
   return array_search(strtolower($source_country), $country_map);
 }
+
+/**
+ * Migration callback function to handle Instructor certification fields.
+ */
+function breema_migrate_certification_instructor($source) {
+  return ($source != '-');
+}

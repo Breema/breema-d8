@@ -34,11 +34,11 @@ source:
     11:
       self_breema_provisional: Provisional Self-Breema Instructor
     12:
-      self_breema: Certified Self-Breema Instructor
+      self_breema_full: Certified Self-Breema Instructor
     13:
-      provisional_instructor: Provisional Instructor
+      instructor_provisional: Provisional Instructor
     14:
-      full_instructor: Full Instructor
+      instructor_full: Full Instructor
 process:
   # The content (node) type we are creating is 'directory_entry'.
   type:
@@ -75,6 +75,26 @@ process:
     plugin: default_value
     default_value: ''
   field_email: email
+  field_cert_inst_breema:
+    -
+      plugin: concat
+      delimiter: '-'
+      source:
+        - instructor_provisional
+        - instructor_full
+    -
+      plugin: callback
+      callable: breema_migrate_certification_instructor
+  field_cert_inst_self_breema:
+    -
+      plugin: concat
+      delimiter: '-'
+      source:
+        - self_breema_provisional
+        - self_breema_full
+    -
+      plugin: callback
+      callable: breema_migrate_certification_instructor
 destination:
   # Here we're saying that each row of data (line from the CSV file) will be
   # used to create a node entity.
