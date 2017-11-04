@@ -8,6 +8,8 @@ source:
   header_row_count: 1
   keys:
     - email
+    - last_name
+    - first_name
   column_names:
     0:
       last_name: Last Name
