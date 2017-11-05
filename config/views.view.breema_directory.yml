@@ -3,15 +3,21 @@ langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.node.map_result
-    - core.entity_view_mode.node.teaser
+    - field.storage.node.field_address
+    - field.storage.node.field_cert_inst_breema
+    - field.storage.node.field_cert_inst_self_breema
+    - field.storage.node.field_cert_practitioner
+    - field.storage.node.field_email
     - field.storage.node.field_geolocation
+    - field.storage.node.field_job_title
+    - field.storage.node.field_telephone
     - node.type.directory_entry
   module:
     - address
     - geolocation
     - node
     - search
+    - telephone
     - user
 id: breema_directory
 label: 'Breema directory'
@@ -64,47 +70,127 @@ display:
           default_row_class: true
           uses_fields: false
       row:
-        type: 'entity:node'
+        type: fields
         options:
-          view_mode: teaser
-      fields:
-        title:
-          id: title
-          table: node_field_data
-          field: title
-          entity_type: node
-          entity_field: title
-          label: ''
-          alter:
-            alter_text: false
-            make_link: false
-            absolute: false
-            trim: false
-            word_boundary: false
-            ellipsis: false
-            strip_tags: false
-            html: false
+          default_field_elements: false
+          inline: {  }
+          separator: ''
           hide_empty: false
-          empty_zero: false
-          settings:
-            link_to_entity: true
-          plugin_id: field
+      fields:
+        field_geolocation:
+          id: field_geolocation
+          table: node__field_geolocation
+          field: field_geolocation
           relationship: none
           group_type: group
           admin_label: ''
-          exclude: false
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
           element_type: ''
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: true
+          element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
           empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: ''
+          type: geolocation_latlng
+          settings: {  }
+          group_column: ''
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: geolocation_field
+        title:
+          id: title
+          table: node_field_data
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: h3
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: false
+          empty: ''
+          hide_empty: false
+          empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
           type: string
+          settings:
+            link_to_entity: true
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -115,6 +201,454 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
+          entity_type: node
+          entity_field: title
+          plugin_id: field
+        field_job_title:
+          id: field_job_title
+          table: node__field_job_title
+          field: field_job_title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: div
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: false
+          empty: ''
+          hide_empty: true
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_cert_practitioner:
+          id: field_cert_practitioner
+          table: node__field_cert_practitioner
+          field: field_cert_practitioner
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: div
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: false
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: boolean
+          settings:
+            format: custom
+            format_custom_true: 'Certified Breema Practitioner'
+            format_custom_false: ''
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_cert_inst_self_breema:
+          id: field_cert_inst_self_breema
+          table: node__field_cert_inst_self_breema
+          field: field_cert_inst_self_breema
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: div
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: false
+          empty: ''
+          hide_empty: true
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: boolean
+          settings:
+            format: custom
+            format_custom_true: 'Certified Self-Breema Instructor'
+            format_custom_false: ''
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_cert_inst_breema:
+          id: field_cert_inst_breema
+          table: node__field_cert_inst_breema
+          field: field_cert_inst_breema
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: div
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: false
+          empty: ''
+          hide_empty: true
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: boolean
+          settings:
+            format: custom
+            format_custom_true: 'Certified Breema Instructor'
+            format_custom_false: ''
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_address:
+          id: field_address
+          table: node__field_address
+          field: field_address
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: address
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: true
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: langcode
+          type: address_default
+          settings: {  }
+          group_column: ''
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_email:
+          id: field_email
+          table: node__field_email
+          field: field_email
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: email_mailto
+          settings: {  }
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_telephone:
+          id: field_telephone
+          table: node__field_telephone
+          field: field_telephone
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: telephone_link
+          settings:
+            title: ''
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
       filters:
         status:
           value: '1'
@@ -396,7 +930,15 @@ display:
         - url
         - 'user.node_grants:view'
         - user.permissions
-      tags: {  }
+      tags:
+        - 'config:field.storage.node.field_address'
+        - 'config:field.storage.node.field_cert_inst_breema'
+        - 'config:field.storage.node.field_cert_inst_self_breema'
+        - 'config:field.storage.node.field_cert_practitioner'
+        - 'config:field.storage.node.field_email'
+        - 'config:field.storage.node.field_geolocation'
+        - 'config:field.storage.node.field_job_title'
+        - 'config:field.storage.node.field_telephone'
   page_map:
     display_plugin: page
     id: page_map
@@ -405,6 +947,31 @@ display:
     display_options:
       display_extenders: {  }
       display_description: ''
+      defaults:
+        style: false
+        row: false
+        pager: false
+        show_admin_links: false
+      path: directory/map
+      menu:
+        type: 'default tab'
+        title: Map
+        description: ''
+        expanded: false
+        parent: ''
+        weight: 0
+        context: '0'
+        menu_name: main
+      tab_options:
+        type: normal
+        title: 'International Directory'
+        description: ''
+        weight: 0
+      pager:
+        type: none
+        options:
+          offset: 0
+      show_admin_links: false
       style:
         type: maps_common
         options:
@@ -417,17 +984,17 @@ display:
             fit_bounds:
               enable: true
               weight: -9
-            fixed_value:
+            client_location:
               enable: true
               weight: -8
               settings:
-                latitude: '-20'
-                longitude: '0'
-            client_location:
+                update_map: '0'
+            fixed_value:
               enable: true
               weight: -7
               settings:
-                update_map: '0'
+                latitude: '-20'
+                longitude: '0'
           show_raw_locations: 0
           even_empty: 0
           marker_row_number: 0
@@ -439,7 +1006,7 @@ display:
             height: 500px
             width: 100%
             type: ROADMAP
-            zoom: '2'
+            zoom: '10'
             maxZoom: 18
             minZoom: 0
             mapTypeControl: 1
@@ -456,159 +1023,13 @@ display:
             info_auto_display: 0
             marker_icon_path: ''
             disableAutoPan: 0
-      defaults:
-        style: false
-        row: false
-        fields: false
-        pager: true
       row:
-        type: 'entity:node'
+        type: fields
         options:
-          relationship: none
-          view_mode: map_result
-      fields:
-        title:
-          id: title
-          table: node_field_data
-          field: title
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
+          default_field_elements: false
+          inline: {  }
+          separator: ''
           hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: string
-          settings:
-            link_to_entity: false
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          entity_type: node
-          entity_field: title
-          plugin_id: field
-        field_geolocation:
-          id: field_geolocation
-          table: node__field_geolocation
-          field: field_geolocation
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: ''
-          type: geolocation_latlng
-          settings: {  }
-          group_column: ''
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: geolocation_field
-      path: directory/map
-      menu:
-        type: 'default tab'
-        title: Map
-        description: ''
-        expanded: false
-        parent: ''
-        weight: 0
-        context: '0'
-        menu_name: main
-      tab_options:
-        type: normal
-        title: 'International Directory'
-        description: ''
-        weight: 0
     cache_metadata:
       max-age: -1
       contexts:
@@ -618,7 +1039,14 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
+        - 'config:field.storage.node.field_address'
+        - 'config:field.storage.node.field_cert_inst_breema'
+        - 'config:field.storage.node.field_cert_inst_self_breema'
+        - 'config:field.storage.node.field_cert_practitioner'
+        - 'config:field.storage.node.field_email'
         - 'config:field.storage.node.field_geolocation'
+        - 'config:field.storage.node.field_job_title'
+        - 'config:field.storage.node.field_telephone'
   page_search:
     display_plugin: page
     id: page_search
@@ -645,6 +1073,8 @@ display:
       defaults:
         arguments: false
         pager: false
+        style: false
+        row: false
       display_description: ''
       pager:
         type: full
@@ -667,6 +1097,22 @@ display:
             offset: false
             offset_label: Offset
           quantity: 9
+      style:
+        type: html_list
+        options:
+          grouping: {  }
+          row_class: ''
+          default_row_class: false
+          type: ol
+          wrapper_class: item-list
+          class: ''
+      row:
+        type: fields
+        options:
+          default_field_elements: false
+          inline: {  }
+          separator: ''
+          hide_empty: false
     cache_metadata:
       max-age: -1
       contexts:
@@ -676,4 +1122,12 @@ display:
         - url.query_args
         - 'user.node_grants:view'
         - user.permissions
-      tags: {  }
+      tags:
+        - 'config:field.storage.node.field_address'
+        - 'config:field.storage.node.field_cert_inst_breema'
+        - 'config:field.storage.node.field_cert_inst_self_breema'
+        - 'config:field.storage.node.field_cert_practitioner'
+        - 'config:field.storage.node.field_email'
+        - 'config:field.storage.node.field_geolocation'
+        - 'config:field.storage.node.field_job_title'
+        - 'config:field.storage.node.field_telephone'
