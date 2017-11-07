@@ -6,6 +6,7 @@
  */
 
 use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\views\ViewExecutable;
 
 /**
  * Implements hook_help().
@@ -20,5 +21,14 @@ function breema_help($route_name, RouteMatchInterface $route_match) {
       return $output;
 
     default:
+  }
+}
+
+/**
+ * Implements hook_views_pre_render().
+*/
+function breema_views_pre_render(Drupal\views\ViewExecutable $view) {
+  if (isset($view) && ($view->storage->id() == 'breema_directory')) {
+    $view->element['#attached']['library'][] = 'breema/views.breema_directory';
   }
 }

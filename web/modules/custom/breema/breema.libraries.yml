@@ -1,0 +1,5 @@
+views.breema_directory:
+  version: 8.x-1.x
+  css:
+    component:
+      css/views.breema-directory.css: {}
