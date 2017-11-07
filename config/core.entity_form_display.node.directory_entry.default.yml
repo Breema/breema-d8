@@ -7,9 +7,9 @@ dependencies:
     - field.field.node.directory_entry.field_address
     - field.field.node.directory_entry.field_breema_center_staff
     - field.field.node.directory_entry.field_breema_clinic_practitioner
+    - field.field.node.directory_entry.field_certification
     - field.field.node.directory_entry.field_email
     - field.field.node.directory_entry.field_geolocation
-    - field.field.node.directory_entry.field_instructor_certification
     - field.field.node.directory_entry.field_job_title
     - field.field.node.directory_entry.field_name_first
     - field.field.node.directory_entry.field_name_last
@@ -27,7 +27,7 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 9
+    weight: 10
     settings:
       rows: 9
       summary_rows: 3
@@ -36,12 +36,12 @@ content:
     region: content
   created:
     type: datetime_timestamp
-    weight: 11
+    weight: 12
     region: content
     settings: {  }
     third_party_settings: {  }
   field_address:
-    weight: 6
+    weight: 7
     settings:
       default_country: US
     third_party_settings: {  }
@@ -61,19 +61,19 @@ content:
     third_party_settings: {  }
     type: boolean_checkbox
     region: content
+  field_certification:
+    weight: 6
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
+    region: content
   field_email:
-    weight: 7
+    weight: 8
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
     type: email_default
-    region: content
-  field_instructor_certification:
-    weight: 5
-    settings: {  }
-    third_party_settings: {  }
-    type: options_buttons
     region: content
   field_job_title:
     weight: 2
@@ -100,7 +100,7 @@ content:
     type: string_textfield
     region: content
   field_telephone:
-    weight: 8
+    weight: 9
     settings:
       placeholder: ''
     third_party_settings: {  }
@@ -108,7 +108,7 @@ content:
     region: content
   path:
     type: path
-    weight: 14
+    weight: 15
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -116,26 +116,26 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 12
+    weight: 13
     region: content
     third_party_settings: {  }
   status:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 15
+    weight: 16
     region: content
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 13
+    weight: 14
     region: content
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 10
+    weight: 11
     settings:
       match_operator: CONTAINS
       size: 60

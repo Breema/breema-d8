@@ -1,4 +1,4 @@
-uuid: 7c7d85f6-c675-4581-a016-14294d7a2fab
+uuid: e3bbefb8-ccdf-4ac0-8867-5d0a9decb710
 langcode: en
 status: true
 dependencies:
@@ -9,22 +9,25 @@ dependencies:
 third_party_settings:
   field_permissions:
     permission_type: custom
-id: node.field_instructor_certification
-field_name: field_instructor_certification
+id: node.field_certification
+field_name: field_certification
 entity_type: node
 type: list_string
 settings:
   allowed_values:
     -
-      value: self
-      label: 'Self Breema Instructor'
+      value: practitioner
+      label: 'Certified Breema Practitioner'
     -
-      value: bodywork
-      label: 'Breema Bodywork Instructor'
+      value: inst-self-breema
+      label: 'Certified Self-Breema Instructor'
+    -
+      value: inst-breema
+      label: 'Certified Breema Instructor'
   allowed_values_function: ''
 module: options
 locked: false
-cardinality: 2
+cardinality: 3
 translatable: true
 indexes: {  }
 persist_with_no_fields: false

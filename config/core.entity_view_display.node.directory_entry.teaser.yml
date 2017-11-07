@@ -8,9 +8,9 @@ dependencies:
     - field.field.node.directory_entry.field_address
     - field.field.node.directory_entry.field_breema_center_staff
     - field.field.node.directory_entry.field_breema_clinic_practitioner
+    - field.field.node.directory_entry.field_certification
     - field.field.node.directory_entry.field_email
     - field.field.node.directory_entry.field_geolocation
-    - field.field.node.directory_entry.field_instructor_certification
     - field.field.node.directory_entry.field_job_title
     - field.field.node.directory_entry.field_name_first
     - field.field.node.directory_entry.field_name_last
@@ -18,6 +18,7 @@ dependencies:
     - node.type.directory_entry
   module:
     - address
+    - options
     - telephone
     - user
 id: node.directory_entry.teaser
@@ -27,6 +28,23 @@ mode: teaser
 content:
   field_address:
     type: address_default
+    weight: 3
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  field_breema_center_staff:
+    type: boolean
+    weight: 1
+    region: content
+    label: hidden
+    settings:
+      format: custom
+      format_custom_true: 'Breema Center staff'
+      format_custom_false: ''
+    third_party_settings: {  }
+  field_certification:
+    type: list_default
     weight: 2
     region: content
     label: hidden
@@ -34,7 +52,7 @@ content:
     third_party_settings: {  }
   field_email:
     type: email_mailto
-    weight: 3
+    weight: 4
     region: content
     label: hidden
     settings: {  }
@@ -49,22 +67,20 @@ content:
     third_party_settings: {  }
   field_telephone:
     type: telephone_link
-    weight: 4
+    weight: 5
     region: content
     label: hidden
     settings:
       title: ''
     third_party_settings: {  }
   links:
-    weight: 5
+    weight: 6
     region: content
     settings: {  }
     third_party_settings: {  }
 hidden:
   body: true
-  field_breema_center_staff: true
   field_breema_clinic_practitioner: true
   field_geolocation: true
-  field_instructor_certification: true
   field_name_first: true
   field_name_last: true
