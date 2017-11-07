@@ -11,14 +11,12 @@ dependencies:
     - field.field.node.directory_entry.field_geolocation
     - field.field.node.directory_entry.field_instructor_certification
     - field.field.node.directory_entry.field_job_title
-    - field.field.node.directory_entry.field_maximum_certification
     - field.field.node.directory_entry.field_name_first
     - field.field.node.directory_entry.field_name_last
     - field.field.node.directory_entry.field_telephone
     - node.type.directory_entry
   module:
     - address
-    - computed_field
     - geolocation
     - telephone
     - text
@@ -109,16 +107,6 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
-    region: content
-  field_maximum_certification:
-    weight: 3
-    label: hidden
-    settings:
-      sanitized: '1'
-      cache_unit: '-1'
-      cache_duration: '1'
-    third_party_settings: {  }
-    type: computed_string
     region: content
   field_telephone:
     weight: 6

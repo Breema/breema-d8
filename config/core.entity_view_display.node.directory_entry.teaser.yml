@@ -12,14 +12,12 @@ dependencies:
     - field.field.node.directory_entry.field_geolocation
     - field.field.node.directory_entry.field_instructor_certification
     - field.field.node.directory_entry.field_job_title
-    - field.field.node.directory_entry.field_maximum_certification
     - field.field.node.directory_entry.field_name_first
     - field.field.node.directory_entry.field_name_last
     - field.field.node.directory_entry.field_telephone
     - node.type.directory_entry
   module:
     - address
-    - computed_field
     - telephone
     - user
 id: node.directory_entry.teaser
@@ -48,16 +46,6 @@ content:
     label: hidden
     settings:
       link_to_entity: false
-    third_party_settings: {  }
-  field_maximum_certification:
-    type: computed_string
-    weight: 1
-    region: content
-    label: hidden
-    settings:
-      sanitized: true
-      cache_unit: -1
-      cache_duration: 1
     third_party_settings: {  }
   field_telephone:
     type: telephone_link
