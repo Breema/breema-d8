@@ -1,3 +1,19 @@
 p.address {
   margin: 1em 0;
 }
+
+ol.location-results {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+ol.location-results li.location-result {
+  margin: 0 0 2em 3em;
+  padding: 0;
+}
+
+ol.location-results .result-counter {
+  float: left;
+  margin: 0 0 0 -3em;
+ }
