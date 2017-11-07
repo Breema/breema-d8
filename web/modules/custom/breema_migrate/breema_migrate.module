@@ -27,6 +27,18 @@ function breema_migrate_map_country_to_code($source_country) {
 /**
  * Migration callback function to handle Instructor certification fields.
  */
-function breema_migrate_certification_instructor($source) {
-  return ($source != '-');
+function breema_migrate_certification($source) {
+  // By default, all entries are certified practitioners.
+  $certification = ['practitioner'];
+  if ($source != '---') {
+    // If *any* of the instructor certification columns are set, turn on
+    // Self-Breema instructor.
+    $certification[] = 'inst-self-breema';
+    // Now, see if either provisional or full instructor are set:
+    $source_certifications = explode('-', $source);
+    if (!empty($source_certifications[2]) || !empty($source_certifications[3])) {
+      $certification[] = 'inst-breema';
+    }
+  }
+  return $certification;
 }
