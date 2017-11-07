@@ -911,7 +911,9 @@ display:
               settings:
                 latitude: '-20'
                 longitude: '0'
-          show_raw_locations: 0
+          show_raw_locations: 1
+          raw_locations_per_page: 20
+          max_raw_locations: 300
           even_empty: 0
           marker_row_number: 0
           context_popup_content: ''
