@@ -25,8 +25,15 @@ function breema_help($route_name, RouteMatchInterface $route_match) {
 }
 
 /**
+ * Implements hook_theme_registry_alter()
+ */
+function breema_theme_registry_alter(&$theme_registry) {
+  $theme_registry['geolocation_common_map_display']['path'] = drupal_get_path('module', 'breema') . '/templates';
+}
+
+/**
  * Implements hook_views_pre_render().
-*/
+ */
 function breema_views_pre_render(Drupal\views\ViewExecutable $view) {
   if (isset($view) && ($view->storage->id() == 'breema_directory')) {
     $view->element['#attached']['library'][] = 'breema/views.breema_directory';
