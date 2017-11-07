@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "24a4afdab01e40475efb83738d098644",
+    "content-hash": "44ce79a65cd0a14f8485f42460201c1e",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -2400,6 +2400,11 @@
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
                     }
+                },
+                "patches_applied": {
+                    "[#2921116-2] Google Map raw locations flicker on page load instead of hiding by default": "https://www.drupal.org/files/issues/2921116-1.hide-raw-locations-by-default.patch",
+                    "[#2921121-2] Empty h2 markup when locations don't use a 'title' field": "https://www.drupal.org/files/issues/2921121-1.hide-location-title-completely.patch",
+                    "[#2921437-2] Provide simple JS pager for raw results on Google common map display": "https://www.drupal.org/files/issues/2921437-1.raw-location-js-pager.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",

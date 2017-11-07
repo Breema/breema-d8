@@ -86,6 +86,11 @@
     "patches": {
       "drupal/address": {
         "[#2514126-102] Add field settings for global overrides of required/optional behavior" : "https://www.drupal.org/files/issues/2514126-102.field-behavior-settings.patch"
+      },
+      "drupal/geolocation": {
+        "[#2921116-2] Google Map raw locations flicker on page load instead of hiding by default" : "https://www.drupal.org/files/issues/2921116-1.hide-raw-locations-by-default.patch",
+        "[#2921121-2] Empty h2 markup when locations don't use a 'title' field" : "https://www.drupal.org/files/issues/2921121-1.hide-location-title-completely.patch",
+        "[#2921437-2] Provide simple JS pager for raw results on Google common map display" : "https://www.drupal.org/files/issues/2921437-1.raw-location-js-pager.patch"
       }
     },
     "installer-paths": {
