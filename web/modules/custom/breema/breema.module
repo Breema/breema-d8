@@ -5,6 +5,7 @@
  * Contains breema.module.
  */
 
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\views\ViewExecutable;
 
@@ -37,5 +38,25 @@ function breema_theme_registry_alter(&$theme_registry) {
 function breema_views_pre_render(Drupal\views\ViewExecutable $view) {
   if (isset($view) && ($view->storage->id() == 'breema_directory')) {
     $view->element['#attached']['library'][] = 'breema/views.breema_directory';
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter() for 'views_exposed_form'.
+ *
+ * Sets more sane sizes for the various text field exposed filters.
+ */
+function breema_form_views_exposed_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state) {
+  $filter_sizes = [
+    'postal_code' => 10,
+    'telephone' => 15,
+    'email' => 20,
+    'city' => 20,
+    'job_title' => 20,
+  ];
+  foreach ($filter_sizes as $key => $size) {
+    if (!empty($form[$key])) {
+      $form[$key]['#size'] = $size;
+    }
   }
 }
