@@ -5,8 +5,12 @@
  * Contains breema.module.
  */
 
+use Drupal\Core\Access\AccessResult;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Session\AccountInterface;
+use Drupal\user\Entity\User;
+use Drupal\user\UserInterface;
 use Drupal\views\ViewExecutable;
 
 /**
@@ -59,4 +63,31 @@ function breema_form_views_exposed_form_alter(&$form, \Drupal\Core\Form\FormStat
       $form[$key]['#size'] = $size;
     }
   }
+}
+
+/**
+ * Implements hook_entity_create_access().
+ */
+function breema_entity_create_access(AccountInterface $account, array $context, $entity_bundle) {
+  $user = \Drupal\user\Entity\User::load($account->id());
+  if (!$user->hasRole('content_editor')) {
+    $entity_type_id = $context['entity_type_id'];
+    if ($entity_type_id == 'node' && $entity_bundle == 'directory_entry') {
+      // If the directory entry reference is already set, deny creation.
+      $field_directory_entry = $user->get('field_directory_entry')->getValue();
+      if (!empty($field_directory_entry[0]['target_id'])) {
+        return AccessResult::forbidden();
+      }
+      // Even if the directory entry reference is empty, deny creation if this
+      // user already owns a directory entry node.
+      $query = \Drupal::entityQuery('node')
+             ->condition('type', 'directory_entry')
+             ->condition('uid', $account->id());
+      $nids = $query->execute();
+      if (!empty($nids)) {
+        return AccessResult::forbidden();
+      }        
+    }
+  }
+  return AccessResult::neutral();
 }
