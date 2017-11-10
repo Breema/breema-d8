@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "44ce79a65cd0a14f8485f42460201c1e",
+    "content-hash": "8a9eec29a1fe09f2e0c11b894f4fc657",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -2459,6 +2459,9 @@
                         "status": "not-covered",
                         "message": "Beta releases are not covered by Drupal security advisories."
                     }
+                },
+                "patches_applied": {
+                    "[#2729333-7] Can't select a default bundle when using entity reference views": "https://www.drupal.org/files/issues/2729333-ief-bundle-selection-erv-7.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
