@@ -1,0 +1,26 @@
+uuid: f098ae5b-0bd5-4d8b-850e-2e9f75c693cc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_directory_entry
+  module:
+    - user
+id: user.user.field_directory_entry
+field_name: field_directory_entry
+entity_type: user
+bundle: user
+label: 'Directory entry'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: views
+  handler_settings:
+    view:
+      view_name: breema_directory_entry_user_reference
+      display_name: entity_reference_1
+      arguments: {  }
+field_type: entity_reference
