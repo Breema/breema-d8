@@ -91,3 +91,18 @@ function breema_entity_create_access(AccountInterface $account, array $context, 
   }
   return AccessResult::neutral();
 }
+
+/**
+ * Implements hook_entity_form_display_alter().
+ *
+ * Allow admin users with 'administer nodes' permission to reference existing
+ * nodes on field_directory_entry when editing users.
+ */
+function breema_entity_form_display_alter(\Drupal\Core\Entity\Display\EntityFormDisplayInterface $form_display, array $context) {
+  $current_user = \Drupal::currentUser();
+  if ($current_user->hasPermission('administer nodes') && $context['entity_type'] == 'user') {
+    $directory_entry = $form_display->getComponent('field_directory_entry');
+    $directory_entry['settings']['allow_existing'] = TRUE;
+    $form_display->setComponent('field_directory_entry', $directory_entry);
+  }
+}
