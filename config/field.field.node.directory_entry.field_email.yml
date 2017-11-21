@@ -9,8 +9,8 @@ id: node.directory_entry.field_email
 field_name: field_email
 entity_type: node
 bundle: directory_entry
-label: Email
-description: ''
+label: 'Breema directory email address'
+description: 'This address is displayed publicly in the International Breema directory. To change the email address used by this website for official communications (e.g. resetting your password) you must <a href="[current-user:edit-url]">edit your user account</a> and change the <em>Email address</em> field.'
 required: false
 translatable: false
 default_value: {  }
