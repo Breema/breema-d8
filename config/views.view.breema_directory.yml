@@ -708,7 +708,7 @@ display:
             group_items: {  }
           country:
             country_source: filter
-            country_argument_id: field_address_country_code
+            country_argument_id: ''
             country_filter_id: field_address_country_code
             country_static_code: BR
           plugin_id: administrative_area
@@ -1035,14 +1035,7 @@ display:
         weight: 0
         context: '0'
         menu_name: main
-      arguments:
-        field_address_country_code:
-          id: field_address_country_code
-          table: node__field_address
-          field: field_address_country_code
-          plugin_id: string
       defaults:
-        arguments: false
         pager: false
         style: false
         row: false
