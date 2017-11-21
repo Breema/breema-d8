@@ -1,7 +1,23 @@
+/* General styles for the whole view */
 p.address {
   margin: 1em 0;
 }
 
+div.result-wrapper {
+  float: left;
+}
+
+a.user-picture {
+  border: none;
+  float: left;
+  margin: 0 1em 0 0;
+}
+
+a.user-picture:hover {
+  border: none;
+}
+
+/* Styles for raw map results (below the map) */
 ol.location-results {
   list-style-type: none;
   margin: 2em 0 0 0;
@@ -11,6 +27,8 @@ ol.location-results {
 ol.location-results li.location-result {
   padding: 1em 0 1em 3.25em;
   margin: 0;
+  clear: both;
+  overflow: auto;
 }
 
 ol.location-results li.location-result:hover {
