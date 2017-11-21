@@ -1,0 +1,22 @@
+uuid: 3b2024ec-f510-47ff-8840-351f31ec033a
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: directory_entry
+label: 'Directory entry'
+type: 'canonical_entities:node'
+pattern: 'directory/entry/[node:title]'
+selection_criteria:
+  746f951c-e05c-4549-920e-96e389f0b817:
+    id: node_type
+    bundles:
+      directory_entry: directory_entry
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 746f951c-e05c-4549-920e-96e389f0b817
+selection_logic: and
+weight: -5
+relationships: {  }

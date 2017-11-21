@@ -1,0 +1,22 @@
+uuid: 6a777623-ee03-4b3f-aaa5-38a66159383c
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: place
+label: Place
+type: 'canonical_entities:node'
+pattern: 'place/[node:field_address:country_code]/[node:field_address:administrative_area]/[node:title]'
+selection_criteria:
+  720615be-af6a-48bf-95e1-7f06755852ca:
+    id: node_type
+    bundles:
+      place: place
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 720615be-af6a-48bf-95e1-7f06755852ca
+selection_logic: and
+weight: -5
+relationships: {  }
