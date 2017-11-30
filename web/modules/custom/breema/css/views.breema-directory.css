@@ -3,8 +3,10 @@ p.address {
   margin: 1em 0;
 }
 
-div.result-wrapper {
+.result-id,
+.result-info {
   float: left;
+  overflow: hidden;
 }
 
 a.user-picture {
@@ -25,10 +27,8 @@ ol.location-results {
 }
 
 ol.location-results li.location-result {
-  padding: 1em 0 1em 3.25em;
+  padding: 1em 0 1em 1em;
   margin: 0;
-  clear: both;
-  overflow: auto;
 }
 
 ol.location-results li.location-result:hover {
@@ -41,8 +41,7 @@ ol.location-results h2 {
 }
 
 ol.location-results .result-counter {
-  float: left;
-  margin: 0 0 0 -2.5em;
+  width: 90px;
 }
 
 ol.location-results .item-list ul li {
