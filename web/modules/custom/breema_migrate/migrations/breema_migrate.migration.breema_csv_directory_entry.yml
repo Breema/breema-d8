@@ -41,8 +41,14 @@ process:
     plugin: default_value
     default_value: directory_entry
   uid:
-    plugin: default_value
-    default_value: 1
+    plugin: migration_lookup
+    no_stub: true
+    migration: breema_csv_user
+    source_ids: 
+      breema_csv_user:
+        - email
+        - first_name
+        - last_name
   revision_uid:
     plugin: default_value
     default_value: 1
@@ -93,5 +99,6 @@ destination:
 # but if there are items from the dependant migration that were not
 # successful, it will still run the migration.
 migration_dependencies:
-  required: {}
+  required:
+    - breema_csv_user
   optional: {}
