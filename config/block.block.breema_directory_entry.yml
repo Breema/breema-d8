@@ -1,0 +1,34 @@
+uuid: 6756261d-c2ad-4dd2-bd2c-2ef19aaa651c
+langcode: en
+status: true
+dependencies:
+  module:
+    - breema
+    - system
+    - user
+  theme:
+    - bartik
+id: breema_directory_entry
+theme: bartik
+region: sidebar_first
+weight: 0
+provider: null
+plugin: directory_entry_block
+settings:
+  id: directory_entry_block
+  label: 'Your Breema Directory entry'
+  provider: breema
+  label_display: visible
+visibility:
+  request_path:
+    id: request_path
+    pages: "/node/*/edit\r\n/user/*/edit\r\n/node/add*\r\n"
+    negate: true
+    context_mapping: {  }
+  user_role:
+    id: user_role
+    roles:
+      authenticated: authenticated
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
