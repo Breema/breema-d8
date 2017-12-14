@@ -2031,6 +2031,11 @@
                 "symfony/phpunit-bridge": "~3.2.8"
             },
             "type": "drupal-core",
+            "extra": {
+                "patches_applied": {
+                    "[#2796393-28] Migration process plugin not working with multiple source IDs": "https://www.drupal.org/files/issues/2796393-28.patch"
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "Drupal\\Core\\": "lib/Drupal/Core",
