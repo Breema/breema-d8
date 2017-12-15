@@ -26,6 +26,7 @@
     "drupal/geocoder": "2.x-dev",
     "drupal/geolocation": "^1.11",
     "drupal/inline_entity_form": "^1.0@beta",
+    "drupal/login_emailusername": "^1.1",
     "drupal/pathauto": "^1.0",
     "drupal/simple_block": "^1.0@beta",
     "drupal/token": "^1.0",
