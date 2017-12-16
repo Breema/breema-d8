@@ -14,7 +14,6 @@ permissions:
   - 'access shortcuts'
   - 'access site-wide contact form'
   - 'create directory_entry content'
-  - 'create place content'
   - 'delete own directory_entry content'
   - 'edit own directory_entry content'
   - 'edit own place content'
@@ -27,4 +26,3 @@ permissions:
   - 'view field_certification'
   - 'view field_job_title'
   - 'view own unpublished content'
-  - 'view place revisions'
