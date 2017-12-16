@@ -1297,6 +1297,48 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           plugin_id: string
+        field_geolocation_lat:
+          id: field_geolocation_lat
+          table: node__field_geolocation
+          field: field_geolocation_lat
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: empty
+          value:
+            min: ''
+            max: ''
+            value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: geolocation_op
+            label: Geolocation
+            description: ''
+            use_operator: true
+            operator: field_geolocation_lat_op
+            identifier: geolocation
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              content_editor: '0'
+              administrator: '0'
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: numeric
         field_email_value:
           id: field_email_value
           table: node__field_email
