@@ -84,20 +84,14 @@ function breema_entity_create_access(AccountInterface $account, array $context, 
   if (!$user->hasRole('content_editor')) {
     $entity_type_id = $context['entity_type_id'];
     if ($entity_type_id == 'node' && $entity_bundle == 'directory_entry') {
-      // If the directory entry reference is already set, deny creation.
-      $field_directory_entry = $user->get('field_directory_entry')->getValue();
-      if (!empty($field_directory_entry[0]['target_id'])) {
-        return AccessResult::forbidden();
-      }
-      // Even if the directory entry reference is empty, deny creation if this
-      // user already owns a directory entry node.
+      // Deny creation if this user already owns a directory entry node.
       $query = \Drupal::entityQuery('node')
              ->condition('type', 'directory_entry')
              ->condition('uid', $account->id());
       $nids = $query->execute();
       if (!empty($nids)) {
         return AccessResult::forbidden();
-      }        
+      }
     }
   }
   return AccessResult::neutral();
