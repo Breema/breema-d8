@@ -9,6 +9,7 @@ use Drupal\Core\Access\AccessResult;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Session\AccountInterface;
+use Drupal\Core\Url;
 use Drupal\user\Entity\User;
 use Drupal\user\UserInterface;
 use Drupal\views\ViewExecutable;
@@ -42,6 +43,30 @@ function breema_theme_registry_alter(&$theme_registry) {
 function breema_views_pre_render(Drupal\views\ViewExecutable $view) {
   if (isset($view) && ($view->storage->id() == 'breema_directory')) {
     $view->element['#attached']['library'][] = 'breema/views.breema_directory';
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter() for 'node_form'.
+ *
+ * Adds a custom section on directory_entry forms to reference user pictures.
+ */
+function breema_form_node_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state) {
+  $node = $form_state->getFormObject()->getEntity();
+  if ($node->bundle() == 'directory_entry') {
+    $current_user = \Drupal::currentUser();
+    $current_page = Url::fromRoute('<current>');
+    $url_options['query']['destination'] = $current_page->toString();
+    $url_options['fragment'] = 'edit-user-picture-wrapper';
+    $edit_url = Url::fromRoute('entity.user.edit_form', ['user' => $current_user->id()], $url_options);
+
+    $form['headshot_help'] = [
+      '#type' => 'item',
+      '#title' => t('Headshot image'),
+      '#description' => t('If you <a href=":edit">edit your user account</a> you can upload an image in the <em>Picture</em> field and it will be displayed with your directory entry.', [':edit' => $edit_url->toString()]),
+      '#weight' => 9,
+    ];
+
   }
 }
 
