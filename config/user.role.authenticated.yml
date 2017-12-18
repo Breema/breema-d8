@@ -26,3 +26,4 @@ permissions:
   - 'view field_certification'
   - 'view field_job_title'
   - 'view own unpublished content'
+  - 'view the administration theme'
