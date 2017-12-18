@@ -60,13 +60,27 @@ function breema_form_node_form_alter(&$form, \Drupal\Core\Form\FormStateInterfac
     $url_options['fragment'] = 'edit-user-picture-wrapper';
     $edit_url = Url::fromRoute('entity.user.edit_form', ['user' => $current_user->id()], $url_options);
 
-    $form['headshot_help'] = [
-      '#type' => 'item',
+    $current_user_entity = user_load($current_user->id());
+    $user_picture = $current_user_entity->get('user_picture')->getValue();
+    $form['headshot'] = [
+      '#type' => 'details',
       '#title' => t('Headshot image'),
-      '#description' => t('If you <a href=":edit">edit your user account</a> you can upload an image in the <em>Picture</em> field and it will be displayed with your directory entry.', [':edit' => $edit_url->toString()]),
+      '#open' => TRUE,
       '#weight' => 9,
     ];
-
+    if (!empty($user_picture)) {
+      $form['headshot']['current'] = user_view($current_user_entity, 'compact');
+      $form['headshot']['help'] = [
+        '#type' => 'item',
+        '#description' => t('You must <a href=":edit">edit your user account</a> and use the <em>Picture</em> field to manage the image displayed with your directory entry.', [':edit' => $edit_url->toString()]),
+      ];
+    }
+    else {
+      $form['headshot']['help'] = [
+        '#type' => 'item',
+        '#description' => t('If you <a href=":edit">edit your user account</a> you can upload an image in the <em>Picture</em> field and it will be displayed with your directory entry.', [':edit' => $edit_url->toString()]),
+      ];
+    }
   }
 }
 
