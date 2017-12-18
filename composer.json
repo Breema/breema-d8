@@ -30,6 +30,7 @@
     "drupal/pathauto": "^1.0",
     "drupal/simple_block": "^1.0@beta",
     "drupal/token": "^1.0",
+    "drupal/video_embed_field": "^2.0",
     "drush/drush": "~8",
     "rvtraveller/qs-composer-installer": "^1.1",
     "webflo/drupal-core-strict": "^8"
