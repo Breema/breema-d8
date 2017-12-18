@@ -54,14 +54,16 @@ function breema_views_pre_render(Drupal\views\ViewExecutable $view) {
 function breema_form_node_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state) {
   $node = $form_state->getFormObject()->getEntity();
   if ($node->bundle() == 'directory_entry') {
-    $current_user = \Drupal::currentUser();
+
+    $author = $node->get('uid')->getValue();
+    $author_uid = $author[0]['target_id'];
     $current_page = Url::fromRoute('<current>');
     $url_options['query']['destination'] = $current_page->toString();
     $url_options['fragment'] = 'edit-user-picture-wrapper';
-    $edit_url = Url::fromRoute('entity.user.edit_form', ['user' => $current_user->id()], $url_options);
+    $edit_url = Url::fromRoute('entity.user.edit_form', ['user' => $author_uid], $url_options);
 
-    $current_user_entity = user_load($current_user->id());
-    $user_picture = $current_user_entity->get('user_picture')->getValue();
+    $author_entity = user_load($author_uid);
+    $user_picture = $author_entity->get('user_picture')->getValue();
     $form['headshot'] = [
       '#type' => 'details',
       '#title' => t('Headshot image'),
@@ -69,7 +71,7 @@ function breema_form_node_form_alter(&$form, \Drupal\Core\Form\FormStateInterfac
       '#weight' => 9,
     ];
     if (!empty($user_picture)) {
-      $form['headshot']['current'] = user_view($current_user_entity, 'compact');
+      $form['headshot']['current'] = user_view($author_entity, 'compact');
       $form['headshot']['help'] = [
         '#type' => 'item',
         '#description' => t('You must <a href=":edit">edit your user account</a> and use the <em>Picture</em> field to manage the image displayed with your directory entry.', [':edit' => $edit_url->toString()]),
