@@ -7,6 +7,7 @@
 
 use Drupal\Core\Access\AccessResult;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Render\Element;
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Session\AccountInterface;
 use Drupal\Core\Url;
@@ -115,6 +116,12 @@ function breema_form_views_exposed_form_alter(&$form, \Drupal\Core\Form\FormStat
     $form['geolocation_op']['#default_value'] = ' ';
   }
                   
+  // Completely hide the boundary filters so they don't flicker on JS loading.
+  if (!empty($form['boundary'])) {
+    foreach (Element::children($form['boundary']) as $key) {
+      $form['boundary'][$key]['#type'] = 'hidden';
+    }
+  }
 }
 
 /**
