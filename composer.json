@@ -29,7 +29,7 @@
     "drupal/entity_embed": "^1.0",
     "drupal/field_permissions": "^1.0@beta",
     "drupal/geocoder": "2.x-dev",
-    "drupal/geolocation": "^1.11",
+    "drupal/geolocation": "1.x-dev",
     "drupal/inline_entity_form": "^1.0@beta",
     "drupal/login_emailusername": "^1.1",
     "drupal/media_entity_browser": "^2.0",
@@ -100,9 +100,8 @@
         "[#2796393-28] Migration process plugin not working with multiple source IDs" : "https://www.drupal.org/files/issues/2796393-28.patch"
       },
       "drupal/geolocation": {
-        "[#2921116-2] Google Map raw locations flicker on page load instead of hiding by default" : "https://www.drupal.org/files/issues/2921116-1.hide-raw-locations-by-default.patch",
         "[#2921121-2] Empty h2 markup when locations don't use a 'title' field" : "https://www.drupal.org/files/issues/2921121-1.hide-location-title-completely.patch",
-        "[#2921437-2] Provide simple JS pager for raw results on Google common map display" : "https://www.drupal.org/files/issues/2921437-1.raw-location-js-pager.patch"
+        "[#2921437-9] Provide simple JS pager for raw results on Google common map display" : "https://www.drupal.org/files/issues/2921437-9.raw-location-js-pager.patch"
       },
       "drupal/inline_entity_form": {
         "[#2729333-7] Can't select a default bundle when using entity reference views" : "https://www.drupal.org/files/issues/2729333-ief-bundle-selection-erv-7.patch"
