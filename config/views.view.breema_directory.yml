@@ -1215,6 +1215,9 @@ display:
         row: false
         pager: false
         show_admin_links: false
+        use_ajax: false
+        filters: false
+        filter_groups: false
       path: directory/map
       menu:
         type: 'default tab'
@@ -1240,6 +1243,11 @@ display:
         options:
           geolocation_field: field_geolocation
           title_field: none
+          dynamic_map:
+            enabled: 1
+            update_handler: boundary_filter_field_geolocation_boundary
+            hide_form: 0
+            views_refresh_delay: '1200'
           centre:
             first_row:
               weight: -10
@@ -1258,10 +1266,13 @@ display:
               settings:
                 latitude: '-20'
                 longitude: '0'
+            boundary_filter_field_geolocation_boundary:
+              enable: true
+              weight: 0
           show_raw_locations: 1
           max_raw_locations: 300
           raw_locations_per_page: 20
-          even_empty: 0
+          even_empty: 1
           icon_field: none
           marker_scroll_to_result: 0
           id_field: none
@@ -1298,6 +1309,328 @@ display:
           inline: {  }
           separator: ''
           hide_empty: false
+      use_ajax: true
+      filters:
+        status:
+          value: '1'
+          table: node_field_data
+          field: status
+          plugin_id: boolean
+          entity_type: node
+          entity_field: status
+          id: status
+          expose:
+            operator: ''
+          group: 1
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          value:
+            directory_entry: directory_entry
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+          group: 1
+        keys:
+          id: keys
+          table: node_search_index
+          field: keys
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: required
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: keys_op
+            label: Search
+            description: ''
+            use_operator: false
+            operator: keys_op
+            identifier: search
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: search_keywords
+        field_address_country_code:
+          id: field_address_country_code
+          table: node__field_address
+          field: field_address_country_code
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: in
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_address_country_code_op
+            label: Country
+            description: ''
+            use_operator: false
+            operator: field_address_country_code_op
+            identifier: country
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: country_code
+        field_address_administrative_area:
+          id: field_address_administrative_area
+          table: node__field_address
+          field: field_address_administrative_area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: in
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_address_administrative_area_op
+            label: 'Address (field_address:administrative_area)'
+            description: ''
+            use_operator: false
+            operator: field_address_administrative_area_op
+            identifier: state
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              content_editor: '0'
+              administrator: '0'
+            reduce: false
+            label_type: dynamic
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          country:
+            country_source: filter
+            country_argument_id: ''
+            country_filter_id: field_address_country_code
+            country_static_code: BR
+          plugin_id: administrative_area
+        field_address_locality:
+          id: field_address_locality
+          table: node__field_address
+          field: field_address_locality
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: contains
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_address_locality_op
+            label: City
+            description: ''
+            use_operator: false
+            operator: field_address_locality_op
+            identifier: city
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              content_editor: '0'
+              administrator: '0'
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: string
+        field_address_postal_code:
+          id: field_address_postal_code
+          table: node__field_address
+          field: field_address_postal_code
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: contains
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_address_postal_code_op
+            label: 'Postal code'
+            description: ''
+            use_operator: false
+            operator: field_address_postal_code_op
+            identifier: postal_code
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              content_editor: '0'
+              administrator: '0'
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: string
+        field_certification_value:
+          id: field_certification_value
+          table: node__field_certification
+          field: field_certification_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: and
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_certification_value_op
+            label: Certification
+            description: ''
+            use_operator: false
+            operator: field_certification_value_op
+            identifier: certification
+            required: false
+            remember: false
+            multiple: true
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              content_editor: '0'
+              administrator: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          plugin_id: list_field
+        field_geolocation_boundary:
+          id: field_geolocation_boundary
+          table: node__field_geolocation
+          field: field_geolocation_boundary
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value:
+            lat_north_east: ''
+            lng_north_east: ''
+            lat_south_west: ''
+            lng_south_west: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: ''
+            label: Boundary
+            description: ''
+            use_operator: false
+            operator: field_geolocation_boundary_op
+            identifier: boundary
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              content_editor: '0'
+              administrator: '0'
+            input_by_geocoding_widget: 0
+            geocoder_plugin_settings:
+              plugin_id: google_geocoding_api
+              settings:
+                components:
+                  route: ''
+                  locality: ''
+                  administrativeArea: ''
+                  postalCode: ''
+                  country: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: geolocation_filter_boundary
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
     cache_metadata:
       max-age: -1
       contexts:
