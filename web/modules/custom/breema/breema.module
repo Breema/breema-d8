@@ -125,6 +125,17 @@ function breema_form_views_exposed_form_alter(&$form, \Drupal\Core\Form\FormStat
 }
 
 /**
+ * Implements hook_form_FORM_ID_alter() for 'user_login_form'.
+ *
+ * Remove unneeded #description text and fix #title for 'name' element.
+ */
+function breema_form_user_login_form_alter(&$form, FormStateInterface $form_state) {
+  $form['name']['#title'] = t('Username or email address');
+  $form['name']['#description'] = '';
+  $form['pass']['#description'] = '';
+}
+
+/**
  * Implements hook_entity_create_access().
  */
 function breema_entity_create_access(AccountInterface $account, array $context, $entity_bundle) {
