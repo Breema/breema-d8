@@ -883,7 +883,7 @@ display:
           expose:
             operator_id: keys_op
             label: Search
-            description: ''
+            description: 'Name, city, postal code, etc.'
             use_operator: false
             operator: keys_op
             identifier: search
@@ -893,6 +893,7 @@ display:
             remember_roles:
               authenticated: authenticated
               anonymous: '0'
+              content_editor: '0'
               administrator: '0'
           is_grouped: false
           group_info:
@@ -992,84 +993,6 @@ display:
             country_filter_id: field_address_country_code
             country_static_code: BR
           plugin_id: administrative_area
-        field_address_locality:
-          id: field_address_locality
-          table: node__field_address
-          field: field_address_locality
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: contains
-          value: ''
-          group: 1
-          exposed: true
-          expose:
-            operator_id: field_address_locality_op
-            label: City
-            description: ''
-            use_operator: false
-            operator: field_address_locality_op
-            identifier: city
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              content_editor: '0'
-              administrator: '0'
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          plugin_id: string
-        field_address_postal_code:
-          id: field_address_postal_code
-          table: node__field_address
-          field: field_address_postal_code
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: contains
-          value: ''
-          group: 1
-          exposed: true
-          expose:
-            operator_id: field_address_postal_code_op
-            label: 'Postal code'
-            description: ''
-            use_operator: false
-            operator: field_address_postal_code_op
-            identifier: postal_code
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              content_editor: '0'
-              administrator: '0'
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          plugin_id: string
         field_certification_value:
           id: field_certification_value
           table: node__field_certification
