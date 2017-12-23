@@ -1218,6 +1218,7 @@ display:
         use_ajax: false
         filters: false
         filter_groups: false
+        header: false
       path: directory/map
       menu:
         type: 'default tab'
@@ -1468,6 +1469,20 @@ display:
         operator: AND
         groups:
           1: AND
+      header:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: false
+          content:
+            value: 'If you wish to filter results via a country or state, please use the <a href="[view:url]/search">Search</a> tab. Otherwise, please explore the interactive map. Once you zoom in, all the results in that area will be listed below the map.'
+            format: basic_html
+          plugin_id: text
     cache_metadata:
       max-age: -1
       contexts:
@@ -1505,6 +1520,7 @@ display:
         pager: false
         style: false
         row: false
+        header: false
       display_description: ''
       pager:
         type: full
@@ -1543,6 +1559,20 @@ display:
           inline: {  }
           separator: ''
           hide_empty: false
+      header:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: false
+          content:
+            value: 'To search by states, select the country, click ''Apply'' and a state selector will appear.'
+            format: basic_html
+          plugin_id: text
     cache_metadata:
       max-age: -1
       contexts:
