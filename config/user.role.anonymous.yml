@@ -9,7 +9,10 @@ label: 'Anonymous user'
 weight: 0
 is_admin: false
 permissions:
+  - 'access comments'
+  - 'access content'
   - 'access site-wide contact form'
+  - 'search content'
   - 'use text format restricted_html'
   - 'view field_breema_center_staff'
   - 'view field_breema_clinic_practitioner'
