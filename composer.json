@@ -97,7 +97,8 @@
         "[#2514126-102] Add field settings for global overrides of required/optional behavior" : "https://www.drupal.org/files/issues/2514126-102.field-behavior-settings.patch"
       },
       "drupal/core": {
-        "[#2796393-28] Migration process plugin not working with multiple source IDs" : "https://www.drupal.org/files/issues/2796393-28.patch"
+        "[#2796393-28] Migration process plugin not working with multiple source IDs" : "https://www.drupal.org/files/issues/2796393-28.patch",
+        "[#2866386-4] 'view_path' is set to /views/ajax after second ajax request" : "https://www.drupal.org/files/issues/2866386-4.patch"
       },
       "drupal/geolocation": {
         "[#2921121-2] Empty h2 markup when locations don't use a 'title' field" : "https://www.drupal.org/files/issues/2921121-1.hide-location-title-completely.patch",

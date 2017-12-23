@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "53fc90cb694203e0c57925f7d82d046d",
+    "content-hash": "d801f56faa8db4c48cc44d0a67d8aa6d",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -2033,7 +2033,8 @@
             "type": "drupal-core",
             "extra": {
                 "patches_applied": {
-                    "[#2796393-28] Migration process plugin not working with multiple source IDs": "https://www.drupal.org/files/issues/2796393-28.patch"
+                    "[#2796393-28] Migration process plugin not working with multiple source IDs": "https://www.drupal.org/files/issues/2796393-28.patch",
+                    "[#2866386-4] 'view_path' is set to /views/ajax after second ajax request": "https://www.drupal.org/files/issues/2866386-4.patch"
                 }
             },
             "autoload": {
