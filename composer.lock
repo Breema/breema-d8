@@ -2770,7 +2770,8 @@
                 },
                 "patches_applied": {
                     "[#2921121-2] Empty h2 markup when locations don't use a 'title' field": "https://www.drupal.org/files/issues/2921121-1.hide-location-title-completely.patch",
-                    "[#2921437-9] Provide simple JS pager for raw results on Google common map display": "https://www.drupal.org/files/issues/2921437-9.raw-location-js-pager.patch"
+                    "[#2921437-9] Provide simple JS pager for raw results on Google common map display": "https://www.drupal.org/files/issues/2921437-9.raw-location-js-pager.patch",
+                    "[#2878799-12] Submitting exposed views filter via AJAX duplicates markers": "https://www.drupal.org/files/issues/clear-cluster-markers-2878799-12.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
