@@ -11,6 +11,7 @@ use Drupal\Core\Render\Element;
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Session\AccountInterface;
 use Drupal\Core\Url;
+use Drupal\node\NodeInterface;
 use Drupal\user\Entity\User;
 use Drupal\user\UserInterface;
 use Drupal\views\ViewExecutable;
@@ -123,6 +124,25 @@ function breema_form_views_exposed_form_alter(&$form, \Drupal\Core\Form\FormStat
       $form['boundary'][$key]['#type'] = 'hidden';
     }
   }
+
+  if (!empty($form['country'])) {
+    $breema_countries = \Drupal::state()->get('breema.breema_countries', []);
+    if (empty($breema_countries)) {
+      $query = \Drupal::database()->select('node__field_address', 'nfa');
+      $query->addField('nfa', 'field_address_country_code');
+      $query->distinct();
+      $results = array_filter($query->execute()->fetchCol());
+      $breema_countries = array_combine($results, $results);
+      \Drupal::state()->set('breema.breema_countries', $breema_countries);
+    }
+
+    $country_list = array_keys($form['country']['#options']);
+    foreach ($country_list as $country) {
+      if ($country != 'All' && empty($breema_countries[$country])) {
+        unset($form['country']['#options'][$country]);
+      }
+    }
+  }
 }
 
 /**
@@ -134,6 +154,39 @@ function breema_form_user_login_form_alter(&$form, FormStateInterface $form_stat
   $form['name']['#title'] = t('Username or email address');
   $form['name']['#description'] = '';
   $form['pass']['#description'] = '';
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_insert() as hook_node_insert().
+ *
+ * Clears the list of Breema countries when inserting a new directory entry.
+ */
+function breema_node_insert(NodeInterface $node) {
+  if ($node->getType() == 'directory_entry') {
+    \Drupal::state()->delete('breema.breema_countries');
+  }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_update() as hook_node_update().
+ *
+ * Clears the list of Breema countries when updating a directory entry.
+ */
+function breema_node_update(NodeInterface $node) {
+  if ($node->getType() == 'directory_entry') {
+    \Drupal::state()->delete('breema.breema_countries');
+  }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_delete() as hook_node_delete().
+ *
+ * Clears the list of Breema countries when deleting a directory entry.
+ */
+function breema_node_delete(NodeInterface $node) {
+  if ($node->getType() == 'directory_entry') {
+    \Drupal::state()->delete('breema.breema_countries');
+  }
 }
 
 /**
