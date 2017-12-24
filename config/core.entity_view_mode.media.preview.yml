@@ -1,0 +1,12 @@
+uuid: da1855cd-37fc-4afa-acb7-34e855d8af20
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+_core:
+  default_config_hash: QqJjqCYaTLfDkmENuvtyOqE1yDv6jWjYdhyuvlWkEAk
+id: media.preview
+label: Preview
+targetEntityType: media
+cache: true

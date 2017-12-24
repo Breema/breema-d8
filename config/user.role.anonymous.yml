@@ -18,3 +18,4 @@ permissions:
   - 'view field_breema_clinic_practitioner'
   - 'view field_certification'
   - 'view field_job_title'
+  - 'view media'
