@@ -22,6 +22,16 @@ class BreemaDirectoryEntryBlock extends BlockBase {
    * {@inheritdoc}
    */
   public function build() {
+    $block = [
+      '#cache' => [
+        'contexts' => ['user'],
+      ],
+      '#attached' => [
+        'library' => [
+          'breema/block.directory_entry',
+        ],
+      ],
+    ];
     $current_user = \Drupal::currentUser();
     $current_page = Url::fromRoute('<current>');
     $url_options['query']['destination'] = $current_page->toString();
@@ -34,12 +44,7 @@ class BreemaDirectoryEntryBlock extends BlockBase {
       $view_builder = \Drupal::entityManager()->getViewBuilder('node');
       $edit_url = Url::fromRoute('entity.node.edit_form', ['node' => $directory_entry->id()], $url_options);
       $delete_url = Url::fromRoute('entity.node.delete_form', ['node' => $directory_entry->id()], $url_options);
-      return [
-        '#attached' => [
-          'library' => [
-            'breema/block.directory_entry',
-          ],
-        ],
+      return $block + [
         'teaser' => $view_builder->view($directory_entry, 'teaser'),
         'edit-link' => [
           '#prefix' => '<div class="action">',
@@ -61,13 +66,8 @@ class BreemaDirectoryEntryBlock extends BlockBase {
         $add_entry_url = Url::fromRoute('node.add', ['node_type' => 'directory_entry'], $url_options);
         $markup = '<p>' . $this->t('You do not have an entry in the <a href=":breema-directory">International Breema directory</a>.', [':breema-directory' => $directory_url->toString()]) . '</p>';
         $markup .= '<div class="action">' . $this->t('<a href=":create-directory-entry">Create entry</a>', [':create-directory-entry' => $add_entry_url->toString()]) . '</div>';
-        return [
+        return $block + [
           '#markup' => $markup,
-          '#attached' => [
-            'library' => [
-              'breema/block.directory_entry',
-            ],
-          ],
         ];
       }
     }
