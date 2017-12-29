@@ -20,9 +20,26 @@ dependencies:
   module:
     - address
     - entity_browser
+    - field_group
     - path
     - telephone
     - text
+third_party_settings:
+  field_group:
+    group_contact_info:
+      children:
+        - field_email
+        - field_telephone
+      parent_name: ''
+      weight: 7
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        open: true
+        required_fields: true
+      label: 'Contact information'
+      region: content
 id: node.directory_entry.default
 targetEntityType: node
 bundle: directory_entry
@@ -30,7 +47,7 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 9
+    weight: 10
     settings:
       rows: 9
       summary_rows: 3
@@ -39,7 +56,7 @@ content:
     region: content
   created:
     type: datetime_timestamp
-    weight: 12
+    weight: 13
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -72,7 +89,7 @@ content:
     type: options_buttons
     region: content
   field_email:
-    weight: 7
+    weight: 8
     settings:
       size: 60
       placeholder: ''
@@ -104,7 +121,7 @@ content:
     type: string_textfield
     region: content
   field_resources:
-    weight: 10
+    weight: 11
     settings:
       entity_browser: media_browser
       field_widget_display: rendered_entity
@@ -118,7 +135,7 @@ content:
     type: entity_browser_entity_reference
     region: content
   field_telephone:
-    weight: 8
+    weight: 9
     settings:
       placeholder: ''
     third_party_settings: {  }
@@ -126,7 +143,7 @@ content:
     region: content
   path:
     type: path
-    weight: 15
+    weight: 16
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -134,26 +151,26 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 13
+    weight: 14
     region: content
     third_party_settings: {  }
   status:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 16
+    weight: 17
     region: content
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 14
+    weight: 15
     region: content
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 11
+    weight: 12
     settings:
       match_operator: CONTAINS
       size: 60
