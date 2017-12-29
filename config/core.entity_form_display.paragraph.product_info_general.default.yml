@@ -1,0 +1,36 @@
+uuid: 6fbd870d-2b13-409d-9279-8ecf9a83af53
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.product_info_general.field_buy_now
+    - field.field.paragraph.product_info_general.field_description
+    - paragraphs.paragraphs_type.product_info_general
+  module:
+    - link
+    - text
+id: paragraph.product_info_general.default
+targetEntityType: paragraph
+bundle: product_info_general
+mode: default
+content:
+  field_buy_now:
+    weight: 0
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_description:
+    weight: 1
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

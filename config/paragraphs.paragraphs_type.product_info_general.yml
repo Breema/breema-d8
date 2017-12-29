@@ -1,0 +1,9 @@
+uuid: e353539c-d709-47a2-bf29-15567a96fb8a
+langcode: en
+status: true
+dependencies: {  }
+id: product_info_general
+label: 'General information'
+icon_uuid: null
+description: 'Only contains a <em>Buy now</em> link and a <em>Description</em> text area.'
+behavior_plugins: {  }

@@ -7,6 +7,7 @@ dependencies:
     - node.type.product
     - paragraphs.paragraphs_type.product_info_audio
     - paragraphs.paragraphs_type.product_info_book
+    - paragraphs.paragraphs_type.product_info_general
   module:
     - entity_reference_revisions
 id: node.product.field_product_info
@@ -26,6 +27,7 @@ settings:
     target_bundles:
       product_info_audio: product_info_audio
       product_info_book: product_info_book
+      product_info_general: product_info_general
     target_bundles_drag_drop:
       product_info_audio:
         enabled: true
@@ -33,4 +35,7 @@ settings:
       product_info_book:
         enabled: true
         weight: 5
+      product_info_general:
+        enabled: true
+        weight: 6
 field_type: entity_reference_revisions
