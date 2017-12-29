@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "cc10a7b599cf4fb3e838776e57151a07",
+    "content-hash": "5d158f35209177622d4f41ea6a9cb74b",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -2781,6 +2781,53 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/field_permissions",
                 "issues": "https://www.drupal.org/project/issues/field_permissions"
+            }
+        },
+        {
+            "name": "drupal/fixed_text_link_formatter",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/fixed_text_link_formatter",
+                "reference": "8.x-1.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/fixed_text_link_formatter-8.x-1.1.zip",
+                "reference": "8.x-1.1",
+                "shasum": "220d2a1f75cba56c0f60f166c5aa51c06d748033"
+            },
+            "require": {
+                "drupal/core": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.1",
+                    "datestamp": "1504524244",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "legolasbo",
+                    "homepage": "https://www.drupal.org/user/2480548"
+                }
+            ],
+            "description": "Formats a link field with a configurable fixed link text",
+            "homepage": "https://www.drupal.org/project/fixed_text_link_formatter",
+            "support": {
+                "source": "http://cgit.drupalcode.org/fixed_text_link_formatter"
             }
         },
         {
