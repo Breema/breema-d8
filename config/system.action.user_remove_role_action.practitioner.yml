@@ -1,0 +1,14 @@
+uuid: c8c92b72-f015-44d0-aa2f-fc1f33b10a48
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.practitioner
+  module:
+    - user
+id: user_remove_role_action.practitioner
+label: 'Remove the Practitioner role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: practitioner

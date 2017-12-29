@@ -6,7 +6,7 @@ _core:
   default_config_hash: dJ0L2DNSj5q6XVZAGsuVDpJTh5UeYkIPwKrUOOpr8YI
 id: authenticated
 label: 'Authenticated user'
-weight: 1
+weight: -9
 is_admin: false
 permissions:
   - 'access comments'
@@ -16,17 +16,12 @@ permissions:
   - 'access media_embed entity browser pages'
   - 'access shortcuts'
   - 'access site-wide contact form'
-  - 'create directory_entry content'
   - 'create media'
   - 'delete media'
-  - 'delete own directory_entry content'
-  - 'edit own directory_entry content'
-  - 'edit own place content'
   - 'post comments'
   - 'search content'
   - 'update media'
   - 'use text format basic_html'
-  - 'view directory_entry revisions'
   - 'view field_breema_center_staff'
   - 'view field_breema_clinic_practitioner'
   - 'view field_certification'

@@ -1,0 +1,14 @@
+uuid: 6e01cd09-7dc9-4c96-b48e-9c9987463db0
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.practitioner
+  module:
+    - user
+id: user_add_role_action.practitioner
+label: 'Add the Practitioner role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: practitioner

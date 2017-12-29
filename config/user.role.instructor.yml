@@ -1,0 +1,14 @@
+uuid: 348289a5-2109-4356-9c16-31489c9f4c09
+langcode: en
+status: true
+dependencies: {  }
+id: instructor
+label: Instructor
+weight: -7
+is_admin: null
+permissions:
+  - 'create directory_entry content'
+  - 'delete own directory_entry content'
+  - 'edit own directory_entry content'
+  - 'revert directory_entry revisions'
+  - 'view directory_entry revisions'

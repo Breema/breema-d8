@@ -1,0 +1,14 @@
+uuid: 3f2c1529-302e-449c-ba1e-45faea0a6bda
+langcode: en
+status: true
+dependencies: {  }
+id: practitioner
+label: Practitioner
+weight: -8
+is_admin: null
+permissions:
+  - 'create directory_entry content'
+  - 'delete own directory_entry content'
+  - 'edit own directory_entry content'
+  - 'revert directory_entry revisions'
+  - 'view directory_entry revisions'

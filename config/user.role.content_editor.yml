@@ -4,7 +4,7 @@ status: true
 dependencies: {  }
 id: content_editor
 label: 'Content editor'
-weight: 2
+weight: -6
 is_admin: false
 permissions:
   - 'access administration pages'
@@ -25,5 +25,6 @@ permissions:
   - 'edit terms in tags'
   - 'skip comment approval'
   - 'update any media'
+  - 'use text format full_html'
   - 'view all media revisions'
   - 'view the administration theme'
