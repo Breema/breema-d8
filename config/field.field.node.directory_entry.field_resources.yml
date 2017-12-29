@@ -13,7 +13,7 @@ field_name: field_resources
 entity_type: node
 bundle: directory_entry
 label: Resources
-description: ''
+description: 'Embed videos, upload files, etc.'
 required: false
 translatable: true
 default_value: {  }
