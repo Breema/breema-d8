@@ -8,6 +8,11 @@ dependencies:
     - field.field.paragraph.book_information.field_buy_now
     - field.field.paragraph.book_information.field_cover_image
     - field.field.paragraph.book_information.field_cover_price
+    - field.field.paragraph.book_information.field_ebook_amazon_kindle
+    - field.field.paragraph.book_information.field_ebook_apple_ibooks
+    - field.field.paragraph.book_information.field_ebook_barnes_noble
+    - field.field.paragraph.book_information.field_ebook_copia
+    - field.field.paragraph.book_information.field_ebook_kobo
     - field.field.paragraph.book_information.field_other_info
     - field.field.paragraph.book_information.field_pages
     - field.field.paragraph.book_information.field_special_price
@@ -54,6 +59,46 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: number
+    region: content
+  field_ebook_amazon_kindle:
+    weight: 7
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_ebook_apple_ibooks:
+    weight: 8
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_ebook_barnes_noble:
+    weight: 9
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_ebook_copia:
+    weight: 10
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_ebook_kobo:
+    weight: 11
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
     region: content
   field_other_info:
     weight: 6

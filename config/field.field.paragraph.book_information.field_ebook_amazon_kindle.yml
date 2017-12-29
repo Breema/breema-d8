@@ -1,0 +1,23 @@
+uuid: dbbc0bc9-0dbd-4b62-ab55-5f2947871866
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_ebook_amazon_kindle
+    - paragraphs.paragraphs_type.book_information
+  module:
+    - link
+id: paragraph.book_information.field_ebook_amazon_kindle
+field_name: field_ebook_amazon_kindle
+entity_type: paragraph
+bundle: book_information
+label: 'Amazon Kindle'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 16
+  title: 0
+field_type: link
