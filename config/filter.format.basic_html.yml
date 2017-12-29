@@ -56,6 +56,13 @@ filters:
     status: false
     weight: -43
     settings: {  }
+  filter_url:
+    id: filter_url
+    provider: filter
+    status: false
+    weight: -42
+    settings:
+      filter_url_length: 72
   filter_htmlcorrector:
     id: filter_htmlcorrector
     provider: filter
@@ -68,10 +75,3 @@ filters:
     status: false
     weight: -44
     settings: {  }
-  filter_url:
-    id: filter_url
-    provider: filter
-    status: false
-    weight: -42
-    settings:
-      filter_url_length: 72
