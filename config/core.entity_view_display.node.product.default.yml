@@ -1,0 +1,26 @@
+uuid: dac7f749-4eaa-4b45-8d62-ca50dc6f4648
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.product.body
+    - node.type.product
+  module:
+    - text
+    - user
+id: node.product.default
+targetEntityType: node
+bundle: product
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    region: content
+hidden: {  }
