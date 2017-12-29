@@ -18,7 +18,7 @@ dependencies:
     - image.style.medium
     - paragraphs.paragraphs_type.book_information
   module:
-    - link
+    - fixed_text_link_formatter
     - media
     - options
 id: paragraph.book_information.default
@@ -42,8 +42,10 @@ content:
       url_plain: false
       rel: ''
       target: ''
+      link_text: 'Buy now'
+      allow_override: false
     third_party_settings: {  }
-    type: link
+    type: fixed_text_link
     region: content
   field_cover_image:
     weight: 1
@@ -74,8 +76,10 @@ content:
       url_plain: false
       rel: ''
       target: ''
+      link_text: 'Amazon Kindle'
+      allow_override: false
     third_party_settings: {  }
-    type: link
+    type: fixed_text_link
     region: content
   field_ebook_apple_ibooks:
     weight: 8
@@ -86,8 +90,10 @@ content:
       url_plain: false
       rel: ''
       target: ''
+      link_text: 'Apple iBooks'
+      allow_override: false
     third_party_settings: {  }
-    type: link
+    type: fixed_text_link
     region: content
   field_ebook_barnes_noble:
     weight: 9
@@ -98,8 +104,10 @@ content:
       url_plain: false
       rel: ''
       target: ''
+      link_text: 'Barnes & Noble'
+      allow_override: false
     third_party_settings: {  }
-    type: link
+    type: fixed_text_link
     region: content
   field_ebook_copia:
     weight: 10
@@ -110,8 +118,10 @@ content:
       url_plain: false
       rel: ''
       target: ''
+      link_text: 'Copia eBooks'
+      allow_override: false
     third_party_settings: {  }
-    type: link
+    type: fixed_text_link
     region: content
   field_ebook_kobo:
     weight: 11
@@ -122,8 +132,10 @@ content:
       url_plain: false
       rel: ''
       target: ''
+      link_text: 'Kobo eBooks'
+      allow_override: false
     third_party_settings: {  }
-    type: link
+    type: fixed_text_link
     region: content
   field_other_info:
     weight: 5
