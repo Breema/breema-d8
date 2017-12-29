@@ -4,8 +4,10 @@ status: true
 dependencies:
   config:
     - field.field.node.product.body
+    - field.field.node.product.field_product_info
     - node.type.product
   module:
+    - entity_reference_revisions
     - text
     - user
 id: node.product.default
@@ -20,7 +22,18 @@ content:
     settings: {  }
     third_party_settings: {  }
     region: content
+  field_product_info:
+    type: entity_reference_revisions_entity_view
+    weight: 102
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
   links:
     weight: 100
     region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden: {  }

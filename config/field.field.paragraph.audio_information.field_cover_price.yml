@@ -1,0 +1,23 @@
+uuid: 7b901938-6c7e-4dab-bade-900634151bc7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_cover_price
+    - paragraphs.paragraphs_type.audio_information
+id: paragraph.audio_information.field_cover_price
+field_name: field_cover_price
+entity_type: paragraph
+bundle: audio_information
+label: 'Cover price'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: !!float 0
+  max: null
+  prefix: $
+  suffix: ''
+field_type: decimal

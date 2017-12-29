@@ -1,0 +1,63 @@
+uuid: 430fb986-d3b9-4a36-b7b9-7e6f03e72e82
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.audio_information.field_buy_now
+    - field.field.paragraph.audio_information.field_cover_image
+    - field.field.paragraph.audio_information.field_cover_price
+    - field.field.paragraph.audio_information.field_special_price
+    - image.style.large
+    - paragraphs.paragraphs_type.audio_information
+  module:
+    - link
+    - media
+id: paragraph.audio_information.default
+targetEntityType: paragraph
+bundle: audio_information
+mode: default
+content:
+  field_buy_now:
+    weight: 3
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_cover_image:
+    weight: 0
+    label: hidden
+    settings:
+      image_style: large
+      image_link: ''
+    third_party_settings: {  }
+    type: media_thumbnail
+    region: content
+  field_cover_price:
+    weight: 1
+    label: inline
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_decimal
+    region: content
+  field_special_price:
+    weight: 2
+    label: inline
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_decimal
+    region: content
+hidden: {  }

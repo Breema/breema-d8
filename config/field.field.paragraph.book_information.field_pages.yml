@@ -1,0 +1,23 @@
+uuid: afdad726-5f65-4617-bf96-afd7a856a697
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_pages
+    - paragraphs.paragraphs_type.book_information
+id: paragraph.book_information.field_pages
+field_name: field_pages
+entity_type: paragraph
+bundle: book_information
+label: Pages
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 0
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

@@ -1,0 +1,23 @@
+uuid: 692f35bd-0b65-41bc-82d5-ec5e778f2ca5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_buy_now
+    - paragraphs.paragraphs_type.audio_information
+  module:
+    - link
+id: paragraph.audio_information.field_buy_now
+field_name: field_buy_now
+entity_type: paragraph
+bundle: audio_information
+label: 'Buy now'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 16
+  title: 0
+field_type: link

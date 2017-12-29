@@ -22,8 +22,8 @@ id: node.product.body
 field_name: body
 entity_type: node
 bundle: product
-label: Body
-description: ''
+label: 'General description'
+description: 'This text is shared across all product types.'
 required: false
 translatable: true
 default_value: {  }
