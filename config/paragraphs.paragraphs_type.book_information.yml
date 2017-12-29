@@ -1,9 +1,0 @@
-uuid: 03bfe75f-164c-48d9-8c7d-4a51dc593d2c
-langcode: en
-status: true
-dependencies: {  }
-id: book_information
-label: 'Book information'
-icon_uuid: null
-description: 'Adds fields to store information about a physical (usually hardcopy) book.'
-behavior_plugins: {  }

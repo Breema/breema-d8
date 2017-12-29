@@ -1,9 +1,0 @@
-uuid: a8e6319f-c713-4571-bdd3-2e89c1d8fb6c
-langcode: en
-status: true
-dependencies: {  }
-id: audio_information
-label: 'Audio information'
-icon_uuid: null
-description: 'Adds fields to store information about an audio recording.'
-behavior_plugins: {  }

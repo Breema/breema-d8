@@ -5,8 +5,6 @@ dependencies:
   config:
     - field.storage.node.field_product_info
     - node.type.product
-    - paragraphs.paragraphs_type.audio_information
-    - paragraphs.paragraphs_type.book_information
   module:
     - entity_reference_revisions
 id: node.product.field_product_info
@@ -24,13 +22,4 @@ settings:
   handler_settings:
     negate: 0
     target_bundles:
-      audio_information: audio_information
-      book_information: book_information
-    target_bundles_drag_drop:
-      audio_information:
-        enabled: true
-        weight: 3
-      book_information:
-        enabled: true
-        weight: 4
 field_type: entity_reference_revisions
