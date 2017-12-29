@@ -42,3 +42,16 @@ function breema_migrate_certification($source) {
   }
   return $certification;
 }
+
+/**
+ * Migration callback function to set roles based on certification fields.
+ */
+function breema_migrate_map_certification_to_roles($source) {
+  // By default, all entries are certified practitioners.
+  $roles = ['practitioner'];
+  if ($source != '---') {
+    // If *any* of the instructor certification columns are set that's enough.
+    $roles[] = 'instructor';
+  }
+  return $roles;
+}

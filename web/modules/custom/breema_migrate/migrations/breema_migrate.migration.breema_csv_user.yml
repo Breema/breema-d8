@@ -35,6 +35,19 @@ process:
       - last_name
     delimiter: ' '
   mail: email
+  roles:
+    -
+      plugin: concat
+      delimiter: '-'
+      source:
+        - self_breema_provisional
+        - self_breema_full
+        - instructor_provisional
+        - instructor_full
+    -
+      plugin: callback
+      callable: breema_migrate_map_certification_to_roles
+
 destination:
   # Here we're saying that each row of data (line from the CSV file) will be
   # used to create a user entity.
