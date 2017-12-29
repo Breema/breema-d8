@@ -67,7 +67,7 @@ content:
     region: content
   field_ebook_amazon_kindle:
     weight: 7
-    label: above
+    label: hidden
     settings:
       trim_length: 80
       url_only: false
@@ -79,7 +79,7 @@ content:
     region: content
   field_ebook_apple_ibooks:
     weight: 8
-    label: above
+    label: hidden
     settings:
       trim_length: 80
       url_only: false
@@ -91,7 +91,7 @@ content:
     region: content
   field_ebook_barnes_noble:
     weight: 9
-    label: above
+    label: hidden
     settings:
       trim_length: 80
       url_only: false
@@ -103,7 +103,7 @@ content:
     region: content
   field_ebook_copia:
     weight: 10
-    label: above
+    label: hidden
     settings:
       trim_length: 80
       url_only: false
@@ -115,7 +115,7 @@ content:
     region: content
   field_ebook_kobo:
     weight: 11
-    label: above
+    label: hidden
     settings:
       trim_length: 80
       url_only: false

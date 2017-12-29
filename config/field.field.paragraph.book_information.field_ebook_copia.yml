@@ -12,7 +12,7 @@ field_name: field_ebook_copia
 entity_type: paragraph
 bundle: book_information
 label: 'Copia eBooks'
-description: ''
+description: 'For example <em>http://www.thecopia.com/catalog/details.html?catId=15855061</em>.'
 required: false
 translatable: false
 default_value: {  }

@@ -12,7 +12,7 @@ field_name: field_ebook_barnes_noble
 entity_type: paragraph
 bundle: book_information
 label: 'Barnes & Noble'
-description: ''
+description: 'For example <em>https://www.barnesandnoble.com/w/the-four-relationships-and-other-essential-insights-jon-schreiber/1119118474</em>.'
 required: false
 translatable: false
 default_value: {  }

@@ -12,7 +12,7 @@ field_name: field_ebook_amazon_kindle
 entity_type: paragraph
 bundle: book_information
 label: 'Amazon Kindle'
-description: ''
+description: 'For example <em>https://www.amazon.com/Four-Relationships-Other-Essential-Insights-ebook/dp/B00JH1PD9Q</em>.'
 required: false
 translatable: false
 default_value: {  }

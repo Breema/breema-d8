@@ -12,7 +12,7 @@ field_name: field_ebook_kobo
 entity_type: paragraph
 bundle: book_information
 label: 'Kobo eBooks'
-description: ''
+description: 'For example <em>https://www.kobo.com/us/en/ebook/the-four-relationships-and-other-essential-insights</em>.'
 required: false
 translatable: false
 default_value: {  }

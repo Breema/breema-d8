@@ -12,7 +12,7 @@ field_name: field_ebook_apple_ibooks
 entity_type: paragraph
 bundle: book_information
 label: 'Apple iBooks'
-description: ''
+description: 'For example <em>https://itunes.apple.com/us/book/four-relationships-other-essential/id854557981</em>.'
 required: false
 translatable: false
 default_value: {  }

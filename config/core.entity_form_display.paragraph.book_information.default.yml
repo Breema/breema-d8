@@ -19,7 +19,28 @@ dependencies:
     - paragraphs.paragraphs_type.book_information
   module:
     - entity_browser
+    - field_group
     - link
+third_party_settings:
+  field_group:
+    group_ebook_links:
+      children:
+        - field_ebook_amazon_kindle
+        - field_ebook_apple_ibooks
+        - field_ebook_barnes_noble
+        - field_ebook_copia
+        - field_ebook_kobo
+      parent_name: ''
+      weight: 7
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        effect: none
+        open: false
+        required_fields: true
+      label: 'eBook links'
+      region: content
 id: paragraph.book_information.default
 targetEntityType: paragraph
 bundle: book_information
@@ -61,14 +82,6 @@ content:
     type: number
     region: content
   field_ebook_amazon_kindle:
-    weight: 7
-    settings:
-      placeholder_url: ''
-      placeholder_title: ''
-    third_party_settings: {  }
-    type: link_default
-    region: content
-  field_ebook_apple_ibooks:
     weight: 8
     settings:
       placeholder_url: ''
@@ -76,7 +89,7 @@ content:
     third_party_settings: {  }
     type: link_default
     region: content
-  field_ebook_barnes_noble:
+  field_ebook_apple_ibooks:
     weight: 9
     settings:
       placeholder_url: ''
@@ -84,7 +97,7 @@ content:
     third_party_settings: {  }
     type: link_default
     region: content
-  field_ebook_copia:
+  field_ebook_barnes_noble:
     weight: 10
     settings:
       placeholder_url: ''
@@ -92,8 +105,16 @@ content:
     third_party_settings: {  }
     type: link_default
     region: content
-  field_ebook_kobo:
+  field_ebook_copia:
     weight: 11
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_ebook_kobo:
+    weight: 12
     settings:
       placeholder_url: ''
       placeholder_title: ''
