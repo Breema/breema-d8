@@ -67,8 +67,8 @@ widgets:
       entity_type: media
       bundle: file
       form_mode: entity_browser
-      submit_text: 'Save document'
+      submit_text: 'Save file'
     uuid: c2f178e7-de55-4369-9c67-fee6ca2c11f0
     weight: -6
-    label: 'Add document'
+    label: 'Add file'
     id: entity_form
