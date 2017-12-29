@@ -1,0 +1,32 @@
+uuid: 1fa3f3ac-4738-4a84-9af1-f15ef253da2a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_other_info
+    - paragraphs.paragraphs_type.audio_information
+  module:
+    - geocoder_field
+third_party_settings:
+  geocoder_field:
+    method: none
+    field: parent_id
+    plugins: {  }
+    dumper: wkt
+    delta_handling: default
+    failure:
+      handling: preserve
+      status_message: true
+      log: true
+id: paragraph.audio_information.field_other_info
+field_name: field_other_info
+entity_type: paragraph
+bundle: audio_information
+label: 'Other info'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

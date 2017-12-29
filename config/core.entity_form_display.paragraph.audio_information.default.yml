@@ -7,6 +7,7 @@ dependencies:
     - field.field.paragraph.audio_information.field_buy_now
     - field.field.paragraph.audio_information.field_cover_image
     - field.field.paragraph.audio_information.field_cover_price
+    - field.field.paragraph.audio_information.field_other_info
     - field.field.paragraph.audio_information.field_special_price
     - paragraphs.paragraphs_type.audio_information
   module:
@@ -45,6 +46,14 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: number
+    region: content
+  field_other_info:
+    weight: 4
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
     region: content
   field_special_price:
     weight: 3

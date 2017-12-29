@@ -6,6 +6,7 @@ dependencies:
     - field.field.paragraph.audio_information.field_buy_now
     - field.field.paragraph.audio_information.field_cover_image
     - field.field.paragraph.audio_information.field_cover_price
+    - field.field.paragraph.audio_information.field_other_info
     - field.field.paragraph.audio_information.field_special_price
     - image.style.large
     - paragraphs.paragraphs_type.audio_information
@@ -18,7 +19,7 @@ bundle: audio_information
 mode: default
 content:
   field_buy_now:
-    weight: 3
+    weight: 4
     label: hidden
     settings:
       trim_length: 80
@@ -48,6 +49,14 @@ content:
       prefix_suffix: true
     third_party_settings: {  }
     type: number_decimal
+    region: content
+  field_other_info:
+    weight: 3
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
     region: content
   field_special_price:
     weight: 2
