@@ -2,6 +2,8 @@ uuid: 96a9e94f-a0ec-455e-93fa-954a1c5f5bde
 langcode: en
 status: true
 dependencies:
+  content:
+    - 'file:file:87acb97e-5e21-4c6c-8dc3-727f659a6da4'
   module:
     - entity_embed
     - media
@@ -17,4 +19,4 @@ type_settings:
   entity_browser: media_embed
   entity_browser_settings:
     display_review: false
-icon_uuid: null
+icon_uuid: 87acb97e-5e21-4c6c-8dc3-727f659a6da4
