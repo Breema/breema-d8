@@ -59,6 +59,16 @@ widgets:
     weight: -7
     label: 'Create new video'
     id: entity_form
+  ba738844-b106-43a6-a473-d9228d2fe84d:
+    settings:
+      entity_type: media
+      bundle: file
+      form_mode: entity_browser
+      submit_text: 'Save document'
+    uuid: ba738844-b106-43a6-a473-d9228d2fe84d
+    weight: -6
+    label: 'Create new document'
+    id: entity_form
   33d084dd-0e98-430a-bc4f-1775319629b4:
     settings:
       view: media_entity_browser
