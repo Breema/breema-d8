@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.book_information.field_book_type
     - field.field.paragraph.book_information.field_buy_now
     - field.field.paragraph.book_information.field_cover_image
     - field.field.paragraph.book_information.field_cover_price
@@ -14,13 +15,21 @@ dependencies:
   module:
     - link
     - media
+    - options
 id: paragraph.book_information.default
 targetEntityType: paragraph
 bundle: book_information
 mode: default
 content:
+  field_book_type:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
   field_buy_now:
-    weight: 5
+    weight: 6
     label: hidden
     settings:
       trim_length: 80
@@ -32,7 +41,7 @@ content:
     type: link
     region: content
   field_cover_image:
-    weight: 0
+    weight: 1
     label: hidden
     settings:
       image_style: medium
@@ -41,7 +50,7 @@ content:
     type: media_thumbnail
     region: content
   field_cover_price:
-    weight: 1
+    weight: 2
     label: inline
     settings:
       thousand_separator: ''
@@ -52,7 +61,7 @@ content:
     type: number_decimal
     region: content
   field_other_info:
-    weight: 4
+    weight: 5
     label: hidden
     settings:
       link_to_entity: false
@@ -60,7 +69,7 @@ content:
     type: string
     region: content
   field_pages:
-    weight: 3
+    weight: 4
     label: inline
     settings:
       thousand_separator: ''
@@ -69,7 +78,7 @@ content:
     type: number_integer
     region: content
   field_special_price:
-    weight: 2
+    weight: 3
     label: inline
     settings:
       thousand_separator: ''

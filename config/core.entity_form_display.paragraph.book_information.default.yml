@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - entity_browser.browser.image_browser
+    - field.field.paragraph.book_information.field_book_type
     - field.field.paragraph.book_information.field_buy_now
     - field.field.paragraph.book_information.field_cover_image
     - field.field.paragraph.book_information.field_cover_price
@@ -19,8 +20,14 @@ targetEntityType: paragraph
 bundle: book_information
 mode: default
 content:
-  field_buy_now:
+  field_book_type:
     weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_buy_now:
+    weight: 1
     settings:
       placeholder_url: ''
       placeholder_title: ''
@@ -28,7 +35,7 @@ content:
     type: link_default
     region: content
   field_cover_image:
-    weight: 1
+    weight: 2
     settings:
       entity_browser: image_browser
       field_widget_display: rendered_entity
@@ -42,14 +49,14 @@ content:
     type: entity_browser_entity_reference
     region: content
   field_cover_price:
-    weight: 2
+    weight: 3
     settings:
       placeholder: ''
     third_party_settings: {  }
     type: number
     region: content
   field_other_info:
-    weight: 5
+    weight: 6
     settings:
       size: 60
       placeholder: ''
@@ -57,14 +64,14 @@ content:
     type: string_textfield
     region: content
   field_pages:
-    weight: 4
+    weight: 5
     settings:
       placeholder: ''
     third_party_settings: {  }
     type: number
     region: content
   field_special_price:
-    weight: 3
+    weight: 4
     settings:
       placeholder: ''
     third_party_settings: {  }

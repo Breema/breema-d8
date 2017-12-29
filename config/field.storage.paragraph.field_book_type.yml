@@ -1,0 +1,31 @@
+uuid: 62663b80-6e23-4177-a80a-a8d61ecf696d
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - options
+    - paragraphs
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: paragraph.field_book_type
+field_name: field_book_type
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: hardcover
+      label: 'Hardcover Book'
+    -
+      value: softcover
+      label: 'Softcover Book'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
