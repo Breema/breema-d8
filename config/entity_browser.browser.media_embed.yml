@@ -32,26 +32,6 @@ widgets:
     weight: -10
     label: 'All media'
     id: view
-  6eea7af9-0310-4b02-a243-3eadc488a077:
-    settings:
-      view: media_entity_browser
-      view_display: user_media_select_modal
-      submit_text: 'Select media'
-      auto_select: false
-    uuid: 6eea7af9-0310-4b02-a243-3eadc488a077
-    weight: -9
-    label: 'My media'
-    id: view
-  c2f178e7-de55-4369-9c67-fee6ca2c11f0:
-    settings:
-      entity_type: media
-      bundle: file
-      form_mode: entity_browser
-      submit_text: 'Save document'
-    uuid: c2f178e7-de55-4369-9c67-fee6ca2c11f0
-    weight: -6
-    label: 'Add document'
-    id: entity_form
   cb00f8fd-d94b-49e8-8673-4dbb729208ed:
     settings:
       entity_type: media
@@ -71,4 +51,24 @@ widgets:
     uuid: cae01553-a751-4172-920a-6b720d788919
     weight: -7
     label: 'Add video'
+    id: entity_form
+  6eea7af9-0310-4b02-a243-3eadc488a077:
+    settings:
+      view: media_entity_browser
+      view_display: user_media_select_modal
+      submit_text: 'Select media'
+      auto_select: false
+    uuid: 6eea7af9-0310-4b02-a243-3eadc488a077
+    weight: -9
+    label: 'My media'
+    id: view
+  c2f178e7-de55-4369-9c67-fee6ca2c11f0:
+    settings:
+      entity_type: media
+      bundle: file
+      form_mode: entity_browser
+      submit_text: 'Save document'
+    uuid: c2f178e7-de55-4369-9c67-fee6ca2c11f0
+    weight: -6
+    label: 'Add document'
     id: entity_form
