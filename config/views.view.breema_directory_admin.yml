@@ -1674,7 +1674,7 @@ display:
           empty: true
           tokenize: false
           content:
-            value: '<ul class="action-links"><li><a href="/node/add/directory-entry" class="button button-action button--primary">Add new directory entry</a></li></ul>'
+            value: '<ul class="action-links"><li><a href="[site:url]node/add/directory_entry" class="button button-action button--primary">Add new directory entry</a></li></ul>'
             format: full_html
           plugin_id: text
       footer: {  }
