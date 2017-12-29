@@ -15,7 +15,7 @@ display: modal
 display_configuration:
   width: '1070'
   height: '840'
-  link_text: 'Select images/videos'
+  link_text: 'Select media'
   auto_open: false
 selection_display: no_display
 selection_display_configuration:
@@ -32,12 +32,12 @@ widgets:
   ba1f9922-a2a8-4b76-b076-b2db03daa016:
     settings:
       view: media_entity_browser
-      view_display: entity_browser_1
+      view_display: media_select_modal
       submit_text: 'Select media'
       auto_select: false
     uuid: ba1f9922-a2a8-4b76-b076-b2db03daa016
     weight: -10
-    label: 'Choose existing'
+    label: 'All media'
     id: view
   cb00f8fd-d94b-49e8-8673-4dbb729208ed:
     settings:
@@ -46,7 +46,7 @@ widgets:
       form_mode: entity_browser
       submit_text: 'Save image'
     uuid: cb00f8fd-d94b-49e8-8673-4dbb729208ed
-    weight: -9
+    weight: -8
     label: 'Create new image'
     id: entity_form
   cae01553-a751-4172-920a-6b720d788919:
@@ -56,6 +56,16 @@ widgets:
       form_mode: entity_browser
       submit_text: 'Save video'
     uuid: cae01553-a751-4172-920a-6b720d788919
-    weight: -8
+    weight: -7
     label: 'Create new video'
     id: entity_form
+  33d084dd-0e98-430a-bc4f-1775319629b4:
+    settings:
+      view: media_entity_browser
+      view_display: user_media_select_modal
+      submit_text: 'Select media'
+      auto_select: false
+    uuid: 33d084dd-0e98-430a-bc4f-1775319629b4
+    weight: -9
+    label: 'My media'
+    id: view
