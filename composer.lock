@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "d801f56faa8db4c48cc44d0a67d8aa6d",
+    "content-hash": "bef9a4a0cdb72e1adb23404bb35b6249",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -2947,6 +2947,9 @@
                         "status": "not-covered",
                         "message": "Alpha releases are not covered by Drupal security advisories."
                     }
+                },
+                "patches_applied": {
+                    "[#2933124-4] Provide tabs for 'My media' and 'All media'": "https://www.drupal.org/files/issues/2933124-4.media_entity_browser_my_media.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",

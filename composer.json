@@ -107,6 +107,9 @@
       },
       "drupal/inline_entity_form": {
         "[#2729333-7] Can't select a default bundle when using entity reference views" : "https://www.drupal.org/files/issues/2729333-ief-bundle-selection-erv-7.patch"
+      },
+      "drupal/media_entity_browser": {
+        "[#2933124-4] Provide tabs for 'My media' and 'All media'" : "https://www.drupal.org/files/issues/2933124-4.media_entity_browser_my_media.patch"
       }
     },
     "installer-paths": {
