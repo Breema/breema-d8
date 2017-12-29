@@ -1,0 +1,23 @@
+uuid: c2c6d116-41bf-4371-aeb6-4b43b86a0a46
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_special_price
+    - paragraphs.paragraphs_type.product_info_audio
+id: paragraph.product_info_audio.field_special_price
+field_name: field_special_price
+entity_type: paragraph
+bundle: product_info_audio
+label: 'Special price'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: !!float 0
+  max: null
+  prefix: $
+  suffix: ''
+field_type: decimal

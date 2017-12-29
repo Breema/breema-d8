@@ -1,0 +1,23 @@
+uuid: 3c7d299e-0de9-4ac2-b100-057831d87b83
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_ebook_kobo
+    - paragraphs.paragraphs_type.product_info_book
+  module:
+    - link
+id: paragraph.product_info_book.field_ebook_kobo
+field_name: field_ebook_kobo
+entity_type: paragraph
+bundle: product_info_book
+label: 'Kobo eBooks'
+description: 'For example <em>https://www.kobo.com/us/en/ebook/the-four-relationships-and-other-essential-insights</em>.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 16
+  title: 0
+field_type: link

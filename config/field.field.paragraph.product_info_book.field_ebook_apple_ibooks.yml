@@ -1,0 +1,23 @@
+uuid: 00d1f7cd-2546-4b6b-8f84-15eabe68bbaf
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_ebook_apple_ibooks
+    - paragraphs.paragraphs_type.product_info_book
+  module:
+    - link
+id: paragraph.product_info_book.field_ebook_apple_ibooks
+field_name: field_ebook_apple_ibooks
+entity_type: paragraph
+bundle: product_info_book
+label: 'Apple iBooks'
+description: 'For example <em>https://itunes.apple.com/us/book/four-relationships-other-essential/id854557981</em>.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 16
+  title: 0
+field_type: link

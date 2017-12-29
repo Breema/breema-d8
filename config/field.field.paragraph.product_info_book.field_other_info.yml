@@ -1,0 +1,32 @@
+uuid: 73989a57-fbe7-4d92-aead-1bd3c42fe43d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_other_info
+    - paragraphs.paragraphs_type.product_info_book
+  module:
+    - geocoder_field
+third_party_settings:
+  geocoder_field:
+    method: none
+    field: parent_id
+    plugins: {  }
+    dumper: wkt
+    delta_handling: default
+    failure:
+      handling: preserve
+      status_message: true
+      log: true
+id: paragraph.product_info_book.field_other_info
+field_name: field_other_info
+entity_type: paragraph
+bundle: product_info_book
+label: 'Other info'
+description: 'For example: 5"x7.25"'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

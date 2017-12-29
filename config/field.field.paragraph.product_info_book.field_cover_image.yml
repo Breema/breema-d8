@@ -1,0 +1,28 @@
+uuid: 0e1017f1-9af5-4aab-ac95-7f7e9a848cd1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_cover_image
+    - media.type.image
+    - paragraphs.paragraphs_type.product_info_book
+id: paragraph.product_info_book.field_cover_image
+field_name: field_cover_image
+entity_type: paragraph
+bundle: product_info_book
+label: 'Cover image'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

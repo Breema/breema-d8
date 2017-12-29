@@ -1,0 +1,23 @@
+uuid: 414d1b8b-988a-43b0-9e70-ccb35f70046c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_ebook_barnes_noble
+    - paragraphs.paragraphs_type.product_info_book
+  module:
+    - link
+id: paragraph.product_info_book.field_ebook_barnes_noble
+field_name: field_ebook_barnes_noble
+entity_type: paragraph
+bundle: product_info_book
+label: 'Barnes & Noble'
+description: 'For example <em>https://www.barnesandnoble.com/w/the-four-relationships-and-other-essential-insights-jon-schreiber/1119118474</em>.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 16
+  title: 0
+field_type: link

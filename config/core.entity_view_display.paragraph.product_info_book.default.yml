@@ -1,0 +1,168 @@
+uuid: fbf7e2fd-7742-446d-b01e-3b9442fc27ba
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.product_info_book.field_book_type
+    - field.field.paragraph.product_info_book.field_buy_now
+    - field.field.paragraph.product_info_book.field_cover_image
+    - field.field.paragraph.product_info_book.field_cover_price
+    - field.field.paragraph.product_info_book.field_ebook_amazon_kindle
+    - field.field.paragraph.product_info_book.field_ebook_apple_ibooks
+    - field.field.paragraph.product_info_book.field_ebook_barnes_noble
+    - field.field.paragraph.product_info_book.field_ebook_copia
+    - field.field.paragraph.product_info_book.field_ebook_kobo
+    - field.field.paragraph.product_info_book.field_other_info
+    - field.field.paragraph.product_info_book.field_pages
+    - field.field.paragraph.product_info_book.field_special_price
+    - image.style.medium
+    - paragraphs.paragraphs_type.product_info_book
+  module:
+    - fixed_text_link_formatter
+    - media
+    - options
+id: paragraph.product_info_book.default
+targetEntityType: paragraph
+bundle: product_info_book
+mode: default
+content:
+  field_book_type:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_buy_now:
+    weight: 6
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+      link_text: 'Buy now'
+      allow_override: false
+    third_party_settings: {  }
+    type: fixed_text_link
+    region: content
+  field_cover_image:
+    weight: 1
+    label: hidden
+    settings:
+      image_style: medium
+      image_link: ''
+    third_party_settings: {  }
+    type: media_thumbnail
+    region: content
+  field_cover_price:
+    weight: 2
+    label: inline
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_decimal
+    region: content
+  field_ebook_amazon_kindle:
+    weight: 7
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+      link_text: 'Amazon Kindle'
+      allow_override: false
+    third_party_settings: {  }
+    type: fixed_text_link
+    region: content
+  field_ebook_apple_ibooks:
+    weight: 8
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+      link_text: 'Apple iBooks'
+      allow_override: false
+    third_party_settings: {  }
+    type: fixed_text_link
+    region: content
+  field_ebook_barnes_noble:
+    weight: 9
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+      link_text: 'Barnes & Noble'
+      allow_override: false
+    third_party_settings: {  }
+    type: fixed_text_link
+    region: content
+  field_ebook_copia:
+    weight: 10
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+      link_text: 'Copia eBooks'
+      allow_override: false
+    third_party_settings: {  }
+    type: fixed_text_link
+    region: content
+  field_ebook_kobo:
+    weight: 11
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+      link_text: 'Kobo eBooks'
+      allow_override: false
+    third_party_settings: {  }
+    type: fixed_text_link
+    region: content
+  field_other_info:
+    weight: 5
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_pages:
+    weight: 4
+    label: inline
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  field_special_price:
+    weight: 3
+    label: inline
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_decimal
+    region: content
+hidden: {  }
