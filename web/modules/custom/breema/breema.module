@@ -49,24 +49,20 @@ function breema_views_pre_render(Drupal\views\ViewExecutable $view) {
 }
 
 /**
- * Implements hook_form_FORM_ID_alter() for 'entity_browser_media_embed_form'
+ * Implements hook_form_alter()
  *
  * Sets an #after_build callback on media entity forms to hide revision log.
  */
-function breema_form_entity_browser_media_embed_form_alter(&$form, FormStateInterface $form_state) {
-  if (!empty($form['widget'])) {
-    $form['widget']['#after_build'][] = 'breema_entity_browser_media_after_build';
-  }
-}
-
-/**
- * Implements hook_form_FORM_ID_alter() for 'entity_browser_media_browser_form'.
- *
- * Sets an #after_build callback on media entity forms to hide revision log.
- */
-function breema_form_entity_browser_media_browser_form_alter(&$form, FormStateInterface $form_state) {
-  if (!empty($form['widget'])) {
-    $form['widget']['#after_build'][] = 'breema_entity_browser_media_after_build';
+function breema_form_alter(&$form, FormStateInterface $form_state) {
+  switch ($form['#form_id']) {
+    case 'entity_browser_image_browser_form':
+    case 'entity_browser_image_embed_form':
+    case 'entity_browser_media_browser_form':
+    case 'entity_browser_media_embed_form':
+      if (!empty($form['widget'])) {
+        $form['widget']['#after_build'][] = 'breema_entity_browser_media_after_build';
+      }
+      break;
   }
 }
 
