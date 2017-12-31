@@ -5,7 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.media.preview
     - field.field.media.video.field_media_video_embed_field
-    - image.style.medium
+    - image.style.thumbnail
     - media.type.video
   module:
     - image
@@ -30,8 +30,8 @@ content:
     region: content
     label: hidden
     settings:
-      image_style: medium
-      image_link: ''
+      image_style: thumbnail
+      image_link: content
     third_party_settings: {  }
 hidden:
   created: true
