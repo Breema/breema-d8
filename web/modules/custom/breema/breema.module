@@ -86,7 +86,6 @@ function breema_entity_browser_media_after_build($form_element, FormStateInterfa
 function breema_form_node_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state) {
   $node = $form_state->getFormObject()->getEntity();
   if ($node->bundle() == 'directory_entry') {
-
     $author = $node->get('uid')->getValue();
     $author_uid = $author[0]['target_id'];
     $current_page = Url::fromRoute('<current>');
@@ -116,6 +115,17 @@ function breema_form_node_form_alter(&$form, \Drupal\Core\Form\FormStateInterfac
       ];
     }
   }
+  else if ($node->bundle() == 'product') {
+    $form['field_by']['widget'][0]['#after_build'][] = 'breema_product_node_form_after_build';
+  }
+}
+
+/**
+ * #after_build callback for field_by on product nodes.
+ */
+function breema_product_node_form_after_build($form_element, FormStateInterface $form_state) {
+  $form_element['format']['#access'] = FALSE;
+  return $form_element;
 }
 
 /**
