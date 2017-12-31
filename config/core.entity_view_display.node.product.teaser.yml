@@ -5,9 +5,13 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.product.body
+    - field.field.node.product.field_by
+    - field.field.node.product.field_main_image
     - field.field.node.product.field_product_info
+    - image.style.thumbnail
     - node.type.product
   module:
+    - media
     - text
     - user
 id: node.product.teaser
@@ -18,13 +22,29 @@ content:
   body:
     label: hidden
     type: text_summary_or_trimmed
-    weight: 0
+    weight: 2
     settings:
-      trim_length: 600
+      trim_length: 300
     third_party_settings: {  }
     region: content
-  links:
+  field_by:
+    type: text_default
     weight: 1
+    region: content
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+  field_main_image:
+    type: media_thumbnail
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      image_style: thumbnail
+      image_link: content
+    third_party_settings: {  }
+  links:
+    weight: 3
     region: content
     settings: {  }
     third_party_settings: {  }

@@ -1,0 +1,36 @@
+uuid: b64904c3-2323-4f0d-859c-ba3c2906147b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_by
+    - node.type.product
+  module:
+    - geocoder_field
+    - text
+third_party_settings:
+  geocoder_field:
+    method: none
+    field: title
+    plugins: {  }
+    dumper: wkt
+    delta_handling: default
+    failure:
+      handling: preserve
+      status_message: true
+      log: true
+id: node.product.field_by
+field_name: field_by
+entity_type: node
+bundle: product
+label: By
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: '<a href="/about-center/jon-schreiber">Jon Schreiber</a>'
+    format: restricted_html
+default_value_callback: ''
+settings: {  }
+field_type: text
