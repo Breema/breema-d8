@@ -1,0 +1,23 @@
+uuid: 303b9c95-d88f-4090-840d-d0667b2e6259
+langcode: en
+status: true
+dependencies:
+  module:
+    - ctools
+    - media
+id: media_video
+label: 'media: Video'
+type: 'canonical_entities:media'
+pattern: 'video/[media:name]'
+selection_criteria:
+  7b4871d0-dc32-4057-8038-78644a26e5c8:
+    id: 'entity_bundle:media'
+    bundles:
+      video: video
+    negate: false
+    context_mapping:
+      media: media
+    uuid: 7b4871d0-dc32-4057-8038-78644a26e5c8
+selection_logic: and
+weight: -5
+relationships: {  }
