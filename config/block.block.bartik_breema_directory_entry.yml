@@ -1,4 +1,4 @@
-uuid: 6756261d-c2ad-4dd2-bd2c-2ef19aaa651c
+uuid: 488c0a93-51dc-4567-8f8d-75a49b46902f
 langcode: en
 status: true
 dependencies:
@@ -8,7 +8,7 @@ dependencies:
     - user
   theme:
     - bartik
-id: breema_directory_entry
+id: bartik_breema_directory_entry
 theme: bartik
 region: sidebar_first
 weight: 0
