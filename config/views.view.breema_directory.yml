@@ -1177,22 +1177,22 @@ display:
               weight: -10
               enable: false
             fit_bounds:
-              enable: true
               weight: -9
+              enable: false
             client_location:
-              enable: true
               weight: -8
+              enable: false
               settings:
                 update_map: '0'
-            fixed_value:
+            boundary_filter_field_geolocation_boundary:
               enable: true
               weight: -7
+            fixed_value:
+              enable: true
+              weight: -6
               settings:
                 latitude: '-20'
                 longitude: '0'
-            boundary_filter_field_geolocation_boundary:
-              enable: true
-              weight: 0
           show_raw_locations: 1
           max_raw_locations: 300
           raw_locations_per_page: 20
@@ -1209,7 +1209,7 @@ display:
             height: 500px
             width: 100%
             type: ROADMAP
-            zoom: '10'
+            zoom: '2'
             maxZoom: 15
             minZoom: 0
             mapTypeControl: 1
