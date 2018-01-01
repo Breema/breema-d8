@@ -15,7 +15,10 @@ type_id: entity
 type_settings:
   entity_type: media
   bundles: {  }
-  display_plugins: {  }
+  display_plugins:
+    - 'view_mode:media.full'
+    - 'view_mode:media.view_large'
+    - 'view_mode:media.view_medium'
   entity_browser: media_embed
   entity_browser_settings:
     display_review: false
