@@ -1,0 +1,10 @@
+uuid: 138bab53-836b-4353-8be3-c23198f54092
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.view_medium
+label: 'View: Medium (220x220)'
+targetEntityType: media
+cache: true

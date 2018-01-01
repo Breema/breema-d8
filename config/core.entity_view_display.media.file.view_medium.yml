@@ -1,36 +1,29 @@
-uuid: 605bf50a-7e9e-4145-a940-d1297fde7cec
+uuid: 316c2779-5db7-4800-b745-5fea54d09159
 langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.media.preview
+    - core.entity_view_mode.media.view_medium
     - field.field.media.file.field_media_file
     - media.type.file
   module:
     - file
 _core:
   default_config_hash: ur5IEgEgeoNAE7ppqt6usimLP8WHe6WPKuZul582QUM
-id: media.file.preview
+id: media.file.view_medium
 targetEntityType: media
 bundle: file
-mode: preview
+mode: view_medium
 content:
   field_media_file:
     label: visually_hidden
     settings: {  }
     third_party_settings: {  }
     type: file_default
-    weight: 1
-    region: content
-  name:
-    type: string
     weight: 0
     region: content
-    label: hidden
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
 hidden:
   created: true
+  name: true
   thumbnail: true
   uid: true

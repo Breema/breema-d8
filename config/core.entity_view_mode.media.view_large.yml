@@ -1,0 +1,10 @@
+uuid: 23320c91-ef7d-4fcf-8a38-4b480cc0cdf7
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.view_large
+label: 'View: Large (480x480)'
+targetEntityType: media
+cache: true
