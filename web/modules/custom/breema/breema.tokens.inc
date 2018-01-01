@@ -17,6 +17,10 @@ function breema_token_info() {
     'name' => t('Password page'),
     'description' => t("The URL of the site's password reset page."),
   ];
+  $info['tokens']['node']['merged-title'] = [
+    'name' => t('Merged title'),
+    'description' => t('Main title with subtitle appended (if present).'),
+  ];
   return $info;
 }
 
@@ -37,6 +41,16 @@ function breema_tokens($type, $tokens, array $data, array $options, BubbleableMe
       }
     }
   }   
-  // Return the replacements.
+  else if ($type == 'node' && !empty($data['node'])) {
+    /** @var \Drupal\node\NodeInterface $node */
+    $node = $data['node'];
+    foreach ($tokens as $name => $original) {
+      switch ($name) {
+        case 'merged-title':
+          $replacements[$original] = breema_merge_titles($node);
+          break;
+      }
+    }
+  }
   return $replacements;
 }

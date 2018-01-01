@@ -6,6 +6,7 @@
  */
 
 use Drupal\Core\Access\AccessResult;
+use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Render\Element;
 use Drupal\Core\Routing\RouteMatchInterface;
@@ -248,4 +249,22 @@ function breema_entity_create_access(AccountInterface $account, array $context, 
     }
   }
   return AccessResult::neutral();
+}
+
+/**
+ * Creates a merged title with the main title and optional subtitle.
+ */
+function breema_merge_titles(\Drupal\node\NodeInterface $node) {
+  $merged_title = '';
+  if ($node->hasField('field_title_main')) {
+    $main_title = $node->get('field_title_main')->getValue();
+    $merged_title = $main_title[0]['value'];
+    if ($node->hasField('field_title_sub')) {
+      $subtitle = $node->get('field_title_sub')->getValue();
+      if (!empty($subtitle)) {
+        $merged_title .= ': ' . $subtitle[0]['value'];
+      }
+    }
+  }
+  return $merged_title;
 }
