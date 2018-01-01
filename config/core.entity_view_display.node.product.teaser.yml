@@ -8,6 +8,8 @@ dependencies:
     - field.field.node.product.field_by
     - field.field.node.product.field_main_image
     - field.field.node.product.field_product_info
+    - field.field.node.product.field_title_main
+    - field.field.node.product.field_title_sub
     - image.style.thumbnail
     - node.type.product
   module:
@@ -50,3 +52,5 @@ content:
     third_party_settings: {  }
 hidden:
   field_product_info: true
+  field_title_main: true
+  field_title_sub: true

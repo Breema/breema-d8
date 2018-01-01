@@ -7,6 +7,8 @@ dependencies:
     - field.field.node.product.field_by
     - field.field.node.product.field_main_image
     - field.field.node.product.field_product_info
+    - field.field.node.product.field_title_main
+    - field.field.node.product.field_title_sub
     - image.style.large
     - node.type.product
   module:
@@ -22,19 +24,19 @@ content:
   body:
     label: hidden
     type: text_default
-    weight: 2
+    weight: 4
     settings: {  }
     third_party_settings: {  }
     region: content
   field_by:
-    weight: 0
+    weight: 2
     label: inline
     settings: {  }
     third_party_settings: {  }
     type: text_default
     region: content
   field_main_image:
-    weight: 3
+    weight: 5
     label: hidden
     settings:
       image_style: large
@@ -44,15 +46,31 @@ content:
     region: content
   field_product_info:
     type: entity_reference_revisions_entity_view
-    weight: 1
+    weight: 3
     label: hidden
     settings:
       view_mode: default
       link: ''
     third_party_settings: {  }
     region: content
+  field_title_main:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_title_sub:
+    weight: 1
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
   links:
-    weight: 4
+    weight: 6
     region: content
     settings: {  }
     third_party_settings: {  }

@@ -1,0 +1,32 @@
+uuid: 807a2403-3a33-45cf-a632-7a269b3a11d6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_title_main
+    - node.type.product
+  module:
+    - geocoder_field
+third_party_settings:
+  geocoder_field:
+    method: none
+    field: title
+    plugins: {  }
+    dumper: wkt
+    delta_handling: default
+    failure:
+      handling: preserve
+      status_message: true
+      log: true
+id: node.product.field_title_main
+field_name: field_title_main
+entity_type: node
+bundle: product
+label: 'Main title'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
