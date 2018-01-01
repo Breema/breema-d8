@@ -10,10 +10,9 @@ dependencies:
     - field.field.node.product.field_product_info
     - field.field.node.product.field_title_main
     - field.field.node.product.field_title_sub
-    - image.style.thumbnail
     - node.type.product
   module:
-    - media
+    - entity_reference_revisions
     - text
     - user
 id: node.product.teaser
@@ -21,36 +20,29 @@ targetEntityType: node
 bundle: product
 mode: teaser
 content:
-  body:
-    label: hidden
-    type: text_summary_or_trimmed
-    weight: 2
-    settings:
-      trim_length: 300
-    third_party_settings: {  }
-    region: content
   field_by:
     type: text_default
-    weight: 1
+    weight: 0
     region: content
     label: inline
     settings: {  }
     third_party_settings: {  }
-  field_main_image:
-    type: media_thumbnail
-    weight: 0
+  field_product_info:
+    type: entity_reference_revisions_entity_view
+    weight: 1
     region: content
     label: hidden
     settings:
-      image_style: thumbnail
-      image_link: content
+      view_mode: default
+      link: ''
     third_party_settings: {  }
   links:
-    weight: 3
+    weight: 2
     region: content
     settings: {  }
     third_party_settings: {  }
 hidden:
-  field_product_info: true
+  body: true
+  field_main_image: true
   field_title_main: true
   field_title_sub: true
