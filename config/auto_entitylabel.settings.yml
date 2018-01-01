@@ -1,3 +1,6 @@
 node_type_directory_entry_status: '1'
 node_type_directory_entry_pattern: '[node:field_name_first] [node:field_name_last]'
 node_type_directory_entry_php: 0
+node_type_product_status: '1'
+node_type_product_pattern: '[node:merged-title]'
+node_type_product_php: 0
