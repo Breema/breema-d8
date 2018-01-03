@@ -20,8 +20,8 @@ dependencies:
     - address
     - geolocation
     - options
+    - smart_trim
     - telephone
-    - text
     - user
 id: node.directory_entry.default
 targetEntityType: node
@@ -30,9 +30,18 @@ mode: default
 content:
   body:
     label: hidden
-    type: text_default
+    type: smart_trim
     weight: 7
-    settings: {  }
+    settings:
+      trim_length: '500'
+      trim_type: chars
+      trim_suffix: ''
+      more_link: '0'
+      more_text: More
+      summary_handler: ignore
+      trim_options:
+        text: 0
+      more_class: more-link
     third_party_settings: {  }
     region: content
   field_address:
