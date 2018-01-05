@@ -195,6 +195,9 @@ function breema_form_views_exposed_form_alter(&$form, \Drupal\Core\Form\FormStat
           ],
         ];
       }
+      if (!empty($form['langcode'])) {
+        $form['langcode']['#access'] = FALSE;
+      }
       break;
   }
 }
