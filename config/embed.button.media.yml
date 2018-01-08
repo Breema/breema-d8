@@ -16,7 +16,7 @@ type_settings:
   entity_type: media
   bundles: {  }
   display_plugins:
-    - 'view_mode:media.full'
+    - 'view_mode:media.view_full'
     - 'view_mode:media.view_large'
     - 'view_mode:media.view_medium'
   entity_browser: media_embed
