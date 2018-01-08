@@ -26,6 +26,7 @@ module:
   field_permissions: 0
   field_ui: 0
   file: 0
+  filefield_paths: 0
   filter: 0
   fixed_text_link_formatter: 0
   geocoder: 0
