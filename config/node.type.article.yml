@@ -2,6 +2,10 @@ uuid: 6bdca84f-e3e2-4da6-9077-e13a917e3c2b
 langcode: en
 status: true
 dependencies: {  }
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
 _core:
   default_config_hash: AeW1SEDgb1OTQACAWGhzvMknMYAJlcZu0jljfeU3oso
 name: Article
