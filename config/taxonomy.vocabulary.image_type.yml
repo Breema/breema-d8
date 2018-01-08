@@ -1,0 +1,9 @@
+uuid: 29e37b7f-a609-4635-a2e7-f2416a9e79d5
+langcode: en
+status: true
+dependencies: {  }
+name: 'Image type'
+vid: image_type
+description: ''
+hierarchy: 0
+weight: 0
