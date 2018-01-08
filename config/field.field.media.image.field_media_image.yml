@@ -9,7 +9,26 @@ dependencies:
     module:
       - media
   module:
+    - filefield_paths
     - image
+third_party_settings:
+  filefield_paths:
+    enabled: true
+    file_path:
+      value: 'image/[media:field_image_type]/[date:custom:Y]-[date:custom:m]'
+      options:
+        slashes: true
+        pathauto: true
+        transliterate: true
+    redirect: true
+    retroactive_update: false
+    active_updating: false
+    file_name:
+      value: '[file:ffp-name-only-original].[file:ffp-extension-original]'
+      options:
+        slashes: true
+        pathauto: true
+        transliterate: true
 _core:
   default_config_hash: pzPA-2JwyxlJ3qMb4L9viAnhNhbEhl2couH8A3FO020
 id: media.image.field_media_image
