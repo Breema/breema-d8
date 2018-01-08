@@ -1,0 +1,10 @@
+uuid: a23055f6-e8b5-424f-a662-731193ebf5d2
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.view_full
+label: 'View: Full'
+targetEntityType: media
+cache: true
