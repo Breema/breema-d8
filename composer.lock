@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "eae70c82b52f67c2f158b71fec37e2fb",
+    "content-hash": "bc517d25c3931ebeb7709bb7afe93fe3",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -2811,6 +2811,9 @@
                         "status": "not-covered",
                         "message": "Dev releases are not covered by Drupal security advisories."
                     }
+                },
+                "patches_applied": {
+                    "[#2718783-13] Call to undefined method BaseFieldDefinition::getThirdPartySettings()": "https://www.drupal.org/files/issues/call_to_undefined-2718783-13.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",

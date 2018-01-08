@@ -106,6 +106,9 @@
         "[#2796393-28] Migration process plugin not working with multiple source IDs" : "https://www.drupal.org/files/issues/2796393-28.patch",
         "[#2866386-4] 'view_path' is set to /views/ajax after second ajax request" : "https://www.drupal.org/files/issues/2866386-4.patch"
       },
+      "drupal/filefield_paths": {
+        "[#2718783-13] Call to undefined method BaseFieldDefinition::getThirdPartySettings()" : "https://www.drupal.org/files/issues/call_to_undefined-2718783-13.patch"
+      },
       "drupal/geolocation": {
         "[#2921121-2] Empty h2 markup when locations don't use a 'title' field" : "https://www.drupal.org/files/issues/2921121-1.hide-location-title-completely.patch",
         "[#2921437-9] Provide simple JS pager for raw results on Google common map display" : "https://www.drupal.org/files/issues/2921437-9.raw-location-js-pager.patch",
