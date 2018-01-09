@@ -1,5 +1,5 @@
 id: breema_csv_directory_entry
-label: Directory entries from CSV data dump
+label: Directory entry nodes from CSV data dump
 migration_tags:
   - Breema CSV
 source:
@@ -40,6 +40,9 @@ process:
   type:
     plugin: default_value
     default_value: directory_entry
+  status:
+    plugin: default_value
+    default_value: 0
   uid:
     plugin: migration_lookup
     no_stub: true
@@ -50,8 +53,14 @@ process:
         - first_name
         - last_name
   revision_uid:
-    plugin: default_value
-    default_value: 1
+    plugin: migration_lookup
+    no_stub: true
+    migration: breema_csv_user
+    source_ids: 
+      breema_csv_user:
+        - email
+        - first_name
+        - last_name
   title:
     plugin: concat
     source:
