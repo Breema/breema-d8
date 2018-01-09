@@ -55,3 +55,12 @@ function breema_migrate_map_certification_to_roles($source) {
   }
   return $roles;
 }
+
+/**
+ * Migration callback function to set filename based on file path.
+ */
+function breema_migrate_image_path_to_uri($source) {
+  // $source will be something like 'bodywork/SA_AL.jpg'.
+  $file_parts = explode('/', $source);
+  return 'public://image/' . $file_parts[0] . '/2018-01/' . $file_parts[1];
+}
