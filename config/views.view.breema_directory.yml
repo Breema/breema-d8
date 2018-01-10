@@ -1270,7 +1270,7 @@ display:
           expose:
             operator_id: keys_op
             label: Search
-            description: ''
+            description: 'Name, city, postal code, etc.'
             use_operator: false
             operator: keys_op
             identifier: search
