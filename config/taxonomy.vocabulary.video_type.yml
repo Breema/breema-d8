@@ -1,0 +1,9 @@
+uuid: 44a3f363-d422-4c3b-9602-4453a1f14942
+langcode: en
+status: true
+dependencies: {  }
+name: 'Video type'
+vid: video_type
+description: ''
+hierarchy: 0
+weight: 0
