@@ -1425,14 +1425,14 @@ display:
   page_search:
     display_plugin: page
     id: page_search
-    display_title: 'Page: Search'
+    display_title: 'Page: Advanced search'
     position: 1
     display_options:
       display_extenders: {  }
       path: directory/search
       menu:
         type: tab
-        title: Search
+        title: 'Advanced search'
         description: ''
         expanded: false
         parent: ''
@@ -1493,7 +1493,7 @@ display:
           empty: true
           tokenize: false
           content:
-            value: 'To search by states, select the country, click ''Apply'' and a state selector will appear.'
+            value: 'To search by states, select the country, click ''Apply'' and a state or province selector will appear if available.'
             format: basic_html
           plugin_id: text
     cache_metadata:
