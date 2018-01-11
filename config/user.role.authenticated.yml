@@ -16,6 +16,8 @@ permissions:
   - 'access media_embed entity browser pages'
   - 'access shortcuts'
   - 'access site-wide contact form'
+  - 'access user contact forms'
+  - 'access user profiles'
   - 'create media'
   - 'delete media'
   - 'post comments'
