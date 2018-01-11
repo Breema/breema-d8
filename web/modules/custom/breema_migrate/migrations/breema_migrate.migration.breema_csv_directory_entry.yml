@@ -2,6 +2,11 @@ id: breema_csv_directory_entry
 label: Directory entry nodes from CSV data dump
 migration_tags:
   - Breema CSV
+  - node
+
+destination:
+  plugin: entity:node
+
 source:
   plugin: csv
   path: public://csv/breema-directory.csv
@@ -35,6 +40,7 @@ source:
       instructor_provisional: Provisional Instructor
     11:
       instructor_full: Full Instructor
+
 process:
   # The content (node) type we are creating is 'directory_entry'.
   type:
@@ -98,15 +104,7 @@ process:
     -
       plugin: callback
       callable: breema_migrate_certification
-destination:
-  # Here we're saying that each row of data (line from the CSV file) will be
-  # used to create a node entity.
-  plugin: entity:node
-# List any optional or required migration dependencies.
-# Requried means that 100% of the content must be migrated
-# Optional means that that the other dependency should be run first
-# but if there are items from the dependant migration that were not
-# successful, it will still run the migration.
+
 migration_dependencies:
   required:
     - breema_csv_user

@@ -2,6 +2,11 @@ id: breema_csv_user
 label: User accounts from CSV data dump
 migration_tags:
   - Breema CSV
+  - user
+
+destination:
+  plugin: entity:user
+
 source:
   plugin: csv
   path: public://csv/breema-users.csv
@@ -27,6 +32,7 @@ source:
       instructor_provisional: Provisional Instructor
     7:
       instructor_full: Full Instructor
+
 process:
   name:
     plugin: concat
@@ -48,15 +54,6 @@ process:
       plugin: callback
       callable: breema_migrate_map_certification_to_roles
 
-destination:
-  # Here we're saying that each row of data (line from the CSV file) will be
-  # used to create a user entity.
-  plugin: entity:user
-# List any optional or required migration dependencies.
-# Requried means that 100% of the content must be migrated
-# Optional means that that the other dependency should be run first
-# but if there are items from the dependant migration that were not
-# successful, it will still run the migration.
 migration_dependencies:
   required: {}
   optional: {}

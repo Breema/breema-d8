@@ -2,6 +2,10 @@ id: breema_csv_media_image_type
 label: Image type taxonomy terms from CSV file
 migration_tags:
   - Breema CSV
+  - term
+
+destination:
+  plugin: entity:taxonomy_term
 
 source:
   plugin: csv
@@ -18,9 +22,6 @@ process:
   vid:
     plugin: default_value
     default_value: image_type
-
-destination:
-  plugin: entity:taxonomy_term
 
 migration_dependencies:
   required: {}

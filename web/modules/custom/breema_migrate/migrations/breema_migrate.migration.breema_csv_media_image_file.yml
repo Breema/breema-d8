@@ -3,6 +3,12 @@ label: Image files from CSV input
 migration_tags:
   - Breema CSV
 
+destination:
+  plugin: entity:file
+  urlencode: true
+  source_path_property: file_source
+  destination_path_property: file_dest
+
 source:
   plugin: csv
   path: 'public://csv/media-image-files.csv'
@@ -12,12 +18,6 @@ source:
   column_names:
     0:
       filepath: File path
-
-destination:
-  plugin: 'entity:file'
-  urlencode: true
-  source_path_property: file_source
-  destination_path_property: file_dest
 
 process:
   file_source_uri:
