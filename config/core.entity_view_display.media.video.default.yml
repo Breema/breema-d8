@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.media.video.field_media_video_embed_field
+    - field.field.media.video.field_video_type
     - media.type.video
   module:
     - video_embed_field
@@ -25,6 +26,14 @@ content:
       width: 854
       height: 480
     third_party_settings: {  }
+  field_video_type:
+    weight: 1
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
 hidden:
   created: true
   name: true

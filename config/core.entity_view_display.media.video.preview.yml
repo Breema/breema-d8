@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.media.preview
     - field.field.media.video.field_media_video_embed_field
+    - field.field.media.video.field_video_type
     - image.style.thumbnail
     - media.type.video
   module:
@@ -16,17 +17,25 @@ targetEntityType: media
 bundle: video
 mode: preview
 content:
+  field_video_type:
+    type: entity_reference_label
+    weight: 2
+    region: content
+    label: inline
+    settings:
+      link: false
+    third_party_settings: {  }
   name:
     label: hidden
     type: string
-    weight: -5
+    weight: 0
     region: content
     settings:
       link_to_entity: false
     third_party_settings: {  }
   thumbnail:
     type: image
-    weight: 0
+    weight: 1
     region: content
     label: hidden
     settings:

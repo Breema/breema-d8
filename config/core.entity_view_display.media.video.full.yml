@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.media.full
     - field.field.media.video.field_media_video_embed_field
+    - field.field.media.video.field_video_type
     - media.type.video
   module:
     - video_embed_field
@@ -35,6 +36,14 @@ content:
       autoplay: true
       image_style: ''
       link_image_to: ''
+    third_party_settings: {  }
+  field_video_type:
+    type: entity_reference_label
+    weight: 2
+    region: content
+    label: inline
+    settings:
+      link: true
     third_party_settings: {  }
 hidden:
   name: true

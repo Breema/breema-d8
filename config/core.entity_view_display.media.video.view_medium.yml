@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.media.view_medium
     - field.field.media.video.field_media_video_embed_field
+    - field.field.media.video.field_video_type
     - media.type.video
   module:
     - video_embed_field
@@ -26,6 +27,7 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
+  field_video_type: true
   name: true
   thumbnail: true
   uid: true
