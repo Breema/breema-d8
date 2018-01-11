@@ -5,7 +5,9 @@ dependencies:
   config:
     - image.style.media_entity_browser_thumbnail
     - media.type.image
+    - taxonomy.vocabulary.file_type
     - taxonomy.vocabulary.image_type
+    - taxonomy.vocabulary.video_type
   module:
     - entity_browser
     - image
@@ -424,6 +426,54 @@ display:
           entity_type: media
           entity_field: bundle
           plugin_id: bundle
+        field_file_type_target_id:
+          id: field_file_type_target_id
+          table: media__field_file_type
+          field: field_file_type_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_file_type_target_id_op
+            label: 'File type'
+            description: ''
+            use_operator: false
+            operator: field_file_type_target_id_op
+            identifier: file_type
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              practitioner: '0'
+              instructor: '0'
+              content_editor: '0'
+              administrator: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: select
+          limit: true
+          vid: file_type
+          hierarchy: false
+          error_message: true
+          plugin_id: taxonomy_index_tid
         field_image_type_target_id:
           id: field_image_type_target_id
           table: media__field_image_type
@@ -469,6 +519,54 @@ display:
           type: select
           limit: true
           vid: image_type
+          hierarchy: false
+          error_message: true
+          plugin_id: taxonomy_index_tid
+        field_video_type_target_id:
+          id: field_video_type_target_id
+          table: media__field_video_type
+          field: field_video_type_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_video_type_target_id_op
+            label: 'Video type'
+            description: ''
+            use_operator: false
+            operator: field_video_type_target_id_op
+            identifier: video_type
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              practitioner: '0'
+              instructor: '0'
+              content_editor: '0'
+              administrator: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: select
+          limit: true
+          vid: video_type
           hierarchy: false
           error_message: true
           plugin_id: taxonomy_index_tid
