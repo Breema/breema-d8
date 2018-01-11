@@ -104,6 +104,7 @@
       },
       "drupal/core": {
         "[#2796393-28] Migration process plugin not working with multiple source IDs" : "https://www.drupal.org/files/issues/2796393-28.patch",
+        "[#2835825-21 Media: Migration support" : "https://www.drupal.org/files/issues/2835825-21.patch",
         "[#2866386-4] 'view_path' is set to /views/ajax after second ajax request" : "https://www.drupal.org/files/issues/2866386-4.patch"
       },
       "drupal/filefield_paths": {
