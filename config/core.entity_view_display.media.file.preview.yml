@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.media.preview
+    - field.field.media.file.field_file_type
     - field.field.media.file.field_media_file
     - media.type.file
   module:
@@ -15,6 +16,14 @@ targetEntityType: media
 bundle: file
 mode: preview
 content:
+  field_file_type:
+    type: entity_reference_label
+    weight: 2
+    region: content
+    label: inline
+    settings:
+      link: false
+    third_party_settings: {  }
   field_media_file:
     label: visually_hidden
     settings: {  }
