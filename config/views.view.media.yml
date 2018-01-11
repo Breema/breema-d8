@@ -4,9 +4,13 @@ status: true
 dependencies:
   config:
     - image.style.thumbnail
+    - taxonomy.vocabulary.file_type
+    - taxonomy.vocabulary.image_type
+    - taxonomy.vocabulary.video_type
   module:
     - image
     - media
+    - taxonomy
     - user
 _core:
   default_config_hash: MSzaJjMXciXBt9NEFvf84VTylGFxbhiAQUdDc572T2c
@@ -44,7 +48,7 @@ display:
         type: basic
         options:
           submit_button: Filter
-          reset_button: false
+          reset_button: true
           reset_button_label: Reset
           exposed_sorts_label: 'Sort by'
           expose_sort_order: true
@@ -619,17 +623,20 @@ display:
           exposed: true
           expose:
             operator_id: bundle_op
-            label: Source
+            label: 'Media type'
             description: ''
             use_operator: false
             operator: bundle_op
-            identifier: source
+            identifier: type
             required: false
             remember: false
             multiple: false
             remember_roles:
               authenticated: authenticated
               anonymous: '0'
+              practitioner: '0'
+              instructor: '0'
+              content_editor: '0'
               administrator: '0'
             reduce: false
           is_grouped: false
@@ -647,6 +654,150 @@ display:
           entity_type: media
           entity_field: bundle
           plugin_id: bundle
+        field_file_type_target_id:
+          id: field_file_type_target_id
+          table: media__field_file_type
+          field: field_file_type_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_file_type_target_id_op
+            label: 'File type'
+            description: ''
+            use_operator: false
+            operator: field_file_type_target_id_op
+            identifier: file_type
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              practitioner: '0'
+              instructor: '0'
+              content_editor: '0'
+              administrator: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: select
+          limit: true
+          vid: file_type
+          hierarchy: false
+          error_message: true
+          plugin_id: taxonomy_index_tid
+        field_image_type_target_id:
+          id: field_image_type_target_id
+          table: media__field_image_type
+          field: field_image_type_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_image_type_target_id_op
+            label: 'Image type'
+            description: ''
+            use_operator: false
+            operator: field_image_type_target_id_op
+            identifier: image_type
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              practitioner: '0'
+              instructor: '0'
+              content_editor: '0'
+              administrator: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: select
+          limit: true
+          vid: image_type
+          hierarchy: false
+          error_message: true
+          plugin_id: taxonomy_index_tid
+        field_video_type_target_id:
+          id: field_video_type_target_id
+          table: media__field_video_type
+          field: field_video_type_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_video_type_target_id_op
+            label: 'Video type'
+            description: ''
+            use_operator: false
+            operator: field_video_type_target_id_op
+            identifier: video_type
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              practitioner: '0'
+              instructor: '0'
+              content_editor: '0'
+              administrator: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: select
+          limit: true
+          vid: video_type
+          hierarchy: false
+          error_message: true
+          plugin_id: taxonomy_index_tid
         status:
           id: status
           table: media_field_data
@@ -775,6 +926,7 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
+        - user
         - user.permissions
       tags: {  }
   media_page_list:
@@ -802,5 +954,6 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
+        - user
         - user.permissions
       tags: {  }
