@@ -64,3 +64,18 @@ function breema_migrate_image_path_to_uri($source) {
   $file_parts = explode('/', $source);
   return 'public://image/' . $file_parts[0] . '/2018-01/' . $file_parts[1];
 }
+
+/**
+ * Migration callback function to set image type based on file path.
+ */
+function breema_migrate_image_path_to_type($source) {
+  $base = dirname($source);
+  switch ($base) {
+    case 'self-breema':
+      return 'Self-Breema';
+    case 'social_media':
+      return 'Social Media';
+    default:
+      return ucfirst($base);
+  }
+}
