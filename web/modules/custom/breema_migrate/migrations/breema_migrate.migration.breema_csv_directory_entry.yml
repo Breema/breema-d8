@@ -91,7 +91,6 @@ process:
   field_job_title:
     plugin: default_value
     default_value: ''
-  field_email: email
   field_certification:
     -
       plugin: concat
