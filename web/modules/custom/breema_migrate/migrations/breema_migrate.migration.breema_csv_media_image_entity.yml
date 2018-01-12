@@ -22,7 +22,10 @@ process:
   bundle:
     plugin: default_value
     default_value: image
-  name: filepath
+  name:
+    plugin: callback
+    callable: drupal_basename
+    source: filepath
   status:
     plugin: default_value
     default_value: 1
