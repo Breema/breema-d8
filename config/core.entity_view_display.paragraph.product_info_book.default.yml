@@ -147,7 +147,7 @@ content:
     region: content
   field_pages:
     weight: 4
-    label: inline
+    label: hidden
     settings:
       thousand_separator: ''
       prefix_suffix: true
