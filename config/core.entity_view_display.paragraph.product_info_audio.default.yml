@@ -42,7 +42,7 @@ content:
     type: media_thumbnail
     region: content
   field_cover_price:
-    weight: 1
+    weight: 2
     label: inline
     settings:
       thousand_separator: ''
@@ -61,7 +61,7 @@ content:
     type: string
     region: content
   field_special_price:
-    weight: 2
+    weight: 1
     label: inline
     settings:
       thousand_separator: ''
