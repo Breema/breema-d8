@@ -23,6 +23,7 @@ permissions:
   - 'edit field_certification'
   - 'edit field_job_title'
   - 'edit terms in tags'
+  - 'manipulate all entityqueues'
   - 'skip comment approval'
   - 'update any media'
   - 'use text format full_html'
