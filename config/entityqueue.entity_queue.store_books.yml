@@ -1,0 +1,25 @@
+uuid: 3402cf1e-727a-4eab-967e-35420e2fb150
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: store_books
+label: 'Store: Books'
+handler: simple
+handler_configuration: {  }
+entity_settings:
+  target_type: node
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      product: product
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+queue_settings:
+  min_size: 0
+  max_size: 0
+  act_as_queue: false
+  reverse_in_admin: false

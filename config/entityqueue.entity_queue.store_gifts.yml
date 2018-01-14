@@ -1,0 +1,25 @@
+uuid: cf576e70-83e4-48dd-8153-b15620cecf0d
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: store_gifts
+label: 'Store: Gift certificates'
+handler: simple
+handler_configuration: {  }
+entity_settings:
+  target_type: node
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      product: product
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+queue_settings:
+  min_size: 0
+  max_size: 0
+  act_as_queue: false
+  reverse_in_admin: false
