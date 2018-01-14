@@ -18,9 +18,29 @@ dependencies:
     - image.style.medium
     - paragraphs.paragraphs_type.product_info_book
   module:
+    - field_group
     - fixed_text_link_formatter
     - media
     - options
+third_party_settings:
+  field_group:
+    group_ebooks:
+      children:
+        - field_ebook_amazon_kindle
+        - field_ebook_apple_ibooks
+        - field_ebook_barnes_noble
+        - field_ebook_copia
+        - field_ebook_kobo
+      parent_name: ''
+      weight: 7
+      format_type: details
+      format_settings:
+        label: e-Books
+        id: ''
+        classes: align-left
+        open: false
+      label: e-Books
+      region: content
 id: paragraph.product_info_book.default
 targetEntityType: paragraph
 bundle: product_info_book
@@ -68,7 +88,7 @@ content:
     type: number_decimal
     region: content
   field_ebook_amazon_kindle:
-    weight: 7
+    weight: 8
     label: hidden
     settings:
       trim_length: 80
@@ -82,7 +102,7 @@ content:
     type: fixed_text_link
     region: content
   field_ebook_apple_ibooks:
-    weight: 8
+    weight: 9
     label: hidden
     settings:
       trim_length: 80
@@ -96,7 +116,7 @@ content:
     type: fixed_text_link
     region: content
   field_ebook_barnes_noble:
-    weight: 9
+    weight: 10
     label: hidden
     settings:
       trim_length: 80
@@ -110,7 +130,7 @@ content:
     type: fixed_text_link
     region: content
   field_ebook_copia:
-    weight: 10
+    weight: 11
     label: hidden
     settings:
       trim_length: 80
@@ -124,7 +144,7 @@ content:
     type: fixed_text_link
     region: content
   field_ebook_kobo:
-    weight: 11
+    weight: 12
     label: hidden
     settings:
       trim_length: 80
