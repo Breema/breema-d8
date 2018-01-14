@@ -4,9 +4,10 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
-    - node.type.product
-    - system.menu.main
+    - entityqueue.entity_queue.store_books
+    - entityqueue.entity_queue.store_gifts
   module:
+    - entityqueue
     - node
     - user
 id: breema_store
@@ -127,38 +128,79 @@ display:
           expose:
             operator: ''
           group: 1
-        type:
-          id: type
+        entityqueue_relationship:
+          id: entityqueue_relationship
           table: node_field_data
-          field: type
-          value:
-            product: product
-          entity_type: node
-          entity_field: type
-          plugin_id: bundle
-      sorts:
-        created:
-          id: created
-          table: node_field_data
-          field: created
-          order: DESC
-          entity_type: node
-          entity_field: created
-          plugin_id: date
+          field: entityqueue_relationship
           relationship: none
           group_type: group
           admin_label: ''
+          operator: '='
+          value: '1'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: node
+          plugin_id: entity_queue_in_queue
+      sorts:
+        entityqueue_relationship:
+          id: entityqueue_relationship
+          table: node_field_data
+          field: entityqueue_relationship
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: ASC
           exposed: false
           expose:
             label: ''
-          granularity: second
-      title: Bookstore
+          entity_type: node
+          plugin_id: entity_queue_position
+      title: Store
       header: {  }
       footer: {  }
       empty: {  }
-      relationships: {  }
+      relationships:
+        entityqueue_relationship:
+          id: entityqueue_relationship
+          table: node_field_data
+          field: entityqueue_relationship
+          relationship: none
+          group_type: group
+          admin_label: 'Content queue'
+          required: true
+          limit_queue: store_books
+          entity_type: node
+          plugin_id: entity_queue
       arguments: {  }
       display_extenders: {  }
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
     cache_metadata:
       max-age: -1
       contexts:
@@ -166,11 +208,14 @@ display:
         - 'languages:language_interface'
         - 'user.node_grants:view'
         - user.permissions
-      tags: {  }
-  feed_1:
+      tags:
+        - 'config:entityqueue.entity_queue.store_books'
+        - entity_field_info
+        - views_data
+  feed_books:
     display_plugin: feed
-    id: feed_1
-    display_title: Feed
+    id: feed_books
+    display_title: 'Feed: Books'
     position: 2
     display_options:
       display_extenders: {  }
@@ -180,10 +225,12 @@ display:
         type: some
       style:
         type: rss
-      path: store.xml
+      path: store/books.xml
       displays:
-        default: default
-        page_1: page_1
+        page_books: page_books
+        default: '0'
+        page_gifts: '0'
+      display_description: ''
     cache_metadata:
       max-age: -1
       contexts:
@@ -191,19 +238,33 @@ display:
         - 'languages:language_interface'
         - 'user.node_grants:view'
         - user.permissions
-      tags: {  }
-  page_1:
+      tags:
+        - 'config:entityqueue.entity_queue.store_books'
+        - entity_field_info
+        - views_data
+  page_books:
     display_plugin: page
-    id: page_1
-    display_title: Page
+    id: page_books
+    display_title: 'Page: Books'
     position: 1
     display_options:
       display_extenders: {  }
-      path: store
+      path: store/books
       menu:
-        type: normal
-        title: Bookstore
+        type: 'default tab'
+        title: Books
+        description: ''
+        expanded: false
+        parent: ''
+        weight: 0
+        context: '0'
         menu_name: main
+      tab_options:
+        type: normal
+        title: Store
+        description: ''
+        weight: 0
+      display_description: ''
     cache_metadata:
       max-age: -1
       contexts:
@@ -211,4 +272,55 @@ display:
         - 'languages:language_interface'
         - 'user.node_grants:view'
         - user.permissions
-      tags: {  }
+      tags:
+        - 'config:entityqueue.entity_queue.store_books'
+        - entity_field_info
+        - views_data
+  page_gifts:
+    display_plugin: page
+    id: page_gifts
+    display_title: 'Page: Gift certificates'
+    position: 1
+    display_options:
+      display_extenders: {  }
+      path: store/gifts
+      menu:
+        type: tab
+        title: 'Gift certificates'
+        description: ''
+        expanded: false
+        parent: ''
+        weight: 0
+        context: '0'
+        menu_name: main
+      tab_options:
+        type: normal
+        title: Store
+        description: ''
+        weight: 0
+      display_description: ''
+      relationships:
+        entityqueue_relationship:
+          id: entityqueue_relationship
+          table: node_field_data
+          field: entityqueue_relationship
+          relationship: none
+          group_type: group
+          admin_label: 'Content queue'
+          required: true
+          limit_queue: store_gifts
+          entity_type: node
+          plugin_id: entity_queue
+      defaults:
+        relationships: false
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
+        - 'config:entityqueue.entity_queue.store_gifts'
+        - entity_field_info
+        - views_data
