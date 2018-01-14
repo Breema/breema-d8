@@ -1,11 +1,17 @@
-views.breema_directory:
-  version: 8.x-1.x
-  css:
-    component:
-      css/views.breema-directory.css: {}
-
 block.directory_entry:
   version: 8.x-1.x
   css:
     component:
       css/block.directory_entry.css: {}
+
+store:
+  version: 8.x-1.x
+  css:
+    component:
+      css/store.css: {}
+
+views.breema_directory:
+  version: 8.x-1.x
+  css:
+    component:
+      css/views.breema-directory.css: {}

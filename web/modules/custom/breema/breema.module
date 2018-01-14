@@ -37,7 +37,20 @@ function breema_help($route_name, RouteMatchInterface $route_match) {
  * Implements hook_theme_registry_alter()
  */
 function breema_theme_registry_alter(&$theme_registry) {
-  $theme_registry['geolocation_common_map_display']['path'] = drupal_get_path('module', 'breema') . '/templates';
+  $breema_path = drupal_get_path('module', 'breema') . '/templates';
+  $theme_registry['field__paragraph__field_book_type'] = [
+    'path' => $breema_path,
+    'template' => 'field--paragraph--field-book-type',
+  ] + $theme_registry['field'];
+  $theme_registry['geolocation_common_map_display']['path'] = $breema_path;
+  $theme_registry['paragraph__product_info_book'] = [
+    'path' => $breema_path,
+    'template' => 'paragraph--product-info-book',
+  ] + $theme_registry['paragraph'];
+  $theme_registry['paragraph__product_info_audio'] = [
+    'path' => $breema_path,
+    'template' => 'paragraph--product-info-audio',
+  ] + $theme_registry['paragraph'];
 }
 
 /**
