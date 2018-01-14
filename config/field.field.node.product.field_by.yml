@@ -25,7 +25,7 @@ entity_type: node
 bundle: product
 label: By
 description: ''
-required: true
+required: false
 translatable: false
 default_value:
   -
