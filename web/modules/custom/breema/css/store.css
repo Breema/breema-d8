@@ -44,3 +44,7 @@
 .field--name-field-by p {
   margin: 0;
 }
+
+.field--name-field-by .field__label {
+  font-weight: normal;
+}
