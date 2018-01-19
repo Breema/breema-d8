@@ -19,6 +19,10 @@
   font-weight: normal;
 }
 
+.field--name-field-special-price {
+  font-weight: bold;
+}
+
 .field--name-field-buy-now a {
   color: rgb(21, 86, 1);
   background-color: rgb(192, 222, 183);
