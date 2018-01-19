@@ -51,9 +51,11 @@
   <div{{ attributes.addClass(classes) }}>
     {% block content %}
       <h3>Audio recording</h3>
-      <div class="product-image align-left">
-        <a href="{{ paragraph.field_buy_now.0.url }}">{{ content.field_cover_image }}</a>
-      </div>
+      {% if paragraph.field_cover_image.value %}
+        <div class="product-image align-left">
+          <a href="{{ paragraph.field_buy_now.0.url }}">{{ content.field_cover_image }}</a>
+        </div>
+      {% endif %}
       <div class="prices">
         {{ content.field_special_price }}
         {{ content.field_cover_price }}
