@@ -43,13 +43,17 @@ function breema_theme_registry_alter(&$theme_registry) {
     'template' => 'field--paragraph--field-book-type',
   ] + $theme_registry['field'];
   $theme_registry['geolocation_common_map_display']['path'] = $breema_path;
+  $theme_registry['paragraph__product_info_audio'] = [
+    'path' => $breema_path,
+    'template' => 'paragraph--product-info-audio',
+  ] + $theme_registry['paragraph'];
   $theme_registry['paragraph__product_info_book'] = [
     'path' => $breema_path,
     'template' => 'paragraph--product-info-book',
   ] + $theme_registry['paragraph'];
-  $theme_registry['paragraph__product_info_audio'] = [
+  $theme_registry['paragraph__product_info_general'] = [
     'path' => $breema_path,
-    'template' => 'paragraph--product-info-audio',
+    'template' => 'paragraph--product-info-general',
   ] + $theme_registry['paragraph'];
 }
 
