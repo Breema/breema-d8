@@ -4,10 +4,13 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.product_info_general.field_buy_now
+    - field.field.paragraph.product_info_general.field_cover_image
     - field.field.paragraph.product_info_general.field_description
+    - image.style.medium
     - paragraphs.paragraphs_type.product_info_general
   module:
     - fixed_text_link_formatter
+    - media
     - text
 id: paragraph.product_info_general.default
 targetEntityType: paragraph
@@ -15,7 +18,7 @@ bundle: product_info_general
 mode: default
 content:
   field_buy_now:
-    weight: 1
+    weight: 2
     label: hidden
     settings:
       link_text: 'Buy now'
@@ -28,8 +31,17 @@ content:
     third_party_settings: {  }
     type: fixed_text_link
     region: content
-  field_description:
+  field_cover_image:
     weight: 0
+    label: hidden
+    settings:
+      image_style: medium
+      image_link: ''
+    third_party_settings: {  }
+    type: media_thumbnail
+    region: content
+  field_description:
+    weight: 1
     label: hidden
     settings: {  }
     third_party_settings: {  }
