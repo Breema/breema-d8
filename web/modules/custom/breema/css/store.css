@@ -52,3 +52,37 @@
 .field--name-field-by .field__label {
   font-weight: normal;
 }
+
+.field--name-field-ebook-amazon-kindle a,
+.field--name-field-ebook-apple-ibooks a, 
+.field--name-field-ebook-barnes-noble a, 
+.field--name-field-ebook-kobo a {
+  padding: 0 0 0 1.4em;
+  position: relative;
+  border-bottom: none;
+  text-decoration: none;
+}
+
+.field--name-field-ebook-amazon-kindle a:hover,
+.field--name-field-ebook-apple-ibooks a:hover,
+.field--name-field-ebook-barnes-noble a:hover,
+.field--name-field-ebook-kobo a:hover {
+  border-bottom: none;
+  text-decoration: none;
+}
+
+.field--name-field-ebook-amazon-kindle a:before {
+  position: absolute;
+  font-family: 'FontAwesome';
+  content: "\f270";
+  left: 0;
+  color: #444;
+}
+
+.field--name-field-ebook-apple-ibooks a:before {
+  position: absolute;
+  font-family: 'FontAwesome';
+  content: "\f179";
+  left: 1px;
+  color: #666;
+}
