@@ -722,7 +722,7 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          text: contact
+          text: 'Send message'
           entity_type: user
           plugin_id: contact_link
         field_email:
