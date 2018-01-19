@@ -8,7 +8,7 @@ dependencies:
     - bartik
 id: bartik_socialmedialinks
 theme: bartik
-region: footer_fifth
+region: footer_first
 weight: 0
 provider: null
 plugin: social_media_links_block
@@ -105,7 +105,7 @@ settings:
     target: '<none>'
     rel: '<none>'
   iconset:
-    style: 'fontawesome:4x'
+    style: 'fontawesome:3x'
     installed_iconsets:
       fontawesome:
         examples: ''
