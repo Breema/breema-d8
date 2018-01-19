@@ -42,6 +42,10 @@ function breema_theme_registry_alter(&$theme_registry) {
     'path' => $breema_path,
     'template' => 'field--paragraph--field-book-type',
   ] + $theme_registry['field'];
+  $theme_registry['field__paragraph__field_description'] = [
+    'path' => $breema_path,
+    'template' => 'field--paragraph--field-description',
+  ] + $theme_registry['field'];
   $theme_registry['geolocation_common_map_display']['path'] = $breema_path;
   $theme_registry['paragraph__product_info_audio'] = [
     'path' => $breema_path,

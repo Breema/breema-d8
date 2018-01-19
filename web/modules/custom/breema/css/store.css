@@ -10,8 +10,8 @@
   margin: 0 1em 0 0;
 }
 
-.field--name-field-special-price {
-  font-weight: bold;
+.paragraph--type--product-info-general .field--name-field-description p {
+  margin: 0;
 }
 
 .field--name-field-cover-price,
