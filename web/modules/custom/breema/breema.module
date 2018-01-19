@@ -34,6 +34,13 @@ function breema_help($route_name, RouteMatchInterface $route_match) {
 }
 
 /**
+ * Implements hook_page_attachments().
+ */
+function breema_page_attachments(array &$attachments) {
+  $attachments['#attached']['library'][] = 'breema/global';
+}
+
+/**
  * Implements hook_theme_registry_alter()
  */
 function breema_theme_registry_alter(&$theme_registry) {

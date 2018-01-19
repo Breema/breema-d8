@@ -1,0 +1,5 @@
+.block-social-media-links a,
+.block-social-media-links a:hover {
+  border: none;
+  text-decoration: none;
+}
