@@ -1,0 +1,20 @@
+uuid: 4b056d73-ef6f-4d4f-8346-c8463109ebd6
+langcode: en
+status: true
+dependencies:
+  module:
+    - breema
+  theme:
+    - bartik
+id: bartik_breema_footer_text
+theme: bartik
+region: footer_second
+weight: 0
+provider: null
+plugin: footer_text_block
+settings:
+  id: footer_text_block
+  label: 'Breema Footer text'
+  provider: breema
+  label_display: '0'
+visibility: {  }
