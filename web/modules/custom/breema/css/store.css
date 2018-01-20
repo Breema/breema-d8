@@ -15,7 +15,8 @@
 }
 
 .field--name-field-cover-price,
-.field--name-field-cover-price .field__label {
+.field--name-field-cover-price .field__label,
+.field--name-field-publication-year .field__label {
   font-weight: normal;
 }
 
