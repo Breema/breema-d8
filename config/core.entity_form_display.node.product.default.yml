@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.product.field_by
     - field.field.node.product.field_main_image
     - field.field.node.product.field_product_info
+    - field.field.node.product.field_publication_year
     - field.field.node.product.field_title_main
     - field.field.node.product.field_title_sub
     - node.type.product
@@ -23,7 +24,7 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 5
+    weight: 6
     settings:
       rows: 9
       summary_rows: 3
@@ -32,7 +33,7 @@ content:
     region: content
   created:
     type: datetime_timestamp
-    weight: 8
+    weight: 9
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -45,7 +46,7 @@ content:
     type: text_textfield
     region: content
   field_main_image:
-    weight: 4
+    weight: 5
     settings:
       entity_browser: image_browser
       field_widget_display: rendered_entity
@@ -60,7 +61,7 @@ content:
     region: content
   field_product_info:
     type: entity_reference_paragraphs
-    weight: 6
+    weight: 7
     settings:
       title: Paragraph
       title_plural: Paragraphs
@@ -69,6 +70,13 @@ content:
       form_display_mode: default
       default_paragraph_type: ''
     third_party_settings: {  }
+    region: content
+  field_publication_year:
+    weight: 4
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
     region: content
   field_title_main:
     weight: 1
@@ -88,7 +96,7 @@ content:
     region: content
   path:
     type: path
-    weight: 11
+    weight: 12
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -96,21 +104,21 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 9
+    weight: 10
     region: content
     third_party_settings: {  }
   status:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 12
+    weight: 13
     region: content
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 10
+    weight: 11
     region: content
     third_party_settings: {  }
   title:
@@ -123,7 +131,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 7
+    weight: 8
     settings:
       match_operator: CONTAINS
       size: 60
@@ -131,6 +139,8 @@ content:
     region: content
     third_party_settings: {  }
   url_redirects:
-    weight: 50
+    weight: 14
     region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden: {  }

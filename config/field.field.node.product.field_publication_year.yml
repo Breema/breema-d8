@@ -1,0 +1,23 @@
+uuid: b5eb1ee9-4ced-4944-be8d-d0b5e418d1fa
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_publication_year
+    - node.type.product
+id: node.product.field_publication_year
+field_name: field_publication_year
+entity_type: node
+bundle: product
+label: Published
+description: 'If this product is a book, what year was it published in?'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 1970
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

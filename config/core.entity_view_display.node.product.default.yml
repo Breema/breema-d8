@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.product.field_by
     - field.field.node.product.field_main_image
     - field.field.node.product.field_product_info
+    - field.field.node.product.field_publication_year
     - field.field.node.product.field_title_main
     - field.field.node.product.field_title_sub
     - image.style.large
@@ -24,7 +25,7 @@ content:
   body:
     label: hidden
     type: text_default
-    weight: 2
+    weight: 3
     settings: {  }
     third_party_settings: {  }
     region: content
@@ -36,7 +37,7 @@ content:
     type: text_default
     region: content
   field_main_image:
-    weight: 3
+    weight: 4
     label: hidden
     settings:
       image_style: large
@@ -46,15 +47,24 @@ content:
     region: content
   field_product_info:
     type: entity_reference_revisions_entity_view
-    weight: 1
+    weight: 2
     label: hidden
     settings:
       view_mode: default
       link: ''
     third_party_settings: {  }
     region: content
+  field_publication_year:
+    weight: 1
+    label: inline
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
   links:
-    weight: 4
+    weight: 5
     region: content
     settings: {  }
     third_party_settings: {  }
