@@ -37,7 +37,7 @@ class BreemaFooterTextBlock extends BlockBase {
       ],
       'contact' => [
         '#prefix' => '<div class="contact">',
-        '#markup' => '<a href="tel:+15104280937">510-428-0937</a> <a href="mailto:center@breema.com">center@breema.com</a>',
+        '#markup' => '<a class="telephone" href="tel:+15104280937">510-428-0937</a> <a class="email" href="mailto:center@breema.com">center@breema.com</a>',
         '#suffix' => '</div>',
         '#weight' => 2,
       ],

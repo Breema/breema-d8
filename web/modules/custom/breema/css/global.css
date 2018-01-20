@@ -25,3 +25,13 @@
   text-indent: 0;
   padding: 0 0.25em 0 0;
 }
+
+.block-footer-text-block .contact a,
+.block-footer-text-block .contact a:hover {
+  border-bottom: none;
+  text-decoration: none;
+}
+
+.block-footer-text-block .contact a.telephone {
+  margin: 0 1em 0 0;
+}
