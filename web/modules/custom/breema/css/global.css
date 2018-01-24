@@ -54,3 +54,24 @@
 .sidebar .block .content {
   margin-top: 0;
 }
+
+.contact-form-link a {
+  padding: 0 0 0 1.5em;
+  position: relative;
+  border-bottom: none;
+  text-decoration: none;
+}
+
+.contact-form-link a:hover {
+  border-bottom: none;
+  text-decoration: none;
+}
+
+.contact-form-link a:before {
+  position: absolute;
+  font-family: 'FontAwesome';
+  /* fa fa-envelope-o */
+  content: "\f003";
+  color: #777;
+  left: 1px;
+}
