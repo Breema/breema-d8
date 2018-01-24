@@ -333,7 +333,10 @@ function breema_entity_view_alter(array &$build, Drupal\Core\Entity\EntityInterf
       $author_uid = $author[0]['target_id'];
     }
     if (!empty($author_uid)) {
-      $contact_url = Url::fromRoute('entity.user.contact_form', ['user' => $author_uid]);
+      $access_manager = \Drupal::service('access_manager');
+      if ($access_manager->checkNamedRoute('entity.user.contact_form', ['user' => $author_uid])) {
+        $contact_url = Url::fromRoute('entity.user.contact_form', ['user' => $author_uid]);
+      }
     }
     if (!empty($contact_url)) {
       $build['contact_link'] = [
