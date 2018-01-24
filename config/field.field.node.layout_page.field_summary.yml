@@ -1,0 +1,33 @@
+uuid: d0b70492-a1ab-42c5-8471-5eea9889f9f2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_summary
+    - node.type.layout_page
+  module:
+    - geocoder_field
+    - text
+third_party_settings:
+  geocoder_field:
+    method: none
+    field: title
+    plugins: {  }
+    dumper: wkt
+    delta_handling: default
+    failure:
+      handling: preserve
+      status_message: true
+      log: true
+id: node.layout_page.field_summary
+field_name: field_summary
+entity_type: node
+bundle: layout_page
+label: Summary
+description: 'One or two sentence summary of this page, for example to use when sharing to social media.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

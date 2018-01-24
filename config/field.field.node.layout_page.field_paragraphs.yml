@@ -1,0 +1,35 @@
+uuid: b417c036-848b-4b76-95f1-f4ea5f3d5a8e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_paragraphs
+    - node.type.layout_page
+  module:
+    - entity_reference_revisions
+id: node.layout_page.field_paragraphs
+field_name: field_paragraphs
+entity_type: node
+bundle: layout_page
+label: Paragraphs
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles: null
+    target_bundles_drag_drop:
+      product_info_audio:
+        weight: 4
+        enabled: false
+      product_info_book:
+        weight: 5
+        enabled: false
+      product_info_general:
+        weight: 6
+        enabled: false
+field_type: entity_reference_revisions
