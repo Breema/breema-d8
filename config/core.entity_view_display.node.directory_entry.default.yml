@@ -130,7 +130,7 @@ content:
     weight: 8
     label: above
     settings:
-      view_mode: full
+      view_mode: view_large
       link: false
     third_party_settings: {  }
     type: entity_reference_entity_view
