@@ -6,6 +6,8 @@
  */
 
 use Drupal\Core\Access\AccessResult;
+use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Render\Element;
@@ -319,4 +321,27 @@ function breema_merge_titles(\Drupal\node\NodeInterface $node) {
     }
   }
   return $merged_title;
+}
+
+/**
+ * Implements hook_entity_view_alter().
+ */
+function breema_entity_view_alter(array &$build, Drupal\Core\Entity\EntityInterface $entity, \Drupal\Core\Entity\Display\EntityViewDisplayInterface $display) {
+  if ($entity->getEntityTypeId() == 'node' && $entity->bundle() == 'directory_entry') {
+    $author = $build['#node']->get('uid')->getValue();
+    if (!empty($author[0]['target_id'])) {
+      $author_uid = $author[0]['target_id'];
+    }
+    if (!empty($author_uid)) {
+      $contact_url = Url::fromRoute('entity.user.contact_form', ['user' => $author_uid]);
+    }
+    if (!empty($contact_url)) {
+      $build['contact_link'] = [
+        '#weight' => 6,
+        '#prefix' => '<div class="contact-form-link">',
+        '#markup' => t('<a href=":contact">Send message</a>', [':contact' => $contact_url->toString()]),
+        '#suffix' => '</div>',
+      ];
+    }
+  }
 }
