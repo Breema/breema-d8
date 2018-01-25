@@ -122,6 +122,9 @@
       },
       "drupal/media_entity_browser": {
         "[#2933124-4] Provide tabs for 'My media' and 'All media'" : "https://www.drupal.org/files/issues/2933124-4.media_entity_browser_my_media.patch"
+      },
+      "drupal/menu_block": {
+        "[#2809699-51] Menu parent as block title" : "https://www.drupal.org/files/issues/menu_block-label_configuration-2809699-51.patch"
       }
     },
     "installer-paths": {

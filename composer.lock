@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "622ab7c6a5ac5a102e8f7a2bf093033f",
+    "content-hash": "22e07cf6e98bd485eb220e9b3d7ee1de",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -3285,6 +3285,9 @@
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
                     }
+                },
+                "patches_applied": {
+                    "[#2809699-51] Menu parent as block title": "https://www.drupal.org/files/issues/menu_block-label_configuration-2809699-51.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
