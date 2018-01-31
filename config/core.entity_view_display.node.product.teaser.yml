@@ -14,6 +14,7 @@ dependencies:
     - node.type.product
   module:
     - entity_reference_revisions
+    - smart_trim
     - text
     - user
 id: node.product.teaser
@@ -21,6 +22,22 @@ targetEntityType: node
 bundle: product
 mode: teaser
 content:
+  body:
+    type: smart_trim
+    weight: 2
+    region: content
+    label: hidden
+    settings:
+      trim_length: '300'
+      trim_type: chars
+      trim_suffix: ...
+      more_link: '1'
+      more_text: More
+      summary_handler: full
+      trim_options:
+        text: 0
+      more_class: more-link
+    third_party_settings: {  }
   field_by:
     type: text_default
     weight: 0
@@ -38,12 +55,11 @@ content:
       link: ''
     third_party_settings: {  }
   links:
-    weight: 2
+    weight: 3
     region: content
     settings: {  }
     third_party_settings: {  }
 hidden:
-  body: true
   field_main_image: true
   field_publication_year: true
   field_title_main: true
