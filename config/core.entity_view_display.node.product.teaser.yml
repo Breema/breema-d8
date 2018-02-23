@@ -31,7 +31,7 @@ content:
       trim_length: '300'
       trim_type: chars
       trim_suffix: ...
-      more_link: '1'
+      more_link: '0'
       more_text: More
       summary_handler: full
       trim_options:
