@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "22e07cf6e98bd485eb220e9b3d7ee1de",
+    "content-hash": "5b79e367e0f8e8a79505ff322938bc59",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -1322,7 +1322,7 @@
                     }
                 },
                 "patches_applied": {
-                    "[#2514126-102] Add field settings for global overrides of required/optional behavior": "https://www.drupal.org/files/issues/2514126-102.field-behavior-settings.patch"
+                    "[#2514126-146] Add field settings for global overrides of required/optional behavior": "https://www.drupal.org/files/issues/2514126-146.field-behavior-settings.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
