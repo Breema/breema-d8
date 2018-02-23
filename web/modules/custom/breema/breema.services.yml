@@ -1,0 +1,10 @@
+services:
+  access_check.contact_personal:
+    class: Drupal\breema\Access\BreemaContactPageAccess
+    tags:
+      - { name: access_check, applies_to: _access_breema_contact_personal_tab }
+    arguments: ['@config.factory', '@user.data']
+  breema.route_subscriber:
+    class: Drupal\breema\Routing\RouteSubscriber
+    tags:
+      - { name: event_subscriber }
