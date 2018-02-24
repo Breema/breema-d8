@@ -76,6 +76,7 @@ function breema_theme_registry_alter(&$theme_registry) {
 function breema_views_pre_render(Drupal\views\ViewExecutable $view) {
   if (isset($view) && ($view->storage->id() == 'breema_directory')) {
     $view->element['#attached']['library'][] = 'breema/views.breema_directory';
+    $view->element['#attached']['library'][] = 'breema/directory_entry';
   }
 }
 
@@ -328,6 +329,7 @@ function breema_merge_titles(\Drupal\node\NodeInterface $node) {
  */
 function breema_entity_view_alter(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display) {
   if ($entity->getEntityTypeId() == 'node' && $entity->bundle() == 'directory_entry') {
+    $build['#attached']['library'][] = 'breema/directory_entry';
     $author = $build['#node']->get('uid')->getValue();
     if (!empty($author[0]['target_id'])) {
       $author_uid = $author[0]['target_id'];

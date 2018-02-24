@@ -29,6 +29,7 @@ class BreemaDirectoryEntryBlock extends BlockBase {
       '#attached' => [
         'library' => [
           'breema/block.directory_entry',
+          'breema/directory_entry',
         ],
       ],
     ];

@@ -1,0 +1,8 @@
+p.address {
+  margin: 1em 0;
+  font-style: italic;
+}
+
+.geolocation-google-map {
+  margin-top: 1em;
+}
