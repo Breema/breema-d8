@@ -1269,7 +1269,7 @@ display:
             zoomControl: 1
             rotateControl: 0
             fullscreenControl: 0
-            scrollwheel: 1
+            scrollwheel: 0
             gestureHandling: auto
             draggable: 1
             preferScrollingToZooming: 1
