@@ -6922,16 +6922,16 @@
         },
         {
             "name": "webflo/drupal-core-strict",
-            "version": "8.4.0",
+            "version": "8.4.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webflo/drupal-core-strict.git",
-                "reference": "fa0bd8bde8245048f771a1b12de45241febdd6a8"
+                "reference": "48edf293a5ec1a607cab6c042588358f1c672530"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webflo/drupal-core-strict/zipball/fa0bd8bde8245048f771a1b12de45241febdd6a8",
-                "reference": "fa0bd8bde8245048f771a1b12de45241febdd6a8",
+                "url": "https://api.github.com/repos/webflo/drupal-core-strict/zipball/48edf293a5ec1a607cab6c042588358f1c672530",
+                "reference": "48edf293a5ec1a607cab6c042588358f1c672530",
                 "shasum": ""
             },
             "require": {
@@ -7014,10 +7014,10 @@
             "type": "metapackage",
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "GPL-2.0+"
+                "GPL-2.0-or-later"
             ],
             "description": "Locked core dependencies",
-            "time": "2017-10-04T20:01:55+00:00"
+            "time": "2018-02-21T18:00:42+00:00"
         },
         {
             "name": "webflo/drupal-finder",
