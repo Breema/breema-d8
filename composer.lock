@@ -1355,7 +1355,7 @@
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/auto_entitylabel",
-                "reference": "d23ef92f94de46b593ca66e78862197343aec66c"
+                "reference": "b2222736f184d1012fd00e6f8fda43d9eb6830e9"
             },
             "require": {
                 "drupal/core": "~8.0"
@@ -1366,8 +1366,8 @@
                     "dev-2.x": "2.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-2.0-beta1+20-dev",
-                    "datestamp": "1501690143",
+                    "version": "8.x-2.1-beta1+4-dev",
+                    "datestamp": "1510570384",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Dev releases are not covered by Drupal security advisories."
@@ -1402,7 +1402,7 @@
                 "source": "http://cgit.drupalcode.org/auto_entitylabel",
                 "issues": "https://www.drupal.org/project/issues/auto_entitylabel"
             },
-            "time": "2017-08-02 16:08:09"
+            "time": "2017-11-13 10:50:28"
         },
         {
             "name": "drupal/computed_field",
