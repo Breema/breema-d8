@@ -56,6 +56,7 @@ module:
   shortcut: 0
   simple_block: 0
   smart_trim: 0
+  smtp: 0
   social_media_links: 0
   system: 0
   taxonomy: 0
