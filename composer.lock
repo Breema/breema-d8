@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "5b79e367e0f8e8a79505ff322938bc59",
+    "content-hash": "ba3618ca8f492a5dfc411d195bccc113",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -2684,6 +2684,9 @@
                         "status": "not-covered",
                         "message": "Dev releases are not covered by Drupal security advisories."
                     }
+                },
+                "patches_applied": {
+                    "[#2947820-6] Add 'Edit queue items' operation to new entityqueue tab on entities": "https://www.drupal.org/files/issues/2947820-6.entityqueue-tab-edit-queue-link.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
