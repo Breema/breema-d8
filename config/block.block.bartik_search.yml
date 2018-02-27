@@ -23,6 +23,6 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: "/directory\r\n/directory/map\r\n/directory/search\r\n"
+    pages: "/directory\r\n/directory/map\r\n/directory/search\r\n/search*\r\n"
     negate: true
     context_mapping: {  }
