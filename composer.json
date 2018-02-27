@@ -110,9 +110,6 @@
         "[#2835825-21 Media: Migration support" : "https://www.drupal.org/files/issues/2835825-21.patch",
         "[#2866386-4] 'view_path' is set to /views/ajax after second ajax request" : "https://www.drupal.org/files/issues/2866386-4.patch"
       },
-      "drupal/entityqueue": {
-        "[#2947820-6] Add 'Edit queue items' operation to new entityqueue tab on entities" : "https://www.drupal.org/files/issues/2947820-6.entityqueue-tab-edit-queue-link.patch"
-      },
       "drupal/filefield_paths": {
         "[#2718783-13] Call to undefined method BaseFieldDefinition::getThirdPartySettings()" : "https://www.drupal.org/files/issues/call_to_undefined-2718783-13.patch"
       },

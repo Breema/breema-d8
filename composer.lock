@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "ba3618ca8f492a5dfc411d195bccc113",
+    "content-hash": "5b79e367e0f8e8a79505ff322938bc59",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -2667,7 +2667,7 @@
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/entityqueue",
-                "reference": "b52c9843cedd14e4a2c02c52a36af77f3afc9572"
+                "reference": "6a90f4944c5101bd5d9627f1e86aaaee045fb9dd"
             },
             "require": {
                 "drupal/core": "~8.0"
@@ -2678,15 +2678,12 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.0-alpha7+14-dev",
-                    "datestamp": "1518694983",
+                    "version": "8.x-1.0-alpha7+15-dev",
+                    "datestamp": "1518776880",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Dev releases are not covered by Drupal security advisories."
                     }
-                },
-                "patches_applied": {
-                    "[#2947820-6] Add 'Edit queue items' operation to new entityqueue tab on entities": "https://www.drupal.org/files/issues/2947820-6.entityqueue-tab-edit-queue-link.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -2720,7 +2717,7 @@
                 "issues": "https://www.drupal.org/project/issues/entityqueue",
                 "irc": "irc://irc.freenode.org/drupal-contribute"
             },
-            "time": "2018-02-16 10:25:23"
+            "time": "2018-02-27 04:47:57"
         },
         {
             "name": "drupal/field_group",
