@@ -49,8 +49,13 @@ function breema_preprocess_html(&$variables) {
   // Work-around the bugs from https://www.drupal.org/node/953034
   // For now, hard-code that anonymous users on /directory* should not see the
   // sidebar.
-  if (empty($variables['logged_in']) && $variables['root_path'] === 'directory') {
-    unset($variables['page']['sidebar_first']);
+  if (empty($variables['logged_in'])) {
+    switch ($variables['root_path']) {
+      case 'directory':
+      case 'search':
+        unset($variables['page']['sidebar_first']);
+        break;
+    }
   }
 }
 
