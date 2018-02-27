@@ -106,3 +106,7 @@
   left: 4px;
   bottom: -0.1em;
 }
+
+details.e-books .details-wrapper {
+  padding: 0.5em;
+}
