@@ -43,6 +43,18 @@ function breema_page_attachments(array &$attachments) {
 }
 
 /**
+ * Implements hook_preprocess_html().
+ */
+function breema_preprocess_html(&$variables) {
+  // Work-around the bugs from https://www.drupal.org/node/953034
+  // For now, hard-code that anonymous users on /directory* should not see the
+  // sidebar.
+  if (empty($variables['logged_in']) && $variables['root_path'] === 'directory') {
+    unset($variables['page']['sidebar_first']);
+  }
+}
+
+/**
  * Implements hook_theme_registry_alter()
  */
 function breema_theme_registry_alter(&$theme_registry) {
