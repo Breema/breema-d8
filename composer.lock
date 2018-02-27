@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "8d2e9d6670b2209685e3afc04ce4da49",
+    "content-hash": "5b79e367e0f8e8a79505ff322938bc59",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -3028,7 +3028,7 @@
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/geolocation",
-                "reference": "3364ed6a2b113f4670df62052646a476d8935497"
+                "reference": "a54b23bb1364b3da7746804c59115429e98dde7b"
             },
             "require": {
                 "drupal/core": "*"
@@ -3039,8 +3039,8 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.11+21-dev",
-                    "datestamp": "1517991185",
+                    "version": "8.x-1.11+23-dev",
+                    "datestamp": "1519560484",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Dev releases are not covered by Drupal security advisories."
@@ -3048,8 +3048,7 @@
                 },
                 "patches_applied": {
                     "[#2921121-2] Empty h2 markup when locations don't use a 'title' field": "https://www.drupal.org/files/issues/2921121-1.hide-location-title-completely.patch",
-                    "[#2921437-9] Provide simple JS pager for raw results on Google common map display": "https://www.drupal.org/files/issues/2921437-9.raw-location-js-pager.patch",
-                    "[#2947648-2] Default markers are broken after [#2941285]": "https://www.drupal.org/files/issues/2947648-2.geolocation-fix-default-marker-icon-path.patch"
+                    "[#2921437-9] Provide simple JS pager for raw results on Google common map display": "https://www.drupal.org/files/issues/2921437-9.raw-location-js-pager.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -3071,7 +3070,7 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/geolocation"
             },
-            "time": "2018-02-07 08:12:54"
+            "time": "2018-02-25 12:07:25"
         },
         {
             "name": "drupal/inline_entity_form",
