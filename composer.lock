@@ -2667,7 +2667,7 @@
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/entityqueue",
-                "reference": "9542086a6dbf26e03fccf2dff57d131483f58232"
+                "reference": "b52c9843cedd14e4a2c02c52a36af77f3afc9572"
             },
             "require": {
                 "drupal/core": "~8.0"
@@ -2678,8 +2678,8 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.0-alpha7+7-dev",
-                    "datestamp": "1514966886",
+                    "version": "8.x-1.0-alpha7+14-dev",
+                    "datestamp": "1518694983",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Dev releases are not covered by Drupal security advisories."
@@ -2717,7 +2717,7 @@
                 "issues": "https://www.drupal.org/project/issues/entityqueue",
                 "irc": "irc://irc.freenode.org/drupal-contribute"
             },
-            "time": "2018-01-04 13:23:15"
+            "time": "2018-02-16 10:25:23"
         },
         {
             "name": "drupal/field_group",
