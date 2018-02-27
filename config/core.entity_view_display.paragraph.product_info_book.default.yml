@@ -37,7 +37,7 @@ third_party_settings:
       format_settings:
         label: e-Books
         id: ''
-        classes: align-left
+        classes: 'e-books align-left'
         open: false
       label: e-Books
       region: content
