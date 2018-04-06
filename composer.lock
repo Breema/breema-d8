@@ -2945,7 +2945,7 @@
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/geocoder",
-                "reference": "3ff307707a0627834e2a39e3d78af927f3c66af4"
+                "reference": "c914fbeed7d379bab1d791ae61b726756c0a8e15"
             },
             "require": {
                 "drupal/core": "~8.0",
@@ -2953,8 +2953,13 @@
             },
             "require-dev": {
                 "drupal/address": "*",
+                "drupal/coder": "^8.2",
                 "drupal/geocoder_field": "*",
-                "drupal/geofield": "*"
+                "drupal/geofield": "*",
+                "phpro/grumphp": "^0.12.1",
+                "phpunit/phpunit": "^5.7|^6.5",
+                "sensiolabs/security-checker": "^4.1",
+                "squizlabs/php_codesniffer": "^2.7"
             },
             "type": "drupal-module",
             "extra": {
@@ -2962,8 +2967,8 @@
                     "dev-2.x": "2.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-2.0-alpha5+4-dev",
-                    "datestamp": "1484242985",
+                    "version": "8.x-2.0-beta3+1-dev",
+                    "datestamp": "1521413280",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Dev releases are not covered by Drupal security advisories."
@@ -2981,8 +2986,9 @@
                     "role": "Maintainer"
                 },
                 {
-                    "name": "Dean Reilly",
-                    "homepage": "https://www.drupal.org/user/336031"
+                    "name": "Italo Mairo (@itamair)",
+                    "homepage": "https://www.drupal.org/u/itamair",
+                    "role": "Co-maintainer"
                 },
                 {
                     "name": "GJdan",
@@ -3001,6 +3007,10 @@
                     "homepage": "https://www.drupal.org/user/245817"
                 },
                 {
+                    "name": "itamair",
+                    "homepage": "https://www.drupal.org/user/1179076"
+                },
+                {
                     "name": "michaelfavia",
                     "homepage": "https://www.drupal.org/user/49137"
                 },
@@ -3013,14 +3023,14 @@
                     "homepage": "https://www.drupal.org/user/585764"
                 }
             ],
-            "description": "An API to geocode and reverse geocode data into other GIS data types.",
+            "description": "A Drupal module and a services based API to perform Geocode & Reverse Geocode operations among GIS data and addresses types & formats.",
             "homepage": "https://drupal.org/project/geocoder",
             "support": {
                 "source": "https://cgit.drupalcode.org/geocoder",
                 "issues": "https://drupal.org/project/issues/geocoder",
                 "irc": "irc://irc.freenode.org/drupal-geo"
             },
-            "time": "2017-01-12 17:39:36"
+            "time": "2018-03-19 22:40:19"
         },
         {
             "name": "drupal/geolocation",
