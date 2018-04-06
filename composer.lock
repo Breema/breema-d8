@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "ce9415518ad8990b42e90abab9f64371",
+    "content-hash": "670fa767e04bccaeff3c8fc88171ceae",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -1379,6 +1379,12 @@
                         "status": "not-covered",
                         "message": "Dev releases are not covered by Drupal security advisories."
                     }
+                },
+                "patches_applied": {
+                    "[#2120055-22] Trim auto-generated labels": "https://www.drupal.org/files/issues/2018-04-04/2120055-22.auto_entitylabel-8.x-2.x.trim-no-config.patch",
+                    "[#2905230-6] Alter inline_entity_form table to display auto-computed entity labels": "https://www.drupal.org/files/issues/Title_displayed_as_AutoEntityLabel_after_saving_via_Inline_Entity_Form-2905230-6.patch",
+                    "[#2935247-3] Remove the (broken and misleading) 'Automatic label' configuration page at /admin/structure/auto-label": "https://www.drupal.org/files/issues/2018-04-04/2935247-3.auto_entitylabel.remove-global-settings-page.patch",
+                    "[#2958565-2] Use #states to hide settings if auto_entitylabel is disabled for a given entity type": "https://www.drupal.org/files/issues/2018-04-04/2958565-1.hide-settings-if-auto_entitylabel-is-disabled.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
