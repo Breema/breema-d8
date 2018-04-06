@@ -7833,17 +7833,17 @@
         },
         {
             "name": "drupal/migrate_plus",
-            "version": "4.0.0-beta1",
+            "version": "4.0.0-beta3",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/migrate_plus",
-                "reference": "8.x-4.0-beta1"
+                "reference": "8.x-4.0-beta3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/migrate_plus-8.x-4.0-beta1.zip",
-                "reference": "8.x-4.0-beta1",
-                "shasum": "e64bac006e3ef9ae697b0f2c4b3744af0524e208"
+                "url": "https://ftp.drupal.org/files/projects/migrate_plus-8.x-4.0-beta3.zip",
+                "reference": "8.x-4.0-beta3",
+                "shasum": "a0da6dc169a0315bf29a8dd0ee2146d18215a56b"
             },
             "require": {
                 "drupal/core": "^8.3"
@@ -7853,6 +7853,7 @@
                 "drupal/migrate_example_setup": "*"
             },
             "suggest": {
+                "ext-soap": "*",
                 "sainsburys/guzzle-oauth2-plugin": "3.0 required for the OAuth2 authentication plugin"
             },
             "type": "drupal-module",
@@ -7861,8 +7862,8 @@
                     "dev-4.x": "4.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-4.0-beta1",
-                    "datestamp": "1494450185",
+                    "version": "8.x-4.0-beta3",
+                    "datestamp": "1519400592",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Beta releases are not covered by Drupal security advisories."
