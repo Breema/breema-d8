@@ -3007,7 +3007,7 @@
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/geolocation",
-                "reference": "a54b23bb1364b3da7746804c59115429e98dde7b"
+                "reference": "9fc8e345e397ba9038ced2091d0026c11848b9f7"
             },
             "require": {
                 "drupal/core": "*"
@@ -3018,8 +3018,8 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.11+23-dev",
-                    "datestamp": "1519560484",
+                    "version": "8.x-1.11+25-dev",
+                    "datestamp": "1520455984",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Dev releases are not covered by Drupal security advisories."
@@ -3049,7 +3049,7 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/geolocation"
             },
-            "time": "2018-02-25 12:07:25"
+            "time": "2018-03-07 20:51:18"
         },
         {
             "name": "drupal/inline_entity_form",
