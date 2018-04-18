@@ -19,7 +19,7 @@
     "drupal/config_direct_save": "^1.0",
     "drupal/config_installer": "^1.0",
     "drupal/console": "^1",
-    "drupal/core": "^8",
+    "drupal/core": "^8.5",
     "drupal/ctools": "^3.0",
     "drupal/diff": "^1.0@RC",
     "drupal/dropzonejs": "^2.0",
@@ -50,7 +50,7 @@
     "drush/drush": "~8",
     "enyo/dropzone": "^5.1",
     "rvtraveller/qs-composer-installer": "^1.1",
-    "webflo/drupal-core-strict": "^8"
+    "webflo/drupal-core-strict": "^8.5"
   },
   "require-dev": {
     "behat/behat": "3.*",
@@ -113,7 +113,6 @@
         "[#2958565-2] Use #states to hide settings if auto_entitylabel is disabled for a given entity type" : "https://www.drupal.org/files/issues/2018-04-04/2958565-1.hide-settings-if-auto_entitylabel-is-disabled.patch"
       },
       "drupal/core": {
-        "[#2796393-28] Migration process plugin not working with multiple source IDs" : "https://www.drupal.org/files/issues/2796393-28.patch",
         "[#2835825-21 Media: Migration support" : "https://www.drupal.org/files/issues/2835825-21.patch",
         "[#2866386-4] 'view_path' is set to /views/ajax after second ajax request" : "https://www.drupal.org/files/issues/2866386-4.patch"
       },
@@ -169,7 +168,7 @@
     "preferred-install": "dist",
     "sort-packages": true,
     "platform": {
-      "php": "7.0"
+      "php": "7.0.8"
     }
   }
 }
