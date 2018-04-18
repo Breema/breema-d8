@@ -1223,7 +1223,7 @@ display:
             enabled: 1
             update_handler: boundary_filter_field_geolocation_boundary
             hide_form: 0
-            views_refresh_delay: '1200'
+            views_refresh_delay: '2500'
           centre:
             first_row:
               weight: -10
