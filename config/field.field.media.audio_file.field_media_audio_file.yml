@@ -1,0 +1,46 @@
+uuid: 3d8fde77-2cc2-492f-9ff6-55384e8ea508
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_media_audio_file
+    - media.type.audio_file
+  module:
+    - file
+    - filefield_paths
+third_party_settings:
+  filefield_paths:
+    enabled: true
+    file_path:
+      value: 'audio/[date:custom:Y]/[date:custom:m]'
+      options:
+        slashes: false
+        pathauto: false
+        transliterate: false
+    redirect: false
+    retroactive_update: false
+    active_updating: false
+    file_name:
+      value: '[file:ffp-name-only-original].[file:ffp-extension-original]'
+      options:
+        slashes: true
+        pathauto: true
+        transliterate: true
+id: media.audio_file.field_media_audio_file
+field_name: field_media_audio_file
+entity_type: media
+bundle: audio_file
+label: 'Audio file'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'mp3 wav aac'
+  max_filesize: ''
+  description_field: false
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file
