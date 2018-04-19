@@ -110,3 +110,12 @@
 details.e-books .details-wrapper {
   padding: 0.5em;
 }
+
+.field--name-field-audio-excerpts {
+  clear: both;
+}
+
+.paragraph--type--product-info-audio .field--name-field-audio-excerpts .field__label {
+  font-size: 1em;
+  font-family: Georgia,"Times New Roman",Times,serif
+}
