@@ -12,9 +12,9 @@ name: media_entity_browser
 label: 'Media Entity Browser'
 display: iframe
 display_configuration:
-  width: '1070'
-  height: '840'
-  link_text: 'Select entities'
+  width: ''
+  height: ''
+  link_text: 'Select media'
   auto_open: false
 selection_display: no_display
 selection_display_configuration: {  }
@@ -25,7 +25,7 @@ widgets:
     settings:
       view: media_entity_browser
       view_display: media_select_modal
-      submit_text: 'Select entities'
+      submit_text: 'Select media'
       auto_select: false
     uuid: 6586703a-6976-4124-8a49-cbb07ceaa3b1
     weight: 1
@@ -35,7 +35,7 @@ widgets:
     settings:
       view: media_entity_browser
       view_display: user_media_select_modal
-      submit_text: 'Select entities'
+      submit_text: 'Select media'
       auto_select: false
     uuid: 3c160346-90e8-4be9-b703-78c67b27183b
     weight: 2

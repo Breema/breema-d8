@@ -11,8 +11,8 @@ name: image_browser
 label: 'Image Browser'
 display: modal
 display_configuration:
-  width: '1070'
-  height: '840'
+  width: ''
+  height: ''
   link_text: 'Select image'
   auto_open: false
 selection_display: no_display
@@ -35,7 +35,7 @@ widgets:
       submit_text: 'Save image'
     uuid: cb00f8fd-d94b-49e8-8673-4dbb729208ed
     weight: -8
-    label: 'Create new image'
+    label: 'Add image'
     id: entity_form
   71cf8763-5a41-488d-a728-f076bb19a877:
     settings:
@@ -51,7 +51,7 @@ widgets:
     settings:
       view: media_entity_browser
       view_display: image_select_modal
-      submit_text: 'Select entities'
+      submit_text: 'Select image'
       auto_select: false
     uuid: 3243b0e0-679a-418a-bc8e-6c524c306866
     weight: -10

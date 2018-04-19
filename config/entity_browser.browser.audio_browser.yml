@@ -1,0 +1,52 @@
+uuid: 2109ba43-73a2-48ce-b3de-a5530d2f27a1
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.media_entity_browser
+  module:
+    - entity_browser_entity_form
+    - views
+name: audio_browser
+label: 'Audio Browser'
+display: modal
+display_configuration:
+  width: ''
+  height: ''
+  link_text: 'Select audio'
+  auto_open: false
+selection_display: no_display
+selection_display_configuration: {  }
+widget_selector: tabs
+widget_selector_configuration: {  }
+widgets:
+  7ec52599-951b-4de6-8740-9247ba783f13:
+    settings:
+      entity_type: media
+      bundle: audio_file
+      form_mode: entity_browser
+      submit_text: 'Save audio file'
+    uuid: 7ec52599-951b-4de6-8740-9247ba783f13
+    weight: -8
+    label: 'Add audio file'
+    id: entity_form
+  9b48d3b6-50c2-4634-9fba-11bcf5d4b09d:
+    settings:
+      view: media_entity_browser
+      view_display: audio_select_modal
+      submit_text: 'Select audio'
+      auto_select: false
+    uuid: 9b48d3b6-50c2-4634-9fba-11bcf5d4b09d
+    weight: -10
+    label: 'All audio'
+    id: view
+  fcc792e4-f57d-4976-a854-99baffd74062:
+    settings:
+      view: media_entity_browser
+      view_display: user_audio_select_modal
+      submit_text: 'Select audio'
+      auto_select: false
+    uuid: fcc792e4-f57d-4976-a854-99baffd74062
+    weight: -9
+    label: 'My audio'
+    id: view

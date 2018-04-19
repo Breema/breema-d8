@@ -13,8 +13,8 @@ name: media_browser
 label: 'Media Browser'
 display: modal
 display_configuration:
-  width: '1070'
-  height: '840'
+  width: ''
+  height: ''
   link_text: 'Select media'
   auto_open: false
 selection_display: no_display
@@ -47,7 +47,7 @@ widgets:
       submit_text: 'Save image'
     uuid: cb00f8fd-d94b-49e8-8673-4dbb729208ed
     weight: -8
-    label: 'Create new image'
+    label: 'Add image'
     id: entity_form
   cae01553-a751-4172-920a-6b720d788919:
     settings:
@@ -57,7 +57,7 @@ widgets:
       submit_text: 'Save video'
     uuid: cae01553-a751-4172-920a-6b720d788919
     weight: -7
-    label: 'Create new video'
+    label: 'Add video'
     id: entity_form
   ba738844-b106-43a6-a473-d9228d2fe84d:
     settings:
@@ -67,7 +67,7 @@ widgets:
       submit_text: 'Save file'
     uuid: ba738844-b106-43a6-a473-d9228d2fe84d
     weight: -6
-    label: 'Create new file'
+    label: 'Add file'
     id: entity_form
   33d084dd-0e98-430a-bc4f-1775319629b4:
     settings:
@@ -79,3 +79,13 @@ widgets:
     weight: -9
     label: 'My media'
     id: view
+  ce252155-cf32-41c9-b8e3-284b680e2bba:
+    settings:
+      entity_type: media
+      bundle: audio_file
+      form_mode: entity_browser
+      submit_text: 'Save audio file'
+    uuid: ce252155-cf32-41c9-b8e3-284b680e2bba
+    weight: 6
+    label: 'Add audio file'
+    id: entity_form
