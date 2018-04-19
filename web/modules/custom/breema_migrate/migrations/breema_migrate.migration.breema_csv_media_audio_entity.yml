@@ -1,0 +1,44 @@
+id: breema_csv_media_audio_entity
+label: Audio entities from CSV input
+migration_tags:
+  - Breema CSV
+  - media
+  - audio
+
+destination:
+  plugin: entity:media
+
+source:
+  plugin: csv
+  path: 'public://csv/media-audio-files.csv'
+  header_row_count: 0
+  keys:
+    - filename
+  column_names:
+    0:
+      filename: File name
+    1:
+      created: Created timestamp
+
+process:
+  bundle:
+    plugin: default_value
+    default_value: audio_file
+  name: filename
+  status:
+    plugin: default_value
+    default_value: 1
+  uid:
+    plugin: default_value
+    default_value: 1
+  created: created
+  'field_media_audio_file/target_id':
+    plugin: migration_lookup
+    no_stub: true
+    migration: breema_csv_media_audio_file
+    source: filename
+
+migration_dependencies:
+  required:
+    - breema_csv_media_audio_file
+  optional: {}
