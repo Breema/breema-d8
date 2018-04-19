@@ -12,8 +12,8 @@ name: media_entity_browser
 label: 'Media Entity Browser'
 display: iframe
 display_configuration:
-  width: ''
-  height: ''
+  width: 100%
+  height: '768'
   link_text: 'Select media'
   auto_open: false
 selection_display: no_display

@@ -13,8 +13,8 @@ name: media_embed
 label: 'Media Embed'
 display: iframe
 display_configuration:
-  width: ''
-  height: ''
+  width: 100%
+  height: '768'
   link_text: 'Select media'
   auto_open: true
 selection_display: no_display
