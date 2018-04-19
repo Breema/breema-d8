@@ -1,0 +1,28 @@
+uuid: 5499fb80-eec5-4ae4-82a7-636cf726f64b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_audio_excerpts
+    - media.type.audio_file
+    - paragraphs.paragraphs_type.product_info_audio
+id: paragraph.product_info_audio.field_audio_excerpts
+field_name: field_audio_excerpts
+entity_type: paragraph
+bundle: product_info_audio
+label: 'Audio excerpts'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      audio_file: audio_file
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

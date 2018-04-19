@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - entity_browser.browser.image_browser
+    - field.field.paragraph.product_info_audio.field_audio_excerpts
     - field.field.paragraph.product_info_audio.field_buy_now
     - field.field.paragraph.product_info_audio.field_cover_image
     - field.field.paragraph.product_info_audio.field_cover_price
@@ -18,6 +19,19 @@ targetEntityType: paragraph
 bundle: product_info_audio
 mode: default
 content:
+  field_audio_excerpts:
+    weight: 5
+    settings:
+      entity_browser: audio_browser
+      field_widget_display: label
+      field_widget_edit: true
+      field_widget_remove: true
+      open: true
+      selection_mode: selection_append
+      field_widget_display_settings: {  }
+    third_party_settings: {  }
+    type: entity_browser_entity_reference
+    region: content
   field_buy_now:
     weight: 0
     settings:
@@ -33,10 +47,10 @@ content:
       field_widget_display: rendered_entity
       field_widget_edit: true
       field_widget_remove: true
+      open: true
       selection_mode: selection_append
       field_widget_display_settings:
         view_mode: preview
-      open: false
     third_party_settings: {  }
     type: entity_browser_entity_reference
     region: content
