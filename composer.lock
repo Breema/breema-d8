@@ -2807,17 +2807,17 @@
         },
         {
             "name": "drupal/field_permissions",
-            "version": "1.0.0-beta4",
+            "version": "1.0.0-rc1",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/field_permissions",
-                "reference": "8.x-1.0-beta4"
+                "reference": "8.x-1.0-rc1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/field_permissions-8.x-1.0-beta4.zip",
-                "reference": "8.x-1.0-beta4",
-                "shasum": "f9592d17268bd075445272404ef6262683358cc5"
+                "url": "https://ftp.drupal.org/files/projects/field_permissions-8.x-1.0-rc1.zip",
+                "reference": "8.x-1.0-rc1",
+                "shasum": "8f5f7707bb082c6d6099ed2ca1f0555335b24477"
             },
             "require": {
                 "drupal/core": "~8.0"
@@ -2828,11 +2828,11 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.0-beta4",
-                    "datestamp": "1505340243",
+                    "version": "8.x-1.0-rc1",
+                    "datestamp": "1523911684",
                     "security-coverage": {
                         "status": "not-covered",
-                        "message": "Beta releases are not covered by Drupal security advisories."
+                        "message": "RC releases are not covered by Drupal security advisories."
                     }
                 }
             },
