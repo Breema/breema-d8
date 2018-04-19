@@ -1,0 +1,31 @@
+uuid: f5d992b2-bbc6-4ef5-b6f2-c41ddc9d6a30
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.view_medium
+    - field.field.media.audio_file.field_media_audio_file
+    - media.type.audio_file
+  module:
+    - file
+id: media.audio_file.view_medium
+targetEntityType: media
+bundle: audio_file
+mode: view_medium
+content:
+  field_media_audio_file:
+    type: file_audio
+    weight: 0
+    label: hidden
+    settings:
+      controls: true
+      autoplay: false
+      loop: false
+      multiple_file_display_type: tags
+    third_party_settings: {  }
+    region: content
+hidden:
+  created: true
+  name: true
+  thumbnail: true
+  uid: true

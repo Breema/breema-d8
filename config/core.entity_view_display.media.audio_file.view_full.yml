@@ -1,22 +1,21 @@
-uuid: d8ae8940-cc46-44d3-bd84-bc59cfd86f15
+uuid: 19b8f051-546e-4ff4-bcda-57ba67c97023
 langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.media.view_full
     - field.field.media.audio_file.field_media_audio_file
-    - image.style.medium
     - media.type.audio_file
   module:
     - file
-    - image
-id: media.audio_file.default
+id: media.audio_file.view_full
 targetEntityType: media
 bundle: audio_file
-mode: default
+mode: view_full
 content:
   field_media_audio_file:
     type: file_audio
-    weight: 2
+    weight: 0
     label: hidden
     settings:
       controls: true
@@ -25,23 +24,8 @@ content:
       loop: false
     third_party_settings: {  }
     region: content
-  name:
-    type: string
-    weight: 0
-    region: content
-    label: hidden
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-  thumbnail:
-    type: image
-    weight: 1
-    label: hidden
-    settings:
-      image_style: medium
-      image_link: ''
-    region: content
-    third_party_settings: {  }
 hidden:
   created: true
+  name: true
+  thumbnail: true
   uid: true
