@@ -64,7 +64,6 @@ content:
     weight: 6
     settings:
       default_country: US
-      preferred_countries: {  }
     third_party_settings: {  }
     type: address_default
     region: content
@@ -180,6 +179,8 @@ content:
   url_redirects:
     weight: 50
     region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   field_geolocation: true
   title: true
