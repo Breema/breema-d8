@@ -20,7 +20,7 @@ _core:
 id: media_entity_browser
 label: 'Media Browser'
 module: views
-description: ''
+description: 'Media views for various media entity browsers.'
 tag: ''
 base_table: media_field_data
 base_field: mid
@@ -769,54 +769,6 @@ display:
           entity_type: media
           entity_field: bundle
           plugin_id: bundle
-        field_image_type_target_id:
-          id: field_image_type_target_id
-          table: media__field_image_type
-          field: field_image_type_target_id
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: or
-          value: {  }
-          group: 1
-          exposed: true
-          expose:
-            operator_id: field_image_type_target_id_op
-            label: 'Image type'
-            description: ''
-            use_operator: false
-            operator: field_image_type_target_id_op
-            identifier: image_type
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              practitioner: '0'
-              instructor: '0'
-              content_editor: '0'
-              administrator: '0'
-            reduce: false
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          reduce_duplicates: false
-          type: select
-          limit: true
-          vid: image_type
-          hierarchy: false
-          error_message: true
-          plugin_id: taxonomy_index_tid
         name:
           id: name
           table: media_field_data
@@ -911,7 +863,6 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
-        - user
         - user.permissions
       tags: {  }
   image_select_modal:
@@ -1310,54 +1261,6 @@ display:
           entity_type: media
           entity_field: bundle
           plugin_id: bundle
-        field_image_type_target_id:
-          id: field_image_type_target_id
-          table: media__field_image_type
-          field: field_image_type_target_id
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: or
-          value: {  }
-          group: 1
-          exposed: true
-          expose:
-            operator_id: field_image_type_target_id_op
-            label: 'Image type'
-            description: ''
-            use_operator: false
-            operator: field_image_type_target_id_op
-            identifier: image_type
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              practitioner: '0'
-              instructor: '0'
-              content_editor: '0'
-              administrator: '0'
-            reduce: false
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          reduce_duplicates: false
-          type: select
-          limit: true
-          vid: image_type
-          hierarchy: false
-          error_message: true
-          plugin_id: taxonomy_index_tid
         name:
           id: name
           table: media_field_data
