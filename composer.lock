@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "d7ffde62be66c6816b8362cbd1898142",
+    "content-hash": "5ffd65ed054426750c8500f6a3376ab6",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -2558,6 +2558,68 @@
             }
         },
         {
+            "name": "drupal/entity_browser_entity_form",
+            "version": "2.0.0-alpha2",
+            "require": {
+                "drupal/core": "~8.0",
+                "drupal/entity_browser": "self.version",
+                "drupal/inline_entity_form": "*"
+            },
+            "type": "metapackage",
+            "extra": {
+                "branch-alias": {
+                    "dev-2.x": "2.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-2.0-alpha2",
+                    "datestamp": "1512118387",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Alpha releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Dave Reid",
+                    "homepage": "https://www.drupal.org/user/53892"
+                },
+                {
+                    "name": "Devin Carlson",
+                    "homepage": "https://www.drupal.org/user/290182"
+                },
+                {
+                    "name": "Drupal Media Team",
+                    "homepage": "https://www.drupal.org/user/3260690"
+                },
+                {
+                    "name": "Primsi",
+                    "homepage": "https://www.drupal.org/user/282629"
+                },
+                {
+                    "name": "marcingy",
+                    "homepage": "https://www.drupal.org/user/77320"
+                },
+                {
+                    "name": "samuel.mortenson",
+                    "homepage": "https://www.drupal.org/user/2582268"
+                },
+                {
+                    "name": "slashrsm",
+                    "homepage": "https://www.drupal.org/user/744628"
+                }
+            ],
+            "description": "Entity browser inline entity form integration.",
+            "homepage": "https://www.drupal.org/project/entity_browser",
+            "support": {
+                "source": "http://cgit.drupalcode.org/entity_browser"
+            }
+        },
+        {
             "name": "drupal/entity_embed",
             "version": "1.0.0-beta2",
             "source": {
@@ -3223,25 +3285,23 @@
         },
         {
             "name": "drupal/media_entity_browser",
-            "version": "2.0.0-alpha1",
+            "version": "dev-2.x",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/media_entity_browser",
-                "reference": "8.x-2.0-alpha1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/media_entity_browser-8.x-2.0-alpha1.zip",
-                "reference": "8.x-2.0-alpha1",
-                "shasum": "d0de87059165dc7cda4ed1832b13c5846be9386b"
+                "reference": "c75921d3af90f1b6dc052cd2edf037116227acf8"
             },
             "require": {
                 "drupal/core": "*",
-                "drupal/entity_browser": "*"
+                "drupal/entity_browser": "*",
+                "drupal/entity_browser_entity_form": "*",
+                "drupal/inline_entity_form": "*"
             },
             "require-dev": {
                 "drupal/ctools": "*",
                 "drupal/entity_browser": "^2",
+                "drupal/entity_browser_entity_form": "^2",
+                "drupal/inline_entity_form": "^1",
                 "drupal/video_embed_field": "^2"
             },
             "type": "drupal-module",
@@ -3250,20 +3310,18 @@
                     "dev-2.x": "2.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-2.0-alpha1",
-                    "datestamp": "1510532885",
+                    "version": "8.x-2.0-alpha1+16-dev",
+                    "datestamp": "1522915684",
                     "security-coverage": {
                         "status": "not-covered",
-                        "message": "Alpha releases are not covered by Drupal security advisories."
+                        "message": "Dev releases are not covered by Drupal security advisories."
                     }
                 },
-                "patches_applied": {
-                    "[#2933124-4] Provide tabs for 'My media' and 'All media'": "https://www.drupal.org/files/issues/2933124-4.media_entity_browser_my_media.patch"
-                }
+                "patches_applied": []
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
             "license": [
-                "GPL-2.0+"
+                "GPL-2.0-or-later"
             ],
             "authors": [
                 {
@@ -3287,7 +3345,8 @@
             "homepage": "https://www.drupal.org/project/media_entity_browser",
             "support": {
                 "source": "http://cgit.drupalcode.org/media_entity_browser"
-            }
+            },
+            "time": "2018-04-05 08:15:29"
         },
         {
             "name": "drupal/menu_block",
@@ -9598,6 +9657,7 @@
         "drupal/geocoder": 20,
         "drupal/geolocation": 20,
         "drupal/inline_entity_form": 10,
+        "drupal/media_entity_browser": 20,
         "drupal/simple_block": 10
     },
     "prefer-stable": true,
