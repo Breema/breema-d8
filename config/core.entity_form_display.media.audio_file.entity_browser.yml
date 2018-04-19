@@ -1,0 +1,35 @@
+uuid: 5330b576-ec8a-4802-923e-19d8c3465ef4
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_form_mode.media.entity_browser
+    - field.field.media.audio_file.field_media_audio_file
+    - media.type.audio_file
+  module:
+    - file
+id: media.audio_file.entity_browser
+targetEntityType: media
+bundle: audio_file
+mode: entity_browser
+content:
+  field_media_audio_file:
+    weight: 1
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
+    type: file_generic
+    region: content
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  path: true
+  status: true
+  uid: true
