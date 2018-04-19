@@ -22,7 +22,7 @@ content:
   field_audio_excerpts:
     type: entity_reference_entity_view
     weight: 5
-    label: hidden
+    label: above
     settings:
       view_mode: view_medium
       link: false
