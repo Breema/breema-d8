@@ -4,7 +4,7 @@ smtp_hostbackup: ''
 smtp_port: '465'
 smtp_protocol: ssl
 smtp_username: breema-website@dwwright.net
-smtp_password: 
+smtp_password: ''
 smtp_from: breema-website@dwwright.net
 smtp_fromname: 'Breema Center Website'
 smtp_client_hostname: sub3.mail.dreamhost.com
