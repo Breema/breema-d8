@@ -44,3 +44,11 @@ ignore_words: ''
 update_action: 2
 _core:
   default_config_hash: GcMSgi6uAfG5R_FGEsWUVCvRPkNIzPUH2bNVcx6H0JA
+safe_tokens:
+  - alias
+  - alias
+  - path
+  - join-path
+  - login-url
+  - url
+  - url-brief
