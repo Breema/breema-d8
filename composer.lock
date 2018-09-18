@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "39408fe7e702b4686acb67070a151fac",
+    "content-hash": "225cb1ed66c5e287272c269401139166",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -2054,6 +2054,7 @@
                     "merge-extra": false
                 },
                 "patches_applied": {
+                    "[#2484693-75] Telephone Link field formatter InvalidArgumentException with 5 digits or fewer in the number": "https://www.drupal.org/files/issues/2018-09-12/2484693-75.patch",
                     "[#2648950-166] Use form element of type date instead textfield when selecting a date in an exposed filter": "https://www.drupal.org/files/issues/2018-07-06/2648950-166.patch",
                     "[#2799987-74] Datetime and Datelist element's timezone handling is fragile, buggy and wrongly documented": "https://www.drupal.org/files/issues/2018-08-15/2799987-74.patch",
                     "[#2835825-21 Media: Migration support": "https://www.drupal.org/files/issues/2835825-21.patch",
