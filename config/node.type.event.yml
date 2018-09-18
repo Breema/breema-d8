@@ -1,0 +1,17 @@
+uuid: 777eef92-e989-4a6c-ae12-14543d8e447e
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: Event
+type: event
+description: 'An event for the Breema Calendar.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false
