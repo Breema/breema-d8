@@ -7,6 +7,8 @@ dependencies:
     - field.field.node.place.body
     - field.field.node.place.field_address
     - field.field.node.place.field_geolocation
+    - field.field.node.place.field_telephone
+    - field.field.node.place.field_website
     - node.type.place
   module:
     - address
@@ -20,7 +22,7 @@ content:
   body:
     label: hidden
     type: text_summary_or_trimmed
-    weight: 1
+    weight: 2
     settings:
       trim_length: 600
     third_party_settings: {  }
@@ -32,10 +34,19 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
+  field_telephone:
+    type: string
+    weight: 1
+    region: content
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
   links:
-    weight: 2
+    weight: 3
     region: content
     settings: {  }
     third_party_settings: {  }
 hidden:
   field_geolocation: true
+  field_website: true

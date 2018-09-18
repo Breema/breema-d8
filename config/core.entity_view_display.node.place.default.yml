@@ -6,10 +6,14 @@ dependencies:
     - field.field.node.place.body
     - field.field.node.place.field_address
     - field.field.node.place.field_geolocation
+    - field.field.node.place.field_telephone
+    - field.field.node.place.field_website
     - node.type.place
   module:
     - address
+    - fixed_text_link_formatter
     - geolocation
+    - telephone
     - text
     - user
 id: node.place.default
@@ -20,7 +24,7 @@ content:
   body:
     label: hidden
     type: text_default
-    weight: 1
+    weight: 3
     settings: {  }
     third_party_settings: {  }
     region: content
@@ -32,7 +36,7 @@ content:
     type: address_default
     region: content
   field_geolocation:
-    weight: 2
+    weight: 4
     label: hidden
     settings:
       title: ''
@@ -64,8 +68,31 @@ content:
     third_party_settings: {  }
     type: geolocation_map
     region: content
+  field_telephone:
+    weight: 1
+    label: hidden
+    settings:
+      title: ''
+    third_party_settings: {  }
+    type: telephone_link
+    region: content
+  field_website:
+    weight: 2
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+      link_text: 'View website'
+      link_class: ''
+      allow_override: false
+    third_party_settings: {  }
+    type: fixed_text_link
+    region: content
   links:
-    weight: 3
+    weight: 5
     region: content
     settings: {  }
     third_party_settings: {  }

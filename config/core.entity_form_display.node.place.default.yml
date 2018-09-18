@@ -6,10 +6,14 @@ dependencies:
     - field.field.node.place.body
     - field.field.node.place.field_address
     - field.field.node.place.field_geolocation
+    - field.field.node.place.field_telephone
+    - field.field.node.place.field_website
     - node.type.place
   module:
     - address
+    - link
     - path
+    - telephone
     - text
 id: node.place.default
 targetEntityType: node
@@ -18,7 +22,7 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 2
+    weight: 4
     settings:
       rows: 6
       placeholder: ''
@@ -27,7 +31,7 @@ content:
     region: content
   created:
     type: datetime_timestamp
-    weight: 4
+    weight: 6
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -38,9 +42,24 @@ content:
     third_party_settings: {  }
     type: address_default
     region: content
+  field_telephone:
+    weight: 2
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: telephone_default
+    region: content
+  field_website:
+    weight: 3
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
   path:
     type: path
-    weight: 5
+    weight: 7
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -48,7 +67,7 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 6
+    weight: 8
     region: content
     third_party_settings: {  }
   title:
@@ -61,7 +80,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 3
+    weight: 5
     settings:
       match_operator: CONTAINS
       size: 60
@@ -69,10 +88,10 @@ content:
     region: content
     third_party_settings: {  }
   url_redirects:
-    weight: 50
+    weight: 9
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
 hidden:
   field_geolocation: true
   promote: true
