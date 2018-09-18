@@ -15,32 +15,33 @@ label: Address
 description: ''
 required: true
 translatable: false
-default_value: {  }
+default_value:
+  -
+    country_code: US
+    langcode: null
+    administrative_area: ''
+    locality: ''
+    dependent_locality: ''
+    postal_code: ''
+    sorting_code: ''
+    address_line1: ''
+    address_line2: ''
+    organization: ''
+    given_name: ''
+    additional_name: ''
+    family_name: ''
 default_value_callback: ''
 settings:
   available_countries: {  }
-  field_settings:
-    administrativeArea:
-      behavior: default
-    locality:
-      behavior: default
-    dependentLocality:
-      behavior: default
-    postalCode:
-      behavior: default
-    sortingCode:
-      behavior: default
-    addressLine1:
-      behavior: optional
-    addressLine2:
-      behavior: optional
-    organization:
-      behavior: hidden
-    givenName:
-      behavior: hidden
-    additionalName:
-      behavior: hidden
-    familyName:
-      behavior: hidden
   langcode_override: ''
+  field_overrides:
+    givenName:
+      override: hidden
+    additionalName:
+      override: hidden
+    familyName:
+      override: hidden
+    organization:
+      override: hidden
+  fields: {  }
 field_type: address
