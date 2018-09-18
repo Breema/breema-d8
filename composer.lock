@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "f36374530a90025717020e54c50cb7e5",
+    "content-hash": "39408fe7e702b4686acb67070a151fac",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -2054,7 +2054,10 @@
                     "merge-extra": false
                 },
                 "patches_applied": {
+                    "[#2648950-166] Use form element of type date instead textfield when selecting a date in an exposed filter": "https://www.drupal.org/files/issues/2018-07-06/2648950-166.patch",
+                    "[#2799987-74] Datetime and Datelist element's timezone handling is fragile, buggy and wrongly documented": "https://www.drupal.org/files/issues/2018-08-15/2799987-74.patch",
                     "[#2835825-21 Media: Migration support": "https://www.drupal.org/files/issues/2835825-21.patch",
+                    "[#2865344-35] Exposed date filters 'empty' and 'not empty' are broken": "https://www.drupal.org/files/issues/2018-03-09/2865344-35.patch",
                     "[#2866386-4] 'view_path' is set to /views/ajax after second ajax request": "https://www.drupal.org/files/issues/2866386-4.patch",
                     "[#2959869-5] Creating Media Type gives this Error: Call to a member function getName()": "https://www.drupal.org/files/issues/2018-04-16/create-media-error-2959869-5.patch"
                 }
