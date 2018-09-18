@@ -6,7 +6,24 @@ dependencies:
     - field.storage.node.field_geolocation
     - node.type.place
   module:
+    - geocoder_field
     - geolocation
+third_party_settings:
+  geocoder_field:
+    method: source
+    weight: 0
+    geocode_field: field_address
+    reverse_geocode_field: ''
+    hidden: true
+    disabled: false
+    plugins:
+      - googlemaps
+    dumper: geolocation
+    delta_handling: default
+    failure:
+      handling: preserve
+      status_message: true
+      log: true
 id: node.place.field_geolocation
 field_name: field_geolocation
 entity_type: node
