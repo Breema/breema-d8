@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.place.body
     - field.field.node.place.field_address
     - field.field.node.place.field_geolocation
+    - field.field.node.place.field_has_active_event
     - field.field.node.place.field_telephone
     - field.field.node.place.field_website
     - node.type.place
@@ -36,7 +37,7 @@ content:
     type: address_default
     region: content
   field_geolocation:
-    weight: 4
+    weight: 5
     label: hidden
     settings:
       title: ''
@@ -68,6 +69,16 @@ content:
     third_party_settings: {  }
     type: geolocation_map
     region: content
+  field_has_active_event:
+    weight: 4
+    label: hidden
+    settings:
+      format: default
+      format_custom_true: ''
+      format_custom_false: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
   field_telephone:
     weight: 1
     label: hidden
@@ -92,7 +103,7 @@ content:
     type: fixed_text_link
     region: content
   links:
-    weight: 5
+    weight: 6
     region: content
     settings: {  }
     third_party_settings: {  }

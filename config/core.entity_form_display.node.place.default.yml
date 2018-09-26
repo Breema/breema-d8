@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.place.body
     - field.field.node.place.field_address
     - field.field.node.place.field_geolocation
+    - field.field.node.place.field_has_active_event
     - field.field.node.place.field_telephone
     - field.field.node.place.field_website
     - node.type.place
@@ -41,6 +42,13 @@ content:
       default_country: US
     third_party_settings: {  }
     type: address_default
+    region: content
+  field_has_active_event:
+    weight: 26
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
     region: content
   field_telephone:
     weight: 2
