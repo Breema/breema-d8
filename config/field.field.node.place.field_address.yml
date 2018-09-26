@@ -43,5 +43,9 @@ settings:
       override: hidden
     organization:
       override: hidden
+    addressLine1:
+      override: optional
+    addressLine2:
+      override: optional
   fields: {  }
 field_type: address
