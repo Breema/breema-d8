@@ -300,7 +300,7 @@ display:
           exposed: true
           expose:
             operator_id: keys_op
-            label: 'Search text'
+            label: Search
             description: ''
             use_operator: false
             operator: keys_op
