@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - field.storage.node.field_instructors
-    - node.type.directory_entry
     - node.type.event
 id: node.event.field_instructors
 field_name: field_instructors
@@ -17,12 +16,18 @@ translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  handler: 'default:node'
+  handler: 'default:user'
   handler_settings:
-    target_bundles:
-      directory_entry: directory_entry
+    include_anonymous: false
+    filter:
+      type: role
+      role:
+        instructor: instructor
+        practitioner: '0'
+        content_editor: '0'
+        administrator: '0'
+    target_bundles: null
     sort:
       field: _none
     auto_create: false
-    auto_create_bundle: ''
 field_type: entity_reference
