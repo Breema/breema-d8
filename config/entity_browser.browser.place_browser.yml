@@ -1,0 +1,42 @@
+uuid: 74608163-cfbd-4bea-beae-a5045d69b722
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.breema_place_browser
+  module:
+    - entity_browser_entity_form
+    - views
+name: place_browser
+label: 'Place browser'
+display: modal
+display_configuration:
+  width: ''
+  height: ''
+  link_text: 'Select place'
+  auto_open: false
+selection_display: no_display
+selection_display_configuration: {  }
+widget_selector: tabs
+widget_selector_configuration: {  }
+widgets:
+  1f199af9-eeea-4210-9ff7-0c5c156ecb8e:
+    settings:
+      view: breema_place_browser
+      view_display: entity_browser_1
+      submit_text: 'Select place'
+      auto_select: false
+    uuid: 1f199af9-eeea-4210-9ff7-0c5c156ecb8e
+    weight: 1
+    label: Places
+    id: view
+  aa7865f0-b2d8-461a-bab7-1e5e29e4ae93:
+    settings:
+      entity_type: node
+      bundle: place
+      form_mode: default
+      submit_text: 'Save place'
+    uuid: aa7865f0-b2d8-461a-bab7-1e5e29e4ae93
+    weight: 2
+    label: 'Add new place'
+    id: entity_form
