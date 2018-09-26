@@ -23,12 +23,12 @@ widgets:
   1f199af9-eeea-4210-9ff7-0c5c156ecb8e:
     settings:
       view: breema_place_browser
-      view_display: entity_browser_1
+      view_display: all_places
       submit_text: 'Select place'
       auto_select: false
     uuid: 1f199af9-eeea-4210-9ff7-0c5c156ecb8e
-    weight: 1
-    label: Places
+    weight: -10
+    label: 'All places'
     id: view
   aa7865f0-b2d8-461a-bab7-1e5e29e4ae93:
     settings:
@@ -37,6 +37,16 @@ widgets:
       form_mode: default
       submit_text: 'Save place'
     uuid: aa7865f0-b2d8-461a-bab7-1e5e29e4ae93
-    weight: 2
+    weight: -8
     label: 'Add new place'
     id: entity_form
+  492c0ce4-3a3b-40dd-8d0b-2f09f86ca804:
+    settings:
+      view: breema_place_browser
+      view_display: my_places
+      submit_text: 'Select place'
+      auto_select: false
+    uuid: 492c0ce4-3a3b-40dd-8d0b-2f09f86ca804
+    weight: -9
+    label: 'My places'
+    id: view
