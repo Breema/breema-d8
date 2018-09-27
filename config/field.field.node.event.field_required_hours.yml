@@ -1,0 +1,23 @@
+uuid: 636133f8-d04f-45e3-a400-9c56c2aaf720
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_required_hours
+    - node.type.event
+id: node.event.field_required_hours
+field_name: field_required_hours
+entity_type: node
+bundle: event
+label: 'Required hours'
+description: 'If this is an "advanced" class that requires a certain number of hours of class time to attend, enter that here.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 0
+  max: 500
+  prefix: ''
+  suffix: ''
+field_type: integer

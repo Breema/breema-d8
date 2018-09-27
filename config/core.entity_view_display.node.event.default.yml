@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.event.field_date_time
     - field.field.node.event.field_instructors
     - field.field.node.event.field_location
+    - field.field.node.event.field_required_hours
     - field.field.node.event.field_subtitle
     - node.type.event
   module:
@@ -61,6 +62,15 @@ content:
     third_party_settings: {  }
     type: entity_reference_entity_view
     region: content
+  field_required_hours:
+    weight: 6
+    label: inline
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
   field_subtitle:
     weight: 0
     label: hidden
@@ -70,7 +80,7 @@ content:
     type: string
     region: content
   links:
-    weight: 6
+    weight: 7
     region: content
     settings: {  }
     third_party_settings: {  }
