@@ -1,0 +1,19 @@
+uuid: de2232f5-6225-48e0-ae67-a024061df854
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_subtitle
+    - node.type.event
+id: node.event.field_subtitle
+field_name: field_subtitle
+entity_type: node
+bundle: event
+label: Subtitle
+description: 'If there''s a theme for the class, a series title, something more essential and relating to the philosophical side of Breema, put it here.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.event.field_date_time
     - field.field.node.event.field_instructors
     - field.field.node.event.field_location
+    - field.field.node.event.field_subtitle
     - node.type.event
   module:
     - datetime_range
@@ -21,7 +22,7 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 4
+    weight: 5
     settings:
       rows: 9
       summary_rows: 3
@@ -30,18 +31,18 @@ content:
     region: content
   created:
     type: datetime_timestamp
-    weight: 6
+    weight: 7
     region: content
     settings: {  }
     third_party_settings: {  }
   field_date_time:
-    weight: 1
+    weight: 2
     settings: {  }
     third_party_settings: {  }
     type: daterange_default
     region: content
   field_instructors:
-    weight: 3
+    weight: 4
     settings:
       match_operator: CONTAINS
       size: 60
@@ -50,7 +51,7 @@ content:
     type: entity_reference_autocomplete
     region: content
   field_location:
-    weight: 2
+    weight: 3
     settings:
       entity_browser: place_browser
       field_widget_display: rendered_entity
@@ -64,9 +65,17 @@ content:
     third_party_settings: {  }
     type: entity_browser_entity_reference
     region: content
+  field_subtitle:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
   path:
     type: path
-    weight: 9
+    weight: 10
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -74,21 +83,21 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 7
+    weight: 8
     region: content
     third_party_settings: {  }
   status:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 11
+    weight: 12
     region: content
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 8
+    weight: 9
     region: content
     third_party_settings: {  }
   title:
@@ -101,7 +110,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 5
+    weight: 6
     settings:
       match_operator: CONTAINS
       size: 60
@@ -109,7 +118,7 @@ content:
     region: content
     third_party_settings: {  }
   url_redirects:
-    weight: 10
+    weight: 11
     region: content
     settings: {  }
     third_party_settings: {  }

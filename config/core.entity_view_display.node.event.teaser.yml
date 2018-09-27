@@ -5,8 +5,13 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.event.body
+    - field.field.node.event.field_date_time
+    - field.field.node.event.field_instructors
+    - field.field.node.event.field_location
+    - field.field.node.event.field_subtitle
     - node.type.event
   module:
+    - datetime_range
     - text
     - user
 id: node.event.teaser
@@ -17,14 +22,34 @@ content:
   body:
     label: hidden
     type: text_summary_or_trimmed
-    weight: 101
+    weight: 2
     settings:
-      trim_length: 600
+      trim_length: 300
     third_party_settings: {  }
     region: content
+  field_date_time:
+    type: daterange_default
+    weight: 1
+    region: content
+    label: hidden
+    settings:
+      separator: '-'
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+  field_subtitle:
+    type: string
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
   links:
-    weight: 100
+    weight: 3
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
-hidden: {  }
+hidden:
+  field_instructors: true
+  field_location: true
