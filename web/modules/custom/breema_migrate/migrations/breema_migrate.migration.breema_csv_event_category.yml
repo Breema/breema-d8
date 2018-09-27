@@ -1,0 +1,28 @@
+id: breema_csv_event_category
+label: Event category taxonomy terms from CSV file
+migration_tags:
+  - Breema CSV
+  - term
+
+destination:
+  plugin: entity:taxonomy_term
+
+source:
+  plugin: csv
+  path: public://csv/event-category.csv
+  header_row_count: 0
+  keys:
+    - name
+  column_names:
+    0:
+      name: Name
+
+process:
+  name: name
+  vid:
+    plugin: default_value
+    default_value: event_category
+
+migration_dependencies:
+  required: {}
+  optional: {}
