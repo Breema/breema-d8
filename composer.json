@@ -22,6 +22,7 @@
     "drupal/console": "^1",
     "drupal/core": "^8.5",
     "drupal/ctools": "^3.0",
+    "drupal/datetime_extras": "1.x-dev",
     "drupal/diff": "^1.0@RC",
     "drupal/dropzonejs": "^2.0",
     "drupal/embed": "^1.0",

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "225cb1ed66c5e287272c269401139166",
+    "content-hash": "cd819dc2ead218608db6acc5de826c21",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -2174,6 +2174,64 @@
                 "source": "http://cgit.drupalcode.org/ctools",
                 "issues": "https://www.drupal.org/project/issues/ctools"
             }
+        },
+        {
+            "name": "drupal/datetime_extras",
+            "version": "dev-1.x",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/datetime_extras",
+                "reference": "ec669132167495c43a458ad7fa05bb9b6d0d52c6"
+            },
+            "require": {
+                "drupal/core": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.x-dev",
+                    "datestamp": "1524067680",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Dev releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "heddn",
+                    "homepage": "https://www.drupal.org/user/1463982"
+                },
+                {
+                    "name": "jhedstrom",
+                    "homepage": "https://www.drupal.org/user/208732"
+                },
+                {
+                    "name": "mpdonadio",
+                    "homepage": "https://www.drupal.org/user/325244"
+                },
+                {
+                    "name": "pjonckiere",
+                    "homepage": "https://www.drupal.org/user/2442998"
+                },
+                {
+                    "name": "vijaycs85",
+                    "homepage": "https://www.drupal.org/user/93488"
+                }
+            ],
+            "description": "Extends core Datetime and Datetime Range functionality.",
+            "homepage": "https://www.drupal.org/project/datetime_extras",
+            "support": {
+                "source": "http://cgit.drupalcode.org/datetime_extras"
+            },
+            "time": "2018-05-16 14:57:49"
         },
         {
             "name": "drupal/diff",
@@ -9812,6 +9870,7 @@
     "stability-flags": {
         "drupal/auto_entitylabel": 20,
         "drupal/computed_field": 15,
+        "drupal/datetime_extras": 20,
         "drupal/diff": 5,
         "drupal/entityqueue": 20,
         "drupal/field_permissions": 10,
