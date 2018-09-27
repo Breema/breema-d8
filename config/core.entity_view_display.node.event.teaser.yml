@@ -9,6 +9,8 @@ dependencies:
     - field.field.node.event.field_date_time
     - field.field.node.event.field_instructors
     - field.field.node.event.field_location
+    - field.field.node.event.field_official_credit_hours
+    - field.field.node.event.field_required_hours
     - field.field.node.event.field_subtitle
     - node.type.event
   module:
@@ -55,3 +57,5 @@ hidden:
   field_categories: true
   field_instructors: true
   field_location: true
+  field_official_credit_hours: true
+  field_required_hours: true

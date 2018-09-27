@@ -1,0 +1,23 @@
+uuid: f18e5cbe-827e-4601-b772-8754b47fda4e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_official_credit_hours
+    - node.type.event
+id: node.event.field_official_credit_hours
+field_name: field_official_credit_hours
+entity_type: node
+bundle: event
+label: 'Official credit hours'
+description: 'If this event is eligible for transfer credit or continuing education (CE), enter the # of official hours available.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: !!float 0
+  max: !!float 100
+  prefix: ''
+  suffix: ''
+field_type: float
