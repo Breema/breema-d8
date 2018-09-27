@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "cd819dc2ead218608db6acc5de826c21",
+    "content-hash": "5e9cf87da129cde97a6d258ed5a8f22b",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -2198,6 +2198,9 @@
                         "status": "not-covered",
                         "message": "Dev releases are not covered by Drupal security advisories."
                     }
+                },
+                "patches_applied": {
+                    "[#2845081-13] Provide a datetime_range widget to define end time via a duration offset": "https://www.drupal.org/files/issues/2018-09-27/2845081-13.datetime_range_duration.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",

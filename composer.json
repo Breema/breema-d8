@@ -119,6 +119,9 @@
         "[#2866386-4] 'view_path' is set to /views/ajax after second ajax request" : "https://www.drupal.org/files/issues/2866386-4.patch",
         "[#2959869-5] Creating Media Type gives this Error: Call to a member function getName()" : "https://www.drupal.org/files/issues/2018-04-16/create-media-error-2959869-5.patch"
       },
+      "drupal/datetime_extras": {
+        "[#2845081-13] Provide a datetime_range widget to define end time via a duration offset" : "https://www.drupal.org/files/issues/2018-09-27/2845081-13.datetime_range_duration.patch"
+      },
       "drupal/filefield_paths": {
         "[#2718783-13] Call to undefined method BaseFieldDefinition::getThirdPartySettings()" : "https://www.drupal.org/files/issues/call_to_undefined-2718783-13.patch"
       },
