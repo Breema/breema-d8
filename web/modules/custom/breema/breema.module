@@ -273,34 +273,36 @@ function breema_form_user_login_form_alter(&$form, FormStateInterface $form_stat
 
 /**
  * Implements hook_ENTITY_TYPE_insert() as hook_node_insert().
- *
- * Clears the list of Breema countries when inserting a new directory entry.
  */
 function breema_node_insert(NodeInterface $node) {
-  if ($node->getType() == 'directory_entry') {
-    \Drupal::state()->delete('breema.breema_countries');
-  }
+  breema_node_cud($node);
 }
 
 /**
  * Implements hook_ENTITY_TYPE_update() as hook_node_update().
- *
- * Clears the list of Breema countries when updating a directory entry.
  */
 function breema_node_update(NodeInterface $node) {
-  if ($node->getType() == 'directory_entry') {
-    \Drupal::state()->delete('breema.breema_countries');
-  }
+  breema_node_cud($node);
 }
 
 /**
  * Implements hook_ENTITY_TYPE_delete() as hook_node_delete().
- *
- * Clears the list of Breema countries when deleting a directory entry.
  */
 function breema_node_delete(NodeInterface $node) {
-  if ($node->getType() == 'directory_entry') {
-    \Drupal::state()->delete('breema.breema_countries');
+  breema_node_cud($node);
+}
+
+/**
+ * Shared code invoked on any node CUD (Create, Update, Delete) operations.
+ *
+ * Clears the list of Breema countries when touching any directory entry.
+ */
+function breema_node_cud(NodeInterface $node) {
+  switch ($node->bundle()) {
+    case 'directory_entry':
+      \Drupal::state()->delete('breema.breema_countries');
+      break;
+
   }
 }
 
