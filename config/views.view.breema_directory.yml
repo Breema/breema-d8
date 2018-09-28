@@ -1477,14 +1477,14 @@ display:
   page_search:
     display_plugin: page
     id: page_search
-    display_title: 'Page: Advanced search'
+    display_title: 'Page: Search'
     position: 1
     display_options:
       display_extenders: {  }
       path: directory/search
       menu:
         type: tab
-        title: 'Advanced search'
+        title: Search
         description: ''
         expanded: false
         parent: ''
