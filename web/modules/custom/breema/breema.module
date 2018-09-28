@@ -293,9 +293,12 @@ function breema_node_delete(NodeInterface $node) {
 }
 
 /**
- * Shared code invoked on any node CUD (Create, Update, Delete) operations.
+ * Shared code invoked on any node CUD (Create, Update, Delete) operation.
  *
  * Clears the list of Breema countries when touching any directory entry.
+ *
+ * Retest (and if needed, update) field_has_active_event on all place nodes
+ * whenever an event node is touched.
  */
 function breema_node_cud(NodeInterface $node) {
   switch ($node->bundle()) {
@@ -303,6 +306,10 @@ function breema_node_cud(NodeInterface $node) {
       \Drupal::state()->delete('breema.breema_countries');
       break;
 
+    case 'event':
+      $event_mgr = new BreemaEventMgr();
+      $event_mgr->updateActivePlaces();
+      break;
   }
 }
 
