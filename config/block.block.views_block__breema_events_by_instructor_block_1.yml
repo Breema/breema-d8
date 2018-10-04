@@ -1,0 +1,33 @@
+uuid: e1945930-81e5-439a-965c-d5f6f763d626
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.breema_events_by_instructor
+  module:
+    - node
+    - views
+  theme:
+    - bartik
+id: views_block__breema_events_by_instructor_block_1
+theme: bartik
+region: content
+weight: 0
+provider: null
+plugin: 'views_block:breema_events_by_instructor-block_1'
+settings:
+  id: 'views_block:breema_events_by_instructor-block_1'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+  context_mapping: {  }
+visibility:
+  node_type:
+    id: node_type
+    bundles:
+      directory_entry: directory_entry
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
