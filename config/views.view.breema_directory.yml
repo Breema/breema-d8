@@ -12,6 +12,7 @@ dependencies:
     - field.storage.user.user_picture
     - image.style.thumbnail
     - node.type.directory_entry
+    - node.type.place
   module:
     - address
     - contact
@@ -57,7 +58,7 @@ display:
       exposed_form:
         type: basic
         options:
-          submit_button: Apply
+          submit_button: Filter
           reset_button: true
           reset_button_label: Reset
           exposed_sorts_label: 'Sort by'
@@ -1287,106 +1288,44 @@ display:
           hide_empty: false
       use_ajax: true
       filters:
-        status:
-          value: '1'
+        status_1:
+          id: status_1
           table: node_field_data
           field: status
-          plugin_id: boolean
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: '1'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
           entity_type: node
           entity_field: status
-          id: status
-          expose:
-            operator: ''
-          group: 1
-        type:
-          id: type
-          table: node_field_data
-          field: type
-          value:
-            directory_entry: directory_entry
-          entity_type: node
-          entity_field: type
-          plugin_id: bundle
-          group: 1
-        keys:
-          id: keys
-          table: node_search_index
-          field: keys
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: required
-          value: ''
-          group: 1
-          exposed: true
-          expose:
-            operator_id: keys_op
-            label: Search
-            description: 'Name, city, postal code, etc.'
-            use_operator: false
-            operator: keys_op
-            identifier: search
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          plugin_id: search_keywords
-        field_certification_value:
-          id: field_certification_value
-          table: node__field_certification
-          field: field_certification_value
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: and
-          value: {  }
-          group: 1
-          exposed: true
-          expose:
-            operator_id: field_certification_value_op
-            label: Certification
-            description: ''
-            use_operator: false
-            operator: field_certification_value_op
-            identifier: certification
-            required: false
-            remember: false
-            multiple: true
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              content_editor: '0'
-              administrator: '0'
-            reduce: false
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          reduce_duplicates: false
-          plugin_id: list_field
+          plugin_id: boolean
         field_geolocation_boundary:
           id: field_geolocation_boundary
           table: node__field_geolocation
@@ -1440,10 +1379,182 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           plugin_id: geolocation_filter_boundary
+        keys:
+          id: keys
+          table: node_search_index
+          field: keys
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: required
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: keys_op
+            label: Search
+            description: 'Name, city, postal code, etc.'
+            use_operator: false
+            operator: keys_op
+            identifier: search
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: search_keywords
+        type_1:
+          id: type_1
+          table: node_field_data
+          field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: in
+          value:
+            directory_entry: directory_entry
+            place: place
+          group: 1
+          exposed: true
+          expose:
+            operator_id: type_1_op
+            label: Type
+            description: ''
+            use_operator: false
+            operator: type_1_op
+            identifier: type
+            required: false
+            remember: false
+            multiple: true
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              practitioner: '0'
+              instructor: '0'
+              content_editor: '0'
+              administrator: '0'
+            reduce: true
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+        field_certification_value:
+          id: field_certification_value
+          table: node__field_certification
+          field: field_certification_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: and
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_certification_value_op
+            label: Certification
+            description: ''
+            use_operator: false
+            operator: field_certification_value_op
+            identifier: certification
+            required: false
+            remember: false
+            multiple: true
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              content_editor: '0'
+              administrator: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          plugin_id: list_field
+        field_has_active_event_value:
+          id: field_has_active_event_value
+          table: node__field_has_active_event
+          field: field_has_active_event_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: '1'
+          group: 2
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: boolean
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          value:
+            directory_entry: directory_entry
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+          group: 2
       filter_groups:
         operator: AND
         groups:
           1: AND
+          2: OR
       header:
         area:
           id: area
@@ -1455,7 +1566,7 @@ display:
           empty: true
           tokenize: false
           content:
-            value: 'Please explore the interactive map. Once you zoom in, all the results in that area will be listed <strong>below the map</strong>. If you wish to filter results via a country or state, please use the <a href="[view:url]/search">Advanced search</a> tab.'
+            value: 'Please explore the interactive map. Once you zoom in, all the results in that area will be listed <strong>below the map</strong>. If you wish to filter results via a country or state, please use the <a href="[view:url]/search">Search</a> tab.'
             format: basic_html
           plugin_id: text
     cache_metadata:
