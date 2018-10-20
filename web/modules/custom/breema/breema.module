@@ -257,6 +257,11 @@ function breema_form_views_exposed_form_alter(&$form, \Drupal\Core\Form\FormStat
         $form['langcode']['#access'] = FALSE;
       }
       break;
+
+    case 'breema_directory':
+      $form['type']['#options']['directory_entry'] = t('Person');
+      break;
+
   }
 }
 
