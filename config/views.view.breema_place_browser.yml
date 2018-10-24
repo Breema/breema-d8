@@ -70,16 +70,11 @@ display:
             previous: ‹‹
             next: ››
       style:
-        type: grid
+        type: default
         options:
           grouping: {  }
-          columns: 3
-          automatic_width: true
-          alignment: horizontal
-          col_class_default: true
-          col_class_custom: ''
-          row_class_default: true
-          row_class_custom: ''
+          row_class: 'entity-browser-row entity-browser-grid'
+          default_row_class: true
       row:
         type: fields
         options:
@@ -458,6 +453,7 @@ display:
         operator: AND
         groups:
           1: AND
+      css_class: entity-browser-view
     cache_metadata:
       max-age: -1
       contexts:

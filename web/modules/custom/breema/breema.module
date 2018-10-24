@@ -93,9 +93,17 @@ function breema_theme_registry_alter(&$theme_registry) {
  * Implements hook_views_pre_render().
  */
 function breema_views_pre_render(Drupal\views\ViewExecutable $view) {
-  if (isset($view) && ($view->storage->id() == 'breema_directory')) {
-    $view->element['#attached']['library'][] = 'breema/views.breema_directory';
-    $view->element['#attached']['library'][] = 'breema/directory_entry';
+  if (isset($view)) {
+    switch($view->storage->id()) {
+      case 'breema_directory':
+        $view->element['#attached']['library'][] = 'breema/views.breema_directory';
+        $view->element['#attached']['library'][] = 'breema/directory_entry';
+        break;
+
+      case 'breema_place_browser':
+        $view->element['#attached']['library'][] = 'breema/entity-browser';
+        break;
+    }
   }
 }
 

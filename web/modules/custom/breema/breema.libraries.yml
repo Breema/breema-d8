@@ -27,3 +27,14 @@ views.breema_directory:
   css:
     component:
       css/views.breema-directory.css: {}
+
+entity-browser:
+  version: VERSION
+  css:
+    component:
+      css/breema.entity-browser.css: {}
+  js:
+    js/breema.entity-browser.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
