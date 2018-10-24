@@ -1566,7 +1566,7 @@ display:
           empty: true
           tokenize: false
           content:
-            value: 'Please explore the interactive map. Once you zoom in, all the results in that area will be listed <strong>below the map</strong>. If you wish to filter results via a country or state, please use the <a href="[view:url]/search">Search</a> tab.'
+            value: 'Explore the map of places with upcoming Breema events and Certified Breema Practitioners and Instructors. Once you zoom in, all the results in that area will be listed <strong>below the map</strong>. If you wish to filter results via a country or state, please use the <a href="[view:url]/search">Search</a> tab.'
             format: basic_html
           plugin_id: text
     cache_metadata:
