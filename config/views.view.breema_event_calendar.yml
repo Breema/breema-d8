@@ -12,6 +12,7 @@ dependencies:
     - address
     - datetime
     - datetime_range
+    - fullcalendar_view
     - node
     - search
     - taxonomy
@@ -583,6 +584,34 @@ display:
         operator: AND
         groups:
           1: AND
+      style:
+        type: fullcalendar_view_display
+        options:
+          defaultDate: ''
+          start: field_date_time
+          end: field_date_time
+          des: field_address
+          right_buttons:
+            agendaWeek: agendaWeek
+            agendaDay: agendaDay
+            listYear: listYear
+          nav_links: 1
+          alloweventOverlap: 1
+          defaultLanguage: en
+          languageSelector: 1
+          createEventLink: 0
+          tax_field: ''
+          vocabularies: ''
+          color_contents:
+            article: '#3a87ad'
+            directory_entry: '#3a87ad'
+            event: '#3a87ad'
+            layout_page: '#3a87ad'
+            page: '#3a87ad'
+            place: '#3a87ad'
+            product: '#3a87ad'
+          content_type: event
+          classes: ''
     cache_metadata:
       max-age: -1
       contexts:
