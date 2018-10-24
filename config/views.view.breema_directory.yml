@@ -912,16 +912,6 @@ display:
           expose:
             operator: ''
           group: 1
-        type:
-          id: type
-          table: node_field_data
-          field: type
-          value:
-            directory_entry: directory_entry
-          entity_type: node
-          entity_field: type
-          plugin_id: bundle
-          group: 1
         keys:
           id: keys
           table: node_search_index
@@ -1046,6 +1036,52 @@ display:
             country_filter_id: field_address_country_code
             country_static_code: BR
           plugin_id: administrative_area
+        type_1:
+          id: type_1
+          table: node_field_data
+          field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: in
+          value:
+            directory_entry: directory_entry
+            place: place
+          group: 1
+          exposed: true
+          expose:
+            operator_id: type_1_op
+            label: Type
+            description: ''
+            use_operator: false
+            operator: type_1_op
+            identifier: type
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              practitioner: '0'
+              instructor: '0'
+              content_editor: '0'
+              administrator: '0'
+            reduce: true
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
         field_certification_value:
           id: field_certification_value
           table: node__field_certification
@@ -1087,6 +1123,87 @@ display:
             group_items: {  }
           reduce_duplicates: false
           plugin_id: list_field
+        field_has_active_event_value:
+          id: field_has_active_event_value
+          table: node__field_has_active_event
+          field: field_has_active_event_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: '1'
+          group: 2
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: boolean
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: in
+          value:
+            directory_entry: directory_entry
+          group: 2
+          exposed: false
+          expose:
+            operator_id: type_op
+            label: 'Content type'
+            description: ''
+            use_operator: false
+            operator: type_op
+            identifier: content_type
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              practitioner: '0'
+              instructor: '0'
+              content_editor: '0'
+              administrator: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
       sorts:
         sticky:
           id: sticky
@@ -1161,6 +1278,7 @@ display:
         operator: AND
         groups:
           1: AND
+          2: OR
       use_ajax: false
     cache_metadata:
       max-age: -1
@@ -1544,12 +1662,42 @@ display:
           id: type
           table: node_field_data
           field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: in
           value:
             directory_entry: directory_entry
+          group: 2
+          exposed: false
+          expose:
+            operator_id: type_op
+            label: 'Content type'
+            description: null
+            use_operator: false
+            operator: type_op
+            identifier: type
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
           entity_type: node
           entity_field: type
           plugin_id: bundle
-          group: 2
       filter_groups:
         operator: AND
         groups:
