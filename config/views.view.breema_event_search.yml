@@ -441,7 +441,20 @@ display:
       title: 'Breema event search'
       header: {  }
       footer: {  }
-      empty: {  }
+      empty:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: false
+          content:
+            value: 'No events match your search.'
+            format: basic_html
+          plugin_id: text
       relationships:
         field_location:
           id: field_location
