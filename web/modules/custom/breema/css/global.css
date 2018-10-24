@@ -75,3 +75,8 @@
   color: #777;
   left: 1px;
 }
+
+p.address {
+  margin: 1em 0;
+  font-style: italic;
+}

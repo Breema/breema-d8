@@ -1,8 +1,4 @@
 /* General styles for the whole view */
-p.address {
-  margin: 1em 0;
-}
-
 .result-id,
 .result-info {
   float: left;
