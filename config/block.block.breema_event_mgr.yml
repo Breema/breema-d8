@@ -4,6 +4,7 @@ status: true
 dependencies:
   module:
     - breema
+    - system
     - user
   theme:
     - bartik
@@ -28,3 +29,8 @@ visibility:
     negate: false
     context_mapping:
       user: '@user.current_user_context:current_user'
+  request_path:
+    id: request_path
+    pages: '/user/*'
+    negate: true
+    context_mapping: {  }
