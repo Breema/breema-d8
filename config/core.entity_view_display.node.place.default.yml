@@ -12,8 +12,8 @@ dependencies:
     - node.type.place
   module:
     - address
-    - fixed_text_link_formatter
     - geolocation
+    - link
     - telephone
     - text
     - user
@@ -37,7 +37,7 @@ content:
     type: address_default
     region: content
   field_geolocation:
-    weight: 5
+    weight: 4
     label: hidden
     settings:
       title: ''
@@ -69,16 +69,6 @@ content:
     third_party_settings: {  }
     type: geolocation_map
     region: content
-  field_has_active_event:
-    weight: 4
-    label: hidden
-    settings:
-      format: default
-      format_custom_true: ''
-      format_custom_false: ''
-    third_party_settings: {  }
-    type: boolean
-    region: content
   field_telephone:
     weight: 1
     label: hidden
@@ -92,19 +82,17 @@ content:
     label: hidden
     settings:
       trim_length: 80
-      url_only: false
+      url_only: true
       url_plain: false
-      rel: ''
-      target: ''
-      link_text: 'View website'
-      link_class: ''
-      allow_override: false
+      rel: '0'
+      target: '0'
     third_party_settings: {  }
-    type: fixed_text_link
+    type: link
     region: content
   links:
-    weight: 6
+    weight: 5
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  field_has_active_event: true
