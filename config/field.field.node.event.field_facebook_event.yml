@@ -1,0 +1,23 @@
+uuid: 60440be7-9d77-4506-a058-1a37e352c2a3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_facebook_event
+    - node.type.event
+  module:
+    - link
+id: node.event.field_facebook_event
+field_name: field_facebook_event
+entity_type: node
+bundle: event
+label: 'Facebook event'
+description: 'The full link including ''https'', for example: <em>https://www.facebook.com/events/385901418608723</em>'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 16
+  title: 0
+field_type: link
