@@ -63,6 +63,35 @@ function breema_preprocess_html(&$variables) {
 }
 
 /**
+ * Implements hook_preprocess_HOOK() for nodes.
+ *
+ * Calls out to bundle-specific functions.
+ */
+function breema_preprocess_node(&$variables) {
+  switch ($variables['node']->getType()) {
+    case 'event':
+      breema_preprocess_node_event($variables);
+      break;
+  }
+}
+
+/**
+ * Preprocess function for event nodes.
+ *
+ * If the required hours field is empty, print a message that it's open to all.
+ */
+function breema_preprocess_node_event(&$variables) {
+  if ($variables['view_mode'] == 'full') {
+    if (empty($variables['content']['field_required_hours'][0])) {
+      $variables['content']['field_required_hours'][0] = [
+        '#type' => 'markup',
+        '#markup' => t('Open to everyone, beginners welcome.'),
+      ];
+    }
+  }
+}
+
+/* *
  * Implements hook_theme_registry_alter()
  */
 function breema_theme_registry_alter(&$theme_registry) {
