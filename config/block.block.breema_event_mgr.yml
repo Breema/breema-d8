@@ -1,0 +1,30 @@
+uuid: f1d129a0-322a-4220-ad45-587d2425adba
+langcode: en
+status: true
+dependencies:
+  module:
+    - breema
+    - user
+  theme:
+    - bartik
+id: breema_event_mgr
+theme: bartik
+region: sidebar_first
+weight: -7
+provider: null
+plugin: breema_event_mgr_block
+settings:
+  id: breema_event_mgr_block
+  label: 'Your Breema Events'
+  provider: breema
+  label_display: visible
+visibility:
+  user_role:
+    id: user_role
+    roles:
+      instructor: instructor
+      content_editor: content_editor
+      administrator: administrator
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
