@@ -757,7 +757,18 @@ display:
             label: ''
           granularity: second
       title: 'Breema Event Administration'
-      header: {  }
+      header:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: false
+          content: '<ul class="action-links"><li><a href="[site:url]node/add/event" class="button button-action button--primary">Add new event</a></li></ul>'
+          plugin_id: text_custom
       footer: {  }
       empty:
         area:
