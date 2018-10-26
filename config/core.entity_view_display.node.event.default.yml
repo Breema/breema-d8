@@ -13,7 +13,7 @@ dependencies:
     - field.field.node.event.field_subtitle
     - node.type.event
   module:
-    - datetime_range
+    - datetime_extras
     - text
     - user
 id: node.event.default
@@ -40,11 +40,9 @@ content:
     weight: 1
     label: hidden
     settings:
-      timezone_override: ''
-      separator: '- '
       format_type: medium
     third_party_settings: {  }
-    type: daterange_default
+    type: daterange_compact
     region: content
   field_instructors:
     weight: 2

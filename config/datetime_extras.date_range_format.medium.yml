@@ -1,0 +1,20 @@
+uuid: 85d8147b-727f-4516-b192-7a2ad0ca76a4
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: OEtQKAP7VL2Bkm7ZuC_EI1yqziqTgYYXfXKcsRbn7Zo
+id: medium
+label: Medium
+date_settings:
+  default_pattern: 'j F Y'
+  separator: –
+  same_month_start_pattern: j
+  same_month_end_pattern: 'j F Y'
+  same_year_start_pattern: 'j F'
+  same_year_end_pattern: 'j F Y'
+datetime_settings:
+  default_pattern: 'j F Y H:i'
+  separator: –
+  same_day_start_pattern: 'j F Y H:i'
+  same_day_end_pattern: 'H:i'

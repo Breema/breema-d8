@@ -14,7 +14,7 @@ dependencies:
     - field.field.node.event.field_subtitle
     - node.type.event
   module:
-    - datetime_range
+    - datetime_extras
     - text
     - user
 id: node.event.teaser
@@ -31,15 +31,13 @@ content:
     third_party_settings: {  }
     region: content
   field_date_time:
-    type: daterange_default
     weight: 1
-    region: content
     label: hidden
     settings:
-      separator: '-'
       format_type: medium
-      timezone_override: ''
     third_party_settings: {  }
+    type: daterange_compact
+    region: content
   field_subtitle:
     type: string
     weight: 0
