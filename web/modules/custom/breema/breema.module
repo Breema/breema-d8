@@ -321,6 +321,17 @@ function breema_form_views_exposed_form_alter(&$form, \Drupal\Core\Form\FormStat
     }
   }
 
+  if (!empty($form['end_datetime_op'])) {
+    $form['end_datetime_op']['#title'] = t('Date/time');
+    $form['end_datetime_op']['#options'] = [
+      'not empty' => t('- Any -'),
+      '>=' => t('Upcoming'),
+      '<=' => t('Past'),
+    ];
+    $form['end_datetime_op']['#default_value'] = 'not empty';
+    $form['end_datetime']['#access'] = FALSE;
+  }
+
   $view = $form_state->getStorage('view');
   switch ($view['view']->id()) {
     case 'media':
