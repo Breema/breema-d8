@@ -18,6 +18,7 @@ use Drupal\node\NodeInterface;
 use Drupal\user\Entity\User;
 use Drupal\user\UserInterface;
 use Drupal\views\ViewExecutable;
+use Drupal\views\ResultRow;
 
 use Drupal\breema\BreemaEventMgr;
 
@@ -92,7 +93,7 @@ function breema_theme_registry_alter(&$theme_registry) {
 /**
  * Implements hook_views_pre_render().
  */
-function breema_views_pre_render(Drupal\views\ViewExecutable $view) {
+function breema_views_pre_render(ViewExecutable $view) {
   if (isset($view)) {
     switch($view->storage->id()) {
       case 'breema_directory':
@@ -103,6 +104,37 @@ function breema_views_pre_render(Drupal\views\ViewExecutable $view) {
       case 'breema_place_browser':
         $view->element['#attached']['library'][] = 'breema/entity-browser';
         break;
+
+      case 'breema_events_by_instructor':
+        return breema_views_pre_render_breema_events_by_instructor($view);
+    }
+  }
+}
+
+/**
+ * Implements hook_views_pre_render() for breema_events_by_instructor.
+ *
+ * On the 'block_map' display, inject the instructor's directory entry, if any.
+ */
+function breema_views_pre_render_breema_events_by_instructor(ViewExecutable $view) {
+  if ($view->current_display == 'block_map') {
+    $user_argument = $view->display_handler->getHandler('argument', 'field_instructors_target_id');
+    if (!empty($user_argument)) {
+      $query = \Drupal::entityQuery('node')
+        ->condition('type', 'directory_entry')
+        ->condition('uid', $user_argument->getValue());
+      $nids = $query->execute();
+      if (!empty($nids)) {
+        $directory_entry = entity_load('node', array_pop($nids));
+        if (!empty($directory_entry)) {
+          $result = new ResultRow();
+          // Pretend this is the location for an event, since it has all the
+          // same fields we need: title, address and geolocation.
+          $result->_relationship_entities['field_location'] = $directory_entry;
+          $result->index = count($view->result);
+          $view->result[] = $result;
+        }
+      }
     }
   }
 }

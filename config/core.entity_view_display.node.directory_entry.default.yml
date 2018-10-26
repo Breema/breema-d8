@@ -18,7 +18,6 @@ dependencies:
     - node.type.directory_entry
   module:
     - address
-    - geolocation
     - options
     - smart_trim
     - telephone
@@ -87,39 +86,6 @@ content:
     third_party_settings: {  }
     type: email_mailto
     region: content
-  field_geolocation:
-    weight: 9
-    label: hidden
-    settings:
-      set_marker: '1'
-      title: '[node:title]'
-      info_text: ''
-      google_map_settings:
-        height: 400px
-        width: 100%
-        type: ROADMAP
-        zoom: '10'
-        maxZoom: 15
-        minZoom: 0
-        mapTypeControl: 1
-        zoomControl: 1
-        gestureHandling: auto
-        draggable: 1
-        preferScrollingToZooming: 1
-        style: ''
-        marker_icon_path: ''
-        disableAutoPan: 1
-        streetViewControl: 0
-        rotateControl: 0
-        fullscreenControl: 0
-        scrollwheel: 0
-        disableDoubleClickZoom: 0
-        info_auto_display: 0
-      use_overridden_map_settings: 0
-      common_map: ''
-    third_party_settings: {  }
-    type: geolocation_map
-    region: content
   field_job_title:
     weight: 0
     label: hidden
@@ -146,10 +112,11 @@ content:
     type: telephone_link
     region: content
   links:
-    weight: 10
+    weight: 9
     region: content
     settings: {  }
     third_party_settings: {  }
 hidden:
+  field_geolocation: true
   field_name_first: true
   field_name_last: true
