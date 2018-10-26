@@ -6,6 +6,7 @@ use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Url;
 use Drupal\node\Entity\NodeType;
 use Drupal\node\NodeTypeInterface;
+use Drupal\views\Views;
 
 /**
  * A block for users to manage their own Breema events.
@@ -37,6 +38,12 @@ class BreemaEventMgrBlock extends BlockBase {
     $current_page = Url::fromRoute('<current>');
     $url_options['query']['destination'] = $current_page->toString();
 
+    $dashboard_url = Url::fromUri('internal:/user/' . $current_user->id() . '/events');
+    $dashboard_link = [
+      '#prefix' => '<div class="secondary-action">',
+      '#markup' => $this->t('<a href=":dashboard">Event dashboard</a>', [':dashboard' => $dashboard_url->toString()]),
+      '#suffix' => '</div>',
+    ];
     $node_type = NodeType::load('event');
     $result = \Drupal::service('access_check.node.add')->access($current_user, $node_type);
     if ($result) {
@@ -47,39 +54,55 @@ class BreemaEventMgrBlock extends BlockBase {
         '#suffix' => '</div>',
       ];
     }
-    /// @todo Should this be a view?
     /// @todo Also handle field_instructors
-    /// @todo Start time
-    /// @todo Warn users if there are events pending moderation.
-    /// @todo Link to a full management page?
-    /// @todo Clone button for past events?
-    $query = \Drupal::entityQuery('node')
-           ->condition('type', 'event')
-           ->condition('status', 1)
-           ->condition('uid', $current_user->id());
-    $nids = $query->execute();
-    if (!empty($nids)) {
-      $events = entity_load_multiple('node', $nids);
-      foreach ($events as $event) {
-        $event_links[] = $event->toLink()->toString();
+    $args = [$current_user->id()];
+    foreach (['pending', 'upcoming'] as $event_status) {
+      $display = 'embed_' . $event_status;
+      $view = Views::getView('breema_event_mgr');
+      $view->setDisplay($display);
+      $view->setArguments($args);
+      $view->execute();
+      if (count($view->result)) {
+        $block[$event_status] = [
+          'heading' => [
+            '#prefix' => '<h3>',
+            '#markup' => $view->getTitle(),
+            '#suffix' => '</h3>',
+          ],
+          'results' => $view->preview($display, $args),
+        ];
+        $events[$event_status] = TRUE;
       }
-      return $block + [
-        'events' => [
-          '#theme' => 'item_list',
-          '#items' => $event_links,
-        ],
-        'add-link' => $add_link,
-      ];
     }
-    elseif (!empty($add_link)) {
-      return $block + [
-        'empty-text' => [
+    // If we still haven't found anything, see if there are past events.
+    if (empty($events)) {
+      $view = Views::getView('breema_event_mgr');
+      $view->setDisplay('embed_past');
+      $view->setArguments($args);
+      $view->execute();
+      if (count($view->result)) {
+        $events['past'] = TRUE;
+        $block['past'] = [
           '#prefix' => '<p>',
-          '#markup' => $this->t('You do not have any upcoming events.'),
+          /// @todo: We can mention "clone" once it exists on the dashboard.
+          '#markup' => $this->t('View past events at your <a href=":dashboard">Event dashboard</a>.', [':dashboard' => $dashboard_url->toString()]),
           '#suffix' => '</p>',
-        ],
-        'add-link' => $add_link,
-      ];
+        ];
+      }
+      else {
+        $block['empty'] = [
+          '#prefix' => '<p>',
+          '#markup' => $this->t('You do not have any events.'),
+          '#suffix' => '</p>',
+        ];
+      }
     }
+    if (!empty($add_link)) {
+      $block['add-link'] = $add_link;
+    }
+    if (!empty($events)) {
+      $block['dashboard'] = $dashboard_link;
+    }
+    return $block;
   }
 }
