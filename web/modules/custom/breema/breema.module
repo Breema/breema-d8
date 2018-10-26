@@ -484,3 +484,47 @@ function breema_cron() {
   $event_mgr = new BreemaEventMgr();
   $event_mgr->updateActivePlaces();
 }
+
+/**
+ * Returns an appropriate label given an array of entities.
+ *
+ * If there's only 1 entity, return the label.
+ * If 2, use "LabelA and LabelB".
+ * If 3 or more "Label1, ... LabelN-1 and LabelN".
+ *
+ * @param array $entities
+ *   An array of objects that implement \Drupal\Core\Entity\EntityInterface.
+ * @param callable $label_callback
+ *   A function that takes an object that implements EntityInterface and
+ *   returns the appropriate text or markup for the label for that Entity.
+ *
+ * @return string
+ *   Label for all the entities with appropriate delimiter(s) depending on number.
+ */
+function breema_get_entity_label_multiple(array $entities, $label_callback) {
+  $text = '';
+  $last = array_pop($entities);
+  $last_label = $label_callback($last);
+  $text = implode(', ', array_map($label_callback, $entities));
+  if (!empty($text)) {
+    $text .= " and $last_label";
+  }
+  else {
+    $text = $last_label;
+  }
+  return $text;
+}
+
+/**
+ * Label callback to return the plain entity label.
+ */
+function breema_entity_label_plain(EntityInterface $entity) {
+  return $entity->label();
+}
+
+/**
+ * Label callback to return the entity label as a link to the entity.
+ */
+function breema_entity_label_link(EntityInterface $entity) {
+  return $entity->toLink()->toString();
+}
