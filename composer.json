@@ -121,6 +121,7 @@
         "[#2959869-5] Creating Media Type gives this Error: Call to a member function getName()" : "https://www.drupal.org/files/issues/2018-04-16/create-media-error-2959869-5.patch"
       },
       "drupal/datetime_extras": {
+        "[#2834016-18] Add 'Compact' datetime range formatter" : "https://www.drupal.org/files/issues/add_datetime_range-2834016-18.patch",
         "[#2845081-13] Provide a datetime_range widget to define end time via a duration offset" : "https://www.drupal.org/files/issues/2018-09-27/2845081-13.datetime_range_duration.patch"
       },
       "drupal/filefield_paths": {
