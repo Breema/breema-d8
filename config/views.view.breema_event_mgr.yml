@@ -15,7 +15,7 @@ dependencies:
 id: breema_event_mgr
 label: 'Breema Event Manager'
 module: views
-description: 'Event manager tab on user pages.'
+description: 'Admin-only listings of events (moderation queue, recent edits, etc).'
 tag: ''
 base_table: node_field_data
 base_field: nid
@@ -738,7 +738,18 @@ display:
           granularity: minute
           plugin_id: datetime
       title: 'Event manager'
-      header: {  }
+      header:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: false
+          content: '<ul class="action-links"><li><a href="[site:url]node/add/event" class="button button-action button--primary">Add new event</a></li></ul>'
+          plugin_id: text_custom
       footer: {  }
       empty:
         area:
