@@ -132,6 +132,12 @@ function breema_views_pre_render_breema_events_by_instructor(ViewExecutable $vie
           // same fields we need: title, address and geolocation.
           $result->_relationship_entities['field_location'] = $directory_entry;
           $result->index = count($view->result);
+          if (empty($view->result)) {
+            $gmap_settings = &$view->display_handler->getPlugin('style')->options['google_map_settings'];
+            $gmap_settings['width'] = '300px';
+            $gmap_settings['height'] = '300px';
+            $gmap_settings['maxZoom'] = 10;
+          }
           $view->result[] = $result;
         }
       }
