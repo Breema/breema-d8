@@ -13,32 +13,12 @@ dependencies:
     - node.type.place
   module:
     - address
-    - smart_trim
     - user
 id: node.place.teaser
 targetEntityType: node
 bundle: place
 mode: teaser
 content:
-  body:
-    label: hidden
-    type: smart_trim
-    weight: 2
-    settings:
-      trim_length: 300
-      trim_type: chars
-      trim_suffix: ''
-      wrap_class: trimmed
-      more_text: More
-      more_class: more-link
-      summary_handler: full
-      wrap_output: false
-      more_link: false
-      trim_options:
-        text: false
-        trim_zero: false
-    third_party_settings: {  }
-    region: content
   field_address:
     type: address_default
     weight: 0
@@ -55,6 +35,7 @@ content:
       link_to_entity: false
     third_party_settings: {  }
 hidden:
+  body: true
   field_geolocation: true
   field_has_active_event: true
   field_website: true
