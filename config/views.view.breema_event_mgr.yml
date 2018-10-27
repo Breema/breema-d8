@@ -779,27 +779,21 @@ display:
           summary: ''
           description: ''
           columns:
-            node_bulk_form: node_bulk_form
             status: status
             title: title
             field_date_time: field_date_time
             field_location: field_location
+            field_instructors: field_instructors
             uid: uid
-            changed: changed
             operations: operations
           info:
-            node_bulk_form:
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
             status:
               sortable: true
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
-              responsive: ''
+              responsive: priority-medium
             title:
               sortable: false
               default_sort_order: asc
@@ -820,6 +814,11 @@ display:
               align: ''
               separator: ''
               empty_column: false
+              responsive: priority-medium
+            field_instructors:
+              align: ''
+              separator: ''
+              empty_column: false
               responsive: priority-low
             uid:
               sortable: false
@@ -828,19 +827,12 @@ display:
               separator: ''
               empty_column: false
               responsive: priority-low
-            changed:
-              sortable: true
-              default_sort_order: desc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: priority-medium
             operations:
               align: ''
               separator: ''
               empty_column: false
-              responsive: priority-medium
-          default: changed
+              responsive: ''
+          default: '-1'
           empty_table: false
       row:
         type: fields
