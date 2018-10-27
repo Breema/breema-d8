@@ -90,9 +90,10 @@ class BreemaEventMgrBlock extends BlockBase {
         ];
       }
       else {
+        $events_url = Url::fromUri('internal:/events');
         $block['empty'] = [
           '#prefix' => '<p>',
-          '#markup' => $this->t('You do not have any events.'),
+          '#markup' => $this->t('You do not have any <a href=":events">Breema events</a>.', [':events' => $events_url->toString()]),
           '#suffix' => '</p>',
         ];
       }
