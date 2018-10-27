@@ -73,7 +73,7 @@ content:
     weight: 2
     label: hidden
     settings:
-      view_mode: teaser_with_location
+      view_mode: teaser
       link: false
     third_party_settings: {  }
     type: entity_reference_entity_view

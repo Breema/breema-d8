@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.event.body
     - field.field.node.event.field_categories
     - field.field.node.event.field_date_time
+    - field.field.node.event.field_facebook_event
     - field.field.node.event.field_instructors
     - field.field.node.event.field_location
     - field.field.node.event.field_official_credit_hours
@@ -15,30 +16,12 @@ dependencies:
     - node.type.event
   module:
     - datetime_extras
-    - smart_trim
     - user
 id: node.event.teaser
 targetEntityType: node
 bundle: event
 mode: teaser
 content:
-  body:
-    label: hidden
-    type: smart_trim
-    weight: 3
-    settings:
-      trim_length: 300
-      trim_type: chars
-      trim_suffix: ''
-      wrap_output: false
-      wrap_class: trimmed
-      more_link: false
-      more_class: more-link
-      more_text: More
-      summary_handler: full
-      trim_options: {  }
-    third_party_settings: {  }
-    region: content
   field_date_time:
     weight: 1
     label: hidden
@@ -64,7 +47,9 @@ content:
       link_to_entity: false
     third_party_settings: {  }
 hidden:
+  body: true
   field_categories: true
+  field_facebook_event: true
   field_location: true
   field_official_credit_hours: true
   field_required_hours: true
