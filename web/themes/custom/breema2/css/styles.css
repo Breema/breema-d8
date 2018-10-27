@@ -23,6 +23,10 @@ a.teaser-link article.node--view-mode-teaser {
   padding: 0.75em 0.5em;
 }
 
+a.teaser-link .field--name-field-date-time {
+  font-style: italic;
+}
+
 a.teaser-link:hover article {
   background-color: rgba(0,0,0,0.025);
 }
@@ -32,3 +36,4 @@ a.teaser-link:focus h4 {
   color: #018fe2;
   text-decoration: underline;
 }
+
