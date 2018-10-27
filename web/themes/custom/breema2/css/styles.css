@@ -1,10 +1,25 @@
 a.teaser-link {
   color: black;
   text-decoration: none;
+  margin-bottom: 1em;
 }
 
 a.teaser-link h4 {
   color: #0071b3;
+  margin: 0;
+}
+
+a.teaser-link .field--type-entity-reference {
+  margin: 0;
+}
+
+a.teaser-link article {
+  margin: 0.25em 0;
+  padding: 0.25em 0 .5em 0;
+}
+
+a.teaser-link:hover article {
+  background-color: rgba(0,0,0,0.025);
 }
 
 a.teaser-link:hover h4,
