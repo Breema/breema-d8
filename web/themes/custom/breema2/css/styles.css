@@ -15,7 +15,7 @@ a.teaser-link .field--type-entity-reference {
 
 a.teaser-link article {
   margin: 0.25em 0;
-  padding: 0.25em 0;
+  padding: 0.25em;
 }
 
 a.teaser-link article.node--view-mode-teaser {
@@ -27,13 +27,39 @@ a.teaser-link .field--name-field-date-time {
   font-style: italic;
 }
 
-a.teaser-link:hover article {
-  background-color: rgba(0,0,0,0.025);
-}
-
 a.teaser-link:hover h4,
 a.teaser-link:focus h4 {
   color: #018fe2;
   text-decoration: underline;
 }
 
+a.teaser-link .node__content {
+  font-size: 1em;
+  margin: 0;
+}
+
+.teaser-wrapper {
+  padding: 1em;
+}
+
+.node--view-mode-teaser-with-location .event-info {
+  float: left;
+  width: 60%;
+  margin: 0;
+}
+
+.node--view-mode-teaser-with-location .field--name-field-location {
+  float: left;
+  width: 35%;
+  margin: 0;
+  font-size: 90%;
+}
+
+.node--view-mode-teaser-with-location .field--name-field-location p.address {
+  margin: 0.25em 0;
+}
+
+a.teaser-link:hover .teaser-wrapper,
+a.teaser-link:hover .node--view-mode-teaser-compact {
+  background-color: rgba(0,0,0,0.025);
+}

@@ -14,12 +14,13 @@
 <a href="{{ url }}" rel="bookmark" class="teaser-link">
 <article{{ attributes.addClass(classes) }}>
   <header>
+    {{ content.field_date_time }}
     <h4{{ title_attributes.addClass('node__title') }}>
       {{ label }}
     </h4>
   </header>
   <div{{ content_attributes.addClass('clearfix') }}>
-    {{ content }}
+    {{ content|without('field_date_time') }}
   </div>
 </article>
 </a>
