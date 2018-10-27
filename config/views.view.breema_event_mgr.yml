@@ -681,7 +681,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          operator: '='
+          operator: 'not empty'
           value:
             min: ''
             max: ''
