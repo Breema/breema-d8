@@ -38,8 +38,12 @@ a.teaser-link .node__content {
   margin: 0;
 }
 
+a.teaser-link .node--sticky {
+  border: 1px solid #bbb;
+  background-color: rgba(129, 253, 91, 0.04);
+}
 .teaser-wrapper {
-  padding: 1em;
+  padding: 0.5em 0;
 }
 
 .node--view-mode-teaser-with-location .event-info {
