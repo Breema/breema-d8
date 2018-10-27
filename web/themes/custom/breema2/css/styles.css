@@ -1,1 +1,14 @@
+a.teaser-link {
+  color: black;
+  text-decoration: none;
+}
 
+a.teaser-link h4 {
+  color: #0071b3;
+}
+
+a.teaser-link:hover h4,
+a.teaser-link:focus h4 {
+  color: #018fe2;
+  text-decoration: underline;
+}
