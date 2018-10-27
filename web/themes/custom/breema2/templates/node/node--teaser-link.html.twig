@@ -1,0 +1,13 @@
+{% extends 'node--teaser.html.twig' %}
+
+{% block link_start %}
+{% if not page %}
+<a href="{{ url }}" rel="bookmark">
+{% endif %}
+{% endblock %}
+
+{% block link_end %}
+{% if not page %}
+</a>
+{% endif %}
+{% endblock %}
