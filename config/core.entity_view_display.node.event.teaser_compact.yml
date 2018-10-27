@@ -1,0 +1,49 @@
+uuid: e9cfdd8e-2a62-4440-9d6e-16070a3da5a3
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser_compact
+    - field.field.node.event.body
+    - field.field.node.event.field_categories
+    - field.field.node.event.field_date_time
+    - field.field.node.event.field_facebook_event
+    - field.field.node.event.field_instructors
+    - field.field.node.event.field_location
+    - field.field.node.event.field_official_credit_hours
+    - field.field.node.event.field_required_hours
+    - field.field.node.event.field_subtitle
+    - node.type.event
+  module:
+    - datetime_extras
+    - user
+id: node.event.teaser_compact
+targetEntityType: node
+bundle: event
+mode: teaser_compact
+content:
+  field_date_time:
+    weight: 0
+    label: hidden
+    settings:
+      format_type: medium
+    third_party_settings: {  }
+    type: daterange_compact
+    region: content
+  field_location:
+    weight: 1
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+hidden:
+  body: true
+  field_categories: true
+  field_facebook_event: true
+  field_instructors: true
+  field_official_credit_hours: true
+  field_required_hours: true
+  field_subtitle: true
+  links: true
