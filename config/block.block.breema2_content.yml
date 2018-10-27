@@ -1,0 +1,22 @@
+uuid: 94c8c95d-dbc9-427b-8282-fa5339dbf50e
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - breema2
+_core:
+  default_config_hash: 9EoWV2Lot6FVSr50t4hoKgiz1LIXYWNG-IIPYsWxBqo
+id: breema2_content
+theme: breema2
+region: content
+weight: -5
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  provider: system
+  label_display: '0'
+visibility: {  }

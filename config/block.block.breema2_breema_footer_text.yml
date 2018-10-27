@@ -1,0 +1,20 @@
+uuid: 4e41e7a2-9268-4e6b-a44b-76875c5d196e
+langcode: en
+status: true
+dependencies:
+  module:
+    - breema
+  theme:
+    - breema2
+id: breema2_breema_footer_text
+theme: breema2
+region: footer_second
+weight: 0
+provider: null
+plugin: footer_text_block
+settings:
+  id: footer_text_block
+  label: 'Breema Footer text'
+  provider: breema
+  label_display: '0'
+visibility: {  }

@@ -1,0 +1,36 @@
+uuid: 5013ff62-4d5d-436a-8849-0e1dfd899172
+langcode: en
+status: true
+dependencies:
+  module:
+    - breema
+    - system
+    - user
+  theme:
+    - breema2
+id: breema2_breema_event_mgr
+theme: breema2
+region: sidebar_first
+weight: -7
+provider: null
+plugin: breema_event_mgr_block
+settings:
+  id: breema_event_mgr_block
+  label: 'Your Breema Events'
+  provider: breema
+  label_display: visible
+visibility:
+  user_role:
+    id: user_role
+    roles:
+      instructor: instructor
+      content_editor: content_editor
+      administrator: administrator
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+  request_path:
+    id: request_path
+    pages: '/user/*'
+    negate: true
+    context_mapping: {  }

@@ -1,0 +1,28 @@
+uuid: 5c107628-56db-475a-a074-72289d7b362c
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - menu_block
+  theme:
+    - breema2
+id: breema2_sub_navigation
+theme: breema2
+region: sidebar_first
+weight: -9
+provider: null
+plugin: 'menu_block:main'
+settings:
+  id: 'menu_block:main'
+  label: 'Sub menu navigation'
+  provider: menu_block
+  label_display: visible
+  level: 2
+  depth: 0
+  expand: 0
+  parent: 'main:'
+  label_type: root
+  suggestion: main
+visibility: {  }

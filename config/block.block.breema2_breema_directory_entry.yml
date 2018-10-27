@@ -1,0 +1,34 @@
+uuid: a1210b8e-cef9-41f7-a20e-ca238290c8f4
+langcode: en
+status: true
+dependencies:
+  module:
+    - breema
+    - system
+    - user
+  theme:
+    - breema2
+id: breema2_breema_directory_entry
+theme: breema2
+region: sidebar_first
+weight: -6
+provider: null
+plugin: directory_entry_block
+settings:
+  id: directory_entry_block
+  label: 'Your Breema Directory entry'
+  provider: breema
+  label_display: visible
+visibility:
+  request_path:
+    id: request_path
+    pages: "/node/*/edit\r\n/user/*/edit\r\n/node/add*\r\n"
+    negate: true
+    context_mapping: {  }
+  user_role:
+    id: user_role
+    roles:
+      authenticated: authenticated
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'

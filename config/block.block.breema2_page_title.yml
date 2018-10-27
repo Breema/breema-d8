@@ -1,0 +1,20 @@
+uuid: 04af1a97-9cac-4ea6-9e27-27c733636634
+langcode: en
+status: true
+dependencies:
+  theme:
+    - breema2
+_core:
+  default_config_hash: 7rR9chwXvdM2H8OYMAYx9Zj3GGlPMrZp_M3ZA4thYTk
+id: breema2_page_title
+theme: breema2
+region: content
+weight: -8
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  provider: core
+  label_display: '0'
+visibility: {  }

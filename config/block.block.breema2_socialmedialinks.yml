@@ -1,0 +1,112 @@
+uuid: d9410cf9-fc08-41e5-bcb4-10613415eda0
+langcode: en
+status: true
+dependencies:
+  module:
+    - social_media_links
+  theme:
+    - breema2
+id: breema2_socialmedialinks
+theme: breema2
+region: footer_first
+weight: 0
+provider: null
+plugin: social_media_links_block
+settings:
+  id: social_media_links_block
+  label: 'Follow the Breema Center'
+  provider: social_media_links
+  label_display: visible
+  platforms:
+    facebook:
+      value: breemacenter
+      description: ''
+      weight: '-30'
+    googleplus:
+      value: '113914257902609659991'
+      description: ''
+      weight: '-29'
+    instagram:
+      value: breemacenter
+      description: ''
+      weight: '-28'
+    pinterest:
+      value: breemacenter
+      description: ''
+      weight: '-27'
+    twitter:
+      value: breemacenter
+      description: ''
+      weight: '-26'
+    youtube:
+      value: user/TheBreemaChannel
+      description: ''
+      weight: '-25'
+    behance:
+      value: ''
+      description: ''
+      weight: '-24'
+    bitbucket:
+      value: ''
+      description: ''
+      weight: '-23'
+    contact:
+      value: ''
+      description: ''
+      weight: '-22'
+    drupal:
+      value: ''
+      description: ''
+      weight: '-21'
+    email:
+      value: ''
+      description: ''
+      weight: '-20'
+    flickr:
+      value: ''
+      description: ''
+      weight: '-19'
+    github:
+      value: ''
+      description: ''
+      weight: '-18'
+    linkedin:
+      value: ''
+      description: ''
+      weight: '-17'
+    rss:
+      value: ''
+      description: ''
+      weight: '-16'
+    slideshare:
+      value: ''
+      description: ''
+      weight: '-15'
+    tumblr:
+      value: ''
+      description: ''
+      weight: '-14'
+    vimeo:
+      value: ''
+      description: ''
+      weight: '-13'
+    vkontakte:
+      value: ''
+      description: ''
+      weight: '-12'
+    youtube_channel:
+      value: ''
+      description: ''
+      weight: '-11'
+  appearance:
+    orientation: h
+    show_name: 0
+  link_attributes:
+    target: '<none>'
+    rel: '<none>'
+  iconset:
+    style: 'fontawesome:3x'
+    installed_iconsets:
+      fontawesome:
+        examples: ''
+visibility: {  }

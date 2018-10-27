@@ -1,0 +1,22 @@
+uuid: c14027ef-376c-4810-b08c-d3393a6fa40e
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - breema2
+_core:
+  default_config_hash: KHQIJ7Vfl25lTjzIc7qIvnuistt-Mw2O0kG4jCofmkI
+id: breema2_messages
+theme: breema2
+region: highlighted
+weight: 0
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  provider: system
+  label_display: '0'
+visibility: {  }

@@ -1,0 +1,20 @@
+uuid: f9e39d4d-8fd7-4270-b6b4-321457fc1527
+langcode: en
+status: true
+dependencies:
+  theme:
+    - breema2
+_core:
+  default_config_hash: 13GQpeITIJsp1kyPniXtWZfyFH87vb1xxJCHifL4UeE
+id: breema2_local_actions
+theme: breema2
+region: content
+weight: -7
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  provider: core
+  label_display: '0'
+visibility: {  }
