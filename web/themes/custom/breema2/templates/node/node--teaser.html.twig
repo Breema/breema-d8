@@ -17,9 +17,9 @@
   <header>
     {{ title_prefix }}
     {% if not page %}
-    <h4{{ title_attributes.addClass('node__title') }}>
+    <{{ title_element }}{{ title_attributes.addClass('node__title') }}>
       {{ label }}
-    </h4>
+    </{{ title_element }}>
     {% endif %}
     {{ title_suffix }}
   </header>
