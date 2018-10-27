@@ -15,7 +15,12 @@ a.teaser-link .field--type-entity-reference {
 
 a.teaser-link article {
   margin: 0.25em 0;
-  padding: 0.25em 0 .5em 0;
+  padding: 0.25em 0;
+}
+
+a.teaser-link article.node--view-mode-teaser {
+  margin: 0.5em 0;
+  padding: 0.75em 0.5em;
 }
 
 a.teaser-link:hover article {
