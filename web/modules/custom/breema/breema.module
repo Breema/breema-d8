@@ -86,7 +86,9 @@ function breema_preprocess_node_event(&$variables) {
     if (empty($variables['content']['field_required_hours'][0])) {
       $variables['content']['field_required_hours'][0] = [
         '#type' => 'markup',
+        '#prefix' => '<div>',
         '#markup' => t('Open to everyone, beginners welcome.'),
+        '#suffix' => '</div>',
       ];
     }
   }
@@ -95,7 +97,9 @@ function breema_preprocess_node_event(&$variables) {
     if (!empty($instructors)) {
       $variables['content']['field_instructors'] = [
         '#type' => 'markup',
+        '#prefix' => '<div>',
         '#markup' => new PluralTranslatableMarkup(count($instructors), 'Instructor: @instructors', 'Instructors: @instructors', ['@instructors' => breema_get_entity_label_multiple($instructors, 'breema_entity_label_plain')]),
+        '#suffix' => '</div>',
         '#weight' => isset($variables['content']['field_instructors']['#weight']) ? $variables['content']['field_instructors']['#weight'] : 0,
       ];
     }
