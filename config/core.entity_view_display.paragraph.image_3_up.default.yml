@@ -1,0 +1,22 @@
+uuid: 5507cfda-db19-4fcd-bdf3-6fff7e2adc1f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.image_3_up.field_images_3
+    - paragraphs.paragraphs_type.image_3_up
+id: paragraph.image_3_up.default
+targetEntityType: paragraph
+bundle: image_3_up
+mode: default
+content:
+  field_images_3:
+    type: entity_reference_entity_view
+    weight: 1
+    label: hidden
+    settings:
+      view_mode: view_medium
+      link: false
+    third_party_settings: {  }
+    region: content
+hidden: {  }

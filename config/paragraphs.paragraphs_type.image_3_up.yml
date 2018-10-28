@@ -1,0 +1,9 @@
+uuid: 61e68aa1-a289-4bb8-a47e-6f9337f3008c
+langcode: en
+status: true
+dependencies: {  }
+id: image_3_up
+label: 'Image: 3-up'
+icon_uuid: null
+description: 'A slice of 3 images, inline at wider screens.'
+behavior_plugins: {  }
