@@ -10,7 +10,7 @@ field_name: field_official_credit_hours
 entity_type: node
 bundle: event
 label: 'Official credit hours'
-description: 'If this event is eligible for transfer credit or continuing education (CE), enter the # of official hours available.'
+description: 'If this event is eligible for transfer credit, enter the maximum number of available hours.'
 required: false
 translatable: false
 default_value: {  }
