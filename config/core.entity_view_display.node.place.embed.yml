@@ -1,0 +1,59 @@
+uuid: 66e1d724-581c-4ca6-a3cf-2619c8c77acb
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.embed
+    - field.field.node.place.body
+    - field.field.node.place.field_address
+    - field.field.node.place.field_geolocation
+    - field.field.node.place.field_has_active_event
+    - field.field.node.place.field_telephone
+    - field.field.node.place.field_website
+    - node.type.place
+  module:
+    - address
+    - link
+    - telephone
+    - user
+id: node.place.embed
+targetEntityType: node
+bundle: place
+mode: embed
+content:
+  field_address:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: address_default
+    region: content
+  field_telephone:
+    weight: 1
+    label: hidden
+    settings:
+      title: ''
+    third_party_settings: {  }
+    type: telephone_link
+    region: content
+  field_website:
+    weight: 2
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: true
+      url_plain: false
+      rel: '0'
+      target: '0'
+    third_party_settings: {  }
+    type: link
+    region: content
+  links:
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  body: true
+  field_geolocation: true
+  field_has_active_event: true
