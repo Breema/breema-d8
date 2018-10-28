@@ -46,6 +46,11 @@
   border: 1px solid #0071b3;
 }
 
+.container-inline .action a,
+.container-inline .secondary-action a {
+  margin: 0 1em 0 0;
+}
+
 div.danger {
   display: block;
   margin: 1em auto 0;
