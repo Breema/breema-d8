@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.storage.node.field_paragraphs
     - node.type.layout_page
+    - paragraphs.paragraphs_type.event_featured
   module:
     - entity_reference_revisions
 id: node.layout_page.field_paragraphs
@@ -21,11 +22,15 @@ settings:
   handler: 'default:paragraph'
   handler_settings:
     negate: 0
-    target_bundles: null
+    target_bundles:
+      event_featured: event_featured
     target_bundles_drag_drop:
       product_info_audio:
         weight: 4
         enabled: false
+      event_featured:
+        enabled: true
+        weight: 5
       product_info_book:
         weight: 5
         enabled: false

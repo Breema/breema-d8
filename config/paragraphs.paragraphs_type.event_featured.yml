@@ -1,0 +1,9 @@
+uuid: 1bd0e2ad-e10e-4c59-b532-e1c5c946ae33
+langcode: en
+status: true
+dependencies: {  }
+id: event_featured
+label: 'Event: Featured'
+icon_uuid: null
+description: 'A list and map of all featured events.'
+behavior_plugins: {  }

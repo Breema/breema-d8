@@ -1,0 +1,21 @@
+uuid: 912f6ccb-23d7-47b5-af31-b5f759bb44ee
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.event_featured.field_header_text
+    - paragraphs.paragraphs_type.event_featured
+id: paragraph.event_featured.default
+targetEntityType: paragraph
+bundle: event_featured
+mode: default
+content:
+  field_header_text:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden: {  }

@@ -1,0 +1,24 @@
+uuid: 0b6a456b-500e-426e-8150-7b985c36cdf5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.event_featured.field_header_text
+    - paragraphs.paragraphs_type.event_featured
+id: paragraph.event_featured.default
+targetEntityType: paragraph
+bundle: event_featured
+mode: default
+content:
+  field_header_text:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true
