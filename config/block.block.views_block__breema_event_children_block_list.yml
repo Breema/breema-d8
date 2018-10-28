@@ -1,34 +1,34 @@
-uuid: 42b7be00-a113-4f59-9593-515ebc9eb821
+uuid: 452ceeb7-29a6-49c1-8d5c-bf59ce01c27a
 langcode: en
 status: true
 dependencies:
   config:
-    - views.view.breema_events_by_location
+    - views.view.breema_event_children
   module:
     - node
     - views
   theme:
     - breema2
-id: breema2_views_block__breema_events_by_location_block_1
+id: views_block__breema_event_children_block_list
 theme: breema2
 region: content
-weight: -6
+weight: -3
 provider: null
-plugin: 'views_block:breema_events_by_location-block_1'
+plugin: 'views_block:breema_event_children-block_list'
 settings:
-  id: 'views_block:breema_events_by_location-block_1'
+  id: 'views_block:breema_event_children-block_list'
   label: ''
   provider: views
   label_display: visible
   views_label: ''
   items_per_page: none
   context_mapping:
-    field_location_target_id: '@node.node_route_context:node'
+    field_parent_event_target_id: '@node.node_route_context:node'
 visibility:
   node_type:
     id: node_type
     bundles:
-      place: place
+      event: event
     negate: false
     context_mapping:
       node: '@node.node_route_context:node'
