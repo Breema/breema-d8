@@ -6,6 +6,7 @@ dependencies:
     - field.storage.node.field_paragraphs
     - node.type.layout_page
     - paragraphs.paragraphs_type.event_featured
+    - paragraphs.paragraphs_type.image_wide
   module:
     - entity_reference_revisions
 id: node.layout_page.field_paragraphs
@@ -24,6 +25,7 @@ settings:
     negate: 0
     target_bundles:
       event_featured: event_featured
+      image_wide: image_wide
     target_bundles_drag_drop:
       product_info_audio:
         weight: 4
@@ -37,4 +39,7 @@ settings:
       product_info_general:
         weight: 6
         enabled: false
+      image_wide:
+        enabled: true
+        weight: 7
 field_type: entity_reference_revisions

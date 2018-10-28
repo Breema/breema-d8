@@ -1,0 +1,9 @@
+uuid: 10188007-f025-4bb4-90be-2e3c68f0f37c
+langcode: en
+status: true
+dependencies: {  }
+id: image_wide
+label: 'Image: wide'
+icon_uuid: null
+description: 'A single (wide) image.'
+behavior_plugins: {  }
