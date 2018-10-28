@@ -1804,7 +1804,7 @@ display:
           empty: true
           tokenize: false
           content:
-            value: 'To search by states, select the country, click ''Apply'' and a state or province selector will appear if available.'
+            value: 'To search by states, select the country, click ''Filter'' and a state or province selector will appear if available.'
             format: basic_html
           plugin_id: text
     cache_metadata:
