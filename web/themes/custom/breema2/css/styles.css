@@ -9,18 +9,24 @@ a.teaser-link h4 {
   margin: 0;
 }
 
+a.teaser-link article {
+  margin: 0.25em 0 0 0;
+  padding: 0.25em;
+}
+
+a.teaser-link article.node--view-mode-teaser,
+a.teaser-link article.node--view-mode-teaser-with-location {
+  margin: 1em 0 0 0;
+  padding: 0.5em 0.25em;
+}
+
 a.teaser-link .field--type-entity-reference {
   margin: 0;
 }
 
-a.teaser-link article {
-  margin: 0.25em 0;
-  padding: 0.25em;
-}
-
-a.teaser-link article.node--view-mode-teaser {
-  margin: 0.5em 0;
-  padding: 0.75em 0.5em;
+a.teaser-link article .field--type-entity-reference article {
+  margin: 0;
+  padding: 0;
 }
 
 a.teaser-link .field--name-field-date-time {
@@ -42,9 +48,6 @@ a.teaser-link .node--sticky {
   border: 1px solid #bbb;
   background-color: rgba(129, 253, 91, 0.04);
 }
-.teaser-wrapper {
-  padding: 0.5em 0;
-}
 
 .node--view-mode-teaser-with-location .event-info {
   float: left;
@@ -63,8 +66,7 @@ a.teaser-link .node--sticky {
   margin: 0.25em 0;
 }
 
-a.teaser-link:hover .teaser-wrapper,
-a.teaser-link:hover .node--view-mode-teaser-compact {
+a.teaser-link:hover .teaser-wrapper {
   background-color: rgba(0,0,0,0.025);
 }
 

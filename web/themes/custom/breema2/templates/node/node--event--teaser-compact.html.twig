@@ -12,6 +12,7 @@
 {{ attach_library('classy/node') }}
 
 <a href="{{ url }}" rel="bookmark" class="teaser-link">
+<div class="teaser-wrapper clearfix">
 <article{{ attributes.addClass(classes) }}>
   <header>
     {{ content.field_date_time }}
@@ -23,4 +24,5 @@
     {{ content|without('field_date_time') }}
   </div>
 </article>
+</div>
 </a>
