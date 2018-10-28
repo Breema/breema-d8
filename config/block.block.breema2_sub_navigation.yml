@@ -6,6 +6,7 @@ dependencies:
     - system.menu.main
   module:
     - menu_block
+    - system
   theme:
     - breema2
 id: breema2_sub_navigation
@@ -25,4 +26,9 @@ settings:
   parent: 'main:'
   label_type: root
   suggestion: main
-visibility: {  }
+visibility:
+  request_path:
+    id: request_path
+    pages: /events
+    negate: true
+    context_mapping: {  }
