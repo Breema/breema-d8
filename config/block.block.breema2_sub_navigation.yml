@@ -12,7 +12,7 @@ dependencies:
 id: breema2_sub_navigation
 theme: breema2
 region: sidebar_first
-weight: -9
+weight: -10
 provider: null
 plugin: 'menu_block:main'
 settings:
