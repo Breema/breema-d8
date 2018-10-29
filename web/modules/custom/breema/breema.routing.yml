@@ -7,4 +7,5 @@ breema.event.add-child:
   options:
     _admin_route: TRUE
   requirements:
+    _node_add_access: 'node:event'
     _custom_access: '\Drupal\breema\Controller\BreemaController::isParentEvent'
