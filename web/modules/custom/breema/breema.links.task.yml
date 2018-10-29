@@ -1,0 +1,5 @@
+breema.event.add-child:
+  title: 'Add schedule'
+  route_name: breema.event.add-child
+  base_route: entity.node.canonical
+  weight: 0

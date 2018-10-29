@@ -1,0 +1,10 @@
+breema.event.add-child:
+  path: '/node/{node}/add-child'
+  pattern: '/node/{node}/add-child'
+  defaults:
+    _form: 'Drupal\breema\Form\BreemaAddChildEventForm'
+    _title: 'Add schedule'
+  options:
+    _admin_route: TRUE
+  requirements:
+    _custom_access: '\Drupal\breema\Controller\BreemaController::isParentEvent'
