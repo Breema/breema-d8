@@ -114,10 +114,15 @@ class BreemaAddChildEventForm extends ConfirmFormBase {
    * Submit callback.
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
+    // Is there a more slick way to get this?
+    $current_user = \Drupal::currentUser();
     $form_values = $form_state->getValues();
     $child = $this->parent->createDuplicate();
     $child->setTitle($form_values['title']);
     $child->set('field_parent_event', $this->parent->id());
+    $child->set('uid', $current_user->id());
+    $child->set('created', '');
+    $child->set('changed', '');
     $child->set('sticky', 0);
     $child->set('status', 0);
     $child->save();
