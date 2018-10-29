@@ -415,6 +415,30 @@ function breema_form_user_login_form_alter(&$form, FormStateInterface $form_stat
 }
 
 /**
+ * Implements hook_entity_type_alter().
+ */
+function breema_entity_type_alter(array &$entity_types) {
+  $entity_types['node']->setLinkTemplate('add-schedule-form', '/node/{node}/add-schedule');
+}
+
+/**
+ * Implements hook_entity_operation().
+ */
+function breema_entity_operation(EntityInterface $entity) {
+  $operations = [];
+  if ($entity->getEntityType()->id() == 'node' && $entity->bundle() == 'event') {
+    if (empty($entity->get('field_parent_event')->getValue())) {
+      $operations['add-schedule-form'] = [
+        'title' => t('Add schedule'),
+        'url' => $entity->toUrl('add-schedule-form'),
+        'weight' => 40,
+      ];
+    }
+  }
+  return $operations;
+}
+
+/**
  * Implements hook_ENTITY_TYPE_insert() as hook_node_insert().
  */
 function breema_node_insert(NodeInterface $node) {

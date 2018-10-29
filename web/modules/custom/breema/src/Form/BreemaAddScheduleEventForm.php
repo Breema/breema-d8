@@ -14,7 +14,7 @@ use Drupal\node\Entity\Node;
 
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
-class BreemaAddChildEventForm extends ConfirmFormBase {
+class BreemaAddScheduleEventForm extends ConfirmFormBase {
   /**
    * Event dispatcher service.
    *
@@ -37,7 +37,7 @@ class BreemaAddChildEventForm extends ConfirmFormBase {
   protected $messenger;
 
   /**
-   * Constructs a new Add Child Event form.
+   * Constructs a new Add Schedule Event form.
    *
    * @param \Drupal\Core\Routing\RouteMatchInterface $route_match
    *   The route match service.
@@ -65,7 +65,7 @@ class BreemaAddChildEventForm extends ConfirmFormBase {
    * {@inheritdoc}
    */
   public function getFormId() {
-    return 'breema_add_child_event_form';
+    return 'breema_add_schedule_event_form';
   }
 
   /**
