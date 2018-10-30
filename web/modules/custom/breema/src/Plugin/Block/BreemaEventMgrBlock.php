@@ -40,7 +40,7 @@ class BreemaEventMgrBlock extends BlockBase {
 
     $dashboard_url = Url::fromUri('internal:/user/' . $current_user->id() . '/events');
     $dashboard_link = [
-      '#prefix' => '<div class="secondary-action">',
+      '#prefix' => '<div class="action-secondary">',
       '#markup' => $this->t('<a href=":dashboard">Event dashboard</a>', [':dashboard' => $dashboard_url->toString()]),
       '#suffix' => '</div>',
     ];

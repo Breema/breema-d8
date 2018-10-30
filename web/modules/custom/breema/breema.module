@@ -106,7 +106,7 @@ function breema_preprocess_paragraph__event_featured(&$variables) {
     foreach ($actions as $action => $action_path) {
       $url = Url::fromUri('internal:' . $action_path);
       $variables['content']['actions'][$action] = [
-        '#prefix' => '<div class="secondary-action inline">',
+        '#prefix' => '<div class="action-secondary inline">',
         '#markup' => t('<a href=":url">:label</a>', [':url' => $url->toString(), ':label' => Unicode::ucfirst($action)]),
         '#suffix' => '</div>',
       ];

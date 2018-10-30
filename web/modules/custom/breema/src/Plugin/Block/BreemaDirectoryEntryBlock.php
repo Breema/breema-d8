@@ -48,7 +48,7 @@ class BreemaDirectoryEntryBlock extends BlockBase {
       return $block + [
         'teaser' => $view_builder->view($directory_entry, 'teaser'),
         'edit-link' => [
-          '#prefix' => '<div class="secondary-action">',
+          '#prefix' => '<div class="action-secondary">',
           '#markup' => $this->t('<a href=":edit">Edit</a>', [':edit' => $edit_url->toString()]),
           '#suffix' => '</div>',
         ],

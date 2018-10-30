@@ -23,7 +23,7 @@
   border: 1px solid rgb(20, 85, 0);
 }
 
-.secondary-action a {
+.action-secondary a {
   background-color: #FFF;
   font-size: 1em;
   font-weight: bold;
@@ -39,14 +39,14 @@
   border: 1px solid rgb(0, 113, 179);
 }
 
-.secondary-action a:hover {
+.action-secondary a:hover {
   text-decoration: none;
-  background-color: rgb(225, 232, 232);
+  background-color: rgb(235, 235, 245);
   border: 1px solid rgb(0, 100, 160);
 }
 
 .container-inline .action a,
-.container-inline .secondary-action a {
+.container-inline .action-secondary a {
   margin: 0 1em 0 0;
 }
 
