@@ -418,6 +418,7 @@ function breema_form_user_login_form_alter(&$form, FormStateInterface $form_stat
  * Implements hook_entity_type_alter().
  */
 function breema_entity_type_alter(array &$entity_types) {
+  $entity_types['node']->setLinkTemplate('clone-form', '/node/{node}/clone');
   $entity_types['node']->setLinkTemplate('add-schedule-form', '/node/{node}/add-schedule');
 }
 
@@ -426,9 +427,14 @@ function breema_entity_type_alter(array &$entity_types) {
  */
 function breema_entity_operation(EntityInterface $entity) {
   $operations = [];
-  if ($entity->getEntityType()->id() == 'node' && $entity->bundle() == 'event') {
+  if ($entity->getEntityTypeId() == 'node' && $entity->bundle() == 'event') {
+    $operations['clone_form'] = [
+      'title' => t('Clone'),
+      'url' => $entity->toUrl('clone-form'),
+      'weight' => 50,
+    ];
     if (empty($entity->get('field_parent_event')->getValue())) {
-      $operations['add-schedule-form'] = [
+      $operations['add_schedule_form'] = [
         'title' => t('Add schedule'),
         'url' => $entity->toUrl('add-schedule-form'),
         'weight' => 40,
