@@ -1,5 +1,6 @@
 .action a {
   color: #FFF;
+  text-decoration: none;
   background-color: rgb(32, 136, 0);
   text-transform: uppercase;
   font-size: 1em;
@@ -12,15 +13,14 @@
   display: block;
   text-align: center;
   max-width: 150px;
-  text-decoration: none;
-  border: 1px solid rgb(21, 86, 1);
+  border: 1px solid rgb(20, 85, 0);
 }
 
 .action a:hover {
   color: #FFF;
-  background-color: rgb(21, 86, 1);
   text-decoration: none;
-  border: 1px solid rgb(21, 86, 1);
+  background-color: rgb(22, 116, 1);
+  border: 1px solid rgb(20, 85, 0);
 }
 
 .secondary-action a {
@@ -36,14 +36,13 @@
   text-align: center;
   max-width: 150px;
   text-decoration: none;
-  border: 1px solid #0071b3;
+  border: 1px solid rgb(0, 113, 179);
 }
 
 .secondary-action a:hover {
-  color: #FFF;
   text-decoration: none;
-  background-color: #0071b3;
-  border: 1px solid #0071b3;
+  background-color: rgb(225, 232, 232);
+  border: 1px solid rgb(0, 100, 160);
 }
 
 .container-inline .action a,
