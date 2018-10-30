@@ -297,6 +297,12 @@ function breema_form_node_form_alter(&$form, \Drupal\Core\Form\FormStateInterfac
   else if ($node->bundle() == 'product') {
     $form['field_by']['widget'][0]['#after_build'][] = 'breema_product_node_form_after_build';
   }
+  else if ($node->bundle() == 'event') {
+    if (!empty($form['field_parent_event']['widget'][0]['target_id']['#default_value'])) {
+      $form['title']['#access'] = FALSE;
+      $form['field_subtitle']['widget'][0]['value']['#required'] = TRUE;
+    }
+  }
 }
 
 /**
@@ -483,6 +489,23 @@ function breema_node_cud(NodeInterface $node) {
       $event_mgr = new BreemaEventMgr();
       $event_mgr->updateActivePlaces();
       break;
+  }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_presave() for node entities.
+ *
+ * On schedule (child) events, set title based on subtitle and parent title.
+ */
+function breema_node_presave(NodeInterface $node) {
+  if ($node->bundle() == 'event') {
+    $parent_value = $node->get('field_parent_event')->getValue();
+    if (!empty($parent_value)) {
+      $parent_events = $node->get('field_parent_event')->referencedEntities();
+      $parent_event = array_pop($parent_events);
+      $title = $node->get('field_subtitle')->value . ' - ' . $parent_event->label();
+      $node->setTitle($title);
+    }
   }
 }
 
