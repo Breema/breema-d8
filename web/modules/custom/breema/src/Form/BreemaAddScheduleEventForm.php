@@ -31,7 +31,7 @@ class BreemaAddScheduleEventForm extends BreemaNodeCloneForm {
    * {@inheritdoc}
    */
   public function getDescription() {
-    return $this->t('Only do this if you want to create sub-events with different information (instructors, subtitle, description, etc).');
+    return $this->t('Only do this if you want to create sub-events with different information (instructors, date/time, duration, description, etc).');
   }
 
   /**
