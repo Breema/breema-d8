@@ -5,6 +5,7 @@ dependencies:
   config:
     - views.view.breema_events_featured
   module:
+    - system
     - views
   theme:
     - breema2
@@ -21,4 +22,9 @@ settings:
   label_display: visible
   views_label: ''
   items_per_page: none
-visibility: {  }
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: true
+    context_mapping: {  }
