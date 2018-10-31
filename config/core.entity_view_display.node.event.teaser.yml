@@ -10,12 +10,16 @@ dependencies:
     - field.field.node.event.field_facebook_event
     - field.field.node.event.field_instructors
     - field.field.node.event.field_location
+    - field.field.node.event.field_main_image
     - field.field.node.event.field_official_credit_hours
+    - field.field.node.event.field_parent_event
     - field.field.node.event.field_required_hours
     - field.field.node.event.field_subtitle
+    - image.style.thumbnail
     - node.type.event
   module:
     - datetime_extras
+    - media
     - user
 id: node.event.teaser
 targetEntityType: node
@@ -23,7 +27,7 @@ bundle: event
 mode: teaser
 content:
   field_date_time:
-    weight: 1
+    weight: 0
     label: hidden
     settings:
       format_type: medium
@@ -32,15 +36,24 @@ content:
     region: content
   field_instructors:
     type: entity_reference_label
-    weight: 2
+    weight: 3
     region: content
     label: above
     settings:
       link: false
     third_party_settings: {  }
+  field_main_image:
+    type: media_thumbnail
+    weight: 1
+    region: content
+    label: hidden
+    settings:
+      image_style: thumbnail
+      image_link: ''
+    third_party_settings: {  }
   field_subtitle:
     type: string
-    weight: 0
+    weight: 2
     region: content
     label: hidden
     settings:
@@ -52,5 +65,6 @@ hidden:
   field_facebook_event: true
   field_location: true
   field_official_credit_hours: true
+  field_parent_event: true
   field_required_hours: true
   links: true
