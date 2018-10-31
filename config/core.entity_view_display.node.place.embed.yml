@@ -6,6 +6,7 @@ dependencies:
     - core.entity_view_mode.node.embed
     - field.field.node.place.body
     - field.field.node.place.field_address
+    - field.field.node.place.field_email
     - field.field.node.place.field_geolocation
     - field.field.node.place.field_has_active_event
     - field.field.node.place.field_telephone
@@ -28,6 +29,13 @@ content:
     third_party_settings: {  }
     type: address_default
     region: content
+  field_email:
+    type: email_mailto
+    weight: 2
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
   field_telephone:
     weight: 1
     label: hidden
@@ -37,7 +45,7 @@ content:
     type: telephone_link
     region: content
   field_website:
-    weight: 2
+    weight: 3
     label: hidden
     settings:
       trim_length: 80
@@ -49,7 +57,7 @@ content:
     type: link
     region: content
   links:
-    weight: 3
+    weight: 4
     region: content
     settings: {  }
     third_party_settings: {  }

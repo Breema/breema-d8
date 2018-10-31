@@ -1,0 +1,19 @@
+uuid: f13e4244-108e-4a5a-8eb3-88dcb105ec86
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_email
+    - node.type.place
+id: node.place.field_email
+field_name: field_email
+entity_type: node
+bundle: place
+label: Email
+description: 'Only define if this place has a public email address for more information.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

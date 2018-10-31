@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.place.body
     - field.field.node.place.field_address
+    - field.field.node.place.field_email
     - field.field.node.place.field_geolocation
     - field.field.node.place.field_has_active_event
     - field.field.node.place.field_telephone
@@ -25,7 +26,7 @@ content:
   body:
     label: hidden
     type: text_default
-    weight: 3
+    weight: 4
     settings: {  }
     third_party_settings: {  }
     region: content
@@ -36,8 +37,15 @@ content:
     third_party_settings: {  }
     type: address_default
     region: content
+  field_email:
+    weight: 2
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: email_mailto
+    region: content
   field_geolocation:
-    weight: 4
+    weight: 5
     label: hidden
     settings:
       title: ''
@@ -78,7 +86,7 @@ content:
     type: telephone_link
     region: content
   field_website:
-    weight: 2
+    weight: 3
     label: hidden
     settings:
       trim_length: 80
@@ -90,7 +98,7 @@ content:
     type: link
     region: content
   links:
-    weight: 5
+    weight: 6
     region: content
     settings: {  }
     third_party_settings: {  }
