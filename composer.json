@@ -34,6 +34,7 @@
     "drupal/field_permissions": "^1.0@beta",
     "drupal/filefield_paths": "1.x-dev",
     "drupal/fixed_text_link_formatter": "^1.1",
+    "drupal/flag": "^4.0",
     "drupal/fullcalendar_view": "^2.0",
     "drupal/geocoder": "2.x-dev",
     "drupal/geolocation": "1.x-dev",
