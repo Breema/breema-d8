@@ -51,15 +51,22 @@ a.teaser-link .node--sticky {
 
 .node--view-mode-teaser-with-location .event-info {
   float: left;
-  width: 60%;
+  width: 66%;
   margin: 0;
 }
-
 .node--view-mode-teaser-with-location .field--name-field-location {
   float: left;
-  width: 35%;
+  width: 33%;
   margin: 0;
   font-size: 90%;
+}
+.event-with-image .event-info .field--name-field-main-image {
+    float: left;
+    margin: 0 1em 0 0.5em;
+    padding: 0;
+}
+.event-with-image .event-info .event-text {
+    float: left;
 }
 
 .node--view-mode-teaser-with-location .field--name-field-location p.address {

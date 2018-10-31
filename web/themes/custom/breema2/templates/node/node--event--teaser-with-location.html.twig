@@ -15,14 +15,17 @@
 <div class="teaser-wrapper clearfix">
 <article{{ attributes.addClass(classes) }}>
   <div class="event-info">
-    <header>
-      {{ content.field_date_time }}
-      <h4{{ title_attributes.addClass('node__title') }}>
-        {{ label }}
-      </h4>
-    </header>
-    <div{{ content_attributes.addClass('clearfix') }}>
-      {{ content|without('field_date_time', 'field_location') }}
+    {{ content.field_main_image }}
+    <div class="event-text">
+      <header>
+        {{ content.field_date_time }}
+        <h4{{ title_attributes.addClass('node__title') }}>
+          {{ label }}
+        </h4>
+      </header>
+      <div{{ content_attributes.addClass('clearfix') }}>
+        {{ content|without('field_date_time', 'field_main_image', 'field_location') }}
+      </div>
     </div>
   </div>
   {{ content.field_location }}
