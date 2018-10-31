@@ -13,6 +13,7 @@ dependencies:
     - field.field.node.event.field_official_credit_hours
     - field.field.node.event.field_parent_event
     - field.field.node.event.field_required_hours
+    - field.field.node.event.field_resources
     - field.field.node.event.field_subtitle
     - node.type.event
   module:
@@ -116,6 +117,15 @@ content:
       prefix_suffix: true
     third_party_settings: {  }
     type: number_integer
+    region: content
+  field_resources:
+    weight: 12
+    label: above
+    settings:
+      view_mode: view_large
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
     region: content
   field_subtitle:
     weight: 2
