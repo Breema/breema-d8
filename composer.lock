@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "b761bbc42897dfb83cff927e0c34e017",
+    "content-hash": "19cf332c44e035530878f4a9d7dd08ea",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -3205,6 +3205,10 @@
                         "status": "not-covered",
                         "message": "Project has not opted into security advisory coverage!"
                     }
+                },
+                "patches_applied": {
+                    "[#3010689-1] Allow calendar start date to be set from the first view result": "https://www.drupal.org/files/issues/2018-10-31/3010689-1.fullcalendar_view.default_date_source.patch",
+                    "[#3010690-1] Add setting to configure which field to use for the title": "https://www.drupal.org/files/issues/2018-10-31/3010690-1.fullcalendar_view.config_title.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
