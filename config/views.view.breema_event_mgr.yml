@@ -11,7 +11,6 @@ dependencies:
     - user.role.administrator
     - user.role.content_editor
     - user.role.instructor
-    - user.role.practitioner
   module:
     - datetime
     - datetime_extras
@@ -37,7 +36,6 @@ display:
         type: role
         options:
           role:
-            practitioner: practitioner
             instructor: instructor
             content_editor: content_editor
             administrator: administrator
