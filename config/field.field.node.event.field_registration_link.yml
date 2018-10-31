@@ -1,0 +1,23 @@
+uuid: 714512b0-d7eb-4243-8780-6fbfa707f741
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_registration_link
+    - node.type.event
+  module:
+    - link
+id: node.event.field_registration_link
+field_name: field_registration_link
+entity_type: node
+bundle: event
+label: 'Registration link'
+description: 'If there''s a specific link to register for the event online (Square, PayPal, EventBrite, Brown Paper Tickets, etc) enter the full URL here.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 16
+  title: 0
+field_type: link
