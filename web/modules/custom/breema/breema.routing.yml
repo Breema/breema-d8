@@ -8,6 +8,7 @@ entity.node.add_schedule_form:
   requirements:
     _node_add_access: 'node:event'
     _custom_access: '\Drupal\breema\Controller\BreemaController::allowAddSchedule'
+    _permission: 'create schedule events'
 entity.node.clone_form:
   path: '/node/{node}/clone'
   defaults:

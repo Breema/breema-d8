@@ -1,0 +1,3 @@
+create schedule events:
+  title: 'Create schedule events'
+  description: 'Ability to create schedule (child) events under other events.'
