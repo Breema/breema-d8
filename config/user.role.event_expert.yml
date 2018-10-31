@@ -1,0 +1,12 @@
+uuid: 8fa232d8-d1f5-4e89-9aed-2f37b36ddbe7
+langcode: en
+status: true
+dependencies: {  }
+id: event_expert
+label: 'Event expert'
+weight: -4
+is_admin: null
+permissions:
+  - 'create field_parent_event'
+  - 'create schedule events'
+  - 'edit own field_parent_event'
