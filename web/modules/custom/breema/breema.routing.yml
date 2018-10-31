@@ -7,7 +7,7 @@ entity.node.add_schedule_form:
     _admin_route: TRUE
   requirements:
     _node_add_access: 'node:event'
-    _custom_access: '\Drupal\breema\Controller\BreemaController::isParentEvent'
+    _custom_access: '\Drupal\breema\Controller\BreemaController::allowAddSchedule'
 entity.node.clone_form:
   path: '/node/{node}/clone'
   defaults:

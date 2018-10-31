@@ -24,20 +24,22 @@ class BreemaController extends ControllerBase {
   }
 
   /**
-   * Access callback to ensure we're dealing with a parent event node.
+   * Access callback to see if we should let the user use 'add schedule'.
    *
    * @return \Drupal\Core\Access\AccessResult
    */
-  public function isParentEvent() {
+  public function allowAddSchedule() {
     $bundle = '';
+    $edit_access = FALSE;
     $node = $this->loadNodeFromRoute();
     if (!empty($node)) {
       $bundle = $node->bundle();
+      $edit_access = $node->access('update');
       if ($bundle == 'event') {
         $parent = $node->get('field_parent_event')->getValue();
       }
     }
-    return AccessResult::allowedIf($bundle == 'event' && empty($parent));
+    return AccessResult::allowedIf($bundle == 'event' && $edit_access && empty($parent));
   }
 
   /**
