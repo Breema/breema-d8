@@ -94,7 +94,7 @@ function breema_preprocess_paragraph__event_featured(&$variables) {
       'header' => [
         '#weight' => -10,
         '#prefix' => '<h3>',
-        '#markup' => t('Find more Breema events'),
+        '#markup' => t('More Breema events'),
         '#suffix' => '</h3>',
       ],
     ];
