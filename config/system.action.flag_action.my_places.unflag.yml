@@ -1,0 +1,13 @@
+uuid: a0c03e1c-c44b-499c-8b90-9bf90a6c4944
+langcode: en
+status: true
+dependencies:
+  module:
+    - flag
+id: flag_action.my_places.unflag
+label: 'Remove from my places'
+type: node
+plugin: 'flag_action:my_places.unflag'
+configuration:
+  flag_id: my_places
+  flag_action: unflag

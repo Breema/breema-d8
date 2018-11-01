@@ -1,0 +1,30 @@
+uuid: ba88510e-5d4f-41bb-a48e-f7399b3e9db0
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: my_places
+label: 'My places'
+bundles:
+  - place
+entity_type: node
+global: false
+weight: 0
+flag_short: 'Add to ''My places'''
+flag_long: 'Add this place to the default list of options when creating new events.'
+flag_message: 'Saved to your places.'
+unflag_short: 'Saved in ''My places'' - Remove'
+unflag_long: ''
+unflag_message: ''
+unflag_denied_text: ''
+flag_type: 'entity:node'
+link_type: ajax_link
+flagTypeConfig:
+  show_in_links: {  }
+  show_as_field: true
+  show_on_form: false
+  show_contextual_link: false
+  extra_permissions:
+    owner: '0'
+linkTypeConfig: {  }
