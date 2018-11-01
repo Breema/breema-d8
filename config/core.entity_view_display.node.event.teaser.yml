@@ -13,8 +13,11 @@ dependencies:
     - field.field.node.event.field_main_image
     - field.field.node.event.field_official_credit_hours
     - field.field.node.event.field_parent_event
+    - field.field.node.event.field_registration_link
     - field.field.node.event.field_required_hours
+    - field.field.node.event.field_resources
     - field.field.node.event.field_subtitle
+    - field.field.node.event.field_website
     - image.style.thumbnail
     - node.type.event
   module:
@@ -26,6 +29,14 @@ targetEntityType: node
 bundle: event
 mode: teaser
 content:
+  field_categories:
+    type: entity_reference_label
+    weight: 4
+    region: content
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
   field_date_time:
     weight: 0
     label: hidden
@@ -38,7 +49,7 @@ content:
     type: entity_reference_label
     weight: 3
     region: content
-    label: above
+    label: hidden
     settings:
       link: false
     third_party_settings: {  }
@@ -61,10 +72,12 @@ content:
     third_party_settings: {  }
 hidden:
   body: true
-  field_categories: true
   field_facebook_event: true
   field_location: true
   field_official_credit_hours: true
   field_parent_event: true
+  field_registration_link: true
   field_required_hours: true
+  field_resources: true
+  field_website: true
   links: true
