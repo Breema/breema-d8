@@ -12,7 +12,7 @@ dependencies:
 id: views_block__breema_event_children_block_calendar
 theme: breema2
 region: content
-weight: 0
+weight: -2
 provider: null
 plugin: 'views_block:breema_event_children-block_calendar'
 settings:

@@ -1,0 +1,20 @@
+uuid: d47d33ad-c051-4b5a-b91f-649c483f2084
+langcode: en
+status: true
+dependencies:
+  module:
+    - breema
+  theme:
+    - breema2
+id: breema2_breema_event_datetime
+theme: breema2
+region: content
+weight: -11
+provider: null
+plugin: event_datetime_block
+settings:
+  id: event_datetime_block
+  label: 'Breema event date/time'
+  provider: breema
+  label_display: '0'
+visibility: {  }
