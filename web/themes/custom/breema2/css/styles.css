@@ -85,3 +85,12 @@ a.teaser-link:hover .teaser-wrapper {
 .container-inline .inline {
   display: inline-block;
 }
+
+h1 {
+  margin: 0 0 0.5em 0;
+}
+
+.block-event-datetime-block .field--name-field-date-time {
+  font-size: 1.25em;
+  font-style: italic;
+}
