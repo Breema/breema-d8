@@ -6,6 +6,7 @@ dependencies:
     - core.entity_view_mode.node.teaser_with_location
     - field.field.node.place.body
     - field.field.node.place.field_address
+    - field.field.node.place.field_email
     - field.field.node.place.field_geolocation
     - field.field.node.place.field_has_active_event
     - field.field.node.place.field_telephone
@@ -36,7 +37,9 @@ content:
     region: content
 hidden:
   body: true
+  field_email: true
   field_geolocation: true
   field_has_active_event: true
   field_website: true
+  flag_my_places: true
   links: true

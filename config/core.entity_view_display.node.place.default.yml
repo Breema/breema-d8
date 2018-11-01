@@ -26,26 +26,26 @@ content:
   body:
     label: hidden
     type: text_default
-    weight: 4
+    weight: 5
     settings: {  }
     third_party_settings: {  }
     region: content
   field_address:
-    weight: 0
+    weight: 1
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: address_default
     region: content
   field_email:
-    weight: 2
+    weight: 3
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: email_mailto
     region: content
   field_geolocation:
-    weight: 5
+    weight: 6
     label: hidden
     settings:
       title: ''
@@ -78,7 +78,7 @@ content:
     type: geolocation_map
     region: content
   field_telephone:
-    weight: 1
+    weight: 2
     label: hidden
     settings:
       title: ''
@@ -86,7 +86,7 @@ content:
     type: telephone_link
     region: content
   field_website:
-    weight: 3
+    weight: 4
     label: hidden
     settings:
       trim_length: 80
@@ -97,8 +97,13 @@ content:
     third_party_settings: {  }
     type: link
     region: content
+  flag_my_places:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   links:
-    weight: 6
+    weight: 7
     region: content
     settings: {  }
     third_party_settings: {  }

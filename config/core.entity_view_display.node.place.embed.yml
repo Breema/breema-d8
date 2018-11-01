@@ -23,7 +23,7 @@ bundle: place
 mode: embed
 content:
   field_address:
-    weight: 0
+    weight: 1
     label: hidden
     settings: {  }
     third_party_settings: {  }
@@ -31,13 +31,13 @@ content:
     region: content
   field_email:
     type: email_mailto
-    weight: 2
+    weight: 3
     region: content
     label: hidden
     settings: {  }
     third_party_settings: {  }
   field_telephone:
-    weight: 1
+    weight: 2
     label: hidden
     settings:
       title: ''
@@ -45,7 +45,7 @@ content:
     type: telephone_link
     region: content
   field_website:
-    weight: 3
+    weight: 4
     label: hidden
     settings:
       trim_length: 80
@@ -56,8 +56,13 @@ content:
     third_party_settings: {  }
     type: link
     region: content
+  flag_my_places:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   links:
-    weight: 4
+    weight: 5
     region: content
     settings: {  }
     third_party_settings: {  }
