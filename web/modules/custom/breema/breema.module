@@ -24,6 +24,7 @@ use Drupal\views\ViewExecutable;
 use Drupal\views\ResultRow;
 
 use Drupal\breema\BreemaEventMgr;
+use Drupal\flag\Entity\Flagging;
 
 /**
  * Implements hook_help().
@@ -462,21 +463,21 @@ function breema_entity_operation(EntityInterface $entity) {
  * Implements hook_ENTITY_TYPE_insert() as hook_node_insert().
  */
 function breema_node_insert(NodeInterface $node) {
-  breema_node_cud($node);
+  breema_node_cud($node, 'insert');
 }
 
 /**
  * Implements hook_ENTITY_TYPE_update() as hook_node_update().
  */
 function breema_node_update(NodeInterface $node) {
-  breema_node_cud($node);
+  breema_node_cud($node, 'update');
 }
 
 /**
  * Implements hook_ENTITY_TYPE_delete() as hook_node_delete().
  */
 function breema_node_delete(NodeInterface $node) {
-  breema_node_cud($node);
+  breema_node_cud($node, 'delete');
 }
 
 /**
@@ -484,19 +485,51 @@ function breema_node_delete(NodeInterface $node) {
  *
  * Clears the list of Breema countries when touching any directory entry.
  *
- * Retest (and if needed, update) field_has_active_event on all place nodes
- * whenever an event node is touched.
  */
-function breema_node_cud(NodeInterface $node) {
+function breema_node_cud(NodeInterface $node, $operation) {
   switch ($node->bundle()) {
     case 'directory_entry':
       \Drupal::state()->delete('breema.breema_countries');
       break;
 
     case 'event':
-      $event_mgr = new BreemaEventMgr();
-      $event_mgr->updateActivePlaces();
+      breema_node_cud__event($node, $operation);
       break;
+  }
+}
+
+/**
+ * Callback invoked for any event node CUD (Create, Update, Delete) operation.
+ *
+ * Retest (and if needed, update) field_has_active_event on all place nodes.
+ * Ensure that the location is added to 'My places' for all instructors.
+ */
+function breema_node_cud__event(NodeInterface $node, $operation) {
+  $event_mgr = new BreemaEventMgr();
+  $event_mgr->updateActivePlaces();
+  $instructors = $node->get('field_instructors')->getValue();
+  if ($operation != 'delete' && !empty($instructors)) {
+    $places = $node->get('field_location')->referencedEntities();
+    $place = array_pop($places);
+    $flag = \Drupal::service('flag')->getFlagById('my_places');
+    $flaggings = \Drupal::service('flag')->getEntityFlaggings($flag, $place);
+    $existing_flag_uids = [];
+    foreach ($flaggings as $flagging) {
+      $existing_flag_uids[$flagging->getOwnerId()] = TRUE;
+    }
+    foreach ($instructors as $instructor) {
+      if (empty($existing_flag_uids[$instructor['target_id']])) {
+        $values = [
+          'flag_id' => 'my_places',
+          'entity_type' => 'node',
+          'entity_id' => $place->id(),
+          'flagged_entity' => $place->id(),
+          'uid' => $instructor['target_id'],
+        ];
+        $flagging = \Drupal::entityManager()->getStorage('flagging')->create($values);
+        $flagging->save();
+      }
+    }
   }
 }
 
