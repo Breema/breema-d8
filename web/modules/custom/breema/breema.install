@@ -1,0 +1,33 @@
+<?php
+
+use Drupal\node\NodeInterface;
+use Drupal\node\Entity\Node;
+
+
+/**
+ * @file
+ * Update functions for the breema module.
+ */
+
+/**
+ * Convert node 2 into a place and set the address and contact info.
+ */
+function breema_update_8000() {
+  $query = \Drupal::database()
+         ->update('node')
+         ->fields(['type' => 'place'])
+         ->condition('nid', '2', '=')
+         ->execute();
+  $node = Node::load(2);
+  $node->setTitle('The Breema Center');
+  $node->set('field_address', [
+               'country_code' => 'US',
+               'administrative_area' => 'CA',
+               'locality' => 'Oakland',
+               'postal_code' => '94618',
+               'address_line1' => '6076 Claremont Ave.',
+             ]);
+  $node->set('field_email', 'center@breema.com');
+  $node->set('field_telephone', '510-428-0937');
+  $node->save();
+}
