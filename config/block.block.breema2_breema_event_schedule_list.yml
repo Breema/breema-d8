@@ -1,0 +1,21 @@
+uuid: 9a57ab96-bc9f-4290-9b1b-84807d6036c7
+langcode: en
+status: true
+dependencies:
+  module:
+    - breema
+  theme:
+    - breema2
+id: breema2_breema_event_schedule_list
+theme: breema2
+region: content
+weight: 0
+provider: null
+plugin: event_schedule_block
+settings:
+  id: event_schedule_block
+  label: Schedule
+  provider: breema
+  label_display: visible
+  view_display: block_list
+visibility: {  }

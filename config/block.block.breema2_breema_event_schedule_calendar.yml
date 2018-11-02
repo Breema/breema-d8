@@ -1,0 +1,21 @@
+uuid: f182ea04-68b4-4df2-a3b9-c54b0385bf8f
+langcode: en
+status: true
+dependencies:
+  module:
+    - breema
+  theme:
+    - breema2
+id: breema2_breema_event_schedule_calendar
+theme: breema2
+region: content
+weight: 1
+provider: null
+plugin: event_schedule_block
+settings:
+  id: event_schedule_block
+  label: 'Schedule - calendar'
+  provider: breema
+  label_display: '0'
+  view_display: block_calendar
+visibility: {  }
