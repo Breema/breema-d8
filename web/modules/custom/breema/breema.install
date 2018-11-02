@@ -1,8 +1,6 @@
 <?php
 
-use Drupal\node\NodeInterface;
 use Drupal\node\Entity\Node;
-
 
 /**
  * @file
@@ -30,4 +28,14 @@ function breema_update_8000() {
   $node->set('field_email', 'center@breema.com');
   $node->set('field_telephone', '510-428-0937');
   $node->save();
+}
+
+/**
+ * Force all user timezones to UTC.
+ */
+function breema_update_8001() {
+  $query = \Drupal::database()
+         ->update('users_field_data')
+         ->fields(['timezone' => 'UTC'])
+         ->execute();
 }
