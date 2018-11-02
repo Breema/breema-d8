@@ -368,6 +368,54 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           plugin_id: search_keywords
+        field_date_time_end_value:
+          id: field_date_time_end_value
+          table: node__field_date_time
+          field: field_date_time_end_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '>='
+          value:
+            min: ''
+            max: ''
+            value: '-12 hours'
+            type: offset
+          group: 1
+          exposed: true
+          expose:
+            operator_id: end_datetime_op
+            label: Date/time
+            description: ''
+            use_operator: true
+            operator: field_date_time_end_value_op
+            identifier: end_datetime
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              practitioner: '0'
+              instructor: '0'
+              content_editor: '0'
+              administrator: '0'
+            placeholder: ''
+            min_placeholder: ''
+            max_placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: datetime
         field_address_country_code:
           id: field_address_country_code
           table: node__field_address
