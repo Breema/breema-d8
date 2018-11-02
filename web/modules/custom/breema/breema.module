@@ -496,6 +496,11 @@ function breema_node_cud(NodeInterface $node, $operation) {
     case 'event':
       breema_node_cud__event($node, $operation);
       break;
+
+    case 'place':
+      breema_node_cud__place($node, $operation);
+      break;
+
   }
 }
 
@@ -512,25 +517,46 @@ function breema_node_cud__event(NodeInterface $node, $operation) {
   if ($operation != 'delete' && !empty($instructors)) {
     $places = $node->get('field_location')->referencedEntities();
     $place = array_pop($places);
-    $flag = \Drupal::service('flag')->getFlagById('my_places');
-    $flaggings = \Drupal::service('flag')->getEntityFlaggings($flag, $place);
-    $existing_flag_uids = [];
-    foreach ($flaggings as $flagging) {
-      $existing_flag_uids[$flagging->getOwnerId()] = TRUE;
-    }
     foreach ($instructors as $instructor) {
-      if (empty($existing_flag_uids[$instructor['target_id']])) {
-        $values = [
-          'flag_id' => 'my_places',
-          'entity_type' => 'node',
-          'entity_id' => $place->id(),
-          'flagged_entity' => $place->id(),
-          'uid' => $instructor['target_id'],
-        ];
-        $flagging = \Drupal::entityManager()->getStorage('flagging')->create($values);
-        $flagging->save();
-      }
+      breema_ensure_flag('my_places', $place, $instructor['target_id']);
     }
+  }
+}
+
+/**
+ * Callback invoked for any place node CUD (Create, Update, Delete) operation.
+ *
+ * Ensure that the location is added to 'My places' for the owner.
+ */
+function breema_node_cud__place(NodeInterface $node, $operation) {
+  if ($operation != 'delete') {
+    breema_ensure_flag('my_places', $node, $node->getOwnerId());
+  }
+}
+
+/**
+ * Ensure that the given user has flagged the given node with the given flag.
+ */
+function breema_ensure_flag($flag_id, NodeInterface $node, $uid) {
+  static $existing_flag_uids = [];
+  $flag = \Drupal::service('flag')->getFlagById($flag_id);
+  if (empty($existing_flag_uids[$node->id()])) {
+    $flaggings = \Drupal::service('flag')->getEntityFlaggings($flag, $node);
+    foreach ($flaggings as $flagging) {
+      $existing_flag_uids[$node->id()][$flagging->getOwnerId()] = TRUE;
+    }
+  }
+  if (empty($existing_flag_uids[$node->id()][$uid])) {
+    $values = [
+      'flag_id' => $flag_id,
+      'entity_type' => 'node',
+      'entity_id' => $node->id(),
+      'flagged_entity' => $node->id(),
+      'uid' => $uid
+    ];
+    $flagging = \Drupal::entityManager()->getStorage('flagging')->create($values);
+    $flagging->save();
+    $existing_flag_uids[$node->id()][$uid] = TRUE;
   }
 }
 
