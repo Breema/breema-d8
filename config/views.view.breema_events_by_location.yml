@@ -281,6 +281,7 @@ display:
     display_options:
       display_extenders: {  }
       block_description: 'Breema events by location'
+      block_hide_empty: true
     cache_metadata:
       max-age: -1
       contexts:
