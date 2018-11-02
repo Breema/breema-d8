@@ -8,14 +8,14 @@ dependencies:
     - user
   theme:
     - breema2
-id: breema2_breema_event_mgr
+id: breema2_breema_event_dashboard
 theme: breema2
 region: sidebar_first
 weight: -7
 provider: null
-plugin: breema_event_mgr_block
+plugin: breema_event_dashboard_block
 settings:
-  id: breema_event_mgr_block
+  id: breema_event_dashboard_block
   label: 'Your Breema Events'
   provider: breema
   label_display: visible
@@ -31,6 +31,6 @@ visibility:
       user: '@user.current_user_context:current_user'
   request_path:
     id: request_path
-    pages: '/user/*'
+    pages: '/user/*/events'
     negate: true
     context_mapping: {  }

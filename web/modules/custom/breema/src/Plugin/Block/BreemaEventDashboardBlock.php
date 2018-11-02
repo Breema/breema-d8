@@ -12,12 +12,12 @@ use Drupal\views\Views;
  * A block for users to manage their own Breema events.
  *
  * @Block(
- *   id = "breema_event_mgr_block",
- *   admin_label = @Translation("Breema event manager"),
+ *   id = "breema_event_dashboard_block",
+ *   admin_label = @Translation("Breema event dashboard"),
  *   category = @Translation("Breema"),
  * )
  */
-class BreemaEventMgrBlock extends BlockBase {
+class BreemaEventDashboardBlock extends BlockBase {
 
   /**
    * {@inheritdoc}
@@ -30,7 +30,7 @@ class BreemaEventMgrBlock extends BlockBase {
       ],
       '#attached' => [
         'library' => [
-          'breema/block.event-mgr',
+          'breema/block.event-dashboard',
         ],
       ],
     ];
@@ -58,7 +58,7 @@ class BreemaEventMgrBlock extends BlockBase {
     $args = [$current_user->id()];
     foreach (['pending', 'upcoming'] as $event_status) {
       $display = 'embed_' . $event_status;
-      $view = Views::getView('breema_event_mgr');
+      $view = Views::getView('breema_event_dashboard');
       $view->setDisplay($display);
       $view->setArguments($args);
       $view->execute();
@@ -76,7 +76,7 @@ class BreemaEventMgrBlock extends BlockBase {
     }
     // If we still haven't found anything, see if there are past events.
     if (empty($events)) {
-      $view = Views::getView('breema_event_mgr');
+      $view = Views::getView('breema_event_dashboard');
       $view->setDisplay('embed_past');
       $view->setArguments($args);
       $view->execute();

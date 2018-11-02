@@ -8,19 +8,16 @@ dependencies:
     - field.storage.node.field_instructors
     - field.storage.node.field_location
     - node.type.event
-    - user.role.administrator
-    - user.role.content_editor
-    - user.role.instructor
   module:
     - datetime
     - datetime_extras
     - node
     - search
     - user
-id: breema_event_mgr
-label: 'Breema Event Manager'
+id: breema_event_dashboard
+label: 'Breema Event dashboard'
 module: views
-description: 'Admin-only listings of events (moderation queue, recent edits, etc).'
+description: 'Per-user dashboard of events.'
 tag: ''
 base_table: node_field_data
 base_field: nid
@@ -33,12 +30,9 @@ display:
     position: 0
     display_options:
       access:
-        type: role
+        type: perm
         options:
-          role:
-            instructor: instructor
-            content_editor: content_editor
-            administrator: administrator
+          perm: 'create event content'
       cache:
         type: tag
         options: {  }
@@ -275,7 +269,7 @@ display:
             label: ''
           granularity: minute
           plugin_id: datetime
-      title: 'Event manager'
+      title: 'Event dashboard'
       header: {  }
       footer: {  }
       empty: {  }
@@ -340,7 +334,7 @@ display:
         - url
         - user
         - 'user.node_grants:view'
-        - user.roles
+        - user.permissions
       tags: {  }
   embed_past:
     display_plugin: embed
@@ -470,7 +464,7 @@ display:
         - url
         - user
         - 'user.node_grants:view'
-        - user.roles
+        - user.permissions
       tags: {  }
   embed_pending:
     display_plugin: embed
@@ -552,7 +546,7 @@ display:
         - url
         - user
         - 'user.node_grants:view'
-        - user.roles
+        - user.permissions
       tags: {  }
   embed_upcoming:
     display_plugin: embed
@@ -574,7 +568,7 @@ display:
         - url
         - user
         - 'user.node_grants:view'
-        - user.roles
+        - user.permissions
       tags: {  }
   page_user_dashboard:
     display_plugin: page
@@ -1299,7 +1293,7 @@ display:
         - url.query_args
         - user
         - 'user.node_grants:view'
-        - user.roles
+        - user.permissions
       tags:
         - 'config:field.storage.node.field_date_time'
         - 'config:field.storage.node.field_instructors'
