@@ -138,10 +138,15 @@ function breema_preprocess_node_event(&$variables) {
   if (!empty($variables['content']['field_instructors'])) {
     $instructors = $variables['node']->get('field_instructors')->referencedEntities();
     if (!empty($instructors)) {
+      $label_callback = $variables['view_mode'] == 'full' ? 'breema_entity_label_instructor_directory_entry' : 'breema_entity_label_plain';
       $variables['content']['field_instructors'] = [
         '#type' => 'markup',
         '#prefix' => '<div>',
-        '#markup' => new PluralTranslatableMarkup(count($instructors), 'Instructor: @instructors', 'Instructors: @instructors', ['@instructors' => breema_get_entity_label_multiple($instructors, 'breema_entity_label_plain')]),
+        // Using the normal plural formatting class (PluralTranslatableMarkup)
+        // auto-sanitizes and breaks our links. So we manually check the count
+        // and do this "raw". This would be broken for RTL languages, but we
+        // won't worry about that for now.
+        '#markup' => count($instructors) == 1 ?  t('Instructor: ') : t('Instructors: ') . breema_get_entity_label_multiple($instructors, $label_callback),
         '#suffix' => '</div>',
         '#weight' => isset($variables['content']['field_instructors']['#weight']) ? $variables['content']['field_instructors']['#weight'] : 0,
       ];
@@ -723,4 +728,18 @@ function breema_entity_label_plain(EntityInterface $entity) {
  */
 function breema_entity_label_link(EntityInterface $entity) {
   return $entity->toLink()->toString();
+}
+
+/**
+ * Label callback to return a link to an instructor's directory entry.
+ */
+function breema_entity_label_instructor_directory_entry(EntityInterface $entity) {
+  if ($entity->getEntityTypeId() == 'user') {
+    $directory_entries = $entity->get('field_directory_entry')->referencedEntities();
+    if (!empty($directory_entries)) {
+      $directory_entry = array_pop($directory_entries);
+      return $directory_entry->toLink()->toString();
+    }
+  }
+  return $entity->label();
 }
