@@ -207,13 +207,11 @@ function breema_views_pre_render_breema_events_by_instructor(ViewExecutable $vie
   if ($view->current_display == 'block_map') {
     $user_argument = $view->display_handler->getHandler('argument', 'field_instructors_target_id');
     if (!empty($user_argument)) {
-      $query = \Drupal::entityQuery('node')
-        ->condition('type', 'directory_entry')
-        ->condition('uid', $user_argument->getValue());
-      $nids = $query->execute();
-      if (!empty($nids)) {
-        $directory_entry = entity_load('node', array_pop($nids));
-        if (!empty($directory_entry)) {
+      $instructor = User::load($user_argument->getValue());
+      if (!empty($instructor)) {
+        $directory_entries = $instructor->get('field_directory_entry')->referencedEntities();
+        if (!empty($directory_entries)) {
+          $directory_entry = array_pop($directory_entries);
           $result = new ResultRow();
           // Pretend this is the location for an event, since it has all the
           // same fields we need: title, address and geolocation.
@@ -484,13 +482,12 @@ function breema_node_delete(NodeInterface $node) {
 /**
  * Shared code invoked on any node CUD (Create, Update, Delete) operation.
  *
- * Clears the list of Breema countries when touching any directory entry.
- *
+ * Invokes bundle-specific helper functions.
  */
 function breema_node_cud(NodeInterface $node, $operation) {
   switch ($node->bundle()) {
     case 'directory_entry':
-      \Drupal::state()->delete('breema.breema_countries');
+      breema_node_cud__directory_entry($node, $operation);
       break;
 
     case 'event':
@@ -501,6 +498,24 @@ function breema_node_cud(NodeInterface $node, $operation) {
       breema_node_cud__place($node, $operation);
       break;
 
+  }
+}
+
+/**
+ * Callback invoked for any directory_entry node CUD operation.
+ *
+ * Clears the list of Breema countries when touching any directory entry.
+ *
+ * Also keeps field_directory_entry (on the user entity) consistent for the
+ * owner of any directory entry node.
+ */
+function breema_node_cud__directory_entry(NodeInterface $node, $operation) {
+  \Drupal::state()->delete('breema.breema_countries');
+  $uid = $node->getOwnerId();
+  $account = User::load($uid);
+  if (!empty($account)) {
+    $account->set('field_directory_entry', $operation == 'delete' ? NULL : $node->id());
+    $account->save();
   }
 }
 
@@ -582,17 +597,14 @@ function breema_node_presave(NodeInterface $node) {
  */
 function breema_entity_create_access(AccountInterface $account, array $context, $entity_bundle) {
   $user = \Drupal\user\Entity\User::load($account->id());
-  if (!$user->hasRole('content_editor')) {
-    $entity_type_id = $context['entity_type_id'];
-    if ($entity_type_id == 'node' && $entity_bundle == 'directory_entry') {
-      // Deny creation if this user already owns a directory entry node.
-      $query = \Drupal::entityQuery('node')
-             ->condition('type', 'directory_entry')
-             ->condition('uid', $account->id());
-      $nids = $query->execute();
-      if (!empty($nids)) {
-        return AccessResult::forbidden();
-      }
+  if (!$user->hasRole('content_editor')
+      && $context['entity_type_id'] == 'node'
+      && $entity_bundle == 'directory_entry')
+  {
+    // Deny creation if this user already owns a directory entry node.
+    $directory_entry = $user->get('field_directory_entry')->getValue();
+    if (!empty($directory_entry)) {
+      return AccessResult::forbidden();
     }
   }
   return AccessResult::neutral();

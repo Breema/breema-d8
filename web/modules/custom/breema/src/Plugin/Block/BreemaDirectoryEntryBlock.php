@@ -6,6 +6,8 @@ use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Url;
 use Drupal\node\Entity\NodeType;
 use Drupal\node\NodeTypeInterface;
+use Drupal\user\Entity\User;
+
 
 /**
  * A block for users to manage their own Breema Directory entry.
@@ -34,14 +36,12 @@ class BreemaDirectoryEntryBlock extends BlockBase {
       ],
     ];
     $current_user = \Drupal::currentUser();
+    $current_user_entity = User::load($current_user->id());
     $current_page = Url::fromRoute('<current>');
     $url_options['query']['destination'] = $current_page->toString();
-    $query = \Drupal::entityQuery('node')
-           ->condition('type', 'directory_entry')
-           ->condition('uid', $current_user->id());
-    $nids = $query->execute();
-    if (!empty($nids)) {
-      $directory_entry = entity_load('node', array_pop($nids));
+    $directory_entries = $current_user_entity->get('field_directory_entry')->referencedEntities();
+    if (!empty($directory_entries)) {
+      $directory_entry = array_pop($directory_entries);
       $view_builder = \Drupal::entityManager()->getViewBuilder('node');
       $edit_url = Url::fromRoute('entity.node.edit_form', ['node' => $directory_entry->id()], $url_options);
       $delete_url = Url::fromRoute('entity.node.delete_form', ['node' => $directory_entry->id()], $url_options);
