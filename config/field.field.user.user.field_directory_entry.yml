@@ -1,0 +1,29 @@
+uuid: 3b54fe93-7e9b-4b6e-8f60-ac8e4e509d80
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_directory_entry
+    - node.type.directory_entry
+  module:
+    - user
+id: user.user.field_directory_entry
+field_name: field_directory_entry
+entity_type: user
+bundle: user
+label: 'Directory entry'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      directory_entry: directory_entry
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.user.user.field_directory_entry
     - field.field.user.user.user_picture
     - image.style.thumbnail
   module:
@@ -25,6 +26,15 @@ content:
     weight: 3
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_directory_entry:
+    type: entity_reference_autocomplete
+    weight: 5
+    region: content
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   language:
     weight: 2
