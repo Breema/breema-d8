@@ -41,6 +41,8 @@ process:
       - last_name
     delimiter: ' '
   mail: email
+  field_name_first: first_name
+  field_name_last: last_name
   roles:
     -
       plugin: concat
