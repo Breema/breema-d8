@@ -14,7 +14,7 @@ date_settings:
   same_year_start_pattern: 'j F'
   same_year_end_pattern: 'j F Y'
 datetime_settings:
-  default_pattern: 'j F Y H:i'
+  default_pattern: 'j F Y g:ia'
   separator: –
-  same_day_start_pattern: 'j F Y H:i'
-  same_day_end_pattern: 'H:i'
+  same_day_start_pattern: 'j F Y g:ia'
+  same_day_end_pattern: 'g:ia'
