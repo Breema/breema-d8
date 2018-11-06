@@ -10,7 +10,7 @@ use Drupal\node\Entity\Node;
 /**
  * Convert node 2 into a place and set the address and contact info.
  */
-function breema_update_8000() {
+function _breema_update_8000() {
   $query = \Drupal::database()
          ->update('node')
          ->fields(['type' => 'place'])
@@ -33,7 +33,7 @@ function breema_update_8000() {
 /**
  * Force all user timezones to UTC.
  */
-function breema_update_8001() {
+function _breema_update_8001() {
   $query = \Drupal::database()
          ->update('users_field_data')
          ->fields(['timezone' => 'UTC'])
