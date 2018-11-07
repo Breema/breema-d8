@@ -1,4 +1,4 @@
-uuid: 2778b4d2-30d1-45b0-8219-4acd33bfd1a2
+uuid: a14f8df2-85d8-407b-9d95-4e5ee9f7fe49
 langcode: en
 status: true
 dependencies:
@@ -8,8 +8,8 @@ dependencies:
 third_party_settings:
   field_permissions:
     permission_type: public
-id: node.field_official_credit_hours
-field_name: field_official_credit_hours
+id: node.field_transfer_credit
+field_name: field_transfer_credit
 entity_type: node
 type: float
 settings: {  }

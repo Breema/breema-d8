@@ -10,9 +10,13 @@ dependencies:
     - field.field.node.event.field_facebook_event
     - field.field.node.event.field_instructors
     - field.field.node.event.field_location
-    - field.field.node.event.field_official_credit_hours
+    - field.field.node.event.field_main_image
+    - field.field.node.event.field_parent_event
+    - field.field.node.event.field_registration_link
     - field.field.node.event.field_required_hours
+    - field.field.node.event.field_resources
     - field.field.node.event.field_subtitle
+    - field.field.node.event.field_website
     - node.type.event
   module:
     - datetime_extras
@@ -43,7 +47,11 @@ hidden:
   field_categories: true
   field_facebook_event: true
   field_instructors: true
-  field_official_credit_hours: true
+  field_main_image: true
+  field_parent_event: true
+  field_registration_link: true
   field_required_hours: true
+  field_resources: true
   field_subtitle: true
+  field_website: true
   links: true

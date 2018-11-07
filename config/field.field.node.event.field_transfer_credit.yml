@@ -1,0 +1,23 @@
+uuid: bb15050a-0661-499c-8d63-e837745eed98
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_transfer_credit
+    - node.type.event
+id: node.event.field_transfer_credit
+field_name: field_transfer_credit
+entity_type: node
+bundle: event
+label: 'Transfer credit hours'
+description: 'If this event is eligible for Transfer Credit, enter the total number of classroom hours.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: !!float 0
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: float
