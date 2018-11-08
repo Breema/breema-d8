@@ -11,6 +11,7 @@ dependencies:
     - field.field.node.directory_entry.field_certification
     - field.field.node.directory_entry.field_email
     - field.field.node.directory_entry.field_geolocation
+    - field.field.node.directory_entry.field_has_active_event
     - field.field.node.directory_entry.field_job_title
     - field.field.node.directory_entry.field_name_first
     - field.field.node.directory_entry.field_name_last
@@ -185,5 +186,6 @@ content:
     third_party_settings: {  }
 hidden:
   field_geolocation: true
+  field_has_active_event: true
   field_upcoming_events: true
   title: true
