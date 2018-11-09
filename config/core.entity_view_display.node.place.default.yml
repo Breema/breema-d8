@@ -49,32 +49,32 @@ content:
     weight: 6
     label: hidden
     settings:
-      title: ''
       set_marker: '1'
-      common_map: ''
+      title: ''
       info_text: ''
-      use_overridden_map_settings: 0
       google_map_settings:
+        height: 300px
+        width: 300px
         type: ROADMAP
         zoom: '10'
-        minZoom: 0
-        maxZoom: 18
-        rotateControl: 0
-        mapTypeControl: 1
-        streetViewControl: 1
+        maxZoom: 15
+        minZoom: 3
         zoomControl: 1
-        fullscreenControl: 0
         scrollwheel: 1
-        disableDoubleClickZoom: 0
+        gestureHandling: auto
         draggable: 1
-        height: 400px
-        width: 100%
+        preferScrollingToZooming: 1
+        style: ''
         info_auto_display: 1
         marker_icon_path: ''
-        disableAutoPan: 1
-        style: ''
-        preferScrollingToZooming: 0
-        gestureHandling: auto
+        mapTypeControl: 0
+        streetViewControl: 0
+        rotateControl: 0
+        fullscreenControl: 0
+        disableDoubleClickZoom: 0
+        disableAutoPan: 0
+      use_overridden_map_settings: 0
+      common_map: ''
     third_party_settings: {  }
     type: geolocation_map
     region: content
@@ -85,14 +85,6 @@ content:
       title: ''
     third_party_settings: {  }
     type: telephone_link
-    region: content
-  field_upcoming_events:
-    weight: 8
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
     region: content
   field_website:
     weight: 4
@@ -118,3 +110,4 @@ content:
     third_party_settings: {  }
 hidden:
   field_has_active_event: true
+  field_upcoming_events: true
