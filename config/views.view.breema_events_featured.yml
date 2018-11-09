@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.node.teaser_compact
+    - core.entity_view_mode.node.teaser_compact_location
     - core.entity_view_mode.node.teaser_with_location
     - entityqueue.entity_queue.event_featured
     - field.storage.node.field_date_time
@@ -68,7 +68,7 @@ display:
         type: 'entity:node'
         options:
           relationship: none
-          view_mode: teaser_compact
+          view_mode: teaser_compact_location
       fields:
         title:
           id: title

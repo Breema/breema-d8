@@ -1,9 +1,9 @@
-uuid: e9cfdd8e-2a62-4440-9d6e-16070a3da5a3
+uuid: 177e5cc8-e0fa-4517-887d-6a6538ee5a66
 langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.node.teaser_compact
+    - core.entity_view_mode.node.teaser_compact_location
     - field.field.node.event.body
     - field.field.node.event.field_categories
     - field.field.node.event.field_date_time
@@ -22,25 +22,32 @@ dependencies:
   module:
     - datetime_extras
     - user
-id: node.event.teaser_compact
+id: node.event.teaser_compact_location
 targetEntityType: node
 bundle: event
-mode: teaser_compact
+mode: teaser_compact_location
 content:
   field_date_time:
+    type: daterange_compact
     weight: 0
+    region: content
     label: hidden
     settings:
       format_type: medium
     third_party_settings: {  }
-    type: daterange_compact
+  field_location:
+    weight: 1
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_label
     region: content
 hidden:
   body: true
   field_categories: true
   field_facebook_event: true
   field_instructors: true
-  field_location: true
   field_main_image: true
   field_parent_event: true
   field_registration_link: true
