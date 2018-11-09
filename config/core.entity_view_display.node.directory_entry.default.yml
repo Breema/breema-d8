@@ -88,16 +88,6 @@ content:
     third_party_settings: {  }
     type: email_mailto
     region: content
-  field_has_active_event:
-    weight: 8
-    label: inline
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    type: boolean
-    region: content
   field_job_title:
     weight: 0
     label: hidden
@@ -107,7 +97,7 @@ content:
     type: string
     region: content
   field_resources:
-    weight: 10
+    weight: 8
     label: above
     settings:
       view_mode: view_large
@@ -123,20 +113,14 @@ content:
     third_party_settings: {  }
     type: telephone_link
     region: content
-  field_upcoming_events:
-    type: entity_reference_label
-    weight: 9
-    region: content
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
   links:
-    weight: 11
+    weight: 9
     region: content
     settings: {  }
     third_party_settings: {  }
 hidden:
   field_geolocation: true
+  field_has_active_event: true
   field_name_first: true
   field_name_last: true
+  field_upcoming_events: true
