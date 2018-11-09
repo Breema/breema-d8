@@ -146,7 +146,7 @@ function breema_preprocess_node_event(&$variables) {
         // auto-sanitizes and breaks our links. So we manually check the count
         // and do this "raw". This would be broken for RTL languages, but we
         // won't worry about that for now.
-        '#markup' => count($instructors) == 1 ?  t('Instructor: ') : t('Instructors: ') . breema_get_entity_label_multiple($instructors, $label_callback),
+        '#markup' => (count($instructors) == 1 ? t('Instructor: ') : t('Instructors: ')) . breema_get_entity_label_multiple($instructors, $label_callback),
         '#suffix' => '</div>',
         '#weight' => isset($variables['content']['field_instructors']['#weight']) ? $variables['content']['field_instructors']['#weight'] : 0,
       ];
