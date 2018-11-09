@@ -527,12 +527,15 @@ function breema_node_cud__directory_entry(NodeInterface $node, $operation) {
 /**
  * Callback invoked for any event node CUD (Create, Update, Delete) operation.
  *
- * Retest (and if needed, update) field_has_active_event on all place nodes.
+ * Retest (and if needed, update) field_has_active_event and
+ * field_upcoming_events on all place and directory entry nodes.
+ *
  * Ensure that the location is added to 'My places' for all instructors.
  */
 function breema_node_cud__event(NodeInterface $node, $operation) {
   $event_mgr = new BreemaEventMgr();
-  $event_mgr->updateActivePlaces();
+  $event_mgr->update();
+
   $instructors = $node->get('field_instructors')->getValue();
   if ($operation != 'delete' && !empty($instructors)) {
     $places = $node->get('field_location')->referencedEntities();
@@ -679,11 +682,12 @@ function breema_entity_view_alter(array &$build, EntityInterface $entity, Entity
 /**
  * Implements hook_cron().
  *
- * Updates place nodes for the 'has_active_event' field.
+ * Retest (and if needed, update) field_has_active_event and
+ * field_upcoming_events on all place and directory entry nodes.
  */
 function breema_cron() {
   $event_mgr = new BreemaEventMgr();
-  $event_mgr->updateActivePlaces();
+  $event_mgr->update();
 }
 
 /**
