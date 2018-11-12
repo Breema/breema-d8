@@ -1,0 +1,10 @@
+uuid: 60ecdefa-466c-4511-b4b9-a779026e97f1
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.teaser_search_result
+label: 'Search result teaser'
+targetEntityType: node
+cache: true
