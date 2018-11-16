@@ -76,6 +76,11 @@ function breema_preprocess_node(&$variables) {
     case 'event':
       breema_preprocess_node_event($variables);
       break;
+
+    case 'product':
+      breema_preprocess_node_product($variables);
+      break;
+
   }
 }
 
@@ -156,7 +161,29 @@ function breema_preprocess_node_event(&$variables) {
   }
 }
 
-/* *
+/**
+ * Preprocess function for product nodes.
+ *
+ * Looks up and injects the 'Buy now' link from the 1st product info paragraph
+ * into the 'compact teaser' of the main product itself.
+ */
+function breema_preprocess_node_product(&$variables) {
+  if ($variables['view_mode'] == 'teaser_compact') {
+    $all_product_info = $variables['node']->get('field_product_info')->referencedEntities();
+    $main_product_info = array_pop($all_product_info);
+    $buy_now_link = $main_product_info->get('field_buy_now')->getValue();
+    $variables['content']['buy_now'] = [
+      '#type' => 'link',
+      '#title' => t('Buy now'),
+      '#url' => Url::fromUri($buy_now_link[0]['uri']),
+      '#prefix' => '<div class="field--name-field-buy-now">',
+      '#suffix' => '</div>',
+    ];
+    $variables['#attached']['library'][] = 'breema/store';
+  }
+}
+
+/**
  * Implements hook_theme_registry_alter()
  */
 function breema_theme_registry_alter(&$theme_registry) {
