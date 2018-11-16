@@ -2,11 +2,21 @@ a.teaser-link {
   color: black;
   text-decoration: none;
   margin-bottom: 1em;
+  border-bottom: none;
 }
 
+a.teaser-link h2,
 a.teaser-link h4 {
   color: #0071b3;
   margin: 0;
+}
+
+a.teaser-link:hover h2,
+a.teaser-link:focus h2,
+a.teaser-link:hover h4,
+a.teaser-link:focus h4 {
+  color: #018fe2;
+  text-decoration: underline;
 }
 
 a.teaser-link article {
@@ -31,12 +41,6 @@ a.teaser-link article .field--type-entity-reference article {
 
 a.teaser-link .field--name-field-date-time {
   font-style: italic;
-}
-
-a.teaser-link:hover h4,
-a.teaser-link:focus h4 {
-  color: #018fe2;
-  text-decoration: underline;
 }
 
 a.teaser-link .node__content {
@@ -109,4 +113,20 @@ h1 {
 .block-event-datetime-block .field--name-field-date-time {
   font-size: 1.25em;
   font-style: italic;
+}
+
+.node--type-product h3 {
+  font-size: 1.25em;
+  font-style: italic;
+  margin: 0;
+}
+
+.node--type-product a.teaser-link .field--name-field-main-image {
+  float: left;
+  margin: 0 1em 0 0;
+}
+
+.node--type-layout-page .paragraph {
+  clear: both;
+  margin: 0 0 2em 0;
 }

@@ -1,0 +1,26 @@
+{%
+  set classes = [
+    'node',
+    'node--type-' ~ node.bundle|clean_class,
+    node.isPromoted() ? 'node--promoted',
+    node.isSticky() ? 'node--sticky',
+    not node.isPublished() ? 'node--unpublished',
+    view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+    'clearfix',
+  ]
+%}
+{{ attach_library('classy/node') }}
+
+<article{{ attributes.addClass(classes) }}>
+  <a href="{{ url }}" rel="bookmark" class="teaser-link">
+  {{ content.field_main_image }}
+  <header>
+    <h2{{ title_attributes.addClass('node__title') }}>
+      {{ content.field_title_main }}
+    </h2>
+    <h3>{{ content.field_title_sub }}</h3>
+  </header>
+  {{ content.field_by|render|striptags('div') }}
+  </a>
+  {{ content.buy_now }}
+</article>
