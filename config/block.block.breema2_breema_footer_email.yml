@@ -1,0 +1,20 @@
+uuid: 30e75fac-adc3-4304-b4e0-5deb5fc20802
+langcode: en
+status: true
+dependencies:
+  module:
+    - breema
+  theme:
+    - breema2
+id: breema2_breema_footer_email
+theme: breema2
+region: footer_third
+weight: 0
+provider: null
+plugin: footer_email_subscribe_block
+settings:
+  id: footer_email_subscribe_block
+  label: 'E-mail lists'
+  provider: breema
+  label_display: visible
+visibility: {  }
