@@ -55,14 +55,10 @@
   margin-top: 0;
 }
 
-.contact-form-link a {
+.contact-form-link a,
+.contact-form-link a:hover {
   padding: 0 0 0 1.5em;
   position: relative;
-  border-bottom: none;
-  text-decoration: none;
-}
-
-.contact-form-link a:hover {
   border-bottom: none;
   text-decoration: none;
 }
@@ -73,6 +69,22 @@
   /* fa fa-envelope-o */
   content: "\f003";
   color: #777;
+  left: 1px;
+}
+
+.field--name-field-facebook-event a,
+.field--name-field-facebook-event a:hover {
+  padding: 0 0 0 1em;
+  position: relative;
+  border-bottom: none;
+  text-decoration: none;
+}
+
+.field--name-field-facebook-event a:before {
+  position: absolute;
+  font-family: 'FontAwesome';
+  /* fa fa-facebook */
+  content: "\f09a";
   left: 1px;
 }
 
