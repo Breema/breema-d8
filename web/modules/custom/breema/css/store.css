@@ -55,8 +55,8 @@
 }
 
 .field--name-field-ebook-amazon-kindle a,
-.field--name-field-ebook-apple-ibooks a, 
-.field--name-field-ebook-barnes-noble a, 
+.field--name-field-ebook-apple-ibooks a,
+.field--name-field-ebook-barnes-noble a,
 .field--name-field-ebook-kobo a {
   padding: 0 0 0 1.5em;
   position: relative;
