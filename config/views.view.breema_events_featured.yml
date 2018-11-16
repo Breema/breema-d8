@@ -4,15 +4,11 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser_compact_location
-    - core.entity_view_mode.node.teaser_with_location
     - entityqueue.entity_queue.event_featured
-    - field.storage.node.field_date_time
     - field.storage.node.field_geolocation
-    - field.storage.node.field_subtitle
     - node.type.event
   module:
     - datetime
-    - datetime_extras
     - entityqueue
     - geolocation
     - node
@@ -258,65 +254,75 @@ display:
       style:
         type: maps_common
         options:
-          grouping: {  }
-          uses_fields: false
+          geolocation_field: field_geolocation
+          title_field: none
+          centre:
+            fit_bounds:
+              enable: true
+              weight: 0
+            first_row:
+              weight: 0
+              enable: false
+            fixed_value:
+              weight: 0
+              settings:
+                latitude: ''
+                longitude: ''
+              enable: false
+            client_location:
+              weight: 0
+              enable: false
+              settings:
+                update_map: '0'
           show_raw_locations: 0
           max_raw_locations: 0
           raw_locations_per_page: 20
           even_empty: 0
-          geolocation_field: ''
-          title_field: ''
-          icon_field: ''
-          marker_scroll_to_result: 0
           marker_row_number: 0
-          id_field: ''
-          marker_clusterer: 0
-          marker_clusterer_image_path: ''
-          marker_clusterer_styles: {  }
-          dynamic_map:
-            enabled: 0
-            update_handler: ''
-            update_target: ''
-            hide_form: 0
-            views_refresh_delay: '1200'
-          centre: ''
           context_popup_content: ''
+          marker_clusterer: 1
+          marker_clusterer_image_path: ''
+          marker_clusterer_styles: ''
           google_map_settings:
-            type: ROADMAP
-            zoom: '10'
-            minZoom: 0
-            maxZoom: 18
-            rotateControl: 0
-            mapTypeControl: 1
-            streetViewControl: 1
-            zoomControl: 1
-            fullscreenControl: 0
-            scrollwheel: 1
-            disableDoubleClickZoom: 0
-            draggable: 1
             height: 400px
             width: 100%
-            info_auto_display: 1
-            marker_icon_path: ''
-            disableAutoPan: 1
-            style: ''
-            preferScrollingToZooming: 0
+            type: ROADMAP
+            zoom: '2'
+            maxZoom: 16
+            minZoom: 2
+            mapTypeControl: 0
+            streetViewControl: 0
+            zoomControl: 1
+            rotateControl: 0
+            fullscreenControl: 0
+            scrollwheel: 1
             gestureHandling: auto
+            draggable: 1
+            preferScrollingToZooming: 1
+            disableDoubleClickZoom: 0
+            style: ''
+            info_auto_display: 0
+            marker_icon_path: ''
+            disableAutoPan: 0
       defaults:
         style: false
         row: false
         fields: false
+        relationships: false
+        sorts: false
       row:
-        type: 'entity:node'
+        type: fields
         options:
-          relationship: none
-          view_mode: teaser_with_location
+          default_field_elements: true
+          inline: {  }
+          separator: ''
+          hide_empty: true
       fields:
         field_geolocation:
           id: field_geolocation
           table: node__field_geolocation
           field: field_geolocation
-          relationship: none
+          relationship: field_location
           group_type: group
           admin_label: ''
           label: ''
@@ -374,10 +380,10 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: geolocation_field
-        field_date_time:
-          id: field_date_time
-          table: node__field_date_time
-          field: field_date_time
+        rendered_entity:
+          id: rendered_entity
+          table: node
+          field: rendered_entity
           relationship: none
           group_type: group
           admin_label: ''
@@ -422,131 +428,31 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          click_sort_column: value
-          type: daterange_compact
-          settings:
-            format_type: medium
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
-        title:
-          id: title
-          table: node_field_data
-          field: title
+          view_mode: teaser_compact_location
           entity_type: node
-          entity_field: title
-          label: ''
-          alter:
-            alter_text: false
-            make_link: false
-            absolute: false
-            trim: false
-            word_boundary: false
-            ellipsis: false
-            strip_tags: false
-            html: false
-          hide_empty: false
-          empty_zero: false
-          settings:
-            link_to_entity: true
-          plugin_id: field
+          plugin_id: rendered_entity
+      relationships:
+        entityqueue_relationship:
+          id: entityqueue_relationship
+          table: node_field_data
+          field: entityqueue_relationship
           relationship: none
           group_type: group
-          admin_label: ''
-          exclude: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_alter_empty: true
-          click_sort_column: value
-          type: string
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-        field_subtitle:
-          id: field_subtitle
-          table: node__field_subtitle
-          field: field_subtitle
+          admin_label: 'Content queue'
+          required: true
+          limit_queue: event_featured
+          entity_type: node
+          plugin_id: entity_queue
+        field_location:
+          id: field_location
+          table: node__field_location
+          field: field_location
           relationship: none
           group_type: group
-          admin_label: ''
-          label: ''
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: string
-          settings:
-            link_to_entity: false
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
+          admin_label: Place
+          required: true
+          plugin_id: standard
+      sorts: {  }
     cache_metadata:
       max-age: -1
       contexts:
@@ -555,9 +461,29 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
+        - 'config:core.entity_view_display.node.article.default'
+        - 'config:core.entity_view_display.node.article.rss'
+        - 'config:core.entity_view_display.node.article.teaser'
+        - 'config:core.entity_view_display.node.directory_entry.default'
+        - 'config:core.entity_view_display.node.directory_entry.teaser'
+        - 'config:core.entity_view_display.node.directory_entry.teaser_search_result'
+        - 'config:core.entity_view_display.node.event.default'
+        - 'config:core.entity_view_display.node.event.teaser'
+        - 'config:core.entity_view_display.node.event.teaser_compact'
+        - 'config:core.entity_view_display.node.event.teaser_compact_location'
+        - 'config:core.entity_view_display.node.event.teaser_with_location'
+        - 'config:core.entity_view_display.node.layout_page.default'
+        - 'config:core.entity_view_display.node.layout_page.teaser'
+        - 'config:core.entity_view_display.node.page.default'
+        - 'config:core.entity_view_display.node.page.teaser'
+        - 'config:core.entity_view_display.node.place.default'
+        - 'config:core.entity_view_display.node.place.embed'
+        - 'config:core.entity_view_display.node.place.teaser'
+        - 'config:core.entity_view_display.node.place.teaser_search_result'
+        - 'config:core.entity_view_display.node.place.teaser_with_location'
+        - 'config:core.entity_view_display.node.product.default'
+        - 'config:core.entity_view_display.node.product.teaser'
         - 'config:entityqueue.entity_queue.event_featured'
-        - 'config:field.storage.node.field_date_time'
         - 'config:field.storage.node.field_geolocation'
-        - 'config:field.storage.node.field_subtitle'
         - entity_field_info
         - views_data
