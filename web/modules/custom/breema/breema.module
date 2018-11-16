@@ -88,30 +88,32 @@ function breema_preprocess_paragraph__event_featured(&$variables) {
     if (count($view->result)) {
       $variables['content'][$display] = $view->preview($display);
     }
-    $variables['content']['actions'] = [
-      '#type' => 'container',
-      '#weight' => 100,
-      '#attributes' => ['class' => ['container-inline']],
-      'header' => [
-        '#weight' => -10,
-        '#prefix' => '<h3>',
-        '#markup' => t('More Breema events'),
-        '#suffix' => '</h3>',
-      ],
+  }
+  $variables['content']['field_header_text']['#prefix'] = '<h2>';
+  $variables['content']['field_header_text']['#suffix'] = '</h2>';
+  $variables['content']['actions'] = [
+    '#type' => 'container',
+    '#weight' => 100,
+    '#attributes' => ['class' => ['container-inline']],
+    'header' => [
+      '#weight' => -10,
+      '#prefix' => '<h3>',
+      '#markup' => t('More Breema events'),
+      '#suffix' => '</h3>',
+    ],
+  ];
+  $actions = [
+    'calendar' => '/events',
+    'map' => '/events/map',
+    'search' => '/events/search',
+  ];
+  foreach ($actions as $action => $action_path) {
+    $url = Url::fromUri('internal:' . $action_path);
+    $variables['content']['actions'][$action] = [
+      '#prefix' => '<div class="action-secondary inline">',
+      '#markup' => t('<a href=":url">:label</a>', [':url' => $url->toString(), ':label' => Unicode::ucfirst($action)]),
+      '#suffix' => '</div>',
     ];
-    $actions = [
-      'calendar' => '/events',
-      'map' => '/events/map',
-      'search' => '/events/search',
-    ];
-    foreach ($actions as $action => $action_path) {
-      $url = Url::fromUri('internal:' . $action_path);
-      $variables['content']['actions'][$action] = [
-        '#prefix' => '<div class="action-secondary inline">',
-        '#markup' => t('<a href=":url">:label</a>', [':url' => $url->toString(), ':label' => Unicode::ucfirst($action)]),
-        '#suffix' => '</div>',
-      ];
-    }
   }
 }
 
