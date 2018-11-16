@@ -6,6 +6,7 @@ dependencies:
     - field.storage.node.field_paragraphs
     - node.type.layout_page
     - paragraphs.paragraphs_type.event_featured
+    - paragraphs.paragraphs_type.featured_product
     - paragraphs.paragraphs_type.image_3_up
     - paragraphs.paragraphs_type.image_wide
   module:
@@ -28,6 +29,7 @@ settings:
       event_featured: event_featured
       image_wide: image_wide
       image_3_up: image_3_up
+      featured_product: featured_product
     target_bundles_drag_drop:
       product_info_audio:
         weight: 4
@@ -47,4 +49,7 @@ settings:
       image_3_up:
         enabled: true
         weight: 8
+      featured_product:
+        enabled: true
+        weight: 9
 field_type: entity_reference_revisions

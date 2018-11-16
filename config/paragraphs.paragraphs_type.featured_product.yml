@@ -1,0 +1,9 @@
+uuid: c6ba6011-525e-45f1-bfb0-95f150ed1c94
+langcode: en
+status: true
+dependencies: {  }
+id: featured_product
+label: 'Featured product'
+icon_uuid: null
+description: 'A featured product for the front page (or other layout pages).'
+behavior_plugins: {  }
