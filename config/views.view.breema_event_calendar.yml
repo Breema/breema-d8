@@ -19,7 +19,7 @@ dependencies:
 id: breema_event_calendar
 label: 'Breema event calendar'
 module: views
-description: 'Map view of all upcoming Breema events'
+description: 'Calendar view of all upcoming Breema events'
 tag: ''
 base_table: node_field_data
 base_field: nid
