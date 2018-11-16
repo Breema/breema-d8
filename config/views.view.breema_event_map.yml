@@ -63,6 +63,11 @@ display:
         options:
           geolocation_field: field_geolocation
           title_field: none
+          dynamic_map:
+            enabled: 1
+            update_handler: boundary_filter_field_geolocation_boundary
+            hide_form: 0
+            views_refresh_delay: '2500'
           centre:
             fit_bounds:
               enable: true
@@ -81,6 +86,9 @@ display:
               enable: false
               settings:
                 update_map: '0'
+            boundary_filter_field_geolocation_boundary:
+              enable: true
+              weight: 0
           show_raw_locations: 1
           max_raw_locations: 200
           raw_locations_per_page: 20
@@ -253,6 +261,7 @@ display:
           entity_type: node
           entity_field: type
           plugin_id: bundle
+          group: 1
         field_date_time_end_value:
           id: field_date_time_end_value
           table: node__field_date_time
@@ -296,6 +305,104 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           plugin_id: datetime
+        field_parent_event_target_id:
+          id: field_parent_event_target_id
+          table: node__field_parent_event
+          field: field_parent_event_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: empty
+          value:
+            min: ''
+            max: ''
+            value: ''
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            placeholder: ''
+            min_placeholder: ''
+            max_placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: numeric
+        field_geolocation_boundary:
+          id: field_geolocation_boundary
+          table: node__field_geolocation
+          field: field_geolocation_boundary
+          relationship: field_location
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value:
+            lat_north_east: ''
+            lng_north_east: ''
+            lat_south_west: ''
+            lng_south_west: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: ''
+            label: 'Boundary (field_geolocation)'
+            description: ''
+            use_operator: false
+            operator: field_geolocation_boundary_op
+            identifier: boundary
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              practitioner: '0'
+              instructor: '0'
+              content_editor: '0'
+              administrator: '0'
+              event_expert: '0'
+            input_by_geocoding_widget: 0
+            geocoder_plugin_settings:
+              plugin_id: google_geocoding_api
+              settings:
+                components:
+                  route: ''
+                  locality: ''
+                  administrativeArea: ''
+                  postalCode: ''
+                  country: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: geolocation_filter_boundary
         tid:
           id: tid
           table: taxonomy_index
@@ -344,48 +451,6 @@ display:
           hierarchy: false
           error_message: true
           plugin_id: taxonomy_index_tid
-        field_parent_event_target_id:
-          id: field_parent_event_target_id
-          table: node__field_parent_event
-          field: field_parent_event_target_id
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: empty
-          value:
-            min: ''
-            max: ''
-            value: ''
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            placeholder: ''
-            min_placeholder: ''
-            max_placeholder: ''
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          plugin_id: numeric
       sorts: {  }
       title: 'Breema event map'
       header: {  }
@@ -416,6 +481,11 @@ display:
           plugin_id: standard
       arguments: {  }
       display_extenders: {  }
+      use_ajax: true
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
     cache_metadata:
       max-age: -1
       contexts:
