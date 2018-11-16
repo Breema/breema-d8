@@ -301,6 +301,14 @@ function breema_form_node_form_alter(&$form, \Drupal\Core\Form\FormStateInterfac
         '#description' => t('If you <a href=":edit">edit your user account</a> you can upload an image in the <em>Picture</em> field and it will be displayed with your directory entry.', [':edit' => $edit_url->toString()]),
       ];
     }
+    // If not already defined, set default values for first and last name based
+    // on the values in the user entity.
+    foreach (['last', 'first'] as $name_type) {
+      $field_name = 'field_name_' . $name_type;
+      if (empty($form[$field_name]['widget'][0]['value']['#default_value'])) {
+        $form[$field_name]['widget'][0]['value']['#default_value'] = $author_entity->get($field_name)->value;
+      }
+    }
   }
   else if ($node->bundle() == 'product') {
     $form['field_by']['widget'][0]['#after_build'][] = 'breema_product_node_form_after_build';
