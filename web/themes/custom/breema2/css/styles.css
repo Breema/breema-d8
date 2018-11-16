@@ -50,15 +50,26 @@ a.teaser-link .node--sticky {
 }
 
 .node--view-mode-teaser-with-location .event-info {
-  float: left;
-  width: 66%;
   margin: 0;
 }
-.node--view-mode-teaser-with-location .field--name-field-location {
-  float: left;
-  width: 33%;
-  margin: 0;
+
+a.teaser-link .node--view-mode-teaser-with-location .field--name-field-location {
+  margin: 0.75em 0 0 0;
   font-size: 90%;
+}
+
+@media (min-width: 650px) {
+  .node--view-mode-teaser-with-location .event-info {
+    float: left;
+    width: 66%;
+  }
+  .node--view-mode-teaser-with-location .field--name-field-location {
+    float: left;
+    width: 33%;
+  }
+  a.teaser-link .node--view-mode-teaser-with-location .field--name-field-location {
+    margin: 0;
+  }
 }
 .event-with-image .event-info .field--name-field-main-image {
     float: left;
