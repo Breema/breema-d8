@@ -19,9 +19,17 @@ class BreemaFooterEmailSubscribeBlock extends BlockBase {
    * {@inheritdoc}
    */
   public function build() {
+    $url = 'https://visitor.r20.constantcontact.com/d.jsp?llr=9ssf66vab&p=oi&m=1123063876186&sit=mxkiksfkb&f=d46ac83b-8362-4d98-9e1f-2fed8fe941b9';
     return [
+      'link' => [
+        '#prefix' => '<div class="text-link">',
+        '#markup' => $this->t('<a href=":url">Join one or more of our e-mail lists for announcements and inspiration!</a>', [':url' => $url]),
+        '#suffix' => '</div>',
+      ],
       'subscribe' => [
-        '#markup' => $this->t('<a href=":url">Join one or more of our email lists for announcements and inspiration!</a>', [':url' => 'https://visitor.r20.constantcontact.com/d.jsp?llr=9ssf66vab&p=oi&m=1123063876186&sit=mxkiksfkb&f=d46ac83b-8362-4d98-9e1f-2fed8fe941b9']),
+        '#prefix' => '<div class="action-secondary">',
+        '#markup' => $this->t('<a href=":url">Subscribe</a>', [':url' => $url]),
+        '#suffix' => '</div>',
       ],
     ];
   }
