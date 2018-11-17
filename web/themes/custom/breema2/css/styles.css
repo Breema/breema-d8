@@ -92,6 +92,18 @@ a.teaser-link:hover .teaser-wrapper {
   background-color: rgba(0,0,0,0.025);
 }
 
+.place-teaser-compact header {
+  float: left;
+  margin: 0 0.5em 0 0;
+}
+
+.place-teaser-compact .field--name-field-address {
+  float: left;
+  font-style: italic;
+  font-size: 95%;
+  line-height: 1.5em;
+}
+
 .node--unpublished {
   background-color: #fffcd9;
   border: 1px solid #e4e4a7;
