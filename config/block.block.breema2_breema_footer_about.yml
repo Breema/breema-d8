@@ -9,7 +9,7 @@ dependencies:
 id: breema2_breema_footer_about
 theme: breema2
 region: footer_second
-weight: 0
+weight: -13
 provider: null
 plugin: about_breema_block
 settings:

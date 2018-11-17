@@ -8,8 +8,8 @@ dependencies:
     - breema2
 id: breema2_breema_footer_text
 theme: breema2
-region: footer_fourth
-weight: -12
+region: footer_third
+weight: -13
 provider: null
 plugin: footer_text_block
 settings:

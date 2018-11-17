@@ -8,13 +8,13 @@ dependencies:
     - breema2
 id: breema2_breema_footer_email
 theme: breema2
-region: footer_third
-weight: 0
+region: footer_fourth
+weight: -13
 provider: null
 plugin: footer_email_subscribe_block
 settings:
   id: footer_email_subscribe_block
   label: 'E-mail lists'
   provider: breema
-  label_display: visible
+  label_display: '0'
 visibility: {  }
