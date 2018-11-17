@@ -122,15 +122,6 @@ content:
     third_party_settings: {  }
     type: entity_browser_entity_reference
     region: content
-  field_parent_event:
-    weight: 18
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: entity_reference_autocomplete
-    region: content
   field_registration_link:
     weight: 10
     settings:
@@ -147,7 +138,7 @@ content:
     type: number
     region: content
   field_resources:
-    weight: 19
+    weight: 18
     settings:
       entity_browser: media_browser
       field_widget_display: label
@@ -232,4 +223,5 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  field_parent_event: true

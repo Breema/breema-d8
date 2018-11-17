@@ -7,8 +7,6 @@ label: 'Event expert'
 weight: -4
 is_admin: null
 permissions:
-  - 'create field_parent_event'
   - 'create schedule events'
-  - 'edit own field_parent_event'
   - 'flag my_places'
   - 'unflag my_places'
