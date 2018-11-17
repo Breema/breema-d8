@@ -121,7 +121,8 @@ class BreemaNodeCloneForm extends ConfirmFormBase {
     $child = $this->cloneEntity($this->parent);
     if ($this->isScheduleEvent($this->parent)) {
       $child->set('field_subtitle', $form_values['subtitle']);
-      $parent_event = array_pop($this->parent->get('field_parent_event')->loadReferencedEntities());
+      $parent_events = $this->parent->get('field_parent_event')->referencedEntities();
+      $parent_event = array_pop($parent_events);
       $form_values['title'] = $form_values['subtitle'] . ' - ' . $parent_event->label();
     }
     $child->setTitle($form_values['title']);
