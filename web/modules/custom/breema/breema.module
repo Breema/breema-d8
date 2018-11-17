@@ -87,7 +87,10 @@ function breema_preprocess_node(&$variables) {
 /**
  * Preprocess function for event nodes.
  *
- * If the required hours field is empty, print a message that it's open to all.
+ * Special handling for field_parent_event and field_subtitle on schedule nodes.
+ * If there are required hours, cleanup how that is displayed.
+ * Magic for rendering info about instructors (e.g. as links to directory
+ * entries).
  */
 function breema_preprocess_node_event(&$variables) {
   if ($variables['view_mode'] == 'full') {
@@ -95,11 +98,12 @@ function breema_preprocess_node_event(&$variables) {
       $variables['content']['field_parent_event']['#title'] = t('Part of the');
       $variables['content']['field_subtitle']['#access'] = FALSE;
     }
-    if (empty($variables['content']['field_required_hours'][0])) {
-      $variables['content']['field_required_hours'][0] = [
+    if (!empty($variables['content']['field_required_hours'][0])) {
+      $hours = $variables['node']->field_required_hours->get(0)->value;
+      $variables['content']['field_required_hours'] = [
         '#type' => 'markup',
-        '#prefix' => '<div>',
-        '#markup' => t('Open to everyone, beginners welcome.'),
+        '#prefix' => '<div class="field-name-field-required-hours>',
+        '#markup' => new PluralTranslatableMarkup($hours, '1 class hour required.', '@hours class hours required.', ['@hours' => $hours]),
         '#suffix' => '</div>',
       ];
     }
