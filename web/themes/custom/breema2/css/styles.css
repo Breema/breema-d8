@@ -155,3 +155,19 @@ h1 {
   clear: both;
   margin: 0 0 2em 0;
 }
+
+.paragraph--type--event-featured h3 {
+  clear: both;
+}
+
+.paragraph--type--event-featured .views-row {
+    margin: 0 0 1em 0;
+}
+
+@media (min-width: 650px) {
+  .paragraph--type--event-featured .views-row {
+    width: 46%;
+    float: left;
+    margin: 0 3% 1em 0;
+  }
+}
