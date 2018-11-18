@@ -69,20 +69,31 @@
 }
 
 .contact-form-link a,
-.contact-form-link a:hover {
+.contact-form-link a:hover,
+.field--type-telephone a,
+.field--type-telephone a:hover {
   padding: 0 0 0 1.5em;
   position: relative;
   border-bottom: none;
   text-decoration: none;
 }
 
-.contact-form-link a:before {
+.contact-form-link a:before,
+.field--type-telephone a:before {
   position: absolute;
   font-family: 'FontAwesome';
-  /* fa fa-envelope-o */
-  content: "\f003";
   color: #777;
   left: 1px;
+}
+
+.contact-form-link a:before {
+  /* fa fa-envelope-o */
+  content: "\f003";
+}
+
+.field--type-telephone a:before {
+  /* fa fa-phone */
+  content: "\f095";
 }
 
 .field--name-field-facebook-event a,
