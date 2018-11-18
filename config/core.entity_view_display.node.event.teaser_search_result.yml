@@ -1,0 +1,93 @@
+uuid: 2db16af1-a8ed-4b6e-a154-9c0c95ff83a7
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser_search_result
+    - field.field.node.event.body
+    - field.field.node.event.field_categories
+    - field.field.node.event.field_date_time
+    - field.field.node.event.field_facebook_event
+    - field.field.node.event.field_geolocation
+    - field.field.node.event.field_instructors
+    - field.field.node.event.field_location
+    - field.field.node.event.field_main_image
+    - field.field.node.event.field_parent_event
+    - field.field.node.event.field_registration_link
+    - field.field.node.event.field_required_hours
+    - field.field.node.event.field_resources
+    - field.field.node.event.field_subtitle
+    - field.field.node.event.field_transfer_credit
+    - field.field.node.event.field_website
+    - image.style.thumbnail
+    - node.type.event
+  module:
+    - datetime_extras
+    - media
+    - user
+id: node.event.teaser_search_result
+targetEntityType: node
+bundle: event
+mode: teaser_search_result
+content:
+  field_categories:
+    type: entity_reference_label
+    weight: 5
+    region: content
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+  field_date_time:
+    type: daterange_compact
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      format_type: medium
+    third_party_settings: {  }
+  field_instructors:
+    weight: 3
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_location:
+    weight: 4
+    label: hidden
+    settings:
+      view_mode: teaser_with_location
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+  field_main_image:
+    weight: 1
+    label: hidden
+    settings:
+      image_style: thumbnail
+      image_link: ''
+    third_party_settings: {  }
+    type: media_thumbnail
+    region: content
+  field_subtitle:
+    weight: 2
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden:
+  body: true
+  field_facebook_event: true
+  field_geolocation: true
+  field_parent_event: true
+  field_registration_link: true
+  field_required_hours: true
+  field_resources: true
+  field_transfer_credit: true
+  field_website: true
+  links: true
