@@ -160,14 +160,12 @@ function breema_preprocess_node_product(&$variables) {
  * Injects links to the /events/* pages (calendar, map + search).
  */
 function breema_preprocess_paragraph__event_featured(&$variables) {
-  foreach (['map', 'list'] as $display_type) {
-    $display = 'block_' . $display_type;
-    $view = Views::getView('breema_events_featured');
-    $view->setDisplay($display);
-    $view->execute();
-    if (count($view->result)) {
-      $variables['content'][$display] = $view->preview($display);
-    }
+  $display = 'block_list';
+  $view = Views::getView('breema_events_featured');
+  $view->setDisplay($display);
+  $view->execute();
+  if (count($view->result)) {
+    $variables['content'][$display] = $view->preview($display);
   }
   $variables['content']['field_header_text']['#prefix'] = '<h2>';
   $variables['content']['field_header_text']['#suffix'] = '</h2>';
@@ -184,7 +182,6 @@ function breema_preprocess_paragraph__event_featured(&$variables) {
   ];
   $actions = [
     'calendar' => '/events',
-    'map' => '/events/map',
     'search' => '/events/search',
   ];
   foreach ($actions as $action => $action_path) {
