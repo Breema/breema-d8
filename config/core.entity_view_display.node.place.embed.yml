@@ -10,6 +10,7 @@ dependencies:
     - field.field.node.place.field_geolocation
     - field.field.node.place.field_has_active_event
     - field.field.node.place.field_telephone
+    - field.field.node.place.field_upcoming_events
     - field.field.node.place.field_website
     - node.type.place
   module:
@@ -23,7 +24,7 @@ bundle: place
 mode: embed
 content:
   field_address:
-    weight: 1
+    weight: 0
     label: hidden
     settings: {  }
     third_party_settings: {  }
@@ -31,13 +32,13 @@ content:
     region: content
   field_email:
     type: email_mailto
-    weight: 3
+    weight: 2
     region: content
     label: hidden
     settings: {  }
     third_party_settings: {  }
   field_telephone:
-    weight: 2
+    weight: 1
     label: hidden
     settings:
       title: ''
@@ -45,7 +46,7 @@ content:
     type: telephone_link
     region: content
   field_website:
-    weight: 4
+    weight: 3
     label: hidden
     settings:
       trim_length: 80
@@ -56,13 +57,8 @@ content:
     third_party_settings: {  }
     type: link
     region: content
-  flag_my_places:
-    weight: 0
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   links:
-    weight: 5
+    weight: 4
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -70,3 +66,5 @@ hidden:
   body: true
   field_geolocation: true
   field_has_active_event: true
+  field_upcoming_events: true
+  flag_my_places: true
