@@ -184,3 +184,30 @@ h1 {
 .node--view-mode-full .field--name-field-subtitle {
   font-size: 1.3em;
 }
+
+div.field--name-field-registration-link {
+  margin: 0 0 1em 0;
+}
+
+.field--name-field-registration-link a {
+  color: #FFF;
+  background-color: rgb(32, 136, 0);
+  border: 1px solid rgb(20, 85, 0);
+  font-size: 1em;
+  font-weight: bold;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  padding: 5px 15px 5px 15px;
+  margin: 0;
+  text-align: center;
+  max-width: 200px;
+  text-decoration: none;
+}
+
+.field--name-field-registration-link a:hover {
+  color: #FFF;
+  background-color: rgb(22, 116, 1);
+  border: 1px solid rgb(20, 85, 0);
+  text-decoration: none;
+}
