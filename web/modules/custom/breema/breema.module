@@ -812,6 +812,18 @@ function breema_entity_view_alter(array &$build, EntityInterface $entity, Entity
       ];
     }
   }
+
+  // Inject a 'Read more' link at the end of the upcoming events list.
+  if ($entity->getEntityTypeId() == 'node'
+      && $build['#view_mode'] == 'teaser_search_result'
+      && !empty($build['field_upcoming_events']['#items'])
+      && ($entity->bundle() == 'directory_entry' || $entity->bundle() == 'place')) {
+    $item_count = count($build['field_upcoming_events']['#items']);
+    $build['field_upcoming_events'][$item_count] = [
+      '#type' => 'markup',
+      '#markup' => $entity->toLink(t('Read more'))->toString(),
+    ];
+  }
 }
 
 /**
