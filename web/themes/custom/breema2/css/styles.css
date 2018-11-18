@@ -70,12 +70,12 @@ a.teaser-link .node--view-mode-teaser-with-location .field--name-field-location 
   .node--type-event.node--view-mode-teaser-search-result .event-info,
   .node--view-mode-teaser-with-location .event-info {
     float: left;
-    width: 66%;
+    width: 60%;
   }
   .node--type-event.node--view-mode-teaser-search-result .field--name-field-location,
   .node--view-mode-teaser-with-location .field--name-field-location {
     float: left;
-    width: 33%;
+    width: 38%;
   }
   a.teaser-link .node--type-event.node--view-mode-teaser-search-result .field--name-field-location,
   a.teaser-link .node--view-mode-teaser-with-location .field--name-field-location {

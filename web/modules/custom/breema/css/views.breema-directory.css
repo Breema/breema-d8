@@ -10,9 +10,14 @@ ol.location-results .field--name-field-upcoming-events {
 @media (min-width: 650px) {
   ol.location-results .search-result-info,
   ol.location-results .field--name-field-upcoming-events {
-    width: 46%;
     float: left;
     margin: 0;
+  }
+  ol.location-results .search-result-info {
+    width: 60%;
+  }
+  ol.location-results .field--name-field-upcoming-events {
+    width: 38%;
   }
 }
 
