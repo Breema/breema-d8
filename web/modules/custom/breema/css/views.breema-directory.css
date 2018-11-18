@@ -1,16 +1,4 @@
-/* General styles for the whole view */
-.result-id,
-.result-info {
-  float: left;
-  overflow: hidden;
-}
-
 /* Styles for raw map results (below the map) */
-ol.location-results li.location-result {
-  padding: 1em 0 1em 1em;
-  margin: 0;
-}
-
 ol.location-results li.location-result:hover {
   background-color: rgba(0,0,0,0.025);
 }
