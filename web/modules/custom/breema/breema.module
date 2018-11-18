@@ -153,6 +153,15 @@ function breema_preprocess_node_product(&$variables) {
 }
 
 /**
+ * Preprocess function for blocks.
+ */
+function breema_preprocess_block(&$variables) {
+  if ($variables['plugin_id'] == 'views_block:breema_events_featured-block_list') {
+    $variables['content']['actions'] = _breema_get_more_events_action_links();
+  }
+}
+
+/**
  * Preprocess function for 'Featured events' paragraph type.
  *
  * Injects the map and list displays of the 'breema_events_featured' view.
@@ -169,7 +178,14 @@ function breema_preprocess_paragraph__event_featured(&$variables) {
   }
   $variables['content']['field_header_text']['#prefix'] = '<h2>';
   $variables['content']['field_header_text']['#suffix'] = '</h2>';
-  $variables['content']['actions'] = [
+  $variables['content']['actions'] = _breema_get_more_events_action_links();
+}
+
+/**
+ * Generate a render array of inline action links to see more Breema events.
+ */
+function _breema_get_more_events_action_links() {
+  $render = [
     '#type' => 'container',
     '#weight' => 100,
     '#attributes' => ['class' => ['container-inline']],
@@ -186,12 +202,13 @@ function breema_preprocess_paragraph__event_featured(&$variables) {
   ];
   foreach ($actions as $action => $action_path) {
     $url = Url::fromUri('internal:' . $action_path);
-    $variables['content']['actions'][$action] = [
+    $render[$action] = [
       '#prefix' => '<div class="action-secondary inline">',
       '#markup' => t('<a href=":url">:label</a>', [':url' => $url->toString(), ':label' => Unicode::ucfirst($action)]),
       '#suffix' => '</div>',
     ];
   }
+  return $render;
 }
 
 /**
