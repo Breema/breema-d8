@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.event.body
     - field.field.node.event.field_categories
     - field.field.node.event.field_date_time
+    - field.field.node.event.field_display_instructor_bios
     - field.field.node.event.field_facebook_event
     - field.field.node.event.field_geolocation
     - field.field.node.event.field_instructors
@@ -35,7 +36,7 @@ third_party_settings:
         - field_facebook_event
         - field_website
       parent_name: ''
-      weight: 9
+      weight: 10
       format_type: details
       format_settings:
         id: ''
@@ -51,7 +52,7 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 10
+    weight: 11
     settings:
       rows: 9
       summary_rows: 3
@@ -60,12 +61,12 @@ content:
     region: content
   created:
     type: datetime_timestamp
-    weight: 12
+    weight: 13
     region: content
     settings: {  }
     third_party_settings: {  }
   field_categories:
-    weight: 5
+    weight: 6
     settings: {  }
     third_party_settings: {  }
     type: options_buttons
@@ -75,6 +76,13 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: daterange_default
+    region: content
+  field_display_instructor_bios:
+    weight: 5
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
     region: content
   field_facebook_event:
     weight: 11
@@ -109,7 +117,7 @@ content:
     type: entity_browser_entity_reference
     region: content
   field_main_image:
-    weight: 8
+    weight: 9
     settings:
       entity_browser: image_browser
       field_widget_display: rendered_entity
@@ -132,14 +140,14 @@ content:
     type: link_default
     region: content
   field_required_hours:
-    weight: 6
+    weight: 7
     settings:
       placeholder: ''
     third_party_settings: {  }
     type: number
     region: content
   field_resources:
-    weight: 18
+    weight: 19
     settings:
       entity_browser: media_browser
       field_widget_display: label
@@ -161,7 +169,7 @@ content:
     type: string_textfield
     region: content
   field_transfer_credit:
-    weight: 7
+    weight: 8
     settings:
       placeholder: ''
     third_party_settings: {  }
@@ -177,7 +185,7 @@ content:
     region: content
   path:
     type: path
-    weight: 15
+    weight: 16
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -185,21 +193,21 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 13
+    weight: 14
     region: content
     third_party_settings: {  }
   status:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 17
+    weight: 18
     region: content
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 14
+    weight: 15
     region: content
     third_party_settings: {  }
   title:
@@ -212,7 +220,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 11
+    weight: 12
     settings:
       match_operator: CONTAINS
       size: 60
@@ -220,7 +228,7 @@ content:
     region: content
     third_party_settings: {  }
   url_redirects:
-    weight: 16
+    weight: 17
     region: content
     settings: {  }
     third_party_settings: {  }

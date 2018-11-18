@@ -1,0 +1,23 @@
+uuid: 704b496d-4a14-4a04-ac39-1d41dac0ceb9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_display_instructor_bios
+    - node.type.event
+id: node.event.field_display_instructor_bios
+field_name: field_display_instructor_bios
+entity_type: node
+bundle: event
+label: 'Display instructor bios'
+description: 'Should the event description automatically include the bio and headshot for each instructor?'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean
