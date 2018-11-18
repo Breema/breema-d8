@@ -1,0 +1,87 @@
+uuid: 96c7dcac-f7fb-47ea-b427-9907caf91224
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser_compact
+    - field.field.node.directory_entry.body
+    - field.field.node.directory_entry.field_address
+    - field.field.node.directory_entry.field_breema_center_staff
+    - field.field.node.directory_entry.field_breema_clinic_practitioner
+    - field.field.node.directory_entry.field_certification
+    - field.field.node.directory_entry.field_email
+    - field.field.node.directory_entry.field_geolocation
+    - field.field.node.directory_entry.field_has_active_event
+    - field.field.node.directory_entry.field_job_title
+    - field.field.node.directory_entry.field_name_first
+    - field.field.node.directory_entry.field_name_last
+    - field.field.node.directory_entry.field_resources
+    - field.field.node.directory_entry.field_telephone
+    - field.field.node.directory_entry.field_upcoming_events
+    - node.type.directory_entry
+  module:
+    - smart_trim
+    - user
+id: node.directory_entry.teaser_compact
+targetEntityType: node
+bundle: directory_entry
+mode: teaser_compact
+content:
+  body:
+    label: hidden
+    type: smart_trim
+    weight: 3
+    settings:
+      trim_length: 500
+      trim_type: chars
+      trim_suffix: ''
+      more_link: false
+      more_text: More
+      summary_handler: ignore
+      trim_options:
+        text: false
+      more_class: more-link
+      wrap_output: false
+      wrap_class: trimmed
+    third_party_settings: {  }
+    region: content
+  field_breema_center_staff:
+    weight: 1
+    label: hidden
+    settings:
+      format: custom
+      format_custom_true: 'Breema Center staff'
+      format_custom_false: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_breema_clinic_practitioner:
+    weight: 2
+    label: hidden
+    settings:
+      format: custom
+      format_custom_true: 'Breema Clinic practitioner'
+      format_custom_false: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_job_title:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden:
+  field_address: true
+  field_certification: true
+  field_email: true
+  field_geolocation: true
+  field_has_active_event: true
+  field_name_first: true
+  field_name_last: true
+  field_resources: true
+  field_telephone: true
+  field_upcoming_events: true
+  links: true

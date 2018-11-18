@@ -112,6 +112,11 @@ a.teaser-link:hover .teaser-wrapper {
   line-height: 1.5em;
 }
 
+.node--type-directory-entry .headshot {
+  float: left;
+  margin: 0 1em 0 0;
+}
+
 .node--unpublished {
   background-color: #fffcd9;
   border: 1px solid #e4e4a7;
