@@ -94,10 +94,12 @@ function breema_preprocess_node(&$variables) {
  * entries).
  */
 function breema_preprocess_node_event(&$variables) {
+  if (!empty($variables['node']->get('field_parent_event')->getValue())) {
+    $variables['content']['field_subtitle']['#access'] = FALSE;
+  }
   if ($variables['view_mode'] == 'full') {
     if (!empty($variables['content']['field_parent_event'][0])) {
       $variables['content']['field_parent_event']['#title'] = t('Part of the');
-      $variables['content']['field_subtitle']['#access'] = FALSE;
     }
     if (!empty($variables['content']['field_required_hours'][0])) {
       $hours = $variables['node']->field_required_hours->get(0)->value;
