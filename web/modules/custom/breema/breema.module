@@ -465,7 +465,11 @@ function breema_form_views_exposed_form_alter(&$form, \Drupal\Core\Form\FormStat
       break;
 
     case 'breema_directory':
-      $form['type']['#options']['directory_entry'] = t('Person');
+      $form['type']['#options'] = [
+        'event' => t('Event'),
+        'directory_entry' => t('Person'),
+        'place' => t('Place'),
+      ];
       $form['certification']['#options'] = [
         'practitioner' => t('Breema Practitioner'),
         'inst-self-breema' => t('Self-Breema Instructor'),
