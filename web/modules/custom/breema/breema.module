@@ -114,6 +114,7 @@ function breema_preprocess_node_event(&$variables) {
   if (!empty($variables['content']['field_instructors'])) {
     $instructors = $variables['node']->get('field_instructors')->referencedEntities();
     if (!empty($instructors)) {
+      $instructor_label = count($instructors) == 1 ? t('Instructor') : t('Instructors');
       $label_callback = $variables['view_mode'] == 'full' ? 'breema_entity_label_instructor_directory_entry' : 'breema_entity_label_plain';
       $variables['content']['field_instructors'] = [
         '#type' => 'markup',
@@ -122,10 +123,37 @@ function breema_preprocess_node_event(&$variables) {
         // auto-sanitizes and breaks our links. So we manually check the count
         // and do this "raw". This would be broken for RTL languages, but we
         // won't worry about that for now.
-        '#markup' => (count($instructors) == 1 ? t('Instructor: ') : t('Instructors: ')) . breema_get_entity_label_multiple($instructors, $label_callback),
+        '#markup' => $instructor_label . ': ' . breema_get_entity_label_multiple($instructors, $label_callback),
         '#suffix' => '</div>',
         '#weight' => isset($variables['content']['field_instructors']['#weight']) ? $variables['content']['field_instructors']['#weight'] : 0,
       ];
+      // If we're on the 'full' view of an event, conditionally inject
+      // instructor bios.
+      if ($variables['view_mode'] == 'full' && !empty($variables['node']->get('field_display_instructor_bios')->value)) {
+        $variables['content']['instructor_bios'] = [
+          '#type' => 'container',
+          '#weight' => 100,
+          'header' => [
+            '#weight' => -10,
+            '#prefix' => '<h2>',
+            '#markup' => $instructor_label,
+            '#suffix' => '</h2>',
+          ],
+        ];
+        $view_builder = \Drupal::entityTypeManager()->getViewBuilder('node');
+        foreach ($instructors as $instructor) {
+          $directory_entries = $instructor->get('field_directory_entry')->referencedEntities();
+          if (!empty($directory_entries)) {
+            $directory_entry = array_pop($directory_entries);
+            $variables['content']['instructor_bios'][$instructor->id()] = $view_builder->view($directory_entry, 'teaser_compact');
+          }
+          else {
+            $variables['content']['instructor_bios'][$instructor->id()] = [
+              '#markup' => '<h3>' . $instructor->label() . '</h3>',
+            ];
+          }
+        }
+      }
     }
   }
 }
@@ -775,7 +803,7 @@ function breema_entity_view_alter(array &$build, EntityInterface $entity, Entity
       ];
     }
 
-    if (!empty($contact_url)) {
+    if (!empty($contact_url) && ($build['#view_mode'] == 'full' || $build['#view_mode'] == 'teaser_search_result')) {
       $build['contact_link'] = [
         '#weight' => 6,
         '#prefix' => '<div class="contact-form-link">',
