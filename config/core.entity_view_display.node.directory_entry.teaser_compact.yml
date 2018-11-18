@@ -35,14 +35,15 @@ content:
       trim_length: 500
       trim_type: chars
       trim_suffix: ''
-      more_link: false
-      more_text: More
-      summary_handler: ignore
+      wrap_class: trimmed
+      more_link: true
+      more_text: 'Read more'
+      more_class: more-link
+      summary_handler: trim
+      wrap_output: false
       trim_options:
         text: false
-      more_class: more-link
-      wrap_output: false
-      wrap_class: trimmed
+        trim_zero: false
     third_party_settings: {  }
     region: content
   field_breema_center_staff:
