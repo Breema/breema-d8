@@ -10,6 +10,7 @@ ol.location-results {
   padding: 0;
 }
 
+ol.location-results li,
 ol.location-results h2 {
   margin: 0;
   padding: 0;
