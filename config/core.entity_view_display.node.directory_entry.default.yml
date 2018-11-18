@@ -21,8 +21,8 @@ dependencies:
   module:
     - address
     - options
-    - smart_trim
     - telephone
+    - text
     - user
 id: node.directory_entry.default
 targetEntityType: node
@@ -31,20 +31,9 @@ mode: default
 content:
   body:
     label: hidden
-    type: smart_trim
+    type: text_default
     weight: 7
-    settings:
-      trim_length: 500
-      trim_type: chars
-      trim_suffix: ''
-      more_link: false
-      more_text: More
-      summary_handler: ignore
-      trim_options:
-        text: false
-      more_class: more-link
-      wrap_output: false
-      wrap_class: trimmed
+    settings: {  }
     third_party_settings: {  }
     region: content
   field_address:
