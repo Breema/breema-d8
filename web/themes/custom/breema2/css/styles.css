@@ -117,6 +117,15 @@ a.teaser-link:hover .teaser-wrapper {
   margin: 0 1em 0 0;
 }
 
+.headshot a {
+  text-decoration: none;
+  border-bottom: none;
+}
+.headshot a:hover {
+  text-decoration: none;
+  border-bottom: none;
+}
+
 .node--unpublished {
   background-color: #fffcd9;
   border: 1px solid #e4e4a7;
