@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.event.body
+    - field.field.node.event.field_address
     - field.field.node.event.field_categories
     - field.field.node.event.field_date_time
     - field.field.node.event.field_display_instructor_bios
@@ -164,6 +165,7 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
+  field_address: true
   field_date_time: true
   field_display_instructor_bios: true
   field_geolocation: true

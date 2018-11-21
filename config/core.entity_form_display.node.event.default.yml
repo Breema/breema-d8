@@ -5,6 +5,7 @@ dependencies:
   config:
     - entity_browser.browser.media_browser
     - field.field.node.event.body
+    - field.field.node.event.field_address
     - field.field.node.event.field_categories
     - field.field.node.event.field_date_time
     - field.field.node.event.field_display_instructor_bios
@@ -233,5 +234,6 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
+  field_address: true
   field_geolocation: true
   field_parent_event: true
