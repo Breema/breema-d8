@@ -656,8 +656,8 @@ function breema_node_cud__event(NodeInterface $node, $operation) {
  *
  * Ensure that the location is added to 'My places' for the owner.
  *
- * Update the geolocation on any event nodes pointing to this place that don't
- * match the current value.
+ * Update the address and geolocation on any event nodes pointing to this place
+ * that don't match the current value.
  */
 function breema_node_cud__place(NodeInterface $node, $operation) {
   if ($operation != 'delete') {
@@ -672,11 +672,14 @@ function breema_node_cud__place(NodeInterface $node, $operation) {
   if (!empty($results)) {
     $events = Node::loadMultiple($results);
   }
+  $address = $operation == 'delete' ? [] : $node->get('field_address')->getValue();
   $geolocation = $operation == 'delete' ? [] : $node->get('field_geolocation')->getValue();
   if (!empty($events)) {
     foreach ($events as $event) {
+      $cur_address = $event->get('field_address')->getValue();
       $cur_geolocation = $event->get('field_geolocation')->getValue();
-      if ($geolocation != $cur_geolocation) {
+      if ($address != $cur_address || $geolocation != $cur_geolocation) {
+        $event->set('field_address', $address);
         $event->set('field_geolocation', $geolocation);
         $event->save();
       }
@@ -713,7 +716,7 @@ function breema_ensure_flag($flag_id, NodeInterface $node, $uid) {
 /**
  * Implements hook_ENTITY_TYPE_presave() for node entities.
  *
- * Denormalize the geolocation from the place into the event.
+ * Denormalize the address and geolocation from the place into the event.
  * On schedule (child) events, set title based on subtitle and parent title.
  */
 function breema_node_presave(NodeInterface $node) {
@@ -721,7 +724,9 @@ function breema_node_presave(NodeInterface $node) {
     $places = $node->get('field_location')->referencedEntities();
     if (!empty($places)) {
       $place = array_pop($places);
+      $address = $place->get('field_address')->getValue();
       $geolocation = $place->get('field_geolocation')->getValue();
+      $node->set('field_address', $address);
       $node->set('field_geolocation', $geolocation);
     }
 
