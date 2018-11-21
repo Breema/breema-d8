@@ -34,7 +34,7 @@ content:
     settings:
       trim_length: 500
       trim_type: chars
-      trim_suffix: ''
+      trim_suffix: ...
       wrap_class: trimmed
       more_link: true
       more_text: 'Read more'
