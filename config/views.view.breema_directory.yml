@@ -620,8 +620,8 @@ display:
             zoom: '2'
             maxZoom: 15
             minZoom: 0
-            mapTypeControl: 1
-            streetViewControl: 1
+            mapTypeControl: 0
+            streetViewControl: 0
             zoomControl: 1
             rotateControl: 0
             fullscreenControl: 0
@@ -1169,6 +1169,7 @@ display:
         - 'config:core.entity_view_display.node.article.teaser'
         - 'config:core.entity_view_display.node.directory_entry.default'
         - 'config:core.entity_view_display.node.directory_entry.teaser'
+        - 'config:core.entity_view_display.node.directory_entry.teaser_compact'
         - 'config:core.entity_view_display.node.directory_entry.teaser_search_result'
         - 'config:core.entity_view_display.node.event.default'
         - 'config:core.entity_view_display.node.event.teaser'
