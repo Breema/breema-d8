@@ -53,5 +53,3 @@ content:
     third_party_settings: {  }
 hidden:
   comment: true
-  field_image: true
-  field_tags: true

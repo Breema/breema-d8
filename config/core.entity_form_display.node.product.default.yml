@@ -56,6 +56,7 @@ content:
       selection_mode: selection_append
       field_widget_display_settings:
         view_mode: preview
+      field_widget_replace: false
     third_party_settings: {  }
     type: entity_browser_entity_reference
     region: content

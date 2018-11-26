@@ -5,8 +5,10 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser_search_result
     - field.field.node.event.body
+    - field.field.node.event.field_address
     - field.field.node.event.field_categories
     - field.field.node.event.field_date_time
+    - field.field.node.event.field_display_instructor_bios
     - field.field.node.event.field_facebook_event
     - field.field.node.event.field_geolocation
     - field.field.node.event.field_instructors
@@ -82,6 +84,8 @@ content:
     region: content
 hidden:
   body: true
+  field_address: true
+  field_display_instructor_bios: true
   field_facebook_event: true
   field_geolocation: true
   field_parent_event: true

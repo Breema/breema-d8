@@ -5,9 +5,12 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.event.body
+    - field.field.node.event.field_address
     - field.field.node.event.field_categories
     - field.field.node.event.field_date_time
+    - field.field.node.event.field_display_instructor_bios
     - field.field.node.event.field_facebook_event
+    - field.field.node.event.field_geolocation
     - field.field.node.event.field_instructors
     - field.field.node.event.field_location
     - field.field.node.event.field_main_image
@@ -16,6 +19,7 @@ dependencies:
     - field.field.node.event.field_required_hours
     - field.field.node.event.field_resources
     - field.field.node.event.field_subtitle
+    - field.field.node.event.field_transfer_credit
     - field.field.node.event.field_website
     - image.style.thumbnail
     - node.type.event
@@ -71,11 +75,15 @@ content:
     third_party_settings: {  }
 hidden:
   body: true
+  field_address: true
+  field_display_instructor_bios: true
   field_facebook_event: true
+  field_geolocation: true
   field_location: true
   field_parent_event: true
   field_registration_link: true
   field_required_hours: true
   field_resources: true
+  field_transfer_credit: true
   field_website: true
   links: true

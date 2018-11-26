@@ -45,6 +45,7 @@ content:
       field_widget_display_settings:
         view_mode: preview
       open: false
+      field_widget_replace: false
     third_party_settings: {  }
     type: entity_browser_entity_reference
     region: content
@@ -59,6 +60,7 @@ content:
       field_widget_display_settings:
         view_mode: preview
       open: false
+      field_widget_replace: false
     third_party_settings: {  }
     type: entity_browser_entity_reference
     region: content
