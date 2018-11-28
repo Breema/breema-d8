@@ -221,6 +221,7 @@ div.field--name-field-registration-link {
   text-decoration: none;
 }
 
+.menu-item--collapsed,
 .menu-item--expanded {
   list-style-image: none;
   list-style-type: none;
