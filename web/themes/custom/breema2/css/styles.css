@@ -220,3 +220,8 @@ div.field--name-field-registration-link {
   border: 1px solid rgb(20, 85, 0);
   text-decoration: none;
 }
+
+.menu-item--expanded {
+  list-style-image: none;
+  list-style-type: none;
+}
