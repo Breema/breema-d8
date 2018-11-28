@@ -1,13 +1,13 @@
 smtp_on: true
-smtp_host: sub3.mail.dreamhost.com
-smtp_hostbackup: ''
+smtp_host: mail.breema.com
+smtp_hostbackup: breema.com
 smtp_port: '465'
 smtp_protocol: ssl
-smtp_username: breema-website@dwwright.net
+smtp_username: website@breema.com
 smtp_password: ''
-smtp_from: breema-website@dwwright.net
+smtp_from: website@breema.com
 smtp_fromname: 'Breema Center Website'
-smtp_client_hostname: sub3.mail.dreamhost.com
+smtp_client_hostname: mail.breema.com
 smtp_client_helo: ''
 smtp_allowhtml: '1'
 smtp_test_address: ''
