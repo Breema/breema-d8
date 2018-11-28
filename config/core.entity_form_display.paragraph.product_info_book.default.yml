@@ -11,7 +11,6 @@ dependencies:
     - field.field.paragraph.product_info_book.field_ebook_amazon_kindle
     - field.field.paragraph.product_info_book.field_ebook_apple_ibooks
     - field.field.paragraph.product_info_book.field_ebook_barnes_noble
-    - field.field.paragraph.product_info_book.field_ebook_copia
     - field.field.paragraph.product_info_book.field_ebook_kobo
     - field.field.paragraph.product_info_book.field_other_info
     - field.field.paragraph.product_info_book.field_pages
@@ -99,14 +98,6 @@ content:
     region: content
   field_ebook_barnes_noble:
     weight: 10
-    settings:
-      placeholder_url: ''
-      placeholder_title: ''
-    third_party_settings: {  }
-    type: link_default
-    region: content
-  field_ebook_copia:
-    weight: 11
     settings:
       placeholder_url: ''
       placeholder_title: ''

@@ -10,7 +10,6 @@ dependencies:
     - field.field.paragraph.product_info_book.field_ebook_amazon_kindle
     - field.field.paragraph.product_info_book.field_ebook_apple_ibooks
     - field.field.paragraph.product_info_book.field_ebook_barnes_noble
-    - field.field.paragraph.product_info_book.field_ebook_copia
     - field.field.paragraph.product_info_book.field_ebook_kobo
     - field.field.paragraph.product_info_book.field_other_info
     - field.field.paragraph.product_info_book.field_pages
@@ -125,20 +124,6 @@ content:
       rel: ''
       target: ''
       link_text: 'Barnes & Noble'
-      allow_override: false
-    third_party_settings: {  }
-    type: fixed_text_link
-    region: content
-  field_ebook_copia:
-    weight: 11
-    label: hidden
-    settings:
-      trim_length: 80
-      url_only: false
-      url_plain: false
-      rel: ''
-      target: ''
-      link_text: 'Copia eBooks'
       allow_override: false
     third_party_settings: {  }
     type: fixed_text_link
