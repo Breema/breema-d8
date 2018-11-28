@@ -190,6 +190,17 @@ function breema_preprocess_block(&$variables) {
 }
 
 /**
+ * Preprocess function for users.
+ *
+ * If the user has a directory entry, hide the (now duplicate) user_picture.
+ */
+function breema_preprocess_user(&$variables) {
+  if (!empty($variables['user']->get('field_directory_entry')->getValue())) {
+    $variables['content']['user_picture']['#access'] = FALSE;
+  }
+}
+
+/**
  * Preprocess function for 'Featured events' paragraph type.
  *
  * Injects the map and list displays of the 'breema_events_featured' view.
