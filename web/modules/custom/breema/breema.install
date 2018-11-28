@@ -39,3 +39,33 @@ function _breema_update_8001() {
          ->fields(['timezone' => 'UTC'])
          ->execute();
 }
+
+/**
+ * Convert node/17 into a directory entry with accurate info for Jon.
+ */
+function _breema_update_8002() {
+  $query = \Drupal::database()
+         ->update('node')
+         ->fields(['type' => 'directory_entry'])
+         ->condition('nid', '17', '=')
+         ->execute();
+  $node = Node::load(17);
+  $node->setTitle('Jon Schreiber');
+  $node->set('field_name_first', 'Jon');
+  $node->set('field_name_last', 'Schreiber');
+  $node->set('field_job_title', 'Director of the Breema Center');
+  $node->set('field_breema_center_staff', TRUE);
+  $node->set('field_breema_clinic_practitioner', TRUE);
+  $node->set('field_certification', [
+               'practitioner',
+               'inst-self-breema',
+               'inst-breema',
+             ]);
+  $node->set('field_address', [
+               'country_code' => 'US',
+               'administrative_area' => 'CA',
+               'locality' => 'Oakland',
+               'postal_code' => '94618',
+             ]);
+  $node->save();
+}
