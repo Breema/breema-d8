@@ -238,6 +238,7 @@ function _breema_get_more_events_action_links() {
   $actions = [
     'calendar' => '/events',
     'search' => '/events/search',
+    'map' => '/directory?type[]=event',
   ];
   foreach ($actions as $action => $action_path) {
     $url = Url::fromUri('internal:' . $action_path);
