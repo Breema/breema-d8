@@ -167,8 +167,8 @@ function breema_preprocess_node_event(&$variables) {
 function breema_preprocess_node_product(&$variables) {
   if ($variables['view_mode'] == 'teaser_compact') {
     $all_product_info = $variables['node']->get('field_product_info')->referencedEntities();
-    $main_product_info = array_pop($all_product_info);
-    $buy_now_link = $main_product_info->get('field_buy_now')->getValue();
+    // Always use the first / top product info paragraph for 'Buy now' link.
+    $buy_now_link = $all_product_info[0]->get('field_buy_now')->getValue();
     $variables['content']['buy_now'] = [
       '#type' => 'link',
       '#title' => t('Buy now'),
