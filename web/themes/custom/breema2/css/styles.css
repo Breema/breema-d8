@@ -226,3 +226,7 @@ div.field--name-field-registration-link {
   list-style-image: none;
   list-style-type: none;
 }
+
+.site-footer .layout-container {
+  padding: 0 10px;
+}
