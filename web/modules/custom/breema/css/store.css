@@ -27,12 +27,13 @@
 .field--name-field-buy-now a {
   color: rgb(21, 86, 1);
   background-color: rgb(192, 222, 183);
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 1em;
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
   display: inline-block;
   padding: 5px 15px 5px 15px;
-  margin: 1em 0 0 0;
+  margin: 1em 0 0.5em 0;
   text-align: center;
   max-width: 150px;
   text-decoration: none;
