@@ -14,7 +14,7 @@ dependencies:
     - field.field.node.place.field_website
     - node.type.place
   module:
-    - address
+    - breema
     - link
     - telephone
     - user
@@ -28,7 +28,7 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    type: address_default
+    type: address_directions_link
     region: content
   field_email:
     weight: 2
