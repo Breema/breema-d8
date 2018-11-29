@@ -237,3 +237,16 @@ div.field--name-field-registration-link {
 .site-footer .layout-container {
   padding: 0 10px;
 }
+
+.paragraph--type--featured-product .field--type-entity-reference {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+@media (min-width: 650px) {
+  .paragraph--type--featured-product .field--name-field-product .field__item article {
+    width: 46%;
+    margin-right: 3%;
+    float: left;
+  }
+}
