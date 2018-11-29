@@ -1,0 +1,19 @@
+uuid: 8b487e60-280e-4ca5-ac2a-65bf2cb9caec
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_header_text
+    - paragraphs.paragraphs_type.featured_product
+id: paragraph.featured_product.field_header_text
+field_name: field_header_text
+entity_type: paragraph
+bundle: featured_product
+label: 'Header text'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,19 @@
+{%
+  set classes = [
+    'paragraph',
+    'paragraph--type--' ~ paragraph.bundle|clean_class,
+    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+    not paragraph.isPublished() ? 'paragraph--unpublished'
+  ]
+%}
+{% block paragraph %}
+  <div{{ attributes.addClass(classes) }}>
+    {% if content.field_header_text %}
+    <h2>{{ content.field_header_text }}</h2>
+    {% endif %}
+    {% block content %}
+      {{ content|without('field_header_text') }}
+    {% endblock %}
+  <div class="clearfix"></div>
+  </div>
+{% endblock paragraph %}

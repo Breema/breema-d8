@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.featured_product.field_header_text
     - field.field.paragraph.featured_product.field_product
     - paragraphs.paragraphs_type.featured_product
 id: paragraph.featured_product.default
@@ -10,8 +11,16 @@ targetEntityType: paragraph
 bundle: featured_product
 mode: default
 content:
-  field_product:
+  field_header_text:
     weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_product:
+    weight: 1
     settings:
       match_operator: CONTAINS
       size: 60
