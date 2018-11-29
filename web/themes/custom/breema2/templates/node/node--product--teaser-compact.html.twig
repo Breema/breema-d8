@@ -15,12 +15,13 @@
   <a href="{{ url }}" rel="bookmark" class="teaser-link">
   {{ content.field_main_image }}
   <header>
-    <h2{{ title_attributes.addClass('node__title') }}>
+    <h4{{ title_attributes.addClass('node__title') }}>
       {{ content.field_title_main }}
-    </h2>
-    <h3>{{ content.field_title_sub }}</h3>
+    </h4>
+    <h5>{{ content.field_title_sub }}</h5>
   </header>
   {{ content.field_by|render|striptags('div') }}
   </a>
   {{ content.buy_now }}
+  <div class="read-more"><a href="{{ url }}">{{ 'Read more'|t }}</a></div>
 </article>
