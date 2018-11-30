@@ -51,8 +51,7 @@ a.teaser-link .node__content {
 }
 
 a.teaser-link .node--sticky {
-  border: 1px solid #bbb;
-  background-color: rgba(129, 253, 91, 0.04);
+  background-color: rgba(132, 251, 96, 0.1);
 }
 
 .node--view-mode-teaser-search-result .event-info,
