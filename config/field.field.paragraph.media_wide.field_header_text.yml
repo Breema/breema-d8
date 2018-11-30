@@ -1,0 +1,19 @@
+uuid: df7a3018-c9b1-4939-b34c-6ebbd110c026
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_header_text
+    - paragraphs.paragraphs_type.media_wide
+id: paragraph.media_wide.field_header_text
+field_name: field_header_text
+entity_type: paragraph
+bundle: media_wide
+label: 'Header text'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
