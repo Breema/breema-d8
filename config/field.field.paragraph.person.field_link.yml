@@ -1,0 +1,23 @@
+uuid: b5c43c99-fd49-47b6-ba76-2b19531a2afe
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_link
+    - paragraphs.paragraphs_type.person
+  module:
+    - link
+id: paragraph.person.field_link
+field_name: field_link
+entity_type: paragraph
+bundle: person
+label: Link
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 0
+field_type: link

@@ -1,0 +1,55 @@
+uuid: 0459e588-23f8-4ed0-9810-4af890e03146
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.person.field_description
+    - field.field.paragraph.person.field_header_text
+    - field.field.paragraph.person.field_link
+    - field.field.paragraph.person.field_person
+    - paragraphs.paragraphs_type.person
+  module:
+    - link
+    - text
+id: paragraph.person.default
+targetEntityType: paragraph
+bundle: person
+mode: default
+content:
+  field_description:
+    weight: 3
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_header_text:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_link:
+    weight: 2
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_person:
+    weight: 1
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

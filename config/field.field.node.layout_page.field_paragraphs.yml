@@ -6,6 +6,7 @@ dependencies:
     - field.storage.node.field_paragraphs
     - node.type.layout_page
     - paragraphs.paragraphs_type.event_featured
+    - paragraphs.paragraphs_type.person
     - paragraphs.paragraphs_type.featured_product
     - paragraphs.paragraphs_type.media_3_up
     - paragraphs.paragraphs_type.media_single
@@ -28,6 +29,7 @@ settings:
     target_bundles:
       event_featured: event_featured
       featured_product: featured_product
+      person: person
       media_single: media_single
       media_3_up: media_3_up
     target_bundles_drag_drop:
@@ -43,15 +45,12 @@ settings:
       product_info_general:
         weight: 6
         enabled: false
-      image_wide:
-        weight: 7
-        enabled: false
-      image_3_up:
-        weight: 8
-        enabled: false
       featured_product:
         enabled: true
         weight: 9
+      person:
+        enabled: true
+        weight: 10
       media_single:
         enabled: true
         weight: 13

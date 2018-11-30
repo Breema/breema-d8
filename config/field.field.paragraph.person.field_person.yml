@@ -1,0 +1,35 @@
+uuid: 85a3b288-4d9d-40fc-81a0-87c547397cfd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_person
+    - paragraphs.paragraphs_type.person
+id: paragraph.person.field_person
+field_name: field_person
+entity_type: paragraph
+bundle: person
+label: Person
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:user'
+  handler_settings:
+    include_anonymous: false
+    filter:
+      type: role
+      role:
+        practitioner: practitioner
+        instructor: instructor
+        content_editor: '0'
+        administrator: '0'
+        event_expert: '0'
+    target_bundles: null
+    sort:
+      field: field_name_last
+      direction: ASC
+    auto_create: false
+field_type: entity_reference

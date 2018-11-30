@@ -243,6 +243,58 @@ function breema_preprocess_paragraph__event_featured(&$variables) {
 }
 
 /**
+ * Preprocess function for 'Person' paragraph type.
+ *
+ * Injects user's headshot (if any), list of upcoming events.
+ */
+function breema_preprocess_paragraph__person(&$variables) {
+  $link = $variables['paragraph']->get('field_link')->getValue();
+  if (!empty($link)) {
+    $url = Url::fromUri($link[0]['uri']);
+    $variables['url'] = $url->toString();
+  }
+
+  $user_entities = $variables['paragraph']->get('field_person')->referencedEntities();
+  $user_entity = array_pop($user_entities);
+  if (!empty($user_entity)) {
+    $user_picture = $user_entity->get('user_picture')->getValue();
+  }
+  if (!empty($user_picture)) {
+    $user_picture_file = file_load($user_picture[0]['target_id']);
+    $variables['content']['headshot'] = [
+      '#theme' => 'image_style',
+      '#style_name' => 'medium',
+      '#prefix' => '<div class="headshot"><a href="' . $variables['url'] . '">',
+      '#suffix' => '</a></div>',
+      '#uri' => $user_picture_file->getFileUri(),
+      '#alt' => t('Profile image for @user_name', ['@user_name' => $user_entity->getAccountName()]),
+    ];
+  }
+
+  $display = 'embed_upcoming';
+  $view = Views::getView('breema_event_dashboard');
+  $view->setDisplay($display);
+  if (!empty($user_entity)) {
+    $id = $user_entity->id();
+    $view->setArguments([$id, $id]);
+  }
+  $view->execute();
+  if (count($view->result)) {
+    $variables['content'][$display] = [
+      '#weight' => 100,
+      '#prefix' => '<h3>' . t('Upcoming events') . '</h3>',
+      'content' => $view->preview($display),
+    ];
+  }
+  $variables['content']['read-more'] = [
+    '#weight' => 105,
+    '#prefix' => '<div class="more-link">',
+    '#markup' => '<a href="' . $variables['url'] . '">' . t('Read more') . '</a>',
+    '#suffix' => '</div>',
+  ];
+}
+
+/**
  * Preprocess function for 'Media: single' paragraph type.
  *
  * Injects the slice's link URL as a template variable.

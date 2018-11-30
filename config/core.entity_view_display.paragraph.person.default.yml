@@ -1,0 +1,35 @@
+uuid: 9a265cdf-d6cd-4fa4-bf3c-1077433f5dc2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.person.field_description
+    - field.field.paragraph.person.field_header_text
+    - field.field.paragraph.person.field_link
+    - field.field.paragraph.person.field_person
+    - paragraphs.paragraphs_type.person
+  module:
+    - text
+id: paragraph.person.default
+targetEntityType: paragraph
+bundle: person
+mode: default
+content:
+  field_description:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_header_text:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden:
+  field_link: true
+  field_person: true
