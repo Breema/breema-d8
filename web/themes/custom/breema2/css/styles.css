@@ -167,7 +167,7 @@ h1 {
   font-style: italic;
   text-transform: none;
   letter-spacing: 0;
-  margin: 0;
+  margin: 0 0 0.5em 0;
 }
 
 .node--type-product a.teaser-link .field--name-field-main-image {
