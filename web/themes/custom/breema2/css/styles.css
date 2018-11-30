@@ -238,7 +238,8 @@ div.field--name-field-registration-link {
   padding: 0 10px;
 }
 
-.paragraph--type--featured-product .field--type-entity-reference {
+.paragraph--type--featured-product .field--type-entity-reference,
+.paragraph--type--media-3-up .field--type-entity-reference {
   margin: 0;
   font-family: Georgia, "Times New Roman", Times, serif;
 }
@@ -248,5 +249,29 @@ div.field--name-field-registration-link {
     width: 46%;
     margin-right: 3%;
     float: left;
+  }
+}
+
+.paragraph--type--media-3-up .paragraph .field--type-image,
+.paragraph--type--media-3-up .paragraph .field--type-image img {
+  float: none;
+  margin: 0;
+}
+
+@media (min-width: 650px) {
+  .paragraph--type--media-3-up .paragraph {
+    width: 32%;
+    float: left;
+    margin: 0 1% 0.5em 0;
+    clear: none;
+  }
+  .paragraph--type--media-3-up .paragraph .field-caption {
+    clear: both;
+  }
+}
+@media (min-width: 1100px) {
+  .paragraph--type--media-3-up .paragraph {
+    width: 31%;
+    margin: 0 2% 0.5em 0;
   }
 }
