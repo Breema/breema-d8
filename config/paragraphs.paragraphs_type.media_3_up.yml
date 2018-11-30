@@ -1,0 +1,9 @@
+uuid: cb28ee3d-1d31-40ce-ad01-38a1a78117d1
+langcode: en
+status: true
+dependencies: {  }
+id: media_3_up
+label: 'Media: 3-up'
+icon_uuid: null
+description: 'A slice of 3 media items.'
+behavior_plugins: {  }

@@ -1,0 +1,19 @@
+uuid: c84aacfa-ef23-4dfe-a2e9-f9e807c06998
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_header_text
+    - paragraphs.paragraphs_type.media_3_up
+id: paragraph.media_3_up.field_header_text
+field_name: field_header_text
+entity_type: paragraph
+bundle: media_3_up
+label: 'Header text'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
