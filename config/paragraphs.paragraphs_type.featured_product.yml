@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies: {  }
 id: featured_product
-label: 'Featured product'
+label: 'Featured products'
 icon_uuid: null
-description: 'A featured product for the front page (or other layout pages).'
+description: 'Slice to feature 1 or 2 products with optional header text.'
 behavior_plugins: {  }
