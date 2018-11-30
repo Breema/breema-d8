@@ -1,3 +1,7 @@
+.field--type-image img {
+  margin: 0;
+}
+
 a.teaser-link {
   color: black;
   text-decoration: none;
@@ -185,7 +189,7 @@ h1 {
 }
 
 .paragraph--type--event-featured .views-row {
-    margin: 0 0 1em 0;
+  margin: 0 0 1em 0;
 }
 
 @media (min-width: 650px) {
@@ -193,6 +197,30 @@ h1 {
     width: 46%;
     float: left;
     margin: 0 3% 1em 0;
+  }
+}
+
+.region-sidebar-first h2,
+.region-sidebar-first h3,
+.region-sidebar-first div.action,
+.region-sidebar-first .more-link {
+  clear: both;
+}
+.region-sidebar-first a.teaser-link {
+  margin: 0 0 1em 0;
+}
+@media (min-width: 651px) {
+  .region-sidebar-first a.teaser-link {
+    width: 46%;
+    float: left;
+    margin: 0 3% 1em 0;
+  }
+}
+@media (min-width: 851px) {
+  .region-sidebar-first a.teaser-link {
+     width: 100%;
+     float: none;
+     margin: 0 0 1em 0;
   }
 }
 
@@ -243,10 +271,13 @@ div.field--name-field-registration-link {
   font-family: Georgia, "Times New Roman", Times, serif;
 }
 
+.paragraph--type--featured-product .field--name-field-product .field__item article {
+  margin: 0 0 1em 0;
+}
 @media (min-width: 650px) {
   .paragraph--type--featured-product .field--name-field-product .field__item article {
     width: 46%;
-    margin-right: 3%;
+    margin: 0 3% 1em 0;
     float: left;
   }
 }
