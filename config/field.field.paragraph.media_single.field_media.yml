@@ -8,11 +8,11 @@ dependencies:
     - media.type.file
     - media.type.image
     - media.type.video
-    - paragraphs.paragraphs_type.media_wide
-id: paragraph.media_wide.field_media
+    - paragraphs.paragraphs_type.media_single
+id: paragraph.media_single.field_media
 field_name: field_media
 entity_type: paragraph
-bundle: media_wide
+bundle: media_single
 label: Media
 description: ''
 required: true

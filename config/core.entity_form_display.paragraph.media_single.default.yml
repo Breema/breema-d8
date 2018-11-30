@@ -4,17 +4,17 @@ status: true
 dependencies:
   config:
     - entity_browser.browser.media_browser
-    - field.field.paragraph.media_wide.field_caption
-    - field.field.paragraph.media_wide.field_header_text
-    - field.field.paragraph.media_wide.field_link
-    - field.field.paragraph.media_wide.field_media
-    - paragraphs.paragraphs_type.media_wide
+    - field.field.paragraph.media_single.field_caption
+    - field.field.paragraph.media_single.field_header_text
+    - field.field.paragraph.media_single.field_link
+    - field.field.paragraph.media_single.field_media
+    - paragraphs.paragraphs_type.media_single
   module:
     - entity_browser
     - link
-id: paragraph.media_wide.default
+id: paragraph.media_single.default
 targetEntityType: paragraph
-bundle: media_wide
+bundle: media_single
 mode: default
 content:
   field_caption:

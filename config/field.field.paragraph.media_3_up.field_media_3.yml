@@ -5,7 +5,7 @@ dependencies:
   config:
     - field.storage.paragraph.field_media_3
     - paragraphs.paragraphs_type.media_3_up
-    - paragraphs.paragraphs_type.media_wide
+    - paragraphs.paragraphs_type.media_single
   module:
     - entity_reference_revisions
 id: paragraph.media_3_up.field_media_3
@@ -23,7 +23,7 @@ settings:
   handler_settings:
     negate: 0
     target_bundles:
-      media_wide: media_wide
+      media_single: media_single
     target_bundles_drag_drop:
       event_featured:
         weight: 10
@@ -40,7 +40,7 @@ settings:
       media_3_up:
         weight: 14
         enabled: false
-      media_wide:
+      media_single:
         enabled: true
         weight: 15
       product_info_audio:

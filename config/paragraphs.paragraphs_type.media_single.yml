@@ -2,8 +2,8 @@ uuid: 5e9cba20-1a0c-4e89-8724-fd4236c3a468
 langcode: en
 status: true
 dependencies: {  }
-id: media_wide
-label: 'Media: wide'
+id: media_single
+label: 'Media: single'
 icon_uuid: null
-description: "A single (wide) media item.\r\n"
+description: "A single (full-width) media item.\r\n"
 behavior_plugins: {  }

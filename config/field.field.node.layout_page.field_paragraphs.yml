@@ -8,7 +8,7 @@ dependencies:
     - paragraphs.paragraphs_type.event_featured
     - paragraphs.paragraphs_type.featured_product
     - paragraphs.paragraphs_type.media_3_up
-    - paragraphs.paragraphs_type.media_wide
+    - paragraphs.paragraphs_type.media_single
   module:
     - entity_reference_revisions
 id: node.layout_page.field_paragraphs
@@ -28,7 +28,7 @@ settings:
     target_bundles:
       event_featured: event_featured
       featured_product: featured_product
-      media_wide: media_wide
+      media_single: media_single
       media_3_up: media_3_up
     target_bundles_drag_drop:
       product_info_audio:
@@ -52,7 +52,7 @@ settings:
       featured_product:
         enabled: true
         weight: 9
-      media_wide:
+      media_single:
         enabled: true
         weight: 13
       media_3_up:

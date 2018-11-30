@@ -231,11 +231,11 @@ function breema_preprocess_paragraph__event_featured(&$variables) {
 }
 
 /**
- * Preprocess function for 'Media: wide' paragraph type.
+ * Preprocess function for 'Media: single' paragraph type.
  *
  * Injects the slice's link URL as a template variable.
  */
-function breema_preprocess_paragraph__media_wide(&$variables) {
+function breema_preprocess_paragraph__media_single(&$variables) {
   $link = $variables['paragraph']->get('field_link')->getValue();
   if (!empty($link)) {
     $url = Url::fromUri($link[0]['uri']);

@@ -4,11 +4,11 @@ status: true
 dependencies:
   config:
     - field.storage.paragraph.field_header_text
-    - paragraphs.paragraphs_type.media_wide
-id: paragraph.media_wide.field_header_text
+    - paragraphs.paragraphs_type.media_single
+id: paragraph.media_single.field_header_text
 field_name: field_header_text
 entity_type: paragraph
-bundle: media_wide
+bundle: media_single
 label: 'Header text'
 description: ''
 required: false
