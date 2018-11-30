@@ -201,6 +201,18 @@ function breema_preprocess_user(&$variables) {
 }
 
 /**
+ * Preprocess function for fields.
+ */
+function breema_preprocess_field(&$variables, $hook) {
+  if ($variables['element']['#field_name'] == 'field_product') {
+    $variables['attributes']['class'][] = 'grid-1-2-container';
+  }
+  if ($variables['element']['#field_name'] == 'field_media_3') {
+    $variables['attributes']['class'][] = 'grid-1-3-container';
+  }
+}
+
+/**
  * Preprocess function for all paragraphs.
  *
  * If the paragraph defines 'field_header_text', wrap it in h2.

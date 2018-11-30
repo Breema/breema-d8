@@ -73,7 +73,14 @@ display:
             offset_label: Offset
           quantity: 9
       style:
-        type: default
+        type: html_list
+        options:
+          row_class: ''
+          default_row_class: false
+          uses_fields: false
+          type: ul
+          wrapper_class: item-list
+          class: grid-1-2-3-container
       row:
         type: 'entity:node'
         options:
@@ -395,7 +402,7 @@ display:
           value:
             min: ''
             max: ''
-            value: '2'
+            value: '565'
           group: 1
           exposed: false
           expose:
@@ -430,14 +437,6 @@ display:
         operator: AND
         groups:
           1: AND
-      style:
-        type: default
-        options: {  }
-      row:
-        type: 'entity:node'
-        options:
-          relationship: none
-          view_mode: teaser_compact
       pager:
         type: some
         options:
@@ -448,6 +447,20 @@ display:
       use_more_text: 'Read more'
       link_display: custom_url
       link_url: node/2
+      style:
+        type: html_list
+        options:
+          row_class: ''
+          default_row_class: false
+          uses_fields: false
+          type: ul
+          wrapper_class: item-list
+          class: grid-1-2-3-container
+      row:
+        type: 'entity:node'
+        options:
+          relationship: none
+          view_mode: teaser_compact
     cache_metadata:
       max-age: -1
       contexts:
