@@ -201,6 +201,18 @@ function breema_preprocess_user(&$variables) {
 }
 
 /**
+ * Preprocess function for all paragraphs.
+ *
+ * If the paragraph defines 'field_header_text', wrap it in h2.
+ */
+function breema_preprocess_paragraph(&$variables) {
+  if (!empty($variables['content']['field_header_text'])) {
+    $variables['content']['field_header_text']['#prefix'] = '<h2>';
+    $variables['content']['field_header_text']['#suffix'] = '</h2>';
+  }
+}
+
+/**
  * Preprocess function for 'Featured events' paragraph type.
  *
  * Injects the map and list displays of the 'breema_events_featured' view.
@@ -215,9 +227,20 @@ function breema_preprocess_paragraph__event_featured(&$variables) {
   if (count($view->result)) {
     $variables['content'][$display] = $view->preview($display);
   }
-  $variables['content']['field_header_text']['#prefix'] = '<h2>';
-  $variables['content']['field_header_text']['#suffix'] = '</h2>';
   $variables['content']['actions'] = _breema_get_more_events_action_links();
+}
+
+/**
+ * Preprocess function for 'Media: wide' paragraph type.
+ *
+ * Injects the slice's link URL as a template variable.
+ */
+function breema_preprocess_paragraph__media_wide(&$variables) {
+  $link = $variables['paragraph']->get('field_link')->getValue();
+  if (!empty($link)) {
+    $url = Url::fromUri($link[0]['uri']);
+    $variables['url'] = $url->toString();
+  }
 }
 
 /**
