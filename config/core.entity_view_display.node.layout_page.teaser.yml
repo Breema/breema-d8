@@ -6,7 +6,6 @@ dependencies:
     - core.entity_view_mode.node.teaser
     - field.field.node.layout_page.field_main_image
     - field.field.node.layout_page.field_paragraphs
-    - field.field.node.layout_page.field_resources
     - field.field.node.layout_page.field_summary
     - image.style.thumbnail
     - node.type.layout_page
@@ -42,4 +41,3 @@ content:
     third_party_settings: {  }
 hidden:
   field_paragraphs: true
-  field_resources: true

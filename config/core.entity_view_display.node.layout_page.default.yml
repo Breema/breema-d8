@@ -5,7 +5,6 @@ dependencies:
   config:
     - field.field.node.layout_page.field_main_image
     - field.field.node.layout_page.field_paragraphs
-    - field.field.node.layout_page.field_resources
     - field.field.node.layout_page.field_summary
     - node.type.layout_page
   module:
@@ -16,37 +15,20 @@ targetEntityType: node
 bundle: layout_page
 mode: default
 content:
-  field_main_image:
-    weight: 0
-    label: hidden
-    settings:
-      view_mode: view_large
-      link: false
-    third_party_settings: {  }
-    type: entity_reference_entity_view
-    region: content
   field_paragraphs:
     type: entity_reference_revisions_entity_view
-    weight: 1
+    weight: 0
     label: hidden
     settings:
       view_mode: default
       link: ''
     third_party_settings: {  }
     region: content
-  field_resources:
-    weight: 2
-    label: hidden
-    settings:
-      view_mode: view_large
-      link: false
-    third_party_settings: {  }
-    type: entity_reference_entity_view
-    region: content
   links:
-    weight: 3
+    weight: 2
     region: content
     settings: {  }
     third_party_settings: {  }
 hidden:
+  field_main_image: true
   field_summary: true
