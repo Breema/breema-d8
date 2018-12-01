@@ -1002,3 +1002,14 @@ function breema_entity_label_instructor_directory_entry(EntityInterface $entity)
   }
   return $entity->label();
 }
+
+/**
+ * Private helper method to load breema.install and invoke a DB update.
+ */
+function _breema_run_update($update_number) {
+  require_once drupal_get_path('module', 'breema') . '/breema.install';
+  $function = '_breema_update_' . $update_number;
+  if (function_exists($function)) {
+    $function();
+  }
+}
