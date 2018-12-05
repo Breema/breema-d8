@@ -1,6 +1,10 @@
 .field--type-image img {
   margin: 0;
 }
+.node .field--type-image {
+  float: none;
+  margin: 0;
+}
 
 a.teaser-link {
   color: black;
@@ -23,7 +27,7 @@ a.teaser-link:focus h4 {
   text-decoration: underline;
 }
 
-a.teaser-link article {
+a.teaser-link article.node {
   margin: 0.25em 0 0 0;
   padding: 0.25em;
 }
