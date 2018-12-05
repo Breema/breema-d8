@@ -555,7 +555,7 @@ display:
         fields: false
       path: directory/map
       menu:
-        type: 'default tab'
+        type: tab
         title: Map
         description: ''
         expanded: false
@@ -1200,7 +1200,7 @@ display:
       display_extenders: {  }
       path: directory/search
       menu:
-        type: tab
+        type: 'default tab'
         title: Search
         description: ''
         expanded: false
@@ -1264,6 +1264,11 @@ display:
             value: 'To search by states, select the country, click ''Filter'' and a state or province selector will appear if available.'
             format: basic_html
           plugin_id: text
+      tab_options:
+        type: normal
+        title: 'International Directory'
+        description: ''
+        weight: 0
     cache_metadata:
       max-age: -1
       contexts:
