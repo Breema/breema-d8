@@ -1,0 +1,20 @@
+uuid: c27b7723-2765-40cc-91c8-671bdc1326ed
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_why_interested
+  module:
+    - user
+id: user.user.field_why_interested
+field_name: field_why_interested
+entity_type: user
+bundle: user
+label: 'Why are you interested in becoming a Certified Breema Practitioner?'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

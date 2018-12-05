@@ -1,0 +1,46 @@
+uuid: adb80ca7-cf4d-4672-9831-43fba6d4a395
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_anatomy_transcript
+  module:
+    - file
+    - filefield_paths
+    - user
+third_party_settings:
+  filefield_paths:
+    enabled: true
+    file_path:
+      value: 'transcript/[date:custom:Y]/[date:custom:m]'
+      options:
+        slashes: false
+        pathauto: false
+        transliterate: false
+    redirect: false
+    retroactive_update: false
+    active_updating: false
+    file_name:
+      value: '[file:ffp-name-only-original].[file:ffp-extension-original]'
+      options:
+        slashes: false
+        pathauto: true
+        transliterate: true
+id: user.user.field_anatomy_transcript
+field_name: field_anatomy_transcript
+entity_type: user
+bundle: user
+label: 'Anatomy and Physiology transcript'
+description: "If you have an electronic copy of your transcript, you may attach up to 3 files (pdf, png, jpg, or gif). You or your school can also send a hard copy to: The Breema Center, 6076 Claremont Avenue, Oakland, CA 94618\r\n"
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'pdf png jpg gif'
+  max_filesize: ''
+  description_field: false
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file

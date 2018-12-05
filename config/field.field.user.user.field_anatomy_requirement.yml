@@ -1,0 +1,21 @@
+uuid: 7ab31507-27cb-4a40-8aaa-f6a30ce3ae95
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_anatomy_requirement
+  module:
+    - options
+    - user
+id: user.user.field_anatomy_requirement
+field_name: field_anatomy_requirement
+entity_type: user
+bundle: user
+label: 'Anatomy and Physiology requirement'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

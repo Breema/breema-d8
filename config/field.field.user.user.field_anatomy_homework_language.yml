@@ -1,0 +1,23 @@
+uuid: 9d4bb440-4d90-4fbe-bd5c-72a7ee72e483
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_anatomy_homework_language
+  module:
+    - options
+    - user
+id: user.user.field_anatomy_homework_language
+field_name: field_anatomy_homework_language
+entity_type: user
+bundle: user
+label: 'Anatomy homework language'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: en
+default_value_callback: ''
+settings: {  }
+field_type: list_string

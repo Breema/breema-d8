@@ -1,0 +1,21 @@
+uuid: 488e0064-22b9-43ca-b4b0-c0d8075bd5d3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_telephone
+  module:
+    - telephone
+    - user
+id: user.user.field_telephone
+field_name: field_telephone
+entity_type: user
+bundle: user
+label: Telephone
+description: 'Only used for The Breema Center to get in touch with you if needed. This will not be publicly visible.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: telephone

@@ -3,13 +3,25 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.user.user.field_address
+    - field.field.user.user.field_anatomy_homework_language
+    - field.field.user.user.field_anatomy_requirement
+    - field.field.user.user.field_anatomy_transcript
+    - field.field.user.user.field_class_attended
+    - field.field.user.user.field_class_other
     - field.field.user.user.field_directory_entry
     - field.field.user.user.field_name_first
     - field.field.user.user.field_name_last
+    - field.field.user.user.field_profession
+    - field.field.user.user.field_telephone
+    - field.field.user.user.field_why_interested
     - field.field.user.user.user_picture
     - image.style.thumbnail
   module:
+    - address
+    - file
     - image
+    - options
     - user
 _core:
   default_config_hash: V51QPCKkgNREKtSmB9Iu2wmAMEpktVpnzklWaZV8UYo
@@ -18,6 +30,50 @@ targetEntityType: user
 bundle: user
 mode: default
 content:
+  field_address:
+    weight: 3
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: address_default
+    region: content
+  field_anatomy_homework_language:
+    weight: 8
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_anatomy_requirement:
+    weight: 7
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_anatomy_transcript:
+    weight: 11
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    type: file_default
+    region: content
+  field_class_attended:
+    weight: 9
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_class_other:
+    weight: 10
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
   field_directory_entry:
     weight: 2
     label: above
@@ -26,6 +82,28 @@ content:
       link: false
     third_party_settings: {  }
     type: entity_reference_entity_view
+    region: content
+  field_profession:
+    weight: 5
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_telephone:
+    weight: 4
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_why_interested:
+    weight: 6
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
     region: content
   member_for:
     weight: 1

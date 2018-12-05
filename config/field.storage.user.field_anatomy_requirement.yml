@@ -1,0 +1,34 @@
+uuid: bced0f20-c1e8-46d6-bd78-dee6ce1764bb
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - options
+    - user
+third_party_settings:
+  field_permissions:
+    permission_type: private
+id: user.field_anatomy_requirement
+field_name: field_anatomy_requirement
+entity_type: user
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: homework
+      label: 'I would like to complete the 15 hours Anatomy and Physiology requirement as a homework assignment from the Breema Center.'
+    -
+      value: transcript
+      label: 'I have studied Anatomy and Physiology at a different school and will send you a transcript for the required hours.'
+    -
+      value: complete
+      label: 'Requirement completed.'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

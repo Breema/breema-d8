@@ -520,6 +520,42 @@ function breema_product_node_form_after_build($form_element, FormStateInterface 
 }
 
 /**
+ * Implements hook_form_FORM_ID_alter() for 'user_form'.
+ *
+ * Use #states for conditional fields based on anatomy requirement choice.
+ * Hide the 'completed' option for everyone but admins.
+ */
+function breema_form_user_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state) {
+  $form['field_anatomy_homework_language']['#states'] = [
+    'visible' => [
+      ':input[name="field_anatomy_requirement"]' => ['value' => 'homework'],
+    ],
+  ];
+  // #states doesn't work on a 'details' element, so we use a 'container'.
+  $form['field_anatomy_transcript'] = [
+    '#type' => 'container',
+    '#states' => [
+      'visible' => [
+        ':input[name="field_anatomy_requirement"]' => ['value' => 'transcript'],
+      ],
+    ],
+    // Now stash the entire existing form element.
+    'anatomy_transcript' => $form['field_anatomy_transcript'],
+    // Propagate the #weight to retain the right ordering.
+    '#weight' => $form['field_anatomy_transcript']['#weight'],
+  ];
+  $user = \Drupal::currentUser();
+  $roles = $user->getRoles();
+  if (!in_array('administrator', $roles) && !in_array('user_admin', $roles)) {
+    unset($form['field_anatomy_requirement']['widget']['#options']['complete']);
+    if (in_array('authenticated', $roles)) {
+      $form['field_why_interested']['#access'] = FALSE;
+      $form['field_class_attended']['#access'] = FALSE;
+    }
+  }
+}
+
+/**
  * Implements hook_form_FORM_ID_alter() for 'views_exposed_form'.
  *
  * Sets more sane sizes for the various text field exposed filters.

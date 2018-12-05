@@ -1,0 +1,20 @@
+uuid: 94678db4-d61f-477d-84a1-d6cc090d6532
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_class_other
+  module:
+    - user
+id: user.user.field_class_other
+field_name: field_class_other
+entity_type: user
+bundle: user
+label: 'Other classes'
+description: "If you can't find classes in the selector above, please list them here. For each class, include: Date - Place - Instructor(s) - Number of hours\r\n"
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long
