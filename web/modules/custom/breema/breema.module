@@ -301,7 +301,7 @@ function breema_preprocess_paragraph__person(&$variables) {
   if (count($view->result)) {
     $variables['content'][$display] = [
       '#weight' => 100,
-      '#prefix' => '<h3>' . t('Upcoming events') . '</h3>',
+      '#prefix' => '<h3>' . t('Upcoming events with :name', [':name' => $user_entity->label()]) . '</h3>',
       'content' => $view->preview($display),
     ];
     if (!empty($directory_entry)) {
