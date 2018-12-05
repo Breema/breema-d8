@@ -12,7 +12,7 @@ field_name: field_description
 entity_type: paragraph
 bundle: person
 label: Description
-description: ''
+description: 'All links and media will be stripped, in favor of the ''Link'' and ''Media'' fields above.'
 required: false
 translatable: true
 default_value: {  }

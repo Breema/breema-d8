@@ -1,0 +1,35 @@
+uuid: 07578042-ae8d-4919-88fe-dfe646d2335b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_media
+    - media.type.audio_file
+    - media.type.file
+    - media.type.image
+    - media.type.video
+    - paragraphs.paragraphs_type.person
+id: paragraph.person.field_media
+field_name: field_media
+entity_type: paragraph
+bundle: person
+label: Media
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      audio_file: audio_file
+      file: file
+      image: image
+      video: video
+    sort:
+      field: mid
+      direction: DESC
+    auto_create: false
+    auto_create_bundle: audio_file
+field_type: entity_reference
