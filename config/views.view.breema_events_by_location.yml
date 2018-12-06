@@ -80,7 +80,7 @@ display:
           uses_fields: false
           type: ul
           wrapper_class: item-list
-          class: grid--1-2-3-container
+          class: 'grid--container grid--container-1-2-3'
       row:
         type: 'entity:node'
         options:
@@ -440,7 +440,7 @@ display:
       pager:
         type: some
         options:
-          items_per_page: 10
+          items_per_page: 12
           offset: 0
       use_more: true
       use_more_always: false
@@ -455,7 +455,7 @@ display:
           uses_fields: false
           type: ul
           wrapper_class: item-list
-          class: grid--1-2-3-container
+          class: 'grid--container grid--container-1-2-3'
       row:
         type: 'entity:node'
         options:

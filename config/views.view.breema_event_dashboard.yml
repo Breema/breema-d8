@@ -68,7 +68,7 @@ display:
           uses_fields: false
           type: ul
           wrapper_class: item-list
-          class: grid--1-2-3-container
+          class: 'grid--container grid--container-1-2-3'
       row:
         type: 'entity:node'
         options:
