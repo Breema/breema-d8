@@ -360,11 +360,14 @@ display:
       block_hide_empty: true
       display_description: ''
       style:
-        type: default
+        type: html_list
         options:
           grouping: {  }
           row_class: ''
-          default_row_class: true
+          default_row_class: false
+          type: ul
+          wrapper_class: item-list
+          class: 'grid--container grid--container-1-2-3'
       defaults:
         style: false
         row: false
