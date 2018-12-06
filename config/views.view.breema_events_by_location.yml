@@ -80,7 +80,7 @@ display:
           uses_fields: false
           type: ul
           wrapper_class: item-list
-          class: grid-1-2-3-container
+          class: grid--1-2-3-container
       row:
         type: 'entity:node'
         options:
@@ -455,7 +455,7 @@ display:
           uses_fields: false
           type: ul
           wrapper_class: item-list
-          class: grid-1-2-3-container
+          class: grid--1-2-3-container
       row:
         type: 'entity:node'
         options:
