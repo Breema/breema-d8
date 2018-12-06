@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - field.storage.user.field_class_attended
-    - node.type.event
   module:
     - user
 id: user.user.field_class_attended
@@ -18,13 +17,10 @@ translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  handler: 'default:node'
+  handler: views
   handler_settings:
-    target_bundles:
-      event: event
-    sort:
-      field: field_date_time.value
-      direction: DESC
-    auto_create: false
-    auto_create_bundle: ''
+    view:
+      view_name: breema_event_past
+      display_name: entity_reference_1
+      arguments: {  }
 field_type: entity_reference
