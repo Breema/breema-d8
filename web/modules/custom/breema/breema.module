@@ -544,15 +544,22 @@ function breema_product_node_form_after_build($form_element, FormStateInterface 
 }
 
 /**
+ * Implements hook_form_FORM_ID_alter() for 'user_register_form'.
+ *
+ * Alter the user form specifically when used as user_register.
+ */
+function breema_form_user_register_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state) {
+  $form['actions']['submit']['#value'] = t('Apply to the Practitioner Certificate Program');
+}
+
+/**
  * Implements hook_form_FORM_ID_alter() for 'user_form'.
  *
  * Use #states for conditional fields based on anatomy requirement choice.
  * Hide the 'completed' option for everyone but admins.
+ * Hide various fields unless it's a new user or an admiin.
  */
 function breema_form_user_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state) {
-  // Change the text on the submit button.
-  $form['actions']['submit']['#value'] = t('Apply to the Practitioner Certificate Program');
-
   $form['field_anatomy_homework_language']['#states'] = [
     'visible' => [
       ':input[name="field_anatomy_requirement"]' => ['value' => 'homework'],
