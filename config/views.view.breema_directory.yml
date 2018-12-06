@@ -1202,12 +1202,12 @@ display:
       style:
         type: html_list
         options:
-          grouping: {  }
           row_class: location-result
           default_row_class: false
+          uses_fields: false
           type: ol
           wrapper_class: item-list
-          class: location-results
+          class: 'location-results grid--container grid--container-1-2'
       row:
         type: 'entity:node'
         options:
