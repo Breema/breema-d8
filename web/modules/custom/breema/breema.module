@@ -587,6 +587,43 @@ function breema_form_user_form_alter(&$form, \Drupal\Core\Form\FormStateInterfac
       $form['field_class_attended']['#access'] = FALSE;
     }
   }
+  $form['account']['name']['#type'] = 'hidden';
+  $form['account']['name']['#required'] = FALSE;
+  $form['#validate'][] = 'breema_user_form_validate';
+}
+
+/**
+ * Implements hook_validation_constraint_alter().
+ *
+ * Override core NotNull constraint to allow entities that use Auto Entity
+ * Labels to validate when their label is empty before being set automatically.
+ */
+function breema_validation_constraint_alter(array &$definitions) {
+  $definitions['UserName']['class'] = 'Drupal\breema\Plugin\Validation\Constraint\BreemaUserNameConstraint';
+}
+
+/**
+ * Additional validate handler for user_form().
+ */
+function breema_user_form_validate($form, FormStateInterface $form_state) {
+  $user_entity = $form_state->getFormObject()->getEntity();
+  $values = $form_state->getValues();
+  $first_name = trim($values['field_name_first'][0]['value']);
+  $last_name = trim($values['field_name_last'][0]['value']);
+  $user_name = $first_name . ' ' . $last_name;
+  $name_in_use = (bool) \Drupal::entityQuery('user')
+    ->condition('uid', (int)$user_entity->id(), '<>')
+    ->condition('name', $user_name, '=')
+    ->range(0, 1)
+    ->count()
+    ->execute();
+  if ($name_in_use) {
+    $form_state->setErrorByName('field_name_first', t('Sorry, this name is already taken. Please add a middle initial to your first name.'));
+  }
+  $form_state->setValueForElement(['#parents' => ['name']], $user_name);
+  // Force the first/last names to the trimmed copies.
+  $form_state->setValueForElement(['#parents' => ['field_name_first', 0, 'value']], $first_name);
+  $form_state->setValueForElement(['#parents' => ['field_name_last', 0, 'value']], $last_name);
 }
 
 /**
