@@ -290,27 +290,30 @@ function breema_preprocess_paragraph__person(&$variables) {
     $variables['content'][$field_name]['#access'] = FALSE;
   }
 
-  $display = 'embed_upcoming';
-  $view = Views::getView('breema_event_dashboard');
-  $view->setDisplay($display);
-  if (!empty($user_entity)) {
-    $id = $user_entity->id();
-    $view->setArguments([$id, $id]);
-  }
-  $view->execute();
-  if (count($view->result)) {
-    $variables['content'][$display] = [
-      '#weight' => 100,
-      '#prefix' => '<h3>' . t('Upcoming events with :name', [':name' => $user_entity->label()]) . '</h3>',
-      'content' => $view->preview($display),
-    ];
-    if (!empty($directory_entry)) {
-      $variables['content']['read-more'] = [
-        '#weight' => 105,
-        '#prefix' => '<div class="more-link">',
-        '#markup' => $directory_entry->toLink(t('More events'))->toString(),
-        '#suffix' => '</div>',
+  $show_upcoming = $variables['paragraph']->get('field_show_upcoming_events')->value;
+  if (!empty($show_upcoming)) {
+    $display = 'embed_upcoming';
+    $view = Views::getView('breema_event_dashboard');
+    $view->setDisplay($display);
+    if (!empty($user_entity)) {
+      $id = $user_entity->id();
+      $view->setArguments([$id, $id]);
+    }
+    $view->execute();
+    if (count($view->result)) {
+      $variables['content'][$display] = [
+        '#weight' => 100,
+        '#prefix' => '<h3>' . t('Upcoming events with :name', [':name' => $user_entity->label()]) . '</h3>',
+        'content' => $view->preview($display),
       ];
+      if (!empty($directory_entry)) {
+        $variables['content']['read-more'] = [
+          '#weight' => 105,
+          '#prefix' => '<div class="more-link">',
+          '#markup' => $directory_entry->toLink(t('More events'))->toString(),
+          '#suffix' => '</div>',
+        ];
+      }
     }
   }
 }

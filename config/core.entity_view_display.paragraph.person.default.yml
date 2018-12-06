@@ -8,6 +8,7 @@ dependencies:
     - field.field.paragraph.person.field_link
     - field.field.paragraph.person.field_media
     - field.field.paragraph.person.field_person
+    - field.field.paragraph.person.field_show_upcoming_events
     - paragraphs.paragraphs_type.person
   module:
     - text
@@ -43,3 +44,4 @@ content:
 hidden:
   field_link: true
   field_person: true
+  field_show_upcoming_events: true

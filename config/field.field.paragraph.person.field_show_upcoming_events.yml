@@ -1,0 +1,23 @@
+uuid: 38d9277a-4a44-456b-8fa1-5ecea1a77115
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_show_upcoming_events
+    - paragraphs.paragraphs_type.person
+id: paragraph.person.field_show_upcoming_events
+field_name: field_show_upcoming_events
+entity_type: paragraph
+bundle: person
+label: 'Show upcoming events'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'Show upcoming events'
+  off_label: 'Hide upcoming events'
+field_type: boolean
