@@ -178,19 +178,9 @@ h1 {
   margin: 0 0 0.5em 0;
 }
 
-.node--type-product a.teaser-link .field--name-field-main-image {
-  float: left;
-  margin: 0 1em 0 0;
-}
-
 .node--type-layout-page .paragraph {
   clear: both;
   margin: 0 0 2em 0;
-}
-
-.paragraph--type--event-featured h3,
-.paragraph--type--person h3 {
-  clear: both;
 }
 
 .node--view-mode-full .field--name-field-subtitle {
@@ -238,12 +228,6 @@ div.field--name-field-registration-link {
 .paragraph--type--media-3-up .field--type-entity-reference {
   margin: 0;
   font-family: Georgia, "Times New Roman", Times, serif;
-}
-
-.paragraph--type--media-3-up .paragraph .field--type-image,
-.paragraph--type--media-3-up .paragraph .field--type-image img {
-  float: none;
-  margin: 0;
 }
 
 .grid--1-2-container,
