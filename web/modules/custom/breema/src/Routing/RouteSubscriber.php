@@ -19,6 +19,9 @@ class RouteSubscriber extends RouteSubscriberBase {
       // Clobber, don't add.
       $route->setRequirements(['_access_breema_contact_personal_tab' => 'TRUE']);
     }
+    if ($route = $collection->get('user.register')) {
+      $route->setDefault('_title', (string)t('Practitioner Certificate Program online application'));
+    }
   }
 
 }

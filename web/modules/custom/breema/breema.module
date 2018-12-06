@@ -550,6 +550,9 @@ function breema_product_node_form_after_build($form_element, FormStateInterface 
  * Hide the 'completed' option for everyone but admins.
  */
 function breema_form_user_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state) {
+  // Change the text on the submit button.
+  $form['actions']['submit']['#value'] = t('Apply to the Practitioner Certificate Program');
+
   $form['field_anatomy_homework_language']['#states'] = [
     'visible' => [
       ':input[name="field_anatomy_requirement"]' => ['value' => 'homework'],
@@ -1071,4 +1074,12 @@ function _breema_run_update($update_number) {
   if (function_exists($function)) {
     $function();
   }
+}
+
+/**
+ * Implements hook_local_tasks_alter().
+ */
+function breema_local_tasks_alter(&$local_tasks) {
+  $local_tasks['user.register']['title'] = (string)t('Apply to the Practitioner Certificate Program');
+  $local_tasks['user.register']['weight'] = 100;
 }
