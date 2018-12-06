@@ -589,8 +589,14 @@ function breema_form_user_form_alter(&$form, \Drupal\Core\Form\FormStateInterfac
       $form['field_class_attended']['#access'] = FALSE;
     }
   }
-  $form['account']['name']['#type'] = 'hidden';
   $form['account']['name']['#required'] = FALSE;
+  if ($user->id()) {
+    $form['account']['name']['#disabled'] = TRUE;
+    $form['account']['name']['#description'] = t("This value is set automatically based on 'First name' and 'Last name' below.");
+  }
+  else {
+    $form['account']['name']['#type'] = 'hidden';
+  }
   $form['#validate'][] = 'breema_user_form_validate';
 }
 
