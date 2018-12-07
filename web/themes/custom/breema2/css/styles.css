@@ -173,17 +173,25 @@ h1 {
   font-style: italic;
 }
 
-.node--type-product h4 {
+.node--type-product h4,
+.node--type-product a.teaser-link h4 {
   font-size: 1.3em;
   margin: 0;
 }
 
-.node--type-product h5 {
+.node--type-product h5,
+.node--type-product a.teaser-link h5 {
   font-size: 1.1em;
   font-style: italic;
   text-transform: none;
   letter-spacing: 0;
   margin: 0 0 0.5em 0;
+}
+
+.node--type-product .field--name-field-main-image,
+.node--type-product a.teaser-link .field--name-field-main-image {
+  margin: 0;
+  max-width: 100%
 }
 
 .node--type-layout-page .paragraph {
@@ -317,4 +325,8 @@ div.field--name-field-registration-link {
   .grid--container {
     grid-column-gap: 20px;
   }
+}
+
+.paragraph--type--featured-product .grid--container {
+  grid-row-gap: 20px;
 }
