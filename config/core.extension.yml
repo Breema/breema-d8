@@ -55,6 +55,7 @@ module:
   menu_ui: 0
   node: 0
   options: 0
+  override_node_options: 0
   page_cache: 0
   path: 0
   quickedit: 0
@@ -78,6 +79,7 @@ module:
   user: 0
   video_embed_field: 0
   video_embed_media: 0
+  view_unpublished: 0
   views_contextual_filters_or: 0
   views_ui: 0
   menu_link_content: 1
