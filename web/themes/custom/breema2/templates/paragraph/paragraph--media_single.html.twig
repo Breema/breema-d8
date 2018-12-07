@@ -8,13 +8,13 @@
 %}
 {% block paragraph %}
   <div{{ attributes.addClass(classes) }}>
-    {{ content.field_header_text }}
     {% if url %}
-      <a href="{{ url }}">
+      <a href="{{ url }}" class="teaser-link">
     {% endif %}
-      {% block content %}
-        {{ content|without('field_header_text') }}
-      {% endblock %}
+    {{ content.field_header_text }}
+    {% block content %}
+      {{ content|without('field_header_text') }}
+    {% endblock %}
     {% if url %}
       </a>
     {% endif %}
