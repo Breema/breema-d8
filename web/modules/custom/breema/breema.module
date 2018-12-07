@@ -1019,7 +1019,7 @@ function breema_entity_view_alter(array &$build, EntityInterface $entity, Entity
         '#uri' => $user_picture_file->getFileUri(),
         '#alt' => t('Profile image for @user_name', ['@user_name' => $author_entity->getAccountName()]),
       ];
-      if ($build['#view_mode'] == 'teaser_compact') {
+      if ($build['#view_mode'] == 'teaser_compact' || $build['#view_mode'] == 'teaser_search_result') {
         $build['headshot']['#prefix'] .= '<a href="' . $entity->toUrl()->toString() . '">';
         $build['headshot']['#suffix'] = '</a></div>';
       }
@@ -1033,18 +1033,17 @@ function breema_entity_view_alter(array &$build, EntityInterface $entity, Entity
         '#suffix' => '</div>',
       ];
     }
-  }
 
-  // Inject a 'Read more' link at the end of the upcoming events list.
-  if ($entity->getEntityTypeId() == 'node'
-      && $build['#view_mode'] == 'teaser_search_result'
-      && !empty($build['field_upcoming_events']['#items'])
-      && ($entity->bundle() == 'directory_entry' || $entity->bundle() == 'place')) {
-    $item_count = count($build['field_upcoming_events']['#items']);
-    $build['field_upcoming_events'][$item_count] = [
-      '#type' => 'markup',
-      '#markup' => $entity->toLink(t('Read more'))->toString(),
-    ];
+    // Inject a 'Read more' link at the end of the upcoming events list.
+    if ($build['#view_mode'] == 'teaser_search_result'
+        && !empty($build['field_upcoming_events']['#items'])
+    ) {
+      $item_count = count($build['field_upcoming_events']['#items']);
+      $build['field_upcoming_events'][$item_count] = [
+        '#type' => 'markup',
+        '#markup' => $entity->toLink(t('Read more'))->toString(),
+      ];
+    }
   }
 }
 
