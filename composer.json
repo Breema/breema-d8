@@ -43,6 +43,7 @@
     "drupal/login_emailusername": "^1.1",
     "drupal/media_entity_browser": "2.x-dev",
     "drupal/menu_block": "^1.4",
+    "drupal/override_node_options": "^2.4",
     "drupal/paragraphs": "^1.2",
     "drupal/pathauto": "^1.0",
     "drupal/redirect": "^1.0",
