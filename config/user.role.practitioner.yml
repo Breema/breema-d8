@@ -7,7 +7,6 @@ label: Practitioner
 weight: -8
 is_admin: null
 permissions:
-  - 'access media_entity_browser entity browser pages'
   - 'access shortcuts'
   - 'create audio_file media'
   - 'create directory_entry content'
@@ -21,6 +20,7 @@ permissions:
   - 'delete own file media'
   - 'delete own image media'
   - 'delete own video media'
+  - 'edit own audio_file media'
   - 'edit own directory_entry content'
   - 'edit own file media'
   - 'edit own image media'

@@ -9,6 +9,7 @@ label: 'Authenticated user'
 weight: -9
 is_admin: false
 permissions:
+  - 'access audio_browser entity browser pages'
   - 'access comments'
   - 'access content'
   - 'access image_browser entity browser pages'
