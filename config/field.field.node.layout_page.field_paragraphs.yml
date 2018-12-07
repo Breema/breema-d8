@@ -6,10 +6,11 @@ dependencies:
     - field.storage.node.field_paragraphs
     - node.type.layout_page
     - paragraphs.paragraphs_type.event_featured
-    - paragraphs.paragraphs_type.person
     - paragraphs.paragraphs_type.featured_product
+    - paragraphs.paragraphs_type.media_1_text
     - paragraphs.paragraphs_type.media_3_up
     - paragraphs.paragraphs_type.media_single
+    - paragraphs.paragraphs_type.person
   module:
     - entity_reference_revisions
 id: node.layout_page.field_paragraphs
@@ -30,6 +31,7 @@ settings:
       event_featured: event_featured
       featured_product: featured_product
       person: person
+      media_1_text: media_1_text
       media_single: media_single
       media_3_up: media_3_up
     target_bundles_drag_drop:
@@ -51,6 +53,9 @@ settings:
       person:
         enabled: true
         weight: 10
+      media_1_text:
+        enabled: true
+        weight: 12
       media_single:
         enabled: true
         weight: 13
