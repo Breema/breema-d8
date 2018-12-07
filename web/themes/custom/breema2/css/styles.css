@@ -247,6 +247,10 @@ div.field--name-field-registration-link {
   grid-row-gap: 5px;
 }
 
+.grid--container-2 {
+  grid-template-columns: 1fr 1fr;
+}
+
 .grid--container-2u3366 {
   grid-template-columns: 1fr 2fr;
 }
