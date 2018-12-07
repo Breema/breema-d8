@@ -1,0 +1,15 @@
+uuid: 2789cb2b-9742-4032-a677-86c6d1f68fea
+langcode: en
+status: true
+dependencies: {  }
+id: user_administrator
+label: 'User administrator'
+weight: -3
+is_admin: null
+permissions:
+  - 'access administration pages'
+  - 'access shortcuts'
+  - 'access toolbar'
+  - 'access user profiles'
+  - 'administer users'
+  - 'view the administration theme'
