@@ -140,24 +140,50 @@ div.danger {
 }
 
 .contact-form-link a,
-.contact-form-link a:hover,
-.field--type-telephone a,
-.field--type-telephone a:hover {
-  padding: 0 0 0 1.5em;
+.field--type-email a,
+.field--type-telephone a {
   position: relative;
   border-bottom: none;
   text-decoration: none;
 }
 
+.contact-form-link a:focus,
+.contact-form-link a:hover,
+.field--type-email a:focus,
+.field--type-email a:hover,
+.field--type-telephone a:focus,
+.field--type-telephone a:hover {
+  /*
+  text-decoration: none;
+  border-bottom: 1px solid;
+  */
+  text-decoration: underline;
+  border-bottom: none;
+}
+
+.contact-form-link a,
+.field--type-email a {
+  padding: 0 0 0 1.35em;
+  margin: 0 0 0 0.15em;
+}
+
+.field--type-telephone a {
+  padding: 0 0 0 1.25em;
+  margin: 0 0 0 0.25em;
+}
+
 .contact-form-link a:before,
+.field--type-email a:before,
 .field--type-telephone a:before {
   position: absolute;
   font-family: 'FontAwesome';
   color: #777;
-  left: 1px;
+  left: 0px;
+  top: 0px;
 }
 
-.contact-form-link a:before {
+.contact-form-link a:before,
+.field--type-email a:before {
   /* fa fa-envelope-o */
   content: "\f003";
 }
