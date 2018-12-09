@@ -13,5 +13,6 @@ permissions:
   - 'revert event revisions'
   - 'revert place revisions'
   - 'unflag my_places'
+  - 'view directory_entry revisions'
   - 'view event revisions'
   - 'view place revisions'

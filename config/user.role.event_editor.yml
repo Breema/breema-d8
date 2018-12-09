@@ -55,6 +55,7 @@ permissions:
   - 'use advanced search'
   - 'view any unpublished event content'
   - 'view any unpublished place content'
+  - 'view directory_entry revisions'
   - 'view event revisions'
   - 'view own unpublished content'
   - 'view place revisions'

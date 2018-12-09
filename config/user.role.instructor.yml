@@ -33,7 +33,4 @@ permissions:
   - 'edit own video media'
   - 'revert directory_entry revisions'
   - 'update media'
-  - 'view directory_entry revisions'
-  - 'view event revisions'
   - 'view own unpublished content'
-  - 'view place revisions'
