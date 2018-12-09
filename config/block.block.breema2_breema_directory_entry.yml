@@ -22,13 +22,15 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: "/node/*/edit\r\n/user/*/edit\r\n/node/add*\r\n"
+    pages: "/node/*/edit\r\n/user/*\r\n/node/add*\r\n"
     negate: true
     context_mapping: {  }
   user_role:
     id: user_role
     roles:
-      authenticated: authenticated
+      practitioner: practitioner
+      instructor: instructor
+      content_editor: content_editor
     negate: false
     context_mapping:
       user: '@user.current_user_context:current_user'
