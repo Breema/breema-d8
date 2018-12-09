@@ -12,7 +12,7 @@ dependencies:
 id: breema2_views_block__breema_events_by_instructor_block_list
 theme: breema2
 region: content
-weight: -4
+weight: -5
 provider: null
 plugin: 'views_block:breema_events_by_instructor-block_list'
 settings:

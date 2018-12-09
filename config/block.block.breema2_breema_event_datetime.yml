@@ -9,7 +9,7 @@ dependencies:
 id: breema2_breema_event_datetime
 theme: breema2
 region: content
-weight: -11
+weight: -13
 provider: null
 plugin: event_datetime_block
 settings:

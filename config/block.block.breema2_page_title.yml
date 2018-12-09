@@ -9,7 +9,7 @@ _core:
 id: breema2_page_title
 theme: breema2
 region: content
-weight: -10
+weight: -12
 provider: null
 plugin: page_title_block
 settings:

@@ -1,0 +1,28 @@
+uuid: 9620faa5-5416-453f-b89a-c3cbd31bd615
+langcode: en
+status: true
+dependencies:
+  config:
+    - simple_block.simple_block.breema_center_contact_info
+  module:
+    - simple_block
+    - system
+  theme:
+    - breema2
+id: breema2_contact_the_breema_center
+theme: breema2
+region: content
+weight: -9
+provider: null
+plugin: 'simple_block:breema_center_contact_info'
+settings:
+  id: 'simple_block:breema_center_contact_info'
+  label: 'Contact The Breema Center'
+  provider: simple_block
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: "/contact\r\n/contact/center"
+    negate: false
+    context_mapping: {  }
