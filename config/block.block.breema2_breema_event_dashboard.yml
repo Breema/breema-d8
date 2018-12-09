@@ -24,6 +24,8 @@ visibility:
     id: user_role
     roles:
       instructor: instructor
+      event_expert: event_expert
+      event_editor: event_editor
       content_editor: content_editor
       administrator: administrator
     negate: false
