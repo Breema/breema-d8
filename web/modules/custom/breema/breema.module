@@ -1019,12 +1019,19 @@ function breema_merge_titles(\Drupal\node\NodeInterface $node) {
  *
  * @param \Drupal\node\Entity\NodeInterface $directory_entry
  *   The fully-loaded directory entry node entity, or NULL if there is none.
+ * @param boolean $include_create_link
+ *   Should the action links contain a link to create an entry (if appropriate)?
  * @return array
  *   Appropriate render array for the current user and given directory entry.
  */
-function _breema_get_directory_entry_action_links(NodeInterface $directory_entry = NULL) {
+function _breema_get_directory_entry_action_links(NodeInterface $directory_entry = NULL, $include_create_link = FALSE) {
   $current_page = Url::fromRoute('<current>');
   $url_options['query']['destination'] = $current_page->toString();
+
+  // If there's no entry and we don't want create links, bail now.
+  if (empty($directory_entry) && !$include_create_link) {
+    return [];
+  }
 
   // If there's no entry, and the user has permission, add links to create one.
   if (empty($directory_entry)) {
@@ -1048,7 +1055,6 @@ function _breema_get_directory_entry_action_links(NodeInterface $directory_entry
       ];
     }
   }
-
 
   // Otherwise, generate whatever links the user has permission to use.
   $links = [];
@@ -1109,7 +1115,8 @@ function breema_entity_user_view_alter(array &$build, EntityInterface $entity, E
     if ($is_certified) {
       $directory_entries = $entity->get('field_directory_entry')->referencedEntities();
       $directory_entry = !empty($directory_entries) ? array_pop($directory_entries) : NULL;
-      $build['action_links'] = _breema_get_directory_entry_action_links($directory_entry);
+      $can_create = $current_user->id() == $entity->id();
+      $build['action_links'] = _breema_get_directory_entry_action_links($directory_entry, $can_create);
       $build['action_links']['#weight'] = 10;
       $build['#group_children']['action_links'] = 'group_public_directory_entry';
     }

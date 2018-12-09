@@ -45,7 +45,7 @@ class BreemaDirectoryEntryBlock extends BlockBase {
       ] + $links;
     }
     else {
-      return $block + _breema_get_directory_entry_action_links();
+      return $block + _breema_get_directory_entry_action_links(NULL, TRUE);
     }
   }
 }
