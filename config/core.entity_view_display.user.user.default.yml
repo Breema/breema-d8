@@ -32,7 +32,7 @@ third_party_settings:
         - user_picture
         - field_directory_entry
       parent_name: ''
-      weight: 0
+      weight: 1
       format_type: details
       format_settings:
         id: ''
@@ -48,7 +48,7 @@ third_party_settings:
         - field_telephone
         - field_profession
       parent_name: ''
-      weight: 1
+      weight: 0
       format_type: details
       format_settings:
         id: ''
@@ -84,7 +84,7 @@ mode: default
 content:
   field_address:
     weight: 3
-    label: above
+    label: visually_hidden
     settings: {  }
     third_party_settings: {  }
     type: address_default
@@ -145,7 +145,7 @@ content:
     region: content
   field_telephone:
     weight: 4
-    label: above
+    label: visually_hidden
     settings:
       title: ''
     third_party_settings: {  }
