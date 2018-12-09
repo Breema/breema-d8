@@ -522,6 +522,19 @@ function breema_form_node_form_alter(&$form, \Drupal\Core\Form\FormStateInterfac
         $form[$field_name]['widget'][0]['value']['#default_value'] = $author_entity->get($field_name)->value;
       }
     }
+    $author_address = $author_entity->get('field_address')->getValue();
+    foreach (
+      [
+        'country_code',
+        'administrative_area',
+        'locality',
+        'postal_code',
+      ] as $addr_field)
+    {
+      if (empty($form['field_address']['widget'][0]['address']['#default_value'][$addr_field])) {
+        $form['field_address']['widget'][0]['address']['#default_value'][$addr_field] = $author_address[0][$addr_field];
+      }
+    }
   }
   else if ($node->bundle() == 'product') {
     $form['field_by']['widget'][0]['#after_build'][] = 'breema_product_node_form_after_build';
