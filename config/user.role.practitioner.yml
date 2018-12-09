@@ -25,6 +25,7 @@ permissions:
   - 'edit own file media'
   - 'edit own image media'
   - 'edit own video media'
+  - 'override directory_entry published option'
   - 'revert directory_entry revisions'
   - 'update media'
   - 'view own unpublished content'
