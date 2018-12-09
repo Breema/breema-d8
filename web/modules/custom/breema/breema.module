@@ -558,6 +558,24 @@ function breema_form_user_register_form_alter(&$form, \Drupal\Core\Form\FormStat
  * Hide various fields unless it's a new user or an admiin.
  */
 function breema_form_user_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state) {
+  $user = $form_state->getFormObject()->getEntity();
+  $roles = $user->getRoles();
+  $is_certified = (in_array('instructor', $roles) || in_array('practitioner', $roles));
+
+  $current_user = \Drupal::currentUser();
+  $current_roles = $current_user->getRoles();
+  $is_user_admin = (in_array('administrator', $current_roles) || in_array('user_administrator', $current_roles));
+
+  $form['account']['name']['#required'] = FALSE;
+  if ($user->id()) {
+    $form['account']['name']['#disabled'] = TRUE;
+    $form['account']['name']['#description'] = t("This value is set automatically based on 'First name' and 'Last name' below.");
+  }
+  else {
+    $form['account']['name']['#type'] = 'hidden';
+  }
+  $form['#validate'][] = 'breema_user_form_validate';
+
   $form['field_anatomy_homework_language']['#states'] = [
     'visible' => [
       ':input[name="field_anatomy_requirement"]' => ['value' => 'homework'],
@@ -576,24 +594,34 @@ function breema_form_user_form_alter(&$form, \Drupal\Core\Form\FormStateInterfac
     // Propagate the #weight to retain the right ordering.
     '#weight' => $form['field_anatomy_transcript']['#weight'],
   ];
-  $user = \Drupal::currentUser();
-  $roles = $user->getRoles();
-  if (!in_array('administrator', $roles) && !in_array('user_admin', $roles)) {
-    unset($form['field_anatomy_requirement']['widget']['#options']['complete']);
-    if (in_array('authenticated', $roles)) {
-      $form['field_why_interested']['#access'] = FALSE;
-      $form['field_class_attended']['#access'] = FALSE;
+
+  // If the current user is an admin, return now.
+  if ($is_user_admin) {
+    return;
+  }
+
+  // Once a user is authenticated (not the registration form) hide
+  // 'why_interested' and 'class_attended'.
+  if (in_array('authenticated', $roles)) {
+    $form['field_why_interested']['#access'] = FALSE;
+    $form['field_class_attended']['#access'] = FALSE;
+  }
+  // Once certified, hide all the requirement-related fields.
+  if ($is_certified) {
+    $fields = [
+      'field_anatomy_requirement',
+      'field_anatomy_transcript',
+      'field_anatomy_homework_language',
+      'field_class_other',
+    ];
+    foreach ($fields as $field) {
+      $form[$field]['#access'] = FALSE;
     }
   }
-  $form['account']['name']['#required'] = FALSE;
-  if ($user->id()) {
-    $form['account']['name']['#disabled'] = TRUE;
-    $form['account']['name']['#description'] = t("This value is set automatically based on 'First name' and 'Last name' below.");
-  }
+  // Otherwise, don't let students set themselves to 'complete'.
   else {
-    $form['account']['name']['#type'] = 'hidden';
+    unset($form['field_anatomy_requirement']['widget']['#options']['complete']);
   }
-  $form['#validate'][] = 'breema_user_form_validate';
 }
 
 /**
@@ -989,7 +1017,26 @@ function breema_merge_titles(\Drupal\node\NodeInterface $node) {
  * Implements hook_entity_view_alter().
  */
 function breema_entity_view_alter(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display) {
+  $current_user = \Drupal::currentUser();
+  $current_roles = $current_user->getRoles();
+  $is_user_admin = (in_array('administrator', $current_roles) || in_array('user_administrator', $current_roles));
+  if ($entity->getEntityTypeId() == 'user' && !$is_user_admin) {
+    $fields = [
+      'field_anatomy_requirement',
+      'field_anatomy_transcript',
+      'field_anatomy_homework_language',
+      'field_class_attended',
+      'field_class_other',
+      'field_why_interested',
+    ];
+    foreach ($fields as $field) {
+      $build[$field]['#access'] = FALSE;
+    }
+    // @todo fix cache contexts/tags/etc.
+  }
+
   if ($entity->getEntityTypeId() == 'node' && $entity->bundle() == 'directory_entry') {
+    // @todo fix cache contexts/tags/etc.
     $build['#attached']['library'][] = 'breema/directory_entry';
     $author = $build['#node']->get('uid')->getValue();
     if (!empty($author[0]['target_id'])) {
