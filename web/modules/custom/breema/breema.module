@@ -17,6 +17,7 @@ use Drupal\Core\Session\AccountInterface;
 use Drupal\Core\StringTranslation\PluralTranslatableMarkup;
 use Drupal\Core\Url;
 use Drupal\node\Entity\Node;
+use Drupal\node\Entity\NodeType;
 use Drupal\node\NodeInterface;
 use Drupal\user\Entity\User;
 use Drupal\user\UserInterface;
@@ -1014,13 +1015,82 @@ function breema_merge_titles(\Drupal\node\NodeInterface $node) {
 }
 
 /**
+ * Generate a render array of action links for a directory entry.
+ *
+ * @param \Drupal\node\Entity\NodeInterface $directory_entry
+ *   The fully-loaded directory entry node entity, or NULL if there is none.
+ * @return array
+ *   Appropriate render array for the current user and given directory entry.
+ */
+function _breema_get_directory_entry_action_links(NodeInterface $directory_entry = NULL) {
+  $current_page = Url::fromRoute('<current>');
+  $url_options['query']['destination'] = $current_page->toString();
+
+  // If there's no entry, and the user has permission, add links to create one.
+  if (empty($directory_entry)) {
+    $current_user = \Drupal::currentUser();
+    $node_type = NodeType::load('directory_entry');
+    $result = \Drupal::service('access_check.node.add')->access($current_user, $node_type);
+    if ($result) {
+      $directory_url = Url::fromUri('base:/directory');
+      $add_entry_url = Url::fromRoute('node.add', ['node_type' => 'directory_entry'], $url_options);
+      return [
+        'note' => [
+          '#prefix' => '<p>',
+          '#markup' => t('You do not have an entry in the <a href=":breema-directory">International Breema directory</a>.', [':breema-directory' => $directory_url->toString()]),
+          '#suffix' => '</p>',
+        ],
+        'add-link' => [
+          '#prefix' => '<div class="action">',
+          '#markup' => t('<a href=":create-directory-entry" target="_blank">Create entry</a>', [':create-directory-entry' => $add_entry_url->toString()]),
+          '#suffix' => '</div>',
+        ],
+      ];
+    }
+  }
+
+
+  // Otherwise, generate whatever links the user has permission to use.
+  $links = [];
+  if ($directory_entry->access('update')) {
+    $edit_url = Url::fromRoute('entity.node.edit_form', ['node' => $directory_entry->id()], $url_options);
+    $links['edit-link'] = [
+      '#prefix' => '<div class="action-secondary">',
+      '#markup' => t('<a href=":edit" target="_blank">Edit</a>', [':edit' => $edit_url->toString()]),
+      '#suffix' => '</div>',
+    ];
+  }
+  if ($directory_entry->access('delete')) {
+    $delete_url = Url::fromRoute('entity.node.delete_form', ['node' => $directory_entry->id()], $url_options);
+    $links['delete-link'] = [
+      // For reasons that aren't yet clear, #prefix and #suffix aren't
+      // working for this, so we directly stuff those into #markup.
+      '#markup' => '<div class="danger">' . t('<a href=":delete" class="danger" target="_blank">Delete</a>', [':delete' => $delete_url->toString()]) . '</div>',
+    ];
+  }
+  return $links;
+}
+
+/**
  * Implements hook_entity_view_alter().
  */
 function breema_entity_view_alter(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display) {
+  if ($entity->getEntityTypeId() == 'user') {
+    return breema_entity_user_view_alter($build, $entity, $display);
+  }
+  if ($entity->getEntityTypeId() == 'node' && $entity->bundle() == 'directory_entry') {
+    return breema_entity_node_directory_entry_view_alter($build, $entity, $display);
+  }
+}
+
+/**
+ * Callback for hook_entity_view_alter() for user entities.
+ */
+function breema_entity_user_view_alter(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display) {
   $current_user = \Drupal::currentUser();
   $current_roles = $current_user->getRoles();
   $is_user_admin = (in_array('administrator', $current_roles) || in_array('user_administrator', $current_roles));
-  if ($entity->getEntityTypeId() == 'user' && !$is_user_admin) {
+  if (!$is_user_admin) {
     $fields = [
       'field_anatomy_requirement',
       'field_anatomy_transcript',
@@ -1032,61 +1102,75 @@ function breema_entity_view_alter(array &$build, EntityInterface $entity, Entity
     foreach ($fields as $field) {
       $build[$field]['#access'] = FALSE;
     }
+  }
+  if ($display->getMode() == 'default') {
+    $user_roles = $entity->getRoles();
+    $is_certified = (in_array('instructor', $user_roles) || in_array('practitioner', $user_roles));
+    if ($is_certified) {
+      $directory_entries = $entity->get('field_directory_entry')->referencedEntities();
+      $directory_entry = !empty($directory_entries) ? array_pop($directory_entries) : NULL;
+      $build['action_links'] = _breema_get_directory_entry_action_links($directory_entry);
+      $build['action_links']['#weight'] = 10;
+      $build['#group_children']['action_links'] = 'group_public_directory_entry';
+    }
     // @todo fix cache contexts/tags/etc.
   }
+}
 
-  if ($entity->getEntityTypeId() == 'node' && $entity->bundle() == 'directory_entry') {
-    // @todo fix cache contexts/tags/etc.
-    $build['#attached']['library'][] = 'breema/directory_entry';
-    $author = $build['#node']->get('uid')->getValue();
-    if (!empty($author[0]['target_id'])) {
-      $author_uid = $author[0]['target_id'];
+/**
+ * Callback for hook_entity_view_alter() for user entities.
+ */
+function breema_entity_node_directory_entry_view_alter(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display) {
+  // @todo fix cache contexts/tags/etc.
+  $build['#attached']['library'][] = 'breema/directory_entry';
+  $author = $build['#node']->get('uid')->getValue();
+  if (!empty($author[0]['target_id'])) {
+    $author_uid = $author[0]['target_id'];
+  }
+  if (!empty($author_uid)) {
+    $access_manager = \Drupal::service('access_manager');
+    if ($access_manager->checkNamedRoute('entity.user.contact_form', ['user' => $author_uid])) {
+      $contact_url = Url::fromRoute('entity.user.contact_form', ['user' => $author_uid]);
     }
-    if (!empty($author_uid)) {
-      $access_manager = \Drupal::service('access_manager');
-      if ($access_manager->checkNamedRoute('entity.user.contact_form', ['user' => $author_uid])) {
-        $contact_url = Url::fromRoute('entity.user.contact_form', ['user' => $author_uid]);
-      }
-      $author_entity = user_load($author_uid);
-      $user_picture = $author_entity->get('user_picture')->getValue();
-    }
+    $author_entity = user_load($author_uid);
+    $user_picture = $author_entity->get('user_picture')->getValue();
+  }
 
-    if (!empty($user_picture)) {
-      $user_picture_file = file_load($user_picture[0]['target_id']);
-      $build['headshot'] = [
-        '#theme' => 'image_style',
-        '#style_name' => $build['#view_mode'] == 'full' ? 'medium' : 'thumbnail',
-        '#weight' => -1,
-        '#prefix' => '<div class="headshot">',
-        '#suffix' => '</div>',
-        '#uri' => $user_picture_file->getFileUri(),
-        '#alt' => t('Profile image for @user_name', ['@user_name' => $author_entity->getAccountName()]),
-      ];
-      if ($build['#view_mode'] == 'teaser_compact' || $build['#view_mode'] == 'teaser_search_result') {
-        $build['headshot']['#prefix'] .= '<a href="' . $entity->toUrl()->toString() . '">';
-        $build['headshot']['#suffix'] = '</a></div>';
-      }
+  if (!empty($user_picture)) {
+    $user_picture_file = file_load($user_picture[0]['target_id']);
+    $build['headshot'] = [
+      '#theme' => 'image_style',
+      '#style_name' => $build['#view_mode'] == 'full' ? 'medium' : 'thumbnail',
+      '#weight' => -1,
+      '#prefix' => '<div class="headshot">',
+      '#suffix' => '</div>',
+      '#uri' => $user_picture_file->getFileUri(),
+      '#alt' => t('Profile image for @user_name', ['@user_name' => $author_entity->getAccountName()]),
+    ];
+    if ($build['#view_mode'] == 'teaser_compact' || $build['#view_mode'] == 'teaser_search_result') {
+      $build['headshot']['#prefix'] .= '<a href="' . $entity->toUrl()->toString() . '">';
+      $build['headshot']['#suffix'] = '</a></div>';
     }
+  }
 
-    if (!empty($contact_url) && ($build['#view_mode'] == 'full' || $build['#view_mode'] == 'teaser_search_result')) {
-      $build['contact_link'] = [
-        '#weight' => 6,
-        '#prefix' => '<div class="contact-form-link">',
-        '#markup' => t('<a href=":contact">Send message</a>', [':contact' => $contact_url->toString()]),
-        '#suffix' => '</div>',
-      ];
-    }
+  if (!empty($contact_url) && ($build['#view_mode'] == 'full' || $build['#view_mode'] == 'teaser_search_result')) {
+    $build['contact_link'] = [
+      '#weight' => 6,
+      '#prefix' => '<div class="contact-form-link">',
+      '#markup' => t('<a href=":contact">Send message</a>', [':contact' => $contact_url->toString()]),
+      '#suffix' => '</div>',
+    ];
+  }
 
-    // Inject a 'Read more' link at the end of the upcoming events list.
-    if ($build['#view_mode'] == 'teaser_search_result'
-        && !empty($build['field_upcoming_events']['#items'])
-    ) {
-      $item_count = count($build['field_upcoming_events']['#items']);
-      $build['field_upcoming_events'][$item_count] = [
-        '#type' => 'markup',
-        '#markup' => $entity->toLink(t('Read more'))->toString(),
-      ];
-    }
+  // Inject a 'Read more' link at the end of the upcoming events list.
+  if ($build['#view_mode'] == 'teaser_search_result'
+      && !empty($build['field_upcoming_events']['#items'])
+  ) {
+    $item_count = count($build['field_upcoming_events']['#items']);
+    $build['field_upcoming_events'][$item_count] = [
+      '#type' => 'markup',
+      '#markup' => $entity->toLink(t('Read more'))->toString(),
+    ];
   }
 }
 
