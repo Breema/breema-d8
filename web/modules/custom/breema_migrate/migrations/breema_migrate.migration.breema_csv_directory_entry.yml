@@ -9,7 +9,8 @@ destination:
 
 source:
   plugin: csv
-  path: public://csv/breema-directory.csv
+  # This is now sharing the same source file with the user migration.
+  path: public://csv/breema-users.csv
   header_row_count: 0
   keys:
     - email

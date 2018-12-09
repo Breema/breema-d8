@@ -23,14 +23,22 @@ source:
     2:
       email: Email
     3:
-      practitioner: Practitioner
+      country: Country
     4:
-      self_breema_provisional: Provisional Self-Breema Instructor
+      state: State
     5:
-      self_breema_full: Certified Self-Breema Instructor
+      city: City
     6:
-      instructor_provisional: Provisional Instructor
+      postal_code: Postal code
     7:
+      practitioner: Practitioner
+    8:
+      self_breema_provisional: Provisional Self-Breema Instructor
+    9:
+      self_breema_full: Certified Self-Breema Instructor
+    10:
+      instructor_provisional: Provisional Instructor
+    11:
       instructor_full: Full Instructor
 
 process:
@@ -49,6 +57,10 @@ process:
   field_why_interested:
     plugin: default_value
     default_value: 'Already certified.'
+  'field_address/country_code':
+    plugin: callback
+    callable: breema_migrate_map_country_to_code
+    source: country
   roles:
     -
       plugin: concat
