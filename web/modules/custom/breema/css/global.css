@@ -179,7 +179,6 @@ div.danger {
   font-family: 'FontAwesome';
   color: #777;
   left: 0px;
-  top: 0px;
 }
 
 .contact-form-link a:before,
@@ -191,6 +190,7 @@ div.danger {
 .field--type-telephone a:before {
   /* fa fa-phone */
   content: "\f095";
+  top: 0px;
 }
 
 .field--name-field-facebook-event a,
