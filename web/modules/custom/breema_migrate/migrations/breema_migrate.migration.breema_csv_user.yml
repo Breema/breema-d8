@@ -43,6 +43,12 @@ process:
   mail: email
   field_name_first: first_name
   field_name_last: last_name
+  field_anatomy_requirement:
+    plugin: default_value
+    default_value: complete
+  field_why_interested:
+    plugin: default_value
+    default_value: 'Already certified.'
   roles:
     -
       plugin: concat
