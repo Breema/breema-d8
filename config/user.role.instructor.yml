@@ -32,6 +32,5 @@ permissions:
   - 'edit own place content'
   - 'edit own video media'
   - 'override directory_entry published option'
-  - 'revert directory_entry revisions'
   - 'update media'
   - 'view own unpublished content'
