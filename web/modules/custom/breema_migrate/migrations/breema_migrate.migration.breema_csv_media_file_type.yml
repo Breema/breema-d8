@@ -8,8 +8,8 @@ destination:
   plugin: entity:taxonomy_term
 
 source:
-  plugin: csv
-  path: public://csv/media-file-types.csv
+  plugin: breema_migrate_csv
+  path: media-file-types.csv
   header_row_count: 0
   keys:
     - name
