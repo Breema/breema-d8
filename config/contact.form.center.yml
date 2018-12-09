@@ -1,0 +1,12 @@
+uuid: 72943186-88ff-4b78-974c-a5eefd783ee9
+langcode: en
+status: true
+dependencies: {  }
+id: center
+label: 'Contact the Breema Center'
+recipients:
+  - center@breema.com
+reply: ''
+weight: 0
+message: 'Thank you for your message. You should hear from The Breema Center staff shortly.'
+redirect: ''
