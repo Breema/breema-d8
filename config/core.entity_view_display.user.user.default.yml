@@ -19,10 +19,44 @@ dependencies:
     - image.style.thumbnail
   module:
     - address
+    - field_group
     - file
     - image
     - options
+    - telephone
     - user
+third_party_settings:
+  field_group:
+    group_public_directory_entry:
+      children:
+        - user_picture
+        - field_directory_entry
+      parent_name: ''
+      weight: 0
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        open: true
+        required_fields: false
+      label: 'Public directory entry'
+      region: content
+    group_private_profile:
+      children:
+        - member_for
+        - field_address
+        - field_telephone
+        - field_profession
+      parent_name: ''
+      weight: 1
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        open: true
+        required_fields: false
+      label: 'Private profile'
+      region: content
 _core:
   default_config_hash: V51QPCKkgNREKtSmB9Iu2wmAMEpktVpnzklWaZV8UYo
 id: user.user.default
@@ -38,21 +72,21 @@ content:
     type: address_default
     region: content
   field_anatomy_homework_language:
-    weight: 8
-    label: above
+    weight: 5
+    label: inline
     settings: {  }
     third_party_settings: {  }
     type: list_default
     region: content
   field_anatomy_requirement:
-    weight: 7
+    weight: 3
     label: above
     settings: {  }
     third_party_settings: {  }
     type: list_default
     region: content
   field_anatomy_transcript:
-    weight: 11
+    weight: 4
     label: above
     settings:
       use_description_as_link_text: true
@@ -60,7 +94,7 @@ content:
     type: file_default
     region: content
   field_class_attended:
-    weight: 9
+    weight: 6
     label: above
     settings:
       link: true
@@ -68,7 +102,7 @@ content:
     type: entity_reference_label
     region: content
   field_class_other:
-    weight: 10
+    weight: 7
     label: above
     settings: {  }
     third_party_settings: {  }
@@ -76,7 +110,7 @@ content:
     region: content
   field_directory_entry:
     weight: 2
-    label: above
+    label: hidden
     settings:
       view_mode: default
       link: false
@@ -94,25 +128,26 @@ content:
   field_telephone:
     weight: 4
     label: above
-    settings: {  }
+    settings:
+      title: ''
     third_party_settings: {  }
-    type: basic_string
+    type: telephone_link
     region: content
   field_why_interested:
-    weight: 6
+    weight: 2
     label: above
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
   member_for:
-    weight: 1
+    weight: 2
     region: content
     settings: {  }
     third_party_settings: {  }
   user_picture:
     type: image
-    weight: 0
+    weight: 1
     region: content
     settings:
       image_style: thumbnail
