@@ -11,11 +11,11 @@ dependencies:
 third_party_settings:
   geocoder_field:
     method: source
-    weight: '0'
+    weight: 0
     geocode_field: field_address
     reverse_geocode_field: {  }
-    hidden: 0
-    disabled: 0
+    hidden: false
+    disabled: false
     plugins:
       - googlemaps
     dumper: geolocation
