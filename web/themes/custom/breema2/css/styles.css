@@ -30,6 +30,12 @@ figure {
   min-width: 250px;
 }
 
+hr {
+  margin: 1em 0;
+  border: 0;
+  border-bottom: 1px dashed #aaa;
+}
+
 a.teaser-link h4 {
  font-size: 1.075em;
 }
