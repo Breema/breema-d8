@@ -22,6 +22,7 @@ dependencies:
     - field_group
     - file
     - image
+    - inline_entity_form
     - path
     - telephone
     - user
@@ -120,13 +121,16 @@ content:
     type: string_textarea
     region: content
   field_directory_entry:
-    type: entity_reference_autocomplete
+    type: inline_entity_form_simple
     weight: 2
     region: content
     settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+      form_mode: default
+      override_labels: false
+      label_singular: ''
+      label_plural: ''
+      collapsible: false
+      collapsed: false
     third_party_settings: {  }
   field_name_first:
     weight: 0
