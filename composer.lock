@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "aff6d636c87fb0423b0d538a609a9f48",
+    "content-hash": "a93762ca88c3796ca1da591de0c70c8c",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -3373,6 +3373,55 @@
                 "source": "http://cgit.drupalcode.org/geolocation"
             },
             "time": "2018-09-03 11:50:39"
+        },
+        {
+            "name": "drupal/group",
+            "version": "dev-1.x",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/group",
+                "reference": "7de880cdff185c35dc10428e6099d36b95db4b83"
+            },
+            "require": {
+                "drupal/core": "~8.5"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.0-rc2+21-dev",
+                    "datestamp": "1542205380",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Dev releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Kristiaan Van den Eynde",
+                    "homepage": "https://www.drupal.org/u/kristiaanvandeneynde",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Ronald te Brake",
+                    "homepage": "https://www.drupal.org/u/ronaldtebrake",
+                    "role": "Co-maintainer"
+                }
+            ],
+            "description": "This module allows you to group users, content and other entities",
+            "homepage": "http://drupal.org/project/group",
+            "support": {
+                "source": "https://cgit.drupalcode.org/group",
+                "issues": "https://drupal.org/project/issues/group"
+            },
+            "time": "2018-11-14 15:33:31"
         },
         {
             "name": "drupal/inline_entity_form",
@@ -10170,6 +10219,7 @@
         "drupal/filefield_paths": 20,
         "drupal/geocoder": 20,
         "drupal/geolocation": 20,
+        "drupal/group": 20,
         "drupal/inline_entity_form": 10,
         "drupal/media_entity_browser": 20,
         "drupal/simple_block": 10

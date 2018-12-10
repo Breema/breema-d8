@@ -38,6 +38,7 @@
     "drupal/fullcalendar_view": "^2.0",
     "drupal/geocoder": "2.x-dev",
     "drupal/geolocation": "1.x-dev",
+    "drupal/group": "1.x-dev",
     "drupal/inline_entity_form": "^1.0@beta",
     "drupal/jsonapi": "^2.0",
     "drupal/login_emailusername": "^1.1",
