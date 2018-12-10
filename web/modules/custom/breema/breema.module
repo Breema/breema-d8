@@ -535,6 +535,15 @@ function breema_form_node_form_alter(&$form, \Drupal\Core\Form\FormStateInterfac
         $form['field_address']['widget'][0]['address']['#default_value'][$addr_field] = $author_address[0][$addr_field];
       }
     }
+    $form['contact_info_desc'] = [
+      '#type' => 'markup',
+      /// @todo test if the contact tab is enabled and print the right message.
+      '#markup' => t('If your contact tab is enabled on your user profile, site visitors will be able to send you a message via this website without being able to see your e-mail address. Only list further information here if you want it to be publicly visible.'),
+      '#prefix' => '<div class="description">',
+      '#suffix' => '</div>',
+      '#weight' => -10,
+    ];
+    $form['#group_children']['contact_info_desc'] = 'group_contact_info';
   }
   else if ($node->bundle() == 'product') {
     $form['field_by']['widget'][0]['#after_build'][] = 'breema_product_node_form_after_build';
