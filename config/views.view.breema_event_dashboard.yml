@@ -8,6 +8,7 @@ dependencies:
     - field.storage.node.field_instructors
     - field.storage.node.field_location
     - node.type.event
+    - system.menu.account
   module:
     - datetime
     - datetime_extras
@@ -617,16 +618,16 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      path: user/%user/events
+      path: user/dashboard/events
       menu:
-        type: tab
-        title: Events
+        type: normal
+        title: 'Event dashboard'
         description: ''
         expanded: false
         parent: ''
         weight: 0
         context: '0'
-        menu_name: tools
+        menu_name: account
       display_description: ''
       header:
         area_text_custom:
