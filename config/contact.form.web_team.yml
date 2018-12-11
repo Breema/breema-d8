@@ -1,0 +1,12 @@
+uuid: e1f2691b-2465-450b-833f-e5f3deaccbdb
+langcode: en
+status: true
+dependencies: {  }
+id: web_team
+label: 'Contact the web team'
+recipients:
+  - website@breema.com
+reply: ''
+weight: 0
+message: 'Thank you for your message.  The Breema Web Team will read it.'
+redirect: ''
