@@ -1,0 +1,6 @@
+uuid: a037561c-cc86-405e-8797-b0e046ff479d
+langcode: en
+status: true
+dependencies: {  }
+id: administrator
+label: 'Full Administrator'

@@ -1,0 +1,6 @@
+uuid: f069c433-6158-4545-857b-bb4f2cf44af4
+langcode: en
+status: true
+dependencies: {  }
+id: content-administrator
+label: 'Content Administrator'
