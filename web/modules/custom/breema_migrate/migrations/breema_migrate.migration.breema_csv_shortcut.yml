@@ -1,0 +1,33 @@
+id: breema_csv_shortcut
+label: CSV Shortcut links
+migration_tags:
+  - CSV
+  - Breema CSV
+  - Content
+
+destination:
+  plugin: entity:shortcut
+
+source:
+  plugin: breema_migrate_csv
+  path: shortcut.csv
+  header_row_count: 1
+  keys:
+    - shortcut_set
+    - link_path
+  constants:
+    uri_scheme: 'internal:/'
+
+process:
+  shortcut_set: shortcut_set
+  title: link_title
+  weight: weight
+  link:
+    plugin: concat
+    source:
+      - 'constants/uri_scheme'
+      - link_path
+
+migration_dependencies:
+  required:
+    - breema_csv_shortcut_set
