@@ -1,0 +1,7 @@
+uuid: a2134ac2-75c2-4893-9625-18134ba60970
+langcode: en
+status: true
+dependencies: {  }
+formId: contact_message_center_form
+captchaType: default
+label: contact_message_center_form
