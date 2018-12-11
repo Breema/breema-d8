@@ -6,6 +6,7 @@ use Drupal\Core\Access\AccessResult;
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\node\Entity\Node;
 use Drupal\node\NodeInterface;
+use Drupal\user\Entity\User;
 
 class BreemaController extends ControllerBase {
   /**
@@ -59,6 +60,24 @@ class BreemaController extends ControllerBase {
         return $node;
       }
     }
+  }
+
+  /**
+   * Redirect to the appropriate page for the current user's directory entry.
+   *
+   * Redirects to the entry if it exists, else /node/add/directory_entry.
+   *
+   * @return \Symfony\Component\HttpFoundation\RedirectResponse
+   *   The RedirectResponse to the right page for a user's directory entry.
+   */
+  public function myDirectoryEntry() {
+    $account = $this->currentUser();
+    $user = User::load($account->id());
+    $directory_entry = $user->get('field_directory_entry')->getValue();
+    if (!empty($directory_entry[0]['target_id'])) {
+      return $this->redirect('entity.node.canonical', ['node' => $directory_entry[0]['target_id']]);
+    }
+    return $this->redirect('node.add', ['node_type' => 'directory_entry']);
   }
 
 }

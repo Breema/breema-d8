@@ -19,3 +19,10 @@ entity.node.clone_form:
   requirements:
     _node_add_access: 'node:event'
     _custom_access: '\Drupal\breema\Controller\BreemaController::allowClone'
+user.dashboard.directory:
+  path: '/user/dashboard/directory'
+  defaults:
+    _title: 'My directory entry'
+    _controller: '\Drupal\breema\Controller\BreemaController::myDirectoryEntry'
+  requirements:
+    _node_add_access: 'node:directory_entry'
