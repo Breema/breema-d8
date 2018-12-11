@@ -1,7 +1,8 @@
 shortcut_set,weight,link_title,link_path
 instructor,-10,Add content,node/add
 instructor,-9,Add event,node/add/event
-instructor,-8,Event dashboard,user/dashboard/event
+instructor,-8,Event dashboard,user/dashboard/events
+instructor,-7,My directory entry,user/dashboard/directory
 content-administrator,-10,Add content,node/add
 content-administrator,-9,Add event,node/add/event
 content-administrator,-8,All content,admin/content
