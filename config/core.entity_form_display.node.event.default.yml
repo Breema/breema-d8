@@ -35,16 +35,30 @@ third_party_settings:
       children:
         - field_registration_link
         - field_facebook_event
-        - field_website
+        - group_other_links
       parent_name: ''
       weight: 10
+      format_type: fieldset
+      format_settings:
+        label: Links
+        description: ''
+        id: ''
+        classes: ''
+        required_fields: false
+      label: Links
+      region: content
+    group_other_links:
+      children:
+        - field_website
+      parent_name: group_links
+      weight: 12
       format_type: details
       format_settings:
         id: ''
         classes: ''
         open: false
         required_fields: false
-      label: Links
+      label: 'Other links'
       region: content
 id: node.event.default
 targetEntityType: node
@@ -177,7 +191,7 @@ content:
     type: number
     region: content
   field_website:
-    weight: 12
+    weight: 13
     settings:
       placeholder_url: ''
       placeholder_title: ''
