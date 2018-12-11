@@ -75,7 +75,6 @@ permissions:
   - 'edit field_breema_center_staff'
   - 'edit field_breema_clinic_practitioner'
   - 'edit field_certification'
-  - 'edit field_directory_entry'
   - 'edit field_has_active_event'
   - 'edit field_job_title'
   - 'edit terms in event_category'
