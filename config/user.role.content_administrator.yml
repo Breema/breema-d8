@@ -2,8 +2,8 @@ uuid: 55297a22-fdc4-4639-8b5f-c8fda3b57c0a
 langcode: en
 status: true
 dependencies: {  }
-id: content_editor
-label: 'Content editor'
+id: content_administrator
+label: 'Content administrator'
 weight: -4
 is_admin: false
 permissions:
@@ -19,7 +19,6 @@ permissions:
   - 'access media_embed entity browser pages'
   - 'access place_browser entity browser pages'
   - 'access shortcuts'
-  - 'access site reports'
   - 'access taxonomy overview'
   - 'access toolbar'
   - 'administer comments'
@@ -55,7 +54,6 @@ permissions:
   - 'delete any place content'
   - 'delete any product content'
   - 'delete any video media'
-  - 'delete media'
   - 'delete terms in event_category'
   - 'delete terms in file_type'
   - 'delete terms in image_type'
@@ -75,7 +73,6 @@ permissions:
   - 'edit field_breema_center_staff'
   - 'edit field_breema_clinic_practitioner'
   - 'edit field_certification'
-  - 'edit field_has_active_event'
   - 'edit field_job_title'
   - 'edit terms in event_category'
   - 'edit terms in file_type'
@@ -91,11 +88,9 @@ permissions:
   - 'revert all revisions'
   - 'skip comment approval'
   - 'update any media'
-  - 'update media'
   - 'use advanced search'
   - 'use text format full_html'
   - 'view all media revisions'
   - 'view all revisions'
   - 'view any unpublished content'
-  - 'view field_has_active_event'
   - 'view the administration theme'

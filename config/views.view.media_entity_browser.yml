@@ -409,7 +409,7 @@ display:
             remember_roles:
               authenticated: authenticated
               anonymous: '0'
-              content_editor: '0'
+              content_administrator: '0'
               administrator: '0'
             reduce: false
           is_grouped: false
@@ -453,7 +453,7 @@ display:
               anonymous: '0'
               practitioner: '0'
               instructor: '0'
-              content_editor: '0'
+              content_administrator: '0'
               administrator: '0'
             reduce: false
           is_grouped: false
@@ -501,7 +501,7 @@ display:
               anonymous: '0'
               practitioner: '0'
               instructor: '0'
-              content_editor: '0'
+              content_administrator: '0'
               administrator: '0'
             reduce: false
           is_grouped: false
@@ -549,7 +549,7 @@ display:
               anonymous: '0'
               practitioner: '0'
               instructor: '0'
-              content_editor: '0'
+              content_administrator: '0'
               administrator: '0'
             reduce: false
           is_grouped: false
@@ -987,7 +987,7 @@ display:
               anonymous: '0'
               practitioner: '0'
               instructor: '0'
-              content_editor: '0'
+              content_administrator: '0'
               administrator: '0'
             reduce: false
           is_grouped: false
@@ -1518,7 +1518,7 @@ display:
               anonymous: '0'
               practitioner: '0'
               instructor: '0'
-              content_editor: '0'
+              content_administrator: '0'
               administrator: '0'
             reduce: false
           is_grouped: false

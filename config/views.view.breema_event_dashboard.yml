@@ -177,7 +177,7 @@ display:
               anonymous: '0'
               practitioner: '0'
               instructor: '0'
-              content_editor: '0'
+              content_administrator: '0'
               administrator: '0'
           is_grouped: false
           group_info:
@@ -224,7 +224,7 @@ display:
               anonymous: '0'
               practitioner: '0'
               instructor: '0'
-              content_editor: '0'
+              content_administrator: '0'
               administrator: '0'
             placeholder: ''
             min_placeholder: ''
@@ -427,7 +427,7 @@ display:
               anonymous: '0'
               practitioner: '0'
               instructor: '0'
-              content_editor: '0'
+              content_administrator: '0'
               administrator: '0'
           is_grouped: false
           group_info:
@@ -474,7 +474,7 @@ display:
               anonymous: '0'
               practitioner: '0'
               instructor: '0'
-              content_editor: '0'
+              content_administrator: '0'
               administrator: '0'
             placeholder: ''
             min_placeholder: ''
@@ -557,7 +557,7 @@ display:
               anonymous: '0'
               practitioner: '0'
               instructor: '0'
-              content_editor: '0'
+              content_administrator: '0'
               administrator: '0'
           is_grouped: false
           group_info:
@@ -689,7 +689,7 @@ display:
               anonymous: '0'
               practitioner: '0'
               instructor: '0'
-              content_editor: '0'
+              content_administrator: '0'
               administrator: '0'
           is_grouped: false
           group_info:
@@ -736,7 +736,7 @@ display:
               anonymous: '0'
               practitioner: '0'
               instructor: '0'
-              content_editor: '0'
+              content_administrator: '0'
               administrator: '0'
             placeholder: ''
             min_placeholder: ''
@@ -780,7 +780,7 @@ display:
               anonymous: '0'
               practitioner: '0'
               instructor: '0'
-              content_editor: '0'
+              content_administrator: '0'
               administrator: '0'
           is_grouped: false
           group_info:

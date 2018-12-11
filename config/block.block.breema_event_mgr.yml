@@ -24,7 +24,7 @@ visibility:
     id: user_role
     roles:
       instructor: instructor
-      content_editor: content_editor
+      content_administrator: content_administrator
       administrator: administrator
     negate: false
     context_mapping:

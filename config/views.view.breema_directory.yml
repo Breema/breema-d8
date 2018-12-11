@@ -110,7 +110,7 @@ display:
             remember_roles:
               authenticated: authenticated
               anonymous: '0'
-              content_editor: '0'
+              content_administrator: '0'
               administrator: '0'
           is_grouped: false
           group_info:
@@ -153,7 +153,7 @@ display:
               anonymous: '0'
               practitioner: '0'
               instructor: '0'
-              content_editor: '0'
+              content_administrator: '0'
               administrator: '0'
               event_expert: '0'
             reduce: true
@@ -196,7 +196,7 @@ display:
             remember_roles:
               authenticated: authenticated
               anonymous: '0'
-              content_editor: '0'
+              content_administrator: '0'
               administrator: '0'
             reduce: false
           is_grouped: false
@@ -276,7 +276,7 @@ display:
             remember_roles:
               authenticated: authenticated
               anonymous: '0'
-              content_editor: '0'
+              content_administrator: '0'
               administrator: '0'
             reduce: false
             label_type: dynamic
@@ -368,7 +368,7 @@ display:
               anonymous: '0'
               practitioner: '0'
               instructor: '0'
-              content_editor: '0'
+              content_administrator: '0'
               administrator: '0'
             reduce: false
           is_grouped: false
@@ -672,7 +672,7 @@ display:
             remember_roles:
               authenticated: authenticated
               anonymous: '0'
-              content_editor: '0'
+              content_administrator: '0'
               administrator: '0'
             input_by_geocoding_widget: 0
             geocoder_plugin_settings:
@@ -764,7 +764,7 @@ display:
               anonymous: '0'
               practitioner: '0'
               instructor: '0'
-              content_editor: '0'
+              content_administrator: '0'
               administrator: '0'
               event_expert: '0'
             reduce: true
@@ -807,7 +807,7 @@ display:
             remember_roles:
               authenticated: authenticated
               anonymous: '0'
-              content_editor: '0'
+              content_administrator: '0'
               administrator: '0'
             reduce: false
           is_grouped: false

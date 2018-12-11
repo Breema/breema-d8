@@ -1118,7 +1118,7 @@ display:
             remember_roles:
               authenticated: authenticated
               anonymous: '0'
-              content_editor: '0'
+              content_administrator: '0'
               administrator: '0'
           is_grouped: false
           group_info:
@@ -1157,7 +1157,7 @@ display:
             remember_roles:
               authenticated: authenticated
               anonymous: '0'
-              content_editor: '0'
+              content_administrator: '0'
               administrator: '0'
             reduce: false
           is_grouped: false
@@ -1197,7 +1197,7 @@ display:
             remember_roles:
               authenticated: authenticated
               anonymous: '0'
-              content_editor: '0'
+              content_administrator: '0'
               administrator: '0'
             reduce: false
             label_type: dynamic
@@ -1243,7 +1243,7 @@ display:
             remember_roles:
               authenticated: authenticated
               anonymous: '0'
-              content_editor: '0'
+              content_administrator: '0'
               administrator: '0'
             placeholder: ''
           is_grouped: false
@@ -1283,7 +1283,7 @@ display:
             remember_roles:
               authenticated: authenticated
               anonymous: '0'
-              content_editor: '0'
+              content_administrator: '0'
               administrator: '0'
             placeholder: ''
           is_grouped: false
@@ -1326,7 +1326,7 @@ display:
             remember_roles:
               authenticated: authenticated
               anonymous: '0'
-              content_editor: '0'
+              content_administrator: '0'
               administrator: '0'
             placeholder: ''
             min_placeholder: ''
@@ -1368,7 +1368,7 @@ display:
             remember_roles:
               authenticated: authenticated
               anonymous: '0'
-              content_editor: '0'
+              content_administrator: '0'
               administrator: '0'
             placeholder: ''
           is_grouped: false
@@ -1408,7 +1408,7 @@ display:
             remember_roles:
               authenticated: authenticated
               anonymous: '0'
-              content_editor: '0'
+              content_administrator: '0'
               administrator: '0'
             placeholder: ''
           is_grouped: false
@@ -1448,7 +1448,7 @@ display:
             remember_roles:
               authenticated: authenticated
               anonymous: '0'
-              content_editor: '0'
+              content_administrator: '0'
               administrator: '0'
             placeholder: ''
           is_grouped: false
@@ -1488,7 +1488,7 @@ display:
             remember_roles:
               authenticated: authenticated
               anonymous: '0'
-              content_editor: '0'
+              content_administrator: '0'
               administrator: '0'
           is_grouped: false
           group_info:
@@ -1527,7 +1527,7 @@ display:
             remember_roles:
               authenticated: authenticated
               anonymous: '0'
-              content_editor: '0'
+              content_administrator: '0'
               administrator: '0'
           is_grouped: false
           group_info:
@@ -1566,7 +1566,7 @@ display:
             remember_roles:
               authenticated: authenticated
               anonymous: '0'
-              content_editor: '0'
+              content_administrator: '0'
               administrator: '0'
             reduce: false
           is_grouped: false
@@ -1607,7 +1607,7 @@ display:
             remember_roles:
               authenticated: authenticated
               anonymous: '0'
-              content_editor: '0'
+              content_administrator: '0'
               administrator: '0'
           is_grouped: false
           group_info:
@@ -1652,7 +1652,7 @@ display:
             remember_roles:
               authenticated: authenticated
               anonymous: '0'
-              content_editor: '0'
+              content_administrator: '0'
               administrator: '0'
             placeholder: ''
             min_placeholder: ''

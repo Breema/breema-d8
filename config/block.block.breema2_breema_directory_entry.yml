@@ -30,7 +30,7 @@ visibility:
     roles:
       practitioner: practitioner
       instructor: instructor
-      content_editor: content_editor
+      content_administrator: content_administrator
     negate: false
     context_mapping:
       user: '@user.current_user_context:current_user'

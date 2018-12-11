@@ -24,7 +24,7 @@ settings:
       role:
         instructor: instructor
         practitioner: '0'
-        content_editor: '0'
+        content_administrator: '0'
         administrator: '0'
     target_bundles: null
     sort:

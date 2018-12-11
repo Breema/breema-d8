@@ -24,7 +24,7 @@ settings:
       role:
         practitioner: practitioner
         instructor: instructor
-        content_editor: '0'
+        content_administrator: '0'
         administrator: '0'
         event_expert: '0'
     target_bundles: null

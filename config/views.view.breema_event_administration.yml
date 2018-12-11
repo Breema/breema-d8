@@ -7,7 +7,7 @@ dependencies:
     - field.storage.node.field_location
     - node.type.event
     - user.role.administrator
-    - user.role.content_editor
+    - user.role.content_administrator
   module:
     - datetime_range
     - node
@@ -32,7 +32,7 @@ display:
         type: role
         options:
           role:
-            content_editor: content_editor
+            content_administrator: content_administrator
             administrator: administrator
       cache:
         type: tag
@@ -668,7 +668,7 @@ display:
               anonymous: '0'
               practitioner: '0'
               instructor: '0'
-              content_editor: '0'
+              content_administrator: '0'
               administrator: '0'
           is_grouped: false
           group_info:
@@ -711,7 +711,7 @@ display:
               anonymous: '0'
               practitioner: '0'
               instructor: '0'
-              content_editor: '0'
+              content_administrator: '0'
               administrator: '0'
           is_grouped: false
           group_info:
