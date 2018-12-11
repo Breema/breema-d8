@@ -9,6 +9,7 @@ dependencies:
     - field.field.node.directory_entry.field_breema_clinic_practitioner
     - field.field.node.directory_entry.field_certification
     - field.field.node.directory_entry.field_email
+    - field.field.node.directory_entry.field_facebook_page
     - field.field.node.directory_entry.field_geolocation
     - field.field.node.directory_entry.field_has_active_event
     - field.field.node.directory_entry.field_job_title
@@ -17,9 +18,12 @@ dependencies:
     - field.field.node.directory_entry.field_resources
     - field.field.node.directory_entry.field_telephone
     - field.field.node.directory_entry.field_upcoming_events
+    - field.field.node.directory_entry.field_website
     - node.type.directory_entry
   module:
     - address
+    - fixed_text_link_formatter
+    - link
     - options
     - telephone
     - text
@@ -32,7 +36,7 @@ content:
   body:
     label: hidden
     type: text_default
-    weight: 7
+    weight: 9
     settings: {  }
     third_party_settings: {  }
     region: content
@@ -77,6 +81,21 @@ content:
     third_party_settings: {  }
     type: email_mailto
     region: content
+  field_facebook_page:
+    weight: 7
+    label: hidden
+    settings:
+      link_text: 'Facebook page'
+      link_class: facebook
+      rel: nofollow
+      target: _blank
+      allow_override: 0
+      trim_length: ''
+      url_only: ''
+      url_plain: ''
+    third_party_settings: {  }
+    type: fixed_text_link
+    region: content
   field_job_title:
     weight: 0
     label: hidden
@@ -86,7 +105,7 @@ content:
     type: string
     region: content
   field_resources:
-    weight: 8
+    weight: 10
     label: above
     settings:
       view_mode: view_large
@@ -102,8 +121,20 @@ content:
     third_party_settings: {  }
     type: telephone_link
     region: content
+  field_website:
+    weight: 8
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
   links:
-    weight: 9
+    weight: 11
     region: content
     settings: {  }
     third_party_settings: {  }

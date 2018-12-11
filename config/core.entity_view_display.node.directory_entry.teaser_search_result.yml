@@ -10,6 +10,7 @@ dependencies:
     - field.field.node.directory_entry.field_breema_clinic_practitioner
     - field.field.node.directory_entry.field_certification
     - field.field.node.directory_entry.field_email
+    - field.field.node.directory_entry.field_facebook_page
     - field.field.node.directory_entry.field_geolocation
     - field.field.node.directory_entry.field_has_active_event
     - field.field.node.directory_entry.field_job_title
@@ -18,9 +19,12 @@ dependencies:
     - field.field.node.directory_entry.field_resources
     - field.field.node.directory_entry.field_telephone
     - field.field.node.directory_entry.field_upcoming_events
+    - field.field.node.directory_entry.field_website
     - node.type.directory_entry
   module:
     - address
+    - fixed_text_link_formatter
+    - link
     - options
     - telephone
     - user
@@ -70,6 +74,21 @@ content:
     third_party_settings: {  }
     type: email_mailto
     region: content
+  field_facebook_page:
+    type: fixed_text_link
+    weight: 7
+    region: content
+    label: hidden
+    settings:
+      link_text: 'Facebook page'
+      link_class: facebook
+      rel: nofollow
+      target: _blank
+      allow_override: 0
+      trim_length: ''
+      url_only: ''
+      url_plain: ''
+    third_party_settings: {  }
   field_job_title:
     weight: 0
     label: hidden
@@ -88,12 +107,24 @@ content:
     region: content
   field_upcoming_events:
     type: entity_reference_entity_view
-    weight: 7
+    weight: 9
     region: content
     label: above
     settings:
       view_mode: teaser_compact_location
       link: false
+    third_party_settings: {  }
+  field_website:
+    type: link
+    weight: 8
+    region: content
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
     third_party_settings: {  }
 hidden:
   body: true

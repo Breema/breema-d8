@@ -1,0 +1,23 @@
+uuid: ef450bf9-edaa-4ddc-b2aa-e9b913202119
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_website
+    - node.type.directory_entry
+  module:
+    - link
+id: node.directory_entry.field_website
+field_name: field_website
+entity_type: node
+bundle: directory_entry
+label: 'Other websites'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 16
+  title: 1
+field_type: link
