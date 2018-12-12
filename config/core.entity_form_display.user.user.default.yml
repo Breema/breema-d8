@@ -144,16 +144,20 @@ content:
     type: string_textarea
     region: content
   field_directory_entry:
-    type: inline_entity_form_simple
+    type: inline_entity_form_complex
     weight: 2
     region: content
     settings:
       form_mode: default
-      override_labels: false
-      label_singular: ''
-      label_plural: ''
+      override_labels: true
+      label_singular: 'Directory entry'
+      label_plural: 'Directory entries'
+      allow_new: true
+      match_operator: CONTAINS
       collapsible: false
       collapsed: false
+      allow_existing: false
+      allow_duplicate: false
     third_party_settings: {  }
   field_name_first:
     weight: 0

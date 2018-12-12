@@ -480,81 +480,108 @@ function breema_entity_browser_media_after_build($form_element, FormStateInterfa
 }
 
 /**
- * Implements hook_form_FORM_ID_alter() for 'node_form'.
+ * Implements hook_inline_entity_form_entity_form_alter().
  *
- * Adds a custom section on directory_entry forms to reference user pictures.
+ * Invokes the directory_entry form alter method with the right user entity.
+ */
+function breema_inline_entity_form_entity_form_alter(&$entity_form, \Drupal\Core\Form\FormStateInterface &$form_state) {
+  if ($entity_form['#entity_type'] == 'node' && !empty($entity_form['#bundle']) && $entity_form['#bundle'] == 'directory_entry') {
+    $user = $form_state->getFormObject()->getEntity();
+    $entity_form['uid']['widget'][0]['target_id']['#default_value'] = $user;
+    breema_directory_entry_node_form_alter($entity_form, $form_state, $user);
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter() for 'node_form'.
  */
 function breema_form_node_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state) {
   $node = $form_state->getFormObject()->getEntity();
+  // Find the appropriate user entity and invoke the shared method.
   if ($node->bundle() == 'directory_entry') {
-    $author = $node->get('uid')->getValue();
-    $author_uid = $author[0]['target_id'];
-    $current_page = Url::fromRoute('<current>');
-    $url_options['query']['destination'] = $current_page->toString();
-    $url_options['fragment'] = 'edit-user-picture-wrapper';
-    $edit_url = Url::fromRoute('entity.user.edit_form', ['user' => $author_uid], $url_options);
-
-    $author_entity = user_load($author_uid);
-    $user_picture = $author_entity->get('user_picture')->getValue();
-    $form['headshot'] = [
-      '#type' => 'details',
-      '#title' => t('Headshot image'),
-      '#open' => TRUE,
-      '#weight' => 9,
-    ];
-    if (!empty($user_picture)) {
-      $form['headshot']['current'] = user_view($author_entity, 'compact');
-      $form['headshot']['help'] = [
-        '#type' => 'item',
-        '#description' => t('You must <a href=":edit">edit your user account</a> and use the <em>Picture</em> field to manage the image displayed with your directory entry.', [':edit' => $edit_url->toString()]),
-      ];
-    }
-    else {
-      $form['headshot']['help'] = [
-        '#type' => 'item',
-        '#description' => t('If you <a href=":edit">edit your user account</a> you can upload an image in the <em>Picture</em> field and it will be displayed with your directory entry.', [':edit' => $edit_url->toString()]),
-      ];
-    }
-    // If not already defined, set default values for first and last name based
-    // on the values in the user entity.
-    foreach (['last', 'first'] as $name_type) {
-      $field_name = 'field_name_' . $name_type;
-      if (empty($form[$field_name]['widget'][0]['value']['#default_value'])) {
-        $form[$field_name]['widget'][0]['value']['#default_value'] = $author_entity->get($field_name)->value;
-      }
-    }
-    $author_address = $author_entity->get('field_address')->getValue();
-    foreach (
-      [
-        'country_code',
-        'administrative_area',
-        'locality',
-        'postal_code',
-      ] as $addr_field)
-    {
-      if (empty($form['field_address']['widget'][0]['address']['#default_value'][$addr_field])) {
-        $form['field_address']['widget'][0]['address']['#default_value'][$addr_field] = $author_address[0][$addr_field];
-      }
-    }
-    $form['contact_info_desc'] = [
-      '#type' => 'markup',
-      /// @todo test if the contact tab is enabled and print the right message.
-      '#markup' => t('If your contact tab is enabled on your user profile, site visitors will be able to send you a message via this website without being able to see your e-mail address. Only list further information here if you want it to be publicly visible.'),
-      '#prefix' => '<div class="description">',
-      '#suffix' => '</div>',
-      '#weight' => -10,
-    ];
-    $form['#group_children']['contact_info_desc'] = 'group_contact_info';
+    $authors = $node->get('uid')->referencedEntities();
+    $author = array_pop($authors);
+    breema_directory_entry_node_form_alter($form, $form_state, $author);
   }
+  // Products have a special #after_build callback.
   else if ($node->bundle() == 'product') {
     $form['field_by']['widget'][0]['#after_build'][] = 'breema_product_node_form_after_build';
   }
+  // Schedule events (with a parent) can't access their title, require subtitle.
   else if ($node->bundle() == 'event') {
     if (!empty($form['field_parent_event']['widget'][0]['target_id']['#default_value'])) {
       $form['title']['#access'] = FALSE;
       $form['field_subtitle']['widget'][0]['value']['#required'] = TRUE;
     }
   }
+}
+
+/**
+ * Alter a directory_entry node form, regardless of IEF or stand-alone.
+ *
+ * @param array $form
+ *   Reference to the form array to alter.
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ *   The form state.
+ * @param \Drupal\user\UserInterface $user
+ *   The user entity that the directory entry is attached to.
+ */
+function breema_directory_entry_node_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, \Drupal\user\UserInterface $user) {
+  $current_page = Url::fromRoute('<current>');
+  $url_options['query']['destination'] = $current_page->toString();
+  $url_options['fragment'] = 'edit-user-picture-wrapper';
+  $edit_url = Url::fromRoute('entity.user.edit_form', ['user' => $user->id()], $url_options);
+
+  $user_picture = $user->get('user_picture')->getValue();
+  $form['headshot'] = [
+    '#type' => 'details',
+    '#title' => t('Headshot image'),
+    '#open' => TRUE,
+    '#weight' => 9,
+  ];
+  if (!empty($user_picture)) {
+    $form['headshot']['current'] = user_view($user, 'compact');
+    $form['headshot']['help'] = [
+      '#type' => 'item',
+      '#description' => t('You must <a href=":edit">edit your user account</a> and use the <em>Picture</em> field to manage the image displayed with your directory entry.', [':edit' => $edit_url->toString()]),
+    ];
+  }
+  else {
+    $form['headshot']['help'] = [
+      '#type' => 'item',
+      '#description' => t('If you <a href=":edit">edit your user account</a> you can upload an image in the <em>Picture</em> field and it will be displayed with your directory entry.', [':edit' => $edit_url->toString()]),
+    ];
+  }
+  // If not already defined, set default values for first and last name based
+  // on the values in the user entity.
+  foreach (['last', 'first'] as $name_type) {
+    $field_name = 'field_name_' . $name_type;
+    if (empty($form[$field_name]['widget'][0]['value']['#default_value'])) {
+      $form[$field_name]['widget'][0]['value']['#default_value'] = $user->get($field_name)->value;
+    }
+  }
+  $author_address = $user->get('field_address')->getValue();
+  foreach (
+    [
+      'country_code',
+      'administrative_area',
+      'locality',
+      'postal_code',
+    ] as $addr_field)
+  {
+    if (empty($form['field_address']['widget'][0]['address']['#default_value'][$addr_field])) {
+      $form['field_address']['widget'][0]['address']['#default_value'][$addr_field] = $author_address[0][$addr_field];
+    }
+  }
+  $form['contact_info_desc'] = [
+    '#type' => 'markup',
+    /// @todo test if the contact tab is enabled and print the right message.
+    '#markup' => t('If your contact tab is enabled on your user profile, site visitors will be able to send you a message via this website without being able to see your e-mail address. Only list further information here if you want it to be publicly visible.'),
+    '#prefix' => '<div class="description">',
+    '#suffix' => '</div>',
+    '#weight' => -10,
+  ];
+  $form['#group_children']['contact_info_desc'] = 'group_contact_info';
 }
 
 /**
