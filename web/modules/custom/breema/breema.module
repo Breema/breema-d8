@@ -1219,20 +1219,22 @@ function breema_entity_node_directory_entry_view_alter(array &$build, EntityInte
     $user_picture = $author_entity->get('user_picture')->getValue();
   }
 
-  if (!empty($user_picture)) {
+  if (!empty($user_picture[0]['target_id'])) {
     $user_picture_file = file_load($user_picture[0]['target_id']);
-    $build['headshot'] = [
-      '#theme' => 'image_style',
-      '#style_name' => $build['#view_mode'] == 'full' ? 'medium' : 'thumbnail',
-      '#weight' => -1,
-      '#prefix' => '<div class="headshot">',
-      '#suffix' => '</div>',
-      '#uri' => $user_picture_file->getFileUri(),
-      '#alt' => t('Profile image for @user_name', ['@user_name' => $author_entity->getAccountName()]),
-    ];
-    if ($build['#view_mode'] == 'teaser_compact' || $build['#view_mode'] == 'teaser_search_result') {
-      $build['headshot']['#prefix'] .= '<a href="' . $entity->toUrl()->toString() . '">';
-      $build['headshot']['#suffix'] = '</a></div>';
+    if (!empty($user_picture_file)) {
+      $build['headshot'] = [
+        '#theme' => 'image_style',
+        '#style_name' => $build['#view_mode'] == 'full' ? 'medium' : 'thumbnail',
+        '#weight' => -1,
+        '#prefix' => '<div class="headshot">',
+        '#suffix' => '</div>',
+        '#uri' => $user_picture_file->getFileUri(),
+        '#alt' => t('Profile image for @user_name', ['@user_name' => $author_entity->getAccountName()]),
+      ];
+      if ($build['#view_mode'] == 'teaser_compact' || $build['#view_mode'] == 'teaser_search_result') {
+        $build['headshot']['#prefix'] .= '<a href="' . $entity->toUrl()->toString() . '">';
+        $build['headshot']['#suffix'] = '</a></div>';
+      }
     }
   }
 
