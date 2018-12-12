@@ -83,12 +83,6 @@ process:
   'field_address/administrative_area': state
   'field_address/locality': city
   'field_address/postal_code': postal_code
-  field_breema_center_staff:
-    plugin: default_value
-    default_value: false
-  field_breema_clinic_practitioner:
-    plugin: default_value
-    default_value: false
   field_job_title:
     plugin: default_value
     default_value: ''

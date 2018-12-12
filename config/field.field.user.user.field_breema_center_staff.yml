@@ -1,0 +1,24 @@
+uuid: 9f925849-25df-4c62-8dc8-61da1fde51fe
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_breema_center_staff
+  module:
+    - user
+id: user.user.field_breema_center_staff
+field_name: field_breema_center_staff
+entity_type: user
+bundle: user
+label: 'Breema Center staff'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

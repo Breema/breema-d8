@@ -7,6 +7,8 @@ dependencies:
     - field.field.user.user.field_anatomy_homework_language
     - field.field.user.user.field_anatomy_requirement
     - field.field.user.user.field_anatomy_transcript
+    - field.field.user.user.field_breema_center_staff
+    - field.field.user.user.field_breema_clinic_practitioner
     - field.field.user.user.field_certification
     - field.field.user.user.field_class_attended
     - field.field.user.user.field_class_other
@@ -38,7 +40,7 @@ third_party_settings:
         - field_class_attended
         - field_class_other
       parent_name: ''
-      weight: 7
+      weight: 9
       format_type: details
       format_settings:
         id: ''
@@ -52,7 +54,7 @@ third_party_settings:
         - user_picture
         - field_directory_entry
       parent_name: ''
-      weight: 8
+      weight: 10
       format_type: details
       format_settings:
         id: ''
@@ -74,12 +76,12 @@ content:
     settings: {  }
     third_party_settings: {  }
   contact:
-    weight: 9
+    weight: 11
     region: content
     settings: {  }
     third_party_settings: {  }
   field_address:
-    weight: 4
+    weight: 6
     settings:
       default_country: US
     third_party_settings: {  }
@@ -103,6 +105,20 @@ content:
       progress_indicator: throbber
     third_party_settings: {  }
     type: file_generic
+    region: content
+  field_breema_center_staff:
+    weight: 4
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_breema_clinic_practitioner:
+    weight: 5
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
     region: content
   field_certification:
     weight: 3
@@ -156,7 +172,7 @@ content:
     type: string_textfield
     region: content
   field_profession:
-    weight: 6
+    weight: 8
     settings:
       size: 60
       placeholder: ''
@@ -164,7 +180,7 @@ content:
     type: string_textfield
     region: content
   field_telephone:
-    weight: 5
+    weight: 7
     settings:
       placeholder: ''
     third_party_settings: {  }
@@ -179,13 +195,13 @@ content:
     type: string_textarea
     region: content
   language:
-    weight: 11
+    weight: 13
     region: content
     settings: {  }
     third_party_settings: {  }
   path:
     type: path
-    weight: 10
+    weight: 12
     region: content
     settings: {  }
     third_party_settings: {  }

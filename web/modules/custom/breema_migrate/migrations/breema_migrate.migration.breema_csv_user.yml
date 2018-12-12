@@ -85,6 +85,12 @@ process:
     -
       plugin: callback
       callable: breema_migrate_certification
+  field_breema_center_staff:
+    plugin: default_value
+    default_value: false
+  field_breema_clinic_practitioner:
+    plugin: default_value
+    default_value: false
 
 migration_dependencies:
   required: {}
