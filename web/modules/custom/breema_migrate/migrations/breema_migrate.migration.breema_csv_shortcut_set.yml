@@ -20,4 +20,4 @@ process:
   label: label
 
 migration_dependencies:
-  required: { }
+  required: {}

@@ -29,5 +29,4 @@ process:
       - link_path
 
 migration_dependencies:
-  required:
-    - breema_csv_shortcut_set
+  required: {}
