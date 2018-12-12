@@ -12,4 +12,5 @@ permissions:
   - 'access toolbar'
   - 'access user profiles'
   - 'administer users'
+  - 'edit field_certification'
   - 'view the administration theme'

@@ -7,6 +7,7 @@ dependencies:
     - field.field.user.user.field_anatomy_homework_language
     - field.field.user.user.field_anatomy_requirement
     - field.field.user.user.field_anatomy_transcript
+    - field.field.user.user.field_certification
     - field.field.user.user.field_class_attended
     - field.field.user.user.field_class_other
     - field.field.user.user.field_directory_entry
@@ -78,7 +79,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_address:
-    weight: 3
+    weight: 4
     settings:
       default_country: US
     third_party_settings: {  }
@@ -102,6 +103,12 @@ content:
       progress_indicator: throbber
     third_party_settings: {  }
     type: file_generic
+    region: content
+  field_certification:
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
     region: content
   field_class_attended:
     weight: 13
@@ -149,7 +156,7 @@ content:
     type: string_textfield
     region: content
   field_profession:
-    weight: 5
+    weight: 6
     settings:
       size: 60
       placeholder: ''
@@ -157,7 +164,7 @@ content:
     type: string_textfield
     region: content
   field_telephone:
-    weight: 4
+    weight: 5
     settings:
       placeholder: ''
     third_party_settings: {  }

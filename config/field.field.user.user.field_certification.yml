@@ -1,0 +1,21 @@
+uuid: f9609bf2-e6a1-44ef-8cdb-f7169fad5c66
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_certification
+  module:
+    - options
+    - user
+id: user.user.field_certification
+field_name: field_certification
+entity_type: user
+bundle: user
+label: Certification
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

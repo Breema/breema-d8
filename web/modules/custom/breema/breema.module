@@ -999,6 +999,14 @@ function breema_node_presave(NodeInterface $node) {
       $node->setTitle($title);
     }
   }
+  elseif ($node->bundle() == 'directory_entry') {
+    $authors = $node->get('uid')->referencedEntities();
+    if (!empty($authors)) {
+      $author_entity = array_pop($authors);
+      $certification = $author_entity->get('field_certification')->getValue();
+      $node->set('field_certification', $certification);
+    }
+  }
 }
 
 /**
@@ -1133,6 +1141,8 @@ function breema_entity_user_view_alter(array &$build, EntityInterface $entity, E
       $build[$field]['#access'] = FALSE;
     }
   }
+  // Let users (and admins) see their own certification, but no one else's.
+  $build['field_certification']['#access'] = ($entity->id() == $current_user->id()) || $is_user_admin;
   if ($display->getMode() == 'default') {
     $user_roles = $entity->getRoles();
     $is_certified = (in_array('instructor', $user_roles) || in_array('practitioner', $user_roles));
