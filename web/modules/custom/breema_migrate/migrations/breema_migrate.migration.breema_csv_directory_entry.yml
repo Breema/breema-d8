@@ -92,18 +92,6 @@ process:
   field_job_title:
     plugin: default_value
     default_value: ''
-  field_certification:
-    -
-      plugin: concat
-      delimiter: '-'
-      source:
-        - self_breema_provisional
-        - self_breema_full
-        - instructor_provisional
-        - instructor_full
-    -
-      plugin: callback
-      callable: breema_migrate_certification
 
 migration_dependencies:
   required:

@@ -73,6 +73,18 @@ process:
     -
       plugin: callback
       callable: breema_migrate_map_certification_to_roles
+  field_certification:
+    -
+      plugin: concat
+      delimiter: '-'
+      source:
+        - self_breema_provisional
+        - self_breema_full
+        - instructor_provisional
+        - instructor_full
+    -
+      plugin: callback
+      callable: breema_migrate_certification
 
 migration_dependencies:
   required: {}
