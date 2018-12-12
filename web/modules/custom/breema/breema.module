@@ -1048,7 +1048,7 @@ function breema_node_presave(NodeInterface $node) {
  */
 function breema_entity_create_access(AccountInterface $account, array $context, $entity_bundle) {
   $user = \Drupal\user\Entity\User::load($account->id());
-  if (!$user->hasRole('content_editor')
+  if (!$user->hasRole('content_administrator')
       && $context['entity_type_id'] == 'node'
       && $entity_bundle == 'directory_entry')
   {
