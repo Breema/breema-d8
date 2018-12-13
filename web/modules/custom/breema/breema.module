@@ -551,15 +551,23 @@ function breema_directory_entry_node_form_alter(&$form, \Drupal\Core\Form\FormSt
   if (!$is_inline) {
     $url_options['fragment'] = 'edit-user-picture-wrapper';
     $headshot_url = Url::fromRoute($route, $route_args, $url_options)->toString();
-    $user_picture = $user->get('user_picture')->getValue();
     $form['headshot'] = [
       '#type' => 'details',
       '#title' => t('Headshot image'),
       '#open' => TRUE,
       '#weight' => 9,
     ];
-    if (!empty($user_picture)) {
-      $form['headshot']['current'] = user_view($user, 'compact');
+    $user_pictures = $user->get('user_picture')->referencedEntities();
+    if (!empty($user_pictures)) {
+      $user_picture = array_pop($user_pictures);
+      $form['headshot']['current'] = [
+        '#theme' => 'image_style',
+        '#style_name' => 'thumbnail',
+        '#weight' => -1,
+        '#prefix' => '<div class="headshot">',
+        '#suffix' => '</div>',
+        '#uri' => $user_picture->getFileUri(),
+      ];
       $form['headshot']['help'] = [
         '#type' => 'item',
         '#description' => t('You must <a href=":edit">edit your user account</a> and use the <em>Picture</em> field to manage the image displayed with your directory entry.', [':edit' => $headshot_url]),
