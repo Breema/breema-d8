@@ -488,7 +488,7 @@ function breema_inline_entity_form_entity_form_alter(&$entity_form, \Drupal\Core
   if ($entity_form['#entity_type'] == 'node' && !empty($entity_form['#bundle']) && $entity_form['#bundle'] == 'directory_entry') {
     $user = $form_state->getFormObject()->getEntity();
     $entity_form['uid']['widget'][0]['target_id']['#default_value'] = $user;
-    breema_directory_entry_node_form_alter($entity_form, $form_state, $user);
+    breema_directory_entry_node_form_alter($entity_form, $form_state, $user, TRUE);
   }
 }
 
@@ -501,7 +501,7 @@ function breema_form_node_form_alter(&$form, \Drupal\Core\Form\FormStateInterfac
   if ($node->bundle() == 'directory_entry') {
     $authors = $node->get('uid')->referencedEntities();
     $author = array_pop($authors);
-    breema_directory_entry_node_form_alter($form, $form_state, $author);
+    breema_directory_entry_node_form_alter($form, $form_state, $author, FALSE);
   }
   // Products have a special #after_build callback.
   else if ($node->bundle() == 'product') {
@@ -525,33 +525,49 @@ function breema_form_node_form_alter(&$form, \Drupal\Core\Form\FormStateInterfac
  *   The form state.
  * @param \Drupal\user\UserInterface $user
  *   The user entity that the directory entry is attached to.
+ * @param boolean $is_inline
+ *   Is the directory_entry form being rendered inline with the user profile?
  */
-function breema_directory_entry_node_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, \Drupal\user\UserInterface $user) {
-  $current_page = Url::fromRoute('<current>');
-  $url_options['query']['destination'] = $current_page->toString();
-  $url_options['fragment'] = 'edit-user-picture-wrapper';
-  $edit_url = Url::fromRoute('entity.user.edit_form', ['user' => $user->id()], $url_options);
-
-  $user_picture = $user->get('user_picture')->getValue();
-  $form['headshot'] = [
-    '#type' => 'details',
-    '#title' => t('Headshot image'),
-    '#open' => TRUE,
-    '#weight' => 9,
-  ];
-  if (!empty($user_picture)) {
-    $form['headshot']['current'] = user_view($user, 'compact');
-    $form['headshot']['help'] = [
-      '#type' => 'item',
-      '#description' => t('You must <a href=":edit">edit your user account</a> and use the <em>Picture</em> field to manage the image displayed with your directory entry.', [':edit' => $edit_url->toString()]),
-    ];
+function breema_directory_entry_node_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, \Drupal\user\UserInterface $user, $is_inline = FALSE) {
+  if ($is_inline) {
+    $route = '<current>';
+    $route_args = [];
   }
   else {
-    $form['headshot']['help'] = [
-      '#type' => 'item',
-      '#description' => t('If you <a href=":edit">edit your user account</a> you can upload an image in the <em>Picture</em> field and it will be displayed with your directory entry.', [':edit' => $edit_url->toString()]),
-    ];
+    $route = 'entity.user.edit_form';
+    $route_args = ['user' => $user->id()];
+    $url_options['query']['destination'] = Url::fromRoute('<current>')->toString();
   }
+  $url_options['fragment'] = 'edit-mail';
+  $email_url = Url::fromRoute($route, $route_args, $url_options)->toString();
+  $url_options['fragment'] = 'edit-user-contact-wrapper';
+  $contact_url = Url::fromRoute($route, $route_args, $url_options)->toString();
+
+  if (!$is_inline) {
+    $url_options['fragment'] = 'edit-user-picture-wrapper';
+    $headshot_url = Url::fromRoute($route, $route_args, $url_options)->toString();
+    $user_picture = $user->get('user_picture')->getValue();
+    $form['headshot'] = [
+      '#type' => 'details',
+      '#title' => t('Headshot image'),
+      '#open' => TRUE,
+      '#weight' => 9,
+    ];
+    if (!empty($user_picture)) {
+      $form['headshot']['current'] = user_view($user, 'compact');
+      $form['headshot']['help'] = [
+        '#type' => 'item',
+        '#description' => t('You must <a href=":edit">edit your user account</a> and use the <em>Picture</em> field to manage the image displayed with your directory entry.', [':edit' => $headshot_url]),
+      ];
+    }
+    else {
+      $form['headshot']['help'] = [
+        '#type' => 'item',
+        '#description' => t('If you <a href=":edit">edit your user account</a> you can upload an image in the <em>Picture</em> field and it will be displayed with your directory entry.', [':edit' => $headshot_url]),
+      ];
+    }
+  }
+
   // If not already defined, set default values for first and last name based
   // on the values in the user entity.
   foreach (['last', 'first'] as $name_type) {
@@ -573,12 +589,17 @@ function breema_directory_entry_node_form_alter(&$form, \Drupal\Core\Form\FormSt
       $form['field_address']['widget'][0]['address']['#default_value'][$addr_field] = $author_address[0][$addr_field];
     }
   }
+  $user_data = \Drupal::service('user.data');
+  $user_contact = $user_data->get('contact', $user->id(), 'enabled');
+  if ($user_contact) {
+    $contact_info_desc = t('Since your contact tab is enabled on your user profile, site visitors will be able to send you a message via this website without being able to see your e-mail address. Only list further information here if you want it to be publicly visible.');
+  }
+  else {
+    $contact_info_desc = t('If you enable your contact tab on your user profile, site visitors would be able to send you a message via this website without being able to see your e-mail address. Anything you put here will be publicly visible.');
+  }
   $form['contact_info_desc'] = [
     '#type' => 'markup',
-    /// @todo test if the contact tab is enabled and print the right message.
-    '#markup' => t('If your contact tab is enabled on your user profile, site visitors will be able to send you a message via this website without being able to see your e-mail address. Only list further information here if you want it to be publicly visible.'),
-    '#prefix' => '<div class="description">',
-    '#suffix' => '</div>',
+    '#markup' => $contact_info_desc,
     '#weight' => -10,
   ];
   $form['#group_children']['contact_info_desc'] = 'group_contact_info';
