@@ -12,7 +12,7 @@ field_name: field_website
 entity_type: node
 bundle: event
 label: 'Other websites for this event'
-description: 'Generally use the ''Registration link'' and/or the ''Facebook event'' links and leave this blank. Only use if there are other websites with information about this event. For example: meetup.com, a city-specific local calendar, an International Dance Week listing, the website for a conference where Breema is being offered, etc.'
+description: 'Generally use the <em>Registration link</em> or the <em>Facebook event</em> fields and leave this blank. Only use if there are other websites with information about this event. For example: meetup.com, a city-specific local calendar, an International Dance Week listing, the website for a conference where Breema is being offered, etc.'
 required: false
 translatable: true
 default_value: {  }
