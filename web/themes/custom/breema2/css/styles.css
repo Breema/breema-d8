@@ -287,6 +287,10 @@ div.field--name-field-registration-link {
   grid-template-columns: 2fr 1fr;
 }
 
+.grid--container-3 {
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
 @media (min-width: 630px) {
   .grid--container-1-2,
   .grid--container-1-2-3 {
@@ -295,7 +299,11 @@ div.field--name-field-registration-link {
   .grid--container-1-2u3366 {
     grid-template-columns: 1fr 2fr;
   }
+  .grid--container-1-2u6633 {
+    grid-template-columns: 2fr 1fr;
+  }
 }
+
 @media (min-width: 715px) {
   .grid--container-1-2 {
     grid-template-columns: 1fr 1fr;
