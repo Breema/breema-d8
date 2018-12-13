@@ -1,7 +1,29 @@
-{# 
-/**
- * Re-use the template with location at the end, since it'll be empty.
- * We want everything else (date above the title, etc) shared.
- */
-#}
-{% extends 'node--event--teaser-with-location.html.twig' %}
+{%
+  set classes = [
+    'node',
+    'node--type-' ~ node.bundle|clean_class,
+    node.isPromoted() ? 'node--promoted',
+    node.isSticky() ? 'node--sticky',
+    not node.isPublished() ? 'node--unpublished',
+    view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+    'clearfix',
+  ]
+%}
+{{ attach_library('classy/node') }}
+
+<a href="{{ url }}" rel="bookmark" class="teaser-link">
+<div class="teaser-wrapper clearfix">
+<article{{ attributes.addClass(classes) }}>
+  {{ content.field_main_image }}
+  <header>
+    {{ content.field_date_time }}
+    <h4{{ title_attributes.addClass('node__title') }}>
+      {{ label }}
+    </h4>
+  </header>
+  <div{{ content_attributes.addClass('clearfix') }}>
+    {{ content|without('field_date_time', 'field_main_image') }}
+  </div>
+</article>
+</div>
+</a>
