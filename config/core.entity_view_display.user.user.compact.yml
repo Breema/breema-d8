@@ -4,6 +4,21 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.user.compact
+    - field.field.user.user.field_address
+    - field.field.user.user.field_anatomy_homework_language
+    - field.field.user.user.field_anatomy_requirement
+    - field.field.user.user.field_anatomy_transcript
+    - field.field.user.user.field_breema_center_staff
+    - field.field.user.user.field_breema_clinic_practitioner
+    - field.field.user.user.field_certification
+    - field.field.user.user.field_class_attended
+    - field.field.user.user.field_class_other
+    - field.field.user.user.field_directory_entry
+    - field.field.user.user.field_name_first
+    - field.field.user.user.field_name_last
+    - field.field.user.user.field_profession
+    - field.field.user.user.field_telephone
+    - field.field.user.user.field_why_interested
     - field.field.user.user.user_picture
     - image.style.thumbnail
   module:
@@ -26,4 +41,19 @@ content:
     third_party_settings: {  }
     label: hidden
 hidden:
+  field_address: true
+  field_anatomy_homework_language: true
+  field_anatomy_requirement: true
+  field_anatomy_transcript: true
+  field_breema_center_staff: true
+  field_breema_clinic_practitioner: true
+  field_certification: true
+  field_class_attended: true
+  field_class_other: true
+  field_directory_entry: true
+  field_name_first: true
+  field_name_last: true
+  field_profession: true
+  field_telephone: true
+  field_why_interested: true
   member_for: true
