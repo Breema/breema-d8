@@ -16,7 +16,6 @@ module:
   ctools: 0
   datetime: 0
   datetime_extras: 0
-  datetime_extras_range_duration: 0
   datetime_range: 0
   dblog: 0
   diff: 0
