@@ -23,7 +23,7 @@ dependencies:
     - field.field.node.event.field_website
     - node.type.event
   module:
-    - datetime_extras
+    - datetime_range
     - entity_browser
     - field_group
     - link
@@ -88,11 +88,9 @@ content:
     region: content
   field_date_time:
     weight: 2
-    settings:
-      duration_granularity: 'd:h:i'
-      time_increment: '300'
+    settings: {  }
     third_party_settings: {  }
-    type: daterange_duration
+    type: daterange_default
     region: content
   field_display_instructor_bios:
     weight: 5
