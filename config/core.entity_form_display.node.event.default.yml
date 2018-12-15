@@ -90,6 +90,10 @@ content:
     weight: 2
     settings:
       duration_granularity: 'd:h:i'
+      default_duration:
+        d: '0'
+        h: '2'
+        i: '0'
       time_increment: '300'
     third_party_settings: {  }
     type: daterange_duration
