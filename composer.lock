@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "7cea07d611e8c03a0a550aa644eb8a40",
+    "content-hash": "6014052e83873cea5c9ef1ec1faf1d8a",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -2269,7 +2269,7 @@
                 },
                 "patches_applied": {
                     "[#2834016-18] Add 'Compact' datetime range formatter": "https://www.drupal.org/files/issues/add_datetime_range-2834016-18.patch",
-                    "[#2845081-20] Provide a datetime_range widget to define end time via a duration offset": "https://www.drupal.org/files/issues/2018-12-13/2845081-20.datetime_range_duration_widget.patch"
+                    "[#2845081-23] Provide a datetime_range widget to define end time via a duration offset": "https://www.drupal.org/files/issues/2018-12-14/2845081-23.datetime_range_duration_widget.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -2512,6 +2512,9 @@
                     "services": {
                         "drush.services.yml": "^9"
                     }
+                },
+                "patches_applied": {
+                    "[#3020676-6] Support the #date_increment property in the 'duration' form element.": "https://www.drupal.org/files/issues/2018-12-14/3020676-6.duration_date_increment.full_.patch"
                 }
             },
             "autoload": {
