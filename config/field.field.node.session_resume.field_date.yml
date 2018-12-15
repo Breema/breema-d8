@@ -1,0 +1,21 @@
+uuid: 55505d70-7ef5-4284-825e-7c2e058a93a3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_date
+    - node.type.session_resume
+  module:
+    - datetime
+id: node.session_resume.field_date
+field_name: field_date
+entity_type: node
+bundle: session_resume
+label: 'Session date'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

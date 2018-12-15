@@ -1,0 +1,21 @@
+uuid: 6728b337-4158-42b5-acf0-3e119fb0ef3e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_experience
+    - node.type.session_resume
+  module:
+    - text
+id: node.session_resume.field_experience
+field_name: field_experience
+entity_type: node
+bundle: session_resume
+label: 'Please tell us about your experience of doing this Breema session'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

@@ -1,0 +1,7 @@
+status: 1
+pattern: '[node:field_date:date:html_date] session resume for [node:author:account-name]'
+php: false
+escape: false
+dependencies:
+  config:
+    - node.type.session_resume

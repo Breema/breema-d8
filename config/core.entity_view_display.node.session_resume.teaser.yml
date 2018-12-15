@@ -1,0 +1,65 @@
+uuid: d09ab2f1-2178-4b6f-b7cb-0b651201d330
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.session_resume.field_date
+    - field.field.node.session_resume.field_experience
+    - field.field.node.session_resume.field_location_text
+    - field.field.node.session_resume.field_questions
+    - field.field.node.session_resume.field_recipient_prior_experience
+    - field.field.node.session_resume.field_recipient_relationship
+    - node.type.session_resume
+  module:
+    - smart_trim
+    - user
+id: node.session_resume.teaser
+targetEntityType: node
+bundle: session_resume
+mode: teaser
+content:
+  field_experience:
+    type: smart_trim
+    weight: 3
+    region: content
+    label: above
+    settings:
+      trim_length: 300
+      trim_type: chars
+      trim_suffix: ''
+      wrap_class: trimmed
+      more_link: true
+      more_text: More
+      more_class: more-link
+      wrap_output: false
+      trim_options:
+        text: false
+        trim_zero: false
+      summary_handler: full
+    third_party_settings: {  }
+  field_location_text:
+    type: string
+    weight: 1
+    region: content
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_recipient_relationship:
+    type: string
+    weight: 2
+    region: content
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  links:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_date: true
+  field_questions: true
+  field_recipient_prior_experience: true

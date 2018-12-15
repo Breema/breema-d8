@@ -1,0 +1,19 @@
+uuid: 4e1a5a2f-d6db-422e-9bda-483c05496988
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_location_text
+    - node.type.session_resume
+id: node.session_resume.field_location_text
+field_name: field_location_text
+entity_type: node
+bundle: session_resume
+label: Location
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,22 @@
+uuid: 9cca927d-8f59-4b04-9849-9ccb9f2ebc24
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node_session_resume
+label: 'Node: Session resume'
+type: 'canonical_entities:node'
+pattern: 'user/[node:author]/resumes/[node:field_date:date:html_date]-session'
+selection_criteria:
+  4fdbfaca-c7f8-4995-8174-19919d6bea66:
+    id: node_type
+    bundles:
+      session_resume: session_resume
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 4fdbfaca-c7f8-4995-8174-19919d6bea66
+selection_logic: and
+weight: -5
+relationships: {  }

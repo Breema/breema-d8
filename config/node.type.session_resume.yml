@@ -1,0 +1,18 @@
+uuid: 82170a64-9a52-40b0-97e0-dcbc2b75b813
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: 'Session resume'
+type: session_resume
+description: 'A resume about a Breema bodywork session (required for people who are enrolled in the Breema Practitioner Certification Program).'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false
