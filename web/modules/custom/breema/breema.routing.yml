@@ -26,3 +26,10 @@ user.dashboard.directory:
     _controller: '\Drupal\breema\Controller\BreemaController::myDirectoryEntry'
   requirements:
     _node_add_access: 'node:directory_entry'
+entity.user.breema_resumes:
+  path: '/user/{user}/resumes'
+  defaults:
+    _title_callback: '\Drupal\breema\Controller\BreemaController::resumesPageTitle'
+    _controller: '\Drupal\breema\Controller\BreemaController::resumesPage'
+  requirements:
+    _custom_access: '\Drupal\breema\Controller\BreemaController::accessResumes'

@@ -8,3 +8,8 @@ breema.event.clone_form:
   route_name: entity.node.clone_form
   base_route: entity.node.canonical
   weight: 20
+breema.user.resumes:
+  title: 'Resumes'
+  route_name: entity.user.breema_resumes
+  base_route: entity.user.canonical
+  weight: 20
