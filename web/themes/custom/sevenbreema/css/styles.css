@@ -1,9 +1,9 @@
-.node--unpublished {
+.ief-entity-unpublished {
   background-color: #fffcd9;
   border: 1px solid #e4e4a7;
 }
 
-tbody tr.node--unpublished:hover,
-tbody tr.node--unpublished:focus {
+tbody tr.ief-entity-unpublished:hover,
+tbody tr.ief-entity-unpublished:focus {
   background-color: #fdf597;
 }

@@ -1,5 +1,6 @@
 <?php
 
+use Drupal\Core\Entity\EntityPublishedInterface;
 use Drupal\Core\Render\Element;
 
 /**
@@ -53,6 +54,13 @@ function sevenbreema_inline_entity_form_entity_table($variables) {
     // for additional styling.
     if (!empty($form[$key]['form'])) {
       $row_classes[] = 'ief-row-entity-form';
+    }
+    // See if the entity supports a published status, and if so, add a row class
+    // for unpublished entities.
+    if ($entity instanceof EntityPublishedInterface) {
+      if (!$entity->isPublished()) {
+        $row_classes[] = 'ief-entity-unpublished';
+      }
     }
 
     foreach ($fields as $field_name => $field) {
