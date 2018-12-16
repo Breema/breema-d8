@@ -688,6 +688,16 @@ function breema_form_user_form_alter(&$form, \Drupal\Core\Form\FormStateInterfac
     '#weight' => $form['field_anatomy_transcript']['#weight'],
   ];
 
+  if (!empty($form['field_directory_entry']['widget']['entities'][0]['#entity'])) {
+    $entity = $form['field_directory_entry']['widget']['entities'][0]['#entity'];
+    if (!$entity->isPublished()) {
+      $form['field_directory_entry']['widget']['entities']['#prefix'] = '<div class="messages messages--warning">' . t('Your directory entry is currently unpublished. To review and publish:<ol><li>Click the "Edit" button in this table.</li><li>Let the directory entry form load.</li><li>Review (and if needed, update) all the information.</li><li>Select the "Published" checkbox near the bottom of the form.</li><li>Click "Update Directory entry" to save the changes and hide this message.</li><li>Scroll to the bottom of this page and click "Save" to make your changes permanent.</li></ol><p>Alternately, you can use the "Remove" button to delete your listing entirely.</p>') . '</div>';
+      // We use the previous form element for the anchor to deal with toolbar
+      // covering stuff we want the user to see.
+      \Drupal::messenger()->addWarning(t('Your directory entry is currently unpublished. Please scroll down to the <a href="#edit-user-picture-wrapper">Directory entry</a> field to review and publish it.'));
+    }
+  }
+
   // If the current user is an admin, return now.
   if ($is_user_admin) {
     return;
