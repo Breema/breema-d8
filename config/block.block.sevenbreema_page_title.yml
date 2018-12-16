@@ -1,0 +1,20 @@
+uuid: 611d10b9-54af-42e7-9bbf-eb6557732244
+langcode: en
+status: true
+dependencies:
+  theme:
+    - sevenbreema
+_core:
+  default_config_hash: 7rR9chwXvdM2H8OYMAYx9Zj3GGlPMrZp_M3ZA4thYTk
+id: sevenbreema_page_title
+theme: sevenbreema
+region: header
+weight: -3
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  provider: core
+  label_display: '0'
+visibility: {  }

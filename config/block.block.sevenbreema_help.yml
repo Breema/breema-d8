@@ -1,0 +1,22 @@
+uuid: 58b7fbe6-4d8a-4a0e-b328-59d76c2564eb
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - sevenbreema
+_core:
+  default_config_hash: 8I8iACSa0sKO3k3jlvUG1ge52rfcKX7USJAQYnzuBgg
+id: sevenbreema_help
+theme: sevenbreema
+region: help
+weight: -3
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  provider: help
+  label_display: '0'
+visibility: {  }

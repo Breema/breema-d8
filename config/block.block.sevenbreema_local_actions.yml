@@ -1,0 +1,20 @@
+uuid: 10455f64-0270-47de-9e1e-994f5ea7fe3f
+langcode: en
+status: true
+dependencies:
+  theme:
+    - sevenbreema
+_core:
+  default_config_hash: 13GQpeITIJsp1kyPniXtWZfyFH87vb1xxJCHifL4UeE
+id: sevenbreema_local_actions
+theme: sevenbreema
+region: content
+weight: -4
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  provider: core
+  label_display: '0'
+visibility: {  }

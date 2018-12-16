@@ -1,0 +1,22 @@
+uuid: bf7d4359-0e60-4d9b-a399-efc913002f52
+langcode: en
+status: true
+dependencies:
+  theme:
+    - sevenbreema
+_core:
+  default_config_hash: X9I1OB0W3WlWtrK-CNcg6hNWwa8wficanpH8pYnDZDE
+id: sevenbreema_local_tasks
+theme: sevenbreema
+region: header
+weight: -2
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: 'Primary tabs'
+  provider: core
+  label_display: '0'
+  primary: true
+  secondary: false
+visibility: {  }

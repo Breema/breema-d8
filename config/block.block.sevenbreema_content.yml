@@ -1,0 +1,22 @@
+uuid: 33fd953c-d811-4cc2-86df-9d28985fe7dd
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - sevenbreema
+_core:
+  default_config_hash: 9EoWV2Lot6FVSr50t4hoKgiz1LIXYWNG-IIPYsWxBqo
+id: sevenbreema_content
+theme: sevenbreema
+region: content
+weight: -3
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  provider: system
+  label_display: '0'
+visibility: {  }
