@@ -25,6 +25,11 @@
   padding: 0;
 }
 
+.node--type-session-resume.node--view-mode-teaser {
+  margin: 0 0 2em 0;
+  padding: 0 1em;
+}
+
 .item-list ul,
 .item-list ul li {
   margin: 0;
