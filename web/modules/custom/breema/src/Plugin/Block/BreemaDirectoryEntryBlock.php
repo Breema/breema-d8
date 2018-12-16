@@ -38,14 +38,21 @@ class BreemaDirectoryEntryBlock extends BlockBase {
     $directory_entries = $current_user_entity->get('field_directory_entry')->referencedEntities();
     if (!empty($directory_entries)) {
       $directory_entry = array_pop($directory_entries);
-      $links = _breema_get_directory_entry_action_links($directory_entry);
+      if (!$directory_entry->isPublished()) {
+        $directory_url = Url::fromUri('base:/directory');
+        $block['warning'] = [
+          '#markup' => _breema_get_directory_entry_warning('block'),
+          '#prefix' => '<div class="messages messages--warning">',
+          '#suffix' => '</div>',
+        ];
+      }
       $view_builder = \Drupal::entityManager()->getViewBuilder('node');
-      return $block + [
-        'teaser' => $view_builder->view($directory_entry, 'teaser'),
-      ] + $links;
+      $block['teaser'] = $view_builder->view($directory_entry, 'teaser');
+      $block += _breema_get_directory_entry_action_links($directory_entry);
     }
     else {
-      return $block + _breema_get_directory_entry_action_links(NULL, TRUE);
+      $block += _breema_get_directory_entry_action_links(NULL, TRUE);
     }
+    return $block;
   }
 }

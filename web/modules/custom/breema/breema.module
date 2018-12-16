@@ -493,7 +493,7 @@ function breema_inline_entity_form_entity_form_alter(&$entity_form, \Drupal\Core
   if ($entity_form['#entity_type'] == 'node' && !empty($entity_form['#bundle']) && $entity_form['#bundle'] == 'directory_entry') {
     $user = $form_state->getFormObject()->getEntity();
     $entity_form['uid']['widget'][0]['target_id']['#default_value'] = $user;
-    breema_directory_entry_node_form_alter($entity_form, $form_state, $user, TRUE);
+    breema_directory_entry_node_form_alter($entity_form, $form_state, $user, $entity_form['#entity'], TRUE);
   }
 }
 
@@ -506,7 +506,7 @@ function breema_form_node_form_alter(&$form, \Drupal\Core\Form\FormStateInterfac
   if ($node->bundle() == 'directory_entry') {
     $authors = $node->get('uid')->referencedEntities();
     $author = array_pop($authors);
-    breema_directory_entry_node_form_alter($form, $form_state, $author, FALSE);
+    breema_directory_entry_node_form_alter($form, $form_state, $author, $node, FALSE);
   }
   // Products have a special #after_build callback.
   else if ($node->bundle() == 'product') {
@@ -538,10 +538,12 @@ function breema_form_node_form_alter(&$form, \Drupal\Core\Form\FormStateInterfac
  *   The form state.
  * @param \Drupal\user\UserInterface $user
  *   The user entity that the directory entry is attached to.
+ * @param \Drupal\node\NodeInterface $directory_entry
+ *   The directory entry node entity.
  * @param boolean $is_inline
  *   Is the directory_entry form being rendered inline with the user profile?
  */
-function breema_directory_entry_node_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, \Drupal\user\UserInterface $user, $is_inline = FALSE) {
+function breema_directory_entry_node_form_alter(&$form, FormStateInterface $form_state, UserInterface $user, NodeInterface $directory_entry, $is_inline = FALSE) {
   if ($is_inline) {
     $route = '<current>';
     $route_args = [];
@@ -557,6 +559,15 @@ function breema_directory_entry_node_form_alter(&$form, \Drupal\Core\Form\FormSt
   $contact_url = Url::fromRoute($route, $route_args, $url_options)->toString();
 
   if (!$is_inline) {
+    if (!$directory_entry->isPublished()) {
+      $form['warning'] = [
+        '#type' => 'markup',
+        '#markup' => _breema_get_directory_entry_warning('edit-form'),
+        '#prefix' => '<div class="messages messages--warning">',
+        '#suffix' => '</div>',
+        '#weight' => '-100',
+      ];
+    }
     $url_options['fragment'] = 'edit-user-picture-wrapper';
     $headshot_url = Url::fromRoute($route, $route_args, $url_options)->toString();
     $form['headshot'] = [
@@ -691,10 +702,8 @@ function breema_form_user_form_alter(&$form, \Drupal\Core\Form\FormStateInterfac
   if (!empty($form['field_directory_entry']['widget']['entities'][0]['#entity'])) {
     $entity = $form['field_directory_entry']['widget']['entities'][0]['#entity'];
     if (!$entity->isPublished()) {
-      $form['field_directory_entry']['widget']['entities']['#prefix'] = '<div class="messages messages--warning">' . t('Your directory entry is currently unpublished. To review and publish:<ol><li>Click the "Edit" button in this table.</li><li>Let the directory entry form load.</li><li>Review (and if needed, update) all the information.</li><li>Select the "Published" checkbox near the bottom of the form.</li><li>Click "Update Directory entry" to save the changes and hide this message.</li><li>Scroll to the bottom of this page and click "Save" to make your changes permanent.</li></ol><p>Alternately, you can use the "Remove" button to delete your listing entirely.</p>') . '</div>';
-      // We use the previous form element for the anchor to deal with toolbar
-      // covering stuff we want the user to see.
-      \Drupal::messenger()->addWarning(t('Your directory entry is currently unpublished. Please scroll down to the <a href="#edit-user-picture-wrapper">Directory entry</a> field to review and publish it.'));
+      $form['field_directory_entry']['widget']['entities']['#prefix'] = '<div class="messages messages--warning">' . _breema_get_directory_entry_warning('ief') .  '</div>';
+      \Drupal::messenger()->addWarning(t('Your directory entry is currently unpublished.'));
     }
   }
 
@@ -1247,6 +1256,16 @@ function breema_entity_user_view_alter(array &$build, EntityInterface $entity, E
       $build['action_links'] = _breema_get_directory_entry_action_links($directory_entry, $can_create);
       $build['action_links']['#weight'] = 10;
       $build['#group_children']['action_links'] = 'group_public_directory_entry';
+      if (!$directory_entry->isPublished()) {
+        $build['warning'] = [
+          '#type' => 'markup',
+          '#markup' => _breema_get_directory_entry_warning('block'),
+          '#prefix' => '<div class="messages messages--warning">',
+          '#suffix' => '</div>',
+          '#weight' => '-100',
+        ];
+        $build['#group_children']['warning'] = 'group_public_directory_entry';
+      }
     }
     // @todo fix cache contexts/tags/etc.
   }
@@ -1307,6 +1326,16 @@ function breema_entity_node_directory_entry_view_alter(array &$build, EntityInte
     $build['field_upcoming_events'][$item_count] = [
       '#type' => 'markup',
       '#markup' => $entity->toLink(t('Read more'))->toString(),
+    ];
+  }
+
+  if ($build['#view_mode'] == 'full' && !$entity->isPublished()) {
+    $build['warning'] = [
+      '#type' => 'markup',
+      '#markup' => _breema_get_directory_entry_warning('block'),
+      '#prefix' => '<div class="messages messages--warning">',
+      '#suffix' => '</div>',
+      '#weight' => '-100',
     ];
   }
 }
@@ -1397,4 +1426,27 @@ function _breema_run_update($update_number) {
 function breema_local_tasks_alter(&$local_tasks) {
   $local_tasks['user.register']['title'] = (string)t('Apply to the Practitioner Certificate Program');
   $local_tasks['user.register']['weight'] = 100;
+}
+
+/**
+ * Generate the right warning message for an unpublished directory entry.
+ *
+ * @param string $warning_context
+ *   Context for where the warning is being put, and what instructions to use.
+ *   Valid values: 'ief', 'block', 'edit-form'.
+ * @return \Drupal\Core\StringTranslation\TranslatableMarkup
+ */
+function _breema_get_directory_entry_warning($warning_context) {
+  $url_array = ['@url' => Url::fromUri('base:/directory')->toString()];
+  switch ($warning_context) {
+    case 'ief':
+      return t('Your directory entry is currently unpublished. To review and publish:<ol><li>Click the "Edit" button in this table.</li><li>Let the directory entry form load.</li><li>Review (and if needed, update) all the information.</li><li>Select the "Published" checkbox near the bottom of the form.</li><li>Click "Update Directory entry" to save the changes and hide this message.</li><li>Scroll to the bottom of this page and click "Save" to make your changes permanent.</li></ol>Alternately, you can use the "Delete" link to remove your entry entirely, but then you will not be listed in the <a href="@url">International Breema Directory</a>.', $url_array);
+
+    case 'block':
+      return t('Your directory entry is currently unpublished. To review and publish:<ol><li>Click the "Edit" button.</li><li>Let the directory entry form load.</li><li>Review (and if needed, update) all the information.</li><li>Select the "Published" checkbox near the bottom of the form.</li><li>Click "Save" to save the changes and hide this message.</li></ol>Alternately, you can use the "Delete" link to remove your listing entirely, but then you will not be listed in the <a href="@url">International Breema Directory</a>.', $url_array);
+
+    case 'edit-form':
+      return t('Your directory entry is currently unpublished. To review and publish:<ol><li>Review (and if needed, update) all the information below.</li><li>Select the "Published" checkbox near the bottom of the form.</li><li>Click "Save" to save the changes and hide this message.</li></ol>Alternately, you can use the "Delete" link to remove your entry entirely, but then you will not be listed in the <a href="@url">International Breema Directory</a>.', $url_array);
+
+  }
 }
