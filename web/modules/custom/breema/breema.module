@@ -735,7 +735,6 @@ function breema_form_user_form_alter(&$form, \Drupal\Core\Form\FormStateInterfac
     $entity = $form['field_directory_entry']['widget']['entities'][0]['#entity'];
     if (!$entity->isPublished()) {
       $form['field_directory_entry']['widget']['entities']['#prefix'] = '<div class="messages messages--warning">' . _breema_get_directory_entry_warning('ief', $entity) .  '</div>';
-      \Drupal::messenger()->addWarning(t('Your directory entry is currently unpublished.'));
     }
   }
 
