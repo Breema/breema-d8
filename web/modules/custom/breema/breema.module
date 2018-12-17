@@ -418,6 +418,9 @@ function breema_views_pre_render(ViewExecutable $view) {
 
       case 'breema_events_by_instructor':
         return breema_views_pre_render_breema_events_by_instructor($view);
+
+      case 'breema_events_by_location':
+        return breema_views_pre_render_breema_events_by_location($view);
     }
   }
 }
@@ -450,6 +453,20 @@ function breema_views_pre_render_breema_events_by_instructor(ViewExecutable $vie
           $view->result[] = $result;
         }
       }
+    }
+  }
+}
+
+/**
+ * Implements hook_views_pre_render() for breema_events_by_location.
+ *
+ * Only start doing a grid for upcoming events if there are more than 3.
+ */
+function breema_views_pre_render_breema_events_by_location(ViewExecutable $view) {
+  if ($view->current_display == 'block_1') {
+    $settings = &$view->display_handler->getPlugin('style')->options;
+    if (count($view->result) < 3) {
+      $settings['class'] = 'grid--container'; // not grid--container-1-2
     }
   }
 }
