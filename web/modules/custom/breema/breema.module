@@ -562,7 +562,7 @@ function breema_directory_entry_node_form_alter(&$form, FormStateInterface $form
     if (!$directory_entry->isPublished()) {
       $form['warning'] = [
         '#type' => 'markup',
-        '#markup' => _breema_get_directory_entry_warning('edit-form'),
+        '#markup' => _breema_get_directory_entry_warning('edit-form', $directory_entry),
         '#prefix' => '<div class="messages messages--warning">',
         '#suffix' => '</div>',
         '#weight' => '-100',
@@ -702,7 +702,7 @@ function breema_form_user_form_alter(&$form, \Drupal\Core\Form\FormStateInterfac
   if (!empty($form['field_directory_entry']['widget']['entities'][0]['#entity'])) {
     $entity = $form['field_directory_entry']['widget']['entities'][0]['#entity'];
     if (!$entity->isPublished()) {
-      $form['field_directory_entry']['widget']['entities']['#prefix'] = '<div class="messages messages--warning">' . _breema_get_directory_entry_warning('ief') .  '</div>';
+      $form['field_directory_entry']['widget']['entities']['#prefix'] = '<div class="messages messages--warning">' . _breema_get_directory_entry_warning('ief', $entity) .  '</div>';
       \Drupal::messenger()->addWarning(t('Your directory entry is currently unpublished.'));
     }
   }
@@ -1259,7 +1259,7 @@ function breema_entity_user_view_alter(array &$build, EntityInterface $entity, E
       if (!$directory_entry->isPublished()) {
         $build['warning'] = [
           '#type' => 'markup',
-          '#markup' => _breema_get_directory_entry_warning('block'),
+          '#markup' => _breema_get_directory_entry_warning('block', $directory_entry),
           '#prefix' => '<div class="messages messages--warning">',
           '#suffix' => '</div>',
           '#weight' => '-100',
@@ -1332,7 +1332,7 @@ function breema_entity_node_directory_entry_view_alter(array &$build, EntityInte
   if ($build['#view_mode'] == 'full' && !$entity->isPublished()) {
     $build['warning'] = [
       '#type' => 'markup',
-      '#markup' => _breema_get_directory_entry_warning('block'),
+      '#markup' => _breema_get_directory_entry_warning('block', $entity),
       '#prefix' => '<div class="messages messages--warning">',
       '#suffix' => '</div>',
       '#weight' => '-100',
@@ -1436,17 +1436,22 @@ function breema_local_tasks_alter(&$local_tasks) {
  *   Valid values: 'ief', 'block', 'edit-form'.
  * @return \Drupal\Core\StringTranslation\TranslatableMarkup
  */
-function _breema_get_directory_entry_warning($warning_context) {
-  $url_array = ['@url' => Url::fromUri('base:/directory')->toString()];
+function _breema_get_directory_entry_warning($warning_context, NodeInterface $entity) {
+  $urls = [
+    '@directory_url' => Url::fromUri('base:/directory')->toString(),
+    '@delete_url' => $entity->toUrl('delete-form')->toString(),
+  ];
   switch ($warning_context) {
     case 'ief':
-      return t('Your directory entry is currently unpublished. To review and publish:<ol><li>Click the "Edit" button in this table.</li><li>Let the directory entry form load.</li><li>Review (and if needed, update) all the information.</li><li>Select the "Published" checkbox near the bottom of the form.</li><li>Click "Update Directory entry" to save the changes and hide this message.</li><li>Scroll to the bottom of this page and click "Save" to make your changes permanent.</li></ol>Alternately, you can use the "Delete" link to remove your entry entirely, but then you will not be listed in the <a href="@url">International Breema Directory</a>.', $url_array);
+      return t('Your directory entry is currently not published. To review and publish:<ol><li>Click the "Edit" button in this table.</li><li>Let the directory entry form load.</li><li>Review (and if needed, update) all the information.</li><li>Select the "Published" checkbox near the bottom of the form.</li><li>Click "Update Directory entry" to save the changes and hide this message.</li><li>Scroll to the bottom of this page and click "Save" to make your changes permanent.</li></ol>Alternately, you can use the "Remove" button to delete your entry entirely, but then you will not be listed in the <a href="@directory_url">International Breema Directory</a>.',
+$urls);
 
     case 'block':
-      return t('Your directory entry is currently unpublished. To review and publish:<ol><li>Click the "Edit" button.</li><li>Let the directory entry form load.</li><li>Review (and if needed, update) all the information.</li><li>Select the "Published" checkbox near the bottom of the form.</li><li>Click "Save" to save the changes and hide this message.</li></ol>Alternately, you can use the "Delete" link to remove your listing entirely, but then you will not be listed in the <a href="@url">International Breema Directory</a>.', $url_array);
+      $urls['@edit_url'] = $entity->toUrl('edit-form')->toString();
+      return t('Your directory entry is currently not published. To review and publish:<ol><li>Click the <a href="@edit_url">Edit</a> button.</li><li>Let the directory entry form load.</li><li>Review (and if needed, update) all the information.</li><li>Select the "Published" checkbox near the bottom of the form.</li><li>Click "Save" to save the changes and hide this message.</li></ol>Alternately, you can use the <a href="@delete_url">Delete</a> link to remove your listing entirely, but then you will not be listed in the <a href="@directory_url">International Breema Directory</a>.', $urls);
 
     case 'edit-form':
-      return t('Your directory entry is currently unpublished. To review and publish:<ol><li>Review (and if needed, update) all the information below.</li><li>Select the "Published" checkbox near the bottom of the form.</li><li>Click "Save" to save the changes and hide this message.</li></ol>Alternately, you can use the "Delete" link to remove your entry entirely, but then you will not be listed in the <a href="@url">International Breema Directory</a>.', $url_array);
+      return t('Your directory entry is currently not published. To review and publish:<ol><li>Review (and if needed, update) all the information below.</li><li>Select the "Published" checkbox near the bottom of the form.</li><li>Click "Save" to save the changes and hide this message.</li></ol>Alternately, you can use the <a href="@delete_url">Delete</a> link to remove your entry entirely, but then you will not be listed in the <a href="@directory_url">International Breema Directory</a>.', $urls);
 
   }
 }
