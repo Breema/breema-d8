@@ -487,6 +487,21 @@ function breema_form_alter(&$form, FormStateInterface $form_state) {
       }
       break;
   }
+  if (substr($form['#form_id'], 0, 15) == 'entity_browser_') {
+    breema_entity_browser_form_alter($form, $form_state);
+  }
+}
+
+/**
+ * Form alter helper for all entity_browser forms.
+ *
+ * Duplicates the action buttons at the top of the form (to help w/ scrolling).
+ */
+function breema_entity_browser_form_alter(&$form, FormStateInterface $form_state) {
+  if (!empty($form['widget']['view'])) {
+    $form['widget']['top_actions'] = $form['widget']['actions'];
+    $form['widget']['top_actions']['#weight'] = -10;
+  }
 }
 
 /**
