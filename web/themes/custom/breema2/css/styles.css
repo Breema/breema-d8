@@ -166,6 +166,7 @@ a.teaser-link:hover .teaser-wrapper {
 .node--unpublished {
   background-color: #fffcd9;
   border: 1px solid #e4e4a7;
+  padding: 0 0.5em;
 }
 
 .container-inline .inline {
