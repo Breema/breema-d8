@@ -1,0 +1,9 @@
+uuid: 6723dd9f-912c-4f43-91dc-98d38eacdf3b
+langcode: en
+status: true
+dependencies: {  }
+name: 'Article language'
+vid: article_language
+description: ''
+hierarchy: 0
+weight: 0
