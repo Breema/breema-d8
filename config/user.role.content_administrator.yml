@@ -84,6 +84,7 @@ permissions:
   - 'edit terms in image_type'
   - 'edit terms in tags'
   - 'edit terms in video_type'
+  - 'enter all revision log entry'
   - 'manipulate all entityqueues'
   - 'override all authored by option'
   - 'override all authored on option'
