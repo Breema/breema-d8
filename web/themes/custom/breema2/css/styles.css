@@ -1,3 +1,7 @@
+h1 {
+  margin: 0 0 0.5em 0;
+}
+
 .main-content h2 {
   font-size: 1.5em;
 }
@@ -17,6 +21,29 @@
 .node .field--type-image {
   float: none;
   margin: 0;
+}
+
+blockquote,
+figure,
+p {
+  overflow: hidden;
+}
+
+blockquote {
+  margin: 2em 0 0.25em 0;
+}
+p.attribution {
+  margin: 0 0 2em 0;
+  padding: 0 0 0 1em;
+}
+p.attribution:before {
+  color: #aaa;
+  content: "\2015\0020"; /* quote dash and a space */
+}
+@media (min-width: 715px) {
+  p.attribution {
+    padding: 0 0 0 2em;
+  }
 }
 
 .node--view-mode-teaser {
@@ -173,9 +200,6 @@ a.teaser-link:hover .teaser-wrapper {
   display: inline-block;
 }
 
-h1 {
-  margin: 0 0 0.5em 0;
-}
 
 .more-link a {
   text-decoration: none;
