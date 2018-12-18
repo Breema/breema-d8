@@ -13,7 +13,6 @@ dependencies:
   module:
     - datetime
     - path
-    - text
 id: node.session_resume.default
 targetEntityType: node
 bundle: session_resume
@@ -37,7 +36,7 @@ content:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
-    type: text_textarea
+    type: string_textarea
     region: content
   field_location_text:
     weight: 2
@@ -53,7 +52,7 @@ content:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
-    type: text_textarea
+    type: string_textarea
     region: content
   field_recipient_prior_experience:
     weight: 4
@@ -61,7 +60,7 @@ content:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
-    type: text_textarea
+    type: string_textarea
     region: content
   field_recipient_relationship:
     weight: 3

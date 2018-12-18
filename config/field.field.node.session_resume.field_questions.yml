@@ -1,12 +1,10 @@
-uuid: 19d91a07-dbc5-448b-bb70-26102c1a2b42
+uuid: ee2e4d71-db47-4e63-87a7-458d084c88e8
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.node.field_questions
     - node.type.session_resume
-  module:
-    - text
 id: node.session_resume.field_questions
 field_name: field_questions
 entity_type: node
@@ -18,4 +16,4 @@ translatable: false
 default_value: {  }
 default_value_callback: ''
 settings: {  }
-field_type: text_long
+field_type: string_long

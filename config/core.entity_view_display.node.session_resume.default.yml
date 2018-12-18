@@ -12,7 +12,6 @@ dependencies:
     - node.type.session_resume
   module:
     - datetime
-    - text
     - user
 id: node.session_resume.default
 targetEntityType: node
@@ -33,7 +32,7 @@ content:
     label: above
     settings: {  }
     third_party_settings: {  }
-    type: text_default
+    type: basic_string
     region: content
   field_location_text:
     weight: 1
@@ -48,17 +47,17 @@ content:
     label: above
     settings: {  }
     third_party_settings: {  }
-    type: text_default
+    type: basic_string
     region: content
   field_recipient_prior_experience:
-    weight: 2
+    weight: 3
     label: above
     settings: {  }
     third_party_settings: {  }
-    type: text_default
+    type: basic_string
     region: content
   field_recipient_relationship:
-    weight: 3
+    weight: 2
     label: above
     settings:
       link_to_entity: false
