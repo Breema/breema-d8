@@ -1,0 +1,18 @@
+uuid: eb457eb1-e2f5-4434-aaff-4d1d8f76afca
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: 'Essence of Breema'
+type: essence
+description: 'A post for the <em>Essence of Breema</em> section of the site.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

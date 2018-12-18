@@ -1,0 +1,22 @@
+uuid: df609b51-04ba-42c6-9900-c381c2457a92
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.essence
+  module:
+    - text
+id: node.essence.body
+field_name: body
+entity_type: node
+bundle: essence
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+field_type: text_with_summary
