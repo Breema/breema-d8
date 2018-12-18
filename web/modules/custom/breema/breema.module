@@ -764,6 +764,8 @@ function breema_form_user_form_alter(&$form, \Drupal\Core\Form\FormStateInterfac
   // Otherwise, don't let students set themselves to 'complete'.
   else {
     unset($form['field_anatomy_requirement']['widget']['#options']['complete']);
+    // Also, hide the directory_entry field for everyone not certified.
+    $form['field_directory_entry']['#access'] = FALSE;
   }
 }
 
