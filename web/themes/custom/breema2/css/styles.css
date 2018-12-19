@@ -30,20 +30,26 @@ p {
 }
 
 blockquote {
-  margin: 2em 0 0.25em 0;
+  margin: 0 0 0.25em 0;
 }
-p.attribution {
-  margin: 0 0 2em 0;
+
+.attribution {
+  margin: 0 0 0.5em 0;
   padding: 0 0 0 1em;
 }
-p.attribution:before {
+.attribution:before {
   color: #aaa;
   content: "\2015\0020"; /* quote dash and a space */
 }
 @media (min-width: 715px) {
-  p.attribution {
+  .attribution {
     padding: 0 0 0 2em;
   }
+}
+
+.media--view-mode-view-full,
+.node--view-mode-full {
+  margin: 0 0 1.5em 0;
 }
 
 .node--view-mode-teaser {
@@ -64,7 +70,7 @@ p.attribution:before {
 }
 
 figure {
-  margin: 0;
+  margin: 0 0 1em 0;
   min-width: 250px;
 }
 
