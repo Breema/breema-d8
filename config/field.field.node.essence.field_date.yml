@@ -1,0 +1,24 @@
+uuid: 286a95c3-3439-4728-85b0-2132ab2c884e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_date
+    - node.type.essence
+  module:
+    - datetime
+id: node.essence.field_date
+field_name: field_date
+entity_type: node
+bundle: essence
+label: Date
+description: 'Used as the title of the post and for sorting the /about-breema/essence page.'
+required: true
+translatable: true
+default_value:
+  -
+    default_date_type: now
+    default_date: now
+default_value_callback: ''
+settings: {  }
+field_type: datetime

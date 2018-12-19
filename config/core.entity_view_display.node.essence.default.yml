@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.essence.body
+    - field.field.node.essence.field_date
     - field.field.node.essence.field_main_image
     - field.field.node.essence.field_related_product
     - field.field.node.essence.field_resources
@@ -57,4 +58,5 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  field_date: true

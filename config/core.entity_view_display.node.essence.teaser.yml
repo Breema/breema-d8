@@ -5,10 +5,11 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.essence.body
+    - field.field.node.essence.field_date
     - field.field.node.essence.field_main_image
     - field.field.node.essence.field_related_product
     - field.field.node.essence.field_resources
-    - image.style.thumbnail
+    - image.style.220_wide
     - node.type.essence
   module:
     - media
@@ -26,9 +27,9 @@ content:
     settings:
       trim_length: 300
       trim_type: chars
-      trim_suffix: ''
+      trim_suffix: ...
       wrap_class: trimmed
-      more_text: More
+      more_text: 'Read more'
       more_class: more-link
       summary_handler: full
       wrap_output: false
@@ -44,7 +45,7 @@ content:
     region: content
     label: hidden
     settings:
-      image_style: thumbnail
+      image_style: 220_wide
       image_link: ''
     third_party_settings: {  }
   field_resources:
@@ -62,4 +63,5 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
+  field_date: true
   field_related_product: true
