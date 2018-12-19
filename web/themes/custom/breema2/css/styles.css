@@ -31,6 +31,7 @@ p {
 
 blockquote {
   margin: 0 0 0.25em 0;
+  font-style: normal;
 }
 
 .attribution {
@@ -158,7 +159,7 @@ a.teaser-link .node--view-mode-teaser-with-location .field--name-field-location 
   .field--name-field-main-image img {
     margin: 0;
   }
-  
+
 }
 
 .node--view-mode-teaser-search-result .field--name-field-location p.address,
