@@ -1289,7 +1289,7 @@ function breema_entity_user_view_alter(array &$build, EntityInterface $entity, E
       $build['action_links'] = _breema_get_directory_entry_action_links($directory_entry, $can_create);
       $build['action_links']['#weight'] = 10;
       $build['#group_children']['action_links'] = 'group_public_directory_entry';
-      if (!$directory_entry->isPublished()) {
+      if (!empty($directory_entry) && !$directory_entry->isPublished()) {
         $build['warning'] = [
           '#type' => 'markup',
           '#markup' => _breema_get_directory_entry_warning('block', $directory_entry),
