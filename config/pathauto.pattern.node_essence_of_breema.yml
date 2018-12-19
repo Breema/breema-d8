@@ -1,0 +1,22 @@
+uuid: e025275d-b04d-45cf-b7fe-181f41312315
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node_essence_of_breema
+label: 'Node: Essence of Breema'
+type: 'canonical_entities:node'
+pattern: '/about-breema/essence/[node:field_date:date:html_date]'
+selection_criteria:
+  8c399da1-b02c-4bcd-ad16-59fb3626ff41:
+    id: node_type
+    bundles:
+      essence: essence
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 8c399da1-b02c-4bcd-ad16-59fb3626ff41
+selection_logic: and
+weight: -5
+relationships: {  }
