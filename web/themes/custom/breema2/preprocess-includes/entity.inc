@@ -23,19 +23,29 @@ function breema2_preprocess_node__event(&$variables) {
  * Bundle-specific callback to preprocess Essence of Breema nodes.
  */
 function breema2_preprocess_node__essence(&$variables) {
-  $products = $variables['node']->get('field_related_product')->referencedEntities();
-  if (!empty($products)) {
-    $product = array_pop($products);
-    $variables['product'] = [
-      'title' => $product->label(),
-      'url' => $product->toUrl()->toString(),
-      'cite' => [
-        '#markup' => '<cite>' . $product->label() . '</cite>',
-      ],
-    ];
-    if ($variables['view_mode'] == 'full') {
-      $variables['product']['cite']['#prefix'] = '<a href="' . $product->toUrl()->toString() . '">';
-      $variables['product']['cite']['#suffix'] = '</a>';
-    }
+  $source_type = $variables['node']->get('field_source_type')->value;
+  switch ($source_type) {
+    case 'class':
+      $variables['source'] = t('classes at The Breema Center');
+      break;
+
+    case 'product':
+      $products = $variables['node']->get('field_source_product')->referencedEntities();
+      if (!empty($products)) {
+        $product = array_pop($products);
+        $variables['source'] = [
+          '#markup' => '<cite>' . $product->label() . '</cite>',
+        ];
+        if ($variables['view_mode'] == 'full') {
+          $variables['source']['#prefix'] = '<a href="' . $product->toUrl()->toString() . '">';
+          $variables['source']['#suffix'] = '</a>';
+        }
+      }
+      break;
+
+    case 'other':
+      $variables['source'] = $variables['node']->get('field_source_other')->value;
+      break;
+
   }
 }

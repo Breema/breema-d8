@@ -559,6 +559,32 @@ function breema_form_node_form_alter(&$form, \Drupal\Core\Form\FormStateInterfac
     unset($form['field_website']['widget']['#description']);
     $form['#group_children']['other_website_desc'] = 'group_other_links';
   }
+  elseif ($node->bundle() == 'essence') {
+    $form['field_source_product']['#states'] = [
+      'visible' => [
+        ':input[name="field_source_type"]' => ['value' => 'product'],
+      ],
+    ];
+    $form['field_source_other']['#states'] = [
+      'visible' => [
+        ':input[name="field_source_type"]' => ['value' => 'other'],
+      ],
+    ];
+    $form['#validate'][] = 'breema_essence_node_form_validate';
+  }
+}
+
+/**
+ * Additional validate handler for Essence of Breema node forms.
+ */
+function breema_essence_node_form_validate($form, FormStateInterface $form_state) {
+  $values = $form_state->getValues();
+  if (!empty($values['field_source_type'][0]['value'])
+      && $values['field_source_type'][0]['value'] == 'product'
+      && empty($values['field_source_product'][0]['target_id'])
+  ) {
+    $form_state->setErrorByName('field_source_product', t('If this excerpt is from a book, you must define the product.'));
+  }
 }
 
 /**

@@ -7,8 +7,10 @@ dependencies:
     - field.field.node.essence.body
     - field.field.node.essence.field_date
     - field.field.node.essence.field_main_image
-    - field.field.node.essence.field_related_product
     - field.field.node.essence.field_resources
+    - field.field.node.essence.field_source_other
+    - field.field.node.essence.field_source_product
+    - field.field.node.essence.field_source_type
     - image.style.220_wide
     - node.type.essence
   module:
@@ -64,4 +66,6 @@ content:
     third_party_settings: {  }
 hidden:
   field_date: true
-  field_related_product: true
+  field_source_other: true
+  field_source_product: true
+  field_source_type: true

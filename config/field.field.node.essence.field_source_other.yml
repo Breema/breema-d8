@@ -1,0 +1,19 @@
+uuid: ace38e91-f1c5-4ede-bae3-53f556590b52
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_source_other
+    - node.type.essence
+id: node.essence.field_source_other
+field_name: field_source_other
+entity_type: node
+bundle: essence
+label: 'Other source'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

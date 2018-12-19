@@ -6,8 +6,10 @@ dependencies:
     - field.field.node.essence.body
     - field.field.node.essence.field_date
     - field.field.node.essence.field_main_image
-    - field.field.node.essence.field_related_product
     - field.field.node.essence.field_resources
+    - field.field.node.essence.field_source_other
+    - field.field.node.essence.field_source_product
+    - field.field.node.essence.field_source_type
     - image.style.220_wide
     - node.type.essence
   module:
@@ -35,20 +37,20 @@ content:
     third_party_settings: {  }
     type: media_thumbnail
     region: content
-  field_related_product:
-    weight: 3
-    label: hidden
-    settings:
-      view_mode: teaser_compact
-      link: false
-    third_party_settings: {  }
-    type: entity_reference_entity_view
-    region: content
   field_resources:
     weight: 2
     label: hidden
     settings:
       view_mode: view_large
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+  field_source_product:
+    weight: 3
+    label: hidden
+    settings:
+      view_mode: teaser_compact
       link: false
     third_party_settings: {  }
     type: entity_reference_entity_view
@@ -60,3 +62,5 @@ content:
     third_party_settings: {  }
 hidden:
   field_date: true
+  field_source_other: true
+  field_source_type: true

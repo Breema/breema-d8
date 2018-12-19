@@ -1,18 +1,18 @@
-uuid: d795a7ec-8095-44b9-80f8-4bf4f21466cf
+uuid: 193d997e-c3b8-4f8e-96af-1082841f3fb3
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_related_product
+    - field.storage.node.field_source_product
     - node.type.essence
     - node.type.product
-id: node.essence.field_related_product
-field_name: field_related_product
+id: node.essence.field_source_product
+field_name: field_source_product
 entity_type: node
 bundle: essence
 label: 'Source product'
-description: 'Start typing the title of the book that the excerpt comes from and available choices should auto-complete for you to choose from.'
-required: true
+description: ''
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
