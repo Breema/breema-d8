@@ -11,8 +11,8 @@ id: node.essence.body
 field_name: body
 entity_type: node
 bundle: essence
-label: Body
-description: ''
+label: 'Book excerpt'
+description: 'This will be wrapped in a &lt;blockquote&gt; tag already, so you don''t need to add that.'
 required: false
 translatable: true
 default_value: {  }
