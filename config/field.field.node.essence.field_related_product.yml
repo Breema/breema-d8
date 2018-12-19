@@ -10,9 +10,9 @@ id: node.essence.field_related_product
 field_name: field_related_product
 entity_type: node
 bundle: essence
-label: 'Related product'
-description: ''
-required: false
+label: 'Source product'
+description: 'Start typing the title of the book that the excerpt comes from and available choices should auto-complete for you to choose from.'
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''
