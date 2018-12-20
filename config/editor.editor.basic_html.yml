@@ -19,6 +19,7 @@ settings:
           items:
             - Bold
             - Italic
+            - RemoveFormat
         -
           name: Linking
           items:
@@ -32,8 +33,9 @@ settings:
         -
           name: Media
           items:
-            - Blockquote
             - media
+            - Blockquote
+            - HorizontalRule
         -
           name: 'Block Formatting'
           items:

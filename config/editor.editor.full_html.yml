@@ -19,10 +19,6 @@ settings:
           items:
             - Bold
             - Italic
-            - Strike
-            - Superscript
-            - Subscript
-            - '-'
             - RemoveFormat
         -
           name: Linking
@@ -39,7 +35,7 @@ settings:
           items:
             - Blockquote
             - media
-            - Table
+            - node
             - HorizontalRule
         -
           name: 'Block Formatting'
@@ -48,7 +44,6 @@ settings:
         -
           name: Tools
           items:
-            - ShowBlocks
             - Source
   plugins:
     language:
