@@ -107,13 +107,15 @@ div.danger {
 }
 
 .site-footer .block-footer-email-subscribe-block .action-secondary a {
+  background-color: rgba(255, 255, 255, 0.8);
   color: rgb(0, 100, 160);
   max-width: 100px;
 }
 
 .site-footer .block-footer-email-subscribe-block .action-secondary a:focus,
 .site-footer .block-footer-email-subscribe-block .action-secondary a:hover {
-  color: rgb(0, 113, 179);
+  color: rgb(0, 100, 160);
+  background-color: rgba(255, 255, 255, 1.0);
 }
 
 .region-sidebar-first ul.menu {
