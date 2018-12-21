@@ -1308,8 +1308,14 @@ function breema_entity_view_alter(array &$build, EntityInterface $entity, Entity
   if ($entity->getEntityTypeId() == 'user') {
     return breema_entity_user_view_alter($build, $entity, $display);
   }
-  if ($entity->getEntityTypeId() == 'node' && $entity->bundle() == 'directory_entry') {
-    return breema_entity_node_directory_entry_view_alter($build, $entity, $display);
+  if ($entity->getEntityTypeId() == 'node') {
+    if ($entity->bundle() == 'directory_entry') {
+      return breema_entity_node_directory_entry_view_alter($build, $entity, $display);
+    }
+    // Special handling for 'Breema and the Nine Principles' page:
+    elseif ($entity->id() == 3) {
+      return breema_node_3_view_alter($build, $entity, $display);
+    }
   }
 }
 
@@ -1435,6 +1441,22 @@ function breema_entity_node_directory_entry_view_alter(array &$build, EntityInte
       '#suffix' => '</div>',
       '#weight' => '-100',
     ];
+  }
+}
+
+/**
+ * Callback for hook_entity_view_alter() for user entities.
+ */
+function breema_node_3_view_alter(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display) {
+  if ($display->getMode() == 'default') {
+    $view = Views::getView('breema_nine_principles');
+    $view->setDisplay('embed_1');
+    $view->execute();
+    $build['teasers'] = $view->preview();
+    $build['field_main_image']['#weight'] = -1;
+    $build['body']['#weight'] = 0;
+    $build['teasers']['#weight'] = 1;
+    $build['field_resources']['#weight'] = 2;
   }
 }
 
