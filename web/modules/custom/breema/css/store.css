@@ -45,6 +45,7 @@
   color: #FFF;
   background-color: rgb(32, 136, 0);
   text-decoration: none;
+  border: 1px solid;
 }
 
 .field--name-field-by p {
