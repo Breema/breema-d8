@@ -30,6 +30,12 @@ a:hover {
   text-decoration: none;
 }
 
+.site-branding__name {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
 .field--type-image img {
   margin: 0;
 }
