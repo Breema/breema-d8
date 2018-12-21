@@ -74,6 +74,18 @@ function breema_preprocess_html(&$variables) {
  * Calls out to bundle-specific functions.
  */
 function breema_preprocess_node(&$variables) {
+  if (substr($variables['view_mode'], 0, 6) == 'teaser') {
+    // Our teasers are generally constructed to make the entire article (the
+    // containing tag) a link, so we need to strip most HTML from whatever is
+    // being rendered in here. Preserve cosmetic HTML, but remove links and
+    // embedded entities.
+    foreach ($variables['content'] as $field_name => $field) {
+      if (!empty($variables['content'][$field_name][0]['#text'])) {
+        breema_strip_links($variables['content'][$field_name][0]['#text']);
+      }
+    }
+  }
+
   switch ($variables['node']->getType()) {
     case 'event':
       breema_preprocess_node_event($variables);
@@ -283,10 +295,7 @@ function breema_preprocess_paragraph__person(&$variables) {
 
   // Strip the description to cosmetic tags only (no links or media).
   if (!empty($variables['content']['field_description'][0])) {
-    $variables['content']['field_description'][0]['#text'] = strip_tags(
-      $variables['content']['field_description'][0]['#text'],
-      '<p><em><i><strong><b><ul><ol><li><blockquote><h3><h4><h5><h6><ins><del><dl><dt><dd><cite><br>'
-    );
+    breema_strip_links($variables['content']['field_description'][0]['#text']);
   }
 
   // Container for everything that's a single link (title, media, description).
@@ -1543,4 +1552,17 @@ $urls);
       return t('Your directory entry is currently not published. To review and publish:<ol><li>Review (and if needed, update) all the information below.</li><li>Select the "Published" checkbox near the bottom of the form.</li><li>Click "Save" to save the changes and hide this message.</li></ol>Alternately, you can use the <a href="@delete_url">Delete</a> link to remove your entry entirely, but then you will not be listed in the <a href="@directory_url">International Breema Directory</a>.', $urls);
 
   }
+}
+
+/**
+ * Strip all non-cosmetic HTML tags from a given string.
+ *
+ * @param string &$text_field
+ *   Reference to the string to strip.
+ */
+function breema_strip_links(&$text_field) {
+  $text_field = strip_tags(
+    $text_field,
+    '<p><em><i><strong><b><ul><ol><li><blockquote><h3><h4><h5><h6><ins><del><dl><dt><dd><cite><br><figure><figcaption>'
+  );
 }
