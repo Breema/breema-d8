@@ -1,0 +1,21 @@
+uuid: c2e000f0-0abe-444b-9961-cb90995b7954
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_authors_other
+    - node.type.article
+  module:
+    - text
+id: node.article.field_authors_other
+field_name: field_authors_other
+entity_type: node
+bundle: article
+label: 'Other authors'
+description: 'List non-Breema authors here, using <em>Add another item</em> if there are more than one.  You can optionally use basic HTML tags (including links).'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

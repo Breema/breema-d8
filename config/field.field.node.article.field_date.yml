@@ -1,0 +1,21 @@
+uuid: 6f6080eb-652a-43c2-8f00-9b6b810aa7db
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_date
+    - node.type.article
+  module:
+    - datetime
+id: node.article.field_date
+field_name: field_date
+entity_type: node
+bundle: article
+label: 'Publication date'
+description: 'The date this article was published (generally not the same date it was posted to www.breema.com).'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

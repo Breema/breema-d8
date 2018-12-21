@@ -1,0 +1,23 @@
+uuid: f401e928-d3ab-424b-9072-3fdd947af061
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_source_url
+    - node.type.article
+  module:
+    - link
+id: node.article.field_source_url
+field_name: field_source_url
+entity_type: node
+bundle: article
+label: 'Source URL'
+description: 'A link to the source itself (e.g. the website of a journal or organization), not the link to the specific article (which should go in the <em>Original article URL</em> field, instead).'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 16
+  title: 0
+field_type: link

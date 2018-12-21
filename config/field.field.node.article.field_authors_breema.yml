@@ -1,0 +1,36 @@
+uuid: 1bb6875f-dada-48f6-a22c-a83450f4c1a7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_authors_breema
+    - node.type.article
+id: node.article.field_authors_breema
+field_name: field_authors_breema
+entity_type: node
+bundle: article
+label: 'Breema authors'
+description: 'If any of the authors are Certified Practitioners or Instructors, start typing their name and available options will auto-complete.  Use the <em>Add another item</em> button if there are multiple Breema authors.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:user'
+  handler_settings:
+    include_anonymous: false
+    filter:
+      type: role
+      role:
+        practitioner: practitioner
+        instructor: instructor
+        event_expert: '0'
+        content_administrator: '0'
+        user_administrator: '0'
+        administrator: '0'
+    target_bundles: null
+    sort:
+      field: field_name_last
+      direction: ASC
+    auto_create: false
+field_type: entity_reference
