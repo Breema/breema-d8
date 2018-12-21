@@ -4,12 +4,11 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.media.view_full
+    - field.field.media.file.field_file_type
     - field.field.media.file.field_media_file
-    - image.style.thumbnail
     - media.type.file
   module:
     - file
-    - image
 _core:
   default_config_hash: ur5IEgEgeoNAE7ppqt6usimLP8WHe6WPKuZul582QUM
 id: media.file.view_full
@@ -19,28 +18,22 @@ mode: view_full
 content:
   field_media_file:
     label: visually_hidden
-    settings: {  }
+    settings:
+      use_description_as_link_text: false
     third_party_settings: {  }
     type: file_default
-    weight: 2
+    weight: 1
     region: content
   name:
     label: hidden
     type: string
-    weight: 1
+    weight: 0
     region: content
     settings:
       link_to_entity: false
     third_party_settings: {  }
-  thumbnail:
-    type: image
-    weight: 0
-    region: content
-    label: hidden
-    settings:
-      image_style: thumbnail
-      image_link: file
-    third_party_settings: {  }
 hidden:
   created: true
+  field_file_type: true
+  thumbnail: true
   uid: true

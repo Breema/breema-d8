@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.media.view_large
+    - field.field.media.file.field_file_type
     - field.field.media.file.field_media_file
     - media.type.file
   module:
@@ -17,13 +18,22 @@ mode: view_large
 content:
   field_media_file:
     label: visually_hidden
-    settings: {  }
+    settings:
+      use_description_as_link_text: true
     third_party_settings: {  }
     type: file_default
+    weight: 1
+    region: content
+  name:
+    type: string
     weight: 0
     region: content
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
 hidden:
   created: true
-  name: true
+  field_file_type: true
   thumbnail: true
   uid: true

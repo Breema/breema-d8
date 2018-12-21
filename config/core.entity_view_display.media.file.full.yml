@@ -9,7 +9,6 @@ dependencies:
     - media.type.file
   module:
     - file
-    - image
 _core:
   default_config_hash: ur5IEgEgeoNAE7ppqt6usimLP8WHe6WPKuZul582QUM
 id: media.file.full
@@ -17,19 +16,9 @@ targetEntityType: media
 bundle: file
 mode: full
 content:
-  created:
-    type: timestamp
-    weight: 0
-    region: content
-    label: above
-    settings:
-      date_format: medium
-      custom_date_format: ''
-      timezone: ''
-    third_party_settings: {  }
   field_file_type:
     type: entity_reference_label
-    weight: 3
+    weight: 2
     region: content
     label: inline
     settings:
@@ -37,20 +26,21 @@ content:
     third_party_settings: {  }
   field_media_file:
     label: visually_hidden
-    settings: {  }
+    settings:
+      use_description_as_link_text: false
     third_party_settings: {  }
     type: file_default
-    weight: 2
-    region: content
-  thumbnail:
-    type: image
     weight: 1
     region: content
-    label: visually_hidden
+  name:
+    type: string
+    weight: 0
+    region: content
+    label: hidden
     settings:
-      image_style: ''
-      image_link: ''
+      link_to_entity: false
     third_party_settings: {  }
 hidden:
-  name: true
+  created: true
+  thumbnail: true
   uid: true

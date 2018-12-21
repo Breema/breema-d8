@@ -188,6 +188,16 @@ function breema_preprocess_node_product(&$variables) {
 }
 
 /**
+ * Implements hook_preprocess_HOOK() for file bundle media entities.
+ */
+function breema_preprocess_media__file(&$variables) {
+  if (substr($variables['view_mode'], 0, 5) == 'view_') {
+    $variables['content']['field_media_file'][0]['#description'] = $variables['content']['name'][0]['#context']['value'];
+    $variables['content']['name']['#access'] = FALSE;
+  }
+}
+
+/**
  * Preprocess function for blocks.
  */
 function breema_preprocess_block(&$variables) {
@@ -527,6 +537,12 @@ function breema_inline_entity_form_entity_form_alter(&$entity_form, \Drupal\Core
     $entity_form['uid']['widget'][0]['target_id']['#default_value'] = $user;
     breema_directory_entry_node_form_alter($entity_form, $form_state, $user, $entity_form['#entity'], TRUE);
   }
+  if ($entity_form['#entity_type'] === 'media'
+      && !empty($entity_form['#bundle'])
+      && $entity_form['#bundle'] === 'file'
+  ) {
+    breema_file_media_form_alter($entity_form, $form_state);
+  }
 }
 
 /**
@@ -701,6 +717,20 @@ function breema_directory_entry_node_form_alter(&$form, FormStateInterface $form
 function breema_product_node_form_after_build($form_element, FormStateInterface $form_state) {
   $form_element['format']['#access'] = FALSE;
   return $form_element;
+}
+
+function breema_form_media_form_alter(&$form, FormStateInterface $form_state) {
+  $media = $form_state->getFormObject()->getEntity();
+  if ($media->bundle() === 'file') {
+    breema_file_media_form_alter($form, $form_state);
+  }
+}
+
+/**
+ * Alter a file media form, regardless of IEF or stand-alone.
+ */
+function breema_file_media_form_alter(&$form, FormStateInterface $form_state) {
+  $form['name']['widget'][0]['value']['#description'] = t('The <em>Name</em> will be used as the link to download the file everywhere it appears on the site. Please choose wisely.');
 }
 
 /**
