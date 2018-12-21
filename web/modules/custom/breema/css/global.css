@@ -59,20 +59,16 @@ div.danger {
 .danger a {
   color: rgb(210, 5, 5);
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  text-decoration: none;
-  border: none;
 }
 
 .danger a:hover {
   color: rgb(170, 5, 5);
-  text-decoration: none;
-  border: none;
 }
 
 .block-social-media-links a,
 .block-social-media-links a:hover {
-  border: none;
   text-decoration: none;
+  border: none;
 }
 
 .site-footer .block {
@@ -91,16 +87,10 @@ div.danger {
 }
 .site-footer .block-social-media-links .content li a,
 .site-footer .block-social-media-links .content li a:hover {
-  border-bottom: none;
   text-decoration: none;
+  border: none;
   text-indent: 0;
   padding: 0 0.25em 0 0;
-}
-
-.block-footer-text-block .contact a,
-.block-footer-text-block .contact a:hover {
-  border-bottom: none;
-  text-decoration: none;
 }
 
 .block-footer-text-block .contact a.telephone {
@@ -143,22 +133,6 @@ div.danger {
 .field--type-email a,
 .field--type-telephone a {
   position: relative;
-  border-bottom: none;
-  text-decoration: none;
-}
-
-.contact-form-link a:focus,
-.contact-form-link a:hover,
-.field--type-email a:focus,
-.field--type-email a:hover,
-.field--type-telephone a:focus,
-.field--type-telephone a:hover {
-  /*
-  text-decoration: none;
-  border-bottom: 1px solid;
-  */
-  text-decoration: underline;
-  border-bottom: none;
 }
 
 .contact-form-link a,
@@ -197,8 +171,6 @@ div.danger {
 .field--name-field-facebook-event a:hover {
   padding: 0 0 0 1em;
   position: relative;
-  border-bottom: none;
-  text-decoration: none;
 }
 
 .field--name-field-facebook-event a:before {

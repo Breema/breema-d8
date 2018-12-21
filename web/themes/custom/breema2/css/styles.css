@@ -25,6 +25,11 @@ a:hover {
   border-bottom: none;
 }
 
+.tabs ul.primary li a:focus,
+.tabs ul.primary li a:hover {
+  text-decoration: none;
+}
+
 .field--type-image img {
   margin: 0;
 }
