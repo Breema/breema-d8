@@ -1,0 +1,29 @@
+{%
+  set classes = [
+    'node',
+    'node--type-' ~ node.bundle|clean_class,
+    node.isPromoted() ? 'node--promoted',
+    node.isSticky() ? 'node--sticky',
+    not node.isPublished() ? 'node--unpublished',
+    view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+    'clearfix',
+  ]
+%}
+{{ attach_library('classy/node') }}
+
+<a href="{{ url }}" rel="bookmark" class="teaser-link">
+<article{{ attributes.addClass(classes) }}>
+  <header>
+    {{ title_prefix }}
+    <h2{{ title_attributes.addClass('node__title') }}>
+      {{ label }}
+    </h2>
+    {{ title_suffix }}
+  </header>
+  <div{{ content_attributes.addClass('node__content', 'clearfix') }}>
+    {{ content.field_main_image }}
+    {{ content.body }}
+    <div class="more-link">{{ 'Read more'|t }}</div>
+  </div>
+</article>
+</a>
