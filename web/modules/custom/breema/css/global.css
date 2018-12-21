@@ -16,6 +16,7 @@
   border: 1px solid rgb(20, 85, 0);
 }
 
+.action a:focus,
 .action a:hover {
   color: #FFF;
   text-decoration: none;
@@ -39,6 +40,7 @@
   border: 1px solid rgb(0, 113, 179);
 }
 
+.action-secondary a:focus,
 .action-secondary a:hover {
   text-decoration: none;
   background-color: rgb(235, 235, 245);
@@ -61,11 +63,13 @@ div.danger {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
+.danger a:focus,
 .danger a:hover {
   color: rgb(170, 5, 5);
 }
 
 .block-social-media-links a,
+.block-social-media-links a:focus,
 .block-social-media-links a:hover {
   text-decoration: none;
   border: none;
@@ -86,6 +90,7 @@ div.danger {
   padding: 0.5em 0 0 0;
 }
 .site-footer .block-social-media-links .content li a,
+.site-footer .block-social-media-links .content li a:focus,
 .site-footer .block-social-media-links .content li a:hover {
   text-decoration: none;
   border: none;
@@ -106,6 +111,7 @@ div.danger {
   max-width: 100px;
 }
 
+.site-footer .block-footer-email-subscribe-block .action-secondary a:focus,
 .site-footer .block-footer-email-subscribe-block .action-secondary a:hover {
   color: rgb(0, 113, 179);
 }
@@ -168,6 +174,7 @@ div.danger {
 }
 
 .field--name-field-facebook-event a,
+.field--name-field-facebook-event a:focus,
 .field--name-field-facebook-event a:hover {
   padding: 0 0 0 1em;
   position: relative;
