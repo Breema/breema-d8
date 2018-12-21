@@ -560,17 +560,17 @@ function breema_inline_entity_form_entity_form_alter(&$entity_form, \Drupal\Core
 function breema_form_node_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state) {
   $node = $form_state->getFormObject()->getEntity();
   // Find the appropriate user entity and invoke the shared method.
-  if ($node->bundle() == 'directory_entry') {
+  if ($node->bundle() === 'directory_entry') {
     $authors = $node->get('uid')->referencedEntities();
     $author = array_pop($authors);
     breema_directory_entry_node_form_alter($form, $form_state, $author, $node, FALSE);
   }
   // Products have a special #after_build callback.
-  else if ($node->bundle() == 'product') {
-    $form['field_by']['widget'][0]['#after_build'][] = 'breema_product_node_form_after_build';
+  else if ($node->bundle() === 'product') {
+    $form['field_by']['widget'][0]['#after_build'][] = 'breema_hide_format_after_build';
   }
   // Schedule events (with a parent) can't access their title, require subtitle.
-  else if ($node->bundle() == 'event') {
+  else if ($node->bundle() === 'event') {
     if (!empty($form['field_parent_event']['widget'][0]['target_id']['#default_value'])) {
       $form['title']['#access'] = FALSE;
       $form['field_subtitle']['widget'][0]['value']['#required'] = TRUE;
@@ -584,7 +584,7 @@ function breema_form_node_form_alter(&$form, \Drupal\Core\Form\FormStateInterfac
     unset($form['field_website']['widget']['#description']);
     $form['#group_children']['other_website_desc'] = 'group_other_links';
   }
-  elseif ($node->bundle() == 'essence') {
+  elseif ($node->bundle() === 'essence') {
     $form['field_source_product']['#states'] = [
       'visible' => [
         ':input[name="field_source_type"]' => ['value' => 'product'],
@@ -596,6 +596,15 @@ function breema_form_node_form_alter(&$form, \Drupal\Core\Form\FormStateInterfac
       ],
     ];
     $form['#validate'][] = 'breema_essence_node_form_validate';
+  }
+  // Hide the format on 'Other authors' for article nodes.
+  elseif ($node->bundle() == 'article') {
+    foreach (Element::children($form['field_authors_other']['widget']) as $key) {
+      if (is_int($key)) {
+        $form['field_authors_other']['widget'][$key]['#after_build'][] = 'breema_hide_format_after_build';
+      }
+    }
+    $form['field_source_name']['widget'][0]['#after_build'][] = 'breema_hide_format_after_build';
   }
 }
 
@@ -721,9 +730,9 @@ function breema_directory_entry_node_form_alter(&$form, FormStateInterface $form
 }
 
 /**
- * #after_build callback for field_by on product nodes.
+ * #after_build callback to hide the 'format' of any given form element.
  */
-function breema_product_node_form_after_build($form_element, FormStateInterface $form_state) {
+function breema_hide_format_after_build($form_element, FormStateInterface $form_state) {
   $form_element['format']['#access'] = FALSE;
   return $form_element;
 }
