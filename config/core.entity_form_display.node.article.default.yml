@@ -113,7 +113,7 @@ content:
     type: entity_browser_entity_reference
     region: content
   field_original_article_url:
-    weight: 12
+    weight: 15
     settings:
       placeholder_url: ''
       placeholder_title: ''
@@ -136,7 +136,7 @@ content:
     type: entity_browser_entity_reference
     region: content
   field_source_name:
-    weight: 13
+    weight: 16
     settings:
       size: 60
       placeholder: ''
@@ -144,7 +144,7 @@ content:
     type: text_textfield
     region: content
   field_source_url:
-    weight: 14
+    weight: 17
     settings:
       placeholder_url: ''
       placeholder_title: ''
