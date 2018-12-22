@@ -1494,7 +1494,16 @@ function breema_entity_node_article_view_alter(array &$build, EntityInterface $e
       '#markup' => $source_name[0]['value'],
     ];
   }
-  if ($view_mode !== 'teaser') {
+  if ($view_mode === 'teaser') {
+    $build['field_main_image']['#weight'] = -20;
+    $build['read_more'] = [
+      '#prefix' => '<div class="more-link">',
+      '#markup' => t('Read more'),
+      '#suffix' => '</div>',
+      '#weight' => 500,
+    ];
+  }
+  else {
     $source_url = $entity->get('field_source_url')->getValue();
     if (!empty($source_url[0]['uri'])) {
       if (empty($source['name'])) {
@@ -1521,6 +1530,7 @@ function breema_entity_node_article_view_alter(array &$build, EntityInterface $e
     $build['source']['#type'] = 'container';
     $build['source']['#weight'] = -5;
   }
+  $build['field_publication_date']['#weight'] = -4;
 }
 
 /**
