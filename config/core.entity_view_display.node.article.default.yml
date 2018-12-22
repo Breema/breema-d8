@@ -33,21 +33,6 @@ content:
     settings: {  }
     third_party_settings: {  }
     label: hidden
-  field_authors_breema:
-    type: entity_reference_label
-    weight: 5
-    region: content
-    label: hidden
-    settings:
-      link: true
-    third_party_settings: {  }
-  field_authors_other:
-    type: text_default
-    weight: 7
-    region: content
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
   field_date:
     weight: 0
     label: inline
@@ -80,6 +65,8 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
+  field_authors_breema: true
+  field_authors_other: true
   field_original_article_url: true
   field_source_name: true
   field_source_url: true
