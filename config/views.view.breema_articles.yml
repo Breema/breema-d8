@@ -6,9 +6,11 @@ dependencies:
     - core.entity_view_mode.node.teaser
     - node.type.article
     - system.menu.main
+    - taxonomy.vocabulary.article_language
   module:
     - datetime
     - node
+    - taxonomy
     - user
 id: breema_articles
 label: 'Breema articles'
@@ -44,8 +46,8 @@ display:
       exposed_form:
         type: basic
         options:
-          submit_button: Apply
-          reset_button: false
+          submit_button: Filter
+          reset_button: true
           reset_button_label: Reset
           exposed_sorts_label: 'Sort by'
           expose_sort_order: true
@@ -144,6 +146,56 @@ display:
           entity_type: node
           entity_field: type
           plugin_id: bundle
+        field_article_language_target_id:
+          id: field_article_language_target_id
+          table: node__field_article_language
+          field: field_article_language_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_article_language_target_id_op
+            label: Language
+            description: ''
+            use_operator: false
+            operator: field_article_language_target_id_op
+            identifier: language
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              practitioner: '0'
+              instructor: '0'
+              event_expert: '0'
+              content_administrator: '0'
+              user_administrator: '0'
+              administrator: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: select
+          limit: true
+          vid: article_language
+          hierarchy: false
+          error_message: true
+          plugin_id: taxonomy_index_tid
       sorts:
         field_date_value:
           id: field_date_value
@@ -170,7 +222,9 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url
         - url.query_args
+        - user
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
@@ -196,7 +250,9 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url
         - url.query_args
+        - user
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
