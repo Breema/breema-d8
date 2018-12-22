@@ -12,12 +12,12 @@ field_name: field_original_article_url
 entity_type: node
 bundle: article
 label: 'Original article URL'
-description: 'The URL where this article was originally published.  You can optionally specify link text to use, which defaults to ''View original article'' if empty.'
+description: 'The URL where this article was originally published.'
 required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
   link_type: 16
-  title: 1
+  title: 0
 field_type: link
