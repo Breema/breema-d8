@@ -1,0 +1,22 @@
+uuid: d219e0cc-09e4-473f-8323-44dd80db291e
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node_article
+label: 'Node: Article'
+type: 'canonical_entities:node'
+pattern: 'about-breema/articles/[node:field_date:date:html_date]-[node:title]'
+selection_criteria:
+  5cc76d12-a98c-4b42-9e96-17d783d02ac4:
+    id: node_type
+    bundles:
+      article: article
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 5cc76d12-a98c-4b42-9e96-17d783d02ac4
+selection_logic: and
+weight: -5
+relationships: {  }
