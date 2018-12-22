@@ -1495,17 +1495,37 @@ function breema_cron() {
  *
  * @return string
  *   Label for all the entities with appropriate delimiter(s) depending on number.
+ *
+ * @see breema_fancy_implode()
  */
 function breema_get_entity_label_multiple(array $entities, $label_callback) {
+  return breema_fancy_implode(array_map($label_callback, $entities));
+}
+
+/**
+ * Fancy version of implode() that delimits with ',' and 'and' based on count.
+ *
+ * If there's only 1 thing, return it.
+ * If 2, use "1 and 2".
+ * If 3 or more "1, ... N-1 and N".
+ *
+ * @param $items[]
+ *   An array of strings to be glued together.
+ *
+ * @return string
+ *   String of all the items with appropriate delimiter(s) depending on number.
+ *
+ * @see breema_get_entity_label_multiple()
+ */
+function breema_fancy_implode($items) {
   $text = '';
-  $last = array_pop($entities);
-  $last_label = $label_callback($last);
-  $text = implode(', ', array_map($label_callback, $entities));
+  $last = array_pop($items);
+  $text = implode(', ', $items);
   if (!empty($text)) {
-    $text .= " and $last_label";
+    $text .= " and $last";
   }
   else {
-    $text = $last_label;
+    $text = $last;
   }
   return $text;
 }
