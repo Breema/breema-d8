@@ -151,6 +151,12 @@ a.teaser-link .field--name-field-date-time {
   font-style: italic;
 }
 
+.node--type-article .field--name-field-date {
+  padding-bottom: 0.5em;
+  margin-bottom: 1em;
+  border-bottom: 1px solid #ccc;
+}
+
 a.teaser-link .node__content {
   font-size: 1em;
   margin: 0;
