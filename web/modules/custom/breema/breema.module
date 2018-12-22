@@ -1318,8 +1318,12 @@ function breema_entity_view_alter(array &$build, EntityInterface $entity, Entity
     return breema_entity_user_view_alter($build, $entity, $display);
   }
   if ($entity->getEntityTypeId() == 'node') {
-    if ($entity->bundle() == 'directory_entry') {
+    $bundle = $entity->bundle();
+    if ($bundle === 'directory_entry') {
       return breema_entity_node_directory_entry_view_alter($build, $entity, $display);
+    }
+    elseif ($bundle === 'article') {
+      return breema_entity_node_article_view_alter($build, $entity, $display);
     }
     // Special handling for 'Breema and the Nine Principles' page:
     elseif ($entity->id() == 3) {
@@ -1385,7 +1389,7 @@ function breema_entity_user_view_alter(array &$build, EntityInterface $entity, E
 }
 
 /**
- * Callback for hook_entity_view_alter() for user entities.
+ * Callback for hook_entity_view_alter() for directory entry nodes.
  */
 function breema_entity_node_directory_entry_view_alter(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display) {
   // @todo fix cache contexts/tags/etc.
@@ -1450,6 +1454,72 @@ function breema_entity_node_directory_entry_view_alter(array &$build, EntityInte
       '#suffix' => '</div>',
       '#weight' => '-100',
     ];
+  }
+}
+
+/**
+ * Callback for hook_entity_view_alter() for article nodes.
+ */
+function breema_entity_node_article_view_alter(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display) {
+  // @todo fix cache contexts/tags/etc.
+  $view_mode = $display->getMode();
+  $breema_authors = $entity->get('field_authors_breema')->referencedEntities();
+  $other_authors = $entity->get('field_authors_other')->getValue();
+  $authors = [];
+  if (!empty($breema_authors)) {
+    $label_callback = $view_mode === 'default' ? 'breema_entity_label_instructor_directory_entry' : 'breema_entity_label_plain';
+    $authors = array_map($label_callback, $breema_authors);
+  }
+  if (!empty($other_authors)) {
+    foreach ($other_authors as $other_author) {
+      if ($view_mode === 'teaser') {
+        breema_strip_links($other_author['value']);
+      }
+      $authors[] = $other_author['value'];
+    }
+  }
+  if (!empty($authors)) {
+    $build['authors'] = [
+      '#type' => 'markup',
+      '#prefix' => '<div class="byline">',
+      '#markup' => t('By') . ' ' . breema_fancy_implode($authors),
+      '#suffix' => '</div>',
+      '#weight' => -10,
+    ];
+  }
+
+  $source_name = $entity->get('field_source_name')->getValue();
+  if (!empty($source_name[0]['value'])) {
+    $source['name'] = [
+      '#markup' => $source_name[0]['value'],
+    ];
+  }
+  if ($view_mode !== 'teaser') {
+    $source_url = $entity->get('field_source_url')->getValue();
+    if (!empty($source_url[0]['uri'])) {
+      if (empty($source['name'])) {
+        // If there is no source name, we'll have to use the raw URL.
+        $source['name'] = [
+          '#markup' => $source_url[0]['uri'],
+        ];
+      }
+      $source['name']['#prefix'] = '<a href="' . $source_url[0]['uri'] . '">';
+      $source['name']['#suffix'] = '</a>';
+    }
+    $original_url = $entity->get('field_original_article_url')->getValue();
+    if (!empty($original_url[0]['uri'])) {
+      $separator = empty($source) ? '' : ' &mdash; ';
+      $source['original'] = [
+        '#prefix' => $separator . '<a href="' . $original_url[0]['uri'] . '">',
+        '#markup' => t('View original article'),
+        '#suffix' => '</a>',
+      ];
+    }
+  }
+  if (!empty($source)) {
+    $build['source'] = $source;
+    $build['source']['#type'] = 'container';
+    $build['source']['#weight'] = -5;
   }
 }
 
