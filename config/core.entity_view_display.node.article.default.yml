@@ -39,7 +39,7 @@ content:
     label: inline
     settings:
       timezone_override: ''
-      format_type: html_date
+      format_type: date_text
     third_party_settings: {  }
     type: datetime_default
     region: content

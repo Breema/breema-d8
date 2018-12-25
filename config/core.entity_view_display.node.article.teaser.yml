@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.article.body
+    - field.field.node.article.field_article_language
     - field.field.node.article.field_authors_breema
     - field.field.node.article.field_authors_other
     - field.field.node.article.field_date
@@ -53,7 +54,7 @@ content:
     label: inline
     settings:
       timezone_override: ''
-      format_type: html_date
+      format_type: date_text
     third_party_settings: {  }
   field_main_image:
     type: media_thumbnail
@@ -65,6 +66,7 @@ content:
       image_link: ''
     third_party_settings: {  }
 hidden:
+  field_article_language: true
   field_authors_breema: true
   field_authors_other: true
   field_original_article_url: true
