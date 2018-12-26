@@ -2,13 +2,9 @@
 {% set title_element = 'h4' %}
 
 {% block link_start %}
-{% if not page %}
 <a href="{{ url }}" rel="bookmark" class="teaser-link">
-{% endif %}
 {% endblock %}
 
 {% block link_end %}
-{% if not page %}
 </a>
-{% endif %}
 {% endblock %}
