@@ -151,10 +151,16 @@ a.teaser-link .field--name-field-date-time {
   font-style: italic;
 }
 
-.node--type-article .field--name-field-date {
+.node--type-article .source-info {
   padding-bottom: 0.5em;
   margin-bottom: 1em;
   border-bottom: 1px solid #ccc;
+}
+.node--type-article .dash {
+  color: #aaa;
+}
+.node--type-article .pub-date {
+  color: #777;
 }
 
 a.teaser-link .node__content {

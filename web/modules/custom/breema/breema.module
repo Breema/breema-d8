@@ -1488,12 +1488,8 @@ function breema_entity_node_article_view_alter(array &$build, EntityInterface $e
     ];
   }
 
-  $source_name = $entity->get('field_source_name')->getValue();
-  if (!empty($source_name[0]['value'])) {
-    $source['name'] = [
-      '#markup' => $source_name[0]['value'],
-    ];
-  }
+  $source_info = [];
+  $source_name = $entity->get('field_source_name')->value;
   if ($view_mode === 'teaser') {
     $build['field_main_image']['#weight'] = -20;
     $build['read_more'] = [
@@ -1502,35 +1498,39 @@ function breema_entity_node_article_view_alter(array &$build, EntityInterface $e
       '#suffix' => '</div>',
       '#weight' => 500,
     ];
+    if (!empty($source_name)) {
+      $source_info[] = $source_name;
+    }
   }
   else {
     $source_url = $entity->get('field_source_url')->getValue();
     if (!empty($source_url[0]['uri'])) {
-      if (empty($source['name'])) {
+      if (empty($source_name)) {
         // If there is no source name, we'll have to use the raw URL.
-        $source['name'] = [
-          '#markup' => $source_url[0]['uri'],
-        ];
+        $source_name = $source_url[0]['uri'];
       }
-      $source['name']['#prefix'] = '<a href="' . $source_url[0]['uri'] . '">';
-      $source['name']['#suffix'] = '</a>';
+      $source_info[] = '<a href="' . $source_url[0]['uri'] . '">' . $source_name . '</a>';
+    }
+    elseif (!empty($source_name)) {
+      $source_info[] = $source_name;
     }
     $original_url = $entity->get('field_original_article_url')->getValue();
     if (!empty($original_url[0]['uri'])) {
-      $separator = empty($source) ? '' : ' &mdash; ';
-      $source['original'] = [
-        '#prefix' => $separator . '<a href="' . $original_url[0]['uri'] . '">',
-        '#markup' => t('View original article'),
-        '#suffix' => '</a>',
-      ];
+      $source_info[] = '<span class="original-link">' . t('<a href="@url">View original article</a>', ['@url' => $original_url[0]['uri']]) . '</span>';
     }
   }
-  if (!empty($source)) {
-    $build['source'] = $source;
-    $build['source']['#type'] = 'container';
-    $build['source']['#weight'] = -5;
+  if (!empty($build['field_date'][0]['#text'])) {
+    $source_info[] = '<span class="pub-date">' . $build['field_date'][0]['#text'] . '</span>';
   }
-  $build['field_publication_date']['#weight'] = -4;
+  if (!empty($source_info)) {
+    $build['source'] = [
+      '#markup' => implode(' <span class="dash">&mdash;</span> ', $source_info),
+      '#prefix' => '<div class="source-info">',
+      '#suffix' => '</div>',
+      '#weight' => -5,
+    ];
+    $build['field_date']['#access'] = FALSE;
+  }
 }
 
 /**
