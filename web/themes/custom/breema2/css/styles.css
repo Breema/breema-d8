@@ -352,6 +352,10 @@ div.field--name-field-registration-link {
   margin: 0 1em 0 0;
 }
 
+.view-breema-articles .views-exposed-form {
+  margin: 0 0 1em 0;
+}
+
 .grid--container {
   display: grid;
   grid-column-gap: 10px;
