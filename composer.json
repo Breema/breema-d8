@@ -37,7 +37,7 @@
     "drupal/filefield_paths": "1.x-dev",
     "drupal/fixed_text_link_formatter": "^1.1",
     "drupal/flag": "^4.0",
-    "drupal/fullcalendar_view": "^2.0",
+    "drupal/fullcalendar_view": "2.x-dev",
     "drupal/geocoder": "2.x-dev",
     "drupal/geolocation": "1.x-dev",
     "drupal/group": "1.x-dev",
@@ -139,8 +139,7 @@
         "[#2718783-13] Call to undefined method BaseFieldDefinition::getThirdPartySettings()" : "https://www.drupal.org/files/issues/call_to_undefined-2718783-13.patch"
       },
       "drupal/fullcalendar_view": {
-        "[#3010689-1] Allow calendar start date to be set from the first view result" : "https://www.drupal.org/files/issues/2018-10-31/3010689-1.fullcalendar_view.default_date_source.patch",
-        "[#3010690-1] Add setting to configure which field to use for the title" : "https://www.drupal.org/files/issues/2018-10-31/3010690-1.fullcalendar_view.config_title.patch"
+        "[#3010689-1] Allow calendar start date to be set from the first view result" : "https://www.drupal.org/files/issues/2018-10-31/3010689-1.fullcalendar_view.default_date_source.patch"
       },
       "drupal/geolocation": {
         "[#2921121-2] Empty h2 markup when locations don't use a 'title' field" : "https://www.drupal.org/files/issues/2921121-1.hide-location-title-completely.patch",

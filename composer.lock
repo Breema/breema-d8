@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "8637f044792e1622f7b980c6ad47e6bb",
+    "content-hash": "3e9f0ae50d16bb90fedf5b23acf855e8",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -3360,17 +3360,11 @@
         },
         {
             "name": "drupal/fullcalendar_view",
-            "version": "2.0.0-rc9",
+            "version": "dev-2.x",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/fullcalendar_view",
-                "reference": "8.x-2.0-rc9"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/fullcalendar_view-8.x-2.0-rc9.zip",
-                "reference": "8.x-2.0-rc9",
-                "shasum": "8a12d1b9f9a5af89c16eb0887e4cc5bbbe19f598"
+                "reference": "243fdaa613d29a35f48802081d6e4a94128322d6"
             },
             "require": {
                 "drupal/core": "*"
@@ -3381,16 +3375,15 @@
                     "dev-2.x": "2.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-2.0-rc9",
-                    "datestamp": "1530270601",
+                    "version": "8.x-2.0-rc10+5-dev",
+                    "datestamp": "1544005384",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Project has not opted into security advisory coverage!"
                     }
                 },
                 "patches_applied": {
-                    "[#3010689-1] Allow calendar start date to be set from the first view result": "https://www.drupal.org/files/issues/2018-10-31/3010689-1.fullcalendar_view.default_date_source.patch",
-                    "[#3010690-1] Add setting to configure which field to use for the title": "https://www.drupal.org/files/issues/2018-10-31/3010690-1.fullcalendar_view.config_title.patch"
+                    "[#3010689-1] Allow calendar start date to be set from the first view result": "https://www.drupal.org/files/issues/2018-10-31/3010689-1.fullcalendar_view.default_date_source.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -3407,7 +3400,8 @@
             "homepage": "https://www.drupal.org/project/fullcalendar_view",
             "support": {
                 "source": "http://cgit.drupalcode.org/fullcalendar_view"
-            }
+            },
+            "time": "2018-12-06 00:18:31"
         },
         {
             "name": "drupal/geocoder",
@@ -10464,6 +10458,7 @@
         "drupal/entityqueue": 20,
         "drupal/field_permissions": 10,
         "drupal/filefield_paths": 20,
+        "drupal/fullcalendar_view": 20,
         "drupal/geocoder": 20,
         "drupal/geolocation": 20,
         "drupal/group": 20,
