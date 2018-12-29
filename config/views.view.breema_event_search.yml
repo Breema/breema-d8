@@ -528,16 +528,21 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      path: events/search
+      path: events
       menu:
-        type: tab
+        type: 'default tab'
         title: Search
         description: ''
         expanded: false
         parent: ''
-        weight: 0
+        weight: -1
         context: '0'
         menu_name: main
+      tab_options:
+        type: none
+        title: ''
+        description: ''
+        weight: 0
     cache_metadata:
       max-age: -1
       contexts:

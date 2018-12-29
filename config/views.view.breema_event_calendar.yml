@@ -10,6 +10,7 @@ dependencies:
     - taxonomy.vocabulary.event_category
   module:
     - address
+    - datetime
     - datetime_range
     - fullcalendar_view
     - node
@@ -635,9 +636,9 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      path: events
+      path: events/calendar
       menu:
-        type: 'default tab'
+        type: tab
         title: Calendar
         description: ''
         expanded: false
