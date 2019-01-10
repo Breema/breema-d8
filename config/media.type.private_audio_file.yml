@@ -1,0 +1,13 @@
+uuid: ec341ef8-28b1-49e2-b99e-71a68910a778
+langcode: en
+status: true
+dependencies: {  }
+id: private_audio_file
+label: 'Private audio file'
+description: "An audio file that has restricted access (for posting to private groups).\t\r\n"
+source: audio_file
+queue_thumbnail_downloads: false
+new_revision: false
+source_configuration:
+  source_field: field_private_audio_file
+field_map: {  }

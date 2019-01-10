@@ -1,0 +1,29 @@
+uuid: c1d773e8-e2dc-4333-852f-f62d1c5501c7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_image_type
+    - media.type.private_image
+    - taxonomy.vocabulary.image_type
+id: media.private_image.field_image_type
+field_name: field_image_type
+entity_type: media
+bundle: private_image
+label: 'Image type'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      image_type: image_type
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

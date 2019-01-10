@@ -1,0 +1,13 @@
+uuid: 910d1834-9aa2-411e-87ca-43176667c5fc
+langcode: en
+status: true
+dependencies: {  }
+id: private_file
+label: 'Private file'
+description: "A file (PDF, etc) that has restricted access (for posting to private groups).\r\n"
+source: file
+queue_thumbnail_downloads: false
+new_revision: false
+source_configuration:
+  source_field: field_private_file
+field_map: {  }

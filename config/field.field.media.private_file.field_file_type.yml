@@ -1,0 +1,29 @@
+uuid: 85827b81-ae7c-4c01-81d3-aa5d351c3725
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_file_type
+    - media.type.private_file
+    - taxonomy.vocabulary.file_type
+id: media.private_file.field_file_type
+field_name: field_file_type
+entity_type: media
+bundle: private_file
+label: 'File type'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      file_type: file_type
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

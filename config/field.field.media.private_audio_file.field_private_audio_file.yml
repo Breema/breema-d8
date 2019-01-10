@@ -1,0 +1,27 @@
+uuid: 86016ca5-0c97-4615-9106-d6b68b37944b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_private_audio_file
+    - media.type.private_audio_file
+  module:
+    - file
+id: media.private_audio_file.field_private_audio_file
+field_name: field_private_audio_file
+entity_type: media
+bundle: private_audio_file
+label: 'Audio file'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_extensions: 'mp3 wav aac'
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  max_filesize: ''
+  description_field: false
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file

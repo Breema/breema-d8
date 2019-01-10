@@ -1,0 +1,13 @@
+uuid: 792d3e96-8c06-4fc5-bb9e-529ada8ae128
+langcode: en
+status: true
+dependencies: {  }
+id: private_image
+label: 'Private image'
+description: "An image that has restricted access (for posting to private groups).\t\r\n"
+source: image
+queue_thumbnail_downloads: false
+new_revision: false
+source_configuration:
+  source_field: field_private_image
+field_map: {  }
