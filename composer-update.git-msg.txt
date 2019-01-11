@@ -1,8 +1,0 @@
-  - Updating drupal/core (8.6.1 => 8.6.2)
-  - Updating drupal/entity (1.0.0-beta4 => 1.0.0-rc1)
-  - Updating drupal/fixed_text_link_formatter (1.3.0 => 1.4.0)
-  - Updating drupal/jsonapi (2.0.0-beta1 => 2.0.0-rc1)
-  - Updating drupal/redirect (1.2.0 => 1.3.0)
-  - Updating drupal/token (1.4.0 => 1.5.0)
-  - Updating drupal/entity_reference_revisions (1.5.0 => 1.6.0)
-  - Updating drupal/geocoder dev-2.x (6d72ae4 => 134ee6f):  Checking out 134ee6fc8e

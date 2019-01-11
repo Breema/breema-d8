@@ -14,6 +14,7 @@ module:
   contact: 0
   contextual: 0
   ctools: 0
+  daterange_compact: 0
   datetime: 0
   datetime_extras: 0
   datetime_range: 0
