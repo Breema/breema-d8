@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "84399557b9d648d6151b0272d9237aaa",
+    "content-hash": "e98fe9731da366169233e2c05697f6f7",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -2219,6 +2219,7 @@
                     "[#2835825-21 Media: Migration support": "https://www.drupal.org/files/issues/2835825-21.patch",
                     "[#2865344-35] Exposed date filters 'empty' and 'not empty' are broken": "https://www.drupal.org/files/issues/2018-03-09/2865344-35.patch",
                     "[#2866386-4] 'view_path' is set to /views/ajax after second ajax request": "https://www.drupal.org/files/issues/2866386-4.patch",
+                    "[#2951268-17] Improve rendering of account link in the toolbar": "https://www.drupal.org/files/issues/2018-09-25/2951268-17--icons-toolbar-rendering.patch",
                     "[#2959869-5] Creating Media Type gives this Error: Call to a member function getName()": "https://www.drupal.org/files/issues/2018-04-16/create-media-error-2959869-5.patch"
                 }
             },
