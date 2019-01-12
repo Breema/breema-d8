@@ -121,6 +121,7 @@
         "[#2905230-6] Alter inline_entity_form table to display auto-computed entity labels" : "https://www.drupal.org/files/issues/Title_displayed_as_AutoEntityLabel_after_saving_via_Inline_Entity_Form-2905230-6.patch"
       },
       "drupal/core": {
+        "[#2135445-39] Toolbar displays Manage tab even if the user is not permitted to see it" : "https://www.drupal.org/files/issues/2019-01-12/2135445-39.no-empty-manage-tray.patch",
         "[#2648950-166] Use form element of type date instead textfield when selecting a date in an exposed filter" : "https://www.drupal.org/files/issues/2018-07-06/2648950-166.patch",
         "[#2799987-74] Datetime and Datelist element's timezone handling is fragile, buggy and wrongly documented" : "https://www.drupal.org/files/issues/2018-08-15/2799987-74.patch",
         "[#2801501-5] Don't force the 'Manage' tray open in the toolbar on every page load" : "https://www.drupal.org/files/issues/2019-01-11/2801501-5.no-auto-open-toolbar.patch",

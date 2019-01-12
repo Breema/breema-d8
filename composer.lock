@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "e98fe9731da366169233e2c05697f6f7",
+    "content-hash": "ad3a7410b9ea27ca57c022726c9d439e",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -2213,6 +2213,7 @@
                     "merge-extra": false
                 },
                 "patches_applied": {
+                    "[#2135445-39] Toolbar displays Manage tab even if the user is not permitted to see it": "https://www.drupal.org/files/issues/2019-01-12/2135445-39.no-empty-manage-tray.patch",
                     "[#2648950-166] Use form element of type date instead textfield when selecting a date in an exposed filter": "https://www.drupal.org/files/issues/2018-07-06/2648950-166.patch",
                     "[#2799987-74] Datetime and Datelist element's timezone handling is fragile, buggy and wrongly documented": "https://www.drupal.org/files/issues/2018-08-15/2799987-74.patch",
                     "[#2801501-5] Don't force the 'Manage' tray open in the toolbar on every page load": "https://www.drupal.org/files/issues/2019-01-11/2801501-5.no-auto-open-toolbar.patch",
