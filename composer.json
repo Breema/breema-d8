@@ -123,6 +123,7 @@
       "drupal/core": {
         "[#2648950-166] Use form element of type date instead textfield when selecting a date in an exposed filter" : "https://www.drupal.org/files/issues/2018-07-06/2648950-166.patch",
         "[#2799987-74] Datetime and Datelist element's timezone handling is fragile, buggy and wrongly documented" : "https://www.drupal.org/files/issues/2018-08-15/2799987-74.patch",
+        "[#2801501-5] Don't force the 'Manage' tray open in the toolbar on every page load" : "https://www.drupal.org/files/issues/2019-01-11/2801501-5.no-auto-open-toolbar.patch",
         "[#2835825-21 Media: Migration support" : "https://www.drupal.org/files/issues/2835825-21.patch",
         "[#2865344-35] Exposed date filters 'empty' and 'not empty' are broken" : "https://www.drupal.org/files/issues/2018-03-09/2865344-35.patch",
         "[#2866386-4] 'view_path' is set to /views/ajax after second ajax request" : "https://www.drupal.org/files/issues/2866386-4.patch",
