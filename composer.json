@@ -129,7 +129,8 @@
         "[#2865344-35] Exposed date filters 'empty' and 'not empty' are broken" : "https://www.drupal.org/files/issues/2018-03-09/2865344-35.patch",
         "[#2866386-4] 'view_path' is set to /views/ajax after second ajax request" : "https://www.drupal.org/files/issues/2866386-4.patch",
         "[#2951268-17] Improve rendering of account link in the toolbar" : "https://www.drupal.org/files/issues/2018-09-25/2951268-17--icons-toolbar-rendering.patch",
-        "[#2959869-5] Creating Media Type gives this Error: Call to a member function getName()" : "https://www.drupal.org/files/issues/2018-04-16/create-media-error-2959869-5.patch"
+      "[#2959869-5] Creating Media Type gives this Error: Call to a member function getName()" : "https://www.drupal.org/files/issues/2018-04-16/create-media-error-2959869-5.patch",
+      "[#3003713-14] Use absolute URLs in link relations": "https://www.drupal.org/files/issues/2018-10-25/3003713-14.patch"
       },
       "drupal/datetime_extras": {
         "[#2845081-50] Provide a datetime_range widget to define end time via a duration offset" : "https://www.drupal.org/files/issues/2019-01-11/2845081-50.datetime_range_duration_widget.patch"
