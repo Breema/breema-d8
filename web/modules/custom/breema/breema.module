@@ -93,8 +93,6 @@ function breema_preprocess_html(&$variables) {
       ['property' => 'og:url', 'content' => $node->toUrl('canonical', ['absolute' => TRUE])->toString()],
       ['property' => 'og:updated_time', 'content' => $node->get('changed')->value],
       ['property' => 'article:publisher', 'content' => 'https://www.facebook.com/breemacenter'],
-      // @todo: Only set this if there's an image? What's the fallback?
-      ['property' => 'twitter:card', 'content' => 'summary_large_image'],
       ['property' => 'twitter:site', 'content' => '@BreemaCenter'],
       ['property' => 'twitter:creator', 'content' => '@BreemaCenter'],
       ['name' => 'twitter:title', 'content' => $clean_title],
@@ -103,59 +101,64 @@ function breema_preprocess_html(&$variables) {
     // Find the right description to set.
     // @todo
 
-    // Find the right image to share, based on bundle.
-    switch ($node->bundle()) {
-      case 'article':
-      case 'essence':
-        // @todo: If there's no field_main_image, we could use the book cover
-        // image (if it's a book excerpt).
-      case 'event':
-      case 'page':
-      case 'product':
-        $main_image = $node->get('field_main_image')->getValue();
-        if (!empty($main_image[0]['target_id'])) {
-          $main_images = $node->get('field_main_image')->referencedEntities();
-          $main_image_files = $main_images[0]->get('field_media_image')->referencedEntities();
-          if (!empty($main_image_files)) {
-            $share_image_file = $main_image_files[0];
-            $share_image_info = $main_images[0]->get('field_media_image')->getValue();
-          }
+    // Find the right image to share.
+    // First, if the node type has a field_main_image, try to use that.
+    if ($node->hasField('field_main_image')) {
+      $main_image = $node->get('field_main_image')->getValue();
+      if (!empty($main_image[0]['target_id'])) {
+        $main_images = $node->get('field_main_image')->referencedEntities();
+        $main_image_files = $main_images[0]->get('field_media_image')->referencedEntities();
+        if (!empty($main_image_files)) {
+          $share_image_file = $main_image_files[0];
+          $share_image_info = $main_images[0]->get('field_media_image')->getValue();
         }
-        break;
-
-      case 'directory_entry':
-        // Pull the headshot from the user, if any.
-        $authors = $node->get('uid')->referencedEntities();
-        $user_pictures = $authors[0]->get('user_picture')->referencedEntities();
-        if (!empty($user_pictures)) {
-          $share_image_file = $user_pictures[0];
-          $share_image_info = $authors[0]->get('user_picture')->getValue();
-        }
-        break;
+      }
     }
+    // Try some bundle-specific fallbacks.
+    if (empty($share_image_file)) {
+      switch ($node->bundle()) {
+        case 'directory_entry':
+          // Pull the headshot (if any) from the user.
+          $users = $node->get('uid')->referencedEntities();
+          $user_pictures = $users[0]->get('user_picture')->referencedEntities();
+          if (!empty($user_pictures)) {
+            $share_image_file = $user_pictures[0];
+            $share_image_info = $users[0]->get('user_picture')->getValue();
+          }
+          break;
 
+        case 'essence':
+          // @todo: If there's no field_main_image, we could use the book cover
+          // image (if it's a book excerpt). Else, fallback to the standard
+          // "Essence of Breema" image.
+          break;
+      }
+    }
     // If we found something, use it.
     if (!empty($share_image_file)) {
-      $meta_tags[] = [
-        'property' => 'og:image',
-        'content' => $share_image_file->url(),
-      ];
-      $meta_tags[] = [
-        'property' => 'og:image:type',
-        'content' => $share_image_file->getMimeType(),
-      ];
-      $meta_tags[] = [
-        'property' => 'og:image:width',
-        'content' => $share_image_info[0]['width'],
-      ];
-      $meta_tags[] = [
-        'property' => 'og:image:height',
-        'content' => $share_image_info[0]['height'],
-      ];
-      $meta_tags[] = [
-        'name' => 'twitter:image',
-        'content' => $share_image_file->url(),
-      ];
+      $meta_tags = array_merge(
+        $meta_tags,
+        [
+          ['property' => 'twitter:card', 'content' => 'summary_large_image'],
+          ['property' => 'og:image', 'content' => $share_image_file->url()],
+          [
+            'property' => 'og:image:type',
+            'content' => $share_image_file->getMimeType(),
+          ],
+          [
+            'property' => 'og:image:width',
+            'content' => $share_image_info[0]['width'],
+          ],
+          [
+            'property' => 'og:image:height',
+            'content' => $share_image_info[0]['height'],
+          ],
+        ]
+      );
+    }
+    else {
+      // No image, tell Twitter to use the regular 'summary' card type.
+      $meta_tags[] = ['property' => 'twitter:card', 'content' => 'summary'];
     }
 
     // Any other bundle-specific meta tags that make sense.
