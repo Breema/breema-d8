@@ -16,6 +16,8 @@ use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Session\AccountInterface;
 use Drupal\Core\StringTranslation\PluralTranslatableMarkup;
 use Drupal\Core\Url;
+use Drupal\file\Entity\File;
+use Drupal\media\Entity\Media;
 use Drupal\node\Entity\Node;
 use Drupal\node\Entity\NodeType;
 use Drupal\node\NodeInterface;
@@ -128,9 +130,24 @@ function breema_preprocess_html(&$variables) {
           break;
 
         case 'essence':
-          // @todo: If there's no field_main_image, we could use the book cover
-          // image (if it's a book excerpt). Else, fallback to the standard
-          // "Essence of Breema" image.
+          // If this is a product excerpt, use the book cover.
+          if ($node->get('field_source_type')->value === 'product') {
+            $products = $node->get('field_source_product')->referencedEntities();
+            $main_images = $products[0]->get('field_main_image')->referencedEntities();
+            $main_image_files = $main_images[0]->get('field_media_image')->referencedEntities();
+            if (!empty($main_image_files)) {
+              $share_image_file = $main_image_files[0];
+              $share_image_info = $main_images[0]->get('field_media_image')->getValue();
+            }
+          }
+          // If it's still empty (not a product, or oddly, the product didn't
+          // have a main_image), use the standard "Essence of Breema" image.
+          if (empty($share_image_file)) {
+            // @todo Make this configurable? Or at least a slick constant?
+            $default_essence_media = Media::load(419);
+            $share_image_info = $default_essence_media->get('field_media_image')->getValue();
+            $share_image_file = File::load($share_image_info[0]['target_id']);
+          }
           break;
       }
     }
