@@ -24,7 +24,7 @@
     "drupal/core": "^8.5",
     "drupal/ctools": "^3.0",
     "drupal/daterange_compact": "1.x-dev",
-    "drupal/datetime_extras": "1.x-dev",
+    "drupal/datetime_extras": "^1.0",
     "drupal/diff": "^1.0@RC",
     "drupal/dropzonejs": "^2.0",
     "drupal/duration_field": "^2.0",
@@ -131,9 +131,6 @@
         "[#2951268-17] Improve rendering of account link in the toolbar" : "https://www.drupal.org/files/issues/2018-09-25/2951268-17--icons-toolbar-rendering.patch",
       "[#2959869-5] Creating Media Type gives this Error: Call to a member function getName()" : "https://www.drupal.org/files/issues/2018-04-16/create-media-error-2959869-5.patch",
       "[#3003713-14] Use absolute URLs in link relations": "https://www.drupal.org/files/issues/2018-10-25/3003713-14.patch"
-      },
-      "drupal/datetime_extras": {
-        "[#2845081-50] Provide a datetime_range widget to define end time via a duration offset" : "https://www.drupal.org/files/issues/2019-01-11/2845081-50.datetime_range_duration_widget.patch"
       },
       "drupal/duration_field": {
         "[#3020676-6] Support the #date_increment property in the 'duration' form element." : "https://www.drupal.org/files/issues/2018-12-14/3020676-6.duration_date_increment.full_.patch"
