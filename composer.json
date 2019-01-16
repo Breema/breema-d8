@@ -132,7 +132,7 @@
         "[#3003713-14] Use absolute URLs in link relations": "https://www.drupal.org/files/issues/2018-10-25/3003713-14.patch"
       },
       "drupal/datetime_extras": {
-        "[#2834016-18] Add 'Compact' datetime range formatter" : "https://www.drupal.org/files/issues/add_datetime_range-2834016-18.patch"
+        "[#2834016-28] Add 'Compact' datetime range formatter" : "https://www.drupal.org/files/issues/2019-01-15/2834016-28.patch"
       },
       "drupal/duration_field": {
         "[#3020676-6] Support the #date_increment property in the 'duration' form element." : "https://www.drupal.org/files/issues/2018-12-14/3020676-6.duration_date_increment.full_.patch"
