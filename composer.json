@@ -23,7 +23,6 @@
     "drupal/contact_block": "^1.4",
     "drupal/core": "^8.5",
     "drupal/ctools": "^3.0",
-    "drupal/daterange_compact": "1.x-dev",
     "drupal/datetime_extras": "^1.0",
     "drupal/diff": "^1.0@RC",
     "drupal/dropzonejs": "^2.0",
@@ -129,8 +128,11 @@
         "[#2865344-35] Exposed date filters 'empty' and 'not empty' are broken" : "https://www.drupal.org/files/issues/2018-03-09/2865344-35.patch",
         "[#2866386-4] 'view_path' is set to /views/ajax after second ajax request" : "https://www.drupal.org/files/issues/2866386-4.patch",
         "[#2951268-17] Improve rendering of account link in the toolbar" : "https://www.drupal.org/files/issues/2018-09-25/2951268-17--icons-toolbar-rendering.patch",
-      "[#2959869-5] Creating Media Type gives this Error: Call to a member function getName()" : "https://www.drupal.org/files/issues/2018-04-16/create-media-error-2959869-5.patch",
-      "[#3003713-14] Use absolute URLs in link relations": "https://www.drupal.org/files/issues/2018-10-25/3003713-14.patch"
+        "[#2959869-5] Creating Media Type gives this Error: Call to a member function getName()" : "https://www.drupal.org/files/issues/2018-04-16/create-media-error-2959869-5.patch",
+        "[#3003713-14] Use absolute URLs in link relations": "https://www.drupal.org/files/issues/2018-10-25/3003713-14.patch"
+      },
+      "drupal/datetime_extras": {
+        "[#2834016-18] Add 'Compact' datetime range formatter" : "https://www.drupal.org/files/issues/add_datetime_range-2834016-18.patch"
       },
       "drupal/duration_field": {
         "[#3020676-6] Support the #date_increment property in the 'duration' form element." : "https://www.drupal.org/files/issues/2018-12-14/3020676-6.duration_date_increment.full_.patch"

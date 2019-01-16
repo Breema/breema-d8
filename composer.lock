@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "7e572020a18237a08abe7e75d4b2b29e",
+    "content-hash": "8d7252b0f9a6a60f6c659026272d073b",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -2338,48 +2338,6 @@
             }
         },
         {
-            "name": "drupal/daterange_compact",
-            "version": "dev-1.x",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupal.org/project/daterange_compact",
-                "reference": "545aca6c20d17fd11ba60f2c6abe03ee096deac8"
-            },
-            "require": {
-                "drupal/core": "*"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "branch-alias": {
-                    "dev-1.x": "1.x-dev"
-                },
-                "drupal": {
-                    "version": "8.x-1.x-dev",
-                    "datestamp": "1497304142",
-                    "security-coverage": {
-                        "status": "not-covered",
-                        "message": "Project has not opted into security advisory coverage!"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "erik.erskine",
-                    "homepage": "https://www.drupal.org/user/375884"
-                }
-            ],
-            "description": "Provides a compact formatter for date range fields.",
-            "homepage": "https://www.drupal.org/project/daterange_compact",
-            "support": {
-                "source": "http://cgit.drupalcode.org/daterange_compact"
-            },
-            "time": "2017-06-12 21:30:07"
-        },
-        {
             "name": "drupal/datetime_extras",
             "version": "1.0.0-alpha1",
             "source": {
@@ -2414,6 +2372,9 @@
                         "status": "not-covered",
                         "message": "Alpha releases are not covered by Drupal security advisories."
                     }
+                },
+                "patches_applied": {
+                    "[#2834016-18] Add 'Compact' datetime range formatter": "https://www.drupal.org/files/issues/add_datetime_range-2834016-18.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -10560,7 +10521,7 @@
     "stability-flags": {
         "drupal/auto_entitylabel": 20,
         "drupal/computed_field": 15,
-        "drupal/daterange_compact": 20,
+        "drupal/datetime_extras": 20,
         "drupal/diff": 5,
         "drupal/entityqueue": 20,
         "drupal/field_permissions": 10,
