@@ -151,6 +151,9 @@
       },
       "drupal/menu_block": {
         "[#2809699-51] Menu parent as block title" : "https://www.drupal.org/files/issues/menu_block-label_configuration-2809699-51.patch"
+      },
+      "drupal/redirect": {
+        "[#2958635-20] Restore link to add a redirect on node edit forms" : "https://www.drupal.org/files/issues/2019-01-10/2958635-21.redirect-add-link-on-node-form.patch"
       }
     },
     "installer-paths": {
