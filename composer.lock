@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "b754f0e262c75d1f096f85c1eb6bf7a8",
+    "content-hash": "4243016b3fdc2ef91ac9d959475d24d3",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -2000,16 +2000,16 @@
         },
         {
             "name": "drupal/core",
-            "version": "8.6.6",
+            "version": "8.6.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core.git",
-                "reference": "6736973f399a3a9ac8ecd41f3a159e1153f7ee39"
+                "reference": "e0a09bda1da7552204464894811a59387608c9f9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal/core/zipball/6736973f399a3a9ac8ecd41f3a159e1153f7ee39",
-                "reference": "6736973f399a3a9ac8ecd41f3a159e1153f7ee39",
+                "url": "https://api.github.com/repos/drupal/core/zipball/e0a09bda1da7552204464894811a59387608c9f9",
+                "reference": "e0a09bda1da7552204464894811a59387608c9f9",
                 "shasum": ""
             },
             "require": {
@@ -2246,7 +2246,7 @@
                 "GPL-2.0-or-later"
             ],
             "description": "Drupal is an open source content management platform powering millions of websites and applications.",
-            "time": "2019-01-15T17:41:52+00:00"
+            "time": "2019-01-16T23:30:03+00:00"
         },
         {
             "name": "drupal/ctools",
@@ -3470,7 +3470,7 @@
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/geocoder",
-                "reference": "0f2d8871809c70be352d1ced872cbf6a82bb8257"
+                "reference": "070a5b56954becad0ba9fb9350da0c5934035e4b"
             },
             "require": {
                 "drupal/core": "~8.0",
@@ -3492,8 +3492,8 @@
                     "dev-2.x": "2.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-2.0-beta10+2-dev",
-                    "datestamp": "1547477580",
+                    "version": "8.x-2.0+0-dev",
+                    "datestamp": "1547728081",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Dev releases are not covered by Drupal security advisories."
@@ -3559,7 +3559,7 @@
                 "issues": "https://drupal.org/project/issues/geocoder",
                 "irc": "irc://irc.freenode.org/drupal-geo"
             },
-            "time": "2019-01-14 14:48:31"
+            "time": "2019-01-17 12:24:09"
         },
         {
             "name": "drupal/geolocation",
@@ -7778,16 +7778,16 @@
         },
         {
             "name": "webflo/drupal-core-strict",
-            "version": "8.6.6",
+            "version": "8.6.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webflo/drupal-core-strict.git",
-                "reference": "8b185652e851aa9ef18ed12ee962068a55238cf3"
+                "reference": "161c4e59e25caae08ff1f58b6fdbe4c4fdadf198"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webflo/drupal-core-strict/zipball/8b185652e851aa9ef18ed12ee962068a55238cf3",
-                "reference": "8b185652e851aa9ef18ed12ee962068a55238cf3",
+                "url": "https://api.github.com/repos/webflo/drupal-core-strict/zipball/161c4e59e25caae08ff1f58b6fdbe4c4fdadf198",
+                "reference": "161c4e59e25caae08ff1f58b6fdbe4c4fdadf198",
                 "shasum": ""
             },
             "require": {
@@ -7879,7 +7879,7 @@
                 "GPL-2.0-or-later"
             ],
             "description": "Locked core dependencies",
-            "time": "2019-01-16T18:30:43+00:00"
+            "time": "2019-01-17T00:00:45+00:00"
         },
         {
             "name": "webflo/drupal-finder",

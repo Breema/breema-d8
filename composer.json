@@ -125,7 +125,6 @@
         "[#2799987-74] Datetime and Datelist element's timezone handling is fragile, buggy and wrongly documented" : "https://www.drupal.org/files/issues/2018-08-15/2799987-74.patch",
         "[#2801501-5] Don't force the 'Manage' tray open in the toolbar on every page load" : "https://www.drupal.org/files/issues/2019-01-11/2801501-5.no-auto-open-toolbar.patch",
         "[#2835825-21 Media: Migration support" : "https://www.drupal.org/files/issues/2835825-21.patch",
-        "[#2865344-35] Exposed date filters 'empty' and 'not empty' are broken" : "https://www.drupal.org/files/issues/2018-03-09/2865344-35.patch",
         "[#2866386-4] 'view_path' is set to /views/ajax after second ajax request" : "https://www.drupal.org/files/issues/2866386-4.patch",
         "[#2951268-17] Improve rendering of account link in the toolbar" : "https://www.drupal.org/files/issues/2018-09-25/2951268-17--icons-toolbar-rendering.patch",
         "[#2959869-5] Creating Media Type gives this Error: Call to a member function getName()" : "https://www.drupal.org/files/issues/2018-04-16/create-media-error-2959869-5.patch",
