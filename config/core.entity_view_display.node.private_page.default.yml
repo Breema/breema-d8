@@ -1,0 +1,50 @@
+uuid: 7e3a25ef-4338-47c7-9cf8-290678a44899
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.private_page.body
+    - field.field.node.private_page.field_main_image
+    - field.field.node.private_page.field_resources
+    - image.style.220_wide
+    - node.type.private_page
+  module:
+    - media
+    - text
+    - user
+id: node.private_page.default
+targetEntityType: node
+bundle: private_page
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_main_image:
+    weight: 0
+    label: hidden
+    settings:
+      image_style: 220_wide
+      image_link: ''
+    third_party_settings: {  }
+    type: media_thumbnail
+    region: content
+  field_resources:
+    weight: 2
+    label: hidden
+    settings:
+      view_mode: view_full
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+  links:
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

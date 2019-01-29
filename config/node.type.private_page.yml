@@ -1,0 +1,18 @@
+uuid: ea92a0ac-aa52-45a3-ac16-b9a633dc794e
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: 'Private page'
+type: private_page
+description: 'A page with private content for restricted groups.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

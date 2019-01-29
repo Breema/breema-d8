@@ -1,0 +1,30 @@
+uuid: 32d473f1-85c4-424c-b448-aad0a82d6f38
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_main_image
+    - media.type.image
+    - media.type.private_image
+    - node.type.private_page
+id: node.private_page.field_main_image
+field_name: field_main_image
+entity_type: node
+bundle: private_page
+label: 'Main image'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+      private_image: private_image
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: image
+field_type: entity_reference

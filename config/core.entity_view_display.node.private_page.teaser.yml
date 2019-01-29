@@ -1,0 +1,51 @@
+uuid: 344bd821-0e62-4c93-939c-7343c7299425
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.private_page.body
+    - field.field.node.private_page.field_main_image
+    - field.field.node.private_page.field_resources
+    - image.style.thumbnail
+    - node.type.private_page
+  module:
+    - media
+    - smart_trim
+    - user
+id: node.private_page.teaser
+targetEntityType: node
+bundle: private_page
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: smart_trim
+    weight: 1
+    settings:
+      trim_length: 300
+      trim_type: chars
+      trim_suffix: ''
+      wrap_class: trimmed
+      more_link: true
+      more_text: 'Read more'
+      more_class: more-link
+      summary_handler: full
+      wrap_output: false
+      trim_options:
+        text: false
+        trim_zero: false
+    third_party_settings: {  }
+    region: content
+  field_main_image:
+    type: media_thumbnail
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      image_style: thumbnail
+      image_link: ''
+    third_party_settings: {  }
+hidden:
+  field_resources: true
+  links: true
