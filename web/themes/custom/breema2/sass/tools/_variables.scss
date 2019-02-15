@@ -1,0 +1,31 @@
+// Border
+$border: 1px solid #bbb;
+
+/// @group Colors
+// @todo
+$c-black: #1a272e;
+$c-grb2: #b2b2b2;
+$c-gr6:  #666;
+$c-gr7d: #7d7d7d;
+$c-grc7: #c7c7c7;
+$c-gr80: #808080;
+$c-hover: #72726c;
+$c-red-light: #ea3223; //Only use against black backgrounds.
+$c-red: #c80000;
+$c-visited: #7b6467;
+$c-visited-hover: #504c4c;
+$c-gr-dropdowns: rgba(245, 245, 245, 0.95);
+
+/// @group Font-families
+// @todo
+$ff-din-medium: 'FF DIN Pro Medium', sans-serif;
+$ff-din-regular: 'FF DIN Pro Regular', sans-serif;
+$ff-helv: Helvetica, sans-serif;
+$ff-nitti: 'Source Code Pro', monospace;
+$ff-serif: 'PT Serif', 'Georgia', 'Times New Roman', 'Times', serif;
+
+/// @group Breakpoints
+$handheld: 541px;
+$tablet : 736px;  // Landscape for iPhone *Plus and X, iPads @ portrait
+$desktop : 961px;
+$desktop-large: 1270px;
