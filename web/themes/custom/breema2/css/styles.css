@@ -455,3 +455,7 @@ div.field--name-field-registration-link {
 .paragraph--type--featured-product .grid--container {
   grid-row-gap: 20px;
 }
+
+.site-footer {
+  background-color: #752d53;
+}
