@@ -1,0 +1,7 @@
+{
+  "name": "breema2",
+  "description": "The Breema 2 custom theme",
+  "dependencies": {
+    "breakpoint-sass": "^2.7.1"
+  }
+}
