@@ -456,6 +456,19 @@ div.field--name-field-registration-link {
   grid-row-gap: 20px;
 }
 
+#header {
+  background-color: #fff;
+  background-image: none;
+}
+
+.region-secondary-menu {
+  background-color: #752d53;
+}
+
+.region-header a, .region-header .site-branding__text, .region-header .site-branding__text a {
+  color: #a82133;
+}
+
 .site-footer {
   background-color: #752d53;
 }

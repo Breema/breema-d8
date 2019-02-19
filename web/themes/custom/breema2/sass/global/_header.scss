@@ -1,0 +1,14 @@
+#header {
+  background-color: $c-white;
+  background-image: none;
+}
+
+.region-secondary-menu {
+  background-color: $c-plum;
+}    
+
+.region-header {
+  a, .site-branding__text, .site-branding__text a {
+    color: $c-red;
+  }
+}
