@@ -473,6 +473,14 @@ div.field--name-field-registration-link {
   color: #a82133;
 }
 
+.sidebar .block {
+  background-color: #dedfdd;
+  border-color: #c7c7c7;
+}
+.sidebar h2 {
+  border-bottom: 1px solid #c7c7c7;
+}
+
 .site-footer {
   background-color: #752d53;
 }
