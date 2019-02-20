@@ -7,3 +7,7 @@ tbody tr.ief-entity-unpublished:hover,
 tbody tr.ief-entity-unpublished:focus {
   background-color: #fdf597;
 }
+
+.toolbar .toolbar-bar {
+  background-color: #752d53;
+}
