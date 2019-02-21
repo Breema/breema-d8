@@ -302,33 +302,6 @@ a.teaser-link:hover .teaser-wrapper {
   font-size: 1.3em;
 }
 
-div.field--name-field-registration-link {
-  margin: 1em 0;
-}
-
-.field--name-field-registration-link a {
-  color: #FFF;
-  background-color: #208800;
-  border: 1px solid #145500;
-  font-size: 1em;
-  font-weight: bold;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  -moz-border-radius: 15px;
-  -webkit-border-radius: 15px;
-  padding: 5px 15px 5px 15px;
-  margin: 0;
-  text-align: center;
-  max-width: 200px;
-  text-decoration: none;
-}
-
-.field--name-field-registration-link a:hover {
-  color: #FFF;
-  background-color: #167401;
-  border: 1px solid #145500;
-  text-decoration: none;
-}
-
 .menu-item--collapsed,
 .menu-item--expanded {
   list-style-image: none;

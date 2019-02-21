@@ -259,6 +259,12 @@ function breema_preprocess_node_event(&$variables) {
   if (!empty($variables['node']->get('field_parent_event')->getValue())) {
     $variables['content']['field_subtitle']['#access'] = FALSE;
   }
+  // If the event has a registration link, make it a primary action.
+  if (!empty($variables['content']['field_registration_link'][0])) {
+    $variables['content']['field_registration_link']['#attributes'] = [
+      'class' => ['action', 'action--primary'],
+    ];
+  }
   if ($variables['view_mode'] == 'full') {
     if (!empty($variables['content']['field_parent_event'][0])) {
       $variables['content']['field_parent_event']['#title'] = t('Part of the');
