@@ -485,6 +485,73 @@ div.field--name-field-registration-link {
   background-color: #752d53;
 }
 
+.action a {
+  color: #fff;
+  text-decoration: none;
+  background-color: #007cb2;
+  text-transform: uppercase;
+  font-size: 1em;
+  font-weight: bold;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  padding: 5px 15px 5px 15px;
+  margin: 1em auto 0;
+  display: block;
+  text-align: center;
+  max-width: 150px;
+  border: 1px solid #006e94;
+}
+.action a:focus,
+.action a:hover {
+  color: #fff;
+  text-decoration: none;
+  background-color: #006e94;
+  border: 1px solid #006e94;
+}
+
+.action-secondary a {
+  background-color: #fff;
+  font-size: 1em;
+  font-weight: bold;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  padding: 5px 13px;
+  margin: 1em auto 0;
+  display: block;
+  text-align: center;
+  max-width: 150px;
+  text-decoration: none;
+  border: 1px solid #752d53;
+}
+.action-secondary a:focus,
+.action-secondary a:hover {
+  text-decoration: none;
+  background-color: #ecebeb;
+  border: 1px solid #752d53;
+}
+
+.container-inline .action a,
+.container-inline .action-secondary a {
+  margin: 0 0.65em 0.5em 0;
+}
+
+div.danger {
+  display: block;
+  margin: 1em auto 0;
+  text-align: center;
+}
+
+.danger a {
+  color: #d20505;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.danger a:focus,
+.danger a:hover {
+  color: #aa0505;
+}
+
 .toolbar .toolbar-bar {
   background-color: #752d53;
 }
