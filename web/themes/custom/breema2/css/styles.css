@@ -30,7 +30,7 @@ a:focus,
 a:hover {
   text-decoration: underline;
   border-bottom: none;
-  color: #8337a7;
+  color: #883584;
 }
 
 .tabs ul.primary li a:focus,
@@ -141,7 +141,7 @@ a.teaser-link:hover h4,
 a.teaser-link:focus h4,
 a.teaser-link:focus .more-link,
 a.teaser-link:hover .more-link {
-  color: #8337a7;
+  color: #883584;
   text-decoration: underline;
 }
 
