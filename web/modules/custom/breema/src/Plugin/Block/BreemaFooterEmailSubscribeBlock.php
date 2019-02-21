@@ -27,7 +27,7 @@ class BreemaFooterEmailSubscribeBlock extends BlockBase {
         '#suffix' => '</div>',
       ],
       'subscribe' => [
-        '#prefix' => '<div class="action-secondary">',
+        '#prefix' => '<div class="action action--secondary">',
         '#markup' => $this->t('<a href=":url">Subscribe</a>', [':url' => $url]),
         '#suffix' => '</div>',
       ],

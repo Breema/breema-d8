@@ -341,10 +341,9 @@ function breema_preprocess_node_product(&$variables) {
       '#type' => 'link',
       '#title' => t('Buy now'),
       '#url' => Url::fromUri($buy_now_link[0]['uri']),
-      '#prefix' => '<div class="field--name-field-buy-now">',
+      '#prefix' => '<div class="action action--primary">',
       '#suffix' => '</div>',
     ];
-    $variables['#attached']['library'][] = 'breema/store';
   }
 }
 
@@ -396,6 +395,7 @@ function breema_preprocess_field(&$variables, $hook) {
  * Preprocess function for all paragraphs.
  *
  * If the paragraph defines 'field_header_text', wrap it in h2.
+ * If the paragraph defines a 'Buy now' link, make it a primary action.
  */
 function breema_preprocess_paragraph(&$variables) {
   if (!empty($variables['content']['field_header_text'])) {
@@ -408,6 +408,13 @@ function breema_preprocess_paragraph(&$variables) {
       $url = Url::fromUri($link[0]['uri']);
       $variables['url'] = $url->toString();
     }
+  }
+  // Turn 'Buy now' links into primary action buttons.
+  if (!empty($variables['content']['field_buy_now'])) {
+    $variables['content']['field_buy_now']['#attributes']['class'] = [
+      'action',
+      'action--primary',
+    ];
   }
 }
 
@@ -527,7 +534,7 @@ function _breema_get_more_events_action_links() {
   foreach ($actions as $action => $action_path) {
     $url = Url::fromUri('internal:' . $action_path);
     $render[$action] = [
-      '#prefix' => '<div class="action-secondary inline">',
+      '#prefix' => '<div class="action action--secondary inline">',
       '#markup' => t('<a href=":url">:label</a>', [':url' => $url->toString(), ':label' => Unicode::ucfirst($action)]),
       '#suffix' => '</div>',
     ];
@@ -1430,7 +1437,7 @@ function _breema_get_directory_entry_action_links(NodeInterface $directory_entry
           '#suffix' => '</p>',
         ],
         'add-link' => [
-          '#prefix' => '<div class="action">',
+          '#prefix' => '<div class="action action--primary">',
           '#markup' => t('<a href=":create-directory-entry" target="_blank">Create entry</a>', [':create-directory-entry' => $add_entry_url->toString()]),
           '#suffix' => '</div>',
         ],
@@ -1443,7 +1450,7 @@ function _breema_get_directory_entry_action_links(NodeInterface $directory_entry
   if ($directory_entry->access('update')) {
     $edit_url = Url::fromRoute('entity.node.edit_form', ['node' => $directory_entry->id()], $url_options);
     $links['edit-link'] = [
-      '#prefix' => '<div class="action-secondary">',
+      '#prefix' => '<div class="action action--secondary">',
       '#markup' => t('<a href=":edit" target="_blank">Edit</a>', [':edit' => $edit_url->toString()]),
       '#suffix' => '</div>',
     ];

@@ -40,7 +40,7 @@ class BreemaEventDashboardBlock extends BlockBase {
 
     $dashboard_url = Url::fromUri('internal:/user/dashboard/events');
     $dashboard_link = [
-      '#prefix' => '<div class="action-secondary">',
+      '#prefix' => '<div class="action action--secondary">',
       '#markup' => $this->t('<a href=":dashboard">Event dashboard</a>', [':dashboard' => $dashboard_url->toString()]),
       '#suffix' => '</div>',
     ];
@@ -49,7 +49,7 @@ class BreemaEventDashboardBlock extends BlockBase {
     if ($result) {
       $add_url = Url::fromRoute('node.add', ['node_type' => 'event'], $url_options);
       $add_link = [
-        '#prefix' => '<div class="action">',
+        '#prefix' => '<div class="action action--primary">',
         '#markup' => $this->t('<a href=":add">Add event</a>', [':add' => $add_url->toString()]),
         '#suffix' => '</div>',
       ];
