@@ -1,22 +1,51 @@
 .site-footer {
   background-color: $c-plum;
 
-  // We need more specific styles here to override the usual link
-  // colors in the footer.
-  .block-footer-email-subscribe-block .action--secondary {
-    a {
-      color: $c-plum;
-      max-width: 100px;
-      display: block;
-      margin: 0.5em auto;
-      text-align: center;
-      font-weight: bold;
+  .block {
+    margin: 0 0 20px 0;
+  }
+
+  h2 {
+    margin: 0 0 0.5em 0;
+    text-transform: none;
+  }
+
+  .block-social-media-links {
+    li {
+      a, a:focus, a:hover {
+        border: none;
+        text-indent: 0;
+        padding: 0 0.25em 0 0;
+      }
     }
-    a:focus,
-    a:hover {
-      color: $c-purple;
-      background-color: $c-plum-white;
-      border: 1px solid $c-purple;
+    ol:not(.menu), ul:not(.menu) {
+      padding: 0.5em 0 0 0;
     }
   }
+}
+
+// We need more specific styles here to override the usual link colors.
+.block-footer-email-subscribe-block .action--secondary {
+  a {
+    color: $c-plum;
+    max-width: 100px;
+    display: block;
+    margin: 0.5em auto;
+    text-align: center;
+    font-weight: bold;
+  }
+  a:focus,
+  a:hover {
+    color: $c-purple;
+    background-color: $c-plum-white;
+    border: 1px solid $c-purple;
+  }
+}
+
+.block-footer-text-block .contact a.telephone {
+  margin: 0 1em 0 0;
+}
+
+.block-footer-email-subscribe-block .text-link {
+  font-size: 1.1em;
 }
