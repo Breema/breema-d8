@@ -3,11 +3,18 @@
 
   .block {
     margin: 0 0 20px 0;
+    border-color: rgba(255, 255, 255, 0.25);
+  }
+
+  .content {
+    color: rgba(255, 255, 255, 0.85);
   }
 
   h2 {
     margin: 0 0 0.5em 0;
     text-transform: none;
+    color: rgba(255, 255, 255, 0.85);
+    border-color: rgba(255, 255, 255, 0.25);
   }
 
   .block-social-media-links {
@@ -22,6 +29,10 @@
       padding: 0.5em 0 0 0;
     }
   }
+}
+
+.site-footer__bottom {
+  border-color: rgba(255, 255, 255, 0.25);
 }
 
 // We need more specific styles here to override the usual link colors.

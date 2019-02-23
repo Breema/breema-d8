@@ -459,10 +459,16 @@ a.teaser-link:hover .teaser-wrapper {
 }
 .site-footer .block {
   margin: 0 0 20px 0;
+  border-color: rgba(255, 255, 255, 0.25);
+}
+.site-footer .content {
+  color: rgba(255, 255, 255, 0.85);
 }
 .site-footer h2 {
   margin: 0 0 0.5em 0;
   text-transform: none;
+  color: rgba(255, 255, 255, 0.85);
+  border-color: rgba(255, 255, 255, 0.25);
 }
 .site-footer .block-social-media-links li a, .site-footer .block-social-media-links li a:focus, .site-footer .block-social-media-links li a:hover {
   border: none;
@@ -471,6 +477,10 @@ a.teaser-link:hover .teaser-wrapper {
 }
 .site-footer .block-social-media-links ol:not(.menu), .site-footer .block-social-media-links ul:not(.menu) {
   padding: 0.5em 0 0 0;
+}
+
+.site-footer__bottom {
+  border-color: rgba(255, 255, 255, 0.25);
 }
 
 .block-footer-email-subscribe-block .action--secondary a {
