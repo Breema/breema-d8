@@ -457,6 +457,20 @@ a.teaser-link:hover .teaser-wrapper {
 .site-footer {
   background-color: #752d53;
 }
+.site-footer .block-footer-email-subscribe-block .action--secondary a {
+  color: #752d53;
+  max-width: 100px;
+  display: block;
+  margin: 0.5em auto;
+  text-align: center;
+  font-weight: bold;
+}
+.site-footer .block-footer-email-subscribe-block .action--secondary a:focus,
+.site-footer .block-footer-email-subscribe-block .action--secondary a:hover {
+  color: #883584;
+  background-color: #ecebeb;
+  border: 1px solid #883584;
+}
 
 .action a {
   text-decoration: none;

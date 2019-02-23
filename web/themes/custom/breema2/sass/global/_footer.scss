@@ -1,3 +1,22 @@
 .site-footer {
   background-color: $c-plum;
+
+  // We need more specific styles here to override the usual link
+  // colors in the footer.
+  .block-footer-email-subscribe-block .action--secondary {
+    a {
+      color: $c-plum;
+      max-width: 100px;
+      display: block;
+      margin: 0.5em auto;
+      text-align: center;
+      font-weight: bold;
+    }
+    a:focus,
+    a:hover {
+      color: $c-purple;
+      background-color: $c-plum-white;
+      border: 1px solid $c-purple;
+    }
+  }
 }
