@@ -540,9 +540,6 @@ a.teaser-link:hover .teaser-wrapper {
   max-width: 150px;
   font-weight: bold;
 }
-.sidebar .action--primary a {
-  text-transform: uppercase;
-}
 
 .container-inline .action a,
 .sidebar .container-inline .action a {
