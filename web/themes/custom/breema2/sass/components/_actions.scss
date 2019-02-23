@@ -41,10 +41,6 @@
   }
 }
 
-.container-inline .action a {
-  margin: 0 0.65em 0.5em 0;
-}
-
 // Action links in the sidebar want special styles.
 .sidebar {
   .action {
@@ -62,6 +58,12 @@
     }
   }
 }
+
+.container-inline .action a,
+.sidebar .container-inline .action a {
+  margin: 0 0.65em 0.5em 0;
+}
+
 
 div.danger {
   display: block;

@@ -533,10 +533,6 @@ a.teaser-link:hover .teaser-wrapper {
   border: 1px solid #883584;
 }
 
-.container-inline .action a {
-  margin: 0 0.65em 0.5em 0;
-}
-
 .sidebar .action a {
   margin: 1em auto 0;
   display: block;
@@ -546,6 +542,11 @@ a.teaser-link:hover .teaser-wrapper {
 }
 .sidebar .action--primary a {
   text-transform: uppercase;
+}
+
+.container-inline .action a,
+.sidebar .container-inline .action a {
+  margin: 0 0.65em 0.5em 0;
 }
 
 div.danger {
