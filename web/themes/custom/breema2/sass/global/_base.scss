@@ -1,3 +1,7 @@
+body {
+  font-family: $ff-cabin;    
+}
+
 h1 {
   margin: 0 0 0.5em 0;
   color: $c-red;
@@ -35,7 +39,8 @@ a:hover {
 }
 
 .site-branding__name {
-  font-family: Georgia, "Times New Roman", Times, serif;
+  font-family: $ff-charlemagne;
+  font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 0.1em;
 }

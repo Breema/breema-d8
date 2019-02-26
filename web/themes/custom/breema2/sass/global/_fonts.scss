@@ -1,0 +1,36 @@
+/* Cabin (most of the site) */
+@font-face {
+  font-family: 'Cabin';
+  src: url('../fonts/Cabin-Regular.woff') format('woff'),
+       url('../fonts/Cabin-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Cabin';
+  src: url('../fonts/Cabin-Bold.woff') format('woff'),
+       url('../fonts/Cabin-Bold.ttf') format('truetype');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: 'Cabin';
+  src: url('../fonts/Cabin-Italic.woff') format('woff'),
+       url('../fonts/Cabin-Italic.ttf') format('truetype');
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Cabin';
+  src: url('../fonts/Cabin-BoldItalic.woff') format('woff'),
+       url('../fonts/Cabin-BoldItalic.ttf') format('truetype');
+  font-weight: bold;
+  font-style: italic;
+}
+
+/* Charlemagne Bold (Breema Center "logo") */
+@font-face {
+  font-family: 'Charlemagne';
+  src: url('../fonts/Charlemagne-Bold.woff') format('woff'),
+       url('../fonts/Charlemagne-Bold.ttf') format('truetype');
+  font-weight: bold;
+}
