@@ -1,22 +1,3 @@
-.region-sidebar-first ul.menu {
-  margin: 0;
-  padding: 0 0 0 0.25em;
-}
-
-.region-sidebar-first ul ul.menu {
-  margin: 0;
-  padding: 0.25em 0 0 0.5em;
-}
-
-.region-sidebar-first .menu-item {
-  margin: 0;
-  padding: 0.25em 0 0.5em 0.25em;
-}
-
-.sidebar .block .content {
-  margin-top: 0;
-}
-
 .contact-form-link a,
 .field--type-email a,
 .field--type-telephone a {

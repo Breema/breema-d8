@@ -483,8 +483,24 @@ a.teaser-link:hover .teaser-wrapper {
   background-color: #dedfdd;
   border-color: #c7c7c7;
 }
+.sidebar .block .content {
+  margin-top: 0;
+}
 .sidebar h2 {
   border-bottom: 1px solid #c7c7c7;
+}
+
+.region-sidebar-first ul.menu {
+  margin: 0;
+  padding: 0;
+}
+.region-sidebar-first ul ul.menu {
+  margin: 0;
+  padding: 0.25em 0 0 0.75em;
+}
+.region-sidebar-first .menu-item {
+  margin: 0;
+  padding: 0.25em 0 0.5em 0;
 }
 
 .site-footer {

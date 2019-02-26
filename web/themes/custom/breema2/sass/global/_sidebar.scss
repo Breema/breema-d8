@@ -2,8 +2,30 @@
   .block {
     background-color: $c-grey;
     border-color: $c-grc7;
+    .content {
+      margin-top: 0;
+    }
   }
   h2 {
     border-bottom: 1px solid $c-grc7;
+  }
+}
+
+// Styles for the menu block in the sidebar.
+.region-sidebar-first {
+  // No padding/margin on top-level items.
+  ul.menu {
+    margin: 0;
+    padding: 0;
+  }
+  // Indent sub-menus by 0.75em, with a little padding on top for space.
+  ul ul.menu {
+    margin: 0;
+    padding: 0.25em 0 0 0.75em;
+  }
+  // Give every menu item some top and bottom padding for breathing room.
+  .menu-item {
+    margin: 0;
+    padding: 0.25em 0 0.5em 0;
   }
 }
