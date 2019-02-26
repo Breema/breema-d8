@@ -7,18 +7,27 @@ h1 {
   color: $c-red;
 }
 
-.main-content h2 {
-  font-size: 1.5em;
-  color: $c-red;
-}
-.main-content h3 {
-  font-size: 1.25em;
-}
-.main-content h4 {
-  font-size: 1.1em;
-}
-.main-content h5 {
-  font-size: 1.05em;
+.main-content {
+  h2 {
+    font-size: 1.5em;
+    color: $c-red;
+  }
+  a h2 {
+    color: $c-plum;
+  }
+  a:focus h2,
+  a:hover h2 {
+    color: $c-purple;
+  }
+  h3 {
+    font-size: 1.25em;
+  }
+  h4 {
+   font-size: 1.1em;
+  }
+  h5 {
+    font-size: 1.05em;
+  }
 }
 
 a {

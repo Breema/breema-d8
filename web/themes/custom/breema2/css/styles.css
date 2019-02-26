@@ -38,15 +38,19 @@ h1 {
   font-size: 1.5em;
   color: #a82133;
 }
-
+.main-content a h2 {
+  color: #752d53;
+}
+.main-content a:focus h2,
+.main-content a:hover h2 {
+  color: #883584;
+}
 .main-content h3 {
   font-size: 1.25em;
 }
-
 .main-content h4 {
   font-size: 1.1em;
 }
-
 .main-content h5 {
   font-size: 1.05em;
 }
@@ -535,6 +539,7 @@ a.teaser-link:hover .teaser-wrapper {
 }
 .sidebar h2 {
   border-bottom: 1px solid #c7c7c7;
+  color: #1a272e;
 }
 
 .region-sidebar-first ul.menu {
