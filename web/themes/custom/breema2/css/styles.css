@@ -523,6 +523,7 @@ a.teaser-link:hover .teaser-wrapper {
   border: none;
   text-indent: 0;
   padding: 0 0.25em 0 0;
+  background-color: #752d53;
 }
 .site-footer .block-social-media-links ol:not(.menu), .site-footer .block-social-media-links ul:not(.menu) {
   padding: 0.5em 0 0 0;
