@@ -81,7 +81,7 @@ function breema_preprocess_html(&$variables) {
       ['property' => 'og:type', 'content' => 'website'],
     ];
   }
-  elseif (!empty($node)) {
+  elseif (!empty($node) && $node instanceof NodeInterface) {
     $clean_title = strip_tags($node->label());
     // Meta tags shared across all node types.
     $meta_tags = [
