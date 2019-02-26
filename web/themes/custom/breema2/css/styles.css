@@ -495,12 +495,12 @@ a.teaser-link:hover .teaser-wrapper {
   border-color: rgba(255, 255, 255, 0.25);
 }
 .site-footer .content {
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(255, 255, 255, 0.8);
 }
 .site-footer h2 {
   margin: 0 0 0.5em 0;
   text-transform: none;
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(255, 255, 255, 0.8);
   border-color: rgba(255, 255, 255, 0.25);
 }
 .site-footer .block-social-media-links li a, .site-footer .block-social-media-links li a:focus, .site-footer .block-social-media-links li a:hover {
@@ -518,6 +518,7 @@ a.teaser-link:hover .teaser-wrapper {
 
 .block-footer-email-subscribe-block .action--secondary a {
   color: #752d53;
+  background-color: rgba(255, 255, 255, 0.8);
   max-width: 100px;
   display: block;
   margin: 0.5em auto;
@@ -527,7 +528,7 @@ a.teaser-link:hover .teaser-wrapper {
 .block-footer-email-subscribe-block .action--secondary a:focus,
 .block-footer-email-subscribe-block .action--secondary a:hover {
   color: #883584;
-  background-color: #ecebeb;
+  background-color: #fff;
   border: 1px solid #883584;
 }
 

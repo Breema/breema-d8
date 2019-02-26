@@ -3,18 +3,18 @@
 
   .block {
     margin: 0 0 20px 0;
-    border-color: rgba(255, 255, 255, 0.25);
+    border-color: $c-white-25o;
   }
 
   .content {
-    color: rgba(255, 255, 255, 0.85);
+    color: $c-white-80o;
   }
 
   h2 {
     margin: 0 0 0.5em 0;
     text-transform: none;
-    color: rgba(255, 255, 255, 0.85);
-    border-color: rgba(255, 255, 255, 0.25);
+    color: $c-white-80o;
+    border-color: $c-white-25o;
   }
 
   .block-social-media-links {
@@ -32,13 +32,14 @@
 }
 
 .site-footer__bottom {
-  border-color: rgba(255, 255, 255, 0.25);
+  border-color: $c-white-25o;
 }
 
 // We need more specific styles here to override the usual link colors.
 .block-footer-email-subscribe-block .action--secondary {
   a {
     color: $c-plum;
+    background-color: $c-white-80o;
     max-width: 100px;
     display: block;
     margin: 0.5em auto;
@@ -48,7 +49,7 @@
   a:focus,
   a:hover {
     color: $c-purple;
-    background-color: $c-plum-white;
+    background-color: $c-white;
     border: 1px solid $c-purple;
   }
 }
