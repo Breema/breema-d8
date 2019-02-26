@@ -7,6 +7,13 @@
   background-color: $c-plum;
 }    
 
+.site-branding__name {
+  font-family: $ff-charlemagne;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
 .region-header {
   a, .site-branding__text, .site-branding__text a {
     color: $c-red;

@@ -69,13 +69,6 @@ a:hover {
   text-decoration: none;
 }
 
-.site-branding__name {
-  font-family: "Charlemagne", sans-serif;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-}
-
 .field--type-image img {
   margin: 0;
 }
@@ -473,6 +466,13 @@ a.teaser-link:hover .teaser-wrapper {
 
 .region-secondary-menu {
   background-color: #752d53;
+}
+
+.site-branding__name {
+  font-family: "Charlemagne", sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
 }
 
 .region-header a, .region-header .site-branding__text, .region-header .site-branding__text a {
