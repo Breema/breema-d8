@@ -17,6 +17,7 @@ permissions:
   - 'access media_embed entity browser pages'
   - 'access place_browser entity browser pages'
   - 'access site-wide contact form'
+  - 'access toolbar'
   - 'access user contact forms'
   - 'access user profiles'
   - 'create session_resume content'

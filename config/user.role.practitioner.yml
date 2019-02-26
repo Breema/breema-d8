@@ -8,6 +8,7 @@ weight: -8
 is_admin: null
 permissions:
   - 'access shortcuts'
+  - 'access toolbar'
   - 'create audio_file media'
   - 'create directory_entry content'
   - 'create file media'
