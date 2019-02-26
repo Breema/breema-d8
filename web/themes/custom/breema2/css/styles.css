@@ -19,12 +19,6 @@
   font-weight: bold;
   font-style: italic;
 }
-/* Charlemagne Bold (Breema Center "logo") */
-@font-face {
-  font-family: 'Charlemagne';
-  src: url("../fonts/Charlemagne-Bold.woff") format("woff"), url("../fonts/Charlemagne-Bold.ttf") format("truetype");
-  font-weight: bold;
-}
 body {
   font-family: "Cabin", sans-serif;
   color: #1a272e;
@@ -522,8 +516,7 @@ a.teaser-link:hover .teaser-wrapper {
 }
 
 .site-branding__name {
-  font-family: "Charlemagne", sans-serif;
-  font-weight: bold;
+  font-family: Georgia, "Times New Roman", Times, serif;
   text-transform: uppercase;
   letter-spacing: 0.1em;
 }
