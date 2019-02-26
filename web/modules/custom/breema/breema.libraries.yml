@@ -10,12 +10,6 @@ directory_entry:
     component:
       css/directory_entry.css: {}
 
-global:
-  version: 8.x-1.x
-  css:
-    theme:
-      css/global.css: {}
-
 store:
   version: 8.x-1.x
   css:

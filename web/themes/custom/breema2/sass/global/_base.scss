@@ -46,6 +46,11 @@ a:hover {
   margin: 0;
 }
 
+p.address {
+  margin: 1em 0;
+  font-style: italic;
+}
+
 blockquote,
 figure,
 p {
@@ -330,4 +335,51 @@ a.teaser-link:hover .teaser-wrapper {
 
 .view-breema-articles .views-exposed-form {
   margin: 0 0 1em 0;
+}
+
+.contact-form-link a,
+.field--type-email a {
+  padding: 0 0 0 1.35em;
+  margin: 0 0 0 0.15em;
+  position: relative;
+}
+
+.field--type-telephone a {
+  padding: 0 0 0 1.25em;
+  margin: 0 0 0 0.25em;
+  position: relative;
+}
+
+.contact-form-link a:before,
+.field--type-email a:before,
+.field--type-telephone a:before {
+  position: absolute;
+  font-family: 'FontAwesome';
+  left: 0px;
+}
+
+.contact-form-link a:before,
+.field--type-email a:before {
+  // fa-envelope-o
+  content: "\f003";
+}
+
+.field--type-telephone a:before {
+  // fa-phone
+  content: "\f095";
+  top: 0px;
+}
+
+.field--name-field-facebook-event {
+  a {
+    padding: 0 0 0 1em;
+    position: relative;
+  }
+  a:before {
+    position: absolute;
+    font-family: 'FontAwesome';
+    // fa-facebook
+    content: "\f09a";
+    left: 1px;
+  }
 }
