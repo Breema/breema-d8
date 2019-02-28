@@ -4,9 +4,7 @@
   margin: 0 0 1em 0;
 }
 
-.paragraph--type--product-info-audio .product-image,
-.paragraph--type--product-info-book .product-image,
-.paragraph--type--product-info-general .product-image {
+.product-image {
   margin: 0 1em 0 0;
 }
 
@@ -24,12 +22,13 @@
   font-weight: bold;
 }
 
-.field--name-field-by p {
-  margin: 0;
-}
-
-.field--name-field-by .field__label {
-  font-weight: normal;
+.field--name-field-by {
+  p {
+    margin: 0;
+  }
+  .field__label {
+    font-weight: normal;
+  }
 }
 
 .field--name-field-ebook-amazon-kindle a,
@@ -95,5 +94,5 @@ details.e-books .details-wrapper {
 
 .paragraph--type--product-info-audio .field--name-field-audio-excerpts .field__label {
   font-size: 1em;
-  font-family: Georgia,"Times New Roman",Times,serif
+  font-family: $ff-cabin;
 }
