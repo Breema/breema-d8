@@ -41,6 +41,7 @@
   a {
     color: $c-plum;
     background-color: $c-white-80o;
+    background-image: linear-gradient(to bottom, $c-white-80o, darken($c-white-80o, 15%));
     max-width: 100px;
     display: block;
     margin: 0.5em auto;
@@ -51,6 +52,7 @@
   a:hover {
     color: $c-purple;
     background-color: $c-white;
+    background-image: none;
     border: 1px solid $c-purple;
   }
 }

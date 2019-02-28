@@ -1,0 +1,10 @@
+/// Create a border with shadow colors.
+/// @param {width} $width - border width
+/// @param {style} $style - border style
+/// @param {color} $color - base (top) border color
+@mixin shadow-border($width, $style, $color) {
+  border: $width $style $color;
+  border-left-color: darken($color, 8%);
+  border-right-color: darken($color, 8%);
+  border-bottom-color: darken($color, 15%);
+}
