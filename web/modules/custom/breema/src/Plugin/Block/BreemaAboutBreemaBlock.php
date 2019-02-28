@@ -29,7 +29,9 @@ class BreemaAboutBreemaBlock extends BlockBase {
       '#cache' => ['tags' => ['node:1']],
       'about' => $node->get('body')->view($options),
       'more' => [
-        '#markup' => $this->t('<a href=":more_url">Read more</a>', [':more_url' => $node->toUrl()->toString()]),
+        '#type' => 'link',
+        '#title' => $this->t('Read more<span class="visually-hidden"> about Breema</span>'),
+        '#url' => $node->toUrl(),
       ],
     ];
   }

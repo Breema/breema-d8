@@ -1595,9 +1595,11 @@ function breema_entity_node_directory_entry_view_alter(array &$build, EntityInte
       && !empty($build['field_upcoming_events']['#items'])
   ) {
     $item_count = count($build['field_upcoming_events']['#items']);
+    $entity_label_stripped = strip_tags($entity->label());
     $build['field_upcoming_events'][$item_count] = [
-      '#type' => 'markup',
-      '#markup' => $entity->toLink(t('Read more'))->toString(),
+      '#type' => 'link',
+      '#title' => t('Read more<span class="visually-hidden"> about @title</span>', ['@title' => $entity_label_stripped]),
+      '#url' => $entity->toUrl(),
     ];
   }
 
@@ -1649,7 +1651,7 @@ function breema_entity_node_article_view_alter(array &$build, EntityInterface $e
     $build['field_main_image']['#weight'] = -20;
     $build['read_more'] = [
       '#prefix' => '<div class="more-link">',
-      '#markup' => t('Read more'),
+      '#markup' => t('Read more<span class="visually-hidden"> about @title</span>', ['@title' => strip_tags($entity->label())]),
       '#suffix' => '</div>',
       '#weight' => 500,
     ];
