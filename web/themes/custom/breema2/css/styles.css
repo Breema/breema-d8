@@ -435,6 +435,7 @@ a.teaser-link:hover .teaser-wrapper {
   font-family: 'FontAwesome';
   content: "\f09a";
   left: 1px;
+  color: #4267b2;
 }
 
 .grid--container {
