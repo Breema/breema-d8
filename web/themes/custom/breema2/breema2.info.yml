@@ -7,6 +7,14 @@ core: 8.x
 libraries:
   - breema2/global
 
+libraries-override:
+  bartik/global-styling:
+    css:
+      component:
+        css/components/header.css: false
+      theme:
+        css/colors.css: false
+
 regions:
   header: Header
   primary_menu: 'Primary menu'

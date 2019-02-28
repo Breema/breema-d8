@@ -525,11 +525,6 @@ a.teaser-link:hover .teaser-wrapper {
   grid-row-gap: 20px;
 }
 
-#header {
-  background-color: #fff;
-  background-image: none;
-}
-
 .region-secondary-menu {
   background-color: #752d53;
 }
@@ -542,10 +537,28 @@ a.teaser-link:hover .teaser-wrapper {
   text-transform: uppercase;
   letter-spacing: 0;
   word-spacing: 100vw;
+  max-width: 120px;
+}
+.site-branding__name a {
+  color: #a82133;
 }
 
-.region-header a, .region-header .site-branding__text, .region-header .site-branding__text a {
-  color: #a82133;
+.region-header {
+  float: left;
+  padding: 0.357em 15px 0;
+}
+
+.region-primary-menu {
+  float: left;
+  clear: none;
+}
+.region-primary-menu .menu-item {
+  font-size: 1.25em;
+}
+.region-primary-menu ul.menu a.is-active,
+.region-primary-menu ul.menu a:focus,
+.region-primary-menu ul.menu a:hover {
+  color: #007cb2;
 }
 
 .sidebar .block {
