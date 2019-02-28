@@ -68,10 +68,26 @@ p {
   overflow: hidden;
 }
 
+figure {
+  margin: 0 0 1em 0;
+  min-width: 250px;
+  border-left: 1px solid #bbb;
+  background-color: #eee;
+  audio {
+    margin: 0.5em 0 0 0.5em;
+  }
+}
+
 blockquote {
   margin: 0 0 0.25em 0;
   font-style: normal;
+  border-left: none;
   background-color: #eee;
+}
+
+blockquote:after,
+blockquote:before {
+  content: none;
 }
 
 .attribution {
@@ -113,11 +129,6 @@ blockquote {
 .item-list ul li {
   margin: 0;
   padding: 0;
-}
-
-figure {
-  margin: 0 0 1em 0;
-  min-width: 250px;
 }
 
 hr {
