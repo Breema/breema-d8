@@ -536,7 +536,8 @@ a.teaser-link:hover .teaser-wrapper {
 .site-branding__name {
   font-family: Georgia, "Times New Roman", Times, serif;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0;
+  word-spacing: 100vw;
 }
 
 .region-header a, .region-header .site-branding__text, .region-header .site-branding__text a {

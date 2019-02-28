@@ -10,7 +10,8 @@
 .site-branding__name {
   font-family: $ff-georgia;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0;
+  word-spacing: 100vw;  // Make this section wrap after each word.
 }
 
 .region-header {
