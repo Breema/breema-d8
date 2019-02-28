@@ -5,6 +5,9 @@
 
 .region-secondary-menu {
   background-color: $c-plum;
+  .menu {
+    margin: 0 15px;
+  }
 }    
 
 .site-branding__name {
