@@ -1,0 +1,27 @@
+.button {
+  font-family: $ff-helv;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  padding: 3px 12px 3px 12px;
+  display: inline-block;
+  color: $c-plum;
+  background-color: #fff;
+  background-image: linear-gradient(to bottom, #fff, darken(#fff, 15%));
+  @include shadow-border(1px, solid, $c-plum);
+}
+
+.button:hover {
+  background-color: $c-plum-white;
+  background-image: linear-gradient(to bottom, $c-plum-white, darken($c-plum-white, 10%));
+  color: $c-purple;
+  @include shadow-border(1px, solid, $c-purple);
+}
+
+// Except the search form button (e.g. in the sidebar).
+.button.search-form__submit {
+  @include shadow-border(1px, solid, #e4e4e4);
+  background: #f0f0f0 url(../../../../core/misc/icons/505050/loupe.svg) no-repeat center;
+}
+.button.search-form__submit:hover {
+  background: #dedede url(../../../../core/misc/icons/424242/loupe.svg) no-repeat center;
+}

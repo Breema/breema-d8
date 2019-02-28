@@ -652,7 +652,7 @@ a.teaser-link:hover .teaser-wrapper {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   -moz-border-radius: 15px;
   -webkit-border-radius: 15px;
-  padding: 5px 15px 5px 15px;
+  padding: 3px 12px 3px 12px;
   display: inline-block;
   margin: 1em 0 0.5em;
 }
@@ -724,6 +724,43 @@ div.danger {
 .danger a:focus,
 .danger a:hover {
   color: #aa0404;
+}
+
+.button {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  padding: 3px 12px 3px 12px;
+  display: inline-block;
+  color: #752d53;
+  background-color: #fff;
+  background-image: linear-gradient(to bottom, #fff, #d9d9d9);
+  border: 1px solid #752d53;
+  border-left-color: #58223e;
+  border-right-color: #58223e;
+  border-bottom-color: #3e182c;
+}
+
+.button:hover {
+  background-color: #ecebeb;
+  background-image: linear-gradient(to bottom, #ecebeb, #d3d1d1);
+  color: #883584;
+  border: 1px solid #883584;
+  border-left-color: #6b2a68;
+  border-right-color: #6b2a68;
+  border-bottom-color: #51204f;
+}
+
+.button.search-form__submit {
+  border: 1px solid #e4e4e4;
+  border-left-color: #d0d0d0;
+  border-right-color: #d0d0d0;
+  border-bottom-color: #bebebe;
+  background: #f0f0f0 url(../../../../core/misc/icons/505050/loupe.svg) no-repeat center;
+}
+
+.button.search-form__submit:hover {
+  background: #dedede url(../../../../core/misc/icons/424242/loupe.svg) no-repeat center;
 }
 
 .paragraph--type--product-info-audio,
