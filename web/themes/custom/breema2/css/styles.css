@@ -142,6 +142,13 @@ blockquote:before {
   margin: 0;
   padding: 0;
 }
+.node--view-mode-teaser h2 a {
+  color: #752d53;
+}
+.node--view-mode-teaser h2 a:focus h2,
+.node--view-mode-teaser h2 a:hover h2 {
+  color: #883584;
+}
 
 .node--type-session-resume.node--view-mode-teaser {
   margin: 0 0 2em 0;

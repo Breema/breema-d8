@@ -118,6 +118,16 @@ blockquote:before {
   border: 0;
   margin: 0;
   padding: 0;
+  // Sadly, bartik's node.css forces a color on these (not sure why).
+  h2 {
+    a {
+      color: $c-plum;
+    }
+    a:focus h2,
+    a:hover h2 {
+      color: $c-purple;
+    }
+  }    
 }
 
 .node--type-session-resume.node--view-mode-teaser {
