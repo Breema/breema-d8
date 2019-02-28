@@ -1,0 +1,20 @@
+uuid: ff53b85a-78b0-4994-b1e8-46b27d902c27
+langcode: en
+status: true
+dependencies:
+  module:
+    - breema
+  theme:
+    - breema2
+id: breema2_breema_site_header_text
+theme: breema2
+region: header
+weight: 0
+provider: null
+plugin: breema_site_header_block
+settings:
+  id: breema_site_header_block
+  label: 'Breema site header text'
+  provider: breema
+  label_display: '0'
+visibility: {  }
