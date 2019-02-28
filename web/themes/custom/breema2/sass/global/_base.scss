@@ -406,6 +406,11 @@ a.teaser-link:hover .teaser-wrapper {
   a {
     padding: 0 0 0 1em;
     position: relative;
+    color: $c-fb-blue;
+  }
+  a:focus,
+  a:hover {
+    color: darken($c-fb-blue, 5%);
   }
   a:before {
     position: absolute;
@@ -413,6 +418,5 @@ a.teaser-link:hover .teaser-wrapper {
     // fa-facebook
     content: "\f09a";
     left: 1px;
-    color: $c-fb-blue;
   }
 }

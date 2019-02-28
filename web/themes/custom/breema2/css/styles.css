@@ -429,13 +429,17 @@ a.teaser-link:hover .teaser-wrapper {
 .field--name-field-facebook-event a {
   padding: 0 0 0 1em;
   position: relative;
+  color: #4267b2;
+}
+.field--name-field-facebook-event a:focus,
+.field--name-field-facebook-event a:hover {
+  color: #3b5c9f;
 }
 .field--name-field-facebook-event a:before {
   position: absolute;
   font-family: 'FontAwesome';
   content: "\f09a";
   left: 1px;
-  color: #4267b2;
 }
 
 .grid--container {
