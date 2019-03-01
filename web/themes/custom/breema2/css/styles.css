@@ -529,6 +529,16 @@ a.teaser-link:hover .teaser-wrapper {
 .region-secondary-menu .menu {
   margin: 0 15px;
 }
+.region-secondary-menu a {
+  color: rgba(255, 255, 255, 0.8);
+}
+.region-secondary-menu a:focus,
+.region-secondary-menu a:hover {
+  color: #fff;
+}
+.region-secondary-menu .block .content {
+  margin: 0;
+}
 
 .site-branding__name {
   font-family: Georgia, "Times New Roman", Times, serif;
