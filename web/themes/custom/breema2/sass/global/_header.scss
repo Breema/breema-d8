@@ -3,12 +3,15 @@
   .menu {
     margin: 0 15px;
   }
-  a {
-    color: $c-white-80o;
-  }
-  a:focus,
-  a:hover {
-    color: $c-white;
+  ul.menu { 
+    a,
+    a.is-active {
+      color: $c-white-80o;
+    }
+    a:focus,
+    a:hover {
+      color: $c-white;
+    }
   }
   .block .content {
     margin: 0;

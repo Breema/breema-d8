@@ -538,11 +538,12 @@ a.teaser-link:hover .teaser-wrapper {
 .region-secondary-menu .menu {
   margin: 0 15px;
 }
-.region-secondary-menu a {
+.region-secondary-menu ul.menu a,
+.region-secondary-menu ul.menu a.is-active {
   color: rgba(255, 255, 255, 0.8);
 }
-.region-secondary-menu a:focus,
-.region-secondary-menu a:hover {
+.region-secondary-menu ul.menu a:focus,
+.region-secondary-menu ul.menu a:hover {
   color: #fff;
 }
 .region-secondary-menu .block .content {
