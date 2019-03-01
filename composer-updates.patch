@@ -1,0 +1,209 @@
+diff --git a/composer.lock b/composer.lock
+index 5627393..0503566 100644
+--- a/composer.lock
++++ b/composer.lock
+@@ -2788,23 +2788,22 @@
+         },
+         {
+             "name": "drupal/entity_browser",
+-            "version": "2.0.0",
++            "version": "2.1.0",
+             "source": {
+                 "type": "git",
+                 "url": "https://git.drupal.org/project/entity_browser",
+-                "reference": "8.x-2.0"
++                "reference": "8.x-2.1"
+             },
+             "dist": {
+                 "type": "zip",
+-                "url": "https://ftp.drupal.org/files/projects/entity_browser-8.x-2.0.zip",
+-                "reference": "8.x-2.0",
+-                "shasum": "683a7a252c947433c7b78bb838d6d8973c13cf77"
++                "url": "https://ftp.drupal.org/files/projects/entity_browser-8.x-2.1.zip",
++                "reference": "8.x-2.1",
++                "shasum": "56cf190f3ea3fc0af71becbc44af5954a71f216b"
+             },
+             "require": {
+                 "drupal/core": "~8.0"
+             },
+             "require-dev": {
+-                "drupal/ctools": "*",
+                 "drupal/inline_entity_form": "*",
+                 "drupal/paragraphs": "*",
+                 "drupal/token": "*"
+@@ -2816,8 +2815,8 @@
+                     "dev-8.x-1.x": "8.1.x-dev"
+                 },
+                 "drupal": {
+-                    "version": "8.x-2.0",
+-                    "datestamp": "1536328684",
++                    "version": "8.x-2.1",
++                    "datestamp": "1550237365",
+                     "security-coverage": {
+                         "status": "covered",
+                         "message": "Covered by Drupal's security advisory policy"
+@@ -2845,6 +2844,10 @@
+                     "role": "contributor"
+                 },
+                 {
++                    "name": "Drupal Media Team",
++                    "homepage": "https://www.drupal.org/user/3260690"
++                },
++                {
+                     "name": "Primsi",
+                     "homepage": "https://www.drupal.org/user/282629"
+                 },
+@@ -2853,6 +2856,10 @@
+                     "homepage": "https://www.drupal.org/user/77320"
+                 },
+                 {
++                    "name": "oknate",
++                    "homepage": "https://www.drupal.org/user/471638"
++                },
++                {
+                     "name": "samuel.mortenson",
+                     "homepage": "https://www.drupal.org/user/2582268"
+                 },
+@@ -2871,7 +2878,7 @@
+         },
+         {
+             "name": "drupal/entity_browser_entity_form",
+-            "version": "2.0.0",
++            "version": "2.1.0",
+             "require": {
+                 "drupal/core": "~8.0",
+                 "drupal/entity_browser": "self.version",
+@@ -2883,8 +2890,8 @@
+                     "dev-2.x": "2.x-dev"
+                 },
+                 "drupal": {
+-                    "version": "8.x-2.0",
+-                    "datestamp": "1536328684",
++                    "version": "8.x-2.1",
++                    "datestamp": "1550237365",
+                     "security-coverage": {
+                         "status": "covered",
+                         "message": "Covered by Drupal's security advisory policy"
+@@ -2897,6 +2904,10 @@
+             ],
+             "authors": [
+                 {
++                    "name": "Berdir",
++                    "homepage": "https://www.drupal.org/user/214652"
++                },
++                {
+                     "name": "Dave Reid",
+                     "homepage": "https://www.drupal.org/user/53892"
+                 },
+@@ -2917,6 +2928,10 @@
+                     "homepage": "https://www.drupal.org/user/77320"
+                 },
+                 {
++                    "name": "oknate",
++                    "homepage": "https://www.drupal.org/user/471638"
++                },
++                {
+                     "name": "samuel.mortenson",
+                     "homepage": "https://www.drupal.org/user/2582268"
+                 },
+@@ -3474,7 +3489,7 @@
+             "source": {
+                 "type": "git",
+                 "url": "https://git.drupal.org/project/geocoder",
+-                "reference": "f523cb90bcd3b145e846390a894004d9e9f948d9"
++                "reference": "4efa52a8fe167429b59f6c78da73da077a57eda4"
+             },
+             "require": {
+                 "drupal/core": "~8.0",
+@@ -3496,8 +3511,8 @@
+                     "dev-2.x": "2.x-dev"
+                 },
+                 "drupal": {
+-                    "version": "8.x-2.0+6-dev",
+-                    "datestamp": "1549431784",
++                    "version": "8.x-2.1+1-dev",
++                    "datestamp": "1549948685",
+                     "security-coverage": {
+                         "status": "not-covered",
+                         "message": "Dev releases are not covered by Drupal security advisories."
+@@ -3563,7 +3578,7 @@
+                 "issues": "https://drupal.org/project/issues/geocoder",
+                 "irc": "irc://irc.freenode.org/drupal-geo"
+             },
+-            "time": "2019-02-06 05:38:18"
++            "time": "2019-02-12 05:14:25"
+         },
+         {
+             "name": "drupal/geolocation",
+@@ -3735,17 +3750,17 @@
+         },
+         {
+             "name": "drupal/jsonapi",
+-            "version": "2.1.0",
++            "version": "2.2.0",
+             "source": {
+                 "type": "git",
+                 "url": "https://git.drupal.org/project/jsonapi",
+-                "reference": "8.x-2.1"
++                "reference": "8.x-2.2"
+             },
+             "dist": {
+                 "type": "zip",
+-                "url": "https://ftp.drupal.org/files/projects/jsonapi-8.x-2.1.zip",
+-                "reference": "8.x-2.1",
+-                "shasum": "8173e0f44cd86752b055f069ce55c5bf7632e719"
++                "url": "https://ftp.drupal.org/files/projects/jsonapi-8.x-2.2.zip",
++                "reference": "8.x-2.2",
++                "shasum": "58eb3b480a43d19bc1c7987a4183d4465ac37861"
+             },
+             "require": {
+                 "drupal/core": "^8.5.4"
+@@ -3761,8 +3776,8 @@
+                     "dev-2.x": "2.x-dev"
+                 },
+                 "drupal": {
+-                    "version": "8.x-2.1",
+-                    "datestamp": "1548087544",
++                    "version": "8.x-2.2",
++                    "datestamp": "1550482086",
+                     "security-coverage": {
+                         "status": "covered",
+                         "message": "Covered by Drupal's security advisory policy"
+@@ -5600,16 +5615,16 @@
+         },
+         {
+             "name": "nikic/php-parser",
+-            "version": "v4.2.0",
++            "version": "v4.2.1",
+             "source": {
+                 "type": "git",
+                 "url": "https://github.com/nikic/PHP-Parser.git",
+-                "reference": "594bcae1fc0bccd3993d2f0d61a018e26ac2865a"
++                "reference": "5221f49a608808c1e4d436df32884cbc1b821ac0"
+             },
+             "dist": {
+                 "type": "zip",
+-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/594bcae1fc0bccd3993d2f0d61a018e26ac2865a",
+-                "reference": "594bcae1fc0bccd3993d2f0d61a018e26ac2865a",
++                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/5221f49a608808c1e4d436df32884cbc1b821ac0",
++                "reference": "5221f49a608808c1e4d436df32884cbc1b821ac0",
+                 "shasum": ""
+             },
+             "require": {
+@@ -5647,7 +5662,7 @@
+                 "parser",
+                 "php"
+             ],
+-            "time": "2019-01-12T16:31:37+00:00"
++            "time": "2019-02-16T20:54:15+00:00"
+         },
+         {
+             "name": "paragonie/random_compat",
+@@ -10131,6 +10146,7 @@
+                 "mock",
+                 "xunit"
+             ],
++            "abandoned": true,
+             "time": "2015-10-02T06:51:40+00:00"
+         },
+         {
