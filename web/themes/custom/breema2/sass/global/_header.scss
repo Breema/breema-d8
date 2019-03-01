@@ -27,11 +27,9 @@
   .menu-item {
     font-size: 1.25em;
   }
-  ul.menu {
-    a.is-active,
-    a:focus,
-    a:hover {
-      color: $c-blue;
-    }
+  a:focus,
+  a:hover,
+  .menu-item--active-trail a {
+    color: $c-blue;
   }
 }

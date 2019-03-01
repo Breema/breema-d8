@@ -351,12 +351,6 @@ a.teaser-link:hover .teaser-wrapper {
   font-size: 1.3em;
 }
 
-.menu-item--collapsed,
-.menu-item--expanded {
-  list-style-image: none;
-  list-style-type: none;
-}
-
 .site-footer .layout-container {
   padding: 0 10px;
 }
@@ -559,9 +553,9 @@ a.teaser-link:hover .teaser-wrapper {
 .region-primary-menu .menu-item {
   font-size: 1.25em;
 }
-.region-primary-menu ul.menu a.is-active,
-.region-primary-menu ul.menu a:focus,
-.region-primary-menu ul.menu a:hover {
+.region-primary-menu a:focus,
+.region-primary-menu a:hover,
+.region-primary-menu .menu-item--active-trail a {
   color: #007cb2;
 }
 
@@ -761,6 +755,21 @@ div.danger {
 
 .button.search-form__submit:hover {
   background: #dedede url(../../../../core/misc/icons/424242/loupe.svg) no-repeat center;
+}
+
+ul.menu a.is-active {
+  color: #007cb2;
+}
+
+.page-node-type-article .menu-item--active-trail > a,
+.page-node-type-essence .menu-item--active-trail > a {
+  color: #007cb2;
+}
+
+.menu-item--collapsed,
+.menu-item--expanded {
+  list-style-image: none;
+  list-style-type: none;
 }
 
 .paragraph--type--product-info-audio,

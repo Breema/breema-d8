@@ -1,0 +1,19 @@
+ul.menu {
+  a.is-active {
+    color: $c-blue;
+  }
+}
+
+// On article and essence nodes, we want to "highlight" the active trail, too.
+.page-node-type-article,
+.page-node-type-essence {
+  .menu-item--active-trail > a {
+    color: $c-blue;
+  }
+}
+
+.menu-item--collapsed,
+.menu-item--expanded {
+  list-style-image: none;
+  list-style-type: none;
+}
