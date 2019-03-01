@@ -650,6 +650,9 @@ a.teaser-link:hover .teaser-wrapper {
   font-size: 1.1em;
 }
 
+.action {
+  margin: 1em 0 0.5em;
+}
 .action a {
   text-decoration: none;
   font-size: 1em;
@@ -658,7 +661,6 @@ a.teaser-link:hover .teaser-wrapper {
   -webkit-border-radius: 15px;
   padding: 3px 12px 3px 12px;
   display: inline-block;
-  margin: 1em 0 0.5em;
 }
 .action a:focus,
 .action a:hover {
@@ -703,16 +705,20 @@ a.teaser-link:hover .teaser-wrapper {
   border-bottom-color: #51204f;
 }
 
+.container-inline .action {
+  display: inline-block;
+  margin: 0 0.65em 0.5em 0;
+}
+
+.container-inline .action:last-child {
+  margin-right: 0;
+}
+
 .sidebar .action a {
-  margin: 1em auto 0;
+  margin: 0 auto;
   display: block;
   text-align: center;
   max-width: 150px;
-}
-
-.container-inline .action a,
-.sidebar .container-inline .action a {
-  margin: 0 0.65em 0.5em 0;
 }
 
 div.danger {
