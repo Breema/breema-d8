@@ -398,6 +398,7 @@ a.teaser-link:hover .teaser-wrapper {
   margin: 0 0 1em 0;
 }
 
+a.email,
 .contact-form-link a,
 .field--type-email a {
   padding: 0 0 0 1.35em;
@@ -405,12 +406,15 @@ a.teaser-link:hover .teaser-wrapper {
   position: relative;
 }
 
+a.telephone,
 .field--type-telephone a {
   padding: 0 0 0 1.25em;
   margin: 0 0 0 0.25em;
   position: relative;
 }
 
+a.email:before,
+a.telephone:before,
 .contact-form-link a:before,
 .field--type-email a:before,
 .field--type-telephone a:before {
@@ -419,11 +423,13 @@ a.teaser-link:hover .teaser-wrapper {
   left: 0px;
 }
 
+a.email:before,
 .contact-form-link a:before,
 .field--type-email a:before {
   content: "\f003";
 }
 
+a.telephone:before,
 .field--type-telephone a:before {
   content: "\f095";
   top: 0px;
