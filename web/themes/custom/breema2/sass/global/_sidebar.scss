@@ -1,5 +1,6 @@
 .sidebar {
   .block {
+    padding: 10px;
     background-color: $c-grey;
     border-color: $c-grc7;
     .content {
@@ -9,6 +10,22 @@
   h2 {
     border-bottom: 1px solid $c-grc7;
     color: $c-black;
+  }
+}
+
+@media (min-width: 630px) {
+  .sidebar .block {
+    padding: 15px 20px;
+  }
+}
+@media (min-width: 851px) {
+  .sidebar .block {
+    padding: 10px 15px 15px;
+  }
+}
+@media (min-width: 1024px) {
+  .sidebar .block {
+    padding: 15px 20px;
   }
 }
 

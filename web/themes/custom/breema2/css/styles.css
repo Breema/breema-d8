@@ -570,6 +570,7 @@ a.teaser-link:hover .teaser-wrapper {
 }
 
 .sidebar .block {
+  padding: 10px;
   background-color: #dedfdd;
   border-color: #c7c7c7;
 }
@@ -581,6 +582,21 @@ a.teaser-link:hover .teaser-wrapper {
   color: #1a272e;
 }
 
+@media (min-width: 630px) {
+  .sidebar .block {
+    padding: 15px 20px;
+  }
+}
+@media (min-width: 851px) {
+  .sidebar .block {
+    padding: 10px 15px 15px;
+  }
+}
+@media (min-width: 1024px) {
+  .sidebar .block {
+    padding: 15px 20px;
+  }
+}
 .region-sidebar-first ul.menu {
   margin: 0;
   padding: 0;
