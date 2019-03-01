@@ -566,6 +566,9 @@ a.telephone:before,
 .site-branding__name a {
   color: #a82133;
 }
+.site-branding__name a:hover {
+  text-decoration: none;
+}
 
 .region-header {
   float: left;
