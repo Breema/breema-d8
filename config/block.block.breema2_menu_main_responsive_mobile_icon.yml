@@ -1,0 +1,20 @@
+uuid: 09887e02-13ea-4127-8867-c10ef9ad5744
+langcode: en
+status: true
+dependencies:
+  module:
+    - responsive_menu
+  theme:
+    - breema2
+id: breema2_menu_main_responsive_mobile_icon
+theme: breema2
+region: primary_menu
+weight: 0
+provider: null
+plugin: responsive_menu_toggle
+settings:
+  id: responsive_menu_toggle
+  label: 'Responsive menu mobile icon'
+  provider: responsive_menu
+  label_display: '0'
+visibility: {  }

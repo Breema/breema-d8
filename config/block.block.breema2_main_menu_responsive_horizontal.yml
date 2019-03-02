@@ -1,0 +1,20 @@
+uuid: 4089bf35-3b7a-4aab-9863-17cc26fa17be
+langcode: en
+status: true
+dependencies:
+  module:
+    - responsive_menu
+  theme:
+    - breema2
+id: breema2_main_menu_responsive_horizontal
+theme: breema2
+region: primary_menu
+weight: 0
+provider: null
+plugin: responsive_menu_horizontal_menu
+settings:
+  id: responsive_menu_horizontal_menu
+  label: 'Horizontal menu'
+  provider: responsive_menu
+  label_display: '0'
+visibility: {  }
