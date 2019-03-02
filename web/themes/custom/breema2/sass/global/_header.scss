@@ -38,14 +38,15 @@
 }
 
 .region-primary-menu {
+  font-size: 1.25em;
   float: left;
   clear: none;
-  .menu-item {
-    font-size: 1.25em;
-  }
   a:focus,
   a:hover,
-  .menu-item--active-trail a {
+  a.is-active,
+  // Only use blue for the active trail on the top-level menu links.
+  .horizontal-menu > .menu-item--active-trail > a {
     color: $c-blue;
+    text-decoration: none;
   }
 }

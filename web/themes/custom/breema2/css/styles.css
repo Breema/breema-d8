@@ -576,16 +576,16 @@ a.telephone:before,
 }
 
 .region-primary-menu {
+  font-size: 1.25em;
   float: left;
   clear: none;
 }
-.region-primary-menu .menu-item {
-  font-size: 1.25em;
-}
 .region-primary-menu a:focus,
 .region-primary-menu a:hover,
-.region-primary-menu .menu-item--active-trail a {
+.region-primary-menu a.is-active,
+.region-primary-menu .horizontal-menu > .menu-item--active-trail > a {
   color: #007cb2;
+  text-decoration: none;
 }
 
 .sidebar .block {
