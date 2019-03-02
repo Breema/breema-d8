@@ -6,8 +6,16 @@
     border-color: $c-white-25o;
   }
 
+  // Change links and other text to white for this whole region.
+  a,
   .content {
     color: $c-white-80o;
+  }
+  a:focus,
+  a:hover,
+  // Override the default blue here so we don't get blue on plum on /contact*
+  ul.menu a.is-active {
+    color: $c-white;
   }
 
   h2 {
@@ -33,7 +41,9 @@
 }
 
 .site-footer__bottom {
-  border-color: $c-white-25o;
+  margin-top: 10px;
+  border: none;
+  font-size: 0.9em;
 }
 
 // We need more specific styles here to override the usual link colors.

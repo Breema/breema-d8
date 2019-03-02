@@ -647,8 +647,14 @@ a.telephone:before,
   margin: 0 0 20px 0;
   border-color: rgba(255, 255, 255, 0.25);
 }
+.site-footer a,
 .site-footer .content {
   color: rgba(255, 255, 255, 0.8);
+}
+.site-footer a:focus,
+.site-footer a:hover,
+.site-footer ul.menu a.is-active {
+  color: #fff;
 }
 .site-footer h2 {
   margin: 0 0 0.5em 0;
@@ -667,7 +673,9 @@ a.telephone:before,
 }
 
 .site-footer__bottom {
-  border-color: rgba(255, 255, 255, 0.25);
+  margin-top: 10px;
+  border: none;
+  font-size: 0.9em;
 }
 
 .block-footer-email-subscribe-block .action--secondary a {
