@@ -1,5 +1,5 @@
 horizontal_menu: main
-horizontal_depth: 3
+horizontal_depth: 2
 off_canvas_menus: main
 horizontal_wrapping_element: nav
 horizontal_breakpoint: wide
