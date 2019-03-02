@@ -998,8 +998,8 @@ html.mm-opened .mm-page {
 .responsive-menu-toggle-icon span.label {
   display: block;
   position: absolute;
-  top: 4px;
-  right: 40px;
+  top: 34px;
+  left: 6px;
   color: #752d53;
 }
 
