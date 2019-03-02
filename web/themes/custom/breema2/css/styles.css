@@ -968,6 +968,8 @@ html.mm-opened .mm-page {
 
 .responsive-menu-toggle {
   display: inline-block;
+  float: right;
+  margin-right: 1.5em;
 }
 
 .responsive-menu-toggle-icon {
@@ -987,21 +989,19 @@ html.mm-opened .mm-page {
 .responsive-menu-toggle-icon span.label {
   display: block;
   position: absolute;
-  font-size: 17px;
-  text-transform: uppercase;
-  top: 2px;
-  left: 40px;
-  color: #fff;
+  top: 4px;
+  right: 40px;
+  color: #752d53;
 }
 
 .responsive-menu-toggle-icon:before,
 .responsive-menu-toggle-icon:after,
 .responsive-menu-toggle-icon span.icon {
-  background: #fff;
+  background: #752d53;
   content: '';
   display: block;
-  width: 20px;
-  height: 3px;
+  width: 30px;
+  height: 5px;
   position: absolute;
   top: 0;
   left: 13px;
@@ -1009,15 +1009,15 @@ html.mm-opened .mm-page {
 }
 
 .responsive-menu-toggle-icon:before {
-  top: 8px;
+  top: 5px;
 }
 
 .responsive-menu-toggle-icon span.icon {
-  top: 14px;
+  top: 15px;
 }
 
 .responsive-menu-toggle-icon:after {
-  top: 20px;
+  top: 25px;
 }
 
 .responsive-menu-toggle-icon:before,
