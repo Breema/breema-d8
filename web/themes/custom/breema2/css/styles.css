@@ -886,7 +886,7 @@ html.mm-opened .mm-page {
 
 .horizontal-menu > li > a {
   display: block;
-  padding: 0.3em 1em;
+  padding: 0.3em 0.75em;
 }
 
 .horizontal-menu > li ul {
@@ -918,6 +918,15 @@ html.mm-opened .mm-page {
 @media (min-width: 1024px) {
   .horizontal-menu > li:nth-child(6) ul {
     left: 0;
+  }
+
+  .horizontal-menu > li > a {
+    display: block;
+    padding: 0.3em 1em;
+  }
+
+  .horizontal-menu {
+    margin-left: 2em;
   }
 }
 .horizontal-menu > li:hover {
