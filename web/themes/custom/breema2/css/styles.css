@@ -875,10 +875,7 @@ html.mm-opened .mm-page {
 
 .horizontal-menu > li > a {
   display: block;
-  padding-top: 0.3em;
-  padding-right: 1em;
-  padding-bottom: 0.35em;
-  padding-left: 1em;
+  padding: 0.3em 1em;
 }
 
 .horizontal-menu > li ul {
@@ -887,13 +884,41 @@ html.mm-opened .mm-page {
   top: 100%;
   left: 0;
   z-index: 99;
-  padding-top: 0;
-  padding-right: 0;
-  padding-bottom: 0;
-  padding-left: 0;
+  padding: 0;
   box-sizing: border-box;
-  width: 13.75em;
+  width: 11.4em;
   list-style: none;
+  background-color: #ebebea;
+}
+
+.horizontal-menu > li:nth-child(3) ul {
+  width: 13em;
+}
+
+.horizontal-menu > li:nth-child(4) ul {
+  width: 6em;
+}
+
+.horizontal-menu > li:nth-child(6) ul {
+  width: 9em;
+  left: -3.5em;
+}
+
+@media (min-width: 1024px) {
+  .horizontal-menu > li:nth-child(6) ul {
+    left: 0;
+  }
+}
+.horizontal-menu > li:hover {
+  background-color: #ebebea;
+}
+
+.horizontal-menu > li.menu-item--active-trail:hover > a {
+  color: #752d53;
+}
+
+.horizontal-menu > li.menu-item--active-trail:hover > a.is-active {
+  color: #007cb2;
 }
 
 .horizontal-menu li.sfHover > ul,
