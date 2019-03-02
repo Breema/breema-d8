@@ -12,6 +12,7 @@ libraries-override:
     css:
       component:
         css/components/header.css: false
+        css/components/primary-menu.css: false
       theme:
         css/colors.css: false
 
