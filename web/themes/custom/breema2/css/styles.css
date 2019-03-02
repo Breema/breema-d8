@@ -897,7 +897,7 @@ html.mm-opened .mm-page {
 
 .horizontal-menu > li > a {
   display: block;
-  padding: 0.3em 0.75em;
+  padding: 0.3em 15px;
 }
 
 .horizontal-menu > li ul {
@@ -906,7 +906,7 @@ html.mm-opened .mm-page {
   top: 100%;
   left: 0;
   z-index: 99;
-  padding: 0 0 0.5em 0;
+  padding: 0 0 15px 0;
   width: 100%;
   box-sizing: border-box;
   list-style: none;
@@ -964,23 +964,28 @@ html.mm-opened .mm-page {
   display: block;
   position: relative;
   line-height: 1.25em;
-  padding: 0.25em 0.75em 0.4em;
+  padding: 0.25em 15px 0.4em;
   text-transform: none;
+  font-size: 0.85em;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1000px) {
   .horizontal-menu > li:nth-child(6) ul {
     left: 0;
+  }
+}
+@media (min-width: 1050px) {
+  .horizontal-menu > li:nth-child(6) ul {
     width: 9em;
   }
 
   .horizontal-menu > li > a {
     display: block;
-    padding: 0.3em 1em;
+    padding: 0.3em 20px;
   }
 
   .horizontal-menu > li li > a {
-    padding: 0.25em 1em 0.4em;
+    padding: 0.25em 20px 0.4em;
   }
 
   .horizontal-menu {
