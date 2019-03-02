@@ -561,7 +561,6 @@ a.telephone:before,
   text-transform: uppercase;
   letter-spacing: 0;
   word-spacing: 100vw;
-  max-width: 120px;
 }
 .site-branding__name a {
   color: #a82133;
@@ -570,14 +569,26 @@ a.telephone:before,
   text-decoration: none;
 }
 
+.header-container {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
 .region-header {
-  float: left;
+  width: 110px;
   padding: 0.357em 15px 0;
 }
 
 .region-primary-menu {
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
   font-size: 1.25em;
-  float: left;
   clear: none;
 }
 .region-primary-menu a:focus,
