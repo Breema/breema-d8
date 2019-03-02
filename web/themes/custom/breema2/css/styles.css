@@ -923,7 +923,7 @@ html.mm-opened .mm-page {
 }
 
 .horizontal-menu > li:nth-child(4) ul {
-  width: 5.5em;
+  width: 6em;
 }
 
 .horizontal-menu > li:nth-child(6) ul {
@@ -931,20 +931,6 @@ html.mm-opened .mm-page {
   left: -3.5em;
 }
 
-@media (min-width: 1024px) {
-  .horizontal-menu > li:nth-child(6) ul {
-    left: 0;
-  }
-
-  .horizontal-menu > li > a {
-    display: block;
-    padding: 0.3em 1em;
-  }
-
-  .horizontal-menu {
-    margin-left: 2em;
-  }
-}
 .horizontal-menu > li:hover {
   background-color: #ebebea;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
@@ -982,6 +968,25 @@ html.mm-opened .mm-page {
   text-transform: none;
 }
 
+@media (min-width: 1024px) {
+  .horizontal-menu > li:nth-child(6) ul {
+    left: 0;
+    width: 9em;
+  }
+
+  .horizontal-menu > li > a {
+    display: block;
+    padding: 0.3em 1em;
+  }
+
+  .horizontal-menu > li li > a {
+    padding: 0.25em 1em 0.4em;
+  }
+
+  .horizontal-menu {
+    margin-left: 2em;
+  }
+}
 .off-canvas-wrapper {
   display: block;
 }
