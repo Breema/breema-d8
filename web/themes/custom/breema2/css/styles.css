@@ -895,11 +895,16 @@ html.mm-opened .mm-page {
   top: 100%;
   left: 0;
   z-index: 99;
-  padding: 0;
+  padding: 0 0 0.5em 0;
+  width: 100%;
   box-sizing: border-box;
-  width: 11.4em;
   list-style: none;
   background-color: #ebebea;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+}
+
+.horizontal-menu > li:nth-child(2) ul {
+  width: 11.5em;
 }
 
 .horizontal-menu > li:nth-child(3) ul {
@@ -911,7 +916,7 @@ html.mm-opened .mm-page {
 }
 
 .horizontal-menu > li:nth-child(6) ul {
-  width: 9em;
+  width: 8em;
   left: -3.5em;
 }
 
@@ -931,6 +936,7 @@ html.mm-opened .mm-page {
 }
 .horizontal-menu > li:hover {
   background-color: #ebebea;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
 }
 
 .horizontal-menu > li.menu-item--active-trail:hover > a {
@@ -960,10 +966,8 @@ html.mm-opened .mm-page {
 .horizontal-menu > li li > a {
   display: block;
   position: relative;
-  padding-top: 0.25em;
-  padding-right: 1em;
-  padding-bottom: 0.25em;
-  padding-left: 1em;
+  line-height: 1.25em;
+  padding: 0.25em 0.75em 0.4em;
   text-transform: none;
 }
 
