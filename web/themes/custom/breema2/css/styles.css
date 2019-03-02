@@ -678,7 +678,6 @@ a.telephone:before,
   display: block;
   margin: 0.5em auto;
   text-align: center;
-  font-weight: bold;
 }
 .block-footer-email-subscribe-block .action--secondary a:focus,
 .block-footer-email-subscribe-block .action--secondary a:hover {
