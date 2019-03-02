@@ -12,12 +12,12 @@ html.mm-opened .mm-page {
   background-color: #ffffff;
 }
 
-.mm-opening .toolbar-tray-open.toolbar-fixed.toolbar-vertical,
+.mm-wrapper_opening .toolbar-tray-open.toolbar-fixed.toolbar-vertical,
 .mm-opened .toolbar-tray-open.toolbar-fixed.toolbar-vertical {
   margin-left: 0;
 }
 
-.mm-opening .toolbar-tray-open.toolbar-fixed.toolbar-vertical .mm-page,
+.mm-wrapper_opening .toolbar-tray-open.toolbar-fixed.toolbar-vertical .mm-page,
 .mm-opened .toolbar-tray-open.toolbar-fixed.toolbar-vertical .mm-page {
   padding-left: 240px;
   padding-left: 15rem;
@@ -187,23 +187,23 @@ html.mm-opened .mm-page {
   transition-property: transform, top, bottom, left, opacity;
 }
 
-html.mm-opening .responsive-menu-toggle-icon:before,
-html.mm-opening .responsive-menu-toggle-icon:after {
+html.mm-wrapper_opening .responsive-menu-toggle-icon:before,
+html.mm-wrapper_opening .responsive-menu-toggle-icon:after {
   top: 14px;
 }
 
-html.mm-opening .responsive-menu-toggle-icon span.icon {
+html.mm-wrapper_opening .responsive-menu-toggle-icon span.icon {
   left: -25px;
   opacity: 0;
 }
 
-html.mm-opening .responsive-menu-toggle-icon:before {
+html.mm-wrapper_opening .responsive-menu-toggle-icon:before {
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
 }
 
-html.mm-opening .responsive-menu-toggle-icon:after {
+html.mm-wrapper_opening .responsive-menu-toggle-icon:after {
   -webkit-transform: rotate(-45deg);
   -ms-transform: rotate(-45deg);
   transform: rotate(-45deg);
@@ -212,11 +212,11 @@ html.mm-opening .responsive-menu-toggle-icon:after {
 #mm-blocker {
   background: rgba(0, 0, 0, 0);
 }
-.mm-opening #mm-blocker {
+.mm-wrapper_opening #mm-blocker {
   background: rgba(0, 0, 0, 0.2);
   transition: background 1s ease 0.3s;
 }
-.mm-opening #page {
+.mm-wrapper_opening #page {
   border-left: 1px solid #ccc;
 }
 
