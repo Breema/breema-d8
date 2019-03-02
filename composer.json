@@ -52,6 +52,7 @@
     "drupal/pathauto": "^1.0",
     "drupal/recaptcha": "^2.3",
     "drupal/redirect": "^1.0",
+    "drupal/responsive_menu": "^2.6",
     "drupal/simple_block": "^1.0@beta",
     "drupal/smart_trim": "^1.0",
     "drupal/smtp": "^1.0",
