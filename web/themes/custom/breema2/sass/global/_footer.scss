@@ -1,5 +1,6 @@
 .site-footer {
   background-color: $c-plum;
+  padding: 20px 0;
 
   .block {
     margin: 0 0 20px 0;
@@ -44,6 +45,9 @@
   margin-top: 10px;
   border: none;
   font-size: 0.9em;
+  .block {
+    margin: 0;
+  }
 }
 
 // We need more specific styles here to override the usual link colors.

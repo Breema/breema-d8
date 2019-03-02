@@ -642,6 +642,7 @@ a.telephone:before,
 
 .site-footer {
   background-color: #752d53;
+  padding: 20px 0;
 }
 .site-footer .block {
   margin: 0 0 20px 0;
@@ -676,6 +677,9 @@ a.telephone:before,
   margin-top: 10px;
   border: none;
   font-size: 0.9em;
+}
+.site-footer__bottom .block {
+  margin: 0;
 }
 
 .block-footer-email-subscribe-block .action--secondary a {
