@@ -11,10 +11,9 @@
 @import 'global/base';
 @import 'global/grid';
 
-@import 'global/header';
-@import 'global/sidebar';
-@import 'global/footer';
-
+@import 'regions/header';
+@import 'regions/sidebar';
+@import 'regions/footer';
 @import 'regions/featured_top';
 
 @import 'components/actions';
