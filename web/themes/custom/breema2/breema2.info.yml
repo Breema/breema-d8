@@ -11,6 +11,7 @@ libraries-override:
   bartik/global-styling:
     css:
       component:
+        css/components/featured-top.css: false
         css/components/header.css: false
         css/components/primary-menu.css: false
       theme:

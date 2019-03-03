@@ -707,6 +707,20 @@ a.telephone:before,
   font-size: 1.1em;
 }
 
+.featured-top {
+  margin: 20px 15px;
+  padding: 20px 15px;
+  background: #dce0dd;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+}
+.featured-top h2 {
+  margin-top: 0;
+}
+.featured-top p {
+  margin: 0;
+  padding: 0;
+}
+
 .action {
   margin: 1em 0 0.5em;
 }

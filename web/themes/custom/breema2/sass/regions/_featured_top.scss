@@ -1,0 +1,13 @@
+.featured-top {
+  margin: 20px 15px;
+  padding: 20px 15px;
+  background: $c-grey-featured;
+  box-shadow: 0 2px 2px rgba(0,0,0,0.2);
+  h2 {
+    margin-top: 0;
+  }
+  p {
+    margin: 0;
+    padding: 0;
+  }
+}
