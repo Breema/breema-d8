@@ -1,15 +1,18 @@
 .region-secondary-menu {
   background-color: $c-plum;
   .menu {
-    margin: 0 15px;
+    text-align: left;
   }
   ul.menu { 
-    a,
-    a.is-active {
+    margin: 0;
+    padding: 0;
+    a {
+      padding: 10px 15px;
       color: $c-white-80o;
     }
     a:focus,
-    a:hover {
+    a:hover,
+    a.is-active {
       color: $c-white;
     }
   }
@@ -17,6 +20,15 @@
     margin: 0;
   }
 }    
+
+@media (min-width: 851px) {
+  .region-secondary-menu {
+    ul.menu { 
+      margin: 0 auto;
+      max-width: 1290px;
+    }
+  }
+}
 
 .site-branding__name {
   font-family: $ff-georgia;

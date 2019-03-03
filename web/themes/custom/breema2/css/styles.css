@@ -542,20 +542,31 @@ a.telephone:before,
   background-color: #752d53;
 }
 .region-secondary-menu .menu {
-  margin: 0 15px;
+  text-align: left;
 }
-.region-secondary-menu ul.menu a,
-.region-secondary-menu ul.menu a.is-active {
+.region-secondary-menu ul.menu {
+  margin: 0;
+  padding: 0;
+}
+.region-secondary-menu ul.menu a {
+  padding: 10px 15px;
   color: rgba(255, 255, 255, 0.8);
 }
 .region-secondary-menu ul.menu a:focus,
-.region-secondary-menu ul.menu a:hover {
+.region-secondary-menu ul.menu a:hover,
+.region-secondary-menu ul.menu a.is-active {
   color: #fff;
 }
 .region-secondary-menu .block .content {
   margin: 0;
 }
 
+@media (min-width: 851px) {
+  .region-secondary-menu ul.menu {
+    margin: 0 auto;
+    max-width: 1290px;
+  }
+}
 .site-branding__name {
   font-family: Georgia, "Times New Roman", Times, serif;
   text-transform: uppercase;
