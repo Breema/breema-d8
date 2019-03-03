@@ -612,14 +612,14 @@ a.telephone:before,
 
 .sidebar .block {
   padding: 10px;
-  background-color: #dedfdd;
-  border-color: #c7c7c7;
+  background-color: #e8e9e8;
+  border-color: #d1d3d0;
 }
 .sidebar .block .content {
   margin-top: 0;
 }
 .sidebar h2 {
-  border-bottom: 1px solid #c7c7c7;
+  border-bottom: 1px solid #d1d3d0;
   color: #1a272e;
 }
 

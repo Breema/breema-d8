@@ -1,14 +1,14 @@
 .sidebar {
   .block {
     padding: 10px;
-    background-color: $c-grey;
-    border-color: $c-grc7;
+    background-color: lighten($c-grey, 4%);
+    border-color: darken($c-grey, 5%);
     .content {
       margin-top: 0;
     }
   }
   h2 {
-    border-bottom: 1px solid $c-grc7;
+    border-bottom: 1px solid darken($c-grey, 5%);
     color: $c-black;
   }
 }
