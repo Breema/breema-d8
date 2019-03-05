@@ -1,0 +1,28 @@
+uuid: dc270804-3165-4e3e-990a-171c0d98bf9b
+langcode: en
+status: true
+dependencies:
+  module:
+    - breema
+    - user
+  theme:
+    - breema2
+id: breema2_session_resume_block
+theme: breema2
+region: sidebar_first
+weight: 0
+provider: null
+plugin: breema_session_resume_block
+settings:
+  id: breema_session_resume_block
+  label: 'Your Breema session resumes'
+  provider: breema
+  label_display: visible
+visibility:
+  user_role:
+    id: user_role
+    roles:
+      authenticated: authenticated
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
