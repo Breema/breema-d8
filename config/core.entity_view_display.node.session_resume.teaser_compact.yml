@@ -1,0 +1,44 @@
+uuid: 7338cb56-d158-40c4-878b-bf4d95adc351
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser_compact
+    - field.field.node.session_resume.field_date
+    - field.field.node.session_resume.field_experience
+    - field.field.node.session_resume.field_location_text
+    - field.field.node.session_resume.field_questions
+    - field.field.node.session_resume.field_recipient_prior_experience
+    - field.field.node.session_resume.field_recipient_relationship
+    - node.type.session_resume
+  module:
+    - datetime
+    - user
+id: node.session_resume.teaser_compact
+targetEntityType: node
+bundle: session_resume
+mode: teaser_compact
+content:
+  field_date:
+    weight: 0
+    label: hidden
+    settings:
+      timezone_override: ''
+      format_type: html_date
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_location_text:
+    weight: 1
+    label: visually_hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden:
+  field_experience: true
+  field_questions: true
+  field_recipient_prior_experience: true
+  field_recipient_relationship: true
+  links: true
