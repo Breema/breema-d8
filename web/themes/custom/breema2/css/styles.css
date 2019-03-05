@@ -622,6 +622,16 @@ a.telephone:before,
   border-bottom: 1px solid #d1d3d0;
   color: #1a272e;
 }
+.sidebar .item-list li {
+  margin: 0 0 0.25em 0;
+  padding: 0;
+}
+.sidebar ol li {
+  margin: 0 0 0.5em 0;
+}
+.sidebar ol li article.node {
+  padding: 0 0.25em 0.25em;
+}
 
 @media (min-width: 630px) {
   .sidebar .block {
