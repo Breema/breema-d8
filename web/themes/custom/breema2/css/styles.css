@@ -602,6 +602,9 @@ a.telephone:before,
   font-size: 1.25em;
   clear: none;
 }
+.region-primary-menu a {
+  color: #3c3c3c;
+}
 .region-primary-menu a:focus,
 .region-primary-menu a:hover,
 .region-primary-menu a.is-active,

@@ -64,6 +64,9 @@
   flex: 1;                  // NEW, Spec - Opera 12.1, Firefox 20+
   font-size: 1.25em;
   clear: none;
+  a {
+    color: $c-grey-dark;
+  }
   a:focus,
   a:hover,
   a.is-active,
