@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "ea72bc2c496e4982b3f8e63fc17d2658",
+    "content-hash": "8d28a2f923b3a5f60d73cbaefb0c1ef4",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -3606,7 +3606,7 @@
                 },
                 "patches_applied": {
                     "[#2921121-2] Empty h2 markup when locations don't use a 'title' field": "https://www.drupal.org/files/issues/2921121-1.hide-location-title-completely.patch",
-                    "[#2921437-9] Provide simple JS pager for raw results on Google common map display": "https://www.drupal.org/files/issues/2921437-9.raw-location-js-pager.patch"
+                    "[#2921437-11] Provide simple JS pager for raw results on Google common map display": "https://www.drupal.org/files/issues/2019-03-07/2921437-11.raw-location-js-pager.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
