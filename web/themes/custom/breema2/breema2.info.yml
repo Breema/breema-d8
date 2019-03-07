@@ -13,6 +13,7 @@ libraries-override:
       component:
         css/components/featured-top.css: false
         css/components/header.css: false
+        css/components/pager.css: false
         css/components/primary-menu.css: false
       theme:
         css/colors.css: false

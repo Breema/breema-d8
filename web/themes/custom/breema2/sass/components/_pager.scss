@@ -1,0 +1,36 @@
+/**
+ * @file
+ * Styles for pagination.
+ */
+
+/* Using .pager selector on the first one to override .region-content ul. */
+.pager .pager__items {
+  padding: 0;
+  margin: 2em 0 1em 0;
+}
+.pager__item {
+  font-size: 0.929em;
+  border: 1px solid rgba(0,0,0,0.2);
+  padding: 0;
+  margin: 0.25em;
+  display: inline-block;
+  a {
+    display: block;
+    padding: 10px 15px;
+    margin: 0;
+    text-decoration: none;
+  }
+  a:focus {
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: none;
+    background-color: lighten($c-grey, 4%);
+  }
+}
+.pager__item.is-active a {
+  color: $c-blue;
+}
+.pager__item--ellipsis {
+  border: none;
+}

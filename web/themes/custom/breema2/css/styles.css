@@ -883,6 +883,45 @@ ul.menu a.is-active {
   list-style-type: none;
 }
 
+/**
+ * @file
+ * Styles for pagination.
+ */
+/* Using .pager selector on the first one to override .region-content ul. */
+.pager .pager__items {
+  padding: 0;
+  margin: 2em 0 1em 0;
+}
+
+.pager__item {
+  font-size: 0.929em;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 0;
+  margin: 0.25em;
+  display: inline-block;
+}
+.pager__item a {
+  display: block;
+  padding: 10px 15px;
+  margin: 0;
+  text-decoration: none;
+}
+.pager__item a:focus {
+  text-decoration: none;
+}
+.pager__item a:hover {
+  text-decoration: none;
+  background-color: #e8e9e8;
+}
+
+.pager__item.is-active a {
+  color: #007cb2;
+}
+
+.pager__item--ellipsis {
+  border: none;
+}
+
 .responsive-menu-block-wrapper {
   display: none;
 }
