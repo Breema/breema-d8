@@ -5,19 +5,6 @@ dependencies:
   config:
     - field.storage.paragraph.field_other_info
     - paragraphs.paragraphs_type.product_info_book
-  module:
-    - geocoder_field
-third_party_settings:
-  geocoder_field:
-    method: none
-    field: parent_id
-    plugins: {  }
-    dumper: wkt
-    delta_handling: default
-    failure:
-      handling: preserve
-      status_message: true
-      log: true
 id: paragraph.product_info_book.field_other_info
 field_name: field_other_info
 entity_type: paragraph
