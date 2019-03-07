@@ -6,13 +6,19 @@ breema2.mobile:
     - 1x
 breema2.narrow:
   label: narrow
-  mediaQuery: 'all and (min-width: 560px) and (max-width: 850px)'
+  mediaQuery: 'all and (min-width: 541px) and (max-width: 735px)'
+  weight: 1
+  multipliers:
+    - 1x
+breema2.tablet:
+  label: tablet
+  mediaQuery: 'all and (min-width: 736px) and (max-width: 1023px)'
   weight: 1
   multipliers:
     - 1x
 breema2.wide:
   label: wide
-  mediaQuery: 'all and (min-width: 851px)'
+  mediaQuery: 'all and (min-width: 1024px)'
   weight: 2
   multipliers:
     - 1x
