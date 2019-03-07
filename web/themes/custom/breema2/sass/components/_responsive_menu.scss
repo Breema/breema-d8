@@ -39,18 +39,11 @@ html.mm-opened .mm-page {
   position: relative;
 }
 
-.horizontal-menu > li ul ul {
-  left: 13.75em;
-  top: 0;
-}
-
-.horizontal-menu ul .fly-left ul {
-  left: -13.75em;
-}
-
+// All top-level menu links.
 .horizontal-menu > li > a {
   display: block;
-  padding: 0.3em 15px;
+  padding: 0.3em 10px;
+  text-transform: uppercase;
 }
 
 .horizontal-menu > li ul {
@@ -59,7 +52,7 @@ html.mm-opened .mm-page {
   top: 100%;
   left: 0;
   z-index: 99;
-  padding: 0 0 15px 0;
+  padding: 0 0 10px 0;
   width: 100%;
   box-sizing: border-box;
   list-style: none;
@@ -68,25 +61,20 @@ html.mm-opened .mm-page {
 }
 
 .horizontal-menu > li:nth-child(2) ul {
-  width: 11.5em;
+  width: 10em;
 }
 .horizontal-menu > li:nth-child(3) ul {
-  width: 13em;
+  width: 12em;
 }
-.horizontal-menu > li:nth-child(4) ul {
-  width: 6em;
+.horizontal-menu > li:nth-child(6) ul {
+  width: 7.5em;
 }
-.horizontal-menu > li:nth-child(6) ul, {
-  width: 8em;
-  left: -3.5em;
-}
-
 .horizontal-menu > li:hover {
   background-color: lighten($c-grey, 5%);
   box-shadow: 0 4px 4px rgba(0,0,0,0.4)
 }
 .horizontal-menu > li.menu-item--active-trail:hover > a {
-  color: $c-plum;
+  color: $c-grey-dark;
 }
 .horizontal-menu > li.menu-item--active-trail:hover > a.is-active {
   color: $c-blue;
@@ -112,28 +100,39 @@ html.mm-opened .mm-page {
   display: block;
   position: relative;
   line-height: 1.25em;
-  padding: 0.25em 15px 0.4em;
-  text-transform: none;
+  padding: 0.25em 10px 0.4em;
   font-size: 0.85em;
 }
 
-@media (min-width: 1000px) {
-  .horizontal-menu > li:nth-child(6) ul, {
-    left: 0;
-  }
+// 3rd-level menus
+.horizontal-menu > li ul ul {
+  top: 0;
+  left: -9.5em;
+  box-shadow: 0 6px 6px rgba(0,0,0,0.4)
+}
+.horizontal-menu > li:nth-child(3) ul ul {
+  left: -11.5em;
+}
+.horizontal-menu > li:nth-child(6) ul ul {
+  width: 11em;
+  left: -10.5em;
 }
 
-@media (min-width: 1050px) {
-  .horizontal-menu > li:nth-child(6) ul, {
-    width: 9em;
+@media (min-width: 1150px) {
+  .horizontal-menu > li:nth-child(6) ul ul {
+    width: 14em;
+    left: -13.5em;
   }
   .horizontal-menu > li > a {
     display: block;
-    padding: 0.3em 20px;
+    padding: 0.3em 15px;
   }
   .horizontal-menu > li li > a {
-    padding: 0.25em 20px 0.4em;
+    padding: 0.25em 15px 0.4em;
   }
+}
+
+@media (min-width: 1270px) {
   .horizontal-menu {
     margin-left: 2em;
   }
