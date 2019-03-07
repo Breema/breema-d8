@@ -1,9 +1,9 @@
 horizontal_menu: main
-horizontal_depth: 2
+horizontal_depth: 3
 off_canvas_menus: main
 horizontal_wrapping_element: nav
 horizontal_breakpoint: wide
-horizontal_media_query: 'all and (min-width: 851px)'
+horizontal_media_query: 'all and (min-width: 1024px)'
 include_css: false
 off_canvas_position: right
 off_canvas_theme: theme-dark
