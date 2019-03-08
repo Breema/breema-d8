@@ -630,6 +630,9 @@ a.telephone:before,
   border-bottom: 1px solid #d1d3d0;
   color: #1a272e;
 }
+.sidebar a.teaser-link h4 {
+  font-size: 1.2em;
+}
 .sidebar .item-list li {
   margin: 0 0 0.25em 0;
   padding: 0;
