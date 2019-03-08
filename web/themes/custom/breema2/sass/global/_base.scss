@@ -220,7 +220,11 @@ a.teaser-link .node__content {
 }
 
 a.teaser-link .node--sticky {
-  background-color: rgba(132, 251, 96, 0.1);
+  background-color: $c-sticky;
+}
+
+a.teaser-link:hover .node--sticky {
+  background-color: $c-sticky-hover;
 }
 
 .location-results article.node--type-directory-entry {
@@ -260,7 +264,7 @@ a.teaser-link .node--view-mode-teaser-with-location .field--name-field-location 
 }
 
 a.teaser-link:hover .teaser-wrapper {
-  background-color: rgba(0,0,0,0.025);
+  background-color: rgba(0,0,0,0.05);
 }
 
 .place-teaser-compact header {
