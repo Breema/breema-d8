@@ -306,8 +306,13 @@ a.teaser-link:hover .teaser-wrapper {
 
 .node--unpublished {
   background-color: #fffcd9;
-  border: 1px solid #e4e4a7;
+  border: 1px solid #fff8a6;
   padding: 0 0.5em;
+}
+
+a.teaser-link:hover .node--unpublished {
+  background-color: #e6e3c3;
+  border-color: #e6df95;
 }
 
 .container-inline .inline {
