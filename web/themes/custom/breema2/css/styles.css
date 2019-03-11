@@ -22,6 +22,10 @@
 body {
   font-family: "Cabin", sans-serif;
   color: #1a272e;
+  background-color: #752d53;
+}
+
+#page-wrapper {
   background-color: #fff;
 }
 
