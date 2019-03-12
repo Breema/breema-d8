@@ -881,6 +881,29 @@ div.danger {
   background: #dedede url(../../../../core/misc/icons/424242/loupe.svg) no-repeat center;
 }
 
+ol.location-results {
+  list-style-type: none;
+  margin: 2em 0 0 0;
+  padding: 0;
+}
+ol.location-results li {
+  margin: 0;
+  padding: 0;
+}
+ol.location-results h2 {
+  margin: 0;
+  padding: 0;
+}
+ol.location-results .item-list ul li {
+  padding: 0;
+  margin: 0;
+}
+
+.geolocation-common-map-container h2 {
+  margin: 0;
+  padding: 0;
+}
+
 .geolocation-google-map {
   margin-top: 1em;
 }

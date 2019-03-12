@@ -577,12 +577,7 @@ function breema_views_pre_render(ViewExecutable $view) {
     switch($view->storage->id()) {
       case 'breema_directory':
         $view->element['#attached']['library'][] = 'breema/views.breema_directory';
-        $view->element['#attached']['library'][] = 'breema/views.geolocation_map';
 
-        break;
-
-      case 'breema_event_map':
-        $view->element['#attached']['library'][] = 'breema/views.geolocation_map';
         break;
 
       case 'breema_place_browser':

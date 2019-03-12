@@ -4,12 +4,6 @@ views.breema_directory:
     component:
       css/views.breema-directory.css: {}
 
-views.geolocation_map:
-  version: 8.x-1.x
-  css:
-    component:
-      css/views.geolocation-map.css: {}
-
 entity-browser:
   version: VERSION
   css:
