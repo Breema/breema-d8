@@ -903,6 +903,9 @@ ol.location-results .item-list ul li {
   margin: 0;
   padding: 0;
 }
+.geolocation-common-map-container .field--name-field-upcoming-events {
+  margin: 1em 0 0 0;
+}
 
 .geolocation-google-map {
   margin-top: 1em;
