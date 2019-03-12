@@ -26,11 +26,6 @@ class BreemaDirectoryEntryBlock extends BlockBase {
       '#cache' => [
         'contexts' => ['user'],
       ],
-      '#attached' => [
-        'library' => [
-          'breema/directory_entry',
-        ],
-      ],
     ];
     $current_user = \Drupal::currentUser();
     $current_user_entity = User::load($current_user->id());

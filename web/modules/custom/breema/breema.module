@@ -579,7 +579,6 @@ function breema_views_pre_render(ViewExecutable $view) {
         $view->element['#attached']['library'][] = 'breema/views.breema_directory';
         $view->element['#attached']['library'][] = 'breema/views.geolocation_map';
 
-        $view->element['#attached']['library'][] = 'breema/directory_entry';
         break;
 
       case 'breema_event_map':
@@ -1548,7 +1547,6 @@ function breema_entity_user_view_alter(array &$build, EntityInterface $entity, E
  */
 function breema_entity_node_directory_entry_view_alter(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display) {
   // @todo fix cache contexts/tags/etc.
-  $build['#attached']['library'][] = 'breema/directory_entry';
   $author = $build['#node']->get('uid')->getValue();
   if (!empty($author[0]['target_id'])) {
     $author_uid = $author[0]['target_id'];

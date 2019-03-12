@@ -881,6 +881,10 @@ div.danger {
   background: #dedede url(../../../../core/misc/icons/424242/loupe.svg) no-repeat center;
 }
 
+.geolocation-google-map {
+  margin-top: 1em;
+}
+
 ul.menu a.is-active {
   color: #007cb2;
 }
