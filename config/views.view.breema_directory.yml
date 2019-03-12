@@ -1115,11 +1115,14 @@ display:
         - 'config:core.entity_view_display.node.place.teaser_compact'
         - 'config:core.entity_view_display.node.place.teaser_search_result'
         - 'config:core.entity_view_display.node.place.teaser_with_location'
+        - 'config:core.entity_view_display.node.private_page.default'
+        - 'config:core.entity_view_display.node.private_page.teaser'
         - 'config:core.entity_view_display.node.product.default'
         - 'config:core.entity_view_display.node.product.teaser'
         - 'config:core.entity_view_display.node.product.teaser_compact'
         - 'config:core.entity_view_display.node.session_resume.default'
         - 'config:core.entity_view_display.node.session_resume.teaser'
+        - 'config:core.entity_view_display.node.session_resume.teaser_compact'
         - 'config:field.storage.node.field_geolocation'
   page_search:
     display_plugin: page
@@ -1174,7 +1177,7 @@ display:
           uses_fields: false
           type: ol
           wrapper_class: item-list
-          class: 'location-results grid--container grid--container-1-2'
+          class: location-results
       row:
         type: 'entity:node'
         options:
