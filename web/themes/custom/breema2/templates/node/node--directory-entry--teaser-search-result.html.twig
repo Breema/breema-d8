@@ -1,1 +1,40 @@
-{% extends 'node--teaser-search-result.html.twig' %}
+{%
+  set classes = [
+    'node',
+    'node--type-' ~ node.bundle|clean_class,
+    node.isPromoted() ? 'node--promoted',
+    node.isSticky() ? 'node--sticky',
+    not node.isPublished() ? 'node--unpublished',
+    view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+    'clearfix',
+  ]
+%}
+{{ attach_library('classy/node') }}
+
+<article{{ attributes.addClass(classes) }}>
+  <div class="grid--container grid--container-1-2u6633">
+    <div class="grid-item">
+      <header>
+        <a href="{{ url }}">
+          <h2{{ title_attributes.addClass('node__title') }}>
+            {{ label }}
+          </h2>
+        </a>
+      </header>
+      {{ content.headshot }}
+      {{ content.field_certification }}
+
+    </div>
+    <div class="grid-item">
+      <div{{ content_attributes }}>
+        {{ content|without('field_upcoming_events', 'field_certification', 'headshot') }}
+      </div>
+    </div>
+  </div>
+  {% if content.field_upcoming_events.0 %}
+    <div class="upcoming-events">
+      <h3>{{ 'Upcoming events'|t }}</h3>
+      {{ content.field_upcoming_events }}
+    </div>
+  {% endif %}
+</article>

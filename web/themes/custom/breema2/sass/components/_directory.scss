@@ -17,12 +17,22 @@ ol.location-results {
     margin: 0;
     padding: 0;
   }
+  h3 {
+    margin: 0.5em 0 0 0;
+    padding: 0;
+  }
   .item-list ul li {
     padding: 0;
     margin: 0;
   }
   article.node--type-directory-entry {
     padding: 0.25em;
+  }
+  .field--type-entity-reference {
+    margin: 0;
+  }
+  p.address {
+    margin: 0 0 0.5em 0;
   }
 }
 

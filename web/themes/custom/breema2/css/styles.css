@@ -915,12 +915,22 @@ ol.location-results h2 {
   margin: 0;
   padding: 0;
 }
+ol.location-results h3 {
+  margin: 0.5em 0 0 0;
+  padding: 0;
+}
 ol.location-results .item-list ul li {
   padding: 0;
   margin: 0;
 }
 ol.location-results article.node--type-directory-entry {
   padding: 0.25em;
+}
+ol.location-results .field--type-entity-reference {
+  margin: 0;
+}
+ol.location-results p.address {
+  margin: 0 0 0.5em 0;
 }
 
 .geolocation-common-map-container h2 {
