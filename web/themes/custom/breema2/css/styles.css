@@ -910,6 +910,12 @@ ol.location-results article.node--type-directory-entry {
   margin-top: 1em;
 }
 
+.view-breema-event-search ul.results li {
+  margin: 0 0 0.5em 0;
+  padding: 0 0 0.5em 0;
+  border-bottom: 1px solid #dedfdd;
+}
+
 ul.menu a.is-active {
   color: #007cb2;
 }
