@@ -35,6 +35,8 @@
   text-transform: uppercase;
   letter-spacing: 0;
   word-spacing: 100vw;  // Make this section wrap after each word.
+  font-size: 22px;
+  line-height: 22px;
   a {
     color: $c-red;
   }
@@ -52,7 +54,7 @@
 }
 
 .region-header {
-  width: 110px;
+  width: 125px;
   padding: 0.357em 15px 0;
 }
 
@@ -74,5 +76,24 @@
   .horizontal-menu > .menu-item--active-trail > a {
     color: $c-blue;
     text-decoration: none;
+  }
+}
+
+@media (min-width: 1025px) {
+  .site-branding__name {
+    font-size: 24px;
+    line-height: 24px;
+  }
+  .region-header {
+    width: 135px;
+  }
+}
+@media (min-width: 1270px) {
+  .site-branding__name {
+    font-size: 26px;
+    line-height: 26px;
+  }
+  .region-header {
+    width: 150px;
   }
 }

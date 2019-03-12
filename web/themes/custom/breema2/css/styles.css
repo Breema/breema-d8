@@ -577,6 +577,8 @@ a.telephone:before,
   text-transform: uppercase;
   letter-spacing: 0;
   word-spacing: 100vw;
+  font-size: 22px;
+  line-height: 22px;
 }
 .site-branding__name a {
   color: #a82133;
@@ -594,7 +596,7 @@ a.telephone:before,
 }
 
 .region-header {
-  width: 110px;
+  width: 125px;
   padding: 0.357em 15px 0;
 }
 
@@ -618,6 +620,26 @@ a.telephone:before,
   text-decoration: none;
 }
 
+@media (min-width: 1025px) {
+  .site-branding__name {
+    font-size: 24px;
+    line-height: 24px;
+  }
+
+  .region-header {
+    width: 135px;
+  }
+}
+@media (min-width: 1270px) {
+  .site-branding__name {
+    font-size: 26px;
+    line-height: 26px;
+  }
+
+  .region-header {
+    width: 150px;
+  }
+}
 .sidebar .block {
   padding: 10px;
   background-color: #e8e9e8;
@@ -1120,7 +1142,7 @@ html.mm-opened .mm-page {
 }
 @media (min-width: 1270px) {
   .horizontal-menu {
-    margin-left: 2em;
+    margin-left: 1em;
   }
 }
 .off-canvas-wrapper {
