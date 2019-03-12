@@ -251,14 +251,6 @@ a.teaser-link:hover .node--sticky {
   background-color: #f2eedc;
 }
 
-.location-results article.node--type-directory-entry {
-  padding: 0.25em;
-}
-
-.location-results article.node--type-directory-entry:hover {
-  background-color: rgba(0, 0, 0, 0.025);
-}
-
 a.teaser-link .node--view-mode-teaser-search-result .field--name-field-location,
 a.teaser-link .node--view-mode-teaser-with-location .field--name-field-location {
   font-size: 90%;
@@ -288,7 +280,7 @@ a.teaser-link .node--view-mode-teaser-with-location .field--name-field-location 
 }
 
 a.teaser-link:hover .teaser-wrapper {
-  background-color: rgba(0, 0, 0, 0.05);
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .place-teaser-compact header {
@@ -887,8 +879,12 @@ ol.location-results {
   padding: 0;
 }
 ol.location-results li {
-  margin: 0;
-  padding: 0;
+  margin: 0 0 0.5em 0;
+  padding: 0 0 0.5em 0;
+  border-bottom: 1px solid #dedfdd;
+}
+ol.location-results li:hover article.node--type-directory-entry {
+  background-color: rgba(0, 0, 0, 0.1);
 }
 ol.location-results h2 {
   margin: 0;
@@ -897,6 +893,9 @@ ol.location-results h2 {
 ol.location-results .item-list ul li {
   padding: 0;
   margin: 0;
+}
+ol.location-results article.node--type-directory-entry {
+  padding: 0.25em;
 }
 
 .geolocation-common-map-container h2 {
