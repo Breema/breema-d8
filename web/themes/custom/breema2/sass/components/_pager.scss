@@ -28,8 +28,15 @@
     background-color: lighten($c-grey, 4%);
   }
 }
-.pager__item.is-active a {
-  color: $c-blue;
+.pager__item.is-active {
+  a {
+    color: $c-blue;
+    font-weight: bold;
+    background-color: lighten($c-grey, 4%);
+  }
+  a:hover {
+    background-color: $c-grey;
+  }
 }
 .pager__item--ellipsis {
   border: none;

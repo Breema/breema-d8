@@ -967,6 +967,11 @@ ul.menu a.is-active {
 
 .pager__item.is-active a {
   color: #007cb2;
+  font-weight: bold;
+  background-color: #e8e9e8;
+}
+.pager__item.is-active a:hover {
+  background-color: #dedfdd;
 }
 
 .pager__item--ellipsis {
