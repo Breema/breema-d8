@@ -639,7 +639,7 @@ display:
           admin_label: ''
           empty: true
           tokenize: false
-          content: '<ul class="action-links"><li><a href="[site:url]node/add/event" class="button button-action button--primary">Add new event</a></li></ul>'
+          content: '<ul class="action-links"><li class="action action--primary"><a href="[site:url]node/add/event">Add new event</a></li></ul>'
           plugin_id: text_custom
       defaults:
         header: false
