@@ -573,7 +573,7 @@ a.telephone:before,
   }
 }
 .site-branding__name {
-  font-family: Georgia, "Times New Roman", Times, serif;
+  font-family: Times, serif;
   text-transform: uppercase;
   letter-spacing: 0;
   word-spacing: 100vw;
