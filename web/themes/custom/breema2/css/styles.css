@@ -932,6 +932,9 @@ ol.location-results .field--type-entity-reference {
 ol.location-results p.address {
   margin: 0 0 0.5em 0;
 }
+ol.location-results .field--name-field-upcoming-events > .field__item {
+  margin: 0 0 0.5em 0;
+}
 
 .geolocation-common-map-container h2 {
   margin: 0;
