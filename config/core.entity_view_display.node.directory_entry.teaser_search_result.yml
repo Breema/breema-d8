@@ -109,7 +109,7 @@ content:
     type: entity_reference_entity_view
     weight: 9
     region: content
-    label: above
+    label: hidden
     settings:
       view_mode: teaser_compact_location
       link: false
