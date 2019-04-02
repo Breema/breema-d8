@@ -1,0 +1,34 @@
+uuid: 7d8fba49-07df-4e19-b7b2-d4730a103c3d
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.media_3_up.field_header_text
+    - field.field.paragraph.media_3_up.field_media_3
+    - paragraphs.paragraphs_type.media_3_up
+  module:
+    - entity_reference_revisions
+id: paragraph.media_3_up.preview
+targetEntityType: paragraph
+bundle: media_3_up
+mode: preview
+content:
+  field_header_text:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_media_3:
+    type: entity_reference_revisions_entity_view
+    weight: 1
+    label: hidden
+    settings:
+      view_mode: preview
+      link: ''
+    third_party_settings: {  }
+    region: content
+hidden: {  }

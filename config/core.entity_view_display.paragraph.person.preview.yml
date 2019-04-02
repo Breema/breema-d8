@@ -1,0 +1,55 @@
+uuid: 10da6781-ce1b-4e90-aa46-96176f0cec6b
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.person.field_description
+    - field.field.paragraph.person.field_header_text
+    - field.field.paragraph.person.field_link
+    - field.field.paragraph.person.field_media
+    - field.field.paragraph.person.field_person
+    - field.field.paragraph.person.field_show_upcoming_events
+    - paragraphs.paragraphs_type.person
+  module:
+    - text
+id: paragraph.person.preview
+targetEntityType: paragraph
+bundle: person
+mode: preview
+content:
+  field_description:
+    weight: 3
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_header_text:
+    weight: 1
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_media:
+    weight: 2
+    label: hidden
+    settings:
+      view_mode: preview
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+  field_person:
+    type: entity_reference_label
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+hidden:
+  field_link: true
+  field_show_upcoming_events: true
