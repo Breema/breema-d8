@@ -31,7 +31,7 @@
     "drupal/entity": "^1.0",
     "drupal/entity_browser": "^2.0",
     "drupal/entity_embed": "^1.0",
-    "drupal/entity_reference_revisions": "^1.0",
+    "drupal/entity_reference_revisions": "1.x-dev",
     "drupal/entityqueue": "1.x-dev",
     "drupal/field_group": "^3.0",
     "drupal/field_permissions": "^1.0@beta",
@@ -138,6 +138,9 @@
       },
       "drupal/duration_field": {
         "[#3020676-6] Support the #date_increment property in the 'duration' form element." : "https://www.drupal.org/files/issues/2018-12-14/3020676-6.duration_date_increment.full_.patch"
+      },
+      "drupal/entity_reference_revisions": {
+        "[#2799479-65] Views doesn't recognize relationship to host" : "https://www.drupal.org/files/issues/2018-05-15/2799479-65-views-rel-fix.patch"
       },
       "drupal/filefield_paths": {
         "[#2718783-13] Call to undefined method BaseFieldDefinition::getThirdPartySettings()" : "https://www.drupal.org/files/issues/call_to_undefined-2718783-13.patch"
