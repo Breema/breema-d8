@@ -2,6 +2,8 @@ uuid: 023b8952-6fcc-4b93-816f-6678f4652773
 langcode: en
 status: true
 dependencies:
+  config:
+    - core.entity_view_mode.paragraph.compact
   module:
     - paragraphs
     - user
@@ -129,6 +131,9 @@ display:
                   views_slideshow_pager_fields_hover: 0
       row:
         type: 'entity:paragraph'
+        options:
+          relationship: none
+          view_mode: compact
       fields:
         id:
           table: paragraphs_item_field_data
