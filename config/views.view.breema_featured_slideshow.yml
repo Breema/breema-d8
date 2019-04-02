@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.paragraph.compact
   module:
+    - node
     - paragraphs
     - user
     - views_slideshow
@@ -216,7 +217,17 @@ display:
       header: {  }
       footer: {  }
       empty: {  }
-      relationships: {  }
+      relationships:
+        reverse__node__field_paragraphs_target_id:
+          id: reverse__node__field_paragraphs_target_id
+          table: paragraphs_item_field_data
+          field: reverse__node__field_paragraphs_target_id
+          relationship: none
+          group_type: group
+          admin_label: field_paragraphs
+          required: true
+          entity_type: paragraph
+          plugin_id: entity_reverse
       arguments:
         parent_id:
           id: parent_id
