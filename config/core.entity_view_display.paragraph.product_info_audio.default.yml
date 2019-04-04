@@ -9,7 +9,7 @@ dependencies:
     - field.field.paragraph.product_info_audio.field_cover_price
     - field.field.paragraph.product_info_audio.field_other_info
     - field.field.paragraph.product_info_audio.field_special_price
-    - image.style.480x270_medium
+    - image.style.240x240_smaller
     - paragraphs.paragraphs_type.product_info_audio
   module:
     - fixed_text_link_formatter
@@ -47,7 +47,7 @@ content:
     weight: 0
     label: hidden
     settings:
-      image_style: 480x270_medium
+      image_style: 240x240_smaller
       image_link: ''
     third_party_settings: {  }
     type: media_thumbnail

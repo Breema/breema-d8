@@ -14,7 +14,7 @@ dependencies:
     - field.field.paragraph.product_info_book.field_other_info
     - field.field.paragraph.product_info_book.field_pages
     - field.field.paragraph.product_info_book.field_special_price
-    - image.style.medium
+    - image.style.240x240_smaller
     - paragraphs.paragraphs_type.product_info_book
   module:
     - field_group
@@ -28,7 +28,6 @@ third_party_settings:
         - field_ebook_amazon_kindle
         - field_ebook_apple_ibooks
         - field_ebook_barnes_noble
-        - field_ebook_copia
         - field_ebook_kobo
       parent_name: ''
       weight: 7
@@ -56,13 +55,14 @@ content:
     weight: 6
     label: hidden
     settings:
-      trim_length: 80
-      url_only: false
-      url_plain: false
-      rel: ''
-      target: ''
       link_text: 'Buy now'
-      allow_override: false
+      link_class: action
+      allow_override: 0
+      rel: 0
+      target: 0
+      trim_length: ''
+      url_only: ''
+      url_plain: ''
     third_party_settings: {  }
     type: fixed_text_link
     region: content
@@ -70,7 +70,7 @@ content:
     weight: 1
     label: hidden
     settings:
-      image_style: medium
+      image_style: 240x240_smaller
       image_link: ''
     third_party_settings: {  }
     type: media_thumbnail
@@ -97,6 +97,7 @@ content:
       target: ''
       link_text: 'Amazon Kindle'
       allow_override: false
+      link_class: ''
     third_party_settings: {  }
     type: fixed_text_link
     region: content
@@ -111,6 +112,7 @@ content:
       target: ''
       link_text: 'Apple iBooks'
       allow_override: false
+      link_class: ''
     third_party_settings: {  }
     type: fixed_text_link
     region: content
@@ -125,6 +127,7 @@ content:
       target: ''
       link_text: 'Barnes & Noble'
       allow_override: false
+      link_class: ''
     third_party_settings: {  }
     type: fixed_text_link
     region: content
@@ -139,6 +142,7 @@ content:
       target: ''
       link_text: 'Kobo eBooks'
       allow_override: false
+      link_class: ''
     third_party_settings: {  }
     type: fixed_text_link
     region: content

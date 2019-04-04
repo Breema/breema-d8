@@ -1,0 +1,22 @@
+uuid: 04b501be-dafd-406b-8f9c-541025998958
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.event_single.field_event
+    - paragraphs.paragraphs_type.event_single
+id: paragraph.event_single.default
+targetEntityType: paragraph
+bundle: event_single
+mode: default
+content:
+  field_event:
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: teaser
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+hidden: {  }

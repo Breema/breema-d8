@@ -1,0 +1,23 @@
+uuid: 1c552c81-860d-4560-b7c0-580d051e9c39
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.compact
+    - field.field.paragraph.event_single.field_event
+    - paragraphs.paragraphs_type.event_single
+id: paragraph.event_single.compact
+targetEntityType: paragraph
+bundle: event_single
+mode: compact
+content:
+  field_event:
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: embed
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+hidden: {  }

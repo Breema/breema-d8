@@ -6,7 +6,7 @@ dependencies:
     - field.field.paragraph.product_info_general.field_buy_now
     - field.field.paragraph.product_info_general.field_cover_image
     - field.field.paragraph.product_info_general.field_description
-    - image.style.480x270_medium
+    - image.style.240x240_smaller
     - paragraphs.paragraphs_type.product_info_general
   module:
     - fixed_text_link_formatter
@@ -28,6 +28,7 @@ content:
       trim_length: ''
       url_only: ''
       url_plain: ''
+      link_class: ''
     third_party_settings: {  }
     type: fixed_text_link
     region: content
@@ -35,7 +36,7 @@ content:
     weight: 0
     label: hidden
     settings:
-      image_style: 480x270_medium
+      image_style: 240x240_smaller
       image_link: ''
     third_party_settings: {  }
     type: media_thumbnail
