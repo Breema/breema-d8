@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies: {  }
 name: 224x126_smaller
-label: '224x126 (16:9) - Smaller'
+label: '(16:9) 224x126 - Smaller'
 effects:
   87123943-b11c-4ac5-9455-373f49a69834:
     uuid: 87123943-b11c-4ac5-9455-373f49a69834

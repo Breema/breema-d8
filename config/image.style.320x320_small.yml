@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies: {  }
 name: 320x320_small
-label: '320x320 (1:1) - Small'
+label: '(1:1) 320x320 - Small'
 effects:
   4366f512-eef1-40da-abfb-7863a551109f:
     uuid: 4366f512-eef1-40da-abfb-7863a551109f

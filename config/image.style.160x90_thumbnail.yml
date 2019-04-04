@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies: {  }
 name: 160x90_thumbnail
-label: '160x90 (16:9) - Thumbnail'
+label: '(16:9) 160x90 - Thumbnail'
 effects:
   df4c9862-354c-473c-84b8-1d8883aeac23:
     uuid: df4c9862-354c-473c-84b8-1d8883aeac23

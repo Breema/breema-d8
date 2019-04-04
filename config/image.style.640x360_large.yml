@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies: {  }
 name: 640x360_large
-label: '640x360 (16:9) - Large'
+label: '(16:9) 640x360 - Large'
 effects:
   e7ec0b2e-1e95-4b90-a759-48b964cb3810:
     uuid: e7ec0b2e-1e95-4b90-a759-48b964cb3810

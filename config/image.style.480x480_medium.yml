@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies: {  }
 name: 480x480_medium
-label: '480x480 (1:1) - Medium'
+label: '(1:1) 480x480 - Medium'
 effects:
   8371f8ef-92aa-4e65-8fa2-3650e62ce70a:
     uuid: 8371f8ef-92aa-4e65-8fa2-3650e62ce70a

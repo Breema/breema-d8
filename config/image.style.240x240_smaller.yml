@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies: {  }
 name: 240x240_smaller
-label: '240x240 (1:1) - Smaller'
+label: '(1:1) 240x240 - Smaller'
 effects:
   3c5b5950-4e6c-4a59-93f6-fa0751204427:
     uuid: 3c5b5950-4e6c-4a59-93f6-fa0751204427

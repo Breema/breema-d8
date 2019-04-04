@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies: {  }
 name: 320x180_small
-label: '320x180 (16:9) - Small'
+label: '(16:9) 320x180 - Small'
 effects:
   a1997d33-dfeb-459a-904a-f481c4021e6a:
     uuid: a1997d33-dfeb-459a-904a-f481c4021e6a
