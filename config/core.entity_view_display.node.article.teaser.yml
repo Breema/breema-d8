@@ -14,7 +14,7 @@ dependencies:
     - field.field.node.article.field_resources
     - field.field.node.article.field_source_name
     - field.field.node.article.field_source_url
-    - image.style.220_wide
+    - image.style.224x126_smaller
     - node.type.article
   module:
     - datetime
@@ -62,7 +62,7 @@ content:
     region: content
     label: hidden
     settings:
-      image_style: 220_wide
+      image_style: 224x126_smaller
       image_link: ''
     third_party_settings: {  }
 hidden:

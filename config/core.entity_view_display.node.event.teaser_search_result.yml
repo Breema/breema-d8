@@ -21,7 +21,7 @@ dependencies:
     - field.field.node.event.field_subtitle
     - field.field.node.event.field_transfer_credit
     - field.field.node.event.field_website
-    - image.style.thumbnail
+    - image.style.160x90_thumbnail
     - node.type.event
   module:
     - datetime_extras
@@ -69,7 +69,7 @@ content:
     weight: 1
     label: hidden
     settings:
-      image_style: thumbnail
+      image_style: 160x90_thumbnail
       image_link: ''
     third_party_settings: {  }
     type: media_thumbnail

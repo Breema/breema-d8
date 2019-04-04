@@ -7,7 +7,7 @@ dependencies:
     - field.field.node.page.body
     - field.field.node.page.field_main_image
     - field.field.node.page.field_resources
-    - image.style.220_wide
+    - image.style.320x180_small
     - node.type.page
   module:
     - media
@@ -45,7 +45,7 @@ content:
     region: content
     label: hidden
     settings:
-      image_style: 220_wide
+      image_style: 320x180_small
       image_link: ''
     third_party_settings: {  }
 hidden:

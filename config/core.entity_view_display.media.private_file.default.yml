@@ -5,7 +5,7 @@ dependencies:
   config:
     - field.field.media.private_file.field_file_type
     - field.field.media.private_file.field_private_file
-    - image.style.thumbnail
+    - image.style.160x90_thumbnail
     - media.type.private_file
   module:
     - file
@@ -47,7 +47,7 @@ content:
     weight: 5
     label: hidden
     settings:
-      image_style: thumbnail
+      image_style: 160x90_thumbnail
       image_link: ''
     region: content
     third_party_settings: {  }

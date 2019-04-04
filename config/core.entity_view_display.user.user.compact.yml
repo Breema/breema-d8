@@ -20,7 +20,7 @@ dependencies:
     - field.field.user.user.field_telephone
     - field.field.user.user.field_why_interested
     - field.field.user.user.user_picture
-    - image.style.thumbnail
+    - image.style.160x90_thumbnail
   module:
     - image
     - user
@@ -36,7 +36,7 @@ content:
     weight: 0
     region: content
     settings:
-      image_style: thumbnail
+      image_style: 160x90_thumbnail
       image_link: content
     third_party_settings: {  }
     label: hidden

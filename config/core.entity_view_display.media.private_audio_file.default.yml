@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.media.private_audio_file.field_private_audio_file
-    - image.style.thumbnail
+    - image.style.160x90_thumbnail
     - media.type.private_audio_file
   module:
     - file
@@ -41,7 +41,7 @@ content:
     weight: 5
     label: hidden
     settings:
-      image_style: thumbnail
+      image_style: 160x90_thumbnail
       image_link: ''
     region: content
     third_party_settings: {  }

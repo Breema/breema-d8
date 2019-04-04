@@ -6,7 +6,7 @@ dependencies:
     - field.field.paragraph.product_info_general.field_buy_now
     - field.field.paragraph.product_info_general.field_cover_image
     - field.field.paragraph.product_info_general.field_description
-    - image.style.medium
+    - image.style.480x270_medium
     - paragraphs.paragraphs_type.product_info_general
   module:
     - fixed_text_link_formatter
@@ -35,7 +35,7 @@ content:
     weight: 0
     label: hidden
     settings:
-      image_style: medium
+      image_style: 480x270_medium
       image_link: ''
     third_party_settings: {  }
     type: media_thumbnail

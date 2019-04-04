@@ -1,0 +1,15 @@
+uuid: 72bf991d-1d4d-4172-b06a-0be539ba915e
+langcode: en
+status: true
+dependencies: {  }
+name: 320x320_small
+label: '320x320 (1:1) - Small'
+effects:
+  4366f512-eef1-40da-abfb-7863a551109f:
+    uuid: 4366f512-eef1-40da-abfb-7863a551109f
+    id: image_scale
+    weight: 1
+    data:
+      width: 320
+      height: 320
+      upscale: false

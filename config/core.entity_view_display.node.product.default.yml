@@ -10,7 +10,7 @@ dependencies:
     - field.field.node.product.field_publication_year
     - field.field.node.product.field_title_main
     - field.field.node.product.field_title_sub
-    - image.style.large
+    - image.style.960x540_wide
     - node.type.product
   module:
     - entity_reference_revisions
@@ -40,7 +40,7 @@ content:
     weight: 4
     label: hidden
     settings:
-      image_style: large
+      image_style: 960x540_wide
       image_link: ''
     third_party_settings: {  }
     type: media_thumbnail

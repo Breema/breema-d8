@@ -11,7 +11,7 @@ dependencies:
     - field.field.node.essence.field_source_other
     - field.field.node.essence.field_source_product
     - field.field.node.essence.field_source_type
-    - image.style.220_wide
+    - image.style.224x126_smaller
     - node.type.essence
   module:
     - media
@@ -47,7 +47,7 @@ content:
     region: content
     label: hidden
     settings:
-      image_style: 220_wide
+      image_style: 224x126_smaller
       image_link: ''
     third_party_settings: {  }
   field_resources:

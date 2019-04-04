@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.media.audio_file.field_media_audio_file
-    - image.style.medium
+    - image.style.320x180_small
     - media.type.audio_file
   module:
     - file
@@ -38,7 +38,7 @@ content:
     weight: 1
     label: hidden
     settings:
-      image_style: medium
+      image_style: 320x180_small
       image_link: ''
     region: content
     third_party_settings: {  }

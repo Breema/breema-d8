@@ -5,7 +5,7 @@ dependencies:
   config:
     - field.field.media.private_image.field_image_type
     - field.field.media.private_image.field_private_image
-    - image.style.thumbnail
+    - image.style.160x90_thumbnail
     - media.type.private_image
   module:
     - image
@@ -31,7 +31,7 @@ content:
     weight: 0
     settings:
       progress_indicator: throbber
-      preview_image_style: thumbnail
+      preview_image_style: 160x90_thumbnail
     third_party_settings: {  }
     type: image_image
     region: content

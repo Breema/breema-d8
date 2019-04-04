@@ -6,7 +6,7 @@ dependencies:
     - core.entity_view_mode.media.preview
     - field.field.media.video.field_media_video_embed_field
     - field.field.media.video.field_video_type
-    - image.style.thumbnail
+    - image.style.160x90_thumbnail
     - media.type.video
   module:
     - image
@@ -39,7 +39,7 @@ content:
     region: content
     label: hidden
     settings:
-      image_style: thumbnail
+      image_style: 160x90_thumbnail
       image_link: content
     third_party_settings: {  }
 hidden:

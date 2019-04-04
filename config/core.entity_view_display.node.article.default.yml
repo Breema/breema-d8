@@ -13,7 +13,7 @@ dependencies:
     - field.field.node.article.field_resources
     - field.field.node.article.field_source_name
     - field.field.node.article.field_source_url
-    - image.style.large
+    - image.style.480x270_medium
     - node.type.article
   module:
     - datetime
@@ -47,7 +47,7 @@ content:
     weight: 1
     label: hidden
     settings:
-      image_style: large
+      image_style: 480x270_medium
       image_link: ''
     third_party_settings: {  }
     type: media_thumbnail

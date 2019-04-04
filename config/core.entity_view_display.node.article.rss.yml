@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.rss
     - field.field.node.article.body
+    - field.field.node.article.field_article_language
     - field.field.node.article.field_authors_breema
     - field.field.node.article.field_authors_other
     - field.field.node.article.field_date
@@ -13,7 +14,7 @@ dependencies:
     - field.field.node.article.field_resources
     - field.field.node.article.field_source_name
     - field.field.node.article.field_source_url
-    - image.style.large
+    - image.style.480x270_medium
     - node.type.article
   module:
     - datetime
@@ -49,7 +50,7 @@ content:
     region: content
     label: hidden
     settings:
-      image_style: large
+      image_style: 480x270_medium
       image_link: ''
     third_party_settings: {  }
   links:
@@ -58,6 +59,7 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
+  field_article_language: true
   field_authors_breema: true
   field_authors_other: true
   field_original_article_url: true

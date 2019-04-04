@@ -1,0 +1,15 @@
+uuid: 7e05929d-f253-4804-a33e-2f1af744fd25
+langcode: en
+status: true
+dependencies: {  }
+name: 320x180_small
+label: '320x180 (16:9) - Small'
+effects:
+  a1997d33-dfeb-459a-904a-f481c4021e6a:
+    uuid: a1997d33-dfeb-459a-904a-f481c4021e6a
+    id: image_scale
+    weight: 1
+    data:
+      width: 320
+      height: 180
+      upscale: false

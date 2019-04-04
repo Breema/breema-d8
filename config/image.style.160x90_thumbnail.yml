@@ -1,0 +1,15 @@
+uuid: 4f90299d-cb0d-4213-94c0-82ef73cc1558
+langcode: en
+status: true
+dependencies: {  }
+name: 160x90_thumbnail
+label: '160x90 (16:9) - Thumbnail'
+effects:
+  df4c9862-354c-473c-84b8-1d8883aeac23:
+    uuid: df4c9862-354c-473c-84b8-1d8883aeac23
+    id: image_scale
+    weight: 1
+    data:
+      width: 160
+      height: 90
+      upscale: false

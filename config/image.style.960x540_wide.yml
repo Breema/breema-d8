@@ -1,0 +1,15 @@
+uuid: 8776b412-f502-4dd7-b101-cc1d21eadeeb
+langcode: en
+status: true
+dependencies: {  }
+name: 960x540_wide
+label: '960x540 (16:9) - Wide'
+effects:
+  c38eb5f3-ed31-4b6b-82f8-0f7aa4876411:
+    uuid: c38eb5f3-ed31-4b6b-82f8-0f7aa4876411
+    id: image_scale
+    weight: 1
+    data:
+      width: 960
+      height: 540
+      upscale: false

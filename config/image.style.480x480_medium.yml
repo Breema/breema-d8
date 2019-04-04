@@ -1,0 +1,15 @@
+uuid: c75b088a-b73b-4dad-a31c-df1345fcf148
+langcode: en
+status: true
+dependencies: {  }
+name: 480x480_medium
+label: '480x480 (1:1) - Medium'
+effects:
+  8371f8ef-92aa-4e65-8fa2-3650e62ce70a:
+    uuid: 8371f8ef-92aa-4e65-8fa2-3650e62ce70a
+    id: image_scale
+    weight: 1
+    data:
+      width: 480
+      height: 480
+      upscale: false

@@ -1,0 +1,15 @@
+uuid: 63515df3-b496-420c-b44f-4fb3a145a7ca
+langcode: en
+status: true
+dependencies: {  }
+name: 224x126_smaller
+label: '224x126 (16:9) - Smaller'
+effects:
+  87123943-b11c-4ac5-9455-373f49a69834:
+    uuid: 87123943-b11c-4ac5-9455-373f49a69834
+    id: image_scale
+    weight: 1
+    data:
+      width: 224
+      height: 126
+      upscale: false

@@ -6,7 +6,7 @@ dependencies:
     - field.field.node.private_page.body
     - field.field.node.private_page.field_main_image
     - field.field.node.private_page.field_resources
-    - image.style.220_wide
+    - image.style.224x126_smaller
     - node.type.private_page
   module:
     - media
@@ -28,7 +28,7 @@ content:
     weight: 0
     label: hidden
     settings:
-      image_style: 220_wide
+      image_style: 224x126_smaller
       image_link: ''
     third_party_settings: {  }
     type: media_thumbnail
@@ -42,8 +42,17 @@ content:
     third_party_settings: {  }
     type: entity_reference_entity_view
     region: content
-  links:
+  group_content:
+    type: entity_reference_entity_view
     weight: 3
+    region: content
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+  links:
+    weight: 4
     region: content
     settings: {  }
     third_party_settings: {  }

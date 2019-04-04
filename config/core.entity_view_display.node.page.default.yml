@@ -6,7 +6,7 @@ dependencies:
     - field.field.node.page.body
     - field.field.node.page.field_main_image
     - field.field.node.page.field_resources
-    - image.style.large
+    - image.style.480x270_medium
     - node.type.page
   module:
     - media
@@ -30,7 +30,7 @@ content:
     weight: 0
     label: hidden
     settings:
-      image_style: large
+      image_style: 480x270_medium
       image_link: ''
     third_party_settings: {  }
     type: media_thumbnail

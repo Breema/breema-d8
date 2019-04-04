@@ -1,0 +1,15 @@
+uuid: 3ccc70a6-a19e-4403-b991-ea6185c0b27f
+langcode: en
+status: true
+dependencies: {  }
+name: 128x128_tiny
+label: '128x128 (1:1) - Tiny'
+effects:
+  d727b488-14d4-49eb-9ddc-8de421ac616e:
+    uuid: d727b488-14d4-49eb-9ddc-8de421ac616e
+    id: image_scale
+    weight: 1
+    data:
+      width: 128
+      height: 128
+      upscale: false
