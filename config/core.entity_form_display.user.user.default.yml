@@ -19,7 +19,7 @@ dependencies:
     - field.field.user.user.field_telephone
     - field.field.user.user.field_why_interested
     - field.field.user.user.user_picture
-    - image.style.160x90_thumbnail
+    - image.style.128x128_tiny
   module:
     - address
     - field_group
@@ -212,8 +212,8 @@ content:
   user_picture:
     type: image_image
     settings:
+      preview_image_style: 128x128_tiny
       progress_indicator: throbber
-      preview_image_style: 160x90_thumbnail
     third_party_settings: {  }
     weight: 1
     region: content

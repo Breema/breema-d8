@@ -817,7 +817,7 @@ function breema_directory_entry_node_form_alter(&$form, FormStateInterface $form
       $user_picture = array_pop($user_pictures);
       $form['headshot']['current'] = [
         '#theme' => 'image_style',
-        '#style_name' => 'thumbnail',
+        '#style_name' => '128x128_tiny',
         '#weight' => -1,
         '#prefix' => '<div class="headshot">',
         '#suffix' => '</div>',
@@ -1555,7 +1555,7 @@ function breema_entity_node_directory_entry_view_alter(array &$build, EntityInte
     if (!empty($user_picture_file)) {
       $build['headshot'] = [
         '#theme' => 'image_style',
-        '#style_name' => $build['#view_mode'] == 'full' ? 'medium' : 'thumbnail',
+        '#style_name' => $build['#view_mode'] == 'full' ? '320x320_small' : '128x128_tiny',
         '#weight' => -1,
         '#prefix' => '<div class="headshot">',
         '#suffix' => '</div>',
