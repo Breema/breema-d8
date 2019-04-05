@@ -1,0 +1,29 @@
+uuid: 5f9fcd1f-71cf-43a1-b3fc-4d8f60002165
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_product_1
+    - node.type.product
+    - paragraphs.paragraphs_type.product_single
+id: paragraph.product_single.field_product_1
+field_name: field_product_1
+entity_type: paragraph
+bundle: product_single
+label: Product
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      product: product
+    sort:
+      field: nid
+      direction: DESC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

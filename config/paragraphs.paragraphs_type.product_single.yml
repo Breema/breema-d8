@@ -1,0 +1,9 @@
+uuid: 3738d0af-4207-4a17-83cc-dd2eeb667451
+langcode: en
+status: true
+dependencies: {  }
+id: product_single
+label: 'Product: Single'
+icon_uuid: null
+description: 'A single product (e.g. for the featured slideshow).'
+behavior_plugins: {  }

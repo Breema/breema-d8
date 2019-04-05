@@ -1,0 +1,24 @@
+uuid: 9525f9af-74ee-45a4-992d-25159063e1be
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.product_single.field_product_1
+    - paragraphs.paragraphs_type.product_single
+id: paragraph.product_single.default
+targetEntityType: paragraph
+bundle: product_single
+mode: default
+content:
+  field_product_1:
+    weight: 0
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+hidden:
+  created: true
+  status: true
