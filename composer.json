@@ -7,6 +7,19 @@
     {
       "type": "composer",
       "url": "https://packages.drupal.org/8"
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "woothemes/flexslider",
+        "version": "2.6.3",
+        "type": "drupal-library",
+        "source": {
+          "url": "https://github.com/woothemes/FlexSlider.git",
+          "type": "git",
+          "reference": "2.6.3"
+        }
+      }
     }
   ],
   "require": {
@@ -66,7 +79,8 @@
     "drush/drush": "~8",
     "enyo/dropzone": "^5.1",
     "rvtraveller/qs-composer-installer": "^1.1",
-    "webflo/drupal-core-strict": "^8.5"
+    "webflo/drupal-core-strict": "^8.5",
+    "woothemes/flexslider": "~2.0"
   },
   "require-dev": {
     "behat/behat": "3.*",
@@ -162,6 +176,7 @@
     },
     "installer-paths": {
       "web/core": ["type:drupal-core"],
+      "web/libraries/{$name}": ["type:drupal-library"],
       "web/modules/contrib/{$name}": ["type:drupal-module"],
       "web/profiles/contrib/{$name}": ["type:drupal-profile"],
       "web/themes/contrib/{$name}": ["type:drupal-theme"],

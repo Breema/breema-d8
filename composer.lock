@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "d5df0076565550b2b01c4d31176ea450",
+    "content-hash": "72de4133c8e2f3890b502d1c13a53ec1",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -8427,6 +8427,16 @@
                 "geoip"
             ],
             "time": "2015-12-06T20:17:20+00:00"
+        },
+        {
+            "name": "woothemes/flexslider",
+            "version": "2.6.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/woothemes/FlexSlider.git",
+                "reference": "2.6.3"
+            },
+            "type": "drupal-library"
         },
         {
             "name": "zendframework/zend-diactoros",
