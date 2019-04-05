@@ -1,0 +1,9 @@
+uuid: bf809f77-4d74-4e9e-b998-c55b77194122
+langcode: en
+status: true
+dependencies: {  }
+id: event_single
+label: 'Event: Single'
+icon_uuid: null
+description: 'A single event (e.g. for the featured slideshow).'
+behavior_plugins: {  }

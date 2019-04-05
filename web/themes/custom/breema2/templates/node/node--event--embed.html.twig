@@ -1,0 +1,29 @@
+{%
+  set classes = [
+    'node',
+    'node--type-' ~ node.bundle|clean_class,
+    node.isPromoted() ? 'node--promoted',
+    node.isSticky() ? 'node--sticky',
+    not node.isPublished() ? 'node--unpublished',
+    view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+    'clearfix',
+  ]
+%}
+{{ attach_library('classy/node') }}
+
+<a href="{{ url }}" rel="bookmark" class="teaser-link">
+<div class="teaser-wrapper clearfix">
+<article{{ attributes.addClass(classes) }}>
+  {{ content.field_main_image }}
+  <header>
+    <h2{{ title_attributes.addClass('node__title') }}>
+      {{ label }}
+    </h2>
+    <h3>{{ content.field_date_time }}</h3>
+  </header>
+  <div{{ content_attributes.addClass('clearfix') }}>
+    {{ content|without('field_date_time', 'field_main_image') }}
+  </div>
+</article>
+</div>
+</a>
