@@ -37,6 +37,8 @@ module:
   filter: 0
   fixed_text_link_formatter: 0
   flag: 0
+  flexslider: 0
+  flexslider_views: 0
   fullcalendar_view: 0
   geocoder: 0
   geocoder_address: 0
@@ -47,6 +49,7 @@ module:
   image: 0
   inline_entity_form: 0
   jsonapi: 0
+  libraries: 0
   link: 0
   login_emailusername: 0
   media: 0
