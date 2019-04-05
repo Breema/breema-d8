@@ -441,6 +441,12 @@ function breema_preprocess_paragraph__event_featured(&$variables) {
  * Injects list of upcoming events (if any).
  */
 function breema_preprocess_paragraph__person(&$variables) {
+  $link = $variables['paragraph']->get('field_link')->getValue();
+  if (!empty($link)) {
+    $url = Url::fromUri($link[0]['uri']);
+    $variables['url'] = $url->toString();
+  }
+
   $user_entities = $variables['paragraph']->get('field_person')->referencedEntities();
   $user_entity = array_pop($user_entities);
   if (!empty($user_entity)) {
@@ -508,6 +514,11 @@ function breema_preprocess_paragraph__person(&$variables) {
  * Injects the slice's link URL as a template variable.
  */
 function breema_preprocess_paragraph__media_single(&$variables) {
+  $link = $variables['paragraph']->get('field_link')->getValue();
+  if (!empty($link)) {
+    $url = Url::fromUri($link[0]['uri']);
+    $variables['url'] = $url->toString();
+  }
 }
 
 /**

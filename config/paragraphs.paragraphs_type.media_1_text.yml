@@ -1,9 +1,0 @@
-uuid: 85dac5d2-a449-4300-a905-e1944ecc1349
-langcode: en
-status: true
-dependencies: {  }
-id: media_1_text
-label: 'Media: 1 item with text'
-icon_uuid: null
-description: 'Select a single media item, define rich text, header text and a link.'
-behavior_plugins: {  }
