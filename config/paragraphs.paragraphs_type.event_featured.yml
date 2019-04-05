@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies: {  }
 id: event_featured
-label: 'Event: Featured'
+label: 'Event: Featured list'
 icon_uuid: null
-description: 'A list and map of all featured events.'
+description: 'A list of all featured events with links to map and search.'
 behavior_plugins: {  }
