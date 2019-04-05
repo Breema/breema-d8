@@ -38,6 +38,7 @@
     "drupal/filefield_paths": "1.x-dev",
     "drupal/fixed_text_link_formatter": "^1.1",
     "drupal/flag": "^4.0",
+    "drupal/flexslider": "~2.0",
     "drupal/fullcalendar_view": "2.x-dev",
     "drupal/geocoder": "2.x-dev",
     "drupal/geolocation": "1.x-dev",
