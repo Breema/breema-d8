@@ -8,6 +8,9 @@ dependencies:
     - field.field.paragraph.media_single.field_header_text
     - field.field.paragraph.media_single.field_link
     - field.field.paragraph.media_single.field_media
+    - field.field.paragraph.media_single.field_media_align
+    - field.field.paragraph.media_single.field_media_size
+    - field.field.paragraph.media_single.field_subheader
     - paragraphs.paragraphs_type.media_single
 id: paragraph.media_single.compact
 targetEntityType: paragraph
@@ -15,7 +18,7 @@ bundle: media_single
 mode: compact
 content:
   field_caption:
-    weight: 2
+    weight: 3
     label: hidden
     settings: {  }
     third_party_settings: {  }
@@ -31,12 +34,22 @@ content:
     region: content
   field_media:
     type: entity_reference_entity_view
-    weight: 1
+    weight: 2
     label: hidden
     settings:
       view_mode: view_medium
       link: false
     third_party_settings: {  }
     region: content
+  field_subheader:
+    type: string
+    weight: 1
+    region: content
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
 hidden:
   field_link: true
+  field_media_align: true
+  field_media_size: true

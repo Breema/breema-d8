@@ -1,0 +1,19 @@
+uuid: 07ed8398-3a1c-4b74-bad5-6d334498ee82
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_subheader
+    - paragraphs.paragraphs_type.media_single
+id: paragraph.media_single.field_subheader
+field_name: field_subheader
+entity_type: paragraph
+bundle: media_single
+label: Subheader
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -8,6 +8,9 @@ dependencies:
     - field.field.paragraph.media_single.field_header_text
     - field.field.paragraph.media_single.field_link
     - field.field.paragraph.media_single.field_media
+    - field.field.paragraph.media_single.field_media_align
+    - field.field.paragraph.media_single.field_media_size
+    - field.field.paragraph.media_single.field_subheader
     - paragraphs.paragraphs_type.media_single
   module:
     - entity_browser
@@ -18,9 +21,9 @@ bundle: media_single
 mode: default
 content:
   field_caption:
-    weight: 3
+    weight: 4
     settings:
-      rows: 2
+      rows: 3
       placeholder: ''
     third_party_settings: {  }
     type: string_textarea
@@ -34,7 +37,7 @@ content:
     type: string_textfield
     region: content
   field_link:
-    weight: 2
+    weight: 3
     settings:
       placeholder_url: ''
       placeholder_title: ''
@@ -42,7 +45,7 @@ content:
     type: link_default
     region: content
   field_media:
-    weight: 1
+    weight: 2
     settings:
       entity_browser: media_browser
       field_widget_display: rendered_entity
@@ -55,6 +58,26 @@ content:
       field_widget_replace: false
     third_party_settings: {  }
     type: entity_browser_entity_reference
+    region: content
+  field_media_align:
+    weight: 5
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_media_size:
+    weight: 6
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_subheader:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
     region: content
 hidden:
   created: true

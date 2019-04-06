@@ -1,0 +1,23 @@
+uuid: 1dc66814-a187-4d5b-8c7c-31f709652624
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_media_size
+    - paragraphs.paragraphs_type.media_single
+  module:
+    - options
+id: paragraph.media_single.field_media_size
+field_name: field_media_size
+entity_type: paragraph
+bundle: media_single
+label: 'Media size'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: '1:1'
+default_value_callback: ''
+settings: {  }
+field_type: list_string

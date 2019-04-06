@@ -1,0 +1,37 @@
+uuid: e2dd4231-9cf2-47c3-b889-9164c26c9da9
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - options
+    - paragraphs
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: paragraph.field_media_size
+field_name: field_media_size
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: '1:2'
+      label: '1/3 media, 2/3 text'
+    -
+      value: '1:1'
+      label: '1/2 media, 1/2 text'
+    -
+      value: '2:1'
+      label: '2/3 media, 1/3 text'
+    -
+      value: full
+      label: 'Full-width media and text'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
