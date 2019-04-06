@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.media.view_large
     - field.field.media.video.field_media_video_embed_field
+    - field.field.media.video.field_video_type
     - media.type.video
   module:
     - video_embed_field
@@ -19,10 +20,10 @@ content:
     region: content
     label: hidden
     settings:
-      width: 480
-      height: 270
+      responsive: true
+      width: 640
+      height: 360
       autoplay: false
-      responsive: false
     third_party_settings: {  }
 hidden:
   created: true

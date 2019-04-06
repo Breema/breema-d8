@@ -20,10 +20,10 @@ content:
     region: content
     label: hidden
     settings:
-      width: 220
-      height: 124
+      responsive: true
+      width: 480
+      height: 270
       autoplay: false
-      responsive: false
     third_party_settings: {  }
 hidden:
   created: true
