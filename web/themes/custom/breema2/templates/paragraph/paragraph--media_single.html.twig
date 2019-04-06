@@ -6,15 +6,24 @@
     not paragraph.isPublished() ? 'paragraph--unpublished'
   ]
 %}
+
 {% block paragraph %}
   <div{{ attributes.addClass(classes) }}>
     {% if url %}
       <a href="{{ url }}" class="teaser-link">
     {% endif %}
-    {{ content.field_header_text }}
-    {% block content %}
-      {{ content|without('field_header_text') }}
-    {% endblock %}
+    {% if grid_attributes %}
+      <div{{ grid_attributes.addClass(grid_classes) }}>
+        <div class="grid--item">{{ content_one }}</div>
+        <div class="grid--item">{{ content }}</div>
+      </div>
+    {% else %}
+      {% block content %}
+        {{ content.field_header_text }}
+        {{ content.field_subheader }}
+        {{ content|without('field_header_text', 'field_subheader') }}
+      {% endblock %}
+    {% endif %}
     {% if url %}
       </a>
     {% endif %}

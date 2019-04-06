@@ -15,6 +15,7 @@ use Drupal\Core\Render\Element;
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Session\AccountInterface;
 use Drupal\Core\StringTranslation\PluralTranslatableMarkup;
+use Drupal\Core\Template\Attribute;
 use Drupal\Core\Url;
 use Drupal\file\Entity\File;
 use Drupal\media\Entity\Media;
@@ -394,12 +395,17 @@ function breema_preprocess_field(&$variables, $hook) {
  * Preprocess function for all paragraphs.
  *
  * If the paragraph defines 'field_header_text', wrap it in h2.
+ * If the paragraph defines 'field_subheader', wrap it in h3.
  * If the paragraph defines a 'Buy now' link, make it a primary action.
  */
 function breema_preprocess_paragraph(&$variables) {
   if (!empty($variables['content']['field_header_text'])) {
     $variables['content']['field_header_text']['#prefix'] = '<h2>';
     $variables['content']['field_header_text']['#suffix'] = '</h2>';
+  }
+  if (!empty($variables['content']['field_subheader'])) {
+    $variables['content']['field_subheader']['#prefix'] = '<h3>';
+    $variables['content']['field_subheader']['#suffix'] = '</h3>';
   }
   if ($variables['paragraph']->hasField('field_link')) {
     $link = $variables['paragraph']->get('field_link')->getValue();
@@ -512,12 +518,69 @@ function breema_preprocess_paragraph__person(&$variables) {
  * Preprocess function for 'Media: single' paragraph type.
  *
  * Injects the slice's link URL as a template variable.
+ * Sets up template variables based on size and alignment values.
  */
 function breema_preprocess_paragraph__media_single(&$variables) {
   $link = $variables['paragraph']->get('field_link')->getValue();
   if (!empty($link)) {
     $url = Url::fromUri($link[0]['uri']);
     $variables['url'] = $url->toString();
+  }
+
+  $align = $variables['paragraph']->get('field_media_align')->value;
+  $size = $variables['paragraph']->get('field_media_size')->value;
+  $variables['grid_attributes'] = new Attribute();
+  $variables['grid_classes'] = [];
+  if ($size === 'full') {
+    $view_mode = 'view_full';
+  }
+  else {
+    $variables['grid_classes'][] = 'grid--container';
+    switch ($size) {
+      case '1:1':
+        // Alignment doesn't matter, and we leave the size alone.
+        $variables['grid_classes'][] = 'grid--container-1-2';
+        break;
+
+      case '1:2':
+        $view_mode = 'view_small';
+        $variables['grid_classes'][] = 'grid--container-1-' . ($align === 'left'
+ ? '2u3366' : '2u6633');
+        break;
+
+      case '2:1':
+        $view_mode = 'view_large';
+        $variables['grid_classes'][] = 'grid--container-1-' . ($align === 'left' ? '2u6633' : '2u3366');
+        break;
+
+    }
+  }
+  if (isset($view_mode)) {
+    // @todo This is dangerous and Wrong(tm). It'd be better to be getting a
+    // fresh render array here with the right view mode in the first place.
+    // Short of that, if we're going to dynamically mess with #view_mode, we
+    // also have to update the cache keys, or Drupal will cache a render array
+    // for the wrong view mode.
+    $variables['content']['field_media'][0]['#view_mode'] = $view_mode;
+    // @todo We should probably be more careful, but we know that the 4th item
+    // (index 3) in the keys array is the view mode, so we can save the expense
+    // of finding 'view_medium' and replacing it by directly targetting the
+    // right item.
+    $variables['content']['field_media'][0]['#cache']['keys'][3] = $view_mode;
+  }
+
+  // If we're using a grid (e.g. not 'full'), depending on the alignment, put
+  // the media content in the right variable.
+  if (!empty($variables['grid_classes'])) {
+    $content_media = $variables['content']['field_media'];
+    unset($variables['content']['field_media']);
+    if ($align === 'left') {
+      $variables['content_one'] = $content_media;
+    }
+    else {
+      $variables['content_one'] = $variables['content'];
+      $variables['content'] = $content_media;
+    }
   }
 }
 
