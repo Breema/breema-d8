@@ -11,7 +11,7 @@ dependencies:
     - field.field.node.product.field_publication_year
     - field.field.node.product.field_title_main
     - field.field.node.product.field_title_sub
-    - image.style.224x126_smaller
+    - image.style.320x320_small
     - node.type.product
   module:
     - media
@@ -33,7 +33,7 @@ content:
     weight: 0
     label: hidden
     settings:
-      image_style: 224x126_smaller
+      image_style: 320x320_small
       image_link: ''
     third_party_settings: {  }
     type: media_thumbnail
