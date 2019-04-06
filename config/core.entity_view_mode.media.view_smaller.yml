@@ -1,10 +1,10 @@
-uuid: 23320c91-ef7d-4fcf-8a38-4b480cc0cdf7
+uuid: 7611c4bb-ccbe-4e20-aca9-1a8fed1d5a67
 langcode: en
 status: true
 dependencies:
   module:
     - media
-id: media.view_large
-label: 'View: Large (640)'
+id: media.view_smaller
+label: 'View: Smaller (224)'
 targetEntityType: media
 cache: true

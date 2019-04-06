@@ -1,0 +1,33 @@
+uuid: fb2fdd1e-39ed-49db-9884-43150151928d
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.view_small
+    - field.field.media.video.field_media_video_embed_field
+    - field.field.media.video.field_video_type
+    - media.type.video
+  module:
+    - video_embed_field
+id: media.video.view_small
+targetEntityType: media
+bundle: video
+mode: view_small
+content:
+  field_media_video_embed_field:
+    type: video_embed_field_video
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      responsive: true
+      width: 320
+      height: 180
+      autoplay: false
+    third_party_settings: {  }
+hidden:
+  created: true
+  field_video_type: true
+  name: true
+  thumbnail: true
+  uid: true
