@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies: {  }
 id: media_single
-label: 'Media: single'
+label: 'Media: Single'
 icon_uuid: null
-description: "A single (full-width) media item.\r\n"
+description: "A single media item with headers, caption, and settings for size and alignment of media relative to text.\r\n"
 behavior_plugins: {  }
