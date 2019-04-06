@@ -60,13 +60,13 @@ content:
     type: entity_browser_entity_reference
     region: content
   field_media_align:
-    weight: 5
+    weight: 6
     settings: {  }
     third_party_settings: {  }
     type: options_select
     region: content
   field_media_size:
-    weight: 6
+    weight: 5
     settings: {  }
     third_party_settings: {  }
     type: options_select
