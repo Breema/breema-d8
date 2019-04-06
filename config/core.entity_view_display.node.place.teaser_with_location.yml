@@ -28,19 +28,12 @@ content:
     third_party_settings: {  }
     type: address_default
     region: content
-  field_telephone:
-    weight: 1
-    label: hidden
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    type: string
-    region: content
 hidden:
   body: true
   field_email: true
   field_geolocation: true
   field_has_active_event: true
+  field_telephone: true
   field_upcoming_events: true
   field_website: true
   flag_my_places: true
