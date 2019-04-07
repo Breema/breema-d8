@@ -66,12 +66,13 @@
         </aside>
       </div>
     {% endif %}
-    {% if page.featured_top %}
-
+    {% set featured_top = page.featured_top|render %}
+    {% set featured_top_length = featured_top|trim|length %}
+    {% if featured_top_length %}
       <div class="section layout-container">
       <div class="featured-top">
         <aside class="featured-top__inner section clearfix" role="complementary">
-          {{ page.featured_top }}
+          {{ featured_top }}
         </aside>
       </div>
       </div>
