@@ -998,6 +998,22 @@ ol.location-results .field--name-field-upcoming-events > .field__item {
     max-width: 1000px;
   }
 }
+.media--view-mode-view-large {
+  max-width: 640px;
+}
+
+.media--view-mode-view-medium {
+  max-width: 480px;
+}
+
+.media--view-mode-view-small {
+  max-width: 320px;
+}
+
+.media--view-mode-view-smaller {
+  max-width: 224px;
+}
+
 ul.menu a.is-active {
   color: #007cb2;
 }
