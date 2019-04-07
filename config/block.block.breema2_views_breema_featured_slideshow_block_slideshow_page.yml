@@ -5,7 +5,6 @@ dependencies:
   config:
     - views.view.breema_featured_slideshow
   module:
-    - system
     - views
   theme:
     - breema2
@@ -22,10 +21,6 @@ settings:
   label_display: '0'
   views_label: ''
   items_per_page: none
-  context_mapping: {  }
-visibility:
-  request_path:
-    id: request_path
-    pages: "<front>\r\n/front"
-    negate: false
-    context_mapping: {  }
+  context_mapping:
+    parent_id: '@node.node_route_context:node'
+visibility: {  }
