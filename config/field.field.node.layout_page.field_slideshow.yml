@@ -1,0 +1,64 @@
+uuid: 4e323d5c-fb50-4e54-8249-1f6a044d6d26
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_slideshow
+    - node.type.layout_page
+    - paragraphs.paragraphs_type.event_single
+    - paragraphs.paragraphs_type.media_single
+    - paragraphs.paragraphs_type.person
+    - paragraphs.paragraphs_type.product_single
+  module:
+    - entity_reference_revisions
+id: node.layout_page.field_slideshow
+field_name: field_slideshow
+entity_type: node
+bundle: layout_page
+label: Slideshow
+description: 'Any paragraphs listed here will be rendered as a slideshow at the top of the page, and listed again (in full) at the bottom of the page.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      event_single: event_single
+      media_single: media_single
+      person: person
+      product_single: product_single
+    target_bundles_drag_drop:
+      event_featured:
+        weight: 11
+        enabled: false
+      event_single:
+        enabled: true
+        weight: 12
+      featured_product:
+        weight: 13
+        enabled: false
+      media_3_up:
+        weight: 14
+        enabled: false
+      media_single:
+        enabled: true
+        weight: 15
+      person:
+        enabled: true
+        weight: 16
+      product_info_audio:
+        weight: 17
+        enabled: false
+      product_info_book:
+        weight: 18
+        enabled: false
+      product_info_general:
+        weight: 19
+        enabled: false
+      product_single:
+        enabled: true
+        weight: 20
+field_type: entity_reference_revisions
