@@ -394,9 +394,11 @@ function breema_preprocess_field(&$variables, $hook) {
 /**
  * Preprocess function for all paragraphs.
  *
- * If the paragraph defines 'field_header_text', wrap it in h2.
- * If the paragraph defines 'field_subheader', wrap it in h3.
- * If the paragraph defines a 'Buy now' link, make it a primary action.
+ * If 'field_link' exists, set $variables['url'] with it.
+ * If 'field_header_text' exists, wrap it in h2.
+ * If 'field_subheader' exists, wrap it in h3.
+ * If a 'Buy now' link exists, make it a primary action.
+ * Invoke any bundle-specific preprocess if we're not default view mode.
  */
 function breema_preprocess_paragraph(&$variables) {
   if (!empty($variables['content']['field_header_text'])) {
@@ -420,6 +422,15 @@ function breema_preprocess_paragraph(&$variables) {
       'action',
       'action--primary',
     ];
+  }
+  // Unfortunately, when using non-default view mode, this preprocess hook isn't
+  // automatically getting invoked, so we have to do it manually.
+  if ($variables['view_mode'] !== 'default') {
+    $function = 'breema_preprocess_paragraph__';
+    $function .= $variables['paragraph']->getParagraphType()->id();
+    if (function_exists($function)) {
+      $function($variables);
+    }
   }
 }
 
@@ -447,12 +458,6 @@ function breema_preprocess_paragraph__event_featured(&$variables) {
  * Injects list of upcoming events (if any).
  */
 function breema_preprocess_paragraph__person(&$variables) {
-  $link = $variables['paragraph']->get('field_link')->getValue();
-  if (!empty($link)) {
-    $url = Url::fromUri($link[0]['uri']);
-    $variables['url'] = $url->toString();
-  }
-
   $user_entities = $variables['paragraph']->get('field_person')->referencedEntities();
   $user_entity = array_pop($user_entities);
   if (!empty($user_entity)) {
@@ -463,27 +468,6 @@ function breema_preprocess_paragraph__person(&$variables) {
   // Strip the description to cosmetic tags only (no links or media).
   if (!empty($variables['content']['field_description'][0])) {
     breema_strip_links($variables['content']['field_description'][0]['#text']);
-  }
-
-  // Container for everything that's a single link (title, media, description).
-  $variables['content']['link-target'] = [
-    '#type' => 'container',
-    '#prefix' => '<a href="' . $variables['url'] . '" class="teaser-link">',
-    '#suffix' => '</a>',
-    'field_header_text' => $variables['content']['field_header_text'],
-    // Nested grid for the media + description for responsive styles.
-    'grid' => [
-      '#type' => 'container',
-      'field_media' => $variables['content']['field_media'],
-      'field_description' => $variables['content']['field_description'],
-      '#attributes' => [
-        'class' => ['grid--container', 'grid--container-1-2u3366'],
-      ],
-    ],
-  ];
-  // Hide everything in the main content array to prevent duplicate rendering.
-  foreach (['field_header_text', 'field_media', 'field_description'] as $field_name) {
-    $variables['content'][$field_name]['#access'] = FALSE;
   }
 
   $show_upcoming = $variables['paragraph']->get('field_show_upcoming_events')->value;
@@ -497,14 +481,13 @@ function breema_preprocess_paragraph__person(&$variables) {
     }
     $view->execute();
     if (count($view->result)) {
-      $variables['content'][$display] = [
-        '#weight' => 100,
+      $variables['upcoming'][$display] = [
         '#prefix' => '<h3>' . t('Upcoming events with :name', [':name' => $user_entity->label()]) . '</h3>',
         'content' => $view->preview($display),
       ];
       if (!empty($directory_entry)) {
-        $variables['content']['read-more'] = [
-          '#weight' => 105,
+        $variables['upcoming']['read-more'] = [
+          '#weight' => 10,
           '#prefix' => '<div class="more-link">',
           '#markup' => $directory_entry->toLink(t('More events'))->toString(),
           '#suffix' => '</div>',
@@ -521,12 +504,6 @@ function breema_preprocess_paragraph__person(&$variables) {
  * Sets up template variables based on size and alignment values.
  */
 function breema_preprocess_paragraph__media_single(&$variables) {
-  $link = $variables['paragraph']->get('field_link')->getValue();
-  if (!empty($link)) {
-    $url = Url::fromUri($link[0]['uri']);
-    $variables['url'] = $url->toString();
-  }
-
   $align = $variables['paragraph']->get('field_media_align')->value;
   $size = $variables['paragraph']->get('field_media_size')->value;
   $variables['grid_attributes'] = new Attribute();
@@ -571,7 +548,8 @@ function breema_preprocess_paragraph__media_single(&$variables) {
 
   // If we're using a grid (e.g. not 'full'), depending on the alignment, put
   // the media content in the right variable.
-  if (!empty($variables['grid_classes'])) {
+  if (!empty($variables['grid_classes'])
+      && !empty($variables['content']['field_media'])) {
     $content_media = $variables['content']['field_media'];
     unset($variables['content']['field_media']);
     if ($align === 'left') {
