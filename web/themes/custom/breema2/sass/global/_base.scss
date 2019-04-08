@@ -335,32 +335,12 @@ a.teaser-link:hover .node--unpublished {
   max-width: 100%
 }
 
-.node--type-layout-page .paragraph {
-  clear: both;
-  margin: 0 0 2em 0;
-}
-
 .node--view-mode-full .field--name-field-subtitle {
   font-size: 1.3em;
 }
 
 .site-footer .layout-container {
   padding: 0 10px;
-}
-
-.paragraph h2,
-.paragraph h3,
-.paragraph h4 {
-  margin: 0 0 0.25em 0;
-}
-.paragraph--type--event-featured h3 {
-  margin: 1em 0 0.5em 0;
-}
-
-.paragraph--type--featured-product .field--type-entity-reference,
-.paragraph--type--media-3-up .field--type-entity-reference {
-  margin: 0;
-  font-family: $ff-cabin;
 }
 
 .view-breema-articles .form--inline .form-actions {

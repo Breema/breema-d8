@@ -1,0 +1,19 @@
+.node--type-layout-page .paragraph {
+  clear: both;
+  margin: 0 0 2em 0;
+}
+
+.paragraph {
+  h2, h3, h4 {
+    margin: 0 0 0.25em 0;
+  }
+  .field--type-entity-reference {
+    margin: 0;
+    font-family: $ff-cabin;
+  }
+}
+
+.paragraph--type--event-featured h3 {
+  margin: 1em 0 0.5em 0;
+}
+
