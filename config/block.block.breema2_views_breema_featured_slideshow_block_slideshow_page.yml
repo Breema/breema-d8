@@ -5,6 +5,7 @@ dependencies:
   config:
     - views.view.breema_featured_slideshow
   module:
+    - node
     - views
   theme:
     - breema2
@@ -23,4 +24,11 @@ settings:
   items_per_page: none
   context_mapping:
     parent_id: '@node.node_route_context:node'
-visibility: {  }
+visibility:
+  node_type:
+    id: node_type
+    bundles:
+      layout_page: layout_page
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
