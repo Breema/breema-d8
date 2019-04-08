@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - entity_browser.browser.media_browser
-    - field.field.paragraph.media_single.field_caption
+    - field.field.paragraph.media_single.field_description
     - field.field.paragraph.media_single.field_header_text
     - field.field.paragraph.media_single.field_link
     - field.field.paragraph.media_single.field_media
@@ -15,18 +15,19 @@ dependencies:
   module:
     - entity_browser
     - link
+    - text
 id: paragraph.media_single.default
 targetEntityType: paragraph
 bundle: media_single
 mode: default
 content:
-  field_caption:
+  field_description:
     weight: 4
     settings:
       rows: 3
       placeholder: ''
     third_party_settings: {  }
-    type: string_textarea
+    type: text_textarea
     region: content
   field_header_text:
     weight: 0

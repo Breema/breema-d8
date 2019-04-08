@@ -423,6 +423,12 @@ function breema_preprocess_paragraph(&$variables) {
       'action--primary',
     ];
   }
+
+  // Strip the description to cosmetic tags only (no links or media).
+  if (!empty($variables['content']['field_description'][0])) {
+    breema_strip_links($variables['content']['field_description'][0]['#text']);
+  }
+
   // Unfortunately, when using non-default view mode, this preprocess hook isn't
   // automatically getting invoked, so we have to do it manually.
   if ($variables['view_mode'] !== 'default') {
@@ -463,11 +469,6 @@ function breema_preprocess_paragraph__person(&$variables) {
   if (!empty($user_entity)) {
     $directory_entries = $user_entity->get('field_directory_entry')->referencedEntities();
     $directory_entry = array_pop($directory_entries);
-  }
-
-  // Strip the description to cosmetic tags only (no links or media).
-  if (!empty($variables['content']['field_description'][0])) {
-    breema_strip_links($variables['content']['field_description'][0]['#text']);
   }
 
   $show_upcoming = $variables['paragraph']->get('field_show_upcoming_events')->value;

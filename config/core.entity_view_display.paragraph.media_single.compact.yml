@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.paragraph.compact
-    - field.field.paragraph.media_single.field_caption
+    - field.field.paragraph.media_single.field_description
     - field.field.paragraph.media_single.field_header_text
     - field.field.paragraph.media_single.field_link
     - field.field.paragraph.media_single.field_media
@@ -12,18 +12,20 @@ dependencies:
     - field.field.paragraph.media_single.field_media_size
     - field.field.paragraph.media_single.field_subheader
     - paragraphs.paragraphs_type.media_single
+  module:
+    - text
 id: paragraph.media_single.compact
 targetEntityType: paragraph
 bundle: media_single
 mode: compact
 content:
-  field_caption:
+  field_description:
+    type: text_default
     weight: 3
+    region: content
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    type: basic_string
-    region: content
   field_header_text:
     weight: 0
     label: hidden

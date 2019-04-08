@@ -1,0 +1,21 @@
+uuid: 1e13caac-76ca-4d1d-925f-17b0f1e7e40f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_description
+    - paragraphs.paragraphs_type.media_single
+  module:
+    - text
+id: paragraph.media_single.field_description
+field_name: field_description
+entity_type: paragraph
+bundle: media_single
+label: Description
+description: 'All links and media will be stripped, in favor of the ''Link'' and ''Media'' fields above.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long
