@@ -443,8 +443,7 @@ function breema_preprocess_paragraph(&$variables) {
 /**
  * Preprocess function for 'Featured events' paragraph type.
  *
- * Injects the map and list displays of the 'breema_events_featured' view.
- * Converts field_header_text into an h2.
+ * Injects the list display of the 'breema_events_featured' view.
  * Injects links to the /events/* pages (calendar, map + search).
  */
 function breema_preprocess_paragraph__event_featured(&$variables) {
