@@ -335,27 +335,6 @@ a.teaser-link:hover .node--unpublished {
   font-style: italic;
 }
 
-.node--type-product h4,
-.node--type-product a.teaser-link h4 {
-  font-size: 1.3em;
-  margin: 0;
-}
-
-.node--type-product h5,
-.node--type-product a.teaser-link h5 {
-  font-size: 1.1em;
-  font-style: italic;
-  text-transform: none;
-  letter-spacing: 0;
-  margin: 0 0 0.5em 0;
-}
-
-.node--type-product .field--name-field-main-image,
-.node--type-product a.teaser-link .field--name-field-main-image {
-  margin: 0;
-  max-width: 100%;
-}
-
 .node--view-mode-full .field--name-field-subtitle {
   font-size: 1.3em;
 }
@@ -1417,6 +1396,25 @@ details.e-books .details-wrapper {
 .paragraph--type--product-info-audio .field--name-field-audio-excerpts .field__label {
   font-size: 1em;
   font-family: "Cabin", sans-serif;
+}
+
+.node--type-product h3, .node--type-product h5 {
+  font-style: italic;
+  letter-spacing: 0;
+}
+.node--type-product h4, .node--type-product a.teaser-link h4 {
+  font-size: 1.3em;
+  margin: 0;
+}
+.node--type-product h5, .node--type-product a.teaser-link h5 {
+  font-size: 1.1em;
+  text-transform: none;
+  margin: 0 0 0.5em 0;
+}
+.node--type-product .field--name-field-main-image,
+.node--type-product a.teaser-link .field--name-field-main-image {
+  margin: 0;
+  max-width: 100%;
 }
 
 .toolbar .toolbar-bar {
