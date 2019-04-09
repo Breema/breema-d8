@@ -1,0 +1,24 @@
+uuid: 85dd7c63-f641-4e6b-b18f-e873ac4fb770
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.event_single.field_event
+    - paragraphs.paragraphs_type.event_single
+id: paragraph.event_single.default
+targetEntityType: paragraph
+bundle: event_single
+mode: default
+content:
+  field_event:
+    weight: 0
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+hidden:
+  created: true
+  status: true
