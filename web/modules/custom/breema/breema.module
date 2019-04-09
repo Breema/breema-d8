@@ -533,7 +533,7 @@ function breema_preprocess_paragraph__media_single(&$variables) {
 
     }
   }
-  if (isset($view_mode)) {
+  if (isset($view_mode) && !empty($variables['content']['field_media'][0])) {
     // @todo This is dangerous and Wrong(tm). It'd be better to be getting a
     // fresh render array here with the right view mode in the first place.
     // Short of that, if we're going to dynamically mess with #view_mode, we
@@ -544,7 +544,9 @@ function breema_preprocess_paragraph__media_single(&$variables) {
     // (index 3) in the keys array is the view mode, so we can save the expense
     // of finding 'view_medium' and replacing it by directly targetting the
     // right item.
-    $variables['content']['field_media'][0]['#cache']['keys'][3] = $view_mode;
+    if (!empty($variables['content']['field_media'][0]['#cache'])) {
+      $variables['content']['field_media'][0]['#cache']['keys'][3] = $view_mode;
+    }
   }
 
   // If we're using a grid (e.g. not 'full'), depending on the alignment, put
