@@ -1,0 +1,35 @@
+{%
+  set classes = [
+    'node',
+    'node--type-' ~ node.bundle|clean_class,
+    node.isPromoted() ? 'node--promoted',
+    node.isSticky() ? 'node--sticky',
+    not node.isPublished() ? 'node--unpublished',
+    view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+    'clearfix',
+  ]
+%}
+{{ attach_library('classy/node') }}
+
+<article{{ attributes.addClass(classes) }}>
+  <a href="{{ url }}" rel="bookmark" class="teaser-link">
+  <div class="grid--container grid--container-1-2u3366">
+    <div class="grid-item">
+      {{ content.field_main_image }}
+    </div>
+    <div class="grid-item">
+      <header>
+        <{{ title_element }}{{ title_attributes.addClass('node__title') }}>
+          {{ content.field_title_main }}
+        </{{ title_element }}>
+        <{{ subtitle_element }}>
+          {{ content.field_title_sub }}
+        </{{ subtitle_element }}>
+      </header>
+      {{ content.field_by|render|striptags('div') }}
+      </a>
+      {{ content.buy_now }}
+      <div class="read-more"><a href="{{ url }}">{{ 'Read more'|t }}</a></div>
+    </div>
+  </div>
+</article>

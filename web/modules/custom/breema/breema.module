@@ -330,10 +330,10 @@ function breema_preprocess_node_event(&$variables) {
  * Preprocess function for product nodes.
  *
  * Looks up and injects the 'Buy now' link from the 1st product info paragraph
- * into the 'compact teaser' of the main product itself.
+ * into the 'compact teaser' or 'embed' of the main product itself.
  */
 function breema_preprocess_node_product(&$variables) {
-  if ($variables['view_mode'] == 'teaser_compact') {
+  if ($variables['view_mode'] === 'teaser_compact' || $variables['view_mode'] === 'embed') {
     $all_product_info = $variables['node']->get('field_product_info')->referencedEntities();
     // Always use the first / top product info paragraph for 'Buy now' link.
     $buy_now_link = $all_product_info[0]->get('field_buy_now')->getValue();
