@@ -746,13 +746,6 @@ a.telephone:before,
   background: #dce0dd;
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
 }
-.featured-top h2 {
-  margin-top: 0;
-}
-.featured-top p {
-  margin: 0;
-  padding: 0;
-}
 
 .action {
   margin: 1em 0 0.5em;
@@ -938,12 +931,18 @@ ol.location-results .field--name-field-upcoming-events > .field__item {
   border: none;
   margin: 0 0 50px;
 }
-.flexslider h2 {
-  font-size: 2em;
+.flexslider p {
+  margin: 0 0 0.5em 0;
+  padding: 0;
+}
+.flexslider h2,
+.flexslider a.teaser-link h2 {
+  margin-top: 0;
+  font-size: 2.20em;
   color: #a82133;
 }
 .flexslider h3 {
-  font-size: 1.5em;
+  font-size: 1.8em;
   color: #007cb2;
 }
 .flexslider .slides {

@@ -2,12 +2,20 @@
   background-color: inherit;
   border: none;
   margin: 0 0 50px;
-  h2 {
-    font-size: 2em;
+
+  p {
+    margin: 0 0 0.5em 0;
+    padding: 0;
+  }
+
+  h2,
+  a.teaser-link h2 {
+    margin-top: 0;
+    font-size: 2.20em;
     color: $c-red;
   }
   h3 {
-    font-size: 1.5em;
+    font-size: 1.8em;
     color: $c-blue;
   }
   .slides {
