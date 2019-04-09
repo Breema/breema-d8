@@ -1,0 +1,23 @@
+uuid: 11f9e5f4-b26e-4671-99bf-a62119fbd454
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.compact
+    - field.field.paragraph.product_single.field_product_1
+    - paragraphs.paragraphs_type.product_single
+id: paragraph.product_single.compact
+targetEntityType: paragraph
+bundle: product_single
+mode: compact
+content:
+  field_product_1:
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: embed
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+hidden: {  }
