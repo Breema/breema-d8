@@ -927,8 +927,8 @@ ol.location-results .field--name-field-upcoming-events > .field__item {
 .flexslider .slides {
   padding: 0.5em;
   margin: 0.5em;
-  background-color: #fff;
-  border: 5px solid #fff;
+  background-color: #f5f7f9;
+  border: 5px solid #f5f7f9;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
