@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies: {  }
 id: person
-label: Person
+label: 'Person: Single'
 icon_uuid: null
 description: 'Highlight a Breema person (with headshot, upcoming events, etc).'
 behavior_plugins: {  }
