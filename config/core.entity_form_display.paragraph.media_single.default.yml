@@ -9,6 +9,7 @@ dependencies:
     - field.field.paragraph.media_single.field_link
     - field.field.paragraph.media_single.field_media
     - field.field.paragraph.media_single.field_media_align
+    - field.field.paragraph.media_single.field_media_layout
     - field.field.paragraph.media_single.field_media_size
     - field.field.paragraph.media_single.field_subheader
     - paragraphs.paragraphs_type.media_single
@@ -66,8 +67,14 @@ content:
     third_party_settings: {  }
     type: options_select
     region: content
+  field_media_layout:
+    weight: 8
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
   field_media_size:
-    weight: 5
+    weight: 7
     settings: {  }
     third_party_settings: {  }
     type: options_select

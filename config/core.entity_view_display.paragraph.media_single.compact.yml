@@ -9,7 +9,6 @@ dependencies:
     - field.field.paragraph.media_single.field_link
     - field.field.paragraph.media_single.field_media
     - field.field.paragraph.media_single.field_media_align
-    - field.field.paragraph.media_single.field_media_size
     - field.field.paragraph.media_single.field_subheader
     - paragraphs.paragraphs_type.media_single
   module:
@@ -54,4 +53,3 @@ content:
 hidden:
   field_link: true
   field_media_align: true
-  field_media_size: true
