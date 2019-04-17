@@ -1,7 +1,7 @@
 .flexslider {
   background-color: inherit;
   border: none;
-  margin: 0 0 50px;
+  margin: 0 0 40px;
 
   p {
     margin: 0 0 0.5em 0;
@@ -36,7 +36,7 @@
 @media (min-width: 851px) {
   .flexslider {
     .slides {
-      margin: 1em;
+      margin: 0.5em 1em;
     }
   }
 }
@@ -45,7 +45,7 @@
     .slides {
       max-width: 900px;    
       padding: 1em;
-      margin: 1em auto;
+      margin: 0.5em auto;
     }
   }
 }

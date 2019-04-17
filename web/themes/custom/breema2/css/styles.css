@@ -720,8 +720,8 @@ a.telephone:before,
 }
 
 .featured-top {
-  margin: 20px 15px;
-  padding: 20px 15px;
+  margin: 10px 15px;
+  padding: 5px;
   background: #dce0dd;
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
 }
@@ -908,7 +908,7 @@ ol.location-results .field--name-field-upcoming-events > .field__item {
 .flexslider {
   background-color: inherit;
   border: none;
-  margin: 0 0 50px;
+  margin: 0 0 40px;
 }
 .flexslider p {
   margin: 0 0 0.5em 0;
@@ -940,14 +940,14 @@ ol.location-results .field--name-field-upcoming-events > .field__item {
 
 @media (min-width: 851px) {
   .flexslider .slides {
-    margin: 1em;
+    margin: 0.5em 1em;
   }
 }
 @media (min-width: 1024px) {
   .flexslider .slides {
     max-width: 900px;
     padding: 1em;
-    margin: 1em auto;
+    margin: 0.5em auto;
   }
 }
 @media (min-width: 1280px) {
