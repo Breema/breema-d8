@@ -505,33 +505,48 @@ function breema_preprocess_paragraph__person(&$variables) {
  */
 function breema_preprocess_paragraph__media_single(&$variables) {
   $align = $variables['paragraph']->get('field_media_align')->value;
+  $layout = $variables['paragraph']->get('field_media_layout')->value;
   $size = $variables['paragraph']->get('field_media_size')->value;
   $variables['grid_attributes'] = new Attribute();
   $variables['grid_classes'] = [];
-  if ($size === 'full') {
-    $view_mode = 'view_full';
+  switch ($size) {
+    case '1/3':
+      $view_mode = 'view_small';
+      break;
+
+    case '1/2':
+      // This is the default view_mode, so nothing to do.
+      break;
+
+    case '2/3':
+      $view_mode = 'view_large';
+      break;
+
+    case 'full':
+      $view_mode = 'view_full';
+      // Full width implies we have to use vertical layout.
+      $layout = 'vertical';
+      break;
   }
-  else {
+
+  if ($layout !== 'vertical') {
     $variables['grid_classes'][] = 'grid--container';
     switch ($size) {
-      case '1:1':
-        // Alignment doesn't matter, and we leave the size alone.
+      case '1/3':
+        $variables['grid_classes'][] = 'grid--container-1-' . ($layout === 'left' ? '2u3366' : '2u6633');
+        break;
+
+      case '1/2':
+        // Layout doesn't impact which grid container.
         $variables['grid_classes'][] = 'grid--container-1-2';
         break;
 
-      case '1:2':
-        $view_mode = 'view_small';
-        $variables['grid_classes'][] = 'grid--container-1-' . ($align === 'left'
- ? '2u3366' : '2u6633');
+      case '2/3':
+        $variables['grid_classes'][] = 'grid--container-1-' . ($layout === 'left' ? '2u6633' : '2u3366');
         break;
-
-      case '2:1':
-        $view_mode = 'view_large';
-        $variables['grid_classes'][] = 'grid--container-1-' . ($align === 'left' ? '2u6633' : '2u3366');
-        break;
-
     }
   }
+
   if (isset($view_mode) && !empty($variables['content']['field_media'][0])) {
     // @todo This is dangerous and Wrong(tm). It'd be better to be getting a
     // fresh render array here with the right view mode in the first place.
@@ -548,13 +563,15 @@ function breema_preprocess_paragraph__media_single(&$variables) {
     }
   }
 
-  // If we're using a grid (e.g. not 'full'), depending on the alignment, put
-  // the media content in the right variable.
+  // @todo Inject the align class into the media item.
+
+  // If we're using a grid (e.g. not 'vertical'), depending on the layout, put
+  // the media content in the correct variable.
   if (!empty($variables['grid_classes'])
       && !empty($variables['content']['field_media'])) {
     $content_media = $variables['content']['field_media'];
     unset($variables['content']['field_media']);
-    if ($align === 'left') {
+    if ($layout === 'left') {
       $variables['content_one'] = $content_media;
     }
     else {
