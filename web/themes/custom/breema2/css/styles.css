@@ -725,6 +725,9 @@ a.telephone:before,
   background: #dce0dd;
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
 }
+.featured-top a.teaser-link .node--sticky {
+  background-color: inherit;
+}
 
 .action {
   margin: 1em 0 0.5em;
