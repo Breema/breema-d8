@@ -955,6 +955,13 @@ ol.location-results .field--name-field-upcoming-events > .field__item {
     max-width: 1000px;
   }
 }
+.flex-control-paging li a {
+  background: #008ecc;
+}
+.flex-control-paging li a.flex-active {
+  background: #004766;
+}
+
 .media--view-mode-view-large {
   max-width: 640px;
 }

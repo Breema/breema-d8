@@ -56,3 +56,12 @@
     }
   }
 }
+
+.flex-control-paging li {
+  a {
+    background: lighten($c-blue, 5%);
+  }
+  a.flex-active {
+    background: darken($c-blue, 15%);
+  }
+}
