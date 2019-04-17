@@ -507,6 +507,7 @@ function breema_preprocess_paragraph__media_single(&$variables) {
   $align = $variables['paragraph']->get('field_media_align')->value;
   $layout = $variables['paragraph']->get('field_media_layout')->value;
   $size = $variables['paragraph']->get('field_media_size')->value;
+  $variables['attributes']['class'][] = 'media-align-' . $align;
   $variables['grid_attributes'] = new Attribute();
   $variables['grid_classes'] = [];
   switch ($size) {

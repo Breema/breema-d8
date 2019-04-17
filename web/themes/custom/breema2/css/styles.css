@@ -1060,6 +1060,18 @@ ul.menu a.is-active {
   margin: 1em 0 0.5em 0;
 }
 
+.media-align-center img {
+  margin: 0 auto;
+}
+
+.media-align-left img {
+  float: left;
+}
+
+.media-align-right img {
+  float: right;
+}
+
 .responsive-menu-block-wrapper {
   display: none;
 }
