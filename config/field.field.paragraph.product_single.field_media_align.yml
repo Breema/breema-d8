@@ -1,0 +1,23 @@
+uuid: b3e3f081-93f8-4ae5-a381-fc8f75e4d685
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_media_align
+    - paragraphs.paragraphs_type.product_single
+  module:
+    - options
+id: paragraph.product_single.field_media_align
+field_name: field_media_align
+entity_type: paragraph
+bundle: product_single
+label: 'Cover image alignment'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: center
+default_value_callback: ''
+settings: {  }
+field_type: list_string

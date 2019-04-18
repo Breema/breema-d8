@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.product_single.field_media_align
     - field.field.paragraph.product_single.field_product_1
     - paragraphs.paragraphs_type.product_single
 id: paragraph.product_single.default
@@ -10,6 +11,12 @@ targetEntityType: paragraph
 bundle: product_single
 mode: default
 content:
+  field_media_align:
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
   field_product_1:
     weight: 0
     settings:

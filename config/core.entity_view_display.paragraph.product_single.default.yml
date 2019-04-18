@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.product_single.field_media_align
     - field.field.paragraph.product_single.field_product_1
     - paragraphs.paragraphs_type.product_single
 id: paragraph.product_single.default
@@ -19,4 +20,5 @@ content:
     third_party_settings: {  }
     type: entity_reference_entity_view
     region: content
-hidden: {  }
+hidden:
+  field_media_align: true
