@@ -8,6 +8,7 @@ dependencies:
     - field.field.paragraph.person.field_header_text
     - field.field.paragraph.person.field_link
     - field.field.paragraph.person.field_media
+    - field.field.paragraph.person.field_media_align
     - field.field.paragraph.person.field_person
     - field.field.paragraph.person.field_show_upcoming_events
     - paragraphs.paragraphs_type.person
@@ -58,6 +59,12 @@ content:
       field_widget_replace: false
     third_party_settings: {  }
     type: entity_browser_entity_reference
+    region: content
+  field_media_align:
+    weight: 8
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
     region: content
   field_person:
     weight: 1

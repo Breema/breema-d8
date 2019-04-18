@@ -7,6 +7,7 @@ dependencies:
     - field.field.paragraph.person.field_header_text
     - field.field.paragraph.person.field_link
     - field.field.paragraph.person.field_media
+    - field.field.paragraph.person.field_media_align
     - field.field.paragraph.person.field_person
     - field.field.paragraph.person.field_show_upcoming_events
     - paragraphs.paragraphs_type.person
@@ -43,5 +44,6 @@ content:
     region: content
 hidden:
   field_link: true
+  field_media_align: true
   field_person: true
   field_show_upcoming_events: true

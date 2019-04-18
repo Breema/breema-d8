@@ -1,0 +1,23 @@
+uuid: 369c8c10-81de-490f-9523-665cc26b1c4d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_media_align
+    - paragraphs.paragraphs_type.person
+  module:
+    - options
+id: paragraph.person.field_media_align
+field_name: field_media_align
+entity_type: paragraph
+bundle: person
+label: 'Media alignment'
+description: ''
+required: true
+translatable: true
+default_value:
+  -
+    value: center
+default_value_callback: ''
+settings: {  }
+field_type: list_string
