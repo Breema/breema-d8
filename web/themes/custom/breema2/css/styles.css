@@ -1063,12 +1063,16 @@ ul.menu a.is-active {
 .media-align-center img {
   margin: 0 auto;
 }
+.media-align-center .field--name-field-main-image {
+  float: none;
+}
 
 .media-align-left img {
   float: left;
 }
 
-.media-align-right img {
+.media-align-right img,
+.media-align-right .field--name-field-main-image {
   float: right;
 }
 

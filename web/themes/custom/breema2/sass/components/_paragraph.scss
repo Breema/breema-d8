@@ -17,13 +17,23 @@
   margin: 1em 0 0.5em 0;
 }
 
-// these classes are only set on paragraphs.
-.media-align-center img {
-  margin: 0 auto;
+// These classes are only set on paragraphs, so we can style them here.
+.media-align-center {
+  img {
+    margin: 0 auto;
+  }
+  // For product paragraphs, we need to undo the 'float: left' on main image.
+  .field--name-field-main-image {
+    float: none;
+  }
 }
 .media-align-left img {
   float: left;
 }
-.media-align-right img {
-  float: right;
+.media-align-right {
+  img,
+  // For product paragraphs, we need to undo the 'float: left' on main image.
+  .field--name-field-main-image {
+    float: right;
+  }
 }
