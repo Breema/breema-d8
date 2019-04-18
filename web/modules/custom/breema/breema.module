@@ -398,6 +398,7 @@ function breema_preprocess_field(&$variables, $hook) {
  * If 'field_header_text' exists, wrap it in h2.
  * If 'field_subheader' exists, wrap it in h3.
  * If a 'Buy now' link exists, make it a primary action.
+ * If 'field_media_align' exists, set a class based on the value.
  * Invoke any bundle-specific preprocess if we're not default view mode.
  */
 function breema_preprocess_paragraph(&$variables) {
@@ -427,6 +428,11 @@ function breema_preprocess_paragraph(&$variables) {
   // Strip the description to cosmetic tags only (no links or media).
   if (!empty($variables['content']['field_description'][0])) {
     breema_strip_links($variables['content']['field_description'][0]['#text']);
+  }
+
+  if ($variables['paragraph']->hasField('field_media_align')) {
+    $align = $variables['paragraph']->get('field_media_align')->value;
+    $variables['attributes']['class'][] = 'media-align-' . $align;
   }
 
   // Unfortunately, when using non-default view mode, this preprocess hook isn't
@@ -501,13 +507,11 @@ function breema_preprocess_paragraph__person(&$variables) {
  * Preprocess function for 'Media: single' paragraph type.
  *
  * Injects the slice's link URL as a template variable.
- * Sets up template variables based on size and alignment values.
+ * Sets up template variables based on size and layout values.
  */
 function breema_preprocess_paragraph__media_single(&$variables) {
-  $align = $variables['paragraph']->get('field_media_align')->value;
   $layout = $variables['paragraph']->get('field_media_layout')->value;
   $size = $variables['paragraph']->get('field_media_size')->value;
-  $variables['attributes']['class'][] = 'media-align-' . $align;
   $variables['grid_attributes'] = new Attribute();
   $variables['grid_classes'] = [];
   switch ($size) {
@@ -563,8 +567,6 @@ function breema_preprocess_paragraph__media_single(&$variables) {
       $variables['content']['field_media'][0]['#cache']['keys'][3] = $view_mode;
     }
   }
-
-  // @todo Inject the align class into the media item.
 
   // If we're using a grid (e.g. not 'vertical'), depending on the layout, put
   // the media content in the correct variable.
