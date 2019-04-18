@@ -506,14 +506,11 @@ function breema_preprocess_paragraph__person(&$variables) {
 /**
  * Preprocess function for 'Media: single' paragraph type.
  *
- * Injects the slice's link URL as a template variable.
  * Sets up template variables based on size and layout values.
  */
 function breema_preprocess_paragraph__media_single(&$variables) {
   $layout = $variables['paragraph']->get('field_media_layout')->value;
   $size = $variables['paragraph']->get('field_media_size')->value;
-  $variables['grid_attributes'] = new Attribute();
-  $variables['grid_classes'] = [];
   switch ($size) {
     case '1/3':
       $view_mode = 'view_small';
@@ -535,21 +532,23 @@ function breema_preprocess_paragraph__media_single(&$variables) {
   }
 
   if ($layout !== 'vertical') {
-    $variables['grid_classes'][] = 'grid--container';
+    $grid_classes[] = 'grid--container';
     switch ($size) {
       case '1/3':
-        $variables['grid_classes'][] = 'grid--container-1-' . ($layout === 'left' ? '2u3366' : '2u6633');
+        $grid_classes[] = 'grid--container-1-' . ($layout === 'left' ? '2u3366' : '2u6633');
         break;
 
       case '1/2':
         // Layout doesn't impact which grid container.
-        $variables['grid_classes'][] = 'grid--container-1-2';
+        $grid_classes[] = 'grid--container-1-2';
         break;
 
       case '2/3':
-        $variables['grid_classes'][] = 'grid--container-1-' . ($layout === 'left' ? '2u6633' : '2u3366');
+        $grid_classes[] = 'grid--container-1-' . ($layout === 'left' ? '2u6633' : '2u3366');
         break;
     }
+    $variables['grid_attributes'] = new Attribute();
+    $variables['grid_attributes']->addClass($grid_classes);
   }
 
   if (isset($view_mode) && !empty($variables['content']['field_media'][0])) {
@@ -570,8 +569,7 @@ function breema_preprocess_paragraph__media_single(&$variables) {
 
   // If we're using a grid (e.g. not 'vertical'), depending on the layout, put
   // the media content in the correct variable.
-  if (!empty($variables['grid_classes'])
-      && !empty($variables['content']['field_media'])) {
+  if (!empty($grid_classes) && !empty($variables['content']['field_media'])) {
     $content_media = $variables['content']['field_media'];
     unset($variables['content']['field_media']);
     if ($layout === 'left') {
