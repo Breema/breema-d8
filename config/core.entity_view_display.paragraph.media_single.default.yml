@@ -13,7 +13,6 @@ dependencies:
     - field.field.paragraph.media_single.field_subheader
     - paragraphs.paragraphs_type.media_single
   module:
-    - options
     - text
 id: paragraph.media_single.default
 targetEntityType: paragraph
@@ -44,20 +43,6 @@ content:
       link: false
     third_party_settings: {  }
     region: content
-  field_media_align:
-    type: list_key
-    weight: 5
-    region: content
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-  field_media_size:
-    type: list_default
-    weight: 7
-    region: content
-    label: above
-    settings: {  }
-    third_party_settings: {  }
   field_subheader:
     weight: 1
     label: hidden
@@ -68,4 +53,6 @@ content:
     region: content
 hidden:
   field_link: true
+  field_media_align: true
   field_media_layout: true
+  field_media_size: true
