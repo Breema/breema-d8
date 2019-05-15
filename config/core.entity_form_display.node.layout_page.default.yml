@@ -42,7 +42,7 @@ content:
     region: content
   field_paragraphs:
     type: paragraphs
-    weight: 1
+    weight: 2
     settings:
       title: Paragraph
       title_plural: Paragraphs
@@ -61,7 +61,7 @@ content:
     region: content
   field_slideshow:
     type: paragraphs
-    weight: 2
+    weight: 1
     settings:
       title: Slide
       title_plural: Slides
@@ -135,4 +135,5 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  group_content: true
