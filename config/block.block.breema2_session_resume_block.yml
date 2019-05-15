@@ -4,6 +4,7 @@ status: true
 dependencies:
   module:
     - breema
+    - system
     - user
   theme:
     - breema2
@@ -26,3 +27,8 @@ visibility:
     negate: false
     context_mapping:
       user: '@user.current_user_context:current_user'
+  request_path:
+    id: request_path
+    pages: "/front\r\n<front>\r\n"
+    negate: true
+    context_mapping: {  }

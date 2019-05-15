@@ -25,7 +25,6 @@ visibility:
     roles:
       instructor: instructor
       event_expert: event_expert
-      event_editor: event_editor
       content_administrator: content_administrator
       administrator: administrator
     negate: false
@@ -33,6 +32,6 @@ visibility:
       user: '@user.current_user_context:current_user'
   request_path:
     id: request_path
-    pages: '/user/*/events'
+    pages: "/user/*/events\r\n/front\r\n<front>\r\n"
     negate: true
     context_mapping: {  }
