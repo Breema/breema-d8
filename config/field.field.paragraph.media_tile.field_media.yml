@@ -1,0 +1,34 @@
+uuid: 4b1e17e6-ac92-4928-ac4b-f877fbdfbb26
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_media
+    - media.type.audio_file
+    - media.type.file
+    - media.type.image
+    - media.type.video
+    - paragraphs.paragraphs_type.media_tile
+id: paragraph.media_tile.field_media
+field_name: field_media
+entity_type: paragraph
+bundle: media_tile
+label: Media
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      audio_file: audio_file
+      file: file
+      image: image
+      video: video
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: audio_file
+field_type: entity_reference

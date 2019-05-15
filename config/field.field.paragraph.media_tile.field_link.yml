@@ -1,0 +1,23 @@
+uuid: 7eb16e22-1c59-4838-b95e-63cebbeca955
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_link
+    - paragraphs.paragraphs_type.media_tile
+  module:
+    - link
+id: paragraph.media_tile.field_link
+field_name: field_link
+entity_type: paragraph
+bundle: media_tile
+label: Link
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 0
+field_type: link

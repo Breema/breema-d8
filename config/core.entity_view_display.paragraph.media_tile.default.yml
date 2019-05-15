@@ -1,0 +1,33 @@
+uuid: 952baab6-b27d-41a1-bf13-15665b2a804f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.media_tile.field_header_text
+    - field.field.paragraph.media_tile.field_link
+    - field.field.paragraph.media_tile.field_media
+    - paragraphs.paragraphs_type.media_tile
+id: paragraph.media_tile.default
+targetEntityType: paragraph
+bundle: media_tile
+mode: default
+content:
+  field_header_text:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_media:
+    weight: 1
+    label: hidden
+    settings:
+      view_mode: view_medium
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+hidden:
+  field_link: true

@@ -1,0 +1,9 @@
+uuid: 31e95624-0cbf-4965-807e-984d09183161
+langcode: en
+status: true
+dependencies: {  }
+id: media_tile
+label: 'Media: Tile'
+icon_uuid: null
+description: 'A "tile" for the 3-column section of layout pages (with media item, header, and link).'
+behavior_plugins: {  }
