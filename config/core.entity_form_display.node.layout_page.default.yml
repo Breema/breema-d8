@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.layout_page.field_paragraphs
     - field.field.node.layout_page.field_slideshow
     - field.field.node.layout_page.field_summary
+    - field.field.node.layout_page.field_tiles
     - node.type.layout_page
   module:
     - entity_browser
@@ -21,12 +22,12 @@ mode: default
 content:
   created:
     type: datetime_timestamp
-    weight: 6
+    weight: 7
     region: content
     settings: {  }
     third_party_settings: {  }
   field_main_image:
-    weight: 3
+    weight: 4
     settings:
       entity_browser: image_browser
       field_widget_display: rendered_entity
@@ -79,16 +80,35 @@ content:
     third_party_settings: {  }
     region: content
   field_summary:
-    weight: 4
+    weight: 5
     settings:
       rows: 2
       placeholder: ''
     third_party_settings: {  }
     type: text_textarea
     region: content
+  field_tiles:
+    type: paragraphs
+    weight: 3
+    settings:
+      title: Tile
+      title_plural: Tiles
+      edit_mode: closed
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
+      add_mode: button
+      form_display_mode: default
+      default_paragraph_type: media_tile
+      features:
+        duplicate: duplicate
+        collapse_edit_all: collapse_edit_all
+        add_above: '0'
+    third_party_settings: {  }
+    region: content
   path:
     type: path
-    weight: 9
+    weight: 10
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -96,21 +116,21 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 7
+    weight: 8
     region: content
     third_party_settings: {  }
   status:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 11
+    weight: 12
     region: content
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 8
+    weight: 9
     region: content
     third_party_settings: {  }
   title:
@@ -123,7 +143,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 5
+    weight: 6
     settings:
       match_operator: CONTAINS
       size: 60
@@ -131,7 +151,7 @@ content:
     region: content
     third_party_settings: {  }
   url_redirects:
-    weight: 10
+    weight: 11
     region: content
     settings: {  }
     third_party_settings: {  }

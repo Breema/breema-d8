@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.layout_page.field_paragraphs
     - field.field.node.layout_page.field_slideshow
     - field.field.node.layout_page.field_summary
+    - field.field.node.layout_page.field_tiles
     - node.type.layout_page
   module:
     - entity_reference_revisions
@@ -25,8 +26,17 @@ content:
       link: ''
     third_party_settings: {  }
     region: content
-  links:
+  field_tiles:
+    type: entity_reference_revisions_entity_view
     weight: 1
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 2
     region: content
     settings: {  }
     third_party_settings: {  }

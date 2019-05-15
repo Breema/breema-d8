@@ -1,0 +1,61 @@
+uuid: 794fe774-380d-4331-8578-64873fc08a3c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tiles
+    - node.type.layout_page
+    - paragraphs.paragraphs_type.media_tile
+  module:
+    - entity_reference_revisions
+id: node.layout_page.field_tiles
+field_name: field_tiles
+entity_type: node
+bundle: layout_page
+label: Tiles
+description: 'Media tiles that appear in 3 columns (at full width).'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      media_tile: media_tile
+    target_bundles_drag_drop:
+      event_featured:
+        weight: 12
+        enabled: false
+      event_single:
+        weight: 13
+        enabled: false
+      featured_product:
+        weight: 14
+        enabled: false
+      media_3_up:
+        weight: 15
+        enabled: false
+      media_single:
+        weight: 16
+        enabled: false
+      media_tile:
+        enabled: true
+        weight: 17
+      person:
+        weight: 18
+        enabled: false
+      product_info_audio:
+        weight: 19
+        enabled: false
+      product_info_book:
+        weight: 20
+        enabled: false
+      product_info_general:
+        weight: 21
+        enabled: false
+      product_single:
+        weight: 22
+        enabled: false
+field_type: entity_reference_revisions
