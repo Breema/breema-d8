@@ -11,7 +11,7 @@ id: paragraph.product_single.field_media_align
 field_name: field_media_align
 entity_type: paragraph
 bundle: product_single
-label: 'Cover image alignment'
+label: 'Product image alignment'
 description: ''
 required: false
 translatable: true
