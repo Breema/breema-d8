@@ -1,0 +1,22 @@
+{%
+  set classes = [
+    'paragraph',
+    'paragraph--type--' ~ paragraph.bundle|clean_class,
+    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+    not paragraph.isPublished() ? 'paragraph--unpublished'
+  ]
+%}
+
+{% block paragraph %}
+  <div{{ attributes.addClass(classes) }}>
+    {% if url %}
+      <a href="{{ url }}" class="teaser-link">
+    {% endif %}
+    {% block content %}
+      {{ content }}
+    {% endblock %}
+    {% if url %}
+      </a>
+    {% endif %}
+  </div>
+{% endblock paragraph %}
