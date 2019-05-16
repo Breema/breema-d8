@@ -37,3 +37,14 @@
     float: right;
   }
 }
+
+// Center the header text and image on 'Media: Tile' paragraphs.
+.paragraph--type--media-tile {
+  h2 {
+    text-align: center;
+  }
+  .field--type-image img {
+    display: block;
+    margin: 0 auto;
+  }
+}
