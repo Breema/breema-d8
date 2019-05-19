@@ -12,6 +12,7 @@ dependencies:
     - paragraphs.paragraphs_type.media_single
     - paragraphs.paragraphs_type.person
     - paragraphs.paragraphs_type.product_single
+    - paragraphs.paragraphs_type.text
   module:
     - entity_reference_revisions
 id: node.layout_page.field_paragraphs
@@ -36,6 +37,7 @@ settings:
       media_single: media_single
       media_3_up: media_3_up
       product_single: product_single
+      text: text
     target_bundles_drag_drop:
       product_info_audio:
         weight: 4
@@ -64,7 +66,13 @@ settings:
       media_3_up:
         enabled: true
         weight: 14
+      media_tile:
+        weight: 18
+        enabled: false
       product_single:
         enabled: true
         weight: 22
+      text:
+        enabled: true
+        weight: 24
 field_type: entity_reference_revisions

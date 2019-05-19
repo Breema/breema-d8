@@ -1,0 +1,9 @@
+uuid: 01e7ea00-4b19-49e0-bafc-0e67a715dc31
+langcode: en
+status: true
+dependencies: {  }
+id: text
+label: Text
+icon_uuid: null
+description: 'Full-width text-only.'
+behavior_plugins: {  }

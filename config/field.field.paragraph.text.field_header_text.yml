@@ -1,0 +1,19 @@
+uuid: db89c70b-2e98-4e9e-bf21-2fa10f39132a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_header_text
+    - paragraphs.paragraphs_type.text
+id: paragraph.text.field_header_text
+field_name: field_header_text
+entity_type: paragraph
+bundle: text
+label: 'Header text'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
