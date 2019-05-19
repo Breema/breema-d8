@@ -77,6 +77,9 @@
     color: $c-blue;
     text-decoration: none;
   }
+  .horizontal-menu {
+    margin-top: 1.75em;  // Vertically center menu within Breema "logo" text.
+  }
 }
 
 @media (min-width: 1025px) {

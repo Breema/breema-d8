@@ -581,6 +581,9 @@ a.telephone:before,
   color: #007cb2;
   text-decoration: none;
 }
+.region-primary-menu .horizontal-menu {
+  margin-top: 1.75em;
+}
 
 @media (min-width: 1025px) {
   .site-branding__name {
