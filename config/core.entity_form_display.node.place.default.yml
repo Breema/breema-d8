@@ -81,6 +81,13 @@ content:
     weight: 9
     region: content
     third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    weight: 10
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
   title:
     type: string_textfield
     weight: 0
@@ -99,7 +106,7 @@ content:
     region: content
     third_party_settings: {  }
   url_redirects:
-    weight: 10
+    weight: 11
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -108,4 +115,3 @@ hidden:
   field_has_active_event: true
   field_upcoming_events: true
   promote: true
-  sticky: true
