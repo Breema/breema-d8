@@ -1160,6 +1160,10 @@ html.mm-opened .mm-page {
   width: 12em;
 }
 
+.horizontal-menu > li:nth-child(4) ul {
+  width: 9em;
+}
+
 .horizontal-menu > li:nth-child(6) ul {
   width: 7.5em;
 }
