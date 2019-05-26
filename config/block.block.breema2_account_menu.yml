@@ -14,7 +14,7 @@ _core:
 id: breema2_account_menu
 theme: breema2
 region: secondary_menu
-weight: 0
+weight: -15
 provider: null
 plugin: 'system_menu_block:account'
 settings:
@@ -24,6 +24,7 @@ settings:
   label_display: '0'
   level: 1
   depth: 1
+  expand_all_items: false
 visibility:
   user_role:
     id: user_role

@@ -5,5 +5,4 @@ dependencies: {  }
 name: 'Video type'
 vid: video_type
 description: ''
-hierarchy: 0
 weight: 0

@@ -5,5 +5,4 @@ dependencies: {  }
 name: 'File type'
 vid: file_type
 description: 'Classify the content of a file (e.g. schedule, article, form).'
-hierarchy: 0
 weight: 0
