@@ -19,8 +19,30 @@
   .block .content {
     margin: 0;
   }
+  .block-menu {
+    float: left;
+  }
+  .block.search-block-form {
+    float: right;
+    width: 225px;
+    input {
+      margin: 0 5px 0 0;
+    }
+    .form-actions .button {
+      margin: 6px 0 0 0;
+    }
+  }
 }    
 
+@media (min-width: 601px) {
+  .region-secondary-menu {
+    .block.search-block-form {
+      input {
+        margin: 5px;
+      }
+    }
+  }
+}
 @media (min-width: 851px) {
   .region-secondary-menu {
     ul.menu { 
@@ -51,6 +73,7 @@
   display: -ms-flexbox;      // TWEENER - IE 10
   display: -webkit-flex;     // NEW - Chrome
   display: flex;             // NEW, Spec - Opera 12.1, Firefox 20+
+  clear: both;
 }
 
 .region-header {

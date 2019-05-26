@@ -527,7 +527,25 @@ a.telephone:before,
 .region-secondary-menu .block .content {
   margin: 0;
 }
+.region-secondary-menu .block-menu {
+  float: left;
+}
+.region-secondary-menu .block.search-block-form {
+  float: right;
+  width: 225px;
+}
+.region-secondary-menu .block.search-block-form input {
+  margin: 0 5px 0 0;
+}
+.region-secondary-menu .block.search-block-form .form-actions .button {
+  margin: 6px 0 0 0;
+}
 
+@media (min-width: 601px) {
+  .region-secondary-menu .block.search-block-form input {
+    margin: 5px;
+  }
+}
 @media (min-width: 851px) {
   .region-secondary-menu ul.menu {
     margin: 0 auto;
@@ -555,6 +573,7 @@ a.telephone:before,
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
+  clear: both;
 }
 
 .region-header {
