@@ -1,0 +1,28 @@
+uuid: 706b0715-37eb-4716-8194-06ab73b060db
+langcode: en
+status: true
+dependencies:
+  module:
+    - search
+    - user
+  theme:
+    - breema2
+id: breema2_search_form_anon
+theme: breema2
+region: secondary_menu
+weight: 0
+provider: null
+plugin: search_form_block
+settings:
+  id: search_form_block
+  label: 'Search form'
+  provider: search
+  label_display: '0'
+visibility:
+  user_role:
+    id: user_role
+    roles:
+      anonymous: anonymous
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
