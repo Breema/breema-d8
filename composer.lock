@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "77c4016ae040e0d938c4d0d72640f949",
+    "content-hash": "94917463fff70e12f91ec106244f9711",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -4931,6 +4931,53 @@
             "homepage": "https://www.drupal.org/project/token",
             "support": {
                 "source": "http://cgit.drupalcode.org/token"
+            }
+        },
+        {
+            "name": "drupal/toolbar_responsive_search",
+            "version": "1.0.0-alpha1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/toolbar_responsive_search.git",
+                "reference": "8.x-1.0-alpha1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/toolbar_responsive_search-8.x-1.0-alpha1.zip",
+                "reference": "8.x-1.0-alpha1",
+                "shasum": "e7b5febf00194f37e28bead71082eb970da8d6ec"
+            },
+            "require": {
+                "drupal/core": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.0-alpha1",
+                    "datestamp": "1558899785",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Project has not opted into security advisory coverage!"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "dww",
+                    "homepage": "https://www.drupal.org/user/46549"
+                }
+            ],
+            "description": "Adds a responsive search form to the toolbar.",
+            "homepage": "https://www.drupal.org/project/toolbar_responsive_search",
+            "support": {
+                "source": "https://git.drupalcode.org/project/toolbar_responsive_search"
             }
         },
         {
