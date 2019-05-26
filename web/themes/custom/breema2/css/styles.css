@@ -1468,3 +1468,7 @@ details.e-books .details-wrapper {
 .toolbar .toolbar-bar {
   background-color: #752d53;
 }
+
+.toolbar-tab-search.toolbar-tab-search-full.toolbar-tab {
+  float: right;
+}
