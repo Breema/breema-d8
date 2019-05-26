@@ -1918,3 +1918,13 @@ function breema_strip_links(&$text_field) {
     '<p><em><i><strong><b><ul><ol><li><blockquote><h3><h4><h5><h6><ins><del><dl><dt><dd><cite><br><figure><figcaption>'
   );
 }
+
+/**
+ * Implements hook_toolbar_alter().
+ *
+ * Hide the 'administration_search' feature from drupal/admin_toolbar [#2986082]
+ * which conflicts with drupal/toolbar_responsive_search.
+ */
+function breema_toolbar_alter(&$items) {
+  unset($items['administration_search']);
+}
