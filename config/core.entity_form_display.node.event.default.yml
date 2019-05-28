@@ -40,7 +40,6 @@ third_party_settings:
       weight: 10
       format_type: fieldset
       format_settings:
-        label: Links
         description: ''
         id: ''
         classes: ''
@@ -91,10 +90,10 @@ content:
     settings:
       duration_granularity: 'd:h:i'
       default_duration:
-        d: '0'
-        h: '2'
-        i: '0'
-      time_increment: '300'
+        d: 0
+        h: 2
+        i: 0
+      time_increment: 300
     third_party_settings: {  }
     type: daterange_duration
     region: content
@@ -144,11 +143,11 @@ content:
       field_widget_display: rendered_entity
       field_widget_edit: true
       field_widget_remove: true
+      open: true
       selection_mode: selection_append
       field_widget_display_settings:
         view_mode: view_medium
       field_widget_replace: false
-      open: false
     third_party_settings: {  }
     type: entity_browser_entity_reference
     region: content
