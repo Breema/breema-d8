@@ -6,7 +6,6 @@ dependencies:
     - core.entity_view_mode.node.teaser_compact
     - node.type.event
     - node.type.place
-    - system.menu.main
   module:
     - datetime
     - node
@@ -439,51 +438,6 @@ display:
         groups:
           1: AND
       pager:
-        type: some
-        options:
-          items_per_page: 12
-          offset: 0
-      use_more: true
-      use_more_always: false
-      use_more_text: 'Read more'
-      link_display: custom_url
-      link_url: node/2
-    cache_metadata:
-      max-age: -1
-      contexts:
-        - 'languages:language_content'
-        - 'languages:language_interface'
-        - 'user.node_grants:view'
-        - user.permissions
-      tags: {  }
-  page_breema_center:
-    display_plugin: page
-    id: page_breema_center
-    display_title: 'Page: Breema Center'
-    position: 3
-    display_options:
-      display_extenders: {  }
-      display_description: ''
-      title: 'Events at the Breema Center'
-      defaults:
-        title: false
-        pager: false
-        arguments: false
-        filters: false
-        filter_groups: false
-        style: true
-        row: true
-      path: about-center/events
-      menu:
-        type: normal
-        title: 'Events at the Center'
-        description: ''
-        expanded: false
-        parent: 'menu_link_content:ade06bd8-32e1-458b-a97f-299b35ddda46'
-        weight: -50
-        context: '0'
-        menu_name: main
-      pager:
         type: mini
         options:
           items_per_page: 24
@@ -491,8 +445,8 @@ display:
           id: 0
           total_pages: null
           tags:
-            previous: '‹ Previous'
-            next: 'Next ›'
+            previous: ‹‹
+            next: ››
           expose:
             items_per_page: false
             items_per_page_label: 'Items per page'
@@ -501,117 +455,11 @@ display:
             items_per_page_options_all_label: '- All -'
             offset: false
             offset_label: Offset
-      arguments: {  }
-      filters:
-        status:
-          value: '1'
-          table: node_field_data
-          field: status
-          plugin_id: boolean
-          entity_type: node
-          entity_field: status
-          id: status
-          expose:
-            operator: ''
-          group: 1
-        type:
-          id: type
-          table: node_field_data
-          field: type
-          value:
-            event: event
-          entity_type: node
-          entity_field: type
-          plugin_id: bundle
-        field_date_time_end_value:
-          id: field_date_time_end_value
-          table: node__field_date_time
-          field: field_date_time_end_value
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: '>='
-          value:
-            min: ''
-            max: ''
-            value: now
-            type: offset
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            placeholder: ''
-            min_placeholder: ''
-            max_placeholder: ''
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          plugin_id: datetime
-        field_location_target_id:
-          id: field_location_target_id
-          table: node__field_location
-          field: field_location_target_id
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: '='
-          value:
-            min: ''
-            max: ''
-            value: '2'
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            placeholder: ''
-            min_placeholder: ''
-            max_placeholder: ''
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          plugin_id: numeric
-      filter_groups:
-        operator: AND
-        groups:
-          1: AND
+      use_more: true
+      use_more_always: false
+      use_more_text: 'Read more'
+      link_display: custom_url
+      link_url: node/2
     cache_metadata:
       max-age: -1
       contexts:
