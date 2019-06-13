@@ -1,0 +1,20 @@
+uuid: 956f3a6c-895b-41ca-85de-245f54ffab63
+langcode: en
+status: true
+dependencies:
+  module:
+    - breema
+  theme:
+    - breema2
+id: breema2_social_media_share_links
+theme: breema2
+region: content
+weight: -14
+provider: null
+plugin: social_share_block
+settings:
+  id: social_share_block
+  label: Share
+  provider: breema
+  label_display: '0'
+visibility: {  }

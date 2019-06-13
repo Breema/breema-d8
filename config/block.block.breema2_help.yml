@@ -11,7 +11,7 @@ _core:
 id: breema2_help
 theme: breema2
 region: content
-weight: -14
+weight: -15
 provider: null
 plugin: help_block
 settings:
