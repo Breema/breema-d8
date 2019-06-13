@@ -39,6 +39,7 @@ module:
   flag: 0
   flexslider: 0
   flexslider_views: 0
+  forward: 0
   fullcalendar_view: 0
   geocoder: 0
   geocoder_address: 0
