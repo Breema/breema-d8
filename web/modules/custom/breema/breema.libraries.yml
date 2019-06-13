@@ -8,3 +8,11 @@ entity-browser:
   dependencies:
     - core/jquery
     - core/drupal
+
+block.share:
+  version: VERSION
+  js:
+    js/breema.share.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
