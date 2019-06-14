@@ -1,6 +1,8 @@
 .block-social-share-block {
   float: right;
   margin: 0 1em;
+  position: relative;
+  z-index: 1;
   .main-links {
     li {
       display: inline-block;
@@ -29,7 +31,7 @@
     position: absolute;
     left: 64px;
     top: 45px;
-    z-index: 1;
+    z-index: 2;
     opacity: 0;
     transition: opacity .4s ease-out;
     visibility: hidden;
@@ -50,7 +52,7 @@
     padding: 2px 5px;
     text-align: center;
     &:hover {
-      background: $c-plum;
+      background: $c-blue-dark;
       cursor: pointer;
     }
     .x {
@@ -62,6 +64,7 @@
 .block-page-title-block,
 .block-event-datetime-block {
   float: left;
+  clear: left;
 }
 .block-local-tasks-block,
 .block-system-main-block {
