@@ -227,11 +227,11 @@ a.teaser-link .node__content {
   margin: 0;
 }
 
-a.teaser-link .node--sticky {
+a.teaser-link .node--sticky:not(.node--type-place) {
   background-color: $c-sticky;
 }
 
-a.teaser-link:hover .node--sticky {
+a.teaser-link:hover .node--sticky:not(.node--type-place) {
   background-color: $c-sticky-hover;
 }
 
