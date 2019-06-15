@@ -11,7 +11,8 @@
     a {
       display: inline-block;
       background-color: $c-blue;
-      border: 1px solid $c-blue-dark;
+      background-image: linear-gradient(to bottom, $c-blue, darken($c-blue, 6%));
+      @include shadow-border(1px, solid, $c-blue);
       color: #fff;
       border-radius: 32px;
       height: 32px;
@@ -22,6 +23,8 @@
     }
     a:hover {
       background-color: $c-blue-dark;
+      background-image: linear-gradient(to bottom, $c-blue-dark, darken($c-blue-dark, 6%));
+      @include shadow-border(1px, solid, $c-blue-dark);
     }
   }
   .more-links {

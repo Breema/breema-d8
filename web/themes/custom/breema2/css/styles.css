@@ -1381,7 +1381,11 @@ ul.menu.mm-listview a.is-active {
 .block-social-share-block .main-links a {
   display: inline-block;
   background-color: #007cb2;
-  border: 1px solid #006089;
+  background-image: linear-gradient(to bottom, #007cb2, #006793);
+  border: 1px solid #007cb2;
+  border-left-color: #006089;
+  border-right-color: #006089;
+  border-bottom-color: #004766;
   color: #fff;
   border-radius: 32px;
   height: 32px;
@@ -1392,6 +1396,11 @@ ul.menu.mm-listview a.is-active {
 }
 .block-social-share-block .main-links a:hover {
   background-color: #006089;
+  background-image: linear-gradient(to bottom, #006089, #004a6b);
+  border: 1px solid #006089;
+  border-left-color: #004360;
+  border-right-color: #004360;
+  border-bottom-color: #002a3d;
 }
 .block-social-share-block .more-links {
   background: #fff;
