@@ -1563,3 +1563,7 @@ details.e-books .details-wrapper {
 .toolbar-tab-search.toolbar-tab-search-full.toolbar-tab {
   float: right;
 }
+
+.toolbar .toolbar-bar .toolbar-tab-search-full {
+  height: 26px;
+}
