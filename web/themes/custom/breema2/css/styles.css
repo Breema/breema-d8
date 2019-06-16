@@ -543,7 +543,7 @@ a.telephone:before,
 
 @media (min-width: 601px) {
   .region-secondary-menu .block.search-block-form input {
-    margin: 5px;
+    margin: 6px 5px 6px 0;
   }
 }
 @media (min-width: 851px) {
