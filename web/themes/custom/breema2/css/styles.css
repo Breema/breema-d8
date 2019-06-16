@@ -262,20 +262,19 @@ a.teaser-link .node--view-mode-teaser-with-location .field--name-field-location 
 
 .field--name-field-main-image img {
   display: block;
-  margin: 0 auto;
+  margin: 0;
+  padding: 0;
 }
 
 @media (min-width: 715px) {
   a.teaser-link .field--name-field-main-image,
   .field--name-field-main-image {
     float: left;
-    margin: 0 1em 0 0;
-    padding: 0;
     max-width: 50%;
   }
 
   .field--name-field-main-image img {
-    margin: 0;
+    margin: 0 1em 0 0;
   }
 }
 .node--view-mode-teaser-search-result .field--name-field-location p.address,
