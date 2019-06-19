@@ -1,0 +1,10 @@
+uuid: b70dc1fd-93f6-4c4e-9578-27573321a36f
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.view_book_small
+label: 'View: Book - small (155x220)'
+targetEntityType: media
+cache: true
