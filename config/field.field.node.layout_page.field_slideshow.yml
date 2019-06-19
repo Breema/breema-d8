@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.storage.node.field_slideshow
     - node.type.layout_page
+    - paragraphs.paragraphs_type.essence_single
     - paragraphs.paragraphs_type.event_single
     - paragraphs.paragraphs_type.media_single
     - paragraphs.paragraphs_type.person
@@ -27,6 +28,7 @@ settings:
     negate: 0
     target_bundles:
       event_single: event_single
+      essence_single: essence_single
       media_single: media_single
       person: person
       product_single: product_single
@@ -40,6 +42,9 @@ settings:
       featured_product:
         weight: 13
         enabled: false
+      essence_single:
+        enabled: true
+        weight: 14
       media_3_up:
         weight: 14
         enabled: false
@@ -58,7 +63,13 @@ settings:
       product_info_general:
         weight: 19
         enabled: false
+      media_tile:
+        weight: 20
+        enabled: false
       product_single:
         enabled: true
         weight: 20
+      text:
+        weight: 26
+        enabled: false
 field_type: entity_reference_revisions
