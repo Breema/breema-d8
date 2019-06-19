@@ -1,0 +1,54 @@
+uuid: cbea6f74-2f69-4f42-beae-27df4328bc9a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.essence_single.field_description
+    - field.field.paragraph.essence_single.field_header_text
+    - field.field.paragraph.essence_single.field_link
+    - field.field.paragraph.essence_single.field_media
+    - field.field.paragraph.essence_single.field_media_align
+    - field.field.paragraph.essence_single.field_subheader
+    - paragraphs.paragraphs_type.essence_single
+  module:
+    - text
+id: paragraph.essence_single.default
+targetEntityType: paragraph
+bundle: essence_single
+mode: default
+content:
+  field_description:
+    weight: 3
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_header_text:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_media:
+    weight: 2
+    label: hidden
+    settings:
+      view_mode: view_book_small
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+  field_subheader:
+    weight: 1
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden:
+  field_link: true
+  field_media_align: true

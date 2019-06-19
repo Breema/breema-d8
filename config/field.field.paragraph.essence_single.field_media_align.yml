@@ -1,0 +1,23 @@
+uuid: f4f85c4a-8164-4083-9f9b-fa81f8a19607
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_media_align
+    - paragraphs.paragraphs_type.essence_single
+  module:
+    - options
+id: paragraph.essence_single.field_media_align
+field_name: field_media_align
+entity_type: paragraph
+bundle: essence_single
+label: 'Media alignment'
+description: ''
+required: true
+translatable: true
+default_value:
+  -
+    value: center
+default_value_callback: ''
+settings: {  }
+field_type: list_string

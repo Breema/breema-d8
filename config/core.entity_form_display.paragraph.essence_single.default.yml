@@ -1,0 +1,78 @@
+uuid: 9481876d-1abc-4086-8d84-ead7ff27de21
+langcode: en
+status: true
+dependencies:
+  config:
+    - entity_browser.browser.media_browser
+    - field.field.paragraph.essence_single.field_description
+    - field.field.paragraph.essence_single.field_header_text
+    - field.field.paragraph.essence_single.field_link
+    - field.field.paragraph.essence_single.field_media
+    - field.field.paragraph.essence_single.field_media_align
+    - field.field.paragraph.essence_single.field_subheader
+    - paragraphs.paragraphs_type.essence_single
+  module:
+    - entity_browser
+    - link
+    - text
+id: paragraph.essence_single.default
+targetEntityType: paragraph
+bundle: essence_single
+mode: default
+content:
+  field_description:
+    weight: 4
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_header_text:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_link:
+    weight: 3
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_media:
+    weight: 2
+    settings:
+      entity_browser: media_browser
+      field_widget_display: rendered_entity
+      field_widget_edit: true
+      field_widget_remove: true
+      open: true
+      selection_mode: selection_append
+      field_widget_display_settings:
+        view_mode: view_book_small
+      field_widget_replace: false
+    third_party_settings: {  }
+    type: entity_browser_entity_reference
+    region: content
+  field_media_align:
+    weight: 5
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_subheader:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+hidden:
+  created: true
+  status: true

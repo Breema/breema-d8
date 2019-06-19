@@ -1,0 +1,19 @@
+uuid: d52d69c9-d945-48cc-b1fc-2c8af036b461
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_subheader
+    - paragraphs.paragraphs_type.essence_single
+id: paragraph.essence_single.field_subheader
+field_name: field_subheader
+entity_type: paragraph
+bundle: essence_single
+label: Subheader
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

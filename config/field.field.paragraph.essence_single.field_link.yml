@@ -1,0 +1,23 @@
+uuid: c93f59f1-59fa-497f-b139-f58f72edc738
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_link
+    - paragraphs.paragraphs_type.essence_single
+  module:
+    - link
+id: paragraph.essence_single.field_link
+field_name: field_link
+entity_type: paragraph
+bundle: essence_single
+label: Link
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 0
+field_type: link

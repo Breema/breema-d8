@@ -1,0 +1,9 @@
+uuid: 816165a3-368b-4c4f-a104-b68783ffadfa
+langcode: en
+status: true
+dependencies: {  }
+id: essence_single
+label: 'Essence: Single'
+icon_uuid: null
+description: 'Similar to a media item, but 1/3 media vs 2/3 text where the media item is optimized for book cover images.'
+behavior_plugins: {  }
