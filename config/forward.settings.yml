@@ -3,15 +3,15 @@ forward_entity_node: true
 forward_view_full: false
 forward_view_teaser: false
 forward_interface_type: link
-forward_interface_title: 'Email this [forward:entity-type]'
+forward_interface_title: 'Forward this page'
 forward_interface_weight: 0
 forward_link_inline: 1
-forward_link_title: 'Forward this [forward:entity-type] to a friend'
+forward_link_title: 'Forward this page'
 forward_link_icon: ''
 forward_link_style: 0
 forward_link_noindex: true
 forward_link_nofollow: false
-forward_form_instructions: 'Thank you for your interest in spreading the word about <em>[forward:entity-title]</em> on [site:name].'
+forward_form_instructions: ''
 forward_form_display_page: true
 forward_form_display_subject: false
 forward_form_display_body: false
