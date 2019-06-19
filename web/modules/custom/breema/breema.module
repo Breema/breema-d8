@@ -599,6 +599,17 @@ function breema_preprocess_paragraph__media_single(&$variables) {
 }
 
 /**
+ * Preprocess function for 'Essence: single' paragraph type.
+ *
+ * Sets up template variables.
+ */
+function breema_preprocess_paragraph__essence_single(&$variables) {
+  $grid_classes = ['grid--container', 'grid--container-1-2u3366'];
+  $variables['grid_attributes'] = new Attribute();
+  $variables['grid_attributes']->addClass($grid_classes);
+}
+
+/**
  * Generate a render array of inline action links to see more Breema events.
  */
 function _breema_get_more_events_action_links() {

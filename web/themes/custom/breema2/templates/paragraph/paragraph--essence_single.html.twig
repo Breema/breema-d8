@@ -1,0 +1,23 @@
+{%
+  set classes = [
+    'paragraph',
+    'paragraph--type--' ~ paragraph.bundle|clean_class,
+    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+    not paragraph.isPublished() ? 'paragraph--unpublished'
+  ]
+%}
+
+{% block paragraph %}
+  <div{{ attributes.addClass(classes) }}>
+    {% if url %}
+      <a href="{{ url }}" class="teaser-link">
+    {% endif %}
+    <div{{ grid_attributes }}>
+      <div class="grid--item">{{ content.field_media }}</div>
+      <div class="grid--item">{{ content|without('field_media') }}</div>
+    </div>
+    {% if url %}
+      </a>
+    {% endif %}
+  </div>
+{% endblock paragraph %}
