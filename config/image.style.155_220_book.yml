@@ -1,0 +1,15 @@
+uuid: 4c103957-8401-49ba-8f78-1a73cff7983b
+langcode: en
+status: true
+dependencies: {  }
+name: 155_220_book
+label: '(7:10) 155x220 - Book small'
+effects:
+  663ba776-bd5e-4f29-8dc0-902d25308086:
+    uuid: 663ba776-bd5e-4f29-8dc0-902d25308086
+    id: image_scale
+    weight: 1
+    data:
+      width: 155
+      height: 220
+      upscale: false
