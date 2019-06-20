@@ -32,14 +32,6 @@ targetEntityType: node
 bundle: event
 mode: teaser
 content:
-  field_categories:
-    type: entity_reference_label
-    weight: 4
-    region: content
-    label: hidden
-    settings:
-      link: false
-    third_party_settings: {  }
   field_date_time:
     weight: 0
     label: hidden
@@ -76,6 +68,7 @@ content:
 hidden:
   body: true
   field_address: true
+  field_categories: true
   field_display_instructor_bios: true
   field_facebook_event: true
   field_geolocation: true
