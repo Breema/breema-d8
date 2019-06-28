@@ -76,31 +76,29 @@ p {
   overflow: hidden;
 }
 
+blockquote, figure {
+  margin: 0 0 1.5em 0;
+}
+
 blockquote {
   font-style: normal;
+  font-size: 110%;
+  background-color: $c-blockquote-back;
+  color: $c-blockquote-front;
+  padding: 10px;
+  border-left: none;
   p:last-child {
     margin-bottom: 0;
   }
 }
 
-blockquote,
-figure {
-  margin: 0 0 1em 0;
-  border-left: 1px solid #bbb;
-  background-color: #eee;
-}
-
 figure {
   min-width: 250px;
   audio {
-    margin: 0.5em 0 0 0.5em;
+    margin: 10px 0 0 10px;
   }
-  // Blockquotes inside a figure (for attribution) don't need a 2nd left border
-  // nor the extra margin before the attribution.
   blockquote {
-    border-left: none;
-    margin: 0 0 0.5em 0;
-    padding-bottom: 0;
+    margin: 0;
   }
 }
 
@@ -114,7 +112,7 @@ blockquote:before {
   padding: 0 0 0 1em;
 }
 .attribution:before {
-  color: #aaa;
+  color: $c-gr9;
   content: "\2015\0020"; /* quote dash and a space */
 }
 @media (min-width: 715px) {

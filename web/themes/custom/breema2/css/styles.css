@@ -97,30 +97,30 @@ p {
   overflow: hidden;
 }
 
+blockquote, figure {
+  margin: 0 0 1.5em 0;
+}
+
 blockquote {
   font-style: normal;
+  font-size: 110%;
+  background-color: #f6f5f0;
+  color: #143d8b;
+  padding: 10px;
+  border-left: none;
 }
 blockquote p:last-child {
   margin-bottom: 0;
-}
-
-blockquote,
-figure {
-  margin: 0 0 1em 0;
-  border-left: 1px solid #bbb;
-  background-color: #eee;
 }
 
 figure {
   min-width: 250px;
 }
 figure audio {
-  margin: 0.5em 0 0 0.5em;
+  margin: 10px 0 0 10px;
 }
 figure blockquote {
-  border-left: none;
-  margin: 0 0 0.5em 0;
-  padding-bottom: 0;
+  margin: 0;
 }
 
 blockquote:after,
@@ -134,7 +134,7 @@ blockquote:before {
 }
 
 .attribution:before {
-  color: #aaa;
+  color: #999;
   content: "\2015\0020";
   /* quote dash and a space */
 }
