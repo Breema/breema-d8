@@ -4,6 +4,7 @@ namespace Drupal\breema\Controller;
 
 use Drupal\Core\Access\AccessResult;
 use Drupal\Core\Controller\ControllerBase;
+use Drupal\Core\Url;
 use Drupal\node\Entity\Node;
 use Drupal\node\NodeInterface;
 use Drupal\user\Entity\User;
@@ -132,9 +133,16 @@ class BreemaController extends ControllerBase {
    * Page controller for the resumes tab on user accounts.
    */
   public function resumesPage() {
+    $url_options['query']['destination'] = \Drupal::destination()->get();
+    $add_url = Url::fromRoute('node.add', ['node_type' => 'session_resume'], $url_options);
     $build = [
       '#cache' => [
         'contexts' => ['route', 'user'],
+      ],
+      'add' => [
+        '#prefix' => '<div class="action action--primary">',
+        '#markup' => $this->t('<a href=":add">Add session resume</a>', [':add' => $add_url->toString()]),
+        '#suffix' => '</div>',
       ],
     ];
     $view = Views::getView('breema_resumes');
