@@ -1,0 +1,33 @@
+uuid: 4fcc2ef5-3354-470a-8186-4cf7ababf799
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.breema_group_content
+  module:
+    - group
+    - views
+  theme:
+    - breema2
+id: breema2_group_content_teasers
+theme: breema2
+region: content
+weight: 0
+provider: null
+plugin: 'views_block:breema_group_content-block_teasers'
+settings:
+  id: 'views_block:breema_group_content-block_teasers'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+  items_per_page: none
+  context_mapping: {  }
+visibility:
+  group_type:
+    id: group_type
+    group_types:
+      private: private
+    negate: false
+    context_mapping:
+      group: '@group.group_route_context:group'
