@@ -1,5 +1,5 @@
 status: 1
-pattern: 'Essence of Breema: [node:field_date:date:custom:j F, Y]'
+pattern: '[node:field_date:date:custom:j F, Y]'
 php: false
 escape: false
 dependencies:
