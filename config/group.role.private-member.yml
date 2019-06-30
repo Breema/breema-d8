@@ -1,0 +1,18 @@
+uuid: 0f087aa4-ff72-48a8-8d7b-8afb1ab58129
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.private
+id: private-member
+label: Member
+weight: -100
+internal: true
+audience: member
+group_type: private
+permissions_ui: true
+permissions:
+  - 'update own group_membership content'
+  - 'view group'
+  - 'view group_membership content'
+  - 'view group_node:private_page entity'

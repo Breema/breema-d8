@@ -1,0 +1,32 @@
+uuid: fdeb3e45-1230-481c-8642-c8ea5058818b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.group.field_resources
+    - group.type.private
+    - media.type.private_audio_file
+    - media.type.private_file
+    - media.type.private_image
+id: group.private.field_resources
+field_name: field_resources
+entity_type: group
+bundle: private
+label: Resources
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      private_audio_file: private_audio_file
+      private_file: private_file
+      private_image: private_image
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: private_audio_file
+field_type: entity_reference

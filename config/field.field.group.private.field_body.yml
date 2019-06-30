@@ -1,0 +1,22 @@
+uuid: 1e207bf4-8ea3-436a-9829-011539b91e0d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.group.field_body
+    - group.type.private
+  module:
+    - text
+id: group.private.field_body
+field_name: field_body
+entity_type: group
+bundle: private
+label: Body
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+field_type: text_with_summary

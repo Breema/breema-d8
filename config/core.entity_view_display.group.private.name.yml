@@ -1,0 +1,21 @@
+uuid: 8f7c34c5-a261-4406-82aa-77ab5847fb32
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.group.name
+    - field.field.group.private.field_body
+    - field.field.group.private.field_resources
+    - group.type.private
+id: group.private.name
+targetEntityType: group
+bundle: private
+mode: name
+content: {  }
+hidden:
+  changed: true
+  created: true
+  field_body: true
+  field_resources: true
+  label: true
+  uid: true

@@ -1,0 +1,10 @@
+uuid: 1d715081-9172-4e1c-937c-1b18a110f44f
+langcode: en
+status: true
+dependencies: {  }
+id: private
+label: 'Private group'
+description: 'A group for private content specific to a set of users.'
+creator_membership: false
+creator_wizard: false
+creator_roles: {  }

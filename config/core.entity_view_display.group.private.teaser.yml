@@ -1,0 +1,41 @@
+uuid: 1dcb4e35-c08a-4753-8e31-418eb186cc9e
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.group.teaser
+    - field.field.group.private.field_body
+    - field.field.group.private.field_resources
+    - group.type.private
+  module:
+    - smart_trim
+id: group.private.teaser
+targetEntityType: group
+bundle: private
+mode: teaser
+content:
+  field_body:
+    weight: 0
+    label: hidden
+    settings:
+      trim_length: 300
+      trim_type: chars
+      trim_suffix: ''
+      wrap_class: trimmed
+      more_text: More
+      more_class: more-link
+      summary_handler: full
+      trim_options:
+        text: true
+        trim_zero: false
+      wrap_output: false
+      more_link: false
+    third_party_settings: {  }
+    type: smart_trim
+    region: content
+hidden:
+  changed: true
+  created: true
+  field_resources: true
+  label: true
+  uid: true
