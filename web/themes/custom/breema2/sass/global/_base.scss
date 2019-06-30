@@ -109,18 +109,18 @@ blockquote:before {
 
 
 .attribution,
-figure figcaption {
+figure.quote figcaption {
   margin: 0 0 0.5em 0;
   padding: 0 0 0 1em;
 }
 .attribution:before,
-figure figcaption:before {
+figure.quote figcaption:before {
   color: $c-gr9;
   content: "\2015\0020"; /* quote dash and a space */
 }
 @media (min-width: 715px) {
   .attribution,
-  figure figcaption {
+  figure.quote figcaption {
     padding: 0 0 0 2em;
   }
 }
