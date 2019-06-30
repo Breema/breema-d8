@@ -48,6 +48,9 @@
   .block {
     margin: 0;
   }
+  .menu-item a {
+    border-color: $c-white-25o;
+  }
 }
 
 // We need more specific styles here to override the usual link colors.

@@ -721,6 +721,9 @@ a.telephone:before,
 .site-footer__bottom .block {
   margin: 0;
 }
+.site-footer__bottom .menu-item a {
+  border-color: rgba(255, 255, 255, 0.25);
+}
 
 .block-footer-email-subscribe-block .action--secondary a {
   color: #752d53;
