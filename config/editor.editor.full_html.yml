@@ -33,6 +33,7 @@ settings:
         -
           name: Media
           items:
+            - blockquote_attribution
             - Blockquote
             - media
             - node
