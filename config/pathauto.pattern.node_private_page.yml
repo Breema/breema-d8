@@ -1,0 +1,22 @@
+uuid: 1456245b-265b-498b-b3c2-eaf24801c0eb
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node_private_page
+label: 'Node: Private page'
+type: 'canonical_entities:node'
+pattern: 'private/[node:title]'
+selection_criteria:
+  41f41044-90db-4455-a68a-6ed8f05167f6:
+    id: node_type
+    bundles:
+      private_page: private_page
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 41f41044-90db-4455-a68a-6ed8f05167f6
+selection_logic: and
+weight: -5
+relationships: {  }
