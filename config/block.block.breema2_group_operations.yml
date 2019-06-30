@@ -1,0 +1,29 @@
+uuid: 29cbf17c-497c-428d-a64b-675c2b35c30c
+langcode: en
+status: true
+dependencies:
+  module:
+    - group
+  theme:
+    - breema2
+id: breema2_group_operations
+theme: breema2
+region: sidebar_first
+weight: 0
+provider: null
+plugin: group_operations
+settings:
+  id: group_operations
+  label: 'Group operations'
+  provider: group
+  label_display: visible
+  context_mapping:
+    group: '@group.group_route_context:group'
+visibility:
+  group_type:
+    id: group_type
+    group_types:
+      private: private
+    negate: false
+    context_mapping:
+      group: '@group.group_route_context:group'
