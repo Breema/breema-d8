@@ -1,0 +1,17 @@
+uuid: 36e3d28d-4048-4289-9142-a4c77873724a
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.private
+  enforced:
+    config:
+      - user.role.user_administrator
+id: private-1b726bb78
+label: 'User administrator'
+weight: -3
+internal: true
+audience: outsider
+group_type: private
+permissions_ui: false
+permissions: {  }

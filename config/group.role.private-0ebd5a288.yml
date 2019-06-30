@@ -1,0 +1,17 @@
+uuid: c42311f4-60c7-4d35-b319-d22c8e2677dc
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.private
+  enforced:
+    config:
+      - user.role.instructor
+id: private-0ebd5a288
+label: Instructor
+weight: -7
+internal: true
+audience: outsider
+group_type: private
+permissions_ui: false
+permissions: {  }

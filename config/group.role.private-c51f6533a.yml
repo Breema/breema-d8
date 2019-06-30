@@ -1,0 +1,17 @@
+uuid: 960fd9d9-9ce1-4e01-9aa2-2cc11aa1a451
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.private
+  enforced:
+    config:
+      - user.role.event_expert
+id: private-c51f6533a
+label: 'Event expert'
+weight: -6
+internal: true
+audience: outsider
+group_type: private
+permissions_ui: false
+permissions: {  }

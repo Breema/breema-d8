@@ -1,0 +1,17 @@
+uuid: f6ef3fb3-ceea-43cb-8db9-21adb814cd73
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.private
+  enforced:
+    config:
+      - user.role.practitioner
+id: private-939ca1780
+label: Practitioner
+weight: -8
+internal: true
+audience: outsider
+group_type: private
+permissions_ui: false
+permissions: {  }
