@@ -22,7 +22,7 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: "/node/*/edit\r\n/user/*\r\n/node/add*\r\n"
+    pages: "/node/*/edit\r\n/user/*\r\n/node/add*\r\n<front>\r\n/front*"
     negate: true
     context_mapping: {  }
   user_role:
