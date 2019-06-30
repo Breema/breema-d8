@@ -1446,7 +1446,9 @@ ul.menu.mm-listview a.is-active {
   clear: left;
 }
 
+.block-local-actions-block,
 .block-local-tasks-block,
+.block-simple-blockbreema-center-contact-info,
 .block-system-main-block {
   clear: both;
 }
