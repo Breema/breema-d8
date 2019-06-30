@@ -42,6 +42,7 @@ module:
   flexslider_views: 0
   forward: 0
   fullcalendar_view: 0
+  gcontent_field: 0
   geocoder: 0
   geocoder_address: 0
   geocoder_field: 0

@@ -9,6 +9,7 @@ dependencies:
     - image.style.224x126_smaller
     - node.type.private_page
   module:
+    - gcontent_field
     - media
     - text
     - user
@@ -43,12 +44,12 @@ content:
     type: entity_reference_entity_view
     region: content
   group_content:
-    type: entity_reference_entity_view
+    type: parent_group_formatter
     weight: 3
     region: content
     label: above
     settings:
-      view_mode: default
+      view_mode: name
       link: false
     third_party_settings: {  }
   links:

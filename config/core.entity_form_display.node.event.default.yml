@@ -256,3 +256,4 @@ hidden:
   field_address: true
   field_geolocation: true
   field_parent_event: true
+  group_content: true

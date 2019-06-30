@@ -1,0 +1,23 @@
+uuid: cf3380cc-491a-44a1-9074-2d3095ed99d2
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.content_type.private-group_node-private_page
+id: group_content.private-group_node-private_page.default
+targetEntityType: group_content
+bundle: private-group_node-private_page
+mode: default
+content:
+  entity_id:
+    type: entity_reference_autocomplete
+    weight: 0
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    region: content
+    third_party_settings: {  }
+hidden:
+  path: true
+  uid: true

@@ -109,8 +109,9 @@ content:
       placeholder: ''
     third_party_settings: {  }
   url_redirects:
-    weight: 50
+    weight: 10
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  group_content: true

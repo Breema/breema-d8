@@ -40,8 +40,7 @@ content:
     third_party_settings: {  }
   field_address:
     weight: 1
-    settings:
-      default_country: US
+    settings: {  }
     third_party_settings: {  }
     type: address_default
     region: content
@@ -114,4 +113,5 @@ hidden:
   field_geolocation: true
   field_has_active_event: true
   field_upcoming_events: true
+  group_content: true
   promote: true
