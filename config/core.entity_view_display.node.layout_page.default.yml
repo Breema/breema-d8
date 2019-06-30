@@ -44,3 +44,4 @@ hidden:
   field_main_image: true
   field_slideshow: true
   field_summary: true
+  group_content: true

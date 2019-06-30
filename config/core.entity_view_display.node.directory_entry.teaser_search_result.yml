@@ -133,4 +133,5 @@ hidden:
   field_name_first: true
   field_name_last: true
   field_resources: true
+  group_content: true
   links: true

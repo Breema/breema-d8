@@ -66,3 +66,4 @@ hidden:
   field_publication_year: true
   field_title_main: true
   field_title_sub: true
+  group_content: true

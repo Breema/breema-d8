@@ -144,3 +144,4 @@ hidden:
   field_name_first: true
   field_name_last: true
   field_upcoming_events: true
+  group_content: true

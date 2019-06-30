@@ -73,4 +73,5 @@ hidden:
   field_resources: true
   field_source_name: true
   field_source_url: true
+  group_content: true
   links: true

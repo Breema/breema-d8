@@ -103,9 +103,12 @@ content:
     third_party_settings: {  }
 hidden:
   field_breema_clinic_practitioner: true
+  field_facebook_page: true
   field_geolocation: true
   field_has_active_event: true
   field_name_first: true
   field_name_last: true
   field_resources: true
   field_upcoming_events: true
+  field_website: true
+  group_content: true

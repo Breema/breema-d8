@@ -71,4 +71,5 @@ hidden:
   field_geolocation: true
   field_has_active_event: true
   flag_my_places: true
+  group_content: true
   links: true

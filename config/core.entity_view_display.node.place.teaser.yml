@@ -44,4 +44,5 @@ hidden:
   field_upcoming_events: true
   field_website: true
   flag_my_places: true
+  group_content: true
   links: true

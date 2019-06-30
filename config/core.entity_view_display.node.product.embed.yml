@@ -58,4 +58,5 @@ hidden:
   body: true
   field_product_info: true
   field_publication_year: true
+  group_content: true
   links: true

@@ -111,3 +111,4 @@ content:
 hidden:
   field_has_active_event: true
   field_upcoming_events: true
+  group_content: true

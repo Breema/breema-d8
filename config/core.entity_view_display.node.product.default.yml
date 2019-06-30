@@ -71,3 +71,4 @@ content:
 hidden:
   field_title_main: true
   field_title_sub: true
+  group_content: true

@@ -72,3 +72,4 @@ hidden:
   field_original_article_url: true
   field_source_name: true
   field_source_url: true
+  group_content: true

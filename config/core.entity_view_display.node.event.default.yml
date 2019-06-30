@@ -162,3 +162,4 @@ hidden:
   field_date_time: true
   field_display_instructor_bios: true
   field_geolocation: true
+  group_content: true
