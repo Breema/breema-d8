@@ -141,6 +141,9 @@
         "[#2120055-22] Trim auto-generated labels" : "https://www.drupal.org/files/issues/2018-04-04/2120055-22.auto_entitylabel-8.x-2.x.trim-no-config.patch",
         "[#2905230-6] Alter inline_entity_form table to display auto-computed entity labels" : "https://www.drupal.org/files/issues/Title_displayed_as_AutoEntityLabel_after_saving_via_Inline_Entity_Form-2905230-6.patch"
       },
+      "drupal/ckeditor_blockquote_attribution": {
+        "[#3064985-3] Alter placeholder text for blockquotes" : "https://www.drupal.org/files/issues/2019-06-29/3064985-3.patch"
+      },
       "drupal/core": {
         "[#2135445-39] Toolbar displays Manage tab even if the user is not permitted to see it" : "https://www.drupal.org/files/issues/2019-01-12/2135445-39.no-empty-manage-tray.patch",
         "[#2648950-193] Use form element of type date instead textfield when selecting a date in an exposed filter" : "https://www.drupal.org/files/issues/2019-03-15/2648950-193.patch",

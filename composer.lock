@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "be6e749c292de4d6129086f643ea3d30",
+    "content-hash": "0f196ba661b89019ae26a9e7e8cb29b1",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -1640,6 +1640,9 @@
                         "status": "not-covered",
                         "message": "Project has not opted into security advisory coverage!"
                     }
+                },
+                "patches_applied": {
+                    "[#3064985-3] Alter placeholder text for blockquotes": "https://www.drupal.org/files/issues/2019-06-29/3064985-3.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -3958,7 +3961,7 @@
                 "source": "https://cgit.drupalcode.org/group",
                 "issues": "https://drupal.org/project/issues/group"
             },
-            "time": "2019-03-18T09:48:44+00:00"
+            "time": "2019-03-18 09:48:44"
         },
         {
             "name": "drupal/inline_entity_form",
