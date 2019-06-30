@@ -35,8 +35,7 @@ class BreemaEventDashboardBlock extends BlockBase {
       ],
     ];
     $current_user = \Drupal::currentUser();
-    $current_page = Url::fromRoute('<current>');
-    $url_options['query']['destination'] = $current_page->toString();
+    $url_options['query']['destination'] = \Drupal::destination()->get();
 
     $dashboard_url = Url::fromUri('internal:/user/dashboard/events');
     $dashboard_link = [

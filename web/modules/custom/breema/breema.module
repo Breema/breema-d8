@@ -886,7 +886,7 @@ function breema_directory_entry_node_form_alter(&$form, FormStateInterface $form
   else {
     $route = 'entity.user.edit_form';
     $route_args = ['user' => $user->id()];
-    $url_options['query']['destination'] = Url::fromRoute('<current>')->toString();
+    $url_options['query']['destination'] = \Drupal::destination()->get();
   }
   $url_options['fragment'] = 'edit-mail';
   $email_url = Url::fromRoute($route, $route_args, $url_options)->toString();
@@ -1501,8 +1501,7 @@ function breema_merge_titles(\Drupal\node\NodeInterface $node) {
  *   Appropriate render array for the current user and given directory entry.
  */
 function _breema_get_directory_entry_action_links(NodeInterface $directory_entry = NULL, $include_create_link = FALSE) {
-  $current_page = Url::fromRoute('<current>');
-  $url_options['query']['destination'] = $current_page->toString();
+  $url_options['query']['destination'] = \Drupal::destination()->get();
 
   // If there's no entry and we don't want create links, bail now.
   if (empty($directory_entry) && !$include_create_link) {
