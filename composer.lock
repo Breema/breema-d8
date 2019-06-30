@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "8c27fe103d1b4908152f547e236ab8a2",
+    "content-hash": "be6e749c292de4d6129086f643ea3d30",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -1610,6 +1610,53 @@
                 "source": "https://git.drupalcode.org/project/captcha"
             },
             "time": "2019-05-15 11:55:51"
+        },
+        {
+            "name": "drupal/ckeditor_blockquote_attribution",
+            "version": "1.0.0-beta2",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/ckeditor_blockquote_attribution.git",
+                "reference": "8.x-1.0-beta2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/ckeditor_blockquote_attribution-8.x-1.0-beta2.zip",
+                "reference": "8.x-1.0-beta2",
+                "shasum": "029bfa238c0ac365e36dee7cea1167d570582e91"
+            },
+            "require": {
+                "drupal/core": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.0-beta2",
+                    "datestamp": "1544572380",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Project has not opted into security advisory coverage!"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "alxp",
+                    "homepage": "https://www.drupal.org/user/173521"
+                }
+            ],
+            "description": "CKEditor button that inserts a blockquote along with HTML 5 figure and citation markup.",
+            "homepage": "https://www.drupal.org/project/ckeditor_blockquote_attribution",
+            "support": {
+                "source": "https://git.drupalcode.org/project/ckeditor_blockquote_attribution"
+            }
         },
         {
             "name": "drupal/computed_field",
@@ -3911,7 +3958,7 @@
                 "source": "https://cgit.drupalcode.org/group",
                 "issues": "https://drupal.org/project/issues/group"
             },
-            "time": "2019-03-18 09:48:44"
+            "time": "2019-03-18T09:48:44+00:00"
         },
         {
             "name": "drupal/inline_entity_form",
@@ -11285,6 +11332,7 @@
     "stability-flags": {
         "drupal/auto_entitylabel": 20,
         "drupal/captcha": 20,
+        "drupal/ckeditor_blockquote_attribution": 10,
         "drupal/computed_field": 15,
         "drupal/diff": 5,
         "drupal/entity_reference_revisions": 20,

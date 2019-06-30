@@ -30,6 +30,7 @@
     "drupal/admin_toolbar": "^1.23",
     "drupal/auto_entitylabel": "2.x-dev",
     "drupal/captcha": "1.x-dev",
+    "drupal/ckeditor_blockquote_attribution": "^1.0@beta",
     "drupal/computed_field": "^2.0@alpha",
     "drupal/config_direct_save": "^1.0",
     "drupal/config_installer": "^1.0",
