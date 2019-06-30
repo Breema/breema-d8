@@ -1,0 +1,28 @@
+uuid: a49f7254-74ee-4b3b-a963-e17da124fedc
+langcode: en
+status: true
+dependencies:
+  module:
+    - breema
+    - node
+  theme:
+    - breema2
+id: breema2_essence_subscribe_content
+theme: breema2
+region: content
+weight: -15
+provider: null
+plugin: footer_email_subscribe_block
+settings:
+  id: footer_email_subscribe_block
+  label: 'Sign-up for Essence of Breema - inspirational excerpts from Breema Center books and classes'
+  provider: breema
+  label_display: visible
+visibility:
+  node_type:
+    id: node_type
+    bundles:
+      essence: essence
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
