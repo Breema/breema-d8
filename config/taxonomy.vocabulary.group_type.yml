@@ -1,0 +1,8 @@
+uuid: 6162bded-fa13-4169-b4d4-1254c37bc9dd
+langcode: en
+status: true
+dependencies: {  }
+name: 'Group type'
+vid: group_type
+description: ''
+weight: 0
