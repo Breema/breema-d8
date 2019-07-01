@@ -63,6 +63,11 @@ function breema_preprocess_region(&$variables) {
  * Implements hook_preprocess_html().
  */
 function breema_preprocess_html(&$variables) {
+  // Set <title> for the front page to just the site name.
+  if ($variables['root_path'] === FALSE) {
+    $variables['head_title'] = \Drupal::config('system.site')->get('name');
+  }
+
   // Work-around the bugs from https://www.drupal.org/node/953034
   // For now, hard-code that anonymous users on /directory* should not see the
   // sidebar.
