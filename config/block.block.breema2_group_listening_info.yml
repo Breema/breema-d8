@@ -1,4 +1,4 @@
-uuid: dc270804-3165-4e3e-990a-171c0d98bf9b
+uuid: 1ab14666-57f4-435a-9651-340736fd9824
 langcode: en
 status: true
 dependencies:
@@ -8,18 +8,23 @@ dependencies:
     - user
   theme:
     - breema2
-id: breema2_session_resume_block
+id: breema2_group_listening_info
 theme: breema2
 region: sidebar_first
-weight: -12
+weight: -14
 provider: null
-plugin: breema_session_resume_block
+plugin: group_listening_block
 settings:
-  id: breema_session_resume_block
-  label: 'Your Breema session resumes'
+  id: group_listening_block
+  label: 'Your listening group'
   provider: breema
   label_display: visible
 visibility:
+  request_path:
+    id: request_path
+    pages: "<front>\r\n/front\r\ndirectory\r\ndirectory/map"
+    negate: true
+    context_mapping: {  }
   user_role:
     id: user_role
     roles:
@@ -27,8 +32,3 @@ visibility:
     negate: false
     context_mapping:
       user: '@user.current_user_context:current_user'
-  request_path:
-    id: request_path
-    pages: "/front\r\n<front>\r\n"
-    negate: true
-    context_mapping: {  }
