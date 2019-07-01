@@ -5,6 +5,7 @@ dependencies:
   config:
     - entity_browser.browser.private_media_browser
     - field.field.group.private.field_body
+    - field.field.group.private.field_group_type
     - field.field.group.private.field_resources
     - group.type.private
   module:
@@ -24,6 +25,12 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: text_textarea_with_summary
+    region: content
+  field_group_type:
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
     region: content
   field_resources:
     weight: 2
@@ -50,7 +57,7 @@ content:
     third_party_settings: {  }
   path:
     type: path
-    weight: 3
+    weight: 4
     region: content
     settings: {  }
     third_party_settings: {  }
