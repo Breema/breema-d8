@@ -101,7 +101,7 @@ class BreemaGroupListeningBlock extends BlockBase implements ContainerFactoryPlu
     if (!empty($listening_groups)) {
       $options = [
         'label' => 'hidden',
-        'type' => 'default',
+        'type' => 'text_summary_or_trimmed',
       ];
       foreach ($listening_groups as $group) {
         $block['#cache']['tags'][] = 'group:' . $group->id();
