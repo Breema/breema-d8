@@ -9,7 +9,7 @@ dependencies:
 id: breema2_group_operations
 theme: breema2
 region: sidebar_first
-weight: -13
+weight: -12
 provider: null
 plugin: group_operations
 settings:

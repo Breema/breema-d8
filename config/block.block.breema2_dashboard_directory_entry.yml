@@ -1,4 +1,4 @@
-uuid: 1ab14666-57f4-435a-9651-340736fd9824
+uuid: e322dae6-e965-4956-9fb8-d975b1a0b78e
 langcode: en
 status: true
 dependencies:
@@ -8,27 +8,29 @@ dependencies:
     - user
   theme:
     - breema2
-id: breema2_group_listening_info
+id: breema2_dashboard_directory_entry
 theme: breema2
 region: sidebar_first
-weight: -13
+weight: -15
 provider: null
-plugin: group_listening_block
+plugin: directory_entry_block
 settings:
-  id: group_listening_block
-  label: 'Your listening group'
+  id: directory_entry_block
+  label: 'Your Breema Directory entry'
   provider: breema
   label_display: visible
 visibility:
   request_path:
     id: request_path
-    pages: "<front>\r\n/front\r\n/user/*/dashboard"
-    negate: true
+    pages: '/user/*/dashboard'
+    negate: false
     context_mapping: {  }
   user_role:
     id: user_role
     roles:
-      authenticated: authenticated
+      practitioner: practitioner
+      instructor: instructor
+      content_administrator: content_administrator
     negate: false
     context_mapping:
       user: '@user.current_user_context:current_user'

@@ -11,7 +11,7 @@ dependencies:
 id: breema2_session_resume_block
 theme: breema2
 region: sidebar_first
-weight: -12
+weight: -11
 provider: null
 plugin: breema_session_resume_block
 settings:
