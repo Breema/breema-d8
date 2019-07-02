@@ -4,8 +4,10 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.group.teaser
+    - user.role.authenticated
   module:
     - group
+    - user
 id: breema_group_user
 label: 'Breema groups by user'
 module: views
@@ -22,8 +24,10 @@ display:
     position: 0
     display_options:
       access:
-        type: none
-        options: {  }
+        type: role
+        options:
+          role:
+            authenticated: authenticated
       cache:
         type: tag
         options: {  }
@@ -123,7 +127,7 @@ display:
           plugin_id: field
       filters: {  }
       sorts: {  }
-      title: 'Your Private Groups'
+      title: 'Your private groups'
       header: {  }
       footer: {  }
       empty: {  }
@@ -188,6 +192,7 @@ display:
         - 'languages:language_interface'
         - url
         - user
+        - user.roles
       tags: {  }
   block_group_names:
     display_plugin: block
@@ -207,6 +212,7 @@ display:
         - 'languages:language_interface'
         - url
         - user
+        - user.roles
       tags: {  }
   block_group_teasers:
     display_plugin: block
@@ -237,6 +243,7 @@ display:
         - 'languages:language_interface'
         - url
         - user
+        - user.roles
       tags: {  }
   page_user_group_dashboard:
     display_plugin: page
@@ -253,12 +260,13 @@ display:
         style: false
         row: false
         arguments: false
+        title: false
       row:
         type: 'entity:group'
         options:
           relationship: none
-          view_mode: teaser
-      path: user/%user/groups
+          view_mode: default
+      path: user/%user/dashboard
       arguments:
         entity_id:
           id: entity_id
@@ -301,6 +309,16 @@ display:
           entity_type: group_content
           entity_field: entity_id
           plugin_id: numeric
+      menu:
+        type: tab
+        title: Dashboard
+        description: ''
+        expanded: false
+        parent: ''
+        weight: 0
+        context: '0'
+        menu_name: account
+      title: Dashboard
     cache_metadata:
       max-age: -1
       contexts:
@@ -308,4 +326,5 @@ display:
         - 'languages:language_interface'
         - url
         - user
+        - user.roles
       tags: {  }
