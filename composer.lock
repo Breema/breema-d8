@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "e2ebd9e1233595f8f945a21b0cc94bb0",
+    "content-hash": "de37ff5944509436684e043287a4b68f",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -3939,7 +3939,7 @@
                     }
                 },
                 "patches_applied": {
-                    "[#2813405-152] Add a field to view and edit content's groups": "https://www.drupal.org/files/issues/2019-07-02/2813405-152.group_content_field.patch"
+                    "[#2813405-163] Add a field to view and edit content's groups": "https://www.drupal.org/files/issues/2019-07-03/2813405-163.group_content_field.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
