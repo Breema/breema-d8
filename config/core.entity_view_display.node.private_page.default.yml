@@ -44,13 +44,12 @@ content:
     type: entity_reference_entity_view
     region: content
   group_content:
-    type: parent_group_formatter
+    type: parent_group_label_formatter
     weight: 3
     region: content
     label: above
     settings:
-      view_mode: name
-      link: false
+      link: '1'
     third_party_settings: {  }
   links:
     weight: 4
