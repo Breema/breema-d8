@@ -138,7 +138,6 @@
   "extra": {
     "patches": {
       "drupal/auto_entitylabel": {
-        "[#2120055-22] Trim auto-generated labels" : "https://www.drupal.org/files/issues/2018-04-04/2120055-22.auto_entitylabel-8.x-2.x.trim-no-config.patch",
         "[#2905230-6] Alter inline_entity_form table to display auto-computed entity labels" : "https://www.drupal.org/files/issues/Title_displayed_as_AutoEntityLabel_after_saving_via_Inline_Entity_Form-2905230-6.patch"
       },
       "drupal/ckeditor_blockquote_attribution": {
@@ -184,9 +183,6 @@
       },
       "drupal/menu_block": {
         "[#2809699-51] Menu parent as block title" : "https://www.drupal.org/files/issues/menu_block-label_configuration-2809699-51.patch"
-      },
-      "drupal/redirect": {
-        "[#2958635-20] Restore link to add a redirect on node edit forms" : "https://www.drupal.org/files/issues/2019-01-10/2958635-21.redirect-add-link-on-node-form.patch"
       }
     },
     "installer-paths": {
