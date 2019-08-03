@@ -1042,19 +1042,21 @@ function breema_form_user_form_alter(&$form, \Drupal\Core\Form\FormStateInterfac
       ':input[name="field_anatomy_requirement"]' => ['value' => 'homework'],
     ],
   ];
-  // #states doesn't work on a 'details' element, so we use a 'container'.
-  $form['field_anatomy_transcript'] = [
-    '#type' => 'container',
-    '#states' => [
-      'visible' => [
-        ':input[name="field_anatomy_requirement"]' => ['value' => 'transcript'],
+  if (isset($form['field_anatomy_transcript'])) {
+    // #states doesn't work on a 'details' element, so we use a 'container'.
+    $form['field_anatomy_transcript'] = [
+      '#type' => 'container',
+      '#states' => [
+        'visible' => [
+          ':input[name="field_anatomy_requirement"]' => ['value' => 'transcript'],
+        ],
       ],
-    ],
-    // Now stash the entire existing form element.
-    'anatomy_transcript' => $form['field_anatomy_transcript'],
-    // Propagate the #weight to retain the right ordering.
-    '#weight' => $form['field_anatomy_transcript']['#weight'],
-  ];
+      // Now stash the entire existing form element.
+      'anatomy_transcript' => $form['field_anatomy_transcript'],
+      // Propagate the #weight to retain the right ordering.
+      '#weight' => $form['field_anatomy_transcript']['#weight'],
+    ];
+  }
 
   if (!empty($form['field_directory_entry']['widget']['entities'][0]['#entity'])) {
     $entity = $form['field_directory_entry']['widget']['entities'][0]['#entity'];
