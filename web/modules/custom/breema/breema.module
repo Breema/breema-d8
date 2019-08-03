@@ -1005,7 +1005,10 @@ function breema_file_media_form_alter(&$form, FormStateInterface $form_state) {
  * Alter the user form specifically when used as user_register.
  */
 function breema_form_user_register_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state) {
-  $form['actions']['submit']['#value'] = t('Apply to the Practitioner Certificate Program');
+  $route_name = \Drupal::routeMatch()->getRouteName();
+  if ($route_name === 'user.register') {
+    $form['actions']['submit']['#value'] = t('Apply to the Practitioner Certificate Program');
+  }
 }
 
 /**
