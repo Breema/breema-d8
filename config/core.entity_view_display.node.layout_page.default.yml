@@ -4,9 +4,9 @@ status: true
 dependencies:
   config:
     - field.field.node.layout_page.field_main_image
+    - field.field.node.layout_page.field_meta_summary
     - field.field.node.layout_page.field_paragraphs
     - field.field.node.layout_page.field_slideshow
-    - field.field.node.layout_page.field_summary
     - field.field.node.layout_page.field_tiles
     - node.type.layout_page
   module:
@@ -42,6 +42,6 @@ content:
     third_party_settings: {  }
 hidden:
   field_main_image: true
+  field_meta_summary: true
   field_slideshow: true
-  field_summary: true
   group_content: true

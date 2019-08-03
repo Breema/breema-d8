@@ -5,16 +5,15 @@ dependencies:
   config:
     - entity_browser.browser.image_browser
     - field.field.node.layout_page.field_main_image
+    - field.field.node.layout_page.field_meta_summary
     - field.field.node.layout_page.field_paragraphs
     - field.field.node.layout_page.field_slideshow
-    - field.field.node.layout_page.field_summary
     - field.field.node.layout_page.field_tiles
     - node.type.layout_page
   module:
     - entity_browser
     - paragraphs
     - path
-    - text
 id: node.layout_page.default
 targetEntityType: node
 bundle: layout_page
@@ -40,6 +39,14 @@ content:
       field_widget_replace: false
     third_party_settings: {  }
     type: entity_browser_entity_reference
+    region: content
+  field_meta_summary:
+    weight: 5
+    settings:
+      rows: 4
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
     region: content
   field_paragraphs:
     type: paragraphs
@@ -78,14 +85,6 @@ content:
         collapse_edit_all: collapse_edit_all
         add_above: add_above
     third_party_settings: {  }
-    region: content
-  field_summary:
-    weight: 5
-    settings:
-      rows: 2
-      placeholder: ''
-    third_party_settings: {  }
-    type: text_textarea
     region: content
   field_tiles:
     type: paragraphs

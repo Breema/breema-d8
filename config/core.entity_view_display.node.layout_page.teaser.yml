@@ -5,13 +5,14 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.layout_page.field_main_image
+    - field.field.node.layout_page.field_meta_summary
     - field.field.node.layout_page.field_paragraphs
-    - field.field.node.layout_page.field_summary
+    - field.field.node.layout_page.field_slideshow
+    - field.field.node.layout_page.field_tiles
     - image.style.160x90_thumbnail
     - node.type.layout_page
   module:
     - media
-    - text
     - user
 id: node.layout_page.teaser
 targetEntityType: node
@@ -27,18 +28,14 @@ content:
       image_style: 160x90_thumbnail
       image_link: content
     third_party_settings: {  }
-  field_summary:
-    type: text_default
-    weight: 1
-    region: content
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
   links:
     weight: 2
     region: content
     settings: {  }
     third_party_settings: {  }
 hidden:
+  field_meta_summary: true
   field_paragraphs: true
+  field_slideshow: true
+  field_tiles: true
   group_content: true

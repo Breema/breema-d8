@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.product.body
     - field.field.node.product.field_by
     - field.field.node.product.field_main_image
+    - field.field.node.product.field_meta_summary
     - field.field.node.product.field_product_info
     - field.field.node.product.field_publication_year
     - field.field.node.product.field_title_main
@@ -63,6 +64,7 @@ content:
     third_party_settings: {  }
 hidden:
   field_main_image: true
+  field_meta_summary: true
   field_publication_year: true
   field_title_main: true
   field_title_sub: true

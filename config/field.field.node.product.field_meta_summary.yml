@@ -1,0 +1,19 @@
+uuid: 3cf4b9b8-7d56-4fa0-ab55-547375da2298
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_meta_summary
+    - node.type.product
+id: node.product.field_meta_summary
+field_name: field_meta_summary
+entity_type: node
+bundle: product
+label: 'Meta summary'
+description: 'One or two sentence summary of this product, for example to use when sharing to social media.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long
