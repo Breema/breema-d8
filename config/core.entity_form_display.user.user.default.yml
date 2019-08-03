@@ -24,6 +24,7 @@ dependencies:
     - address
     - field_group
     - file
+    - gcontent_field
     - image
     - inline_entity_form
     - path
@@ -82,8 +83,7 @@ content:
     third_party_settings: {  }
   field_address:
     weight: 6
-    settings:
-      default_country: US
+    settings: {  }
     third_party_settings: {  }
     type: address_default
     region: content
@@ -198,6 +198,15 @@ content:
     third_party_settings: {  }
     type: string_textarea
     region: content
+  group_content:
+    type: group_selector_widget
+    weight: 14
+    region: content
+    settings:
+      widget: select
+      multiple: '1'
+      required: 0
+    third_party_settings: {  }
   language:
     weight: 13
     region: content
