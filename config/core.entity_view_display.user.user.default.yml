@@ -24,6 +24,7 @@ dependencies:
     - address
     - field_group
     - file
+    - gcontent_field
     - image
     - options
     - telephone
@@ -53,6 +54,7 @@ third_party_settings:
         - field_address
         - field_telephone
         - field_profession
+        - group_content
       parent_name: ''
       weight: 0
       format_type: details
@@ -191,6 +193,14 @@ content:
     third_party_settings: {  }
     type: basic_string
     region: content
+  group_content:
+    type: parent_group_label_formatter
+    weight: 9
+    region: content
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
   member_for:
     weight: 2
     region: content
