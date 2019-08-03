@@ -1070,6 +1070,9 @@ function breema_form_user_form_alter(&$form, \Drupal\Core\Form\FormStateInterfac
     return;
   }
 
+  // Hide the 'Group memberships' widget for non-admins.
+  $form['group_content']['#access'] = FALSE;
+
   // Once a user is authenticated (not the registration form) hide
   // 'why_interested' and 'class_attended'.
   if (in_array('authenticated', $roles)) {
