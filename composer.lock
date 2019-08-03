@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "ad8f07e728023de53562b1727344c80f",
+    "content-hash": "0215bcd5cf72df5de06277f4dc0de3f7",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -3316,6 +3316,9 @@
                         "status": "not-covered",
                         "message": "RC releases are not covered by Drupal security advisories."
                     }
+                },
+                "patches_applied": {
+                    "[#2986704-3] Incompatibility with inline entity form": "https://www.drupal.org/files/issues/2018-10-30/field_group-inline_entity_form_compatibility-2986704-3.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -4503,6 +4506,9 @@
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
                     }
+                },
+                "patches_applied": {
+                    "[#2907094-68] Make paragraphs module work with field_group version 3.x": "https://www.drupal.org/files/issues/2019-07-08/2907094_68.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
