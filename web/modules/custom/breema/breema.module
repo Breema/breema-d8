@@ -853,14 +853,10 @@ function breema_form_node_form_alter(&$form, \Drupal\Core\Form\FormStateInterfac
       $form['title']['#access'] = FALSE;
       $form['field_subtitle']['widget'][0]['value']['#required'] = TRUE;
     }
-    $form['other_website_desc'] = [
-      '#markup' => $form['field_website']['widget']['#description'],
-      '#prefix' => '<div class="description">',
-      '#suffix' => '</div>',
-      '#weight' => -10,
-    ];
-    unset($form['field_website']['widget']['#description']);
-    $form['#group_children']['other_website_desc'] = 'group_other_links';
+    // Instead of relying on (unstable) field_group, use #description_display to
+    // get the help text for this field (on events) to be before the element.
+    $form['field_website']['widget']['#description_display'] = 'before';
+    $form['field_website']['#description_display'] = 'before';
   }
   elseif ($node->bundle() === 'essence') {
     $form['field_source_product']['#states'] = [
