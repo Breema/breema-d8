@@ -3,7 +3,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.group.teaser
     - user.role.authenticated
   module:
     - group
@@ -204,37 +203,6 @@ display:
       block_description: 'Breema: Groups names by user'
       block_category: Breema
       display_description: ''
-      block_hide_empty: true
-    cache_metadata:
-      max-age: -1
-      contexts:
-        - 'languages:language_content'
-        - 'languages:language_interface'
-        - url
-        - user
-        - user.roles
-      tags: {  }
-  block_group_teasers:
-    display_plugin: block
-    id: block_group_teasers
-    display_title: 'Block: Group teasers'
-    position: 2
-    display_options:
-      display_extenders: {  }
-      block_description: 'Breema: Groups teasers by user'
-      block_category: Breema
-      display_description: ''
-      style:
-        type: default
-        options: {  }
-      defaults:
-        style: false
-        row: false
-      row:
-        type: 'entity:group'
-        options:
-          relationship: none
-          view_mode: teaser
       block_hide_empty: true
     cache_metadata:
       max-age: -1
