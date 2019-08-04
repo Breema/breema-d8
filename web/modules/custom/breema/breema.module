@@ -81,7 +81,6 @@ function breema_preprocess_html(&$variables) {
   }
 
   // Inject social-media-related meta tags for better sharing behavior.
-  $renderer = \Drupal::service('renderer');
   $path_matcher = \Drupal::service('path.matcher');
   $route_match = \Drupal::routeMatch();
   $node = $route_match->getParameter('node');
@@ -89,12 +88,8 @@ function breema_preprocess_html(&$variables) {
   $site_name = \Drupal::config('system.site')->get('name');
 
   if ($path_matcher->isFrontPage()) {
-    // @todo
-    // $site_description = \Drupal::config('breema.site')->get('description');
-    $meta_description = t('Breema® is a simple, natural form of touch and body movement supported by universal principles. The aim of Breema is to bring us to a tangible experience of presence that becomes our foundation for a new dimension of health, consciousness, and self-understanding. The Breema Center has been helping students actualize Breema’s practical approach to self-understanding and purposeful living since 1980.');
     $meta_tags = [
       ['property' => 'og:title', 'name' => 'title', 'content' => $site_name],
-      ['property' => 'og:description', 'name' => 'description', 'content' => $meta_description],
       ['property' => 'og:url', 'content' => Url::fromRoute('<front>', [], ['absolute' => TRUE])->toString()],
       ['property' => 'og:type', 'content' => 'website'],
     ];
@@ -111,9 +106,6 @@ function breema_preprocess_html(&$variables) {
       ['property' => 'twitter:creator', 'content' => '@BreemaCenter'],
       ['name' => 'twitter:title', 'content' => $clean_title],
     ];
-
-    // Find the right description to set.
-    // @todo
 
     // Find the right image to share.
     // First, if the node type has a field_main_image, try to use that.
@@ -213,6 +205,44 @@ function breema_preprocess_html(&$variables) {
         break;
 
     }
+  }
+
+  // Since the front page is in fact a node, we need this check outside the
+  // other conditionals so that it always runs for nodes.
+  $description = '';
+  if (!empty($node) && $node instanceof NodeInterface) {
+    if ($node->hasField('field_meta_summary')) {
+      $meta_summary = $node->get('field_meta_summary')->getValue();
+      if (!empty($meta_summary[0]['value'])) {
+        // This is always a plain text field, so we don't have text filters.
+        $description = $meta_summary[0]['value'];
+      }
+    }
+    elseif ($node->hasField('body')) {
+      // This is evil -- wish there was a simple API for this.
+      $body = $node->get('body')->getValue();
+      if (!empty($body[0]['summary'])) {
+        $build = [
+          '#type' => 'processed_text',
+          '#text' => $body[0]['summary'],
+          '#format' => $body[0]['format'],
+        ];
+        $renderer = \Drupal::service('renderer');
+        $description = $renderer->renderPlain($build);
+      }
+      else {
+        $description = text_summary($body[0]['value'], $body[0]['format'], 300);
+      }
+    }
+    else {
+      // Neither field_meta_summary nor body.
+      // Not currently a problem, all our node types have 1 or the other.
+      // @todo
+    }
+  }
+  // If we found something, use it.
+  if (!empty($description)) {
+    $meta_tags[] = ['property' => 'og:description', 'name' => 'description', 'content' => trim(strip_tags($description))];
   }
 
   // Global properties, regardless of page:
