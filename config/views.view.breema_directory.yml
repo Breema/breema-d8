@@ -964,7 +964,7 @@ display:
           empty: true
           tokenize: false
           content:
-            value: 'Explore the map of places with upcoming Breema events and Certified Breema Practitioners and Instructors. Once you zoom in, all the results in that area will be listed <strong>below the map</strong>. If you wish to filter results via a country or state, please use the <a href="[view:url]/search">Search</a> tab.'
+            value: 'Explore the map of places with upcoming Breema events and Certified Breema Practitioners and Instructors. Once you zoom in, all the results in that area will be listed <strong>below the map</strong>. If you wish to filter results via a country or state, please use the <a href="/directory">Search</a> tab.'
             format: basic_html
           plugin_id: text
       fields:
@@ -1100,6 +1100,7 @@ display:
         - 'config:core.entity_view_display.node.essence.default'
         - 'config:core.entity_view_display.node.essence.teaser'
         - 'config:core.entity_view_display.node.event.default'
+        - 'config:core.entity_view_display.node.event.embed'
         - 'config:core.entity_view_display.node.event.teaser'
         - 'config:core.entity_view_display.node.event.teaser_compact'
         - 'config:core.entity_view_display.node.event.teaser_compact_location'
@@ -1118,6 +1119,7 @@ display:
         - 'config:core.entity_view_display.node.private_page.default'
         - 'config:core.entity_view_display.node.private_page.teaser'
         - 'config:core.entity_view_display.node.product.default'
+        - 'config:core.entity_view_display.node.product.embed'
         - 'config:core.entity_view_display.node.product.teaser'
         - 'config:core.entity_view_display.node.product.teaser_compact'
         - 'config:core.entity_view_display.node.session_resume.default'
