@@ -20,15 +20,18 @@ settings:
   label: 'Sub menu navigation'
   provider: menu_block
   label_display: visible
+  follow: 0
+  follow_parent: child
   level: 2
   depth: 0
-  expand: 0
+  expand: false
   parent: 'main:'
-  label_type: root
   suggestion: main
+  label_type: root
+  label_link: 1
 visibility:
   request_path:
     id: request_path
-    pages: "/about*\r\n/store*\r\n\r\n"
+    pages: "/about*\r\n/store*\r\n/directory/entry/jon-schreiber"
     negate: false
     context_mapping: {  }
