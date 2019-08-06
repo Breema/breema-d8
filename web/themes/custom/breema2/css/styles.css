@@ -181,6 +181,13 @@ figure.quote figcaption:before {
   padding: 0;
 }
 
+.text-formatted ol, .text-formatted ul {
+  margin: 0 0 1em 1em;
+}
+.text-formatted ol ol, .text-formatted ul ul {
+  margin: 0 0 0 1em;
+}
+
 hr {
   margin: 1em 0;
   border: 0;
