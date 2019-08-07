@@ -189,6 +189,10 @@ figure .node--view-mode-view-full,
 .text-formatted ol ol, .text-formatted ul ul {
   margin: 0 0 0 1em;
 }
+.text-formatted ul.social-media-links--platforms {
+  margin: 0;
+  padding: 0;
+}
 
 hr {
   margin: 1em 0;
