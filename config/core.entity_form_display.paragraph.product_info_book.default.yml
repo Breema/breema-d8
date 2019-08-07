@@ -27,17 +27,16 @@ third_party_settings:
         - field_ebook_amazon_kindle
         - field_ebook_apple_ibooks
         - field_ebook_barnes_noble
-        - field_ebook_copia
         - field_ebook_kobo
       parent_name: ''
       weight: 7
       format_type: details
       format_settings:
+        description: ''
+        required_fields: true
         id: ''
         classes: ''
-        effect: none
         open: false
-        required_fields: true
       label: 'eBook links'
       region: content
 id: paragraph.product_info_book.default
@@ -70,6 +69,7 @@ content:
       field_widget_display_settings:
         view_mode: preview
       open: false
+      field_widget_replace: false
     third_party_settings: {  }
     type: entity_browser_entity_reference
     region: content
