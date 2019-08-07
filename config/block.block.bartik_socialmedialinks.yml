@@ -22,24 +22,24 @@ settings:
       value: breemacenter
       description: ''
       weight: '-30'
-    googleplus:
-      value: '113914257902609659991'
-      description: ''
-      weight: '-29'
     instagram:
       value: breemacenter
       description: ''
-      weight: '-28'
+      weight: '-29'
     pinterest:
       value: breemacenter
       description: ''
-      weight: '-27'
+      weight: '-28'
     twitter:
       value: breemacenter
       description: ''
-      weight: '-26'
+      weight: '-27'
     youtube:
       value: user/TheBreemaChannel
+      description: ''
+      weight: '-26'
+    googleplus:
+      value: ''
       description: ''
       weight: '-25'
     behance:
