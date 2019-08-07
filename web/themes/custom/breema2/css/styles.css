@@ -152,6 +152,8 @@ figure.quote figcaption:before {
   margin: 0 0 1.5em 0;
 }
 
+figure .media--view-mode-view-full,
+figure .node--view-mode-view-full,
 .node--type-layout-page .media--view-mode-view-full,
 .node--type-layout-page .node--view-mode-full {
   margin: 0;
