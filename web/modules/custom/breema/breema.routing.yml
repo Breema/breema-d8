@@ -26,6 +26,13 @@ user.dashboard.directory:
     _controller: '\Drupal\breema\Controller\BreemaController::myDirectoryEntry'
   requirements:
     _node_add_access: 'node:directory_entry'
+user.dashboard.events:
+  path: '/user/dashboard/events'
+  defaults:
+    _title: 'My events'
+    _controller: '\Drupal\breema\Controller\BreemaController::eventDashboard'
+  requirements:
+    _node_add_access: 'node:event'
 entity.user.breema_resumes:
   path: '/user/{user}/resumes'
   defaults:
