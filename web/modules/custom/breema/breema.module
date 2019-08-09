@@ -230,7 +230,7 @@ function breema_preprocess_html(&$variables) {
         $renderer = \Drupal::service('renderer');
         $description = $renderer->renderPlain($build);
       }
-      else {
+      elseif (!empty($body[0]['value'])) {
         $description = text_summary($body[0]['value'], $body[0]['format'], 300);
       }
     }
