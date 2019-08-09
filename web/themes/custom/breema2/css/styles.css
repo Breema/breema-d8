@@ -946,6 +946,13 @@ ol.location-results .field--name-field-upcoming-events > .field__item {
   margin-top: 1em;
 }
 
+.block-essence-footer-block .action {
+  max-width: 250px;
+  display: block;
+  margin: 0.5em auto;
+  text-align: center;
+}
+
 .view-breema-event-search ul.results li {
   margin: 0 0 0.5em 0;
   padding: 0 0 0.5em 0;
