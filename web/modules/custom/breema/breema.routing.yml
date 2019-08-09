@@ -33,6 +33,13 @@ user.dashboard.events:
     _controller: '\Drupal\breema\Controller\BreemaController::eventDashboard'
   requirements:
     _node_add_access: 'node:event'
+user.dashboard.groups:
+  path: '/user/dashboard/groups'
+  defaults:
+    _title: 'My groups'
+    _controller: '\Drupal\breema\Controller\BreemaController::groupDashboard'
+  requirements:
+    _user_is_logged_in: 'TRUE'
 entity.user.breema_resumes:
   path: '/user/{user}/resumes'
   defaults:

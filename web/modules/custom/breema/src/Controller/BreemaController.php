@@ -113,6 +113,17 @@ class BreemaController extends ControllerBase {
   }
 
   /**
+   * Redirect to the current user's group dashboard.
+   *
+   * @return \Symfony\Component\HttpFoundation\RedirectResponse
+   *   The RedirectResponse to the right page for a user's group dashboard.
+   */
+  public function groupDashboard() {
+    $account = $this->currentUser();
+    return $this->redirect('view.breema_group_user.page_user_group_dashboard', ['user' => $account->id()]);
+  }
+
+  /**
    * Access callback for the 'Resumes' tab on a given user.
    *
    * Currently, users can see their own tab, and content admins can see any.
