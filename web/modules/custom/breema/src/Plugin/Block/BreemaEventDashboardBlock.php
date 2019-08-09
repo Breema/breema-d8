@@ -38,20 +38,10 @@ class BreemaEventDashboardBlock extends BlockBase {
     $url_options['query']['destination'] = \Drupal::destination()->get();
 
     $dashboard_url = Url::fromUri('internal:/user/' . $current_user->id() . '/events');
-    $dashboard_link = [
-      '#prefix' => '<div class="action action--secondary">',
-      '#markup' => $this->t('<a href=":dashboard">Event dashboard</a>', [':dashboard' => $dashboard_url->toString()]),
-      '#suffix' => '</div>',
-    ];
     $node_type = NodeType::load('event');
     $result = \Drupal::service('access_check.node.add')->access($current_user, $node_type);
     if ($result) {
       $add_url = Url::fromRoute('node.add', ['node_type' => 'event'], $url_options);
-      $add_link = [
-        '#prefix' => '<div class="action action--primary">',
-        '#markup' => $this->t('<a href=":add">Add event</a>', [':add' => $add_url->toString()]),
-        '#suffix' => '</div>',
-      ];
     }
     /// @todo Also handle field_instructors
     $args = [$current_user->id()];
@@ -97,11 +87,23 @@ class BreemaEventDashboardBlock extends BlockBase {
         ];
       }
     }
-    if (!empty($add_link)) {
-      $block['add-link'] = $add_link;
+    if (!empty($add_url)) {
+      $block['add-link'] = [
+        '#type' => 'link',
+        '#title' => $this->t('Add event'),
+        '#url' => $add_url,
+        '#prefix' => '<div class="action action--primary">',
+        '#suffix' => '</div>',
+      ];
     }
     if (!empty($events)) {
-      $block['dashboard'] = $dashboard_link;
+      $block['dashboard'] = [
+        '#type' => 'link',
+        '#title' => $this->t('Event dashboard'),
+        '#url' => $dashboard_url,
+        '#prefix' => '<div class="action action--secondary">',
+        '#suffix' => '</div>',
+      ];
     }
     return $block;
   }
