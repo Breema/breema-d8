@@ -37,9 +37,16 @@ user.dashboard.groups:
   path: '/user/dashboard/groups'
   defaults:
     _title: 'My groups'
-    _controller: '\Drupal\breema\Controller\BreemaController::groupDashboard'
+    _controller: '\Drupal\breema\Controller\BreemaController::groupDashboardRedirect'
   requirements:
     _user_is_logged_in: 'TRUE'
+entity.user.breema_group_dashboard:
+  path: '/user/{user}/groups'
+  defaults:
+    _title_callback: '\Drupal\breema\Controller\BreemaController::groupDashboardPageTitle'
+    _controller: '\Drupal\breema\Controller\BreemaController::groupDashboardPage'
+  requirements:
+    _custom_access: '\Drupal\breema\Controller\BreemaController::accessGroupDashboard'
 entity.user.breema_resumes:
   path: '/user/{user}/resumes'
   defaults:

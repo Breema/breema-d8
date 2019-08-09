@@ -118,9 +118,61 @@ class BreemaController extends ControllerBase {
    * @return \Symfony\Component\HttpFoundation\RedirectResponse
    *   The RedirectResponse to the right page for a user's group dashboard.
    */
-  public function groupDashboard() {
+  public function groupDashboardRedirect() {
     $account = $this->currentUser();
     return $this->redirect('view.breema_group_user.page_user_group_dashboard', ['user' => $account->id()]);
+  }
+
+  /**
+   * Access callback for the 'Groups' tab on a given user.
+   *
+   * Currently, users can see their own tab (if they belong to any groups), and
+   * group admins can see any user's dashboard (if the user is in any groups).
+   *
+   * @return \Drupal\Core\Access\AccessResult
+   */
+  public function accessGroupDashboard() {
+    $route_user = $this->loadUserFromRoute();
+    $route_user_groups = \Drupal::service('group.membership_loader')->loadByUser($route_user);
+    if (empty($route_user_groups)) {
+      return AccessResult::forbidden('route user belongs to no groups');
+    }
+    $current_user = $this->currentUser();
+    $is_admin = $current_user->hasPermission('administer group');
+    return AccessResult::allowedIf($is_admin || (!empty($route_user) && $current_user->id() == $route_user->id()));
+  }
+
+  /**
+   * Page title callback for the entity.user.breema_group_dashboard route.
+   *
+   * @return string
+   *   The page title.
+   */
+  public function groupDashboardPageTitle() {
+    $user = $this->loadUserFromRoute();
+    if (!empty($user)) {
+      return $this->t('Group dashboard for @user', ['@user' => $user->label()]);
+    }
+    $this->t('Group dashboard');
+  }
+
+  /**
+   * Page controller for the groups tab on user accounts.
+   */
+  public function groupDashboardPage() {
+    $view = Views::getView('breema_group_user');
+    $user = $this->loadUserFromRoute();
+    $view->setDisplay('embed_group_dashboard');
+    $view->setArguments([$user->id()]);
+    $view->execute();
+    // The access callback should already ensure we have groups.
+    assert(count($view->result));
+    return [
+      '#cache' => [
+        'contexts' => ['route', 'user'],
+      ],
+      'groups' => $view->preview(),
+    ];
   }
 
   /**

@@ -297,10 +297,10 @@ display:
         - user
         - user.roles
       tags: {  }
-  page_user_group_dashboard:
-    display_plugin: page
-    id: page_user_group_dashboard
-    display_title: Page
+  embed_group_dashboard:
+    display_plugin: embed
+    id: embed_group_dashboard
+    display_title: 'Embed: Group bodies'
     position: 2
     display_options:
       display_extenders: {  }
@@ -318,7 +318,6 @@ display:
         options:
           relationship: none
           view_mode: default
-      path: user/%user/groups
       arguments:
         entity_id:
           id: entity_id
@@ -349,7 +348,7 @@ display:
           specify_validation: true
           validate:
             type: 'entity:user'
-            fail: 'not found'
+            fail: 'access denied'
           validate_options:
             access: true
             operation: update
@@ -361,15 +360,6 @@ display:
           entity_type: group_content
           entity_field: entity_id
           plugin_id: numeric
-      menu:
-        type: tab
-        title: Groups
-        description: ''
-        expanded: false
-        parent: ''
-        weight: 0
-        context: '0'
-        menu_name: account
       title: 'Group dashboard'
     cache_metadata:
       max-age: -1
