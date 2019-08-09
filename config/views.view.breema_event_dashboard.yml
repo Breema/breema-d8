@@ -8,7 +8,6 @@ dependencies:
     - field.storage.node.field_instructors
     - field.storage.node.field_location
     - node.type.event
-    - system.menu.account
   module:
     - datetime
     - datetime_extras
@@ -308,9 +307,9 @@ display:
             type: 'entity:user'
             fail: 'not found'
           validate_options:
-            operation: view
+            access: true
+            operation: update
             multiple: 0
-            access: false
             restrict_roles: false
             roles: {  }
           break_phrase: false
@@ -618,10 +617,10 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      path: user/dashboard/events
+      path: user/%user/events
       menu:
-        type: normal
-        title: 'Event dashboard'
+        type: tab
+        title: Events
         description: ''
         expanded: false
         parent: ''
