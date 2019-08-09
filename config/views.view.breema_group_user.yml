@@ -8,6 +8,7 @@ dependencies:
   content:
     - 'taxonomy_term:group_type:4926ad2d-c9af-474f-94c3-2f82949e9031'
   module:
+    - breema
     - group
     - taxonomy
     - user
@@ -223,19 +224,15 @@ display:
       display_description: ''
       block_hide_empty: true
       footer:
-        area:
-          id: area
+        breema_group_dashboard_link:
+          id: breema_group_dashboard_link
           table: views
-          field: area
+          field: breema_group_dashboard_link
           relationship: none
           group_type: group
           admin_label: ''
           empty: false
-          tokenize: false
-          content:
-            value: '<div class="action action--secondary"><a href="[view:url]">Group dashboard</a></div>'
-            format: basic_html
-          plugin_id: text
+          plugin_id: breema_group_dashboard_link
       defaults:
         footer: false
         filters: false
