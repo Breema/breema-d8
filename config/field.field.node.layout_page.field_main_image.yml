@@ -11,7 +11,7 @@ field_name: field_main_image
 entity_type: node
 bundle: layout_page
 label: 'Main image'
-description: "Only (currently) visible when sharing a link to this <em>Layout page</em> on social media."
+description: 'Only (currently) visible when sharing a link to this <em>Layout page</em> on social media.'
 required: false
 translatable: true
 default_value: {  }
