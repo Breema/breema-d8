@@ -30,7 +30,7 @@ user.dashboard.events:
   path: '/user/dashboard/events'
   defaults:
     _title: 'My events'
-    _controller: '\Drupal\breema\Controller\BreemaController::eventDashboard'
+    _controller: '\Drupal\breema\Controller\BreemaController::eventDashboardRedirect'
   requirements:
     _node_add_access: 'node:event'
 user.dashboard.groups:
@@ -40,6 +40,14 @@ user.dashboard.groups:
     _controller: '\Drupal\breema\Controller\BreemaController::groupDashboardRedirect'
   requirements:
     _user_is_logged_in: 'TRUE'
+entity.user.breema_event_dashboard:
+  path: '/user/{user}/events'
+  defaults:
+    _title_callback: '\Drupal\breema\Controller\BreemaController::eventDashboardPageTitle'
+    _controller: '\Drupal\breema\Controller\BreemaController::eventDashboardPage'
+  requirements:
+    _node_add_access: 'node:event'
+    _custom_access: '\Drupal\breema\Controller\BreemaController::accessEventDashboard'
 entity.user.breema_group_dashboard:
   path: '/user/{user}/groups'
   defaults:

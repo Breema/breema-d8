@@ -107,9 +107,9 @@ class BreemaController extends ControllerBase {
    * @return \Symfony\Component\HttpFoundation\RedirectResponse
    *   The RedirectResponse to the right page for a user's event dashboard.
    */
-  public function eventDashboard() {
+  public function eventDashboardRedirect() {
     $account = $this->currentUser();
-    return $this->redirect('view.breema_event_dashboard.page_user_dashboard', ['user' => $account->id()]);
+    return $this->redirect('entity.user.breema_event_dashboard', ['user' => $account->id()]);
   }
 
   /**
@@ -120,7 +120,66 @@ class BreemaController extends ControllerBase {
    */
   public function groupDashboardRedirect() {
     $account = $this->currentUser();
-    return $this->redirect('view.breema_group_user.page_user_group_dashboard', ['user' => $account->id()]);
+    return $this->redirect('entity.user.breema_group_dashboard', ['user' => $account->id()]);
+  }
+
+  /**
+   * Access callback for the 'Events' tab on a given user.
+   *
+   * Currently, users can see their own tab (if they belong to any groups), and
+   * group admins can see any user's dashboard (if the user is in any groups).
+   *
+   * @return \Drupal\Core\Access\AccessResult
+   */
+  public function accessEventDashboard() {
+    $route_user = $this->loadUserFromRoute();
+    if (!$route_user->hasPermission('create event content')) {
+      return AccessResult::forbidden($route_user->label() . ' does not have permission to create events.');
+    }
+    $current_user = $this->currentUser();
+    if ($current_user->hasPermission('edit any event content')) {
+      return AccessResult::allowed();
+    }
+    return AccessResult::allowedIf($current_user->id() == $route_user->id());
+  }
+
+  /**
+   * Page title callback for the entity.user.breema_event_dashboard route.
+   *
+   * @return string
+   *   The page title.
+   */
+  public function eventDashboardPageTitle() {
+    $user = $this->loadUserFromRoute();
+    if (!empty($user)) {
+      return $this->t('Event dashboard for @user', ['@user' => $user->label()]);
+    }
+    return $this->t('Event dashboard');
+  }
+
+  /**
+   * Page controller for the events tab on user accounts.
+   */
+  public function eventDashboardPage() {
+    $view = Views::getView('breema_event_dashboard');
+    $user = $this->loadUserFromRoute();
+    $view->setDisplay('embed_user_dashboard');
+    $view->setArguments([$user->id(), $user->id()]);
+    $view->execute();
+    $url_options['query']['destination'] = \Drupal::destination()->get();
+    return [
+      '#cache' => [
+        'contexts' => ['route', 'user'],
+      ],
+      'add-link' => [
+        '#type' => 'link',
+        '#title' => 'Add new event',
+        '#url' => Url::fromRoute('node.add', ['node_type' => 'event'], $url_options),
+        '#prefix' => '<div class="action action--primary">',
+        '#suffix' => '</div>',
+      ],
+      'events' => $view->preview(),
+    ];
   }
 
   /**
@@ -135,11 +194,13 @@ class BreemaController extends ControllerBase {
     $route_user = $this->loadUserFromRoute();
     $route_user_groups = \Drupal::service('group.membership_loader')->loadByUser($route_user);
     if (empty($route_user_groups)) {
-      return AccessResult::forbidden('route user belongs to no groups');
+      return AccessResult::forbidden($route_user->label() . ' is not a member of any groups.');
     }
     $current_user = $this->currentUser();
-    $is_admin = $current_user->hasPermission('administer group');
-    return AccessResult::allowedIf($is_admin || (!empty($route_user) && $current_user->id() == $route_user->id()));
+    if ($current_user->hasPermission('administer group')) {
+      return AccessResult::allowed();
+    }
+    return AccessResult::allowedIf($current_user->id() == $route_user->id());
   }
 
   /**
@@ -153,7 +214,7 @@ class BreemaController extends ControllerBase {
     if (!empty($user)) {
       return $this->t('Group dashboard for @user', ['@user' => $user->label()]);
     }
-    $this->t('Group dashboard');
+    return $this->t('Group dashboard');
   }
 
   /**
@@ -200,7 +261,7 @@ class BreemaController extends ControllerBase {
     if (!empty($user)) {
       return $this->t('Resumes for @user', ['@user' => $user->label()]);
     }
-    $this->t('Resumes');
+    return $this->t('Resumes');
   }
 
   /**

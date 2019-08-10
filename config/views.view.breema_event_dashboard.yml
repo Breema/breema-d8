@@ -364,8 +364,8 @@ display:
       use_more: true
       use_more_always: false
       use_more_text: more
-      link_url: ''
-      link_display: page_user_dashboard
+      link_url: 'user/{{ arguments.uid }}/events'
+      link_display: custom_url
     cache_metadata:
       max-age: -1
       contexts:
@@ -610,36 +610,15 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
-  page_user_dashboard:
-    display_plugin: page
-    id: page_user_dashboard
-    display_title: 'Page: User dashboard'
+  embed_user_dashboard:
+    display_plugin: embed
+    id: embed_user_dashboard
+    display_title: 'Embed: User dashboard'
     position: 1
     display_options:
       display_extenders: {  }
-      path: user/%user/events
-      menu:
-        type: tab
-        title: Events
-        description: ''
-        expanded: false
-        parent: ''
-        weight: 0
-        context: '0'
-        menu_name: account
       display_description: ''
-      header:
-        area_text_custom:
-          id: area_text_custom
-          table: views
-          field: area_text_custom
-          relationship: none
-          group_type: group
-          admin_label: ''
-          empty: true
-          tokenize: false
-          content: '<ul class="action-links"><li class="action action--primary"><a href="[site:url]node/add/event">Add new event</a></li></ul>'
-          plugin_id: text_custom
+      header: {  }
       defaults:
         header: false
         filters: false
