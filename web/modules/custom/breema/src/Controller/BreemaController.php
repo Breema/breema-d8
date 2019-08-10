@@ -52,6 +52,7 @@ class BreemaController extends ControllerBase {
    *   The fully loaded node entity object, or NULL if there is none.
    */
   protected function loadNodeFromRoute() {
+    // @todo Dependecy injection
     $node = \Drupal::routeMatch()->getParameter('node');
     if (!empty($node)) {
       // WTF? Why do sometimes get a fully loaded node and others just the id?
@@ -71,6 +72,7 @@ class BreemaController extends ControllerBase {
    *   The fully loaded user entity object, or NULL if there is none.
    */
   protected function loadUserFromRoute() {
+    // @todo Dependecy injection
     $user = \Drupal::routeMatch()->getParameter('user');
     if (!empty($user)) {
       // WTF? Why do we sometimes get a full user and other times just the id?
@@ -133,6 +135,9 @@ class BreemaController extends ControllerBase {
    */
   public function accessEventDashboard() {
     $route_user = $this->loadUserFromRoute();
+    if (!$route_user) {
+      return AccessResult::forbidden('User not found, no event dashboard possible.');
+    }
     if (!$route_user->hasPermission('create event content')) {
       return AccessResult::forbidden($route_user->label() . ' does not have permission to create events.');
     }
@@ -166,6 +171,7 @@ class BreemaController extends ControllerBase {
     $view->setDisplay('embed_user_dashboard');
     $view->setArguments([$user->id(), $user->id()]);
     $view->execute();
+    // @todo Dependecy injection
     $url_options['query']['destination'] = \Drupal::destination()->get();
     return [
       '#cache' => [
@@ -192,6 +198,10 @@ class BreemaController extends ControllerBase {
    */
   public function accessGroupDashboard() {
     $route_user = $this->loadUserFromRoute();
+    if (!$route_user) {
+      return AccessResult::forbidden('User not found, no group dashboard possible.');
+    }
+    // @todo Dependency injection
     $route_user_groups = \Drupal::service('group.membership_loader')->loadByUser($route_user);
     if (empty($route_user_groups)) {
       return AccessResult::forbidden($route_user->label() . ' is not a member of any groups.');
@@ -245,9 +255,14 @@ class BreemaController extends ControllerBase {
    */
   public function accessResumes() {
     $route_user = $this->loadUserFromRoute();
+    if (!$route_user) {
+      return AccessResult::forbidden('User not found, no session resume page.');
+    }
     $current_user = $this->currentUser();
-    $is_admin = $current_user->hasPermission('edit any session_resume content');
-    return AccessResult::allowedIf($is_admin || (!empty($route_user) && $current_user->id() == $route_user->id()));
+    if ($current_user->hasPermission('edit any session_resume content')) {
+      return AccessResult::allowed();
+    }
+    return AccessResult::allowedIf($current_user->id() == $route_user->id());
   }
 
   /**
@@ -268,6 +283,7 @@ class BreemaController extends ControllerBase {
    * Page controller for the resumes tab on user accounts.
    */
   public function resumesPage() {
+    // @todo Dependecy injection
     $url_options['query']['destination'] = \Drupal::destination()->get();
     $add_url = Url::fromRoute('node.add', ['node_type' => 'session_resume'], $url_options);
     $build = [
