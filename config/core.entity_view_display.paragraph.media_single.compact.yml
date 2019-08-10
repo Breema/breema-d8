@@ -53,3 +53,5 @@ content:
 hidden:
   field_link: true
   field_media_align: true
+  field_media_layout: true
+  field_media_size: true
