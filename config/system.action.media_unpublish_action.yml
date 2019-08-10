@@ -1,0 +1,11 @@
+uuid: d30b5291-064e-45c3-9c1a-f33230ba3329
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media_unpublish_action
+label: 'Unpublish media'
+type: media
+plugin: 'entity:unpublish_action:media'
+configuration: {  }
