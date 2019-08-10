@@ -17,7 +17,7 @@ field_name: field_slideshow
 entity_type: node
 bundle: layout_page
 label: Slideshow
-description: 'Any paragraphs listed here will be rendered as a slideshow at the top of the page, and listed again (in full) at the bottom of the page.'
+description: 'Any slides created here will be rendered as a slideshow at the top of the page.'
 required: false
 translatable: false
 default_value: {  }

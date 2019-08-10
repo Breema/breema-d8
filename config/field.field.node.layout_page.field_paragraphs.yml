@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.storage.node.field_paragraphs
     - node.type.layout_page
+    - paragraphs.paragraphs_type.essence_single
     - paragraphs.paragraphs_type.event_featured
     - paragraphs.paragraphs_type.event_single
     - paragraphs.paragraphs_type.featured_product
@@ -20,7 +21,7 @@ field_name: field_paragraphs
 entity_type: node
 bundle: layout_page
 label: Paragraphs
-description: ''
+description: 'Full-width "slices" in the middle of the page.'
 required: false
 translatable: false
 default_value: {  }
@@ -35,6 +36,7 @@ settings:
       person: person
       event_single: event_single
       media_single: media_single
+      essence_single: essence_single
       media_3_up: media_3_up
       product_single: product_single
       text: text
@@ -63,6 +65,9 @@ settings:
       media_single:
         enabled: true
         weight: 13
+      essence_single:
+        enabled: true
+        weight: 14
       media_3_up:
         enabled: true
         weight: 14
