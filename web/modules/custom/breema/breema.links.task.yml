@@ -20,6 +20,6 @@ breema.user.groups:
   weight: 25
 breema.user.resumes:
   title: 'Resumes'
-  route_name: entity.user.breema_resumes
+  route_name: entity.user.breema_resume_dashboard
   base_route: entity.user.canonical
   weight: 30

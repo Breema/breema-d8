@@ -40,6 +40,13 @@ user.dashboard.groups:
     _controller: '\Drupal\breema\Controller\BreemaController::groupDashboardRedirect'
   requirements:
     _user_is_logged_in: 'TRUE'
+user.dashboard.resumes:
+  path: '/user/dashboard/resumes'
+  defaults:
+    _title: 'My resumes'
+    _controller: '\Drupal\breema\Controller\BreemaController::resumeDashboardRedirect'
+  requirements:
+    _user_is_logged_in: 'TRUE'
 entity.user.breema_event_dashboard:
   path: '/user/{user}/events'
   defaults:
@@ -55,7 +62,7 @@ entity.user.breema_group_dashboard:
     _controller: '\Drupal\breema\Controller\BreemaController::groupDashboardPage'
   requirements:
     _custom_access: '\Drupal\breema\Controller\BreemaController::accessGroupDashboard'
-entity.user.breema_resumes:
+entity.user.breema_resume_dashboard:
   path: '/user/{user}/resumes'
   defaults:
     _title_callback: '\Drupal\breema\Controller\BreemaController::resumesPageTitle'

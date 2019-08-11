@@ -269,7 +269,7 @@ class BreemaController extends ControllerBase {
   }
 
   /**
-   * Page title callback for the entity.user.breema_resumes route.
+   * Page title callback for the entity.user.breema_resume_dashboard route.
    *
    * @return string
    *   The page title.
@@ -313,6 +313,17 @@ class BreemaController extends ControllerBase {
       ];
     }
     return $build;
+  }
+
+  /**
+   * Redirect to the current user's resume dashboard.
+   *
+   * @return \Symfony\Component\HttpFoundation\RedirectResponse
+   *   The RedirectResponse to the right page for a user's resume dashboard.
+   */
+  public function resumeDashboardRedirect() {
+    $account = $this->currentUser();
+    return $this->redirect('entity.user.breema_resume_dashboard', ['user' => $account->id()]);
   }
 
 }
