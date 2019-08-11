@@ -262,6 +262,9 @@ class BreemaController extends ControllerBase {
     if ($current_user->hasPermission('edit any session_resume content')) {
       return AccessResult::allowed();
     }
+    if ($route_user->hasRole('practitioner') || $route_user->hasRole('instructor')) {
+      return AccessResult::forbidden($route_user->label() . ' is certified, no session resume page needed.');
+    }
     return AccessResult::allowedIf($current_user->id() == $route_user->id());
   }
 
