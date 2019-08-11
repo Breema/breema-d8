@@ -157,9 +157,9 @@ class BreemaController extends ControllerBase {
   public function eventDashboardPageTitle() {
     $user = $this->loadUserFromRoute();
     if (!empty($user)) {
-      return $this->t('Event dashboard for @user', ['@user' => $user->label()]);
+      return $this->t("@user's events", ['@user' => $user->label()]);
     }
-    return $this->t('Event dashboard');
+    return $this->t('Events');
   }
 
   /**
@@ -222,9 +222,9 @@ class BreemaController extends ControllerBase {
   public function groupDashboardPageTitle() {
     $user = $this->loadUserFromRoute();
     if (!empty($user)) {
-      return $this->t('Group dashboard for @user', ['@user' => $user->label()]);
+      return $this->t("@user's groups", ['@user' => $user->label()]);
     }
-    return $this->t('Group dashboard');
+    return $this->t('Groups');
   }
 
   /**
@@ -274,7 +274,7 @@ class BreemaController extends ControllerBase {
   public function resumesPageTitle() {
     $user = $this->loadUserFromRoute();
     if (!empty($user)) {
-      return $this->t('Resumes for @user', ['@user' => $user->label()]);
+      return $this->t("@user's resumes", ['@user' => $user->label()]);
     }
     return $this->t('Resumes');
   }
