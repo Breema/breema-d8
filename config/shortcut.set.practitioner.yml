@@ -1,0 +1,6 @@
+uuid: 995e1637-c863-4fb1-96ef-c6ff4e38b7ac
+langcode: en
+status: true
+dependencies: {  }
+id: practitioner
+label: Practitioner
