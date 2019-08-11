@@ -29,6 +29,6 @@ visibility:
       user: '@user.current_user_context:current_user'
   request_path:
     id: request_path
-    pages: "/front\r\n<front>\r\n"
+    pages: "/front\r\n<front>\r\n/user/*/resumes\r\n"
     negate: true
     context_mapping: {  }
