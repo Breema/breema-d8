@@ -1,15 +1,20 @@
 shortcut_set,weight,link_title,link_path
-instructor,-10,Add content,node/add
-instructor,-9,Add event,node/add/event
-instructor,-8,Event dashboard,user/dashboard/events
-instructor,-7,Group dashboard,user/dashboard/groups
-instructor,-6,My directory entry,user/dashboard/directory
+practitioner,-10,My groups,user/dashboard/groups
+practitioner,-9,My directory entry,user/dashboard/directory
+practitioner,-8,Contact the Breema Center,contact/center
+instructor,-10,Add event,node/add/event
+instructor,-9,My events,user/dashboard/events
+instructor,-8,My groups,user/dashboard/groups
+instructor,-7,My directory entry,user/dashboard/directory
+instructor,-6,Contact the Breema Center,contact/center
 content-administrator,-10,Add content,node/add
 content-administrator,-9,Add event,node/add/event
 content-administrator,-8,All content,admin/content
 content-administrator,-7,Directory admin,admin/content/breema-directory
 content-administrator,-6,Event admin,admin/content/breema-events
 content-administrator,-5,Featured events,admin/structure/entityqueue/event_featured/event_featured
+content-administrator,-4,My groups,user/dashboard/groups
+content-administrator,-3,My directory entry,user/dashboard/directory
 user-administrator,-10,Add content,node/add
 user-administrator,-9,Add event,node/add/event
 user-administrator,-8,All content,admin/content
@@ -17,6 +22,8 @@ user-administrator,-7,Directory admin,admin/content/breema-directory
 user-administrator,-6,Event admin,admin/content/breema-events
 user-administrator,-5,Featured events,admin/structure/entityqueue/event_featured/event_featured
 user-administrator,-4,People admin,admin/people
+user-administrator,-3,My groups,user/dashboard/groups
+user-administrator,-2,My directory entry,user/dashboard/directory
 administrator,-10,Add content,node/add
 administrator,-9,Add event,node/add/event
 administrator,-8,All content,admin/content
@@ -25,3 +32,6 @@ administrator,-6,Event admin,admin/content/breema-events
 administrator,-5,Featured events,admin/structure/entityqueue/event_featured/event_featured
 administrator,-4,People admin,admin/people
 administrator,-3,Logs,admin/reports/dblog?type[]=contact&type[]=content&type[]=entityqueue&type[]=user
+default,-10,My session resumes,user/dashboard/resumes
+default,-9,Add session resume,node/add/session_resume
+default,-8,Contact the Breema Center,contact/center
