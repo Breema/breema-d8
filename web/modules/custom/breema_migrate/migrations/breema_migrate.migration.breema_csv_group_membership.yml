@@ -1,0 +1,88 @@
+id: breema_csv_group_membership
+label: Group memberships from user CSV data dump
+migration_tags:
+  - Breema CSV
+  - Group
+
+destination:
+  plugin: 'entity:group_content'
+  default_bundle: 'private-group_membership'
+
+source:
+  plugin: csv
+  path: public://csv/breema-users.csv
+  header_row_count: 0
+  keys:
+    - email
+    - first_name
+    - last_name
+  column_names:
+    0:
+      first_name: First Name
+    1:
+      last_name: Last Name
+    2:
+      email: Email
+    3:
+      country: Country
+    4:
+      state: State
+    5:
+      city: City
+    6:
+      postal_code: Postal code
+    7:
+      address: Address
+    8:
+      practitioner: Practitioner
+    9:
+      self_breema_provisional: Provisional Self-Breema Instructor
+    10:
+      self_breema_full: Certified Self-Breema Instructor
+    11:
+      instructor_provisional: Provisional Instructor
+    12:
+      instructor_full: Full Instructor
+
+process:
+  type:
+    plugin: default_value
+    default_value: 'private-group_membership'
+  langcode:
+    plugin: default_value
+    default_value: 'en'
+  gid:
+    # todo: This should loop over the certification values and add to N groups.
+    plugin: default_value
+    default_value: 1
+  entity_id:
+    plugin: migration_lookup
+    migration: breema_csv_user
+    no_stub: true
+    source_ids: 
+      breema_csv_user:
+        - email
+        - first_name
+        - last_name
+    plugin: skip_on_empty
+    method: row
+  label:
+    plugin: concat
+    source:
+      - first_name
+      - last_name
+    delimiter: ' '
+  uid:
+    plugin: default_value
+    default_value: 1
+  langcode:
+    plugin: default_value
+    default_value: en
+  default_langcode:
+    plugin: default_value
+    default_value: 1
+
+migration_dependencies:
+  required:
+    - breema_csv_user
+  optional: {}
