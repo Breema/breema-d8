@@ -37,7 +37,7 @@ display:
       access:
         type: perm
         options:
-          perm: 'administer nodes'
+          perm: 'edit any directory_entry content'
       cache:
         type: tag
         options: {  }
