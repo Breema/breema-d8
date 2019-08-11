@@ -12,7 +12,7 @@ dependencies:
 id: breema2_breema_group_name_user
 theme: breema2
 region: sidebar_first
-weight: -14
+weight: -13
 provider: null
 plugin: 'views_block:breema_group_user-block_group_names'
 settings:
@@ -26,6 +26,6 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: "<front>\r\n/front\r\n/user/*/dashboard"
+    pages: "<front>\r\n/front\r\n/user/*/groups"
     negate: true
     context_mapping: {  }

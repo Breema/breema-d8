@@ -11,7 +11,7 @@ dependencies:
 id: breema2_group_listening_info
 theme: breema2
 region: sidebar_first
-weight: -13
+weight: -14
 provider: null
 plugin: group_listening_block
 settings:
@@ -22,7 +22,7 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: "<front>\r\n/front\r\n/user/*/dashboard"
+    pages: "<front>\r\n/front\r\n/user/*/groups"
     negate: true
     context_mapping: {  }
   user_role:
