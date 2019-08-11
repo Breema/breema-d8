@@ -1019,6 +1019,18 @@ ol.location-results .field--name-field-upcoming-events > .field__item {
   background: #004766;
 }
 
+.view-breema-group-user.view-display-id-embed_group_dashboard .views-row {
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #999;
+}
+
+.view-breema-group-user.view-display-id-embed_group_dashboard .views-row:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
 .media--view-mode-view-large {
   max-width: 640px;
 }
