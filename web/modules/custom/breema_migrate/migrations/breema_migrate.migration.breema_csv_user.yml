@@ -31,14 +31,16 @@ source:
     6:
       postal_code: Postal code
     7:
-      practitioner: Practitioner
+      address: Address
     8:
-      self_breema_provisional: Provisional Self-Breema Instructor
+      practitioner: Practitioner
     9:
-      self_breema_full: Certified Self-Breema Instructor
+      self_breema_provisional: Provisional Self-Breema Instructor
     10:
-      instructor_provisional: Provisional Instructor
+      self_breema_full: Certified Self-Breema Instructor
     11:
+      instructor_provisional: Provisional Instructor
+    12:
       instructor_full: Full Instructor
 
 process:
@@ -51,6 +53,9 @@ process:
   mail: email
   field_name_first: first_name
   field_name_last: last_name
+  field_anatomy_homework_language:
+    plugin: default_value
+    default_value: en
   field_anatomy_requirement:
     plugin: default_value
     default_value: complete
@@ -61,6 +66,10 @@ process:
     plugin: callback
     callable: breema_migrate_map_country_to_code
     source: country
+  'field_address/administrative_area': state
+  'field_address/locality': city
+  'field_address/postal_code': postal_code
+  'field_address/address_line1': address
   roles:
     -
       plugin: concat
