@@ -1498,14 +1498,26 @@ function breema_node_presave(NodeInterface $node) {
  */
 function breema_entity_create_access(AccountInterface $account, array $context, $entity_bundle) {
   $user = \Drupal\user\Entity\User::load($account->id());
-  if (!$user->hasRole('content_administrator')
-      && $context['entity_type_id'] == 'node'
-      && $entity_bundle == 'directory_entry')
-  {
-    // Deny creation if this user already owns a directory entry node.
-    $directory_entry = $user->get('field_directory_entry')->getValue();
-    if (!empty($directory_entry)) {
-      return AccessResult::forbidden();
+  $roles = $user->getRoles(TRUE);
+  if (!in_array('content_administrator', $roles)) {
+    if ($context['entity_type_id'] == 'node') {
+      switch ($entity_bundle) {
+        // Deny creation if this user already owns a directory entry node.
+        case 'directory_entry':
+          $directory_entry = $user->get('field_directory_entry')->getValue();
+          if (!empty($directory_entry)) {
+            return AccessResult::forbidden($user->label() . ' already has a directory entry.');
+          }
+          break;
+
+        // Deny creation if this user is already certified.
+        case 'session_resume':
+          if (in_array('practitioner', $roles) || in_array('instructor', $roles)) {
+            return AccessResult::forbidden($user->label() . ' is already certified.');
+          }
+          break;
+
+      }
     }
   }
   return AccessResult::neutral();
