@@ -1193,7 +1193,6 @@ display:
           admin_label: ''
           operator: in
           value:
-            image: image
             private_image: private_image
           group: 1
           exposed: false
@@ -1436,13 +1435,9 @@ display:
           operator: in
           value:
             all: all
-            audio_file: audio_file
-            file: file
-            image: image
             private_audio_file: private_audio_file
             private_file: private_file
             private_image: private_image
-            video: video
           group: 1
           exposed: true
           expose:
