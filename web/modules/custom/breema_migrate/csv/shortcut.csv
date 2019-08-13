@@ -1,4 +1,7 @@
 shortcut_set,weight,link_title,link_path
+student,-10,My session resumes,user/dashboard/resumes
+student,-9,Add session resume,node/add/session_resume
+student,-8,Contact the Breema Center,contact/center
 practitioner,-10,My groups,user/dashboard/groups
 practitioner,-9,My directory entry,user/dashboard/directory
 practitioner,-8,Contact the Breema Center,contact/center
@@ -32,6 +35,3 @@ administrator,-6,Event admin,admin/content/breema-events
 administrator,-5,Featured events,admin/structure/entityqueue/event_featured/event_featured
 administrator,-4,People admin,admin/people
 administrator,-3,Logs,admin/reports/dblog?type[]=contact&type[]=content&type[]=entityqueue&type[]=user
-default,-10,My session resumes,user/dashboard/resumes
-default,-9,Add session resume,node/add/session_resume
-default,-8,Contact the Breema Center,contact/center
