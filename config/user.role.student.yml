@@ -1,0 +1,12 @@
+uuid: f00b250f-9f64-45ab-a08d-21741c328ef4
+langcode: en
+status: true
+dependencies: {  }
+id: student
+label: Student
+weight: -8
+is_admin: null
+permissions:
+  - 'create session_resume content'
+  - 'delete own session_resume content'
+  - 'edit own session_resume content'

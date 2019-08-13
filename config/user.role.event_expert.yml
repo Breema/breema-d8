@@ -4,7 +4,7 @@ status: true
 dependencies: {  }
 id: event_expert
 label: 'Event expert'
-weight: -6
+weight: -5
 is_admin: null
 permissions:
   - 'access shortcuts'

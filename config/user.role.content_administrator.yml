@@ -41,6 +41,7 @@ permissions:
   - 'create private_image media'
   - 'create private_page content'
   - 'create product content'
+  - 'create session_resume content'
   - 'create terms in event_category'
   - 'create terms in file_type'
   - 'create terms in image_type'

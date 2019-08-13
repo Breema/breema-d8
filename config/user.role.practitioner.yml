@@ -4,7 +4,7 @@ status: true
 dependencies: {  }
 id: practitioner
 label: Practitioner
-weight: -8
+weight: -7
 is_admin: null
 permissions:
   - 'access shortcuts'

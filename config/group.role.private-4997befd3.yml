@@ -1,0 +1,17 @@
+uuid: 4747267b-6fbb-47db-bed3-b0b7dee6e896
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.private
+  enforced:
+    config:
+      - user.role.student
+id: private-4997befd3
+label: Student
+weight: -1
+internal: true
+audience: outsider
+group_type: private
+permissions_ui: false
+permissions: {  }
