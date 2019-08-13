@@ -28,6 +28,8 @@ use Drupal\views\Views;
 use Drupal\views\ViewExecutable;
 use Drupal\views\ResultRow;
 
+use Drupal\group\Entity\Group;
+
 use Drupal\breema\BreemaEventMgr;
 use Drupal\flag\Entity\Flagging;
 
@@ -1449,6 +1451,165 @@ function breema_ensure_flag($flag_id, NodeInterface $node, $uid) {
     $flagging->save();
     $existing_flag_uids[$node->id()][$uid] = TRUE;
   }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_presave() for User entities.
+ *
+ * If field_certification_level changes, update everything that matters:
+ *   - field_certification
+ *   - role
+ * @todo finish shortcut set
+ */
+function breema_user_presave(UserInterface $user) {
+  $old_level = empty($user->original) ? 'new-user' : $user->original->get('field_certification_level')->value;
+  $new_level = $user->get('field_certification_level')->value;
+
+  if ($old_level === $new_level) {
+    return;
+  }
+
+  switch ($new_level) {
+    case 'none':
+      $user->removeRole('student');
+      $user->removeRole('practitioner');
+      $user->removeRole('instructor');
+      $user->set('field_certification', []);
+      \Drupal::entityManager()->getStorage('shortcut_set')->unassignUser($user);
+      break;
+
+    case 'student':
+      $user->addRole('student');
+      $user->removeRole('practitioner');
+      $user->removeRole('instructor');
+      $user->set('field_certification', []);
+      break;
+
+    case 'practitioner':
+      $user->removeRole('student');
+      $user->addRole('practitioner');
+      $user->removeRole('instructor');
+      $user->set('field_certification', ['practitioner']);
+      break;
+
+    // For now, no difference in site behavior for provisional vs. full.
+    case 'prov-self-breema':
+    case 'self-breema':
+      $user->removeRole('student');
+      $user->addRole('practitioner');
+      $user->addRole('instructor');
+      $user->set('field_certification', ['practitioner', 'inst-self-breema']);
+      break;
+
+    // For now, no difference in site behavior for provisional vs. full.
+    case 'prov-instructor':
+    case 'instructor':
+      $user->set(
+        'field_certification',
+        ['practitioner', 'inst-self-breema', 'inst-breema']
+      );
+      $user->removeRole('student');
+      $user->addRole('practitioner');
+      $user->addRole('instructor');
+      break;
+
+  }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_insert() for User entities.
+ */
+function breema_user_insert(UserInterface $user) {
+  $new_level = $user->get('field_certification_level')->value;
+  _breema_user_update_groups($user, $new_level);
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_update() for User entities.
+ *
+ * If field_certification_level changed, update group memberships.
+ */
+function breema_user_update(UserInterface $user) {
+  $old_level = $user->original->get('field_certification_level')->value;
+  $new_level = $user->get('field_certification_level')->value;
+  if ($old_level !== $new_level) {
+    _breema_user_update_groups($user, $new_level);
+  }
+}
+
+/**
+ * Update group memberships if field_certification_level changes.
+ *
+ * @param \Drupal\user\UserInterface $user
+ *   The user to set group membership on.
+ * @param string $certification_level
+ *   The value of field_certification_level the user now has.
+ *
+ * @todo Would be nice to use constants for group ids, not hard-code ints.
+ * @internal
+ */
+function _breema_user_update_groups(UserInterface $user, $certification_level) {
+  switch ($certification_level) {
+    case 'none':
+    case 'student':
+      // Remove from all private groups.
+      _breema_set_user_groups($user, []);
+      break;
+
+    case 'practitioner':
+      _breema_set_user_groups($user, ['3']);
+      break;
+
+    // For now, no difference in site behavior for provisional vs. full.
+    case 'prov-self-breema':
+    case 'self-breema':
+      _breema_set_user_groups($user, ['2', '3']);
+      break;
+
+    // For now, no difference in site behavior for provisional vs. full.
+    case 'prov-instructor':
+    case 'instructor':
+      _breema_set_user_groups($user, ['1', '2', '3']);
+      break;
+
+  }
+}
+
+/**
+ * Private helper function to force a set of group memberships for a user.
+ *
+ * @param \Drupal\user\UserInterface $user
+ *   The user to set group membership on.
+ * @param string[] $new_group_ids
+ *   Array of group IDs the given user should belong to.
+ *
+ * @internal
+ */
+function _breema_set_user_groups(UserInterface $user, array $new_group_ids) {
+  $memberships = \Drupal::service('group.membership_loader')->loadByUser($user);
+  $current_group_ids = [];
+  foreach ($memberships as $membership) {
+    $current_group_ids[] = $membership->getGroup()->id();
+  }
+
+  $remove_group_ids = array_diff($current_group_ids, $new_group_ids);
+  $add_group_ids = array_diff($new_group_ids, $current_group_ids);
+
+  if (!empty($remove_group_ids)) {
+    foreach ($memberships as $membership) {
+      if (in_array($membership->getGroup()->id(), $remove_group_ids)) {
+        $membership->getGroupContent()->delete();
+      }
+    }
+  }
+
+  if (!empty($add_group_ids)) {
+    foreach (Group::loadMultiple($add_group_ids) as $group) {
+      $group->addMember($user);
+      $group->save();
+    }
+  }
+
 }
 
 /**
