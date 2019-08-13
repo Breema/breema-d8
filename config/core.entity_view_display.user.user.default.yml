@@ -10,6 +10,7 @@ dependencies:
     - field.field.user.user.field_breema_center_staff
     - field.field.user.user.field_breema_clinic_practitioner
     - field.field.user.user.field_certification
+    - field.field.user.user.field_certification_level
     - field.field.user.user.field_class_attended
     - field.field.user.user.field_class_other
     - field.field.user.user.field_directory_entry
@@ -48,6 +49,7 @@ third_party_settings:
     group_private_profile:
       children:
         - member_for
+        - field_certification_level
         - field_certification
         - field_breema_center_staff
         - field_breema_clinic_practitioner
@@ -91,7 +93,7 @@ bundle: user
 mode: default
 content:
   field_address:
-    weight: 6
+    weight: 7
     label: visually_hidden
     settings: {  }
     third_party_settings: {  }
@@ -120,7 +122,7 @@ content:
     type: file_default
     region: content
   field_breema_center_staff:
-    weight: 4
+    weight: 5
     label: hidden
     settings:
       format: custom
@@ -130,7 +132,7 @@ content:
     type: boolean
     region: content
   field_breema_clinic_practitioner:
-    weight: 5
+    weight: 6
     label: hidden
     settings:
       format: custom
@@ -140,8 +142,15 @@ content:
     type: boolean
     region: content
   field_certification:
-    weight: 3
+    weight: 4
     label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_certification_level:
+    weight: 3
+    label: inline
     settings: {  }
     third_party_settings: {  }
     type: list_default
@@ -171,7 +180,7 @@ content:
     type: entity_reference_entity_view
     region: content
   field_profession:
-    weight: 8
+    weight: 9
     label: above
     settings:
       link_to_entity: false
@@ -179,7 +188,7 @@ content:
     type: string
     region: content
   field_telephone:
-    weight: 7
+    weight: 8
     label: visually_hidden
     settings:
       title: ''
@@ -195,7 +204,7 @@ content:
     region: content
   group_content:
     type: parent_group_label_formatter
-    weight: 9
+    weight: 10
     region: content
     label: above
     settings:

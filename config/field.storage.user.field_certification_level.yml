@@ -1,0 +1,46 @@
+uuid: 81d01515-8055-442e-a6fe-4c542d6d8334
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - options
+    - user
+third_party_settings:
+  field_permissions:
+    permission_type: custom
+id: user.field_certification_level
+field_name: field_certification_level
+entity_type: user
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: none
+      label: None
+    -
+      value: student
+      label: 'Enrolled Student'
+    -
+      value: practitioner
+      label: Practitioner
+    -
+      value: prov-self-breema
+      label: 'Provisional Self-Breema Instructor'
+    -
+      value: self-breema
+      label: 'Self-Breema Instructor'
+    -
+      value: prov-instructor
+      label: 'Provisional Breema Instructor'
+    -
+      value: instructor
+      label: 'Breema Instructor'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

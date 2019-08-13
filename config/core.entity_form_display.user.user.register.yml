@@ -11,6 +11,7 @@ dependencies:
     - field.field.user.user.field_breema_center_staff
     - field.field.user.user.field_breema_clinic_practitioner
     - field.field.user.user.field_certification
+    - field.field.user.user.field_certification_level
     - field.field.user.user.field_class_attended
     - field.field.user.user.field_class_other
     - field.field.user.user.field_directory_entry
@@ -46,8 +47,8 @@ third_party_settings:
       region: content
     group_public_info:
       children:
-        - user_picture
         - field_directory_entry
+        - user_picture
       parent_name: ''
       weight: 14
       format_type: details
@@ -159,6 +160,7 @@ hidden:
   field_breema_center_staff: true
   field_breema_clinic_practitioner: true
   field_certification: true
+  field_certification_level: true
   field_directory_entry: true
   group_content: true
   path: true

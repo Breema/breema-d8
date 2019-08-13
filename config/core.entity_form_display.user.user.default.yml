@@ -10,6 +10,7 @@ dependencies:
     - field.field.user.user.field_breema_center_staff
     - field.field.user.user.field_breema_clinic_practitioner
     - field.field.user.user.field_certification
+    - field.field.user.user.field_certification_level
     - field.field.user.user.field_class_attended
     - field.field.user.user.field_class_other
     - field.field.user.user.field_directory_entry
@@ -41,7 +42,7 @@ third_party_settings:
         - field_class_attended
         - field_class_other
       parent_name: ''
-      weight: 9
+      weight: 10
       format_type: details
       format_settings:
         id: ''
@@ -55,7 +56,7 @@ third_party_settings:
         - user_picture
         - field_directory_entry
       parent_name: ''
-      weight: 10
+      weight: 11
       format_type: details
       format_settings:
         id: ''
@@ -77,12 +78,12 @@ content:
     settings: {  }
     third_party_settings: {  }
   contact:
-    weight: 11
+    weight: 12
     region: content
     settings: {  }
     third_party_settings: {  }
   field_address:
-    weight: 6
+    weight: 7
     settings: {  }
     third_party_settings: {  }
     type: address_default
@@ -107,24 +108,30 @@ content:
     type: file_generic
     region: content
   field_breema_center_staff:
-    weight: 4
-    settings:
-      display_label: true
-    third_party_settings: {  }
-    type: boolean_checkbox
-    region: content
-  field_breema_clinic_practitioner:
     weight: 5
     settings:
       display_label: true
     third_party_settings: {  }
     type: boolean_checkbox
     region: content
+  field_breema_clinic_practitioner:
+    weight: 6
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
   field_certification:
-    weight: 3
+    weight: 4
     settings: {  }
     third_party_settings: {  }
     type: options_buttons
+    region: content
+  field_certification_level:
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
     region: content
   field_class_attended:
     weight: 13
@@ -176,7 +183,7 @@ content:
     type: string_textfield
     region: content
   field_profession:
-    weight: 8
+    weight: 9
     settings:
       size: 60
       placeholder: ''
@@ -184,7 +191,7 @@ content:
     type: string_textfield
     region: content
   field_telephone:
-    weight: 7
+    weight: 8
     settings:
       placeholder: ''
     third_party_settings: {  }
@@ -200,7 +207,7 @@ content:
     region: content
   group_content:
     type: group_selector_widget
-    weight: 14
+    weight: 15
     region: content
     settings:
       widget: select
@@ -208,13 +215,13 @@ content:
       required: 0
     third_party_settings: {  }
   language:
-    weight: 13
+    weight: 14
     region: content
     settings: {  }
     third_party_settings: {  }
   path:
     type: path
-    weight: 12
+    weight: 13
     region: content
     settings: {  }
     third_party_settings: {  }

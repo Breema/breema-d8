@@ -1,0 +1,23 @@
+uuid: 994e571c-065f-4ce4-877d-6d249f804aef
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_certification_level
+  module:
+    - options
+    - user
+id: user.user.field_certification_level
+field_name: field_certification_level
+entity_type: user
+bundle: user
+label: 'Certification level'
+description: 'The current status of this user''s Breema Certification (if any). Changing this will automatically update everything that needs to happen when a user moves through the process.'
+required: true
+translatable: false
+default_value:
+  -
+    value: none
+default_value_callback: ''
+settings: {  }
+field_type: list_string

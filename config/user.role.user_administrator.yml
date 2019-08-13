@@ -15,4 +15,6 @@ permissions:
   - 'edit field_breema_center_staff'
   - 'edit field_breema_clinic_practitioner'
   - 'edit field_certification'
+  - 'edit field_certification_level'
+  - 'view field_certification_level'
   - 'view the administration theme'

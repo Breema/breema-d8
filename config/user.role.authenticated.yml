@@ -32,5 +32,6 @@ permissions:
   - 'view field_job_title'
   - 'view field_parent_event'
   - 'view media'
+  - 'view own field_certification_level'
   - 'view own unpublished content'
   - 'view the administration theme'
