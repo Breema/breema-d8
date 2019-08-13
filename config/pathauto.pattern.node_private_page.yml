@@ -7,16 +7,16 @@ dependencies:
 id: node_private_page
 label: 'Node: Private page'
 type: 'canonical_entities:node'
-pattern: 'private/[node:title]'
+pattern: 'private-page/[node:title]'
 selection_criteria:
-  41f41044-90db-4455-a68a-6ed8f05167f6:
+  4d302ec3-f64d-4245-90e1-4ef4e63ccef4:
     id: node_type
     bundles:
       private_page: private_page
     negate: false
     context_mapping:
       node: node
-    uuid: 41f41044-90db-4455-a68a-6ed8f05167f6
+    uuid: 4d302ec3-f64d-4245-90e1-4ef4e63ccef4
 selection_logic: and
 weight: -5
 relationships: {  }
