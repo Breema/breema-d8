@@ -87,8 +87,12 @@ p.address {
   font-style: italic;
 }
 
-p.large {
+p.huge {
   font-size: 1.3em;
+}
+
+p.large {
+  font-size: 1.15em;
 }
 
 blockquote,
