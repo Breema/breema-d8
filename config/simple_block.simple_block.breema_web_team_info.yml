@@ -1,0 +1,11 @@
+uuid: 22ccc033-9ca4-420e-ba03-6c209c5beb22
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.basic_html
+id: breema_web_team_info
+title: 'The Breema Web Team'
+content:
+  value: "<p>The Breema Center website is the online hub for Breema students, practitioners and instructors world wide. The site is maintained by:</p>\r\n\r\n<ul>\r\n\t<li><a href=\"/user/18/contact\">Ashik Staud</a> - Webmaster</li>\r\n\t<li><a href=\"/user/20/contact\">Luna Lacey</a> - Webmaster</li>\r\n\t<li><a href=\"/user/17/contact\">Derek Wright</a> - Site architect, developer, assistant webmaster</li>\r\n</ul>\r\n"
+  format: basic_html
