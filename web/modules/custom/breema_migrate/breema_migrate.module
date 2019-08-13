@@ -25,35 +25,26 @@ function breema_migrate_map_country_to_code($source_country) {
 }
 
 /**
- * Migration callback function to handle Instructor certification fields.
+ * Migration callback function to handle certification level field.
  */
-function breema_migrate_certification($source) {
-  // By default, all entries are certified practitioners.
-  $certification = ['practitioner'];
-  if ($source != '---') {
-    // If *any* of the instructor certification columns are set, turn on
-    // Self-Breema instructor.
-    $certification[] = 'inst-self-breema';
-    // Now, see if either provisional or full instructor are set:
-    $source_certifications = explode('-', $source);
-    if (!empty($source_certifications[2]) || !empty($source_certifications[3])) {
-      $certification[] = 'inst-breema';
-    }
-  }
-  return $certification;
-}
+function breema_migrate_certification_level($source) {
+  switch ($source) {
+    case '---':
+      return 'practitioner';
 
-/**
- * Migration callback function to set roles based on certification fields.
- */
-function breema_migrate_map_certification_to_roles($source) {
-  // By default, all entries are certified practitioners.
-  $roles = ['practitioner'];
-  if ($source != '---') {
-    // If *any* of the instructor certification columns are set that's enough.
-    $roles[] = 'instructor';
+    case 'Prov SB Instructor---':
+      return 'prov-self-breema';
+
+    case '-SB Instructor--':
+      return 'self-breema';
+
+    case '--Prov Instructor-':
+      return 'prov-instructor';
+
+    case '---Instructor':
+      return 'instructor';
+
   }
-  return $roles;
 }
 
 /**

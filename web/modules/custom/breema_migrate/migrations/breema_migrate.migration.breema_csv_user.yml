@@ -70,7 +70,7 @@ process:
   'field_address/locality': city
   'field_address/postal_code': postal_code
   'field_address/address_line1': address
-  roles:
+  field_certification_level:
     -
       plugin: concat
       delimiter: '-'
@@ -81,19 +81,7 @@ process:
         - instructor_full
     -
       plugin: callback
-      callable: breema_migrate_map_certification_to_roles
-  field_certification:
-    -
-      plugin: concat
-      delimiter: '-'
-      source:
-        - self_breema_provisional
-        - self_breema_full
-        - instructor_provisional
-        - instructor_full
-    -
-      plugin: callback
-      callable: breema_migrate_certification
+      callable: breema_migrate_certification_level
   field_breema_center_staff:
     plugin: default_value
     default_value: false
