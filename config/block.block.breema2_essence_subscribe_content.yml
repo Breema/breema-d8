@@ -10,7 +10,7 @@ dependencies:
 id: breema2_essence_subscribe_content
 theme: breema2
 region: content
-weight: -15
+weight: -18
 provider: null
 plugin: footer_email_subscribe_block
 settings:

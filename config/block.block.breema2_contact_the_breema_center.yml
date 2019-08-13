@@ -12,7 +12,7 @@ dependencies:
 id: breema2_contact_the_breema_center
 theme: breema2
 region: content
-weight: -9
+weight: -12
 provider: null
 plugin: 'simple_block:breema_center_contact_info'
 settings:

@@ -9,7 +9,7 @@ dependencies:
 id: breema2_social_media_share_links
 theme: breema2
 region: content
-weight: -14
+weight: -17
 provider: null
 plugin: social_share_block
 settings:

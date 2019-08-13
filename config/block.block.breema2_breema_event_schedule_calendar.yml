@@ -9,7 +9,7 @@ dependencies:
 id: breema2_breema_event_schedule_calendar
 theme: breema2
 region: content
-weight: -2
+weight: -4
 provider: null
 plugin: event_schedule_block
 settings:

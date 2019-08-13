@@ -9,7 +9,7 @@ _core:
 id: breema2_local_actions
 theme: breema2
 region: content
-weight: -11
+weight: -14
 provider: null
 plugin: local_actions_block
 settings:
