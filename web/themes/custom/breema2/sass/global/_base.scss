@@ -260,7 +260,8 @@ a.teaser-link .node--view-mode-teaser-with-location .field--name-field-location 
   font-size: 90%;
 }
 
-.field--name-field-main-image img {
+.field--name-field-main-image img,
+.field--name-field-main-image .field--type-image {
   display: block;
   margin: 0;
   padding: 0;
@@ -271,7 +272,8 @@ a.teaser-link .node--view-mode-teaser-with-location .field--name-field-location 
     float: left;
     max-width: 50%;
   }
-  .field--name-field-main-image img {
+  .field--name-field-main-image img,
+  .field--name-field-main-image .field--type-image {
     margin: 0 1em 0 0;
   }
 }
