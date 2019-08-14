@@ -1454,12 +1454,40 @@ function breema_ensure_flag($flag_id, NodeInterface $node, $uid) {
 }
 
 /**
+ * Implements hook_shortcut_default_set().
+ *
+ * @todo Core sucks. This is sometimes an AccountProxy, others a User. :(
+ *
+ * @param $account
+ *   The user account whose default shortcut set is being requested.
+ * @return string
+ *   The name of the shortcut set for this user.
+ */
+function breema_shortcut_default_set($account) {
+  $roles = $account->getRoles(TRUE);
+  // Keys are role IDs, values are shortcut set machine names, ordered by
+  // the most elevated roles first.
+  $role_shortcut_map = [
+    'administrator' => 'administrator',
+    'user_administrator' => 'user-administrator',
+    'content_administrator' => 'content-administrator',
+    'instructor' => 'instructor',
+    'practitioner' => 'practitioner',
+    'student' => 'student',
+  ];
+  foreach ($role_shortcut_map as $role_id => $shortcut_set) {
+    if (in_array($role_id, $roles)) {
+      return $shortcut_set;
+    }
+  }
+}
+
+/**
  * Implements hook_ENTITY_TYPE_presave() for User entities.
  *
  * If field_certification_level changes, update everything that matters:
  *   - field_certification
  *   - role
- * @todo finish shortcut set
  */
 function breema_user_presave(UserInterface $user) {
   $old_level = empty($user->original) ? 'new-user' : $user->original->get('field_certification_level')->value;
@@ -1475,7 +1503,6 @@ function breema_user_presave(UserInterface $user) {
       $user->removeRole('practitioner');
       $user->removeRole('instructor');
       $user->set('field_certification', []);
-      \Drupal::entityManager()->getStorage('shortcut_set')->unassignUser($user);
       break;
 
     case 'student':
