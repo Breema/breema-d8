@@ -48,23 +48,6 @@ function breema_migrate_certification_level($source) {
 }
 
 /**
- * Migration callback to map certification fields to appropriate shortcut set.
- *
- * @param string $source
- *   A hyphen-delimited string of instructor certification values (if any).
- *   e.g. '---' (practitioner-only), 'Prov SB Instructor---',
- *   '--Prov Instructor-', '---Instructor', etc.
- * @return string
- *   The machine name of the appropriate shortcut set for the user.
- */
-function breema_migrate_map_certification_to_shortcut_set($source) {
-  // If none of the instructor certifications are set, it's a practitioner.
-  // Otherwise, any kind of instructor (SB, Full, Provisional, etc) should get
-  // the instructor set.
-  return $source === '---' ? 'practitioner' : 'instructor';
-}
-
-/**
  * Migration callback function to set image filename based on file path.
  */
 function breema_migrate_image_path_to_uri($source) {
