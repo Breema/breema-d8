@@ -10,7 +10,7 @@ dependencies:
 id: breema2_essence_footer
 theme: breema2
 region: content
-weight: -2
+weight: -1
 provider: null
 plugin: essence_footer_block
 settings:

@@ -12,7 +12,7 @@ dependencies:
 id: breema2_events_at_the_center
 theme: breema2
 region: content
-weight: -3
+weight: -2
 provider: null
 plugin: 'views_block:breema_events_by_location-block_breema_center'
 settings:
