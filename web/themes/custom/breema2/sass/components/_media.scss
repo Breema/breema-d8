@@ -11,6 +11,27 @@
   max-width: 224px;
 }
 
-.field--name-field-stream-url label {
-  display: none;
+.field--name-field-stream-url {
+  label {
+    display: none;
+  }
+  .audiofield-player .mejs__audio {
+    max-width: 280px;
+    margin: 0.5em 0 1em 0;
+  }
+}
+@media (min-width: 410px) {
+  .field--name-field-stream-url .audiofield-player .mejs__audio {
+    max-width: 360px;
+  }
+}
+@media (min-width: 601px) {
+  .field--name-field-stream-url .audiofield-player .mejs__audio {
+    max-width: 480px;
+  }
+}
+@media (min-width: 1025px) {
+  .field--name-field-stream-url .audiofield-player .mejs__audio {
+    max-width: none;
+  }
 }

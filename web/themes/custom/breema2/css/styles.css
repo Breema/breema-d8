@@ -1050,7 +1050,26 @@ ol.location-results .field--name-field-upcoming-events > .field__item {
 .field--name-field-stream-url label {
   display: none;
 }
+.field--name-field-stream-url .audiofield-player .mejs__audio {
+  max-width: 280px;
+  margin: 0.5em 0 1em 0;
+}
 
+@media (min-width: 410px) {
+  .field--name-field-stream-url .audiofield-player .mejs__audio {
+    max-width: 360px;
+  }
+}
+@media (min-width: 601px) {
+  .field--name-field-stream-url .audiofield-player .mejs__audio {
+    max-width: 480px;
+  }
+}
+@media (min-width: 1025px) {
+  .field--name-field-stream-url .audiofield-player .mejs__audio {
+    max-width: none;
+  }
+}
 ul.menu a.is-active {
   color: #007cb2;
 }
