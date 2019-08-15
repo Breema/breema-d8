@@ -46,7 +46,7 @@ content:
     settings:
       widget: select
       multiple: '1'
-      required: 0
+      required: '1'
     third_party_settings: {  }
   path:
     type: path
