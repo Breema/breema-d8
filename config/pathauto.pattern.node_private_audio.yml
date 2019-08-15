@@ -1,0 +1,22 @@
+uuid: aff16bc1-eddc-4231-ac6e-ea5ba656bfea
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node_private_audio
+label: 'Node: Private audio'
+type: 'canonical_entities:node'
+pattern: 'private-audio/[node:title]'
+selection_criteria:
+  0aee2c92-75ea-4a40-a61d-28e97caf51f7:
+    id: node_type
+    bundles:
+      private_audio_stream: private_audio_stream
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 0aee2c92-75ea-4a40-a61d-28e97caf51f7
+selection_logic: and
+weight: -5
+relationships: {  }
