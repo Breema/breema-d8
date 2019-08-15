@@ -1,0 +1,18 @@
+uuid: 0f2b4d06-b892-4ef9-b64e-9b5488756a83
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: 'Private audio stream'
+type: private_audio_stream
+description: 'Private pages with an audio stream player.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

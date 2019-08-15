@@ -1,0 +1,74 @@
+uuid: a03746a6-4deb-468d-9b6d-4440837fd5f7
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.private_audio_stream.body
+    - field.field.node.private_audio_stream.field_stream_url
+    - node.type.private_audio_stream
+  module:
+    - audiofield
+    - smart_trim
+    - user
+id: node.private_audio_stream.teaser
+targetEntityType: node
+bundle: private_audio_stream
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: smart_trim
+    weight: 1
+    settings:
+      trim_length: 200
+      trim_type: chars
+      trim_suffix: ''
+      wrap_class: trimmed
+      more_text: More
+      more_class: more-link
+      summary_handler: full
+      wrap_output: false
+      more_link: false
+      trim_options:
+        text: false
+        trim_zero: false
+    third_party_settings: {  }
+    region: content
+  field_stream_url:
+    type: audiofield_audioplayer
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      audio_player: mediaelement_audio_player
+      audio_player_jplayer_theme: none
+      audio_player_wavesurfer_audiorate: '1'
+      audio_player_wavesurfer_autocenter: '1'
+      audio_player_wavesurfer_bargap: '0'
+      audio_player_wavesurfer_barheight: '1'
+      audio_player_wavesurfer_barwidth: ''
+      audio_player_wavesurfer_cursorcolor: '#000000'
+      audio_player_wavesurfer_cursorwidth: '1'
+      audio_player_wavesurfer_progresscolor: '#000000'
+      audio_player_wavesurfer_wavecolor: '#000000'
+      audio_player_wordpress_animation: '1'
+      audio_player_soundmanager_theme: default
+      audio_player_initial_volume: '8'
+      audio_player_wavesurfer_combine_files: 0
+      audio_player_wavesurfer_forcedecode: 0
+      audio_player_wavesurfer_normalize: 0
+      audio_player_wavesurfer_responsive: 0
+      audio_player_wordpress_combine_files: 0
+      audio_player_autoplay: 0
+      audio_player_lazyload: 0
+      download_button: 0
+      download_link: 0
+    third_party_settings: {  }
+  links:
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  group_content: true

@@ -1,0 +1,22 @@
+uuid: cc9fa782-60bd-4d15-aac7-ba20690b6306
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.private_audio_stream
+  module:
+    - text
+id: node.private_audio_stream.body
+field_name: body
+entity_type: node
+bundle: private_audio_stream
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+field_type: text_with_summary
