@@ -7,5 +7,5 @@ dependencies:
 id: breema_login_header
 title: 'Breema User login header'
 content:
-  value: "<p>Approved students can login to the site to complete various aspects of the requirements for certification and access private content only available to those currently enrolled in the <a href=\"/about-center/certifications-and-ces#practitioner\">Breema Practitioner Certificate Program</a>.</p>\r\n\r\n<p>Certified Breema Practitioners can create entries in the <a href=\"/directory\">International Breema Directory</a>, and access additional practitioner-only content.</p>\r\n\r\n<p>Certified Breema Instructors can additionally submit events for the <a href=\"/events\">Breema Calendar</a>, and access instructor-only resources.</p>\r\n\r\n<p>Login here to access your online profile. Need help? <a href=\"/faq/user-profile-instructions\">Find directions here</a>.</p>\r\n"
+  value: "<p>Anyone who is enrolled in the Practitioner Certificate Program or certified as a Breema Practitioner or Breema Instructor will have an account and be able to access additional features on the site when logged in.</p>\r\n\r\n<p>Have an account and need help? <a href=\"/faq/user-profile-instructions\">Find directions here</a>.</p>\r\n"
   format: basic_html

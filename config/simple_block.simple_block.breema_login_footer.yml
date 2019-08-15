@@ -1,0 +1,11 @@
+uuid: d62e1153-143a-4890-b158-a7e5895984cd
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.basic_html
+id: breema_login_footer
+title: 'Breema User login footer'
+content:
+  value: "<p>Approved students can login to the site to complete various aspects of the requirements for certification and access private content only available to those currently enrolled in the <a href=\"/about-center/certifications-and-ces#practitioner\">Breema Practitioner Certificate Program</a>.</p>\r\n\r\n<p>Certified Breema Practitioners can create entries in the <a href=\"/directory\">International Breema Directory</a>, and access additional practitioner-only content.</p>\r\n\r\n<p>Certified Breema Instructors can additionally submit events for the <a href=\"/events\">Breema Calendar</a>, and access instructor-only resources.</p>\r\n"
+  format: basic_html
