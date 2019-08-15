@@ -1047,6 +1047,10 @@ ol.location-results .field--name-field-upcoming-events > .field__item {
   max-width: 224px;
 }
 
+.field--name-field-stream-url label {
+  display: none;
+}
+
 ul.menu a.is-active {
   color: #007cb2;
 }
