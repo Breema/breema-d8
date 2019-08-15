@@ -1277,6 +1277,15 @@ function breema_form_user_login_form_alter(&$form, FormStateInterface $form_stat
 }
 
 /**
+ * Implements hook_form_FORM_ID_alter() for 'user_pass' form.
+ *
+ * Fix #title for 'name' element to mention 'Full name' not 'Username'.
+ */
+function breema_form_user_pass_alter(&$form, FormStateInterface $form_state) {
+  $form['name']['#title'] = t('Full name or e-mail address');
+}
+
+/**
  * Implements hook_entity_type_alter().
  */
 function breema_entity_type_alter(array &$entity_types) {
