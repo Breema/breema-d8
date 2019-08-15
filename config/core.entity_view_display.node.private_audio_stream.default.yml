@@ -8,6 +8,7 @@ dependencies:
     - node.type.private_audio_stream
   module:
     - audiofield
+    - gcontent_field
     - text
     - user
 id: node.private_audio_stream.default
@@ -52,10 +53,17 @@ content:
     third_party_settings: {  }
     type: audiofield_audioplayer
     region: content
-  links:
+  group_content:
+    type: parent_group_label_formatter
     weight: 2
+    region: content
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+  links:
+    weight: 3
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden:
-  group_content: true
+hidden: {  }
