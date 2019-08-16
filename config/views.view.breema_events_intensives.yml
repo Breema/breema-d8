@@ -7,7 +7,7 @@ dependencies:
     - node.type.event
     - taxonomy.vocabulary.event_category
   content:
-    - 'taxonomy_term:event_category:43792504-ad52-488f-920e-bda01c59ed10'
+    - 'taxonomy_term:event_category:8bc69088-238b-4203-b875-899e41c54bc1'
   module:
     - datetime
     - node
@@ -193,7 +193,7 @@ display:
           admin_label: ''
           operator: or
           value:
-            26: 26
+            30: 30
           group: 1
           exposed: false
           expose:
