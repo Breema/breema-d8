@@ -1,0 +1,31 @@
+uuid: 9a2b119a-deb6-4c85-b87f-9269def1e885
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.breema_group_content
+  module:
+    - system
+    - views
+  theme:
+    - breema2
+id: breema2_group_audio_teasers
+theme: breema2
+region: content
+weight: 0
+provider: null
+plugin: 'views_block:breema_group_content-block_teasers_audio'
+settings:
+  id: 'views_block:breema_group_content-block_teasers_audio'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+  items_per_page: none
+  context_mapping: {  }
+visibility:
+  request_path:
+    id: request_path
+    pages: "/group/dear-student\r\n/group/listen-to-recordings\r\n/group/listen-to-streaming\r\n"
+    negate: false
+    context_mapping: {  }
