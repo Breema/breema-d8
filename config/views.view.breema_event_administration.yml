@@ -767,7 +767,7 @@ display:
           admin_label: ''
           empty: true
           tokenize: false
-          content: '<ul class="action-links"><li><a href="[site:url]node/add/event" class="button button-action button--primary">Add new event</a></li></ul>'
+          content: "<ul class=\"action-links\">\r\n  <li><a href=\"[site:url]node/add/event\" class=\"button button-action button--primary\">Add new event</a></li>\r\n  <li><a href=\"[site:url]admin/structure/entityqueue/event_featured/event_featured\" class=\"button button-action button--secondary\">Featured event queue</a></li>\r\n</ul>"
           plugin_id: text_custom
       footer: {  }
       empty:
