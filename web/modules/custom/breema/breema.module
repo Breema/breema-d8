@@ -115,10 +115,12 @@ function breema_preprocess_html(&$variables) {
       $main_image = $node->get('field_main_image')->getValue();
       if (!empty($main_image[0]['target_id'])) {
         $main_images = $node->get('field_main_image')->referencedEntities();
-        $main_image_files = $main_images[0]->get('field_media_image')->referencedEntities();
-        if (!empty($main_image_files)) {
-          $share_image_file = $main_image_files[0];
-          $share_image_info = $main_images[0]->get('field_media_image')->getValue();
+        if (!empty($main_images[0])) {
+          $main_image_files = $main_images[0]->get('field_media_image')->referencedEntities();
+          if (!empty($main_image_files)) {
+            $share_image_file = $main_image_files[0];
+            $share_image_info = $main_images[0]->get('field_media_image')->getValue();
+          }
         }
       }
     }
