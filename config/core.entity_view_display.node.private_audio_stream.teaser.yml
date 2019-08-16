@@ -5,10 +5,13 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.private_audio_stream.body
+    - field.field.node.private_audio_stream.field_available_dates
     - field.field.node.private_audio_stream.field_stream_url
+    - field.field.node.private_audio_stream.field_title_prefix
     - node.type.private_audio_stream
   module:
     - audiofield
+    - datetime_extras
     - smart_trim
     - user
 id: node.private_audio_stream.teaser
@@ -19,7 +22,7 @@ content:
   body:
     label: hidden
     type: smart_trim
-    weight: 1
+    weight: 2
     settings:
       trim_length: 200
       trim_type: chars
@@ -35,6 +38,14 @@ content:
         trim_zero: false
     third_party_settings: {  }
     region: content
+  field_available_dates:
+    type: daterange_compact
+    weight: 1
+    region: content
+    label: inline
+    settings:
+      format_type: date_only
+    third_party_settings: {  }
   field_stream_url:
     type: audiofield_audioplayer
     weight: 0
@@ -66,9 +77,10 @@ content:
       download_link: 0
     third_party_settings: {  }
   links:
-    weight: 2
+    weight: 3
     region: content
     settings: {  }
     third_party_settings: {  }
 hidden:
+  field_title_prefix: true
   group_content: true

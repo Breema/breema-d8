@@ -1,0 +1,19 @@
+uuid: af07218b-6ce5-4cf5-b0b5-606cf9e9036b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_title_prefix
+    - node.type.private_audio_stream
+id: node.private_audio_stream.field_title_prefix
+field_name: field_title_prefix
+entity_type: node
+bundle: private_audio_stream
+label: 'Title prefix'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
