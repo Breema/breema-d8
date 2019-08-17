@@ -10,7 +10,7 @@ field_name: field_title_prefix
 entity_type: node
 bundle: private_audio_stream
 label: 'Title prefix'
-description: ''
+description: 'For example: <em>Streaming Library</em>'
 required: true
 translatable: false
 default_value: {  }
