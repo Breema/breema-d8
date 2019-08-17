@@ -42,6 +42,8 @@ source:
       instructor_provisional: Provisional Instructor
     12:
       instructor_full: Full Instructor
+    13:
+      public: Public directory entry
 
 process:
   name:

@@ -43,6 +43,8 @@ source:
       instructor_provisional: Provisional Instructor
     12:
       instructor_full: Full Instructor
+    13:
+      public: Public directory entry
 
 process:
   # The content (node) type we are creating is 'directory_entry'.
@@ -50,7 +52,10 @@ process:
     plugin: default_value
     default_value: directory_entry
   status:
-    plugin: default_value
+    plugin: static_map
+    source: public
+    map:
+      'Yes': 1
     default_value: 0
   uid:
     plugin: migration_lookup
