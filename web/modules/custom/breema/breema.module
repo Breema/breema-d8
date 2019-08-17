@@ -1794,20 +1794,44 @@ function _breema_get_directory_entry_action_links(NodeInterface $directory_entry
  * Implements hook_entity_view_alter().
  */
 function breema_entity_view_alter(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display) {
-  if ($entity->getEntityTypeId() == 'user') {
-    return breema_entity_user_view_alter($build, $entity, $display);
+  switch ($entity->getEntityTypeId()) {
+    case 'group':
+      return breema_entity_group_view_alter($build, $entity, $display);
+      break;
+
+    case 'user':
+      return breema_entity_user_view_alter($build, $entity, $display);
+      break;
+
+    case 'node':
+      $bundle = $entity->bundle();
+      if ($bundle === 'directory_entry') {
+        return breema_entity_node_directory_entry_view_alter($build, $entity, $display);
+      }
+      elseif ($bundle === 'article') {
+        return breema_entity_node_article_view_alter($build, $entity, $display);
+      }
+      // Special handling for 'Breema and the Nine Principles' page:
+      elseif ($entity->id() == 3) {
+        return breema_node_3_view_alter($build, $entity, $display);
+      }
+      break;
+
   }
-  if ($entity->getEntityTypeId() == 'node') {
-    $bundle = $entity->bundle();
-    if ($bundle === 'directory_entry') {
-      return breema_entity_node_directory_entry_view_alter($build, $entity, $display);
-    }
-    elseif ($bundle === 'article') {
-      return breema_entity_node_article_view_alter($build, $entity, $display);
-    }
-    // Special handling for 'Breema and the Nine Principles' page:
-    elseif ($entity->id() == 3) {
-      return breema_node_3_view_alter($build, $entity, $display);
+}
+
+/**
+ * Callback for hook_entity_view_alter() for group entities.
+ */
+function breema_entity_group_view_alter(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display) {
+  if ($display->getMode() == 'default') {
+    $view = Views::getView('breema_group_content');
+    $view->setDisplay('block_teasers_audio');
+    $view->setArguments([$entity->id()]);
+    $view->execute();
+    if (count($view->result)) {
+      $build['audio_teasers'] = $view->preview();
+      $build['audio_teasers']['#weight'] = 10;
     }
   }
 }
