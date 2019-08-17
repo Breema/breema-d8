@@ -1,0 +1,10 @@
+uuid: bf554bc1-c36e-4612-80f3-5a7ae2473e90
+langcode: en
+status: true
+dependencies:
+  module:
+    - group
+id: group.body
+label: Body
+targetEntityType: group
+cache: true

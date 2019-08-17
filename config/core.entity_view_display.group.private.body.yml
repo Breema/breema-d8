@@ -1,0 +1,39 @@
+uuid: 12808256-3c7d-4385-b842-6de6499b8747
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.group.body
+    - field.field.group.private.field_body
+    - field.field.group.private.field_group_type
+    - field.field.group.private.field_resources
+    - group.type.private
+  module:
+    - text
+id: group.private.body
+targetEntityType: group
+bundle: private
+mode: body
+content:
+  field_body:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_resources:
+    type: entity_reference_entity_view
+    weight: 1
+    label: visually_hidden
+    settings:
+      view_mode: view_full
+      link: false
+    third_party_settings: {  }
+    region: content
+hidden:
+  changed: true
+  created: true
+  field_group_type: true
+  label: true
+  uid: true
