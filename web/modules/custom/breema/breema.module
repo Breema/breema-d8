@@ -669,10 +669,12 @@ function _breema_get_more_events_action_links() {
     'map' => '/directory/map?type[]=event',
   ];
   foreach ($actions as $action => $action_path) {
-    $url = Url::fromUri('internal:' . $action_path);
     $render[$action] = [
       '#prefix' => '<div class="action action--secondary inline">',
-      '#markup' => t('<a href=":url">:label</a>', [':url' => $url->toString(), ':label' => Unicode::ucfirst($action)]),
+      '#type' => 'link',
+      '#url' => Url::fromUri('internal:' . $action_path),
+      // @todo This isn't translatable.
+      '#title' => Unicode::ucfirst($action),
       '#suffix' => '</div>',
     ];
   }
