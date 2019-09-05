@@ -190,9 +190,6 @@
       "drupal/menu_block": {
         "[#2809699-85] Menu parent as block title" : "https://www.drupal.org/files/issues/2019-07-09/2809699-85.menu_block-label_configuration.patch",
         "[#2950943-14] Add links to menu parent block title" : "https://www.drupal.org/files/issues/2019-07-09/2950943-14.menu_block-title_as_link.patch"
-      },
-      "drupal/paragraphs": {
-        "[#2907094-68] Make paragraphs module work with field_group version 3.x" : "https://www.drupal.org/files/issues/2019-07-08/2907094_68.patch"
       }
     },
     "installer-paths": {
