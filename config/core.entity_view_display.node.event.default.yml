@@ -45,11 +45,11 @@ content:
       link_text: 'Facebook event'
       link_class: ''
       rel: nofollow
-      allow_override: 0
-      target: 0
-      trim_length: ''
-      url_only: ''
-      url_plain: ''
+      allow_override: false
+      target: '0'
+      trim_length: null
+      url_only: false
+      url_plain: false
     third_party_settings: {  }
     type: fixed_text_link
     region: content
@@ -94,11 +94,11 @@ content:
       link_text: 'Register here for the event'
       link_class: ''
       rel: nofollow
-      allow_override: 0
-      target: 0
-      trim_length: ''
-      url_only: ''
-      url_plain: ''
+      allow_override: false
+      target: '0'
+      trim_length: null
+      url_only: false
+      url_plain: false
     third_party_settings: {  }
     type: fixed_text_link
     region: content
