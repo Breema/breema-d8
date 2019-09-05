@@ -260,10 +260,15 @@ a.teaser-link .node--view-mode-teaser-with-location .field--name-field-location 
   font-size: 90%;
 }
 
-.field--name-field-main-image img,
-.field--name-field-main-image .field--type-image {
+.align-left,
+.align-right {
+  float: none;
+  margin: 0 0 1em 0;
+}
+.field--name-field-main-image.field--type-entity-reference,
+.field--name-field-main-image.field--type-image {
   display: block;
-  margin: 0;
+  margin: 0 0 1em 0;
   padding: 0;
 }
 @media (min-width: 715px) {
@@ -272,9 +277,17 @@ a.teaser-link .node--view-mode-teaser-with-location .field--name-field-location 
     float: left;
     max-width: 50%;
   }
-  .field--name-field-main-image img,
-  .field--name-field-main-image .field--type-image {
+  .field--name-field-main-image.field--type-entity-reference,
+  .field--name-field-main-image.field--type-image {
     margin: 0 1em 0 0;
+  }
+  .align-left {
+    float: left;
+    margin: 0 1em 0 0;
+  }
+  .align-right {
+    float: right;
+    margin: 0 0 0 1em;
   }
 }
 
