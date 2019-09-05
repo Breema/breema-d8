@@ -531,7 +531,7 @@ display:
       path: events
       menu:
         type: 'default tab'
-        title: Search
+        title: List
         description: ''
         expanded: false
         parent: ''

@@ -665,7 +665,7 @@ function _breema_get_more_events_action_links() {
   ];
   $actions = [
     'calendar' => '/events/calendar',
-    'search' => '/events',
+    'list' => '/events',
     'map' => '/directory/map?type[]=event',
   ];
   foreach ($actions as $action => $action_path) {

@@ -1126,17 +1126,17 @@ display:
         - 'config:core.entity_view_display.node.session_resume.teaser'
         - 'config:core.entity_view_display.node.session_resume.teaser_compact'
         - 'config:field.storage.node.field_geolocation'
-  page_search:
+  page_list:
     display_plugin: page
-    id: page_search
-    display_title: 'Page: Search'
+    id: page_list
+    display_title: 'Page: List'
     position: 1
     display_options:
       display_extenders: {  }
-      path: directory/search
+      path: directory/list
       menu:
         type: 'default tab'
-        title: Search
+        title: List
         description: ''
         expanded: false
         parent: ''
