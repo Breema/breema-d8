@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.node.teaser_compact
+    - core.entity_view_mode.node.teaser_no_image
     - node.type.event
     - node.type.place
   module:
@@ -84,7 +84,7 @@ display:
         type: 'entity:node'
         options:
           relationship: none
-          view_mode: teaser_compact
+          view_mode: teaser_no_image
       fields:
         title:
           id: title
