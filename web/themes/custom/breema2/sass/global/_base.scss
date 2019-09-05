@@ -265,6 +265,7 @@ a.teaser-link .node--view-mode-teaser-with-location .field--name-field-location 
   float: none;
   margin: 0 0 1em 0;
 }
+a.teaser-link .field--name-field-main-image.field--type-entity-reference,
 .field--name-field-main-image.field--type-entity-reference,
 .field--name-field-main-image.field--type-image {
   display: block;
@@ -277,6 +278,7 @@ a.teaser-link .node--view-mode-teaser-with-location .field--name-field-location 
     float: left;
     max-width: 50%;
   }
+  a.teaser-link .field--name-field-main-image.field--type-entity-reference,
   .field--name-field-main-image.field--type-entity-reference,
   .field--name-field-main-image.field--type-image {
     margin: 0 1em 0 0;
