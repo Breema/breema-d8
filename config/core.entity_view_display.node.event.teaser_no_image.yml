@@ -1,0 +1,73 @@
+uuid: 3523a117-e4f0-4688-8f48-aa492eb21ab6
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser_no_image
+    - field.field.node.event.body
+    - field.field.node.event.field_address
+    - field.field.node.event.field_categories
+    - field.field.node.event.field_date_time
+    - field.field.node.event.field_display_instructor_bios
+    - field.field.node.event.field_facebook_event
+    - field.field.node.event.field_geolocation
+    - field.field.node.event.field_instructors
+    - field.field.node.event.field_location
+    - field.field.node.event.field_main_image
+    - field.field.node.event.field_parent_event
+    - field.field.node.event.field_registration_link
+    - field.field.node.event.field_required_hours
+    - field.field.node.event.field_resources
+    - field.field.node.event.field_subtitle
+    - field.field.node.event.field_transfer_credit
+    - field.field.node.event.field_website
+    - node.type.event
+  module:
+    - datetime_extras
+    - user
+id: node.event.teaser_no_image
+targetEntityType: node
+bundle: event
+mode: teaser_no_image
+content:
+  field_date_time:
+    type: daterange_compact
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      format_type: medium
+    third_party_settings: {  }
+  field_instructors:
+    type: entity_reference_label
+    weight: 2
+    region: content
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+  field_subtitle:
+    weight: 1
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden:
+  body: true
+  field_address: true
+  field_categories: true
+  field_display_instructor_bios: true
+  field_facebook_event: true
+  field_geolocation: true
+  field_location: true
+  field_main_image: true
+  field_parent_event: true
+  field_registration_link: true
+  field_required_hours: true
+  field_resources: true
+  field_transfer_credit: true
+  field_website: true
+  group_content: true
+  links: true
