@@ -497,6 +497,93 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
+  page_list:
+    display_plugin: page
+    id: page_list
+    display_title: 'Page: List'
+    position: 1
+    display_options:
+      display_extenders: {  }
+      path: directory/list
+      menu:
+        type: 'default tab'
+        title: List
+        description: ''
+        expanded: false
+        parent: ''
+        weight: -1
+        context: '0'
+        menu_name: main
+      defaults:
+        pager: false
+        style: false
+        row: false
+        header: false
+        fields: true
+      display_description: ''
+      pager:
+        type: full
+        options:
+          items_per_page: 20
+          offset: 0
+          id: 0
+          total_pages: null
+          tags:
+            previous: '‹ Previous'
+            next: 'Next ›'
+            first: '« First'
+            last: 'Last »'
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+          quantity: 9
+      style:
+        type: html_list
+        options:
+          row_class: location-result
+          default_row_class: false
+          uses_fields: false
+          type: ol
+          wrapper_class: item-list
+          class: location-results
+      row:
+        type: 'entity:node'
+        options:
+          relationship: none
+          view_mode: teaser_search_result
+      header:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: false
+          content:
+            value: 'To search by states, select the country, click ''Apply'' and a state or province selector will appear if available.'
+            format: basic_html
+          plugin_id: text
+      tab_options:
+        type: normal
+        title: 'International Directory'
+        description: ''
+        weight: 0
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_interface'
+        - url
+        - url.query_args
+        - 'user.node_grants:view'
+        - user.permissions
+      tags: {  }
   page_map:
     display_plugin: page
     id: page_map
@@ -1126,90 +1213,3 @@ display:
         - 'config:core.entity_view_display.node.session_resume.teaser'
         - 'config:core.entity_view_display.node.session_resume.teaser_compact'
         - 'config:field.storage.node.field_geolocation'
-  page_list:
-    display_plugin: page
-    id: page_list
-    display_title: 'Page: List'
-    position: 1
-    display_options:
-      display_extenders: {  }
-      path: directory/list
-      menu:
-        type: 'default tab'
-        title: List
-        description: ''
-        expanded: false
-        parent: ''
-        weight: -1
-        context: '0'
-        menu_name: main
-      defaults:
-        pager: false
-        style: false
-        row: false
-        header: false
-        fields: true
-      display_description: ''
-      pager:
-        type: full
-        options:
-          items_per_page: 20
-          offset: 0
-          id: 0
-          total_pages: null
-          tags:
-            previous: '‹ Previous'
-            next: 'Next ›'
-            first: '« First'
-            last: 'Last »'
-          expose:
-            items_per_page: false
-            items_per_page_label: 'Items per page'
-            items_per_page_options: '5, 10, 25, 50'
-            items_per_page_options_all: false
-            items_per_page_options_all_label: '- All -'
-            offset: false
-            offset_label: Offset
-          quantity: 9
-      style:
-        type: html_list
-        options:
-          row_class: location-result
-          default_row_class: false
-          uses_fields: false
-          type: ol
-          wrapper_class: item-list
-          class: location-results
-      row:
-        type: 'entity:node'
-        options:
-          relationship: none
-          view_mode: teaser_search_result
-      header:
-        area:
-          id: area
-          table: views
-          field: area
-          relationship: none
-          group_type: group
-          admin_label: ''
-          empty: true
-          tokenize: false
-          content:
-            value: 'To search by states, select the country, click ''Apply'' and a state or province selector will appear if available.'
-            format: basic_html
-          plugin_id: text
-      tab_options:
-        type: normal
-        title: 'International Directory'
-        description: ''
-        weight: 0
-    cache_metadata:
-      max-age: -1
-      contexts:
-        - 'languages:language_interface'
-        - url
-        - url.query_args
-        - 'user.node_grants:view'
-        - user.permissions
-      tags: {  }
