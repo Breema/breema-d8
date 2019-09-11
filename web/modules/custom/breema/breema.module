@@ -34,6 +34,11 @@ use Drupal\breema\BreemaEventMgr;
 use Drupal\flag\Entity\Flagging;
 
 /**
+ * E-mail address to notify about new session resumes.
+ */
+const BREEMA_SESSION_RESUME_EMAIL = 'session-resumes@breema.com';
+
+/**
  * Implements hook_help().
  */
 function breema_help($route_name, RouteMatchInterface $route_match) {
@@ -1359,6 +1364,10 @@ function breema_node_cud(NodeInterface $node, $operation) {
       breema_node_cud__place($node, $operation);
       break;
 
+    case 'session_resume':
+      breema_node_cud__session_resume($node, $operation);
+      break;
+
   }
 }
 
@@ -1441,6 +1450,17 @@ function breema_node_cud__place(NodeInterface $node, $operation) {
 }
 
 /**
+ * Callback invoked for any session resume node CUD operation.
+ *
+ * Send an e-mail when new resumes are created.
+ */
+function breema_node_cud__session_resume(NodeInterface $node, $operation) {
+  if ($operation === 'insert') {
+    \Drupal::service('breema.entity_sender')->sendEntity($node, 'session_resume_insert', BREEMA_SESSION_RESUME_EMAIL);
+  }
+}
+
+/**
  * Ensure that the given user has flagged the given node with the given flag.
  */
 function breema_ensure_flag($flag_id, NodeInterface $node, $uid) {
@@ -1463,6 +1483,28 @@ function breema_ensure_flag($flag_id, NodeInterface $node, $uid) {
     $flagging = \Drupal::entityManager()->getStorage('flagging')->create($values);
     $flagging->save();
     $existing_flag_uids[$node->id()][$uid] = TRUE;
+  }
+}
+
+/**
+ * Implements hook_mail().
+ */
+function breema_mail($key, &$message, $params) {
+  $options = [
+    'langcode' => $message['langcode'],
+  ];
+  switch ($key) {
+    case 'session_resume_insert':
+      $message['from'] = \Drupal::config('system.site')->get('mail');
+      $message['subject'] = t('New: @title', ['@title' => $params['entity']->label()], $options);
+      $message['body'][] = $params['body'];
+      // @todo: Should this happen here or when building the message?
+      $message['body'][] = '<hr />';
+      $message['body'][] = '<p>' . t('This session resume: @url', ['@url' => $params['entity']->toUrl('canonical', ['absolute' => TRUE])->toString()]) . '</p>';
+      $admin_all = Url::fromUri('internal:/admin/content/breema-session-resume', ['absolute' => TRUE]);
+      $message['body'][] = '<p>' . t('Administer all session resumes: @url', ['@url' => $admin_all->toString()]) . '</p>';
+      break;
+
   }
 }
 

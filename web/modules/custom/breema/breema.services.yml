@@ -4,6 +4,15 @@ services:
     tags:
       - { name: access_check, applies_to: _access_breema_contact_personal_tab }
     arguments: ['@config.factory', '@user.data']
+
+  breema.entity_sender:
+    class: Drupal\breema\BreemaEntitySender
+    arguments: ['@entity_type.manager', '@logger.channel.breema_mail', '@plugin.manager.mail', '@renderer', '@token']
+
+  logger.channel.breema_mail:
+    parent: logger.channel_base
+    arguments: ['breema_mail']
+
   breema.route_subscriber:
     class: Drupal\breema\Routing\RouteSubscriber
     tags:
