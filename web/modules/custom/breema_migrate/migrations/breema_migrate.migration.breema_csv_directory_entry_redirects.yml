@@ -1,0 +1,90 @@
+id: breema_csv_directory_entry_redirects
+label: Directory entry redirects from CSV data dump
+migration_tags:
+  - Breema CSV
+  - redirect
+
+destination:
+  plugin: entity:redirect
+
+source:
+  plugin: csv
+  # This is now sharing the same source file with the user migration.
+  path: public://csv/breema-users.csv
+  header_row_count: 0
+  keys:
+    - email
+    - first_name
+    - last_name
+  column_names:
+    0:
+      first_name: First Name
+    1:
+      last_name: Last Name
+    2:
+      email: Email
+    3:
+      country: Country
+    4:
+      state: State
+    5:
+      city: City
+    6:
+      postal_code: Postal code
+    7:
+      address: Address
+    8:
+      practitioner: Practitioner
+    9:
+      self_breema_provisional: Provisional Self-Breema Instructor
+    10:
+      self_breema_full: Certified Self-Breema Instructor
+    11:
+      instructor_provisional: Provisional Instructor
+    12:
+      instructor_full: Full Instructor
+    13:
+      public: Public directory entry
+  constants:
+    redirect_prefix: 'internal:/node/'
+    source_prefix: 'site/page/directory/'
+    status_code: 301
+    language: und
+
+process:
+  directory_nid:
+    plugin: migration_lookup
+    no_stub: true
+    migration: breema_csv_directory_entry
+    source_ids:
+      breema_csv_directory_entry:
+        - email
+        - first_name
+        - last_name
+  name_slug:
+    -
+      plugin: concat
+      delimiter: '_'
+      source:
+        - first_name
+        - last_name
+    -
+      plugin: callback
+      callable: breema_migrate_name_slug
+  redirect_redirect:
+    plugin: concat
+    source:
+      - 'constants/redirect_prefix'
+      - '@directory_nid'
+  redirect_source:
+    plugin: concat
+    source:
+      - 'constants/source_prefix'
+      - '@name_slug'
+  language: 'constants/language'
+  status_code: 'constants/status_code'
+
+migration_dependencies:
+  required:
+    - breema_csv_directory_entry
+  optional: {}
