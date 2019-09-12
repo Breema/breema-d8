@@ -476,7 +476,7 @@ display:
             label: ''
           granularity: minute
           plugin_id: datetime
-      title: 'Breema event search'
+      title: 'Breema events'
       header: {  }
       footer: {  }
       empty:
