@@ -189,6 +189,7 @@ figure .node--view-mode-view-full,
 
 .text-formatted ol, .text-formatted ul {
   margin: 0 0 1em 1em;
+  display: inline-block;
 }
 .text-formatted ol ol, .text-formatted ul ul {
   margin: 0 0 0 1em;
