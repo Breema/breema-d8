@@ -220,38 +220,10 @@ function breema_preprocess_html(&$variables) {
   // other conditionals so that it always runs for nodes.
   $description = '';
   if (!empty($node) && $node instanceof NodeInterface) {
-    if ($node->hasField('field_meta_summary')) {
-      $meta_summary = $node->get('field_meta_summary')->getValue();
-      if (!empty($meta_summary[0]['value'])) {
-        // This is always a plain text field, so we don't have text filters.
-        $description = $meta_summary[0]['value'];
-      }
-    }
-    elseif ($node->hasField('body')) {
-      // This is evil -- wish there was a simple API for this.
-      $body = $node->get('body')->getValue();
-      if (!empty($body[0]['summary'])) {
-        $build = [
-          '#type' => 'processed_text',
-          '#text' => $body[0]['summary'],
-          '#format' => $body[0]['format'],
-        ];
-        $renderer = \Drupal::service('renderer');
-        $description = $renderer->renderPlain($build);
-      }
-      elseif (!empty($body[0]['value'])) {
-        $description = text_summary($body[0]['value'], $body[0]['format'], 300);
-      }
-    }
-    else {
-      // Neither field_meta_summary nor body.
-      // Not currently a problem, all our node types have 1 or the other.
-      // @todo
-    }
+    $description = breema_get_node_meta_description($node);
   }
-  // If we found something, use it.
   if (!empty($description)) {
-    $meta_tags[] = ['property' => 'og:description', 'name' => 'description', 'content' => trim(strip_tags($description))];
+    $meta_tags[] = ['property' => 'og:description', 'name' => 'description', 'content' => $description];
   }
 
   // Global properties, regardless of page:
@@ -265,6 +237,114 @@ function breema_preprocess_html(&$variables) {
       $id,
     ];
   }
+}
+
+/**
+ * Gets the right meta description to use for a given node.
+ *
+ * @param \Drupal\node\NodeInterface $node
+ *   The node to use.
+ * @return string
+ *   The meta description.
+ */
+function breema_get_node_meta_description(NodeInterface $node) {
+  $description = '';
+  $renderer = \Drupal::service('renderer');
+  switch ($node->getType()) {
+    case 'directory_entry':
+      $description = breema_get_node_summary($node, 'body');
+      if (empty($description)) {
+        $view_options = [
+          'label' => 'hidden'
+        ];
+        $certs = $node->get('field_certification')->getValue();
+        if (!empty($certs)) {
+          $cert_strings = [];
+          $cert_view = $node->get('field_certification')->view($view_options);
+          foreach (Element::children($cert_view) as $key) {
+            $cert_strings[] = $cert_view[$key]['#markup'];
+          }
+          $description = implode(', ', $cert_strings);
+        }
+        $address = $node->get('field_address')->getValue();
+        if (!empty($address)) {
+          //$view_options['type'] = 'address_compact';
+          $address_view = $node->get('field_address')->view($view_options);
+          $description .= ' ~ ' . trim($renderer->renderPlain($address_view));
+        }
+      }
+      break;
+
+    case 'event':
+      // @todo
+      break;
+
+    default:
+      if ($node->hasField('field_meta_summary')) {
+        $meta_summary = $node->get('field_meta_summary')->getValue();
+        if (!empty($meta_summary[0]['value'])) {
+          // This is always a plain text field, so we don't have text filters.
+          $description = $meta_summary[0]['value'];
+        }
+      }
+      elseif ($node->hasField('body')) {
+        $description = breema_get_node_summary($node, 'body');
+      }
+      else {
+        // Neither field_meta_summary nor body.
+        // Not currently a problem, all our node types have 1 or the other.
+        // @todo
+      }
+      break;
+
+  }
+
+  // Strip tags.
+  $description = strip_tags(str_replace('<', ' <', $description));
+
+  // Strip out line breaks.
+  $description = preg_replace('/\n|\r|\t/m', ' ', $description);
+
+  // Strip out non-breaking spaces.
+  $description = str_replace('&nbsp;', ' ', $description);
+  $description = str_replace("\xc2\xa0", ' ', $description);
+
+  // Strip out extra spaces.
+  $description = trim(preg_replace('/\s\s+/', ' ', $description));
+
+  return trim($description);
+}
+
+/**
+ * Gets the summary to use for a certain field on a given node.
+ *
+ * If the explicit summary is defined, use it. Otherwise, trim the full value.
+ * This is evil -- wish there was a simple API for this.
+ *
+ * @param \Drupal\node\NodeInterface $node
+ *   The node to use.
+ * @param string $field_name
+ *   The machine name of the field to use.
+ * @return string
+ *   The summary.
+ *
+ * @todo Replace this with something better when core has a good solution.
+ */
+function breema_get_node_summary(NodeInterface $node, $field_name) {
+  $summary = '';
+  $field_value = $node->get($field_name)->getValue();
+  if (!empty($field_value[0]['summary'])) {
+    $build = [
+      '#type' => 'processed_text',
+      '#text' => $field_value[0]['summary'],
+      '#format' => $field_value[0]['format'],
+    ];
+    $summary = \Drupal::service('renderer')->renderPlain($build);
+  }
+  elseif (!empty($field_value[0]['value'])) {
+    $summary = text_summary($field_value[0]['value'], $field_value[0]['format'], 300);
+  }
+  return $summary;
 }
 
 /**
