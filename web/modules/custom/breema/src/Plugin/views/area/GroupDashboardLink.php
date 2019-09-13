@@ -59,7 +59,7 @@ class GroupDashboardLink extends AreaPluginBase {
     if (!$empty || !empty($this->options['empty'])) {
       return [
         '#type' => 'link',
-        '#title' => $this->t('Group dashboard'),
+        '#title' => $this->t('View all groups'),
         '#url' => Url::fromRoute('entity.user.breema_group_dashboard', ['user' => $this->currentUser->id()]),
         '#prefix' => '<div class="action action--secondary">',
         '#suffix' => '</div>',

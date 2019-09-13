@@ -43,8 +43,7 @@ class BreemaEventDashboardBlock extends BlockBase {
     if ($result) {
       $add_url = Url::fromRoute('node.add', ['node_type' => 'event'], $url_options);
     }
-    /// @todo Also handle field_instructors
-    $args = [$current_user->id()];
+    $args = [$current_user->id(), $current_user->id()];
     foreach (['pending', 'upcoming'] as $event_status) {
       $display = 'embed_' . $event_status;
       $view = Views::getView('breema_event_dashboard');
@@ -73,8 +72,7 @@ class BreemaEventDashboardBlock extends BlockBase {
         $events['past'] = TRUE;
         $block['past'] = [
           '#prefix' => '<p>',
-          /// @todo: We can mention "clone" once it exists on the dashboard.
-          '#markup' => $this->t('View past events at your <a href=":dashboard">Event dashboard</a>.', [':dashboard' => $dashboard_url->toString()]),
+          '#markup' => $this->t('No upcoming events. <a href=":dashboard">Manage events</a> to view and clone past events.', [':dashboard' => $dashboard_url->toString()]),
           '#suffix' => '</p>',
         ];
       }
@@ -99,7 +97,7 @@ class BreemaEventDashboardBlock extends BlockBase {
     if (!empty($events)) {
       $block['dashboard'] = [
         '#type' => 'link',
-        '#title' => $this->t('Event dashboard'),
+        '#title' => $this->t('Manage events'),
         '#url' => $dashboard_url,
         '#prefix' => '<div class="action action--secondary">',
         '#suffix' => '</div>',
