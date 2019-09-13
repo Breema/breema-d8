@@ -74,13 +74,11 @@ function breema_migrate_image_path_to_type($source) {
 /**
  * Migration callback function to determine a URL slug for a given name.
  *
- * We get first_last. However, we need to handle ' ' and '-', and convert
- * everything to lowercase.
- *
- * @todo better transliteration behavior to match EE2 legacy URLs.
+ * We get first_last. However, we need to transliterate (ö -> oe), convert ' '
+ * to '_' and make everything lowercase.
  */
 function breema_migrate_name_slug($name) {
-  $clean_name = \Drupal::service('transliteration')->transliterate($name);
-  //dvm("original: $name clean: $clean_name");
-  return str_replace([' ', '-'], ['_', '_'], strtolower($clean_name));
+  // Use 'de' as the language code to get ö -> oe and friends.
+  $clean_name = \Drupal::service('transliteration')->transliterate($name, 'de');
+  return str_replace(' ', '_', strtolower($clean_name));
 }
