@@ -7,6 +7,7 @@
 
 use Drupal\Component\Utility\Unicode;
 use Drupal\Core\Access\AccessResult;
+use Drupal\Core\Datetime\DrupalDateTime;
 use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Field\FieldItemListInterface;
@@ -313,6 +314,44 @@ function breema_get_node_meta_description(NodeInterface $node) {
   $description = trim(preg_replace('/\s\s+/', ' ', $description));
 
   return trim($description);
+}
+
+/**
+ * Gets the compact date-only string for a given event node.
+ *
+ * @param \Drupal\node\NodeInterface $event
+ *   The event node to use.
+ * @return string
+ *   The compact date-only representation of the date range.
+ *
+ * @todo Remove this when compact_daterange formatter handles this better.
+ */
+function breema_get_compact_date_only(NodeInterface $event) {
+  $date_time = $event->get('field_date_time')->getValue();
+  $start_time = new DrupalDateTime($date_time[0]['value']);
+  $end_time = new DrupalDateTime($date_time[0]['end_value']);
+  $start_date = $start_time->format('j F Y');
+  $end_date = $end_time->format('j F Y');
+  // Start and end on the same date, only show the 1 value.
+  if ($start_date === $end_date) {
+    return $start_date;
+  }
+  $start_year = $start_time->format('Y');
+  $end_year = $end_time->format('Y');
+  if ($start_year !== $end_year) {
+    // Nothing to compact, have to use the full version of both.
+    return $start_date . ' - ' . $end_date;
+  }
+  $start_mon = $start_time->format('F');
+  $end_mon = $end_time->format('F');
+  if ($start_mon !== $end_mon) {
+    // Same year, but have to use the full day and month for each.
+    $start_date = $start_time->format('j F');
+    return $start_date . ' - ' . $end_date;
+  }
+  // Same year and month, only need the start day (and no spaces around -).
+  $start_date = $start_time->format('j');
+  return $start_date . '-' . $end_date;
 }
 
 /**
