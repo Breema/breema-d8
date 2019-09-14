@@ -250,8 +250,11 @@ function breema_preprocess_html(&$variables) {
  */
 function breema_get_node_meta_description(NodeInterface $node) {
   $description = '';
+  $parts = [];
   $renderer = \Drupal::service('renderer');
+
   switch ($node->getType()) {
+
     case 'directory_entry':
       $description = breema_get_node_summary($node, 'body');
       if (empty($description)) {
@@ -265,19 +268,39 @@ function breema_get_node_meta_description(NodeInterface $node) {
           foreach (Element::children($cert_view) as $key) {
             $cert_strings[] = $cert_view[$key]['#markup'];
           }
-          $description = implode(', ', $cert_strings);
+          $parts[] = implode(', ', $cert_strings);
         }
         $address = $node->get('field_address')->getValue();
         if (!empty($address)) {
           //$view_options['type'] = 'address_compact';
           $address_view = $node->get('field_address')->view($view_options);
-          $description .= ' ~ ' . trim($renderer->renderPlain($address_view));
+          $parts[] = trim($renderer->renderPlain($address_view));
         }
       }
       break;
 
     case 'event':
-      // @todo
+      $subtitle = $node->get('field_subtitle')->value;
+      if (!empty($subtitle)) {
+        $parts[] = $subtitle;
+      }
+
+      $parts[] = breema_get_compact_date_only($node);
+
+      $location = $node->get('field_location')->view([
+        'label' => 'hidden',
+        'type' => 'entity_reference_entity_view',
+        'settings' => [
+          'view_mode' => 'teaser_compact',
+          'link' => FALSE,
+        ],
+      ]);
+      $parts[] = trim($renderer->renderPlain($location));
+
+      $summary = breema_get_node_summary($node, 'body');
+      if (!empty($summary)) {
+        $parts[] = $summary;
+      }
       break;
 
     default:
@@ -298,6 +321,10 @@ function breema_get_node_meta_description(NodeInterface $node) {
       }
       break;
 
+  }
+
+  if (empty($description) && !empty($parts)) {
+    $description = implode(' ~ ', $parts);
   }
 
   // Strip tags.
