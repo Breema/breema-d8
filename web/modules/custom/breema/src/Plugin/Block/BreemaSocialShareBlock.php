@@ -80,10 +80,9 @@ class BreemaSocialShareBlock extends BlockBase {
     if (!empty($node) && in_array($node->bundle(), $shareable_bundles)) {
       $info = [
         'nid' => $node->id(),
-        'title' => $node->getTitle(),
+        'title' => rawurlencode($node->getTitle()),
         'url' => $node->toUrl('canonical', ['absolute' => TRUE])->toString(),
-        /// @todo
-        'summary' => 'dww was here',
+        'summary' => rawurlencode(breema_get_node_meta_description($node)),
       ];
       if ($node->bundle() === 'event') {
         $fb_event = $node->get('field_facebook_event')->getValue();
