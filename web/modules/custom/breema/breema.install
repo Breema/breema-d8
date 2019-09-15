@@ -1,6 +1,8 @@
 <?php
 
+use Drupal\Core\Entity\EntityInterface;
 use Drupal\node\Entity\Node;
+use Drupal\user\Entity\User;
 
 /**
  * @file
@@ -68,4 +70,44 @@ function _breema_update_8002() {
                'postal_code' => '94618',
              ]);
   $node->save();
+}
+
+/**
+ * Repair non-numeric postal codes (users).
+ */
+function breema_update_8004() {
+  $users = User::loadMultiple();
+  foreach ($users as $user) {
+    _breema_repair_entity_postal_code($user);
+  }
+}
+
+/**
+ * Repair non-numeric postal codes (directory entries).
+ */
+function breema_update_8005() {
+  $nodes = \Drupal::entityTypeManager()
+    ->getStorage('node')
+    ->loadByProperties(['type' => 'directory_entry']);
+  foreach ($nodes as $node) {
+    _breema_repair_entity_postal_code($node);
+  }
+}
+
+/**
+ * Private helper function to repair the postal code for  given entity.
+ *
+ * @param \Drupal\Core\Entity\EntityInterface $entity
+ *   The entity to repair. Must have a 'field_address' field.
+ */
+function _breema_repair_entity_postal_code(EntityInterface $entity) {
+  $address = $entity->get('field_address')->getValue();
+  if (!is_numeric($address[0]['postal_code'])) {
+    $clean_code = preg_replace('#[A-Z]+-#', '', $address[0]['postal_code']);
+    if ($address[0]['postal_code'] !== $clean_code) {
+      $address[0]['postal_code'] = $clean_code;
+      $entity->set('field_address', $address);
+      $entity->save();
+    }
+  }
 }
