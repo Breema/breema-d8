@@ -1219,6 +1219,7 @@ function breema_form_user_form_alter(&$form, \Drupal\Core\Form\FormStateInterfac
     $form['account']['name']['#type'] = 'hidden';
   }
   $form['#validate'][] = 'breema_user_form_validate';
+  $form['#entity_builders']['breema_user_form_entity_builder'] = 'breema_user_form_entity_builder';
 
   $form['field_anatomy_homework_language']['#states'] = [
     'visible' => [
@@ -1280,6 +1281,28 @@ function breema_form_user_form_alter(&$form, \Drupal\Core\Form\FormStateInterfac
     // Also, hide the directory_entry field for everyone not certified.
     $form['field_directory_entry']['#access'] = FALSE;
   }
+}
+
+/**
+ * Updates the user entity to reflect any change to the form name fields.
+ *
+ * This allows entity validation to properly check the username during form
+ * validation.
+ *
+ * @param string $entity_type_id
+ *   The entity type identifier.
+ * @param \Drupal\Core\Entity\EntityInterface $entity
+ *   The entity updated with the submitted values.
+ * @param array $form
+ *   The complete form array.
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ *   The current state of the form.
+ */
+function breema_user_form_entity_builder($entity_type_id, EntityInterface $entity, array $form, FormStateInterface $form_state) {
+  $first_name = $form_state->getValue('field_name_first');
+  $last_name = $form_state->getValue('field_name_last');
+  $name = trim($first_name[0]['value']) . ' ' . trim($last_name[0]['value']);
+  $entity->set('name', $name);
 }
 
 /**
