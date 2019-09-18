@@ -383,6 +383,11 @@ a.teaser-link:hover .node--unpublished {
   font-size: 1.3em;
 }
 
+.node--view-mode-teaser .field--name-field-subtitle,
+.node--view-mode-teaser-with-location .field--name-field-subtitle {
+  font-size: 1em;
+}
+
 .site-footer .layout-container {
   padding: 0 10px;
 }
