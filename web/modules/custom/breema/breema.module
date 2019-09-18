@@ -2173,6 +2173,21 @@ function breema_entity_node_directory_entry_view_alter(array &$build, EntityInte
       '#weight' => '-100',
     ];
   }
+
+  if ($build['#view_mode'] === 'full') {
+    // Embed views specific to directory_entry nodes.
+    $weight = 10;
+    $args = [$author_uid];
+    foreach (['map', 'list'] as $key) {
+      $view = Views::getView('breema_events_by_instructor');
+      $view->setDisplay('block_' . $key);
+      $view->setArguments($args);
+      $view->execute();
+      $build['events_' . $key] = $view->preview();
+      $build['events_' . $key]['#weight'] = $weight++;
+    }
+    $build['events_list']['#prefix'] = '<h2>' . t('Upcoming events') . '</h2>';
+  }
 }
 
 /**
