@@ -290,9 +290,12 @@ display:
             remember_roles:
               authenticated: authenticated
               anonymous: '0'
+              student: '0'
               practitioner: '0'
               instructor: '0'
+              event_expert: '0'
               content_administrator: '0'
+              user_administrator: '0'
               administrator: '0'
             placeholder: ''
             min_placeholder: ''
