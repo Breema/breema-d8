@@ -2018,18 +2018,15 @@ function breema_entity_view_alter(array &$build, EntityInterface $entity, Entity
 
     case 'node':
       $bundle = $entity->bundle();
-      if ($bundle === 'directory_entry') {
-        return breema_entity_node_directory_entry_view_alter($build, $entity, $display);
-      }
-      elseif ($bundle === 'article') {
-        return breema_entity_node_article_view_alter($build, $entity, $display);
+      $function = 'breema_entity_node_' . $bundle . '_view_alter';
+      if (function_exists($function)) {
+        return $function($build, $entity, $display);
       }
       // Special handling for 'Breema and the Nine Principles' page:
       elseif ($entity->id() == 3) {
         return breema_node_3_view_alter($build, $entity, $display);
       }
       break;
-
   }
 }
 
@@ -2267,7 +2264,7 @@ function breema_entity_node_article_view_alter(array &$build, EntityInterface $e
 }
 
 /**
- * Callback for hook_entity_view_alter() for user entities.
+ * Callback for hook_entity_view_alter() for node 3 ("The Nine Principles").
  */
 function breema_node_3_view_alter(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display) {
   if ($display->getMode() == 'default') {
