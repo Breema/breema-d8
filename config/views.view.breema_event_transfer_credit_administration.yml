@@ -749,7 +749,7 @@ display:
             group_items: {  }
           plugin_id: datetime
       sorts: {  }
-      title: 'Breema Event Administration'
+      title: 'Breema Transfer Credit Events'
       header: {  }
       footer: {  }
       empty:
