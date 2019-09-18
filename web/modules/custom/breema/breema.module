@@ -40,6 +40,11 @@ use Drupal\flag\Entity\Flagging;
 const BREEMA_SESSION_RESUME_EMAIL = 'session-resumes@breema.com';
 
 /**
+ * E-mail address to notify about events with transfer credit defined.
+ */
+const BREEMA_EVENT_TRANSFER_CREDIT_EMAIL = 'instructor-liasion@breema.com';
+
+/**
  * Implements hook_help().
  */
 function breema_help($route_name, RouteMatchInterface $route_match) {
@@ -1580,6 +1585,25 @@ function breema_node_cud__event(NodeInterface $node, $operation) {
       }
     }
   }
+
+  switch ($operation) {
+    case 'insert':
+      $new_xfer = $node->get('field_transfer_credit')->value;
+      if (!empty($new_xfer)) {
+        \Drupal::service('breema.entity_sender')->sendEntity($node, 'event_xfer_insert', BREEMA_EVENT_TRANSFER_CREDIT_EMAIL);
+      }
+      break;
+
+    case 'update':
+      $old_xfer = $node->original->get('field_transfer_credit')->value;
+      $new_xfer = $node->get('field_transfer_credit')->value;
+      if (!empty($new_xfer) && $old_xfer !== $new_xfer) {
+        \Drupal::service('breema.entity_sender')->sendEntity($node, 'event_xfer_update', BREEMA_EVENT_TRANSFER_CREDIT_EMAIL);
+      }
+      break;
+
+  }
+
 }
 
 /**
@@ -1672,6 +1696,19 @@ function breema_mail($key, &$message, $params) {
       $message['body'][] = '<p>' . t('This session resume: @url', ['@url' => $params['entity']->toUrl('canonical', ['absolute' => TRUE])->toString()]) . '</p>';
       $admin_all = Url::fromUri('internal:/admin/content/breema-session-resume', ['absolute' => TRUE]);
       $message['body'][] = '<p>' . t('Administer all session resumes: @url', ['@url' => $admin_all->toString()]) . '</p>';
+      break;
+
+    case 'event_xfer_update':
+    case 'event_xfer_insert':
+      $message['from'] = \Drupal::config('system.site')->get('mail');
+      $placeholders = ['@title' => $params['entity']->label()];
+      $message['subject'] = $key === 'event_xfer_update' ? t('Updated event now with transfer credit: @title', $placeholders, $options) : t('New event with transfer credit: @title', $placeholders, $options);
+      $message['body'][] = $params['body'];
+      // @todo: Should this happen here or when building the message?
+      $message['body'][] = '<hr />';
+      $message['body'][] = '<p>' . t('This event: @url', ['@url' => $params['entity']->toUrl('canonical', ['absolute' => TRUE])->toString()]) . '</p>';
+      $admin_all = Url::fromUri('internal:/admin/content/breema-events-xfer', ['absolute' => TRUE]);
+      $message['body'][] = '<p>' . t('Administer all events with transfer credit: @url', ['@url' => $admin_all->toString()]) . '</p>';
       break;
 
   }
