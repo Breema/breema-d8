@@ -592,30 +592,42 @@ display:
       style:
         type: fullcalendar_view_display
         options:
+          default_date_source: now
           defaultDate: ''
           start: field_date_time
           end: field_date_time
-          des: field_address
+          title: title
+          des:
+            field_address: field_address
+          use_entity_fields: 1
           right_buttons:
             agendaWeek: agendaWeek
             agendaDay: agendaDay
             listYear: listYear
+          default_view: month
+          firstDay: '6'
           nav_links: 1
           alloweventOverlap: 1
+          updateConfirm: 1
           defaultLanguage: en
           languageSelector: 1
           createEventLink: 0
+          openEntityInNewTab: 0
           tax_field: ''
           vocabularies: ''
-          color_contents:
+          color_bundle:
             article: '#3a87ad'
             directory_entry: '#3a87ad'
+            essence: '#3a87ad'
             event: '#3a87ad'
             layout_page: '#3a87ad'
             page: '#3a87ad'
             place: '#3a87ad'
+            private_audio_stream: '#3a87ad'
+            private_page: '#3a87ad'
             product: '#3a87ad'
-          content_type: event
+            session_resume: '#3a87ad'
+          bundle_type: article
           classes: ''
     cache_metadata:
       max-age: -1
