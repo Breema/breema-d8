@@ -2054,16 +2054,21 @@ function breema_entity_view_alter(array &$build, EntityInterface $entity, Entity
       break;
 
     case 'node':
+      // Special handling for specific pages:
+      if ($entity->id() == 3) {
+        return breema_node_3_view_alter($build, $entity, $display);
+      }
+      if ($entity->id() == 36) {
+        return breema_node_36_view_alter($build, $entity, $display);
+      }
+      // Otherwise, see if there's a bundle-specific method and use it.
       $bundle = $entity->bundle();
       $function = 'breema_entity_node_' . $bundle . '_view_alter';
       if (function_exists($function)) {
         return $function($build, $entity, $display);
       }
-      // Special handling for 'Breema and the Nine Principles' page:
-      elseif ($entity->id() == 3) {
-        return breema_node_3_view_alter($build, $entity, $display);
-      }
       break;
+
   }
 }
 
@@ -2362,6 +2367,22 @@ function breema_node_3_view_alter(array &$build, EntityInterface $entity, Entity
     $build['body']['#weight'] = 0;
     $build['teasers']['#weight'] = 1;
     $build['field_resources']['#weight'] = 2;
+  }
+}
+
+/**
+ * Callback for hook_entity_view_alter() for node 36 ("Breema Intensives").
+ */
+function breema_node_36_view_alter(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display) {
+  if ($display->getMode() === 'default') {
+    $view = Views::getView('breema_events_intensives');
+    $view->setDisplay('block_list');
+    $view->execute();
+    if (!empty($view->result)) {
+      $build['event_list'] = $view->preview();
+      $build['event_list']['#prefix'] = '<h2>' . t('Upcoming Intensives') . '</h2>';
+      $build['event_list']['#weight'] = 100;
+    }
   }
 }
 
