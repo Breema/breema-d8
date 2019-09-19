@@ -2334,6 +2334,22 @@ function breema_entity_node_event_view_alter(array &$build, EntityInterface $ent
 }
 
 /**
+ * Callback for hook_entity_view_alter() for essence (of Breema) nodes.
+ */
+function breema_entity_node_essence_view_alter(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display) {
+  if ($display->getMode() === 'default') {
+    $build['link'] = [
+      '#type' => 'link',
+      '#title' => t('Read more Essence of Breema'),
+      '#url' => Url::fromUri('internal:/about-breema/essence'),
+      '#prefix' => '<div class="action action--secondary">',
+      '#suffix' => '</div>',
+      '#weight' => 100,
+    ];
+  }
+}
+
+/**
  * Callback for hook_entity_view_alter() for node 3 ("The Nine Principles").
  */
 function breema_node_3_view_alter(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display) {
