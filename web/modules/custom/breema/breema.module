@@ -2061,6 +2061,9 @@ function breema_entity_view_alter(array &$build, EntityInterface $entity, Entity
       if ($entity->id() == 36) {
         return breema_node_36_view_alter($build, $entity, $display);
       }
+      if ($entity->id() == 38) {
+        return breema_node_38_view_alter($build, $entity, $display);
+      }
       // Otherwise, see if there's a bundle-specific method and use it.
       $bundle = $entity->bundle();
       $function = 'breema_entity_node_' . $bundle . '_view_alter';
@@ -2381,6 +2384,21 @@ function breema_node_36_view_alter(array &$build, EntityInterface $entity, Entit
     if (!empty($view->result)) {
       $build['event_list'] = $view->preview();
       $build['event_list']['#prefix'] = '<h2>' . t('Upcoming Intensives') . '</h2>';
+      $build['event_list']['#weight'] = 100;
+    }
+  }
+}
+
+/**
+ * Callback for hook_entity_view_alter() for node 38 ("Events at the Center").
+ */
+function breema_node_38_view_alter(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display) {
+  if ($display->getMode() === 'default') {
+    $view = Views::getView('breema_events_by_location');
+    $view->setDisplay('block_breema_center');
+    $view->execute();
+    if (!empty($view->result)) {
+      $build['event_list'] = $view->preview();
       $build['event_list']['#weight'] = 100;
     }
   }
