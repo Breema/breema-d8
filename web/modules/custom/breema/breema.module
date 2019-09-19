@@ -2342,7 +2342,7 @@ function breema_entity_node_essence_view_alter(array &$build, EntityInterface $e
       '#type' => 'link',
       '#title' => t('Read more Essence of Breema'),
       '#url' => Url::fromUri('internal:/about-breema/essence'),
-      '#prefix' => '<div class="action action--secondary">',
+      '#prefix' => '<div class="action action--secondary center">',
       '#suffix' => '</div>',
       '#weight' => 100,
     ];
