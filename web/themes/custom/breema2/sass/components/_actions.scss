@@ -53,6 +53,11 @@
   margin-right: 0;
 }
 
+// Allow action buttons to be centered if needed.
+.action.center {
+  text-align: center;
+}
+
 // Action links in the sidebar want special styles.
 .sidebar {
   .action {

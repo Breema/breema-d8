@@ -879,6 +879,10 @@ a.telephone:before,
   margin-right: 0;
 }
 
+.action.center {
+  text-align: center;
+}
+
 .sidebar .action a {
   margin: 0 auto;
   display: block;
