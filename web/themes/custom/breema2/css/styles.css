@@ -1000,6 +1000,11 @@ ol.location-results .field--name-field-upcoming-events > .field__item {
   text-align: center;
 }
 
+.node--type-essence .field--name-field-source-product {
+  clear: both;
+  padding: 1em 0 0 0;
+}
+
 .view-breema-event-search ul.results li {
   margin: 0 0 0.5em 0;
   padding: 0 0 0.5em 0;
