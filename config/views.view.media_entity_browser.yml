@@ -5,12 +5,10 @@ dependencies:
   config:
     - image.style.media_entity_browser_thumbnail
     - media.type.audio_file
-    - media.type.file
     - media.type.image
     - media.type.private_audio_file
     - media.type.private_file
     - media.type.private_image
-    - media.type.video
     - taxonomy.vocabulary.file_type
     - taxonomy.vocabulary.image_type
     - taxonomy.vocabulary.video_type
@@ -352,41 +350,33 @@ display:
           group_type: group
           admin_label: ''
           operator: '='
-          value: '0'
+          value: '1'
           group: 1
-          exposed: true
+          exposed: false
           expose:
             operator_id: ''
-            label: 'True'
-            description: null
+            label: ''
+            description: ''
             use_operator: false
-            operator: status_op
-            identifier: status
-            required: true
+            operator: ''
+            identifier: ''
+            required: false
             remember: false
             multiple: false
             remember_roles:
               authenticated: authenticated
-          is_grouped: true
+          is_grouped: false
           group_info:
-            label: 'Publishing status'
+            label: ''
             description: ''
-            identifier: status
+            identifier: ''
             optional: true
             widget: select
             multiple: false
             remember: false
             default_group: All
             default_group_multiple: {  }
-            group_items:
-              1:
-                title: Published
-                operator: '='
-                value: '1'
-              2:
-                title: Unpublished
-                operator: '='
-                value: '0'
+            group_items: {  }
           entity_type: media
           entity_field: status
           plugin_id: boolean
@@ -695,41 +685,33 @@ display:
           group_type: group
           admin_label: ''
           operator: '='
-          value: '0'
+          value: '1'
           group: 1
-          exposed: true
+          exposed: false
           expose:
             operator_id: ''
-            label: 'True'
-            description: null
+            label: ''
+            description: ''
             use_operator: false
-            operator: status_op
-            identifier: status
-            required: true
+            operator: ''
+            identifier: ''
+            required: false
             remember: false
             multiple: false
             remember_roles:
               authenticated: authenticated
-          is_grouped: true
+          is_grouped: false
           group_info:
-            label: 'Publishing status'
+            label: ''
             description: ''
-            identifier: status
+            identifier: ''
             optional: true
             widget: select
             multiple: false
             remember: false
             default_group: All
             default_group_multiple: {  }
-            group_items:
-              1:
-                title: Published
-                operator: '='
-                value: '1'
-              2:
-                title: Unpublished
-                operator: '='
-                value: '0'
+            group_items: {  }
           entity_type: media
           entity_field: status
           plugin_id: boolean
@@ -887,41 +869,33 @@ display:
           group_type: group
           admin_label: ''
           operator: '='
-          value: '0'
+          value: '1'
           group: 1
-          exposed: true
+          exposed: false
           expose:
             operator_id: ''
-            label: 'True'
-            description: null
+            label: ''
+            description: ''
             use_operator: false
-            operator: status_op
-            identifier: status
-            required: true
+            operator: ''
+            identifier: ''
+            required: false
             remember: false
             multiple: false
             remember_roles:
               authenticated: authenticated
-          is_grouped: true
+          is_grouped: false
           group_info:
-            label: 'Publishing status'
+            label: ''
             description: ''
-            identifier: status
+            identifier: ''
             optional: true
             widget: select
             multiple: false
             remember: false
             default_group: All
             default_group_multiple: {  }
-            group_items:
-              1:
-                title: Published
-                operator: '='
-                value: '1'
-              2:
-                title: Unpublished
-                operator: '='
-                value: '0'
+            group_items: {  }
           entity_type: media
           entity_field: status
           plugin_id: boolean
@@ -1146,41 +1120,33 @@ display:
           group_type: group
           admin_label: ''
           operator: '='
-          value: '0'
+          value: '1'
           group: 1
-          exposed: true
+          exposed: false
           expose:
             operator_id: ''
-            label: 'True'
-            description: null
+            label: ''
+            description: ''
             use_operator: false
-            operator: status_op
-            identifier: status
-            required: true
+            operator: ''
+            identifier: ''
+            required: false
             remember: false
             multiple: false
             remember_roles:
               authenticated: authenticated
-          is_grouped: true
+          is_grouped: false
           group_info:
-            label: 'Publishing status'
+            label: ''
             description: ''
-            identifier: status
+            identifier: ''
             optional: true
             widget: select
             multiple: false
             remember: false
             default_group: All
             default_group_multiple: {  }
-            group_items:
-              1:
-                title: Published
-                operator: '='
-                value: '1'
-              2:
-                title: Unpublished
-                operator: '='
-                value: '0'
+            group_items: {  }
           entity_type: media
           entity_field: status
           plugin_id: boolean
@@ -1387,41 +1353,33 @@ display:
           group_type: group
           admin_label: ''
           operator: '='
-          value: '0'
+          value: '1'
           group: 1
-          exposed: true
+          exposed: false
           expose:
             operator_id: ''
-            label: 'True'
-            description: null
+            label: ''
+            description: ''
             use_operator: false
-            operator: status_op
-            identifier: status
-            required: true
+            operator: ''
+            identifier: ''
+            required: false
             remember: false
             multiple: false
             remember_roles:
               authenticated: authenticated
-          is_grouped: true
+          is_grouped: false
           group_info:
-            label: 'Publishing status'
+            label: ''
             description: ''
-            identifier: status
+            identifier: ''
             optional: true
             widget: select
             multiple: false
             remember: false
             default_group: All
             default_group_multiple: {  }
-            group_items:
-              1:
-                title: Published
-                operator: '='
-                value: '1'
-              2:
-                title: Unpublished
-                operator: '='
-                value: '0'
+            group_items: {  }
           entity_type: media
           entity_field: status
           plugin_id: boolean
@@ -1774,41 +1732,33 @@ display:
           group_type: group
           admin_label: ''
           operator: '='
-          value: '0'
+          value: '1'
           group: 1
-          exposed: true
+          exposed: false
           expose:
             operator_id: ''
-            label: 'True'
-            description: null
+            label: ''
+            description: ''
             use_operator: false
-            operator: status_op
-            identifier: status
-            required: true
+            operator: ''
+            identifier: ''
+            required: false
             remember: false
             multiple: false
             remember_roles:
               authenticated: authenticated
-          is_grouped: true
+          is_grouped: false
           group_info:
-            label: 'Publishing status'
+            label: ''
             description: ''
-            identifier: status
+            identifier: ''
             optional: true
             widget: select
             multiple: false
             remember: false
             default_group: All
             default_group_multiple: {  }
-            group_items:
-              1:
-                title: Published
-                operator: '='
-                value: '1'
-              2:
-                title: Unpublished
-                operator: '='
-                value: '0'
+            group_items: {  }
           entity_type: media
           entity_field: status
           plugin_id: boolean
@@ -2005,41 +1955,33 @@ display:
           group_type: group
           admin_label: ''
           operator: '='
-          value: '0'
+          value: '1'
           group: 1
-          exposed: true
+          exposed: false
           expose:
             operator_id: ''
-            label: 'True'
-            description: null
+            label: ''
+            description: ''
             use_operator: false
-            operator: status_op
-            identifier: status
-            required: true
+            operator: ''
+            identifier: ''
+            required: false
             remember: false
             multiple: false
             remember_roles:
               authenticated: authenticated
-          is_grouped: true
+          is_grouped: false
           group_info:
-            label: 'Publishing status'
+            label: ''
             description: ''
-            identifier: status
+            identifier: ''
             optional: true
             widget: select
             multiple: false
             remember: false
             default_group: All
             default_group_multiple: {  }
-            group_items:
-              1:
-                title: Published
-                operator: '='
-                value: '1'
-              2:
-                title: Unpublished
-                operator: '='
-                value: '0'
+            group_items: {  }
           entity_type: media
           entity_field: status
           plugin_id: boolean
