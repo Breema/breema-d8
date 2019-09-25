@@ -50,7 +50,7 @@ third_party_settings:
         - field_directory_entry
         - user_picture
       parent_name: ''
-      weight: 16
+      weight: 17
       format_type: details
       format_settings:
         id: ''
@@ -167,6 +167,7 @@ hidden:
   field_breema_clinic_practitioner: true
   field_certification: true
   field_directory_entry: true
+  google_analytics: true
   group_content: true
   path: true
   timezone: true

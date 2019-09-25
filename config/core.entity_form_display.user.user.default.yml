@@ -234,4 +234,5 @@ content:
     weight: 1
     region: content
 hidden:
+  google_analytics: true
   timezone: true
