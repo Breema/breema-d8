@@ -8,6 +8,7 @@ weight: -3
 is_admin: null
 permissions:
   - 'access administration pages'
+  - 'access private fields'
   - 'access shortcuts'
   - 'access toolbar'
   - 'access user profiles'
@@ -16,5 +17,7 @@ permissions:
   - 'edit field_breema_clinic_practitioner'
   - 'edit field_certification'
   - 'edit field_certification_level'
+  - 'edit field_job_title'
   - 'view field_certification_level'
+  - 'view field_has_active_event'
   - 'view the administration theme'
