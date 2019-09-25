@@ -368,20 +368,22 @@ a.teaser-link:hover .node--unpublished {
   padding: 0 10px;
 }
 
-.view-breema-articles .form--inline .form-actions {
-  clear: none;
-  padding-top: 1.2em;
-  margin: 0;
-}
-.view-breema-articles .button {
-  margin: 0;
-}
-.view-breema-articles .form-item {
-  margin: 0 1em 0 0;
-}
-
-.view-breema-articles .views-exposed-form {
-  margin: 0 0 1em 0;
+.view-breema-articles,
+.view-breema-essence {
+  .form--inline .form-actions {
+    clear: none;
+    padding-top: 1.2em;
+    margin: 0;
+  }
+  .button {
+    margin: 0;
+  }
+  .form-item {
+    margin: 0 1em 0 0;
+  }
+  .views-exposed-form {
+    margin: 0 0 1em 0;
+  }
 }
 
 a.email,

@@ -393,21 +393,22 @@ a.teaser-link:hover .node--unpublished {
   padding: 0 10px;
 }
 
-.view-breema-articles .form--inline .form-actions {
+.view-breema-articles .form--inline .form-actions,
+.view-breema-essence .form--inline .form-actions {
   clear: none;
   padding-top: 1.2em;
   margin: 0;
 }
-
-.view-breema-articles .button {
+.view-breema-articles .button,
+.view-breema-essence .button {
   margin: 0;
 }
-
-.view-breema-articles .form-item {
+.view-breema-articles .form-item,
+.view-breema-essence .form-item {
   margin: 0 1em 0 0;
 }
-
-.view-breema-articles .views-exposed-form {
+.view-breema-articles .views-exposed-form,
+.view-breema-essence .views-exposed-form {
   margin: 0 0 1em 0;
 }
 
