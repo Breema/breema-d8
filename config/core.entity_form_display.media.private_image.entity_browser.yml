@@ -1,0 +1,44 @@
+uuid: d5b86aca-f4c8-4262-a79f-2890d2c69d31
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_form_mode.media.entity_browser
+    - field.field.media.private_image.field_image_type
+    - field.field.media.private_image.field_private_image
+    - image.style.160x90_thumbnail
+    - media.type.private_image
+  module:
+    - image
+id: media.private_image.entity_browser
+targetEntityType: media
+bundle: private_image
+mode: entity_browser
+content:
+  field_image_type:
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_private_image:
+    weight: 0
+    settings:
+      progress_indicator: throbber
+      preview_image_style: 160x90_thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  name:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  path: true
+  status: true
+  uid: true

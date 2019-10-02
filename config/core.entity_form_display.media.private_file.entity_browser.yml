@@ -1,0 +1,42 @@
+uuid: 09e9bfd0-33b4-4b46-af1c-2b7ca8760084
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_form_mode.media.entity_browser
+    - field.field.media.private_file.field_file_type
+    - field.field.media.private_file.field_private_file
+    - media.type.private_file
+  module:
+    - file
+id: media.private_file.entity_browser
+targetEntityType: media
+bundle: private_file
+mode: entity_browser
+content:
+  field_file_type:
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_private_file:
+    weight: 0
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
+    type: file_generic
+    region: content
+  name:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  path: true
+  status: true
+  uid: true
