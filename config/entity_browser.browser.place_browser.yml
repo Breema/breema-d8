@@ -27,7 +27,7 @@ widgets:
       submit_text: 'Select place'
       auto_select: false
     uuid: 1f199af9-eeea-4210-9ff7-0c5c156ecb8e
-    weight: -9
+    weight: -10
     label: 'All places'
     id: view
   aa7865f0-b2d8-461a-bab7-1e5e29e4ae93:
@@ -47,6 +47,6 @@ widgets:
       submit_text: 'Select place'
       auto_select: false
     uuid: 492c0ce4-3a3b-40dd-8d0b-2f09f86ca804
-    weight: -10
+    weight: -9
     label: 'My places'
     id: view
