@@ -11,3 +11,7 @@ tbody tr.ief-entity-unpublished:focus {
 .toolbar .toolbar-bar {
   background-color: #752d53;
 }
+
+.seven-details__description {
+  margin-bottom: 1em;
+}
