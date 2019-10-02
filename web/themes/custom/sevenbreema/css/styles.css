@@ -15,3 +15,7 @@ tbody tr.ief-entity-unpublished:focus {
 .seven-details__description {
   margin-bottom: 1em;
 }
+
+.field--widget-paragraphs {
+  margin: 1em 0 2em 0;
+}
