@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "0d8fa87b8ec9e15c9db0f816bfcc9971",
+    "content-hash": "ee98b97661c1c0571776f9fade91bad0",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -4135,7 +4135,8 @@
                     }
                 },
                 "patches_applied": {
-                    "[#2729333-7] Can't select a default bundle when using entity reference views": "https://www.drupal.org/files/issues/2729333-ief-bundle-selection-erv-7.patch"
+                    "[#2729333-7] Can't select a default bundle when using entity reference views": "https://www.drupal.org/files/issues/2729333-ief-bundle-selection-erv-7.patch",
+                    "[#2927884-6] Remove revision log messages from entities other than nodes": "https://www.drupal.org/files/issues/2019-07-16/inline_entity_form-remove_log_message-2927884-6.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
