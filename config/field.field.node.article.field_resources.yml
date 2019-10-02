@@ -14,7 +14,7 @@ field_name: field_resources
 entity_type: node
 bundle: article
 label: Resources
-description: 'Additional media resources for this article (PDF of the original, more images, video, etc).'
+description: 'Additional media resources for this article (PDF of the original, videos, etc).'
 required: false
 translatable: true
 default_value: {  }

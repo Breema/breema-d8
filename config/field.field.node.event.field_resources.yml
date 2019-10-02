@@ -14,7 +14,7 @@ field_name: field_resources
 entity_type: node
 bundle: event
 label: Resources
-description: ''
+description: 'Additional media resources for this event (PDFs, videos, etc).'
 required: false
 translatable: true
 default_value: {  }

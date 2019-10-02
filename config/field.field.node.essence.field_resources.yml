@@ -14,7 +14,7 @@ field_name: field_resources
 entity_type: node
 bundle: essence
 label: Resources
-description: ''
+description: 'Additional media resources (audio samples, PDFs, etc).'
 required: false
 translatable: true
 default_value: {  }

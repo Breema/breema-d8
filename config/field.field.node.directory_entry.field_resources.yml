@@ -14,7 +14,7 @@ field_name: field_resources
 entity_type: node
 bundle: directory_entry
 label: Resources
-description: 'Embed videos, upload files, etc.'
+description: 'Additional media resources for this directory entry (PDFs, videos, etc).'
 required: false
 translatable: true
 default_value: {  }
