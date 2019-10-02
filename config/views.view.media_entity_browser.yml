@@ -5,10 +5,12 @@ dependencies:
   config:
     - image.style.media_entity_browser_thumbnail
     - media.type.audio_file
+    - media.type.file
     - media.type.image
     - media.type.private_audio_file
     - media.type.private_file
     - media.type.private_image
+    - media.type.video
     - taxonomy.vocabulary.file_type
     - taxonomy.vocabulary.image_type
     - taxonomy.vocabulary.video_type
@@ -388,7 +390,11 @@ display:
           group_type: group
           admin_label: ''
           operator: in
-          value: {  }
+          value:
+            audio_file: audio_file
+            file: file
+            image: image
+            video: video
           group: 1
           exposed: true
           expose:
@@ -404,9 +410,14 @@ display:
             remember_roles:
               authenticated: authenticated
               anonymous: '0'
+              student: '0'
+              practitioner: '0'
+              instructor: '0'
+              event_expert: '0'
               content_administrator: '0'
+              user_administrator: '0'
               administrator: '0'
-            reduce: false
+            reduce: true
           is_grouped: false
           group_info:
             label: ''
@@ -646,7 +657,21 @@ display:
           entity_type: media
           entity_field: langcode
           plugin_id: language
-      sorts: {  }
+      sorts:
+        mid:
+          id: mid
+          table: media_field_data
+          field: mid
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: DESC
+          exposed: false
+          expose:
+            label: ''
+          entity_type: media
+          entity_field: mid
+          plugin_id: standard
       header: {  }
       footer: {  }
       empty: {  }
@@ -1093,6 +1118,9 @@ display:
     display_options:
       display_extenders: {  }
       display_description: 'An entity browser modal to select all accessible media (site-wide).'
+      defaults:
+        filters: true
+        filter_groups: true
     cache_metadata:
       max-age: -1
       contexts:
@@ -1411,13 +1439,14 @@ display:
             remember_roles:
               authenticated: authenticated
               anonymous: '0'
+              student: '0'
               practitioner: '0'
               instructor: '0'
               event_expert: '0'
               content_administrator: '0'
               user_administrator: '0'
               administrator: '0'
-            reduce: false
+            reduce: true
           is_grouped: false
           group_info:
             label: ''
@@ -2215,6 +2244,8 @@ display:
           plugin_id: numeric
       defaults:
         arguments: false
+        filters: true
+        filter_groups: true
     cache_metadata:
       max-age: -1
       contexts:
