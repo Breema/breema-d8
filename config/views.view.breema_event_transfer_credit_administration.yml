@@ -10,6 +10,7 @@ dependencies:
     - system.menu.admin
     - user.role.administrator
     - user.role.content_administrator
+    - user.role.content_editor
   module:
     - datetime
     - datetime_extras
@@ -34,6 +35,7 @@ display:
         type: role
         options:
           role:
+            content_editor: content_editor
             content_administrator: content_administrator
             administrator: administrator
       cache:

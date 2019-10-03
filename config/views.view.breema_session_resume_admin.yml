@@ -7,6 +7,7 @@ dependencies:
     - node.type.session_resume
     - user.role.administrator
     - user.role.content_administrator
+    - user.role.content_editor
     - user.role.user_administrator
   module:
     - datetime
@@ -32,6 +33,7 @@ display:
         type: role
         options:
           role:
+            content_editor: content_editor
             content_administrator: content_administrator
             user_administrator: user_administrator
             administrator: administrator
