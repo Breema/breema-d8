@@ -14,7 +14,7 @@ bundle: private_audio_file
 mode: entity_browser
 content:
   field_private_audio_file:
-    weight: 1
+    weight: 0
     settings:
       progress_indicator: throbber
     third_party_settings: {  }
@@ -22,7 +22,7 @@ content:
     region: content
   name:
     type: string_textfield
-    weight: 0
+    weight: 1
     region: content
     settings:
       size: 60
