@@ -12,6 +12,7 @@ dependencies:
     - node.type.layout_page
   module:
     - entity_browser
+    - gcontent_field
     - paragraphs
     - path
 id: node.layout_page.default
@@ -21,7 +22,7 @@ mode: default
 content:
   created:
     type: datetime_timestamp
-    weight: 7
+    weight: 8
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -105,9 +106,18 @@ content:
         add_above: '0'
     third_party_settings: {  }
     region: content
+  group_content:
+    type: group_selector_widget
+    weight: 6
+    region: content
+    settings:
+      widget: select
+      multiple: '1'
+      required: 0
+    third_party_settings: {  }
   path:
     type: path
-    weight: 10
+    weight: 11
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -115,21 +125,21 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 8
+    weight: 9
     region: content
     third_party_settings: {  }
   status:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 12
+    weight: 13
     region: content
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 9
+    weight: 10
     region: content
     third_party_settings: {  }
   title:
@@ -142,7 +152,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 6
+    weight: 7
     settings:
       match_operator: CONTAINS
       size: 60
@@ -150,9 +160,8 @@ content:
     region: content
     third_party_settings: {  }
   url_redirects:
-    weight: 11
+    weight: 12
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden:
-  group_content: true
+hidden: {  }

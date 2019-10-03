@@ -1037,6 +1037,12 @@ function breema_form_node_form_alter(&$form, \Drupal\Core\Form\FormStateInterfac
     $form['field_authors_other']['widget']['add_more']['#value'] = t('Add another author');
     $form['field_authors_breema']['widget']['add_more']['#value'] = t('Add another Breema author');
   }
+  // Special case for front page (layout page):
+  elseif ($node->id() == 35) {
+    // The front page should *never* be added to any groups, so hide the
+    // 'Groups' computed field widget.
+    $form['group_content']['#access'] = FALSE;
+  }
 }
 
 /**

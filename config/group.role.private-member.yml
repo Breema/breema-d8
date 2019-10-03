@@ -15,5 +15,6 @@ permissions:
   - 'update own group_membership content'
   - 'view group'
   - 'view group_membership content'
+  - 'view group_node:layout_page entity'
   - 'view group_node:private_audio_stream entity'
   - 'view group_node:private_page entity'
