@@ -937,6 +937,9 @@ function breema_form_alter(&$form, FormStateInterface $form_state) {
   if (substr($form['#form_id'], 0, 15) == 'entity_browser_') {
     breema_entity_browser_form_alter($form, $form_state);
   }
+  if (!empty($form['field_website']['widget']['add_more']['#value'])) {
+    $form['field_website']['widget']['add_more']['#value'] = t('Add another website');
+  }
 }
 
 /**
@@ -1008,6 +1011,7 @@ function breema_form_node_form_alter(&$form, \Drupal\Core\Form\FormStateInterfac
     // get the help text for this field (on events) to be before the element.
     $form['field_website']['widget']['#description_display'] = 'before';
     $form['field_website']['#description_display'] = 'before';
+    $form['field_instructors']['widget']['add_more']['#value'] = t('Add another instructor');
   }
   elseif ($node->bundle() === 'essence') {
     $form['field_source_product']['#states'] = [
@@ -1030,6 +1034,8 @@ function breema_form_node_form_alter(&$form, \Drupal\Core\Form\FormStateInterfac
       }
     }
     $form['field_source_name']['widget'][0]['#after_build'][] = 'breema_hide_format_after_build';
+    $form['field_authors_other']['widget']['add_more']['#value'] = t('Add another author');
+    $form['field_authors_breema']['widget']['add_more']['#value'] = t('Add another Breema author');
   }
 }
 
