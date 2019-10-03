@@ -932,20 +932,8 @@ function breema_views_pre_render_breema_events_by_location(ViewExecutable $view)
 
 /**
  * Implements hook_form_alter()
- *
- * Sets an #after_build callback on media entity forms to hide revision log.
  */
 function breema_form_alter(&$form, FormStateInterface $form_state) {
-  switch ($form['#form_id']) {
-    case 'entity_browser_image_browser_form':
-    case 'entity_browser_image_embed_form':
-    case 'entity_browser_media_browser_form':
-    case 'entity_browser_media_embed_form':
-      if (!empty($form['widget'])) {
-        $form['widget']['#after_build'][] = 'breema_entity_browser_media_after_build';
-      }
-      break;
-  }
   if (substr($form['#form_id'], 0, 15) == 'entity_browser_') {
     breema_entity_browser_form_alter($form, $form_state);
   }
@@ -961,18 +949,6 @@ function breema_entity_browser_form_alter(&$form, FormStateInterface $form_state
     $form['widget']['top_actions'] = $form['widget']['actions'];
     $form['widget']['top_actions']['#weight'] = -10;
   }
-}
-
-/**
- * #after_build callback for media inline_entity_form elements.
- *
- * Hides the (totally confusion and pointless) revision log element.
- */
-function breema_entity_browser_media_after_build($form_element, FormStateInterface $form_state) {
-  if (!empty($form_element['inline_entity_form']['revision_log_message'])) {
-    $form_element['inline_entity_form']['revision_log_message']['#access'] = FALSE;
-  }
-  return $form_element;
 }
 
 /**
