@@ -12,7 +12,7 @@ dependencies:
 id: views_block__breema_events_featured_block_list
 theme: breema2
 region: sidebar_first
-weight: -18
+weight: -15
 provider: null
 plugin: 'views_block:breema_events_featured-block_list'
 settings:

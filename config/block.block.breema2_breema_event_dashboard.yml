@@ -11,7 +11,7 @@ dependencies:
 id: breema2_breema_event_dashboard
 theme: breema2
 region: sidebar_first
-weight: -17
+weight: -14
 provider: null
 plugin: breema_event_dashboard_block
 settings:

@@ -11,7 +11,7 @@ dependencies:
 id: breema2_group_listening_info
 theme: breema2
 region: sidebar_first
-weight: -14
+weight: -11
 provider: null
 plugin: group_listening_block
 settings:

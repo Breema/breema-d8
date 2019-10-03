@@ -11,7 +11,7 @@ dependencies:
 id: breema2_dashboard_directory_entry
 theme: breema2
 region: sidebar_first
-weight: -15
+weight: -12
 provider: null
 plugin: directory_entry_block
 settings:
