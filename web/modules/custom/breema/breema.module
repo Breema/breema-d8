@@ -1112,13 +1112,13 @@ function breema_directory_entry_node_form_alter(&$form, FormStateInterface $form
       ];
       $form['headshot']['help'] = [
         '#type' => 'item',
-        '#description' => t('You must <a href=":edit">edit your user account</a> and use the <em>Picture</em> field to manage the image displayed with your directory entry.', [':edit' => $headshot_url]),
+        '#description' => t('To change the headshot image that appears in your directory listing, go to the <a href=":edit">Edit tab of your Profile page</a> and modify the <em>Picture</em> field.', [':edit' => $headshot_url]),
       ];
     }
     else {
       $form['headshot']['help'] = [
         '#type' => 'item',
-        '#description' => t('If you <a href=":edit">edit your user account</a> you can upload an image in the <em>Picture</em> field and it will be displayed with your directory entry.', [':edit' => $headshot_url]),
+        '#description' => t('To have a headshot image appear in your directory listing, go to the <a href=":edit">Edit tab of your Profile page</a> and add it in the <em>Picture</em> field.', [':edit' => $headshot_url]),
       ];
     }
   }
