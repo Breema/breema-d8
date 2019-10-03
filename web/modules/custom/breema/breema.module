@@ -995,6 +995,19 @@ function breema_inline_entity_form_entity_form_alter(&$entity_form, \Drupal\Core
 }
 
 /**
+ * Implements hook_form_FORM_ID_alter() for 'contact_message_personal_form'.
+ *
+ * Adds a help message when users are on their own contact form.
+ */
+function breema_form_contact_message_personal_form_alter(&$form, FormStateInterface $form_state) {
+  $current_user = \Drupal::currentUser();
+  $target = $form_state->getFormObject()->getEntity()->get('recipient')->getValue();
+  if ($current_user->id() === $target[0]['target_id']) {
+    \Drupal::messenger()->addStatus(t('This page is how site visitors can contact you without knowing your e-mail address. It is available here for you to see how it works and to test that you get the messages.'));
+  }
+}
+
+/**
  * Implements hook_form_FORM_ID_alter() for 'node_form'.
  */
 function breema_form_node_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state) {
