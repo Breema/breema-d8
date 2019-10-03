@@ -1,0 +1,17 @@
+uuid: fe325172-c719-41c2-b9d8-a29ee426d998
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.private
+  enforced:
+    config:
+      - user.role.content_editor
+id: private-111523d41
+label: 'Content editor'
+weight: -1
+internal: true
+audience: outsider
+group_type: private
+permissions_ui: false
+permissions: {  }
