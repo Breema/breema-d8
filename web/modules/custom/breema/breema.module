@@ -2234,6 +2234,8 @@ function breema_entity_node_directory_entry_view_alter(array &$build, EntityInte
     // $view is now for the event list.
     // Only include the 'Upcoming events' header if there are results.
     if (!empty($view->result)) {
+      // Add an invisible anchor above the map for #upcoming-events links.
+      $build['events_map']['#prefix'] = '<h2 id="upcoming-events" class="visually-hidden">' . t('Upcoming event map') . '</h2>';
       // @todo we could format_plural() here if we really wanted.
       $build['events_list']['#prefix'] = '<h2>' . t('Upcoming events') . '</h2>';
     }
