@@ -83,3 +83,10 @@ breema.legacy.directory.specific:
     _controller: '\Drupal\breema\Controller\BreemaController::legacyDirectoryRedirect'
   requirements:
     _permission: 'access content'
+
+breema.legacy.inspiration:
+  path: '/site/page/inspiration/{slug}'
+  defaults:
+    _controller: '\Drupal\breema\Controller\BreemaController::legacyInspirationRedirect'
+  requirements:
+    _access: 'TRUE'

@@ -350,4 +350,16 @@ class BreemaController extends ControllerBase {
     return $this->redirect('view.breema_directory.page_list', [], $url_options);
   }
 
+  /**
+   * Handle legacy inspiration URLs and redirect to the Essence of Breema list.
+   *
+   * @param string $slug
+   *   Whatever the rest of the URL contains.
+   * @return \Symfony\Component\HttpFoundation\RedirectResponse
+   *   The RedirectResponse to send visitors to the Essence of Breema list.
+   */
+  public function legacyInspirationRedirect($slug = NULL) {
+    return $this->redirect('view.breema_essence.page_1', [], []);
+  }
+
 }
