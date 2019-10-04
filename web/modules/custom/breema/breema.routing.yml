@@ -69,3 +69,17 @@ entity.user.breema_resume_dashboard:
     _controller: '\Drupal\breema\Controller\BreemaController::resumesPage'
   requirements:
     _custom_access: '\Drupal\breema\Controller\BreemaController::accessResumes'
+
+breema.legacy.directory.general:
+  path: '/site/list/directory/{region}'
+  defaults:
+    _controller: '\Drupal\breema\Controller\BreemaController::legacyDirectoryRedirect'
+  requirements:
+    _permission: 'access content'
+
+breema.legacy.directory.specific:
+  path: '/site/list/directory/{region}/{detail}'
+  defaults:
+    _controller: '\Drupal\breema\Controller\BreemaController::legacyDirectoryRedirect'
+  requirements:
+    _permission: 'access content'

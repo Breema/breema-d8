@@ -326,4 +326,28 @@ class BreemaController extends ControllerBase {
     return $this->redirect('entity.user.breema_resume_dashboard', ['user' => $account->id()]);
   }
 
+  /**
+   * Handle legacy directory URLs and redirect to the appropriate search.
+   *
+   * @param string $region
+   *   The region of the world, one of 'US', 'americas', 'europe' or 'other'.
+   * @param string $detail
+   *   The specific page (state codes for US, country codes for the others).
+   * @return \Symfony\Component\HttpFoundation\RedirectResponse
+   *   The RedirectResponse to the right international directory search.
+   */
+  public function legacyDirectoryRedirect($region, $detail = NULL) {
+    $url_options = [];
+    if ($region === 'US') {
+      $url_options['query']['country'] = 'US';
+      if (!empty($detail)) {
+        $url_options['query']['state'] = $detail;
+      }
+    }
+    elseif (!empty($detail)) {
+      $url_options['query']['country'] = $detail;
+    }
+    return $this->redirect('view.breema_directory.page_list', [], $url_options);
+  }
+
 }
