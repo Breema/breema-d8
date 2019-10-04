@@ -4,8 +4,10 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser_compact_location
+    - core.entity_view_mode.node.teaser_with_location
     - entityqueue.entity_queue.event_featured
     - node.type.event
+    - system.menu.main
   module:
     - datetime
     - entityqueue
@@ -235,6 +237,51 @@ display:
       block_category: Breema
       block_description: 'Breema events: featured: list'
       display_description: ''
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
+        - 'config:entityqueue.entity_queue.event_featured'
+        - entity_field_info
+        - views_data
+  page_1:
+    display_plugin: page
+    id: page_1
+    display_title: Page
+    position: 2
+    display_options:
+      display_extenders: {  }
+      style:
+        type: html_list
+        options:
+          row_class: ''
+          default_row_class: false
+          uses_fields: false
+          type: ul
+          wrapper_class: item-list
+          class: grid--container
+      defaults:
+        style: false
+        row: false
+      row:
+        type: 'entity:node'
+        options:
+          relationship: none
+          view_mode: teaser_with_location
+      path: events/featured
+      menu:
+        type: normal
+        title: 'Featured events'
+        description: ''
+        expanded: false
+        parent: 'menu_link_content:accd1d1b-00f1-455f-b811-0b00937ba209'
+        weight: 0
+        context: '0'
+        menu_name: main
     cache_metadata:
       max-age: -1
       contexts:
