@@ -75,6 +75,18 @@ class BreemaLegacyController extends ControllerBase {
   }
 
   /**
+   * Handle legacy intensive PDF URLs and redirect to /about-breema/intensives.
+   *
+   * @return \Symfony\Component\HttpFoundation\RedirectResponse
+   *   The RedirectResponse.
+   *
+   * @see \Drupal\breema\PathProcessor\BreemaPathProcessor
+   */
+  public function redirectIntensivePDF() {
+    return $this->redirect('entity.node.canonical', ['node' => 36]);
+  }
+
+  /**
    * Handle legacy schedule PDF URLs and redirect to /events/center (node 38).
    *
    * @return \Symfony\Component\HttpFoundation\RedirectResponse

@@ -105,6 +105,13 @@ breema.legacy.pdf.brochure:
   requirements:
     _access: 'TRUE'
 
+breema.legacy.pdf.intensive:
+  path: '/breema/legacy/pdf/intensive'
+  defaults:
+    _controller: '\Drupal\breema\Controller\BreemaLegacyController::redirectIntensivePDF'
+  requirements:
+    _access: 'TRUE'
+
 breema.legacy.pdf.schedule:
   path: '/breema/legacy/pdf/schedule'
   defaults:

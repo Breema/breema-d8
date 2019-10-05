@@ -28,6 +28,9 @@ class BreemaPathProcessor implements InboundPathProcessorInterface {
     // Check for PDF URLs.
     if (strpos($path, '/images/uploads/pdf/') === 0) {
       // Handle anything we know how to redirect.
+      if (stripos($path, 'intensive') !== FALSE) {
+        return '/breema/legacy/pdf/intensive';
+      }
       if (stripos($path, 'brochure') !== FALSE) {
         return '/breema/legacy/pdf/brochure';
       }
