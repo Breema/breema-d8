@@ -73,27 +73,27 @@ entity.user.breema_resume_dashboard:
 breema.legacy.directory.general:
   path: '/site/list/directory/{region}'
   defaults:
-    _controller: '\Drupal\breema\Controller\BreemaController::legacyDirectoryRedirect'
+    _controller: '\Drupal\breema\Controller\BreemaLegacyController::redirectDirectory'
   requirements:
-    _permission: 'access content'
+    _access: 'TRUE'
 
 breema.legacy.directory.specific:
   path: '/site/list/directory/{region}/{detail}'
   defaults:
-    _controller: '\Drupal\breema\Controller\BreemaController::legacyDirectoryRedirect'
+    _controller: '\Drupal\breema\Controller\BreemaLegacyController::redirectDirectory'
   requirements:
-    _permission: 'access content'
+    _access: 'TRUE'
 
 breema.legacy.inspiration:
   path: '/site/page/inspiration/{slug}'
   defaults:
-    _controller: '\Drupal\breema\Controller\BreemaController::legacyInspirationRedirect'
+    _controller: '\Drupal\breema\Controller\BreemaLegacyController::redirectInspiration'
   requirements:
     _access: 'TRUE'
 
 breema.legacy.deutsch:
   path: '/deutsch'
   defaults:
-    _controller: '\Drupal\breema\Controller\BreemaController::legacyDeutschRedirect'
+    _controller: '\Drupal\breema\Controller\BreemaLegacyController::redirectDeutsch'
   requirements:
     _access: 'TRUE'

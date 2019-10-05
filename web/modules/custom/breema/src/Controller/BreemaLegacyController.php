@@ -1,0 +1,65 @@
+<?php
+
+namespace Drupal\breema\Controller;
+
+use Drupal\Core\Controller\ControllerBase;
+
+/**
+ * Controller class for handling legacy URLs and redirects.
+ *
+ * All this code lives in a separate class so we don't need to instantiate it
+ * and load it on most page loads. Also keeps things a bit clearer and cleaner.
+ */
+class BreemaLegacyController extends ControllerBase {
+
+  /**
+   * Handle legacy directory URLs and redirect to the appropriate search.
+   *
+   * @param string $region
+   *   The region of the world, one of 'US', 'americas', 'europe' or 'other'.
+   * @param string $detail
+   *   The specific page (state codes for US, country codes for the others).
+   * @return \Symfony\Component\HttpFoundation\RedirectResponse
+   *   The RedirectResponse to the right international directory search.
+   */
+  public function redirectDirectory($region, $detail = NULL) {
+    $url_options = [];
+    if ($region === 'US') {
+      $url_options['query']['country'] = 'US';
+      if (!empty($detail)) {
+        $url_options['query']['state'] = $detail;
+      }
+    }
+    elseif (!empty($detail)) {
+      $url_options['query']['country'] = $detail;
+    }
+    return $this->redirect('view.breema_directory.page_list', [], $url_options);
+  }
+
+  /**
+   * Handle legacy inspiration URLs and redirect to the Essence of Breema list.
+   *
+   * @param string $slug
+   *   Whatever the rest of the URL contains.
+   * @return \Symfony\Component\HttpFoundation\RedirectResponse
+   *   The RedirectResponse to send visitors to the Essence of Breema list.
+   */
+  public function redirectInspiration($slug = NULL) {
+    return $this->redirect('view.breema_essence.page_1', [], []);
+  }
+
+  /**
+   * Handle legacy deutsch* URLs and redirect to the front page.
+   *
+   * @return \Symfony\Component\HttpFoundation\RedirectResponse
+   *   The RedirectResponse to send visitors to the front page.
+   *
+   * @see \Drupal\breema\PathProcessor\BreemaPathProcessor
+   */
+  public function redirectDeutsch() {
+    // @todo: Get good German text for this.
+    //\Drupal::messenger()->addWarning(t('Unfortunately, the German section of the site is now gone.'));
+    return $this->redirect('<front>');
+  }
+
+}

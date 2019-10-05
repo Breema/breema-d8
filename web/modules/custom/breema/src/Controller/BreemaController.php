@@ -10,6 +10,11 @@ use Drupal\node\NodeInterface;
 use Drupal\user\Entity\User;
 use Drupal\views\Views;
 
+/**
+ * Controller for custom routes, access checks, etc.
+ *
+ * @see \Drupal\breema\Controller\BreemaLegacyController
+ */
 class BreemaController extends ControllerBase {
   /**
    * Access callback to see if a clone operation should be allowed.
@@ -324,56 +329,6 @@ class BreemaController extends ControllerBase {
   public function resumeDashboardRedirect() {
     $account = $this->currentUser();
     return $this->redirect('entity.user.breema_resume_dashboard', ['user' => $account->id()]);
-  }
-
-  /**
-   * Handle legacy directory URLs and redirect to the appropriate search.
-   *
-   * @param string $region
-   *   The region of the world, one of 'US', 'americas', 'europe' or 'other'.
-   * @param string $detail
-   *   The specific page (state codes for US, country codes for the others).
-   * @return \Symfony\Component\HttpFoundation\RedirectResponse
-   *   The RedirectResponse to the right international directory search.
-   */
-  public function legacyDirectoryRedirect($region, $detail = NULL) {
-    $url_options = [];
-    if ($region === 'US') {
-      $url_options['query']['country'] = 'US';
-      if (!empty($detail)) {
-        $url_options['query']['state'] = $detail;
-      }
-    }
-    elseif (!empty($detail)) {
-      $url_options['query']['country'] = $detail;
-    }
-    return $this->redirect('view.breema_directory.page_list', [], $url_options);
-  }
-
-  /**
-   * Handle legacy inspiration URLs and redirect to the Essence of Breema list.
-   *
-   * @param string $slug
-   *   Whatever the rest of the URL contains.
-   * @return \Symfony\Component\HttpFoundation\RedirectResponse
-   *   The RedirectResponse to send visitors to the Essence of Breema list.
-   */
-  public function legacyInspirationRedirect($slug = NULL) {
-    return $this->redirect('view.breema_essence.page_1', [], []);
-  }
-
-  /**
-   * Handle legacy deutsch* URLs and redirect to the front page.
-   *
-   * @return \Symfony\Component\HttpFoundation\RedirectResponse
-   *   The RedirectResponse to send visitors to the front page.
-   *
-   * @see \Drupal\breema\PathProcessor\BreemaPathProcessor
-   */
-  public function legacyDeutschRedirect() {
-    // @todo: Get good German text for this.
-    //\Drupal::messenger()->addWarning(t('Unfortunately, the German section of the site is now gone.'));
-    return $this->redirect('<front>');
   }
 
 }
