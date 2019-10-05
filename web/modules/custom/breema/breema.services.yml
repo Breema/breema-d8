@@ -17,3 +17,8 @@ services:
     class: Drupal\breema\Routing\RouteSubscriber
     tags:
       - { name: event_subscriber }
+
+  breema.path_processor:
+    class: Drupal\breema\PathProcessor\BreemaPathProcessor
+    tags:
+      - { name: path_processor_inbound, priority: 250 }

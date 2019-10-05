@@ -90,3 +90,10 @@ breema.legacy.inspiration:
     _controller: '\Drupal\breema\Controller\BreemaController::legacyInspirationRedirect'
   requirements:
     _access: 'TRUE'
+
+breema.legacy.deutsch:
+  path: '/deutsch'
+  defaults:
+    _controller: '\Drupal\breema\Controller\BreemaController::legacyDeutschRedirect'
+  requirements:
+    _access: 'TRUE'

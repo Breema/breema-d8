@@ -362,4 +362,18 @@ class BreemaController extends ControllerBase {
     return $this->redirect('view.breema_essence.page_1', [], []);
   }
 
+  /**
+   * Handle legacy deutsch* URLs and redirect to the front page.
+   *
+   * @return \Symfony\Component\HttpFoundation\RedirectResponse
+   *   The RedirectResponse to send visitors to the front page.
+   *
+   * @see \Drupal\breema\PathProcessor\BreemaPathProcessor
+   */
+  public function legacyDeutschRedirect() {
+    // @todo: Get good German text for this.
+    //\Drupal::messenger()->addWarning(t('Unfortunately, the German section of the site is now gone.'));
+    return $this->redirect('<front>');
+  }
+
 }
