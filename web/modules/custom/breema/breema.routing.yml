@@ -97,3 +97,17 @@ breema.legacy.deutsch:
     _controller: '\Drupal\breema\Controller\BreemaLegacyController::redirectDeutsch'
   requirements:
     _access: 'TRUE'
+
+breema.legacy.pdf.brochure:
+  path: '/breema/legacy/pdf/brochure'
+  defaults:
+    _controller: '\Drupal\breema\Controller\BreemaLegacyController::redirectBrochurePDF'
+  requirements:
+    _access: 'TRUE'
+
+breema.legacy.pdf.schedule:
+  path: '/breema/legacy/pdf/schedule'
+  defaults:
+    _controller: '\Drupal\breema\Controller\BreemaLegacyController::redirectSchedulePDF'
+  requirements:
+    _access: 'TRUE'

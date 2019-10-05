@@ -62,4 +62,28 @@ class BreemaLegacyController extends ControllerBase {
     return $this->redirect('<front>');
   }
 
+  /**
+   * Handle legacy brochure PDF URLs and redirect to 'Events'.
+   *
+   * @return \Symfony\Component\HttpFoundation\RedirectResponse
+   *   The RedirectResponse.
+   *
+   * @see \Drupal\breema\PathProcessor\BreemaPathProcessor
+   */
+  public function redirectBrochurePDF() {
+    return $this->redirect('view.breema_event_search.page_1');
+  }
+
+  /**
+   * Handle legacy schedule PDF URLs and redirect to /events/center (node 38).
+   *
+   * @return \Symfony\Component\HttpFoundation\RedirectResponse
+   *   The RedirectResponse.
+   *
+   * @see \Drupal\breema\PathProcessor\BreemaPathProcessor
+   */
+  public function redirectSchedulePDF() {
+    return $this->redirect('entity.node.canonical', ['node' => 38]);
+  }
+
 }
