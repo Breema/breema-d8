@@ -69,7 +69,7 @@ class BreemaLegacyController extends ControllerBase {
     ];
     // Note: Don't use t() for this, since we always want it in German.
     // However, we need a FormattableMarkup object so the links aren't escaped.
-    \Drupal::messenger()->addWarning(new FormattableMarkup('Vorläufig können wir keine deutsche Sektion anbieten. Wir hoffen aber in der Zukunft wieder eine hinzufügen zu können. Sie können Artikel auf Deutsch in der <a href=":articles_url">Articles about Breema</a> sektion finden. Für Bücher über Breema auf Deutsch <a href=":contact_url">wenden Sie sich bitte an Aron Saltiel</a>.', $placeholders));
+    \Drupal::messenger()->addWarning(new FormattableMarkup('Vorläufig können wir keine deutsche Sektion anbieten. Wir hoffen aber in der Zukunft wieder eine hinzufügen zu können. Sie können Artikel auf Deutsch in der <a href=":articles_url">Articles about Breema</a>-Sektion finden. Für Bücher über Breema auf Deutsch <a href=":contact_url">wenden Sie sich bitte an Aron Saltiel</a>.', $placeholders));
     return $this->redirect('<front>');
   }
 
