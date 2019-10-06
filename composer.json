@@ -171,7 +171,7 @@
         "[#2718783-13] Call to undefined method BaseFieldDefinition::getThirdPartySettings()" : "https://www.drupal.org/files/issues/call_to_undefined-2718783-13.patch"
       },
       "drupal/flexslider": {
-        "[#3086080-2] Add flexslider support for any (multi-valued) entity reference field" : "https://www.drupal.org/files/issues/2019-10-05/3086080-2.flexslider-entity.patch"
+        "[#3086080-3] Add flexslider support for any (multi-valued) entity reference field" : "https://www.drupal.org/files/issues/2019-10-06/3086080-3.flexslider-entity.patch"
       },
       "drupal/forward": {
         "[#2969337-6] Settings form UI improvement for dependent config options" : "https://www.drupal.org/files/issues/2018-05-03/2969337-6.patch",

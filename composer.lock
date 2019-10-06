@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "692cfc2d391d96278ffe3e155d56f663",
+    "content-hash": "073b5bbd960f684faf11752de2f23127",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -3649,7 +3649,7 @@
                     }
                 },
                 "patches_applied": {
-                    "[#3086080-2] Add flexslider support for any (multi-valued) entity reference field": "https://www.drupal.org/files/issues/2019-10-05/3086080-2.flexslider-entity.patch"
+                    "[#3086080-3] Add flexslider support for any (multi-valued) entity reference field": "https://www.drupal.org/files/issues/2019-10-06/3086080-3.flexslider-entity.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
