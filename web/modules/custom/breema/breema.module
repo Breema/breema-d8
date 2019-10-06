@@ -1213,6 +1213,9 @@ function breema_form_user_register_form_alter(&$form, \Drupal\Core\Form\FormStat
  * Hide various fields unless it's a new user or an admiin.
  */
 function breema_form_user_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state) {
+  if (!empty($form['field_class_attended']['widget']['add_more']['#value'])) {
+    $form['field_class_attended']['widget']['add_more']['#value'] = t('Add another class');
+  }
   $user = $form_state->getFormObject()->getEntity();
   $roles = $user->getRoles();
   $is_certified = (in_array('instructor', $roles) || in_array('practitioner', $roles));
