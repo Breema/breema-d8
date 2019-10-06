@@ -2620,3 +2620,28 @@ function breema_strip_links(&$text_field) {
 function breema_toolbar_alter(&$items) {
   unset($items['administration_search']);
 }
+
+/**
+ * Implements hook_entity_access().
+ *
+ * @param \Drupal\Core\Entity\EntityInterface $entity
+ *   The entity to check access to.
+ * @param string $operation
+ *   The operation that is to be performed on $entity.
+ * @param \Drupal\Core\Session\AccountInterface $account
+ *   The account trying to access the entity.
+ * @return \Drupal\Core\Access\AccessResultInterface
+ *   The access result.
+ */
+function breema_entity_access(EntityInterface $entity, $operation, AccountInterface $account) {
+  // Allow all instructors to edit an event they're teaching.
+  if ($entity->getEntityTypeId() === 'node' && $entity->bundle() === 'event' && $operation === 'update') {
+    $instructors = $entity->get('field_instructors')->getValue();
+    foreach ($instructors as $instructor) {
+      if ($instructor['target_id'] == $account->id()) {
+        return AccessResult::allowed();
+      }
+    }
+  }
+  return AccessResult::neutral();
+}
