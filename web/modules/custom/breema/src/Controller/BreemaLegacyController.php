@@ -57,8 +57,8 @@ class BreemaLegacyController extends ControllerBase {
    * @see \Drupal\breema\PathProcessor\BreemaPathProcessor
    */
   public function redirectDeutsch() {
-    // @todo: Get good German text for this.
-    //\Drupal::messenger()->addWarning(t('Unfortunately, the German section of the site is now gone.'));
+    // Note: Don't use t() for this, since we always want it in German.
+    \Drupal::messenger()->addWarning('Vorläufig können wir keine deutsche Sektion anbieten. Wir hoffen aber in der Zukunft wieder eine hinzufügen zu können.');
     return $this->redirect('<front>');
   }
 
