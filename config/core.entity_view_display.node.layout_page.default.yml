@@ -8,9 +8,11 @@ dependencies:
     - field.field.node.layout_page.field_paragraphs
     - field.field.node.layout_page.field_slideshow
     - field.field.node.layout_page.field_tiles
+    - flexslider.optionset.default
     - node.type.layout_page
   module:
     - entity_reference_revisions
+    - flexslider_fields
     - user
 id: node.layout_page.default
 targetEntityType: node
@@ -19,15 +21,6 @@ mode: default
 content:
   field_paragraphs:
     type: entity_reference_revisions_entity_view
-    weight: 0
-    label: hidden
-    settings:
-      view_mode: default
-      link: ''
-    third_party_settings: {  }
-    region: content
-  field_tiles:
-    type: entity_reference_revisions_entity_view
     weight: 1
     label: hidden
     settings:
@@ -35,13 +28,31 @@ content:
       link: ''
     third_party_settings: {  }
     region: content
-  links:
+  field_slideshow:
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+      optionset: default
+    third_party_settings: {  }
+    type: flexslider_entity
+    region: content
+  field_tiles:
+    type: entity_reference_revisions_entity_view
     weight: 2
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 3
     region: content
     settings: {  }
     third_party_settings: {  }
 hidden:
   field_main_image: true
   field_meta_summary: true
-  field_slideshow: true
   group_content: true
