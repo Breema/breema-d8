@@ -90,13 +90,13 @@ class BreemaEntitySender implements BreemaEntitySenderInterface {
    * {@inheritdoc}
    */
   public function sendEntity(EntityInterface $entity, $key, $to) {
-    // Build the node content.
+    // Build the entity content.
     $view_mode = '';
     $elements = [];
     if ($entity->access('view')) {
       $langcode = $entity->language()->getId();
       $view_builder = $this->entityTypeManager->getViewBuilder($entity->getEntityTypeId());
-      foreach (['forward', 'teaser', 'full'] as $view_mode) {
+      foreach (['forward', 'teaser', 'full', 'default'] as $view_mode) {
         if ($this->isValidDisplay($entity, $view_mode)) {
           $elements = $view_builder->view($entity, $view_mode, $langcode);
         }
@@ -142,7 +142,8 @@ class BreemaEntitySender implements BreemaEntitySenderInterface {
     }
     else {
       // Entity types without bundles, e.g. user.
-      $display_name = $entity->getEntityTypeId() . '.' . $view_mode;
+      $entity_type_id = $entity->getEntityTypeId();
+      $display_name = "$entity_type_id.$entity_type_id.$view_mode";
     }
 
     // Attempt load.

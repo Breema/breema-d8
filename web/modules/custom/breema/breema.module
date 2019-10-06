@@ -45,6 +45,11 @@ const BREEMA_SESSION_RESUME_EMAIL = 'session-resumes@breema.com';
 const BREEMA_EVENT_TRANSFER_CREDIT_EMAIL = 'instructor-liasion@breema.com';
 
 /**
+ * E-mail address to notify when new users apply for accounts.
+ */
+const BREEMA_NEW_USER_EMAIL = 'practitioner-liasion@breema.com';
+
+/**
  * Implements hook_help().
  */
 function breema_help($route_name, RouteMatchInterface $route_match) {
@@ -1712,6 +1717,20 @@ function breema_mail($key, &$message, $params) {
       $message['body'][] = '<p>' . t('Administer all events with transfer credit: @url', ['@url' => $admin_all->toString()]) . '</p>';
       break;
 
+    case 'user_applied':
+      $message['from'] = \Drupal::config('system.site')->get('mail');
+      $placeholders = ['@name' => $params['entity']->label()];
+      $message['subject'] = t('New user applied for certificate program: @name', $placeholders, $options);
+      $message['body'][] = '<p>' . t('@name applied for the practitioner certificate program.', $placeholders, $options) . '</p>';
+      $message['body'][] = '<p>' . t('View profile: @url', ['@url' => $params['entity']->toUrl('canonical', ['absolute' => TRUE])->toString()]) . '</p>';
+      $message['body'][] = '<p class="email">E-mail: ' . $params['entity']->get('mail')->value . '</p>';
+      $message['body'][] = '<hr />';
+      $message['body'][] = $params['body'];
+      $message['body'][] = '<hr />';
+      $admin_all = Url::fromUri('internal:/admin/people', ['absolute' => TRUE]);
+      $message['body'][] = '<p>' . t('Administer all accounts: @url', ['@url' => $admin_all->toString()]) . '</p>';
+      break;
+
   }
 }
 
@@ -1812,6 +1831,18 @@ function breema_user_presave(UserInterface $user) {
 function breema_user_insert(UserInterface $user) {
   $new_level = $user->get('field_certification_level')->value;
   _breema_user_update_groups($user, $new_level);
+
+  // If the user is blocked (applied for an account, not created by admin),
+  // notify the practitioner-liason(s) about it.
+  if (empty($user->get('status')->value)) {
+    // To be able to access/view the user, we have to switch to an admin user
+    // while generating the e-mail body.
+    $admin_user = User::load(1);
+    $account_switcher = \Drupal::service('account_switcher');
+    $account_switcher->switchTo($admin_user);
+    \Drupal::service('breema.entity_sender')->sendEntity($user, 'user_applied', BREEMA_NEW_USER_EMAIL);
+    $account_switcher->switchBack();
+  }
 }
 
 /**
