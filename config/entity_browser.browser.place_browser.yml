@@ -34,7 +34,7 @@ widgets:
     settings:
       entity_type: node
       bundle: place
-      form_mode: default
+      form_mode: entity_browser
       submit_text: 'Save place'
     uuid: aa7865f0-b2d8-461a-bab7-1e5e29e4ae93
     weight: -8

@@ -1,0 +1,10 @@
+uuid: 301f334f-f748-4794-8078-1f6c7eff0d97
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.entity_browser
+label: 'Entity browser'
+targetEntityType: node
+cache: true
