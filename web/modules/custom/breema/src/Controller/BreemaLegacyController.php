@@ -2,7 +2,9 @@
 
 namespace Drupal\breema\Controller;
 
+use Drupal\Component\Render\FormattableMarkup;
 use Drupal\Core\Controller\ControllerBase;
+use Drupal\Core\Url;
 
 /**
  * Controller class for handling legacy URLs and redirects.
@@ -57,8 +59,17 @@ class BreemaLegacyController extends ControllerBase {
    * @see \Drupal\breema\PathProcessor\BreemaPathProcessor
    */
   public function redirectDeutsch() {
+    // Lanugage 13 is 'Deutsch'.
+    $articles_url = Url::fromRoute('view.breema_articles.page_1', [], ['query' => ['language' => 13]]);
+    // User 66 is Aron Saltiel.
+    $contact_url = Url::fromRoute('entity.user.contact_form', ['user' => 66]);
+    $placeholders = [
+      ':articles_url' => $articles_url->toString(),
+      ':contact_url' => $contact_url->toString(),
+    ];
     // Note: Don't use t() for this, since we always want it in German.
-    \Drupal::messenger()->addWarning('Vorläufig können wir keine deutsche Sektion anbieten. Wir hoffen aber in der Zukunft wieder eine hinzufügen zu können.');
+    // However, we need a FormattableMarkup object so the links aren't escaped.
+    \Drupal::messenger()->addWarning(new FormattableMarkup('Vorläufig können wir keine deutsche Sektion anbieten. Wir hoffen aber in der Zukunft wieder eine hinzufügen zu können. Sie können Artikel auf Deutsch in der <a href=":articles_url">Articles about Breema</a> sektion finden. Für Bücher über Breema auf Deutsch <a href=":contact_url">wenden Sie sich bitte an Aron Saltiel</a>.', $placeholders));
     return $this->redirect('<front>');
   }
 
