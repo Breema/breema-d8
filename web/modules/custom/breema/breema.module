@@ -2650,22 +2650,3 @@ function breema_entity_access(EntityInterface $entity, $operation, AccountInterf
   }
   return AccessResult::neutral();
 }
-
-/**
- * Implements hook_views_post_render().
- *
- * Dynamically alter the 'Your private groups' block if the user only has 1.
- */
-function breema_views_post_render(ViewExecutable $view, &$output, CachePluginBase $cache)
-{
-  if ($view->id() === 'breema_group_user') {
-    $display = $view->getDisplay();
-    if ($display->display['id'] === 'block_group_names') {
-      if (count($view->result) === 1) {
-        $view->setTitle(t('Your private group'));
-        // The 'View all groups' button doesn't make sense, either.
-        $view->footer = [];
-      }
-    }
-  }
-}
