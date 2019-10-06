@@ -2651,24 +2651,6 @@ function breema_entity_access(EntityInterface $entity, $operation, AccountInterf
   return AccessResult::neutral();
 }
 
-
-/**
- * Implements hook_block_view_alter().
- *
- * Programatically alter the label on the 'Your listening group(s)' block based
- * on the number of listening groups the user is a member of.
- */
-function breema_block_view_alter(array &$build, BlockPluginInterface $block) {
-  $definition = $block->getPluginDefinition();
-
-  if ($build['#id'] === 'breema2_group_listening_info') {
-    // Normally, the block hasn't been built yet. But we want to build it here
-    // so we can get the group count and set the block label accordingly.
-    $block->build();
-    $build['#configuration']['label'] = \Drupal::translation()->formatPlural($block->getGroupCount(), 'Your listening group', 'Your listening groups');
-  }
-}
-
 /**
  * Implements hook_views_post_render().
  *
