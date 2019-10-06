@@ -1163,12 +1163,7 @@ function breema_directory_entry_node_form_alter(&$form, FormStateInterface $form
   else {
     $contact_info_desc = t('If you enable your contact tab on your user profile, site visitors would be able to send you a message via this website without being able to see your e-mail address. Anything you put here will be publicly visible.');
   }
-  $form['contact_info_desc'] = [
-    '#type' => 'markup',
-    '#markup' => $contact_info_desc,
-    '#weight' => -10,
-  ];
-  $form['#group_children']['contact_info_desc'] = 'group_contact_info';
+  $form['group_contact_info']['#description'] = $contact_info_desc;
 }
 
 /**
