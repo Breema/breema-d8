@@ -1,7 +1,18 @@
+.flexslider-field-wrapper {
+  margin: 0 0 20px 0;
+  padding: 5px;
+  background: $c-grey-featured;
+  box-shadow: 0 2px 2px rgba(0,0,0,0.2);
+}
+
 .flexslider {
   background-color: inherit;
   border: none;
   margin: 0 0 40px;
+
+  a.teaser-link .node--sticky {
+    background-color: inherit;
+ }
 
   p {
     margin: 0 0 0.5em 0;

@@ -807,16 +807,6 @@ a.telephone:before,
   font-size: 1.1em;
 }
 
-.featured-top {
-  margin: 10px 15px;
-  padding: 5px;
-  background: #dce0dd;
-  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
-}
-.featured-top a.teaser-link .node--sticky {
-  background-color: inherit;
-}
-
 .action {
   margin: 1em 0 0.5em;
 }
@@ -1012,10 +1002,20 @@ ol.location-results .field--name-field-upcoming-events > .field__item {
   border-bottom: 1px solid #dedfdd;
 }
 
+.flexslider-field-wrapper {
+  margin: 0 0 20px 0;
+  padding: 5px;
+  background: #dce0dd;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+}
+
 .flexslider {
   background-color: inherit;
   border: none;
   margin: 0 0 40px;
+}
+.flexslider a.teaser-link .node--sticky {
+  background-color: inherit;
 }
 .flexslider p {
   margin: 0 0 0.5em 0;
