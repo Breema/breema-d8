@@ -7,6 +7,7 @@
 
 use Drupal\Component\Utility\Unicode;
 use Drupal\Core\Access\AccessResult;
+use Drupal\Core\Block\BlockPluginInterface;
 use Drupal\Core\Datetime\DrupalDateTime;
 use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
 use Drupal\Core\Entity\EntityInterface;
@@ -28,11 +29,12 @@ use Drupal\user\UserInterface;
 use Drupal\views\Views;
 use Drupal\views\ViewExecutable;
 use Drupal\views\ResultRow;
+use Drupal\views\Plugin\views\cache\CachePluginBase;
 
+use Drupal\flag\Entity\Flagging;
 use Drupal\group\Entity\Group;
 
 use Drupal\breema\BreemaEventMgr;
-use Drupal\flag\Entity\Flagging;
 
 /**
  * E-mail address to notify about new session resumes.
@@ -2647,4 +2649,41 @@ function breema_entity_access(EntityInterface $entity, $operation, AccountInterf
     }
   }
   return AccessResult::neutral();
+}
+
+
+/**
+ * Implements hook_block_view_alter().
+ *
+ * Programatically alter the label on the 'Your listening group(s)' block based
+ * on the number of listening groups the user is a member of.
+ */
+function breema_block_view_alter(array &$build, BlockPluginInterface $block) {
+  $definition = $block->getPluginDefinition();
+
+  if ($build['#id'] === 'breema2_group_listening_info') {
+    // Normally, the block hasn't been built yet. But we want to build it here
+    // so we can get the group count and set the block label accordingly.
+    $block->build();
+    $build['#configuration']['label'] = \Drupal::translation()->formatPlural($block->getGroupCount(), 'Your listening group', 'Your listening groups');
+  }
+}
+
+/**
+ * Implements hook_views_post_render().
+ *
+ * Dynamically alter the 'Your private groups' block if the user only has 1.
+ */
+function breema_views_post_render(ViewExecutable $view, &$output, CachePluginBase $cache)
+{
+  if ($view->id() === 'breema_group_user') {
+    $display = $view->getDisplay();
+    if ($display->display['id'] === 'block_group_names') {
+      if (count($view->result) === 1) {
+        $view->setTitle(t('Your private group'));
+        // The 'View all groups' button doesn't make sense, either.
+        $view->footer = [];
+      }
+    }
+  }
 }

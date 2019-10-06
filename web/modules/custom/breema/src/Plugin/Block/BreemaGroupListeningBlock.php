@@ -38,6 +38,13 @@ class BreemaGroupListeningBlock extends BlockBase implements ContainerFactoryPlu
   protected $currentUser;
 
   /**
+   * The number of listening groups being displayed.
+   *
+   * @var integer
+   */
+  protected $groupCount;
+
+  /**
    * Constructs a new BreemaGroupListeningBlock.
    *
    * @param array $configuration
@@ -55,6 +62,7 @@ class BreemaGroupListeningBlock extends BlockBase implements ContainerFactoryPlu
     parent::__construct($configuration, $plugin_id, $plugin_definition);
     $this->entityTypeManager = $entity_type_manager;
     $this->currentUser = $current_user;
+    $this->groupCount = 0;
   }
 
   /**
@@ -109,8 +117,13 @@ class BreemaGroupListeningBlock extends BlockBase implements ContainerFactoryPlu
           '#prefix' => '<h3>' . $group->toLink()->toString() . '</h3>',
           'body' => $group->get('field_body')->view($options),
         ];
+        $this->groupCount++;
       }
     }
     return $block;
+  }
+
+  public function getGroupCount() {
+    return $this->groupCount;
   }
 }
