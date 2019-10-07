@@ -572,15 +572,6 @@ function breema_preprocess_media__file(&$variables) {
 }
 
 /**
- * Preprocess function for blocks.
- */
-function breema_preprocess_block(&$variables) {
-  if ($variables['plugin_id'] == 'views_block:breema_events_featured-block_list') {
-    $variables['content']['actions'] = _breema_get_more_events_action_links();
-  }
-}
-
-/**
  * Preprocess function for users.
  *
  * If the user has a directory entry, hide the (now duplicate) user_picture.
@@ -888,6 +879,12 @@ function breema_views_pre_render(ViewExecutable $view) {
 
       case 'breema_events_by_location':
         return breema_views_pre_render_breema_events_by_location($view);
+
+      case 'breema_events_featured':
+        // We want this on both the block *and* page, so don't check the display.
+        $view->attachment_after['more_events'] = _breema_get_more_events_action_links();
+        break;
+
     }
   }
 }
