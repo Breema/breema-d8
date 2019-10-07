@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "073b5bbd960f684faf11752de2f23127",
+    "content-hash": "6604c1555fc7d827e3cd5bd5991aa712",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -4400,8 +4400,8 @@
                     }
                 },
                 "patches_applied": {
-                    "[#2809699-85] Menu parent as block title": "https://www.drupal.org/files/issues/2019-07-09/2809699-85.menu_block-label_configuration.patch",
-                    "[#2950943-14] Add links to menu parent block title": "https://www.drupal.org/files/issues/2019-07-09/2950943-14.menu_block-title_as_link.patch"
+                    "[#2809699-87] Menu parent as block title": "https://www.drupal.org/files/issues/2019-10-06/2809699-87.menu_block-label_configuration.patch",
+                    "[#2950943-15] Add links to menu parent block title": "https://www.drupal.org/files/issues/2019-10-06/2950943-15.menu_block-title_as_link.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
