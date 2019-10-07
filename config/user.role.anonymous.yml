@@ -11,6 +11,7 @@ is_admin: false
 permissions:
   - 'access comments'
   - 'access content'
+  - 'access event_browser entity browser pages'
   - 'access forward'
   - 'access site-wide contact form'
   - 'access user contact forms'
@@ -22,3 +23,4 @@ permissions:
   - 'view field_job_title'
   - 'view field_parent_event'
   - 'view media'
+  - 'view the administration theme'

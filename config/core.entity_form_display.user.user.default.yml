@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - entity_browser.browser.event_browser
     - field.field.user.user.field_address
     - field.field.user.user.field_anatomy_homework_language
     - field.field.user.user.field_anatomy_requirement
@@ -23,6 +24,7 @@ dependencies:
     - image.style.128x128_tiny
   module:
     - address
+    - entity_browser
     - field_group
     - file
     - gcontent_field
@@ -136,11 +138,17 @@ content:
   field_class_attended:
     weight: 13
     settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+      entity_browser: event_browser
+      field_widget_display: rendered_entity
+      field_widget_display_settings:
+        view_mode: teaser_compact_location
+      field_widget_remove: true
+      open: true
+      selection_mode: selection_append
+      field_widget_edit: false
+      field_widget_replace: false
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: entity_browser_entity_reference
     region: content
   field_class_other:
     weight: 14

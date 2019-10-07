@@ -1,0 +1,31 @@
+uuid: e149ee62-f579-4194-92a3-0fe080b9f3ab
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.breema_event_browser
+  module:
+    - views
+name: event_browser
+label: 'Event browser'
+display: modal
+display_configuration:
+  width: ''
+  height: ''
+  link_text: 'Select events'
+  auto_open: false
+selection_display: no_display
+selection_display_configuration: {  }
+widget_selector: single
+widget_selector_configuration: {  }
+widgets:
+  3a2f09cd-ce25-4fec-ace9-6e9fe3801792:
+    settings:
+      view: breema_event_browser
+      view_display: event_browser
+      submit_text: 'Select events'
+      auto_select: false
+    uuid: 3a2f09cd-ce25-4fec-ace9-6e9fe3801792
+    weight: 1
+    label: Events
+    id: view

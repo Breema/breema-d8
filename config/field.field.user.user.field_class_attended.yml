@@ -11,7 +11,7 @@ field_name: field_class_attended
 entity_type: user
 bundle: user
 label: 'Attended classes'
-description: 'Start typing the title of the class and you should be able to select choices from the calendar of events. You may reference as many classes as you have attended.'
+description: 'You may reference as many classes as you have attended.'
 required: false
 translatable: false
 default_value: {  }

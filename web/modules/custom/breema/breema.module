@@ -878,6 +878,7 @@ function breema_theme_registry_alter(&$theme_registry) {
 function breema_views_pre_render(ViewExecutable $view) {
   if (isset($view)) {
     switch($view->storage->id()) {
+      case 'breema_event_browser':
       case 'breema_place_browser':
         $view->element['#attached']['library'][] = 'breema/entity-browser';
         break;
