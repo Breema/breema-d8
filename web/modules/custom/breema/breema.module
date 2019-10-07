@@ -85,6 +85,32 @@ function breema_preprocess_region(&$variables) {
 }
 
 /**
+ * Implements hook_preprocess_forward().
+ */
+function breema_preprocess_forward(&$variables) {
+  if (empty($variables['message']['#markup']) && empty($variables['message']['#plain_text'])) {
+    unset($variables['message']);
+  }
+
+  // Fix the link to remove the 'Read more about' text.
+  $variables['link'] = $variables['entity']->toLink(NULL, 'canonical', ['absolute' => TRUE]);
+
+
+  // Add the site footer blocks as a template variable.
+  $variables['site_footer'] = [];
+  $block_manager = \Drupal::service('plugin.manager.block');
+  $block_ids = [
+    'social_share_block',
+    'footer_text_block',
+    'footer_email_subscribe_block',
+  ];
+  foreach ($block_ids as $block_id) {
+    $plugin_block = $block_manager->createInstance($block_id, []);
+    $variables['site_footer'][$block_id] = $plugin_block->build();
+  }
+}
+
+/**
  * Implements hook_preprocess_html().
  */
 function breema_preprocess_html(&$variables) {
