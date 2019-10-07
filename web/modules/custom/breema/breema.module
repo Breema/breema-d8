@@ -127,10 +127,41 @@ function breema_preprocess_html(&$variables) {
       ['property' => 'og:url', 'content' => $node->toUrl('canonical', ['absolute' => TRUE])->toString()],
       ['property' => 'og:updated_time', 'content' => $node->get('changed')->value],
       ['property' => 'article:publisher', 'content' => 'https://www.facebook.com/breemacenter'],
-      ['property' => 'twitter:site', 'content' => '@BreemaCenter'],
-      ['property' => 'twitter:creator', 'content' => '@BreemaCenter'],
       ['name' => 'twitter:title', 'content' => $clean_title],
     ];
+
+    // Any other bundle-specific meta tags that make sense.
+    switch ($node->bundle()) {
+      case 'product':
+        $og_type = 'product';
+        $product_info = $node->get('field_product_info')->referencedEntities();
+        if (!empty($product_info)) {
+          foreach ($product_info as $info) {
+            if ($info->getParagraphType()->id() === 'product_info_book') {
+              $og_type = 'book';
+              // @todo: If we had ISBNs, we could include that here.
+              break;
+            }
+          }
+        }
+        $meta_tags[] = ['property' => 'og:type', 'content' => $og_type];
+        break;
+
+      default:
+        // @todo: wish there was a better type for events.
+        $meta_tags[] = ['property' => 'og:type', 'content' => 'article'];
+        break;
+
+    }
+  }
+
+  // Since the front page is in fact a node, we need these checks outside the
+  // other conditionals so that it always runs for nodes.
+  if (!empty($node) && $node instanceof NodeInterface) {
+    $description = breema_get_node_meta_description($node);
+    if (!empty($description)) {
+      $meta_tags[] = ['property' => 'og:description', 'name' => 'description', 'content' => $description];
+    }
 
     // Find the right image to share.
     // First, if the node type has a field_main_image, try to use that.
@@ -208,45 +239,13 @@ function breema_preprocess_html(&$variables) {
       // No image, tell Twitter to use the regular 'summary' card type.
       $meta_tags[] = ['property' => 'twitter:card', 'content' => 'summary'];
     }
-
-    // Any other bundle-specific meta tags that make sense.
-    switch ($node->bundle()) {
-      case 'product':
-        $og_type = 'product';
-        $product_info = $node->get('field_product_info')->referencedEntities();
-        if (!empty($product_info)) {
-          foreach ($product_info as $info) {
-            if ($info->getParagraphType()->id() === 'product_info_book') {
-              $og_type = 'book';
-              // @todo: If we had ISBNs, we could include that here.
-              break;
-            }
-          }
-        }
-        $meta_tags[] = ['property' => 'og:type', 'content' => $og_type];
-        break;
-
-      default:
-        // @todo: wish there was a better type for events.
-        $meta_tags[] = ['property' => 'og:type', 'content' => 'article'];
-        break;
-
-    }
-  }
-
-  // Since the front page is in fact a node, we need this check outside the
-  // other conditionals so that it always runs for nodes.
-  $description = '';
-  if (!empty($node) && $node instanceof NodeInterface) {
-    $description = breema_get_node_meta_description($node);
-  }
-  if (!empty($description)) {
-    $meta_tags[] = ['property' => 'og:description', 'name' => 'description', 'content' => $description];
   }
 
   // Global properties, regardless of page:
   $meta_tags[] = ['property' => 'og:site_name', 'content' => $site_name];
   $meta_tags[] = ['property' => 'fb:app_id', 'content' => BREEMA_FB_APP_ID];
+  $meta_tags[] = ['property' => 'twitter:site', 'content' => '@BreemaCenter'];
+  $meta_tags[] = ['property' => 'twitter:creator', 'content' => '@BreemaCenter'];
 
   // Finally, set all the meta tags we found for this page.
   foreach ($meta_tags as $meta_tag) {
