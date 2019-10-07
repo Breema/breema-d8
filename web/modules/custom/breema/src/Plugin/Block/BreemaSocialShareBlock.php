@@ -111,10 +111,19 @@ class BreemaSocialShareBlock extends BlockBase {
    */
   protected function getServices($info) {
     $fb_link = !empty($info['fb_event']) ? $info['fb_event'] : $info['url'];
+    // @see https://developers.facebook.com/docs/sharing/reference/share-dialog
+    $options = [
+      'query' => [
+        'app_id' => BREEMA_FB_APP_ID,
+        'display' => 'page',
+        'href' => $fb_link,
+        'redirect_uri' => $info['url'],
+      ],
+    ];
     return [
       'main' => [
         'facebook' => [
-          'link' => sprintf('https://www.facebook.com/sharer.php?s=100&p[url]=%s&p[title]=%s&p[summary]=%s', $fb_link, $info['title'], $info['summary']),
+          'link' => Url::fromUri('https://www.facebook.com/dialog/share', $options)->toString(),
           'text' => 'Share on Facebook',
         ],
         'forward' => [

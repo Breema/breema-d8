@@ -52,6 +52,11 @@ const BREEMA_EVENT_TRANSFER_CREDIT_EMAIL = 'instructor-liasion@breema.com';
 const BREEMA_NEW_USER_EMAIL = 'practitioner-liasion@breema.com';
 
 /**
+ * The Facebook App ID for www.breema.com.
+ */
+const BREEMA_FB_APP_ID = '395768768009749';
+
+/**
  * Implements hook_help().
  */
 function breema_help($route_name, RouteMatchInterface $route_match) {
@@ -241,6 +246,7 @@ function breema_preprocess_html(&$variables) {
 
   // Global properties, regardless of page:
   $meta_tags[] = ['property' => 'og:site_name', 'content' => $site_name];
+  $meta_tags[] = ['property' => 'fb:app_id', 'content' => BREEMA_FB_APP_ID];
 
   // Finally, set all the meta tags we found for this page.
   foreach ($meta_tags as $meta_tag) {
