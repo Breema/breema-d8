@@ -19,3 +19,22 @@ tbody tr.ief-entity-unpublished:focus {
 .field--widget-paragraphs {
   margin: 1em 0 2em 0;
 }
+
+.place-teaser-compact header {
+  float: left;
+  margin: 0 0.5em 0 0;
+}
+
+.place-teaser-compact .field--name-field-address {
+  float: left;
+  font-style: italic;
+  font-size: 95%;
+  line-height: 1.5em;
+}
+
+.entity-browser-form h3,
+.field--widget-entity-browser-entity-reference h3
+.entity-browser-form h4,
+.field--widget-entity-browser-entity-reference h4 {
+  margin: 5px 0;
+}
