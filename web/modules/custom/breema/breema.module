@@ -1860,6 +1860,19 @@ function breema_user_update(UserInterface $user) {
   $new_level = $user->get('field_certification_level')->value;
   if ($old_level !== $new_level) {
     _breema_user_update_groups($user, $new_level);
+
+    // If the user has a directory entry, re-save it to (potentially) update the
+    // certifications listed there, too.
+    $directory_entries = $user->get('field_directory_entry')->referencedEntities();
+    $directory_entry = !empty($directory_entries) ? array_pop($directory_entries) : NULL;
+    if (!empty($directory_entry)) {
+      $directory_entry->setNewRevision();
+      // Record what user updated field_certification_level.
+      $directory_entry->setRevisionAuthorId(\Drupal::currentUser()->id());
+      // This should always be English, don't use t().
+      $directory_entry->revision_log = 'Changing certification level';
+      $directory_entry->save();
+    }
   }
 }
 
