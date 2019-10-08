@@ -53,7 +53,7 @@ class BreemaSocialShareBlock extends BlockBase {
       }
       foreach ($services as $service_id => $service_data) {
         $block[$group]['#items'][] = [
-          '#prefix' => '<a href="' . $service_data['link'] . '" title="' . $service_data['text'] . '" class="' . $service_id . '" target="_blank">',
+          '#prefix' => '<a href="' . $service_data['link'] . '" title="' . $service_data['text'] . '" class="' . $service_id . '>',
           '#markup' => $this->getLinkMarkup($group, $service_id, $service_data['text']),
           '#suffix' => '</a>',
         ];
