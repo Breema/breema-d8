@@ -15,13 +15,13 @@ forward_form_instructions: ''
 forward_form_display_page: true
 forward_form_display_subject: false
 forward_form_display_body: false
-forward_form_confirmation: 'Thank you for spreading the word about [site:name]. We appreciate your help.'
+forward_form_confirmation: 'Thank you for spreading the word about [site:name]!'
 forward_personal_message: 0
 forward_personal_message_filter: false
 forward_personal_message_tags: 'p,br,em,strong,cite,code,ul,ol,li,dl,dt,dd'
 forward_email_logo: ''
 forward_email_subject: '[forward:sender-name] has forwarded a page to you from [site:name]'
-forward_email_message: '[forward:sender-name] thought you would like to see this page from the [site:name] web site.'
+forward_email_message: '[forward:sender-name] thought you would like to see this page from [site:name] web site.'
 forward_bypass_access_control: 0
 forward_filter_format: ''
 forward_flood_control_limit: 10
