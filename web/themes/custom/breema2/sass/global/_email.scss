@@ -38,6 +38,18 @@ body {
   word-wrap: normal;
 }
 
+.item-list {
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    li {
+      margin: 0;
+      padding: 0;
+    }
+  }
+}
+
 .site-name {
   font-family: $ff-times;
   text-transform: uppercase;

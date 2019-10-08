@@ -1137,6 +1137,16 @@ body {
   word-wrap: normal;
 }
 
+.item-list ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.item-list ul li {
+  margin: 0;
+  padding: 0;
+}
+
 .site-name {
   font-family: Times, serif;
   text-transform: uppercase;
