@@ -1,11 +1,7 @@
 .site-footer {
+  font-family: $ff-helv;
   background-color: $c-plum;
   padding: 20px 0;
-
-  .block {
-    margin: 0 0 20px 0;
-    border-color: $c-white-25o;
-  }
 
   // Change links and other text to white for this whole region.
   a,
@@ -19,11 +15,15 @@
     color: $c-white;
   }
 
+  .content {
+    font-size: 0.857em;
+  }
   h2 {
+    font-size: 1em;
     margin: 0 0 0.5em 0;
     text-transform: none;
     color: $c-white-80o;
-    border-color: $c-white-25o;
+    border-bottom: 1px solid $c-white-25o;
   }
 
   .block-social-media-links {
@@ -41,15 +41,41 @@
   }
 }
 
+.site-footer__top {
+  .region {
+    margin: 0;
+    border: 1px solid $c-white-25o;
+  }
+  .block {
+    margin: 0;
+    padding: 10px;
+  }
+}
+
 .site-footer__bottom {
-  margin-top: 10px;
-  border: none;
-  font-size: 0.9em;
+  margin-top: 30px;
   .block {
     margin: 0;
   }
+  ul.menu {
+    padding: 0;
+    li {
+      display: inline-block;
+      padding: 0;
+      margin: 0;
+    }
+  }
   .menu-item a {
-    border-color: $c-white-25o;
+    font-size: 0.93em;
+    padding: 0 1.5em;
+    border-right: 1px solid $c-white-25o;
+  }
+  .menu-item:first-child a {
+    padding-left: 0;
+  }
+  .menu-item:last-child a {
+    padding-right: 0;
+    border-right: none;
   }
 }
 

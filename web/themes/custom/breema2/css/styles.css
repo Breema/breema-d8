@@ -743,12 +743,9 @@ a.telephone:before,
 }
 
 .site-footer {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   background-color: #752d53;
   padding: 20px 0;
-}
-.site-footer .block {
-  margin: 0 0 20px 0;
-  border-color: rgba(255, 255, 255, 0.25);
 }
 .site-footer a,
 .site-footer .content {
@@ -759,11 +756,15 @@ a.telephone:before,
 .site-footer ul.menu a.is-active {
   color: #fff;
 }
+.site-footer .content {
+  font-size: 0.857em;
+}
 .site-footer h2 {
+  font-size: 1em;
   margin: 0 0 0.5em 0;
   text-transform: none;
   color: rgba(255, 255, 255, 0.8);
-  border-color: rgba(255, 255, 255, 0.25);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
 }
 .site-footer .block-social-media-links li a, .site-footer .block-social-media-links li a:focus, .site-footer .block-social-media-links li a:hover {
   border: none;
@@ -775,16 +776,40 @@ a.telephone:before,
   padding: 0.5em 0 0 0;
 }
 
+.site-footer__top .region {
+  margin: 0;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+.site-footer__top .block {
+  margin: 0;
+  padding: 10px;
+}
+
 .site-footer__bottom {
-  margin-top: 10px;
-  border: none;
-  font-size: 0.9em;
+  margin-top: 30px;
 }
 .site-footer__bottom .block {
   margin: 0;
 }
+.site-footer__bottom ul.menu {
+  padding: 0;
+}
+.site-footer__bottom ul.menu li {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+}
 .site-footer__bottom .menu-item a {
-  border-color: rgba(255, 255, 255, 0.25);
+  font-size: 0.93em;
+  padding: 0 1.5em;
+  border-right: 1px solid rgba(255, 255, 255, 0.25);
+}
+.site-footer__bottom .menu-item:first-child a {
+  padding-left: 0;
+}
+.site-footer__bottom .menu-item:last-child a {
+  padding-right: 0;
+  border-right: none;
 }
 
 .block-footer-email-subscribe-block .action--secondary a {

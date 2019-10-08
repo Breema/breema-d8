@@ -16,6 +16,7 @@ libraries-override:
         css/components/pager.css: false
         css/components/primary-menu.css: false
         css/components/site-branding.css: false
+        css/components/site-footer.css: false
       theme:
         css/colors.css: false
 
