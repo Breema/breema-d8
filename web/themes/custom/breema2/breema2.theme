@@ -31,5 +31,5 @@ function breema2_preprocess_forward(&$variables) {
   $theme_path = $variables['front_page'] . $variables['directory'];
   // Increment v here anytime we change email.css to ensure mail clients and
   // others refresh the CSS.
-  $variables['email_css_path'] =  $theme_path . '/css/email.css?v=0.2';
+  $variables['email_css_path'] =  $theme_path . '/css/email.css?v=0.3';
 }
