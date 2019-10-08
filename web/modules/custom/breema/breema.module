@@ -1954,7 +1954,13 @@ function _breema_set_user_groups(UserInterface $user, array $new_group_ids) {
   $memberships = \Drupal::service('group.membership_loader')->loadByUser($user);
   $current_group_ids = [];
   foreach ($memberships as $membership) {
-    $current_group_ids[] = $membership->getGroup()->id();
+    // Only consider certification groups for this.
+    // @todo Should probably be more careful, but for now, certification groups
+    // are IDs 1-4, so we can be lazy.
+    $group_id = $membership->getGroup()->id();
+    if ($group_id <= 4) {
+      $current_group_ids[] = $group_id;
+    }
   }
 
   $remove_group_ids = array_diff($current_group_ids, $new_group_ids);
