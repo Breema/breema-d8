@@ -27,7 +27,8 @@
 
 @media (min-width: 630px) {
   .grid--container-1-2,
-  .grid--container-1-2-3 {
+  .grid--container-1-2-3,
+  .grid--container-1-2-4 {
     grid-template-columns: 1fr 1fr;
   }
   .grid--container-1-2u3366 {
@@ -71,6 +72,9 @@
   }
   .grid--container-1-2-3 {
     grid-template-columns: 1fr 1fr 1fr;
+  }
+  .grid--container-1-2-4 {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }
 

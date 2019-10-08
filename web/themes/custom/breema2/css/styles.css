@@ -505,7 +505,8 @@ a.telephone:before,
 
 @media (min-width: 630px) {
   .grid--container-1-2,
-  .grid--container-1-2-3 {
+  .grid--container-1-2-3,
+  .grid--container-1-2-4 {
     grid-template-columns: 1fr 1fr;
   }
 
@@ -553,6 +554,10 @@ a.telephone:before,
 
   .grid--container-1-2-3 {
     grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .grid--container-1-2-4 {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }
 @media (min-width: 1124px) {
