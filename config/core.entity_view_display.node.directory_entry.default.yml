@@ -89,10 +89,10 @@ content:
       link_class: facebook
       rel: nofollow
       target: _blank
-      allow_override: 0
-      trim_length: ''
-      url_only: ''
-      url_plain: ''
+      allow_override: false
+      trim_length: null
+      url_only: false
+      url_plain: false
     third_party_settings: {  }
     type: fixed_text_link
     region: content
