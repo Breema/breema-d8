@@ -7,7 +7,6 @@
 
 use Drupal\Component\Utility\Unicode;
 use Drupal\Core\Access\AccessResult;
-use Drupal\Core\Block\BlockPluginInterface;
 use Drupal\Core\Datetime\DrupalDateTime;
 use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
 use Drupal\Core\Entity\EntityInterface;
@@ -19,6 +18,7 @@ use Drupal\Core\Session\AccountInterface;
 use Drupal\Core\StringTranslation\PluralTranslatableMarkup;
 use Drupal\Core\Template\Attribute;
 use Drupal\Core\Url;
+use Drupal\block\Entity\Block;
 use Drupal\file\Entity\File;
 use Drupal\media\Entity\Media;
 use Drupal\node\Entity\Node;
@@ -94,15 +94,21 @@ function breema_preprocess_forward(&$variables) {
 
   // Add the site footer blocks as a template variable.
   $variables['site_footer'] = [];
-  $block_manager = \Drupal::service('plugin.manager.block');
   $block_ids = [
-    'social_share_block',
-    'footer_text_block',
-    'footer_email_subscribe_block',
+    'socialmedialinks',
+    'breema_footer_text',
+    'breema_footer_email',
   ];
+  $block_viewer = \Drupal::entityTypeManager()->getViewBuilder('block');
   foreach ($block_ids as $block_id) {
-    $plugin_block = $block_manager->createInstance($block_id, []);
-    $variables['site_footer'][$block_id] = $plugin_block->build();
+    $block = Block::load('breema2_' . $block_id);
+    $variables['site_footer'][$block_id] = [
+      '#type' => 'container',
+      '#attributes' => [
+          'class' => ["footer-block"],
+      ],
+      'content' => $block_viewer->view($block),
+    ];
   }
 }
 
