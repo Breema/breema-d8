@@ -73,14 +73,14 @@
   .grid--container-1-2-3 {
     grid-template-columns: 1fr 1fr 1fr;
   }
-  .grid--container-1-2-4 {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-  }
 }
 
-@media (min-width: 1124px) {
+@media (min-width: 1251px) {
   .grid--container {
     grid-column-gap: 20px;
+  }
+  .grid--container-1-2-4 {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }
 
