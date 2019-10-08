@@ -92,10 +92,6 @@ function breema_preprocess_forward(&$variables) {
     unset($variables['message']);
   }
 
-  // Fix the link to remove the 'Read more about' text.
-  $variables['link'] = $variables['entity']->toLink(NULL, 'canonical', ['absolute' => TRUE]);
-
-
   // Add the site footer blocks as a template variable.
   $variables['site_footer'] = [];
   $block_manager = \Drupal::service('plugin.manager.block');
