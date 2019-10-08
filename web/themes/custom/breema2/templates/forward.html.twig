@@ -4,6 +4,7 @@
     <link rel="stylesheet" href="{{ email_css_path}}" media="all">
   </head>
   <body>
+   <div id="page-wrapper">
     <div class="header">
       <h1 class="site-name"><a href="{{ front_page }}" title="{{ site_name }}">{{ site_name }}</a></h1>
     </div>
@@ -19,10 +20,9 @@
     {% if footer %}
       <div class="footer">{{ footer }}</div>
     {% endif %}
-    {% if site_footer %}
-      <div class="footer-wrapper">
-	{{ site_footer }}
-      </div>
-    {% endif %}
+   </div>
+   {% if site_footer %}
+     <div class="site-footer">{{ site_footer }}</div>
+   {% endif %}
   </body>
 </html>

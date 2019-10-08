@@ -987,21 +987,6 @@ ol.location-results .field--name-field-upcoming-events > .field__item {
     max-width: none;
   }
 }
-ul.menu a.is-active {
-  color: #007cb2;
-}
-
-.page-node-type-article .menu-item--active-trail > a,
-.page-node-type-essence .menu-item--active-trail > a {
-  color: #007cb2;
-}
-
-.menu-item--collapsed,
-.menu-item--expanded {
-  list-style-image: none;
-  list-style-type: none;
-}
-
 /**
  * @file
  * Styles for pagination.
@@ -1087,118 +1072,74 @@ ul.menu a.is-active {
   margin: 0 auto;
 }
 
-.paragraph--type--product-info-audio,
-.paragraph--type--product-info-book,
-.paragraph--type--product-info-general {
-  margin: 0 0 1em 0;
-}
-
-.product-image {
-  margin: 0 1em 0 0;
-}
-
-.paragraph--type--product-info-general .field--name-field-description p {
-  margin: 0;
-}
-
-.field--name-field-cover-price,
-.field--name-field-cover-price .field__label,
-.field--name-field-publication-year .field__label {
-  font-weight: normal;
-}
-
-.field--name-field-special-price {
-  font-weight: bold;
-}
-
-.field--name-field-by p {
-  margin: 0;
-}
-.field--name-field-by .field__label {
-  font-weight: normal;
-}
-
-.field--name-field-ebook-amazon-kindle a,
-.field--name-field-ebook-apple-ibooks a,
-.field--name-field-ebook-barnes-noble a,
-.field--name-field-ebook-kobo a {
-  padding: 0 0 0 1.5em;
-  position: relative;
-  border-bottom: none;
-  text-decoration: none;
-}
-
-.field--name-field-ebook-amazon-kindle a:hover,
-.field--name-field-ebook-apple-ibooks a:hover,
-.field--name-field-ebook-barnes-noble a:hover,
-.field--name-field-ebook-kobo a:hover {
-  border-bottom: none;
-  text-decoration: none;
-}
-
-.field--name-field-ebook-amazon-kindle a:before {
-  position: absolute;
-  font-family: 'FontAwesome';
-  content: "\f270";
-  color: #444;
-  left: 1px;
-}
-
-.field--name-field-ebook-apple-ibooks a:before {
-  position: absolute;
-  font-family: 'FontAwesome';
-  content: "\f179";
-  color: #777;
-  left: 3px;
-}
-
-.field--name-field-ebook-barnes-noble a:before {
-  position: absolute;
-  font-family: Impact, Verdana, Helvetica, Arial, sans-serif;
-  font-weight: bold;
-  content: "BN";
-  color: #346250;
-  left: 0;
-}
-
-.field--name-field-ebook-kobo a:before {
-  position: absolute;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: bold;
-  content: "k";
-  color: #bf0000;
-  left: 4px;
-  bottom: -0.1em;
-}
-
-details.e-books .details-wrapper {
-  padding: 0.5em;
-}
-
-.field--name-field-audio-excerpts {
-  clear: both;
-}
-
-.paragraph--type--product-info-audio .field--name-field-audio-excerpts .field__label {
-  font-size: 1em;
-  font-family: "Cabin", sans-serif;
-}
-
-.node--type-product h3, .node--type-product h5 {
-  font-style: italic;
-  letter-spacing: 0;
-}
-.node--type-product h4, .node--type-product a.teaser-link h4 {
-  font-size: 1.3em;
-  margin: 0;
-}
-.node--type-product h5, .node--type-product a.teaser-link h5 {
-  font-size: 1.1em;
-  text-transform: none;
-  margin: 0 0 0.5em 0;
-}
-.node--type-product .field--name-field-main-image,
-.node--type-product a.teaser-link .field--name-field-main-image {
-  margin: 0;
+img {
   max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+body {
+  margin: 0;
+  padding: 30px 0 0 0;
+  width: 100%;
+}
+
+#page-wrapper {
+  margin: 0;
+  padding: 1em;
+  font-size: 1.1em;
+  max-width: 100%;
+  width: 100%;
+}
+
+.clearfix:after {
+  display: table;
+  clear: both;
+  content: "";
+}
+
+.visually-hidden {
+  position: absolute !important;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  width: 1px;
+  height: 1px;
+  word-wrap: normal;
+}
+
+.site-name {
+  font-family: Times, serif;
+  text-transform: uppercase;
+  font-size: 26px;
+  line-height: 26px;
+  display: block;
+  text-align: center;
+  margin: 5px auto 10px;
+}
+.site-name a {
+  color: #a82133;
+}
+.site-name a:hover {
+  text-decoration: none;
+}
+
+.social-media-links--platforms {
+  padding-left: 0;
+}
+
+.social-media-links--platforms.horizontal li {
+  display: inline-block;
+  text-align: center;
+  padding: .2em .35em;
+}
+
+@media (min-width: 851px) {
+  #page-wrapper {
+    padding: 1em 2em;
+  }
+}
+@media (min-width: 1124px) {
+  #page-wrapper {
+    padding: 1em 3em;
+  }
 }
