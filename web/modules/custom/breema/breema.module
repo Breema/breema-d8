@@ -1302,12 +1302,6 @@ function breema_form_user_form_alter(&$form, \Drupal\Core\Form\FormStateInterfac
   // Hide the 'Group memberships' widget for non-admins.
   $form['group_content']['#access'] = FALSE;
 
-  // Once a user is authenticated (not the registration form) hide
-  // 'why_interested' and 'class_attended'.
-  if (in_array('authenticated', $roles)) {
-    $form['field_why_interested']['#access'] = FALSE;
-    $form['field_class_attended']['#access'] = FALSE;
-  }
   // Once certified, hide all the requirement-related fields.
   if ($is_certified) {
     $fields = [
@@ -1315,6 +1309,7 @@ function breema_form_user_form_alter(&$form, \Drupal\Core\Form\FormStateInterfac
       'field_anatomy_transcript',
       'field_anatomy_homework_language',
       'field_class_other',
+      'field_class_attended',
     ];
     foreach ($fields as $field) {
       $form[$field]['#access'] = FALSE;
