@@ -1,0 +1,32 @@
+{#
+/**
+ * @file
+ * Twig template to display nodes using the 'forward' view mode.
+ * @see template_preprocess_node()
+ */
+#}
+{%
+  set classes = [
+    'node',
+    'node--type-' ~ node.bundle|clean_class,
+    node.isPromoted() ? 'node--promoted',
+    node.isSticky() ? 'node--sticky',
+    not node.isPublished() ? 'node--unpublished',
+    view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+    'clearfix',
+  ]
+%}
+<article{{ attributes.addClass(classes) }}>
+  <header>
+    {{ title_prefix }}
+      {% if label %}
+      <h1{{ title_attributes.addClass('page-title') }}>
+        <a href="{{ url }}" rel="bookmark">{{ label }}</a>
+      </h1>
+    {% endif %}
+    {{ title_suffix }}
+  </header>
+  <div{{ content_attributes.addClass('node__content', 'clearfix') }}>
+    {{ content }}
+  </div>
+</article>
