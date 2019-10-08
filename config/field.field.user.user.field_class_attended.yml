@@ -11,7 +11,7 @@ field_name: field_class_attended
 entity_type: user
 bundle: user
 label: 'Attended classes'
-description: 'You may reference as many classes as you have attended.'
+description: 'Start by clicking "Select events" to search for and choose events. You may select as many classes as you have attended. However, for each page <strong>be sure to click the blue "Save selection" button or you will lose your choices.</strong> '
 required: false
 translatable: false
 default_value: {  }
