@@ -2299,11 +2299,17 @@ function breema_entity_node_directory_entry_view_alter(array &$build, EntityInte
     ];
   }
 
-  if ($build['#view_mode'] === 'full') {
+  if ($build['#view_mode'] === 'full' || $build['#view_mode'] === 'forward') {
     // Embed views specific to directory_entry nodes.
+    $displays = [];
+    // Don't put the map in forwarded places.
+    if ($build['#view_mode'] === 'full') {
+      $displays[] = 'map';
+    }
+    $displays[] = 'list';
     $weight = 10;
     $args = [$author_uid];
-    foreach (['map', 'list'] as $key) {
+    foreach ($displays as $key) {
       $view = Views::getView('breema_events_by_instructor');
       $view->setDisplay('block_' . $key);
       $view->setArguments($args);
@@ -2314,8 +2320,10 @@ function breema_entity_node_directory_entry_view_alter(array &$build, EntityInte
     // $view is now for the event list.
     // Only include the 'Upcoming events' header if there are results.
     if (!empty($view->result)) {
-      // Add an invisible anchor above the map for #upcoming-events links.
-      $build['events_map']['#prefix'] = '<h2 id="upcoming-events" class="visually-hidden">' . t('Upcoming event map') . '</h2>';
+      if ($build['#view_mode'] === 'full') {
+        // Add an invisible anchor above the map for #upcoming-events links.
+        $build['events_map']['#prefix'] = '<h2 id="upcoming-events" class="visually-hidden">' . t('Upcoming event map') . '</h2>';
+      }
       // @todo we could format_plural() here if we really wanted.
       $build['events_list']['#prefix'] = '<h2>' . t('Upcoming events') . '</h2>';
     }
@@ -2332,7 +2340,12 @@ function breema_entity_node_article_view_alter(array &$build, EntityInterface $e
   $other_authors = $entity->get('field_authors_other')->getValue();
   $authors = [];
   if (!empty($breema_authors)) {
-    $label_callback = $view_mode === 'default' ? 'breema_entity_label_instructor_directory_entry' : 'breema_entity_label_plain';
+    if ($view_mode === 'default' || $view_mode === 'forward') {
+      $label_callback = 'breema_entity_label_instructor_directory_entry';
+    }
+    else {
+      $label_callback = 'breema_entity_label_plain';
+    }
     $authors = array_map($label_callback, $breema_authors);
   }
   if (!empty($other_authors)) {
@@ -2403,6 +2416,7 @@ function breema_entity_node_article_view_alter(array &$build, EntityInterface $e
  */
 function breema_entity_node_event_view_alter(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display) {
   // We only want to do anything here on full page views. Return early if not.
+  // @todo we'll want to handle this for 'forward' view mode, once we use it.
   if ($display->getMode() !== 'default') {
     return;
   }
@@ -2435,7 +2449,7 @@ function breema_entity_node_event_view_alter(array &$build, EntityInterface $ent
  * Callback for hook_entity_view_alter() for essence (of Breema) nodes.
  */
 function breema_entity_node_essence_view_alter(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display) {
-  if ($display->getMode() === 'default') {
+  if ($display->getMode() === 'default' || $display->getMode() === 'forward') {
     $build['link'] = [
       '#type' => 'link',
       '#title' => t('Read more Essence of Breema'),
@@ -2451,7 +2465,7 @@ function breema_entity_node_essence_view_alter(array &$build, EntityInterface $e
  * Callback for hook_entity_view_alter() for place nodes.
  */
 function breema_entity_node_place_view_alter(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display) {
-  if ($display->getMode() === 'default') {
+  if ($display->getMode() === 'default' || $display->getMode() === 'forward') {
     $view = Views::getView('breema_events_by_location');
     $view->setDisplay('block_1');
     $view->setArguments([$entity->id()]);
@@ -2485,7 +2499,7 @@ function breema_entity_node_session_resume_view_alter(array &$build, EntityInter
  * Callback for hook_entity_view_alter() for node 3 ("The Nine Principles").
  */
 function breema_node_3_view_alter(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display) {
-  if ($display->getMode() == 'default') {
+  if ($display->getMode() === 'default' || $display->getMode() === 'forward') {
     $view = Views::getView('breema_nine_principles');
     $view->setDisplay('embed_1');
     $view->execute();
@@ -2501,7 +2515,7 @@ function breema_node_3_view_alter(array &$build, EntityInterface $entity, Entity
  * Callback for hook_entity_view_alter() for node 36 ("Breema Intensives").
  */
 function breema_node_36_view_alter(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display) {
-  if ($display->getMode() === 'default') {
+  if ($display->getMode() === 'default' || $display->getMode() === 'forward') {
     $view = Views::getView('breema_events_intensives');
     $view->setDisplay('block_list');
     $view->execute();
@@ -2517,7 +2531,7 @@ function breema_node_36_view_alter(array &$build, EntityInterface $entity, Entit
  * Callback for hook_entity_view_alter() for node 38 ("Events at the Center").
  */
 function breema_node_38_view_alter(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display) {
-  if ($display->getMode() === 'default') {
+  if ($display->getMode() === 'default' || $display->getMode() === 'forward') {
     $view = Views::getView('breema_events_by_location');
     $view->setDisplay('block_breema_center');
     $view->execute();
