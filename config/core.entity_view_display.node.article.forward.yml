@@ -1,0 +1,92 @@
+uuid: eca3d65e-4a11-4ccf-a8d6-a51c01ee668c
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.forward
+    - field.field.node.article.body
+    - field.field.node.article.field_article_language
+    - field.field.node.article.field_authors_breema
+    - field.field.node.article.field_authors_other
+    - field.field.node.article.field_date
+    - field.field.node.article.field_main_image
+    - field.field.node.article.field_original_article_url
+    - field.field.node.article.field_resources
+    - field.field.node.article.field_source_name
+    - field.field.node.article.field_source_url
+    - image.style.480x270_medium
+    - node.type.article
+  module:
+    - advanced_text_formatter
+    - datetime
+    - media
+    - user
+_core:
+  default_config_hash: qVtHNxqdXB9w369AO5JB5SVhflquWqFm5xfyvYLAIlM
+id: node.article.forward
+targetEntityType: node
+bundle: article
+mode: forward
+content:
+  body:
+    type: advanced_text
+    weight: 2
+    region: content
+    settings:
+      trim_length: '0'
+      ellipsis: '1'
+      word_boundary: '1'
+      filter: drupal
+      format: email_html
+      allowed_html:
+        - a
+        - b
+        - br
+        - dd
+        - dl
+        - dt
+        - em
+        - i
+        - li
+        - ol
+        - p
+        - strong
+        - u
+        - ul
+      use_summary: 0
+      token_replace: 0
+      autop: 0
+    third_party_settings: {  }
+    label: hidden
+  field_date:
+    weight: 0
+    label: inline
+    settings:
+      timezone_override: ''
+      format_type: date_text
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_main_image:
+    weight: 1
+    label: hidden
+    settings:
+      image_style: 480x270_medium
+      image_link: ''
+    third_party_settings: {  }
+    type: media_thumbnail
+    region: content
+  links:
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_article_language: true
+  field_authors_breema: true
+  field_authors_other: true
+  field_original_article_url: true
+  field_resources: true
+  field_source_name: true
+  field_source_url: true
+  group_content: true

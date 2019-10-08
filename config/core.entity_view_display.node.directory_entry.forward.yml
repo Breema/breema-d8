@@ -1,0 +1,163 @@
+uuid: 8cd84b13-2bf7-4970-b2d5-d894c0fc59b6
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.forward
+    - field.field.node.directory_entry.body
+    - field.field.node.directory_entry.field_address
+    - field.field.node.directory_entry.field_breema_center_staff
+    - field.field.node.directory_entry.field_breema_clinic_practitioner
+    - field.field.node.directory_entry.field_certification
+    - field.field.node.directory_entry.field_email
+    - field.field.node.directory_entry.field_facebook_page
+    - field.field.node.directory_entry.field_geolocation
+    - field.field.node.directory_entry.field_has_active_event
+    - field.field.node.directory_entry.field_job_title
+    - field.field.node.directory_entry.field_name_first
+    - field.field.node.directory_entry.field_name_last
+    - field.field.node.directory_entry.field_resources
+    - field.field.node.directory_entry.field_telephone
+    - field.field.node.directory_entry.field_upcoming_events
+    - field.field.node.directory_entry.field_website
+    - node.type.directory_entry
+  module:
+    - address
+    - advanced_text_formatter
+    - fixed_text_link_formatter
+    - link
+    - options
+    - telephone
+    - user
+id: node.directory_entry.forward
+targetEntityType: node
+bundle: directory_entry
+mode: forward
+content:
+  body:
+    label: hidden
+    type: advanced_text
+    weight: 9
+    settings:
+      trim_length: '0'
+      ellipsis: '1'
+      word_boundary: '1'
+      filter: drupal
+      format: email_html
+      allowed_html:
+        - a
+        - b
+        - br
+        - dd
+        - dl
+        - dt
+        - em
+        - i
+        - li
+        - ol
+        - p
+        - strong
+        - u
+        - ul
+      use_summary: 0
+      token_replace: 0
+      autop: 0
+    third_party_settings: {  }
+    region: content
+  field_address:
+    weight: 4
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: address_default
+    region: content
+  field_breema_center_staff:
+    weight: 1
+    label: hidden
+    settings:
+      format: custom
+      format_custom_true: 'Breema Center staff'
+      format_custom_false: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_breema_clinic_practitioner:
+    weight: 2
+    label: hidden
+    settings:
+      format: custom
+      format_custom_true: 'Breema Clinic practitioner'
+      format_custom_false: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_certification:
+    weight: 3
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_email:
+    weight: 5
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: email_mailto
+    region: content
+  field_facebook_page:
+    weight: 7
+    label: hidden
+    settings:
+      link_text: 'Facebook page'
+      link_class: facebook
+      rel: nofollow
+      target: _blank
+      allow_override: false
+      trim_length: null
+      url_only: false
+      url_plain: false
+    third_party_settings: {  }
+    type: fixed_text_link
+    region: content
+  field_job_title:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_telephone:
+    weight: 6
+    label: hidden
+    settings:
+      title: ''
+    third_party_settings: {  }
+    type: telephone_link
+    region: content
+  field_website:
+    weight: 8
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  links:
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_geolocation: true
+  field_has_active_event: true
+  field_name_first: true
+  field_name_last: true
+  field_resources: true
+  field_upcoming_events: true
+  group_content: true

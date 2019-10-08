@@ -1,0 +1,69 @@
+uuid: df845d9a-71ac-46e9-bd31-40d9fb03ff0e
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.forward
+    - field.field.node.page.body
+    - field.field.node.page.field_main_image
+    - field.field.node.page.field_resources
+    - image.style.480x270_medium
+    - node.type.page
+  module:
+    - advanced_text_formatter
+    - media
+    - user
+_core:
+  default_config_hash: g1S3_GLaxq4l3I9RIca5Mlz02MxI2KmOquZpHw59akM
+id: node.page.forward
+targetEntityType: node
+bundle: page
+mode: forward
+content:
+  body:
+    label: hidden
+    type: advanced_text
+    weight: 1
+    region: content
+    settings:
+      trim_length: '0'
+      ellipsis: '1'
+      word_boundary: '1'
+      filter: drupal
+      format: email_html
+      allowed_html:
+        - a
+        - b
+        - br
+        - dd
+        - dl
+        - dt
+        - em
+        - i
+        - li
+        - ol
+        - p
+        - strong
+        - u
+        - ul
+      use_summary: 0
+      token_replace: 0
+      autop: 0
+    third_party_settings: {  }
+  field_main_image:
+    weight: 0
+    label: hidden
+    settings:
+      image_style: 480x270_medium
+      image_link: ''
+    third_party_settings: {  }
+    type: media_thumbnail
+    region: content
+  links:
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_resources: true
+  group_content: true

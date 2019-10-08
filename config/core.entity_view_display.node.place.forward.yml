@@ -1,0 +1,101 @@
+uuid: 756a04c6-b5f9-4417-a88d-b5e968b19fb7
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.forward
+    - field.field.node.place.body
+    - field.field.node.place.field_address
+    - field.field.node.place.field_email
+    - field.field.node.place.field_geolocation
+    - field.field.node.place.field_has_active_event
+    - field.field.node.place.field_telephone
+    - field.field.node.place.field_upcoming_events
+    - field.field.node.place.field_website
+    - node.type.place
+  module:
+    - advanced_text_formatter
+    - breema
+    - link
+    - telephone
+    - user
+id: node.place.forward
+targetEntityType: node
+bundle: place
+mode: forward
+content:
+  body:
+    label: hidden
+    type: advanced_text
+    weight: 4
+    settings:
+      trim_length: '0'
+      ellipsis: '1'
+      word_boundary: '1'
+      filter: drupal
+      format: email_html
+      allowed_html:
+        - a
+        - b
+        - br
+        - dd
+        - dl
+        - dt
+        - em
+        - i
+        - li
+        - ol
+        - p
+        - strong
+        - u
+        - ul
+      use_summary: 0
+      token_replace: 0
+      autop: 0
+    third_party_settings: {  }
+    region: content
+  field_address:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: address_directions_link
+    region: content
+  field_email:
+    weight: 2
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: email_mailto
+    region: content
+  field_telephone:
+    weight: 1
+    label: hidden
+    settings:
+      title: ''
+    third_party_settings: {  }
+    type: telephone_link
+    region: content
+  field_website:
+    weight: 3
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: '0'
+      target: '0'
+    third_party_settings: {  }
+    type: link
+    region: content
+  links:
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_geolocation: true
+  field_has_active_event: true
+  field_upcoming_events: true
+  flag_my_places: true
+  group_content: true
