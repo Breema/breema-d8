@@ -110,20 +110,19 @@ class BreemaSocialShareBlock extends BlockBase {
    *   Entries are keyed by the service name and contain 'link' and 'text'.
    */
   protected function getServices($info) {
-    $fb_link = !empty($info['fb_event']) ? $info['fb_event'] : $info['url'];
-    // @see https://developers.facebook.com/docs/sharing/reference/share-dialog
-    $options = [
-      'query' => [
-        'app_id' => BREEMA_FB_APP_ID,
-        'display' => 'page',
-        'href' => $fb_link,
-        'redirect_uri' => $info['url'],
-      ],
-    ];
     return [
       'main' => [
         'facebook' => [
-          'link' => Url::fromUri('https://www.facebook.com/dialog/share', $options)->toString(),
+          // @see https://developers.facebook.com/docs/sharing/reference/share-dialog
+          'link' => Url::fromUri('https://www.facebook.com/dialog/share',
+            [
+              'query' => [
+                'app_id' => BREEMA_FB_APP_ID,
+                'display' => 'page',
+                'href' => !empty($info['fb_event']) ? $info['fb_event'] : $info['url'],
+                'redirect_uri' => $info['url'],
+              ],
+            ])->toString(),
           'text' => 'Share on Facebook',
         ],
         'forward' => [
@@ -137,15 +136,34 @@ class BreemaSocialShareBlock extends BlockBase {
       ],
       'more' => [
         'twitter' => [
-          'link' => sprintf('https://twitter.com/intent/tweet?url=%s&text=%s', $info['url'], $info['title']),
+          'link' => Url::fromUri('https://twitter.com/intent/tweet',
+            [
+              'query' => [
+                'url' => $info['url'],
+                'text' => $info['title'],
+              ],
+            ])->toString(),
           'text' => 'Share on Twitter',
         ],
         'linkedin' => [
-          'link' => sprintf('https://www.linkedin.com/shareArticle?mini=true&url=%s&title=%s&summary=%s', $info['url'], $info['title'], $info['summary']),
+          'link' => Url::fromUri('https://www.linkedin.com/shareArticle',
+            [
+              'query' => [
+                'url' => $info['url'],
+                'mini' => 'true',
+                // sadly, setting 'title' and 'summary' doesn't seem to work.
+              ],
+            ])->toString(),
           'text' => 'Share on LinkedIn',
         ],
         'pinterest' => [
-          'link' => sprintf('https://pinterest.com/pin/create/link/?url=%s&description=%s', $info['url'], $info['title']),
+          'link' => Url::fromUri('https://pinterest.com/pin/create/link',
+            [
+              'query' => [
+                'url' => $info['url'],
+                'description' => $info['title'],
+              ],
+            ])->toString(),
           'text' => 'Share on Pintrest',
         ],
       ],
