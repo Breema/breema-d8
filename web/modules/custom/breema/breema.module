@@ -1730,6 +1730,8 @@ function breema_mail($key, &$message, $params) {
       $message['body'][] = '<hr />';
       $message['body'][] = '<p>' . t('This session resume: @url', ['@url' => $params['entity']->toUrl('canonical', ['absolute' => TRUE])->toString()]) . '</p>';
       $admin_all = Url::fromUri('internal:/admin/content/breema-session-resume', ['absolute' => TRUE]);
+      $user_resumes_url = Url::fromRoute('entity.user.breema_resume_dashboard', ['user' => $params['entity']->getOwnerId()], ['absolute' => TRUE]);
+      $message['body'][] = '<p>' . t('All session resumes for this user: @url', ['@url' => $user_resumes_url->toString()]) . '</p>';
       $message['body'][] = '<p>' . t('Administer all session resumes: @url', ['@url' => $admin_all->toString()]) . '</p>';
       break;
 
