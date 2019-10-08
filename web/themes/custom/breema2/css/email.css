@@ -1140,8 +1140,8 @@ body {
 .site-name {
   font-family: Times, serif;
   text-transform: uppercase;
-  font-size: 26px;
-  line-height: 26px;
+  font-size: 30px;
+  line-height: 30px;
   display: block;
   text-align: center;
   margin: 5px auto 10px;
@@ -1155,6 +1155,12 @@ body {
 
 .page-title a {
   color: #a82133;
+}
+
+.message-header {
+  padding-bottom: 1em;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 1em;
 }
 
 .forward-date-time .field--name-field-date-time {
