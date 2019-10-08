@@ -93,9 +93,10 @@ function breema_preprocess_forward(&$variables) {
   }
 
   // Add the site footer blocks as a template variable.
-  $variables['site_footer'] = [];
+  $variables['site_footer_blocks'] = [];
   $block_ids = [
     'socialmedialinks',
+    'breema_footer_about',
     'breema_footer_text',
     'breema_footer_email',
   ];
@@ -103,9 +104,16 @@ function breema_preprocess_forward(&$variables) {
   $weight = 0;
   foreach ($block_ids as $block_id) {
     $block = Block::load('breema2_' . $block_id);
-    $variables['site_footer'][$block_id] = $block_viewer->view($block);
+    // We want a 'region' wrapper div on each on to match the markup for the web.
+    $variables['site_footer_blocks'][$block_id] = [
+      '#type' => 'container',
+      '#attributes' => [
+        'class' => ['region'],
+      ],
+      'block' => $block_viewer->view($block),
+    ];
     // Ignore the block weights and force this into the right order.
-    $variables['site_footer'][$block_id]['#weight'] = $weight++;
+    $variables['site_footer_blocks'][$block_id]['#weight'] = $weight++;
   }
 }
 
