@@ -15,12 +15,30 @@ body {
   width: 100%;
 }
 
+.layout-container {
+  box-sizing: border-box;
+  max-width: 860px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media all and (min-width: 851px) {
+  .layout-container {
+    max-width: 1290px;
+  }
+}
+
 #page-wrapper {
   margin: 0;
   padding: 1em;
   font-size: 1.1em;
   max-width: 100%;
-  width: 100%;
+}
+.site-footer {
+  padding: 1em;
+  .layout-container {
+    padding: 0;
+  }
 }
 
 .clearfix:after {
@@ -95,14 +113,17 @@ body {
   padding: .2em .35em;
 }
 
+
 @media (min-width: 851px) {
-  #page-wrapper {
+  #page-wrapper,
+  .site-footer {
     padding: 1em 2em;
   }
 }
 
-@media (min-width: 1124px) {
-  #page-wrapper {
+@media (min-width: 1251px) {
+  #page-wrapper,
+  .site-footer {
     padding: 1em 3em;
   }
 }
