@@ -1123,6 +1123,15 @@ body {
   text-decoration: none;
 }
 
+.page-title a {
+  color: #a82133;
+}
+
+.forward-date-time .field--name-field-date-time {
+  font-size: 1.25em;
+  font-style: italic;
+}
+
 .social-media-links--platforms {
   padding-left: 0;
 }

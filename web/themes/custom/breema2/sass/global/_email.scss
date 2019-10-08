@@ -54,6 +54,15 @@ body {
   }
 }
 
+.page-title a {
+  color: $c-red;
+}
+
+.forward-date-time .field--name-field-date-time {
+  font-size: 1.25em;
+  font-style: italic;
+}
+
 .social-media-links--platforms {
   padding-left: 0;
 }
