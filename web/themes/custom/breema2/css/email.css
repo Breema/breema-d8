@@ -1163,6 +1163,10 @@ body {
   text-decoration: none;
 }
 
+.page-title {
+  font-size: 2em;
+  line-height: 1em;
+}
 .page-title a {
   color: #a82133;
 }

@@ -66,8 +66,12 @@ body {
   }
 }
 
-.page-title a {
-  color: $c-red;
+.page-title {
+  font-size: 2em;
+  line-height: 1em;
+  a {
+    color: $c-red;
+  }
 }
 
 .message-header {
