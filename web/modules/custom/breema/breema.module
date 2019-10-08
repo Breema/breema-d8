@@ -100,15 +100,12 @@ function breema_preprocess_forward(&$variables) {
     'breema_footer_email',
   ];
   $block_viewer = \Drupal::entityTypeManager()->getViewBuilder('block');
+  $weight = 0;
   foreach ($block_ids as $block_id) {
     $block = Block::load('breema2_' . $block_id);
-    $variables['site_footer'][$block_id] = [
-      '#type' => 'container',
-      '#attributes' => [
-          'class' => ["footer-block"],
-      ],
-      'content' => $block_viewer->view($block),
-    ];
+    $variables['site_footer'][$block_id] = $block_viewer->view($block);
+    // Ignore the block weights and force this into the right order.
+    $variables['site_footer'][$block_id]['#weight'] = $weight++;
   }
 }
 
