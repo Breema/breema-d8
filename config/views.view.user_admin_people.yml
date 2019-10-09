@@ -206,7 +206,6 @@ display:
           action_title: Action
           include_exclude: include
           selected_actions:
-            - pathauto_update_alias_user
             - user_block_user_action
             - user_cancel_user_action
             - user_unblock_user_action
