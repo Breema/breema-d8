@@ -1497,7 +1497,7 @@ function breema_form_views_exposed_form_alter(&$form, \Drupal\Core\Form\FormStat
  */
 function breema_form_views_form_user_admin_people_page_1_alter(&$form, FormStateInterface $form_state) {
   $form['header']['user_bulk_form']['action']['#options'] = [
-    'user_unblock_user_action' => t('Unblock the selected user(s)'),
+    'user_unblock_user_action' => t('Activate the selected user(s)'),
     'user_block_user_action' => t('Block the selected user(s)'),
     'user_cancel_user_action' => t('Cancel the selected user account(s)'),
   ];
