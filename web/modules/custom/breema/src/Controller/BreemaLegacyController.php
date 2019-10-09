@@ -25,15 +25,18 @@ class BreemaLegacyController extends ControllerBase {
    *   The RedirectResponse to the right international directory search.
    */
   public function redirectDirectory($region, $detail = NULL) {
+    if (!empty($detail)) {
+      $uc_detail = mb_strtoupper($detail);
+    }
     $url_options = [];
-    if ($region === 'US') {
+    if ($region === 'US' || $region === 'us') {
       $url_options['query']['country'] = 'US';
-      if (!empty($detail)) {
-        $url_options['query']['state'] = $detail;
+      if (!empty($uc_detail)) {
+        $url_options['query']['state'] = $uc_detail;
       }
     }
-    elseif (!empty($detail)) {
-      $url_options['query']['country'] = $detail;
+    elseif (!empty($uc_detail)) {
+      $url_options['query']['country'] = $uc_detail;
     }
     return $this->redirect('view.breema_directory.page_list', [], $url_options);
   }
