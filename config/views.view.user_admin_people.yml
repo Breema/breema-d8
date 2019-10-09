@@ -2,7 +2,10 @@ uuid: f87ddcda-a193-4aad-8446-33cb529bc81f
 langcode: en
 status: true
 dependencies:
+  config:
+    - field.storage.user.field_certification_level
   module:
+    - options
     - user
 _core:
   default_config_hash: wTJRNzsLVTenCALONNlVfgm_pBOlqucSPuVFLOD56ck
@@ -74,16 +77,19 @@ display:
           default_row_class: true
           override: true
           sticky: false
+          caption: ''
           summary: ''
+          description: ''
           columns:
             user_bulk_form: user_bulk_form
             name: name
             status: status
-            rid: rid
+            roles_target_id: roles_target_id
+            field_certification_level: field_certification_level
             created: created
             access: access
-            edit_node: edit_node
-            dropbutton: dropbutton
+            operations: operations
+            mail: mail
           info:
             user_bulk_form:
               align: ''
@@ -104,13 +110,20 @@ display:
               separator: ''
               empty_column: false
               responsive: priority-low
-            rid:
+            roles_target_id:
               sortable: false
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
-              responsive: priority-low
+              responsive: ''
+            field_certification_level:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: priority-medium
             created:
               sortable: true
               default_sort_order: desc
@@ -125,12 +138,12 @@ display:
               separator: ''
               empty_column: false
               responsive: priority-low
-            edit_node:
+            operations:
               align: ''
               separator: ''
               empty_column: false
-              responsive: priority-low
-            dropbutton:
+              responsive: ''
+            mail:
               sortable: false
               default_sort_order: asc
               align: ''
@@ -358,6 +371,68 @@ display:
           type: ul
           separator: ', '
           plugin_id: user_roles
+        field_certification_level:
+          id: field_certification_level
+          table: user__field_certification_level
+          field: field_certification_level
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Certification
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: list_default
+          settings: {  }
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
         created:
           id: created
           table: users_field_data
@@ -676,6 +751,56 @@ display:
           plugin_id: boolean
           entity_type: user
           entity_field: status
+        field_certification_level_value:
+          id: field_certification_level_value
+          table: user__field_certification_level
+          field: field_certification_level_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_certification_level_value_op
+            label: Certification
+            description: ''
+            use_operator: false
+            operator: field_certification_level_value_op
+            identifier: certification
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              student: '0'
+              practitioner: '0'
+              instructor: '0'
+              event_expert: '0'
+              content_editor: '0'
+              content_administrator: '0'
+              user_administrator: '0'
+              administrator: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: 'Certification level (field_certification_level)'
+            description: null
+            identifier: field_certification_level_value
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items:
+              1: {  }
+              2: {  }
+              3: {  }
+          reduce_duplicates: false
+          plugin_id: list_field
         roles_target_id:
           id: roles_target_id
           table: user__roles
@@ -890,7 +1015,8 @@ display:
         - url.query_args
         - user.permissions
       max-age: 0
-      tags: {  }
+      tags:
+        - 'config:field.storage.user.field_certification_level'
   page_1:
     display_plugin: page
     id: page_1
@@ -923,4 +1049,5 @@ display:
         - url.query_args
         - user.permissions
       max-age: 0
-      tags: {  }
+      tags:
+        - 'config:field.storage.user.field_certification_level'
