@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "a6b6765223d926bb6d99b603aa23636c",
+    "content-hash": "d936cb8cd1eefb5ee7bd49e393dd0413",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -2431,6 +2431,7 @@
                     "[#2648950-193] Use form element of type date instead textfield when selecting a date in an exposed filter": "https://www.drupal.org/files/issues/2019-03-15/2648950-193.patch",
                     "[#2801501-8] Don't force the 'Manage' tray open in the toolbar on every page load": "https://www.drupal.org/files/issues/2019-08-16/2801501-8.no-auto-open-toolbar.patch",
                     "[#2835825-21 Media: Migration support": "https://www.drupal.org/files/issues/2835825-21.patch",
+                    "[#2853188-14] Add negated regular expressions for views filters (string and integer)": "https://www.drupal.org/files/issues/2853188-14.patch",
                     "[#2866386-4] 'view_path' is set to /views/ajax after second ajax request": "https://www.drupal.org/files/issues/2866386-4.patch",
                     "[#2951268-25] Improve rendering of account link in the toolbar": "https://www.drupal.org/files/issues/2019-05-26/2951268-25.patch",
                     "[#2959869-5] Creating Media Type gives this Error: Call to a member function getName()": "https://www.drupal.org/files/issues/2018-04-16/create-media-error-2959869-5.patch"
