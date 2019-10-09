@@ -16,4 +16,7 @@ function breema_views_data_alter(&$data) {
       'id' => 'breema_group_dashboard_link',
     ],
   ];
+
+  // Allow the filter for 'User: Email' to test for NULL.
+  $data['users_field_data']['mail']['filter']['allow empty'] = TRUE;
 }
