@@ -38,3 +38,7 @@ tbody tr.ief-entity-unpublished:focus {
 .field--widget-entity-browser-entity-reference h4 {
   margin: 5px 0;
 }
+
+.view-breema-event-browser .form-item-event-type {
+  display: none;
+}

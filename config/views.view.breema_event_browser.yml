@@ -8,6 +8,7 @@ dependencies:
     - field.storage.node.field_location
     - field.storage.node.field_subtitle
     - node.type.event
+    - taxonomy.vocabulary.event_category
   module:
     - address
     - breema
@@ -16,6 +17,7 @@ dependencies:
     - entity_browser
     - node
     - search
+    - taxonomy
     - user
 id: breema_event_browser
 label: 'Breema Event browser'
@@ -51,7 +53,7 @@ display:
         type: basic
         options:
           submit_button: Search
-          reset_button: true
+          reset_button: false
           reset_button_label: Reset
           exposed_sorts_label: 'Sort by'
           expose_sort_order: true
@@ -570,7 +572,7 @@ display:
             description: 'Instructor name, city, postal code, etc.'
             use_operator: false
             operator: keys_op
-            identifier: keys
+            identifier: search
             required: false
             remember: false
             multiple: false
@@ -688,6 +690,58 @@ display:
             country_filter_id: field_address_country_code
             country_static_code: ''
           plugin_id: administrative_area
+        field_categories_target_id:
+          id: field_categories_target_id
+          table: node__field_categories
+          field: field_categories_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_categories_target_id_op
+            label: 'Event type'
+            description: ''
+            use_operator: false
+            operator: field_categories_target_id_op
+            identifier: event_type
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              student: '0'
+              practitioner: '0'
+              instructor: '0'
+              event_expert: '0'
+              content_editor: '0'
+              content_administrator: '0'
+              user_administrator: '0'
+              administrator: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: textfield
+          limit: true
+          vid: event_category
+          hierarchy: false
+          error_message: true
+          plugin_id: taxonomy_index_tid
       sorts:
         sticky:
           id: sticky
@@ -761,6 +815,7 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
+        - user
         - 'user.node_grants:view'
         - user.permissions
       tags:
@@ -783,6 +838,7 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
+        - user
         - 'user.node_grants:view'
         - user.permissions
       tags:
