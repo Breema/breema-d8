@@ -81,6 +81,7 @@ display:
           summary: ''
           description: ''
           columns:
+            redirect_bulk_form: redirect_bulk_form
             redirect_source__path: redirect_source__path
             redirect_redirect__uri: redirect_redirect__uri
             status_code: status_code
@@ -88,6 +89,11 @@ display:
             created: created
             operations: operations
           info:
+            redirect_bulk_form:
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
             redirect_source__path:
               sortable: true
               default_sort_order: asc
@@ -118,14 +124,12 @@ display:
               responsive: ''
             created:
               sortable: true
-              default_sort_order: asc
+              default_sort_order: desc
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
             operations:
-              sortable: false
-              default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
