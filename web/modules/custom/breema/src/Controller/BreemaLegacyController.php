@@ -36,6 +36,10 @@ class BreemaLegacyController extends ControllerBase {
       }
     }
     elseif (!empty($uc_detail)) {
+      // 'UK' isn't actually a country code. It's really 'GB'.
+      if ($uc_detail === 'UK') {
+        $uc_detail = 'GB';
+      }
       $url_options['query']['country'] = $uc_detail;
     }
     return $this->redirect('view.breema_directory.page_list', [], $url_options);
