@@ -12,9 +12,9 @@ dependencies:
 _core:
   default_config_hash: m0vmYmhrzMR6S_IC0UlK0Cl-q5lEvL8-EbxbbcDtk34
 id: user_admin_online
-label: user_admin_online
+label: 'User administration: Currently online'
 module: user
-description: 'Shows the user names of the most recently active users, and the total number of active users.'
+description: 'Administration table of currently logged-in users.'
 tag: default
 base_table: users_field_data
 base_field: uid
@@ -652,7 +652,7 @@ display:
           admin_label: ''
           empty: true
           tokenize: false
-          content: 'There are currently 0 users online.'
+          content: 'No users match your search.'
           plugin_id: text_custom
       relationships:
         session_uid:
@@ -681,6 +681,127 @@ display:
       max-age: -1
       tags:
         - 'config:field.storage.user.field_certification_level'
+  attachment_1:
+    display_plugin: attachment
+    id: attachment_1
+    display_title: Attachment
+    position: 2
+    display_options:
+      display_extenders: {  }
+      displays:
+        page_1: page_1
+      empty: {  }
+      defaults:
+        empty: false
+        filters: false
+        filter_groups: false
+        fields: false
+        style: false
+        row: false
+      pager:
+        type: some
+        options:
+          items_per_page: 1
+          offset: 0
+      filters:
+        status:
+          value: '1'
+          table: users_field_data
+          field: status
+          id: status
+          expose:
+            operator: '0'
+          group: 1
+          plugin_id: boolean
+          entity_type: user
+          entity_field: status
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      fields:
+        uid:
+          id: uid
+          table: users_field_data
+          field: uid
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'User ID'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: number_integer
+          settings:
+            thousand_separator: ''
+            prefix_suffix: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          entity_type: user
+          entity_field: uid
+          plugin_id: field
+      style:
+        type: default
+        options:
+          grouping: {  }
+          row_class: ''
+          default_row_class: false
+      row:
+        type: fields
+        options: {  }
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - user.permissions
+      tags: {  }
   page_1:
     display_plugin: page
     id: page_1
