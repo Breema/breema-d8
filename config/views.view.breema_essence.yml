@@ -178,9 +178,9 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
-  feed_1:
+  feed_rss:
     display_plugin: feed
-    id: feed_1
+    id: feed_rss
     display_title: Feed
     position: 2
     display_options:
@@ -191,7 +191,10 @@ display:
         type: some
       style:
         type: rss
-      path: about-breema/essence.xml
+        options:
+          uses_fields: false
+          description: 'Essence of Breema - inspirational excerpts from Breema Center books and classes'
+      path: about-breema/essence/feed/rss
       displays:
         default: default
         page_1: page_1
