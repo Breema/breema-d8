@@ -537,6 +537,31 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.node.field_geolocation'
+  feed_rss:
+    display_plugin: feed
+    id: feed_rss
+    display_title: Feed
+    position: 2
+    display_options:
+      display_extenders: {  }
+      row:
+        type: node_rss
+        options: {  }
+      path: events/feed/rss
+      displays:
+        page_1: page_1
+        default: '0'
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - user
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
+        - 'config:field.storage.node.field_geolocation'
   page_1:
     display_plugin: page
     id: page_1
