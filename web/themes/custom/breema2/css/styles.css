@@ -1010,8 +1010,9 @@ ol.location-results .field--name-field-upcoming-events > .field__item {
   margin: 1em 0 0 0;
 }
 
-.geolocation-google-map {
-  margin-top: 1em;
+.view-breema-events-by-instructor {
+  clear: both;
+  padding-top: 2em;
 }
 
 .block-essence-footer-block .action {
