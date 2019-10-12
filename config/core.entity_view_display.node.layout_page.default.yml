@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.layout_page.field_meta_summary
     - field.field.node.layout_page.field_paragraphs
     - field.field.node.layout_page.field_slideshow
+    - field.field.node.layout_page.field_social_media_image
     - field.field.node.layout_page.field_tiles
     - flexslider.optionset.default
     - node.type.layout_page
@@ -55,4 +56,5 @@ content:
 hidden:
   field_main_image: true
   field_meta_summary: true
+  field_social_media_image: true
   group_content: true

@@ -1,0 +1,28 @@
+uuid: 5b907e6c-d12c-4c48-be95-ffa746d761d4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_social_media_image
+    - media.type.image
+    - node.type.place
+id: node.place.field_social_media_image
+field_name: field_social_media_image
+entity_type: node
+bundle: place
+label: 'Social media image'
+description: 'An image to use when sharing this on social media. Use a 2:1 aspect ratio.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

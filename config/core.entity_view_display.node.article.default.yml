@@ -11,6 +11,7 @@ dependencies:
     - field.field.node.article.field_main_image
     - field.field.node.article.field_original_article_url
     - field.field.node.article.field_resources
+    - field.field.node.article.field_social_media_image
     - field.field.node.article.field_source_name
     - field.field.node.article.field_source_url
     - image.style.480x270_medium
@@ -71,6 +72,7 @@ hidden:
   field_authors_breema: true
   field_authors_other: true
   field_original_article_url: true
+  field_social_media_image: true
   field_source_name: true
   field_source_url: true
   group_content: true

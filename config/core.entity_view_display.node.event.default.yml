@@ -17,6 +17,7 @@ dependencies:
     - field.field.node.event.field_registration_link
     - field.field.node.event.field_required_hours
     - field.field.node.event.field_resources
+    - field.field.node.event.field_social_media_image
     - field.field.node.event.field_subtitle
     - field.field.node.event.field_transfer_credit
     - field.field.node.event.field_website
@@ -162,4 +163,5 @@ hidden:
   field_date_time: true
   field_display_instructor_bios: true
   field_geolocation: true
+  field_social_media_image: true
   group_content: true

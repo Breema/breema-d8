@@ -10,6 +10,7 @@ dependencies:
     - field.field.node.product.field_meta_summary
     - field.field.node.product.field_product_info
     - field.field.node.product.field_publication_year
+    - field.field.node.product.field_social_media_image
     - field.field.node.product.field_title_main
     - field.field.node.product.field_title_sub
     - node.type.product
@@ -66,6 +67,7 @@ hidden:
   field_main_image: true
   field_meta_summary: true
   field_publication_year: true
+  field_social_media_image: true
   field_title_main: true
   field_title_sub: true
   group_content: true

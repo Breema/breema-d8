@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.page.body
     - field.field.node.page.field_main_image
     - field.field.node.page.field_resources
+    - field.field.node.page.field_social_media_image
     - image.style.480x270_medium
     - node.type.page
   module:
@@ -50,4 +51,5 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
+  field_social_media_image: true
   group_content: true
