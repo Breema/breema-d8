@@ -197,8 +197,22 @@ function breema_preprocess_html(&$variables) {
     }
 
     // Find the right image to share.
-    // First, if the node type has a field_main_image, try to use that.
-    if ($node->hasField('field_main_image')) {
+    // First, if the node type has a field_social_media_image, try to use that.
+    if ($node->hasField('field_social_media_image')) {
+      $share_image = $node->get('field_social_media_image')->getValue();
+      if (!empty($share_image[0]['target_id'])) {
+        $share_images = $node->get('field_social_media_image')->referencedEntities();
+        if (!empty($share_images[0])) {
+          $share_image_files = $share_images[0]->get('field_media_image')->referencedEntities();
+          if (!empty($share_image_files)) {
+            $share_image_file = $share_image_files[0];
+            $share_image_info = $share_images[0]->get('field_media_image')->getValue();
+          }
+        }
+      }
+    }
+    // Next, if the node type has a field_main_image, try to use that.
+    if (empty($share_image_file) && $node->hasField('field_main_image')) {
       $main_image = $node->get('field_main_image')->getValue();
       if (!empty($main_image[0]['target_id'])) {
         $main_images = $node->get('field_main_image')->referencedEntities();
@@ -211,7 +225,7 @@ function breema_preprocess_html(&$variables) {
         }
       }
     }
-    // Try some bundle-specific fallbacks.
+    // If we still don't have one, try some bundle-specific fallbacks.
     if (empty($share_image_file)) {
       switch ($node->bundle()) {
         case 'directory_entry':
