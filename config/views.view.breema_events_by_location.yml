@@ -473,7 +473,7 @@ display:
           relationship: none
           view_mode: default
       display_description: ''
-      path: events/center/feed/rss
+      path: events/center/feed/rss.xml
       displays:
         block_breema_center: block_breema_center
         default: '0'

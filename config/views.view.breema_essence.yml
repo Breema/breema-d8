@@ -194,7 +194,7 @@ display:
         options:
           uses_fields: false
           description: 'Essence of Breema - inspirational excerpts from Breema Center books and classes'
-      path: about-breema/essence/feed/rss
+      path: about-breema/essence/feed/rss.xml
       displays:
         default: default
         page_1: page_1
