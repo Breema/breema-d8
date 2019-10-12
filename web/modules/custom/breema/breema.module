@@ -2492,7 +2492,8 @@ function breema_entity_node_essence_view_alter(array &$build, EntityInterface $e
 function breema_entity_node_place_view_alter(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display) {
   if ($display->getMode() === 'default' || $display->getMode() === 'forward') {
     $view = Views::getView('breema_events_by_location');
-    $view->setDisplay('block_1');
+    // Use the custom display for the Breema Center so the feed attach works.
+    $view->setDisplay($entity->id() == 2 ? 'block_breema_center' : 'block_1');
     $view->setArguments([$entity->id()]);
     $view->execute();
     if (!empty($view->result)) {
