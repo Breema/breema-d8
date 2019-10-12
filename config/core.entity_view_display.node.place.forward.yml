@@ -9,6 +9,7 @@ dependencies:
     - field.field.node.place.field_email
     - field.field.node.place.field_geolocation
     - field.field.node.place.field_has_active_event
+    - field.field.node.place.field_main_image
     - field.field.node.place.field_telephone
     - field.field.node.place.field_upcoming_events
     - field.field.node.place.field_website
@@ -27,7 +28,7 @@ content:
   body:
     label: hidden
     type: advanced_text
-    weight: 4
+    weight: 5
     settings:
       trim_length: '0'
       ellipsis: '1'
@@ -55,21 +56,30 @@ content:
     third_party_settings: {  }
     region: content
   field_address:
-    weight: 0
+    weight: 1
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: address_directions_link
     region: content
   field_email:
-    weight: 2
+    weight: 3
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: email_mailto
     region: content
+  field_main_image:
+    type: entity_reference_entity_view
+    weight: 0
+    region: content
+    label: visually_hidden
+    settings:
+      view_mode: view_medium
+      link: false
+    third_party_settings: {  }
   field_telephone:
-    weight: 1
+    weight: 2
     label: hidden
     settings:
       title: ''
@@ -77,7 +87,7 @@ content:
     type: telephone_link
     region: content
   field_website:
-    weight: 3
+    weight: 4
     label: hidden
     settings:
       trim_length: 80
@@ -89,7 +99,7 @@ content:
     type: link
     region: content
   links:
-    weight: 5
+    weight: 6
     region: content
     settings: {  }
     third_party_settings: {  }
