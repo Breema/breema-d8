@@ -553,6 +553,10 @@ function breema_preprocess_node(&$variables) {
   }
 
   switch ($variables['node']->getType()) {
+    case 'essence':
+      breema_preprocess_node_essence($variables);
+      break;
+
     case 'event':
       breema_preprocess_node_event($variables);
       break;
@@ -561,6 +565,19 @@ function breema_preprocess_node(&$variables) {
       breema_preprocess_node_product($variables);
       break;
 
+  }
+}
+
+/**
+ * Preprocess function for essence nodes.
+ *
+ * Set the title to only use the date for teaser versions.
+ */
+function breema_preprocess_node_essence(&$variables) {
+  if ($variables['view_mode'] === 'teaser') {
+    // Strip off the 'Essence of Breema: ' part of the title on teasers.
+    // E.g., we don't need to see that duplicated on /about-breema/essence.
+    $variables['label'][0]['#context']['value'] = str_replace('Essence of Breema: ', '', $variables['label'][0]['#context']['value']);
   }
 }
 
