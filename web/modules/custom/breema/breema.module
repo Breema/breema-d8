@@ -173,6 +173,8 @@ function breema_preprocess_html(&$variables) {
             if ($info->getParagraphType()->id() === 'product_info_book') {
               $og_type = 'book';
               // @todo: If we had ISBNs, we could include that here.
+              // @todo: Add book:author
+              // @todo: Add book:release_date
               break;
             }
           }
@@ -180,8 +182,54 @@ function breema_preprocess_html(&$variables) {
         $meta_tags[] = ['property' => 'og:type', 'content' => $og_type];
         break;
 
-      default:
+      case 'event':
         // @todo: wish there was a better type for events.
+        // For now, we treat them basically like articles, and put the
+        // instructors in as the 'article:author' properties.
+        $author_field = 'field_instructors';
+        // no break, share the rest of the code with articles.
+
+      case 'article':
+        if (empty($author_field)) {
+          $author_field = 'field_authors_breema';
+        }
+
+        $meta_tags[] = ['property' => 'og:type', 'content' => 'article'];
+        $authors = $node->get($author_field)->referencedEntities();
+        $i = 0;
+        foreach ($authors as $author) {
+          $id = 'article_author_' . $i++;
+          $dir_entries = $author->get('field_directory_entry')->referencedEntities();
+          $meta_tags[] = [
+            'id' => $id,
+            'property' => 'article:author',
+            'content' => $dir_entries[0]->toUrl('canonical', ['absolute' => TRUE])->toString(),
+          ];
+        }
+        $meta_tags[] = [
+          'property' => 'article:published_time',
+          'content' => date('c', $node->get('created')->value),
+        ];
+        $meta_tags[] = [
+          'property' => 'article:modified_time',
+          'content' => date('c', $node->get('changed')->value),
+        ];
+        // @todo Events could "expire" after the end date.
+        // article:expiration_time - datetime
+        // When the article is out of date after.
+        /*
+        if ($node->bundle() === 'event') {
+          $date_time = $node->get('field_date_time')->getValue();
+          // @todo timezone hell.
+          $meta_tags[] = [
+            'property' => 'article:expiration_time',
+            'content' => '', // @todo
+          ];
+        }
+        */
+        break;
+
+      default:
         $meta_tags[] = ['property' => 'og:type', 'content' => 'article'];
         break;
 
@@ -296,7 +344,16 @@ function breema_preprocess_html(&$variables) {
 
   // Finally, set all the meta tags we found for this page.
   foreach ($meta_tags as $meta_tag) {
-    $id = !empty($meta_tag['name']) ? $meta_tag['name'] : $meta_tag['property'];
+    if (!empty($meta_tag['id'])) {
+      $id = $meta_tag['id'];
+      unset($meta_tag['id']);
+    }
+    elseif (!empty($meta_tag['name'])) {
+      $id = $meta_tag['name'];
+    }
+    else {
+      $id = $meta_tag['property'];
+    }
     $variables['page']['#attached']['html_head'][] = [
       ['#tag' => 'meta', '#attributes' => $meta_tag],
       $id,
