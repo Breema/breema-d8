@@ -1109,6 +1109,10 @@ ol.location-results .field--name-field-upcoming-events > .field__item {
   border-bottom: 1px solid #999;
 }
 
+#user-pass-reset p:nth-child(3) {
+  font-weight: bold;
+}
+
 .media--view-mode-view-large {
   max-width: 640px;
 }
