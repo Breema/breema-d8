@@ -126,3 +126,7 @@
   margin-left: 10px;
   margin-top: 30px;
 }
+
+.entity-browser-view .entity-browser-grid h4 {
+  margin: 10px 0 0 0;
+}
