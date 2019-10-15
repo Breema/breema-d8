@@ -5,6 +5,8 @@
  * Provide views data for breema.module.
  */
 
+use Drupal\field\Entity\FieldStorageConfig;
+
 /**
  * Implements hook_views_data_alter().
  */
@@ -60,5 +62,33 @@ function breema_views_data_alter(&$data) {
       'label' => t('Session information from user'),
     ],
   ];
-
+  // Expose image media dimensions directly to views as numbers.
+  $field_manager = \Drupal::service('entity_field.manager');
+  $entity_fields = $field_manager->getFieldMapByFieldType('image');
+  foreach ($entity_fields as $entity_type => $fields) {
+    foreach ($fields as $field_name => $field) {
+      $field_storage = FieldStorageConfig::loadByName($entity_type, $field_name);
+      if (!empty($field_storage)) {
+        $views_data = views_field_default_views_data($field_storage);
+        foreach ($views_data as $table_name => $table_data) {
+          if (isset($data[$table_name])) {
+            $group = $data[$table_name][$field_storage->getName() . '_target_id']['group'];
+            $help = $data[$table_name][$field_storage->getName() . '_target_id']['help'];
+            $data[$table_name][$field_storage->getName() . '_width'] = [
+              'title' => t('Image width'),
+              'group' => $group,
+              'help' => $help,
+              'field' => ['id'  => 'numeric'],
+            ];
+            $data[$table_name][$field_storage->getName() . '_height'] = [
+              'title' => t('Image height'),
+              'group' => $group,
+              'help' => $help,
+              'field' => ['id' => 'numeric'],
+            ];
+          }
+        }
+      }
+    }
+  }
 }
