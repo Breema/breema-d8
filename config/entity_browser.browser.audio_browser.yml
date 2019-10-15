@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - views.view.media_entity_browser
+    - views.view.breema_media_browser_audio
   module:
     - entity_browser_entity_form
     - views
@@ -32,7 +32,7 @@ widgets:
     id: entity_form
   9b48d3b6-50c2-4634-9fba-11bcf5d4b09d:
     settings:
-      view: media_entity_browser
+      view: breema_media_browser_audio
       view_display: audio_select_modal
       submit_text: 'Select audio'
       auto_select: false
@@ -42,7 +42,7 @@ widgets:
     id: view
   fcc792e4-f57d-4976-a854-99baffd74062:
     settings:
-      view: media_entity_browser
+      view: breema_media_browser_audio
       view_display: user_audio_select_modal
       submit_text: 'Select audio'
       auto_select: false

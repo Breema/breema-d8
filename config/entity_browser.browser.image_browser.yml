@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - views.view.media_entity_browser
+    - views.view.breema_media_browser
   module:
     - entity_browser_entity_form
     - views
@@ -39,7 +39,7 @@ widgets:
     id: entity_form
   71cf8763-5a41-488d-a728-f076bb19a877:
     settings:
-      view: media_entity_browser
+      view: breema_media_browser
       view_display: user_image_select_modal
       submit_text: 'Select image'
       auto_select: false
@@ -49,7 +49,7 @@ widgets:
     id: view
   3243b0e0-679a-418a-bc8e-6c524c306866:
     settings:
-      view: media_entity_browser
+      view: breema_media_browser
       view_display: image_select_modal
       submit_text: 'Select image'
       auto_select: false
