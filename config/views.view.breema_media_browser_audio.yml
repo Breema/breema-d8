@@ -3,7 +3,7 @@ langcode: und
 status: true
 dependencies:
   config:
-    - image.style.240x240_smaller
+    - image.style.128x128_tiny
     - media.type.audio_file
   module:
     - entity_browser
@@ -138,7 +138,7 @@ display:
           click_sort_column: target_id
           type: image
           settings:
-            image_style: 240x240_smaller
+            image_style: 128x128_tiny
             image_link: ''
           group_column: ''
           group_columns: {  }
