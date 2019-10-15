@@ -13,11 +13,12 @@
   box-sizing: border-box;
   position: relative;
   width: 100%;
-  display: block;
   text-align: center;
   border: 1px solid #b8b8b8;
   transition: .2s;
-  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 @media screen and (min-width:500px) {
@@ -44,8 +45,8 @@
 }
 
 .entity-browser-view .entity-browser-grid img {
-  vertical-align: bottom;
-  width: 100%;
+  vertical-align: top;
+  max-width: 100%;
   height: auto;
 }
 
@@ -84,19 +85,16 @@
   background-size: 20px 20px;
 }
 
-.media-info {
+.entity-browser-view .media-info {
   box-sizing: border-box;
-  position: absolute;
-  z-index: 1;
   width: 100%;
-  bottom: 0;
   background-color: rgba(0,0,0,.8);
   padding: 5px 10px;
   color: white;
   text-align: left;
 }
 
-.media-info span {
+.entity-browser-view .media-info span {
   text-indent: 100%;
   white-space: nowrap;
   overflow: hidden;
@@ -108,7 +106,23 @@
   margin-right: 4px;
 }
 
-input[type="submit"][name="filter"] {
+.entity-browser-view .media-info--Audio {
+  background: transparent url("../images/audio.svg") no-repeat;
+}
+
+.entity-browser-view .media-info--File {
+  background: transparent url("../images/file.svg") no-repeat;
+}
+
+.entity-browser-view .media-info--Image {
+  background: transparent url("../images/image.svg") no-repeat;
+}
+
+.entity-browser-view .media-info--Video {
+  background: transparent url("../images/video.svg") no-repeat;
+}
+
+.entity-browser-view input[type="submit"][name="filter"] {
   margin-left: 10px;
   margin-top: 30px;
 }
