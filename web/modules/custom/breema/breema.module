@@ -73,6 +73,25 @@ function breema_help($route_name, RouteMatchInterface $route_match) {
 }
 
 /**
+ * Implements hook_preprocess_image_style().
+ *
+ * Hack to set appropriate thumbnail dimensions on video thumbnails.
+ *
+ * @todo Remove this when thumbnails are recorded with the right dimensions.
+ * @see https://www.drupal.org/project/drupal/issues/3088168
+ */
+function breema_preprocess_image_style(&$variables) {
+  if (strpos($variables['uri'], 'public://video_thumbnails') === 0) {
+    // Thankfully, all our image styles are named "WxH_name".
+    $matches = [];
+    if (preg_match('/(\d+)x(\d+)_.*/', $variables['style_name'], $matches)) {
+      $variables['image']['#width'] = $variables['width'] = $matches[1];
+      $variables['image']['#height'] = $variables['height'] = $matches[2];
+    }
+  }
+}
+
+/**
  * Implements hook_preprocess_region().
  */
 function breema_preprocess_region(&$variables) {
