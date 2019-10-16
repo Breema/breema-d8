@@ -64,7 +64,6 @@
     "drupal/inline_entity_form": "^1.0@beta",
     "drupal/jsonapi": "^2.0",
     "drupal/login_emailusername": "^1.1",
-    "drupal/media_entity_browser": "2.x-dev",
     "drupal/menu_block": "1.x-dev",
     "drupal/menu_trail_by_path": "^1",
     "drupal/override_node_options": "^2.4",
