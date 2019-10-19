@@ -44,12 +44,12 @@ const BREEMA_SESSION_RESUME_EMAIL = 'session-resumes@breema.com';
 /**
  * E-mail address to notify about events with transfer credit defined.
  */
-const BREEMA_EVENT_TRANSFER_CREDIT_EMAIL = 'instructor-liasion@breema.com';
+const BREEMA_EVENT_TRANSFER_CREDIT_EMAIL = 'instructor-liaison@breema.com';
 
 /**
  * E-mail address to notify when new users apply for accounts.
  */
-const BREEMA_NEW_USER_EMAIL = 'practitioner-liasion@breema.com';
+const BREEMA_NEW_USER_EMAIL = 'practitioner-liaison@breema.com';
 
 /**
  * The Facebook App ID for www.breema.com.
