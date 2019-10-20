@@ -6,6 +6,7 @@ dependencies:
     - field.storage.node.field_tiles
     - node.type.layout_page
     - paragraphs.paragraphs_type.media_tile
+    - paragraphs.paragraphs_type.recurring_event_tile
   module:
     - entity_reference_revisions
 id: node.layout_page.field_tiles
@@ -24,6 +25,7 @@ settings:
     negate: 0
     target_bundles:
       media_tile: media_tile
+      recurring_event_tile: recurring_event_tile
     target_bundles_drag_drop:
       event_featured:
         weight: 12
@@ -33,6 +35,9 @@ settings:
         enabled: false
       featured_product:
         weight: 14
+        enabled: false
+      essence_single:
+        weight: 15
         enabled: false
       media_3_up:
         weight: 15
@@ -57,5 +62,11 @@ settings:
         enabled: false
       product_single:
         weight: 22
+        enabled: false
+      recurring_event_tile:
+        enabled: true
+        weight: 27
+      text:
+        weight: 28
         enabled: false
 field_type: entity_reference_revisions
