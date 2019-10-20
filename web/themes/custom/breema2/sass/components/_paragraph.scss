@@ -38,8 +38,8 @@
   }
 }
 
-// Center the header text and image on 'Media: Tile' paragraphs.
-.paragraph--type--media-tile {
+// Center the header text and image on all 'tile' paragraphs:
+.field--name-field-tiles .paragraph {
   h2 {
     text-align: center;
   }

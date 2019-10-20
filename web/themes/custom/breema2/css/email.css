@@ -1095,10 +1095,10 @@ ol.location-results .field--name-field-upcoming-events > .field__item {
   float: right;
 }
 
-.paragraph--type--media-tile h2 {
+.field--name-field-tiles .paragraph h2 {
   text-align: center;
 }
-.paragraph--type--media-tile .field--type-image img {
+.field--name-field-tiles .paragraph .field--type-image img {
   display: block;
   margin: 0 auto;
 }
