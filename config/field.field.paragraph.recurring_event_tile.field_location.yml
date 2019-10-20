@@ -1,0 +1,28 @@
+uuid: 4169d1b9-6207-4467-81de-34da9d44fb3f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_location
+    - node.type.place
+    - paragraphs.paragraphs_type.recurring_event_tile
+id: paragraph.recurring_event_tile.field_location
+field_name: field_location
+entity_type: paragraph
+bundle: recurring_event_tile
+label: Location
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      place: place
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

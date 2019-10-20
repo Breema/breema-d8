@@ -1,0 +1,71 @@
+uuid: bf198c81-0870-45bc-8788-b859aa21ea7f
+langcode: en
+status: true
+dependencies:
+  config:
+    - entity_browser.browser.media_browser
+    - field.field.paragraph.recurring_event_tile.field_day_of_week
+    - field.field.paragraph.recurring_event_tile.field_event_category
+    - field.field.paragraph.recurring_event_tile.field_header_text
+    - field.field.paragraph.recurring_event_tile.field_location
+    - field.field.paragraph.recurring_event_tile.field_media
+    - paragraphs.paragraphs_type.recurring_event_tile
+  module:
+    - entity_browser
+id: paragraph.recurring_event_tile.default
+targetEntityType: paragraph
+bundle: recurring_event_tile
+mode: default
+content:
+  field_day_of_week:
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_event_category:
+    weight: 4
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_header_text:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_location:
+    weight: 5
+    settings:
+      entity_browser: place_browser
+      field_widget_display: label
+      field_widget_edit: true
+      field_widget_remove: true
+      open: true
+      selection_mode: selection_append
+      field_widget_replace: false
+      field_widget_display_settings: {  }
+    third_party_settings: {  }
+    type: entity_browser_entity_reference
+    region: content
+  field_media:
+    weight: 1
+    settings:
+      entity_browser: media_browser
+      field_widget_display: rendered_entity
+      field_widget_display_settings:
+        view_mode: view_small
+      field_widget_edit: true
+      field_widget_remove: true
+      open: true
+      selection_mode: selection_append
+      field_widget_replace: false
+    third_party_settings: {  }
+    type: entity_browser_entity_reference
+    region: content
+hidden:
+  created: true
+  status: true

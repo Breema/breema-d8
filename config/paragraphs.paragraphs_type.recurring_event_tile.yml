@@ -1,0 +1,9 @@
+uuid: c3e0a1d6-af87-49f5-8449-7b9af08ea2bc
+langcode: en
+status: true
+dependencies: {  }
+id: recurring_event_tile
+label: 'Recurring event tile'
+icon_uuid: null
+description: 'A tile for the front page that automagically links to the next instance of a recurring event.'
+behavior_plugins: {  }

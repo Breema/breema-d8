@@ -1,0 +1,37 @@
+uuid: 6d6e886f-4e3a-4c8c-8e09-116bb2ee0853
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.recurring_event_tile.field_day_of_week
+    - field.field.paragraph.recurring_event_tile.field_event_category
+    - field.field.paragraph.recurring_event_tile.field_header_text
+    - field.field.paragraph.recurring_event_tile.field_location
+    - field.field.paragraph.recurring_event_tile.field_media
+    - paragraphs.paragraphs_type.recurring_event_tile
+id: paragraph.recurring_event_tile.default
+targetEntityType: paragraph
+bundle: recurring_event_tile
+mode: default
+content:
+  field_header_text:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_media:
+    weight: 1
+    label: hidden
+    settings:
+      view_mode: view_medium
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+hidden:
+  field_day_of_week: true
+  field_event_category: true
+  field_location: true

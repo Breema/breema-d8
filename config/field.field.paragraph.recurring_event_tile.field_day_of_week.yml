@@ -1,0 +1,21 @@
+uuid: e530b46e-232b-4dd9-9f66-46895d1ee3c6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_day_of_week
+    - paragraphs.paragraphs_type.recurring_event_tile
+  module:
+    - options
+id: paragraph.recurring_event_tile.field_day_of_week
+field_name: field_day_of_week
+entity_type: paragraph
+bundle: recurring_event_tile
+label: 'Day of week'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_integer
