@@ -62,7 +62,6 @@
     "drupal/google_analytics": "^3.0",
     "drupal/group": "1.x-dev",
     "drupal/inline_entity_form": "^1.0@beta",
-    "drupal/jsonapi": "^2.0",
     "drupal/login_emailusername": "^1.1",
     "drupal/menu_block": "1.x-dev",
     "drupal/menu_trail_by_path": "^1",
@@ -163,7 +162,7 @@
         "[#3020676-6] Support the #date_increment property in the 'duration' form element." : "https://www.drupal.org/files/issues/2018-12-14/3020676-6.duration_date_increment.full_.patch"
       },
       "drupal/entity_reference_revisions": {
-        "[#2799479-65] Views doesn't recognize relationship to host" : "https://www.drupal.org/files/issues/2018-05-15/2799479-65-views-rel-fix.patch"
+        "[#2799479-90] Views doesn't recognize relationship to host" : "https://www.drupal.org/files/issues/2019-10-07/2799479-90.patch"
       },
       "drupal/field_group": {
         "[#2986704-3] Incompatibility with inline entity form" : "https://www.drupal.org/files/issues/2018-10-30/field_group-inline_entity_form_compatibility-2986704-3.patch"
