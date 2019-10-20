@@ -7,6 +7,7 @@
 
 use Drupal\Component\Utility\Unicode;
 use Drupal\Core\Access\AccessResult;
+use Drupal\Core\Database\Query\AlterableInterface;
 use Drupal\Core\Datetime\DrupalDateTime;
 use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
 use Drupal\Core\Entity\EntityInterface;
@@ -945,6 +946,41 @@ function breema_preprocess_paragraph__essence_single(&$variables) {
   $grid_classes = ['grid--container', 'grid--container-1-2u3366'];
   $variables['grid_attributes'] = new Attribute();
   $variables['grid_attributes']->addClass($grid_classes);
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_build_defaults_alter() for paragraphs.
+ *
+ * Defines better #cache tags for the 'recurring_event_tile' paragraph bundle.
+ */
+function breema_paragraph_build_defaults_alter(array &$build, EntityInterface $entity, $view_mode) {
+  if ($entity->bundle() === 'recurring_event_tile') {
+    $build['#cache']['tags'][] = $entity->get('parent_type')->value . ':' . $entity->get('parent_id')->value;
+    // @todo: Smarter #cache tags for the recurring events themselves.
+    // E.g. an event-specific tag, or event an event/location specific one.
+    $build['#cache']['tags'][] = 'node_list';
+  }
+}
+
+/**
+ * Preprocess function for 'Recurring event tile' paragraph bundle.
+ *
+ * Sets up template variables, in particular finding the right URL to use.
+ * This will be properly cached, so we can always run the query in here.
+ *
+ * @see breema_find_next_event()
+ */
+function breema_preprocess_paragraph__recurring_event_tile(&$variables) {
+  $location = $variables['paragraph']->get('field_location')->getValue();
+  $location = !empty($location[0]['target_id']) ? $location[0]['target_id'] : NULL;
+  $category = $variables['paragraph']->get('field_event_category')->getValue();
+  $category = !empty($category[0]['target_id']) ? $category[0]['target_id'] : NULL;
+  $day_of_week = $variables['paragraph']->get('field_day_of_week')->value;
+  $next_event = breema_find_next_event($day_of_week, $location, $category);
+  if (!empty($next_event)) {
+    $variables['url'] = $next_event->toUrl()->toString();
+  }
+  // @todo What can we do if there's no next event?
 }
 
 /**
@@ -2861,4 +2897,58 @@ function breema_entity_access(EntityInterface $entity, $operation, AccountInterf
     }
   }
   return AccessResult::neutral();
+}
+
+/**
+ * Finds the next published event that matches the specified criteria.
+ *
+ * @param integer $day_of_week
+ *   The day of week number. 0 = Sunday, 6 = Saturday. @see PHP's date('%w').
+ * @param integer $place_nid
+ *   The optional node ID (nid) of the place where the event will take place.
+ * @param integer $type_tid
+ *   The optional term ID (tid) of the event Category for the desired event.
+ * @return \Drupal\node\NodeInterface|NULL
+ *   The fully loaded event entity that matches, or NULL if none exists.
+ *
+ * @see breema_preprocess_paragraph__recurring_event_tile()
+ */
+function breema_find_next_event($day_of_week, $place_nid = NULL, $type_tid = NULL) {
+  $next_event = NULL;
+  // Hack around UTC timezone hell.
+  $date = new DrupalDateTime('12 hours ago');
+  $date->setTimezone(new \DateTimezone(DATETIME_STORAGE_TIMEZONE));
+  $now = $date->format(DATETIME_DATETIME_STORAGE_FORMAT);
+  $query = \Drupal::entityQuery('node')
+    ->condition('status', 1)
+    ->condition('type', 'event')
+    ->condition('field_date_time.value', $now, '>=')
+    ->sort('field_date_time.value', 'ASC')
+    ->range(0, 1);
+  if (!empty($place_nid)) {
+    $query->condition('field_location', $place_nid);
+  }
+  if (!empty($type_tid)) {
+    $query->condition('field_categories', $type_tid);
+  }
+  // Since entityQuery doesn't let us handle expressions directly, we have to
+  // tag this query and inject our metadata into it, then alter the query.
+  $query->addTag('breema_day_of_week')
+    ->addMetaData('breema_day_of_week', $day_of_week);
+  $nids = $query->execute();
+  if (!empty($nids)) {
+    $nid = array_pop($nids);
+    $next_event = Node::load($nid);
+  }
+  return $next_event;
+}
+
+/**
+ * Implements hook_query_TAG_alter() for breema_day_of_week tag.
+ */
+function breema_query_breema_day_of_week_alter(AlterableInterface $query) {
+  $args = [
+    ':day_of_week' => $query->getMetaData('breema_day_of_week'),
+  ];
+  $query->where("DATE_FORMAT(node__field_date_time.field_date_time_value, '%w') = :day_of_week", $args);
 }
