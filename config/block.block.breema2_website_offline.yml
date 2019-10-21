@@ -1,0 +1,30 @@
+uuid: ac5e6946-59aa-493c-80c5-72b8deccb3f3
+langcode: en
+status: true
+dependencies:
+  config:
+    - simple_block.simple_block.breema_site_offline_warning
+  module:
+    - simple_block
+    - user
+  theme:
+    - breema2
+id: breema2_website_offline
+theme: breema2
+region: highlighted
+weight: -17
+provider: null
+plugin: 'simple_block:breema_site_offline_warning'
+settings:
+  id: 'simple_block:breema_site_offline_warning'
+  label: 'The Breema Center website will be offline'
+  provider: simple_block
+  label_display: '0'
+visibility:
+  user_role:
+    id: user_role
+    roles:
+      authenticated: authenticated
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
