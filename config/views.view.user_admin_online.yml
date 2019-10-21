@@ -607,7 +607,7 @@ display:
                 title: 'Last 15 minutes'
                 operator: '>='
                 value:
-                  type: date
+                  type: offset
                   value: '-15 minutes'
                   min: ''
                   max: ''
@@ -615,7 +615,7 @@ display:
                 title: 'Last day'
                 operator: '>='
                 value:
-                  type: date
+                  type: offset
                   value: '-1 day'
                   min: ''
                   max: ''
@@ -630,30 +630,9 @@ display:
           plugin_id: date
       sorts: {  }
       title: 'Who''s online'
-      header:
-        result:
-          id: result
-          table: views
-          field: result
-          relationship: none
-          group_type: group
-          admin_label: ''
-          empty: false
-          content: 'There are currently @total users online.'
-          plugin_id: result
+      header: {  }
       footer: {  }
-      empty:
-        area_text_custom:
-          id: area_text_custom
-          table: views
-          field: area_text_custom
-          relationship: none
-          group_type: group
-          admin_label: ''
-          empty: true
-          tokenize: false
-          content: 'No users match your search.'
-          plugin_id: text_custom
+      empty: {  }
       relationships:
         session_uid:
           id: session_uid
@@ -671,6 +650,7 @@ display:
         operator: AND
         groups:
           1: AND
+      css_class: ''
     cache_metadata:
       contexts:
         - 'languages:language_content'
@@ -690,14 +670,14 @@ display:
       display_extenders: {  }
       displays:
         page_1: page_1
-      empty: {  }
       defaults:
-        empty: false
+        empty: true
         filters: false
         filter_groups: false
         fields: false
         style: false
         row: false
+        header: false
       pager:
         type: some
         options:
@@ -795,6 +775,17 @@ display:
       row:
         type: fields
         options: {  }
+      header:
+        result:
+          id: result
+          table: views
+          field: result
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          content: 'There are currently @total total users online.'
+          plugin_id: result
     cache_metadata:
       max-age: -1
       contexts:
@@ -820,6 +811,8 @@ display:
         weight: -1
         context: '0'
         menu_name: admin
+      defaults:
+        header: true
     cache_metadata:
       contexts:
         - 'languages:language_content'

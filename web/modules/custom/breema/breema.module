@@ -1076,6 +1076,53 @@ function breema_views_pre_render(ViewExecutable $view) {
 }
 
 /**
+ * Implements hook_preprocess_views_view().
+ */
+function breema_preprocess_views_view(&$variables) {
+  $view = $variables['view'];
+  if ($view->storage->id() === 'user_admin_online') {
+    // Inject a 2nd "attachment" with the query count on the page display.
+    if ($view->current_display === 'page_1') {
+      // The attachment contains the count of online users without any filters.
+      // If there's a reset button visible, there are some filters applied, so
+      // show a (plural) message about the # of users matching the search. This
+      // also handles the no results message, since we only hit that case with
+      // filters applied.
+      if (!isset($variables['exposed']['actions']['reset']['#access'])) {
+        $variables['attachment_before']['filter_result'] = [
+          '#markup' => new PluralTranslatableMarkup(
+            $view->total_rows,
+            'There is currently 1 user online that matches your search.',
+            'There are currently @count users online that match your search.',
+            ['@count' => $view->total_rows]
+          ),
+          '#weight' => 1,
+          '#prefix' => '<p>',
+          '#suffix' => '</p>',
+        ];
+      }
+    }
+    // Fix the attachment display.
+    elseif ($view->current_display === 'attachment_1') {
+      // Hide the result rows themselves (the bogus UID field).
+      unset($variables['rows']);
+      // Fix the header (plural + <p> tags).
+      $variables['header']['result'] = [
+        '#markup' => new PluralTranslatableMarkup(
+          $view->total_rows,
+          'There is currently 1 user online.',
+          'There are currently @count total users online.',
+          ['@count' => $view->total_rows]
+        ),
+        '#prefix' => '<p>',
+        '#suffix' => '</p>',
+        '#weight' => 0,
+      ];
+    }
+  }
+}
+
+/**
  * Implements hook_views_pre_render() for breema_events_by_instructor.
  *
  * On the 'block_map' display, inject the instructor's directory entry, if any.

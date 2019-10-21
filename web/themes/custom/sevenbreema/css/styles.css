@@ -42,10 +42,3 @@ tbody tr.ief-entity-unpublished:focus {
 .view-breema-event-browser .form-item-event-type {
   display: none;
 }
-
-.view-user-admin-online .view-display-id-attachment_1 {
-  margin-bottom: 1em;
-}
-.view-user-admin-online .view-display-id-attachment_1 .view-content {
-  display: none;
-}
