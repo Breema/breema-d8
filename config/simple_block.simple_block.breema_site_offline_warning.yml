@@ -1,0 +1,11 @@
+uuid: f7264623-11b8-42c5-9052-037fbc374999
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.basic_html
+id: breema_site_offline_warning
+title: 'The Breema Center website will be offline'
+content:
+  value: "<div class=\"messages messages--warning\">\n<p>The Breema Center Website will be offline on Monday, 21 October 2019, from 10:00 - 10:30am [PDT] (17:00-17:30 UTC).</p>\n\n<p>Please complete any tasks and log out before this time, so as not to lose any in-progress work.</p>\n\n<p>Thanks for your patience, and sorry for any inconvenience or interruption.</p>\n</div>\n"
+  format: basic_html
