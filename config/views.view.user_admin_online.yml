@@ -356,8 +356,8 @@ display:
           empty_zero: false
           hide_alter_empty: true
           date_format: custom
-          custom_date_format: 'Y-m-d (l) H:i:s (T)'
-          timezone: ''
+          custom_date_format: 'Y-m-d (l) h:i:s a (T)'
+          timezone: America/Los_Angeles
           plugin_id: date
         hostname:
           id: hostname
