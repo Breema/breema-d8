@@ -1,6 +1,6 @@
 uuid: f6984340-c0ba-4b0b-b5b0-3054f8bedef1
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - simple_block.simple_block.breema_site_offline_warning
