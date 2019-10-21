@@ -959,6 +959,8 @@ function breema_paragraph_build_defaults_alter(array &$build, EntityInterface $e
     // @todo: Smarter #cache tags for the recurring events themselves.
     // E.g. an event-specific tag, or event an event/location specific one.
     $build['#cache']['tags'][] = 'node_list';
+    // Cache this paragraph for at most 1 hour.
+    $build['#cache']['max-age'] = 3600;
   }
 }
 
