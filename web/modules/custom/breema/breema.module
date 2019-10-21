@@ -982,7 +982,6 @@ function breema_preprocess_paragraph__recurring_event_tile(&$variables) {
   if (!empty($next_event)) {
     $variables['url'] = $next_event->toUrl()->toString();
   }
-  // @todo What can we do if there's no next event?
 }
 
 /**
