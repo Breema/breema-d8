@@ -220,11 +220,13 @@ function breema_preprocess_html(&$variables) {
         foreach ($authors as $author) {
           $id = 'article_author_' . $i++;
           $dir_entries = $author->get('field_directory_entry')->referencedEntities();
-          $meta_tags[] = [
-            'id' => $id,
-            'property' => 'article:author',
-            'content' => $dir_entries[0]->toUrl('canonical', ['absolute' => TRUE])->toString(),
-          ];
+          if (!empty($dir_entries)) {
+            $meta_tags[] = [
+              'id' => $id,
+              'property' => 'article:author',
+              'content' => $dir_entries[0]->toUrl('canonical', ['absolute' => TRUE])->toString(),
+            ];
+          }
         }
         $meta_tags[] = [
           'property' => 'article:published_time',
