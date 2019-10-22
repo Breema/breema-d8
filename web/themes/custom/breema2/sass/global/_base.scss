@@ -167,6 +167,9 @@ figure .node--view-mode-view-full,
 }
 
 .text-formatted {
+  li {
+    margin: 0.5em 0;
+  }
   ol, ul {
     margin: 0 0 1em 1em;
     display: inline-block;
@@ -448,8 +451,11 @@ a.telephone:before,
   padding-top: 0;
 }
 
-.node__content .view-content {
-  font-size: 93.5%;
+.node__content {
+  font-size: 1.1em;
+  .view-content {
+    font-size: 93.5%;
+  }
 }
 
 .view-breema-event-children {

@@ -187,6 +187,9 @@ figure .node--view-mode-view-full,
   padding: 0;
 }
 
+.text-formatted li {
+  margin: 0.5em 0;
+}
 .text-formatted ol, .text-formatted ul {
   margin: 0 0 1em 1em;
   display: inline-block;
@@ -469,6 +472,9 @@ a.telephone:before,
   padding-top: 0;
 }
 
+.node__content {
+  font-size: 1.1em;
+}
 .node__content .view-content {
   font-size: 93.5%;
 }
