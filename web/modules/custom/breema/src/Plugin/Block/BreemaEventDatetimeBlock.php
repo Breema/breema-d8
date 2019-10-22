@@ -29,7 +29,7 @@ class BreemaEventDatetimeBlock extends BlockBase {
         $options = [
           'label' => 'hidden',
           'type' => 'daterange_compact',
-          'settings' => ['format_type' => 'medium'],
+          'settings' => ['format_type' => 'full'],
         ];
         $block['datetime'] = $node->get('field_date_time')->view($options);
       }
