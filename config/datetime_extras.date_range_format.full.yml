@@ -1,0 +1,18 @@
+uuid: 9e78c7a3-83b5-4bcf-b758-a41139f7d849
+langcode: en
+status: true
+dependencies: {  }
+id: full
+label: Full
+date_settings:
+  default_pattern: 'l, j F Y'
+  separator: ' - '
+  same_month_start_pattern: 'l, j'
+  same_month_end_pattern: 'l, j F Y'
+  same_year_start_pattern: 'l, j F'
+  same_year_end_pattern: 'l, j F Y'
+datetime_settings:
+  default_pattern: 'l, j F Y g:ia'
+  separator: ' - '
+  same_day_start_pattern: 'l, j F Y g:ia'
+  same_day_end_pattern: 'g:ia'
