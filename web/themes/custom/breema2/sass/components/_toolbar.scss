@@ -10,8 +10,26 @@
   height: 26px;
 }
 
-.toolbar .toolbar-bar .toolbar-tab-logout > .toolbar-item {
-  font-size: 0.929em;
-  font-weight: normal;
-  line-height: 1.25em;
+.toolbar .toolbar-bar {
+  .toolbar-item {
+    color: $c-white-80o;
+  }
+  .toolbar-tab-logout > .toolbar-item {
+    font-size: 0.929em;
+    font-weight: normal;
+    line-height: 1.25em;
+  }
+  .toolbar-tab > .toolbar-icon {
+    width: 3em;
+  }
+}
+@media only screen and (min-width: 400px) {
+  .toolbar .toolbar-bar .toolbar-tab > .toolbar-icon {
+    width: 4em;
+  }
+}
+@media only screen and (min-width: 575px) {
+  .toolbar .toolbar-bar .toolbar-tab > .toolbar-icon {
+    width: auto;
+  }
 }
