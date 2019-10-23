@@ -1,0 +1,52 @@
+uuid: 6b97de56-5a8b-49b4-ad5e-725374832a0f
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.breema_media_browser
+  module:
+    - entity_browser_entity_form
+    - views
+name: image_sm_browser
+label: 'Social Media Image Browser'
+display: modal
+display_configuration:
+  width: ''
+  height: ''
+  link_text: 'Select image'
+  auto_open: false
+selection_display: no_display
+selection_display_configuration: {  }
+widget_selector: tabs
+widget_selector_configuration: {  }
+widgets:
+  2ee70c6f-6f48-4957-aa7c-080bd600208f:
+    settings:
+      view: breema_media_browser
+      view_display: sm_image_select_modal
+      submit_text: 'Select image'
+      auto_select: false
+    uuid: 2ee70c6f-6f48-4957-aa7c-080bd600208f
+    weight: -10
+    label: 'Social media images'
+    id: view
+  dcf45ae0-8156-4a6a-bfd8-aa2e49c38dc3:
+    settings:
+      entity_type: media
+      bundle: image
+      form_mode: default
+      submit_text: 'Save image'
+    uuid: dcf45ae0-8156-4a6a-bfd8-aa2e49c38dc3
+    weight: -8
+    label: 'Add image'
+    id: entity_form
+  0b899703-6a9a-45d1-93ae-d5bdd6c49f65:
+    settings:
+      view: breema_media_browser
+      view_display: user_image_select_modal
+      submit_text: 'Select image'
+      auto_select: false
+    uuid: 0b899703-6a9a-45d1-93ae-d5bdd6c49f65
+    weight: -9
+    label: 'My images'
+    id: view

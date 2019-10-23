@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - entity_browser.browser.image_browser
+    - entity_browser.browser.image_sm_browser
     - field.field.node.event.body
     - field.field.node.event.field_address
     - field.field.node.event.field_categories
@@ -140,14 +140,14 @@ content:
   field_main_image:
     weight: 9
     settings:
-      entity_browser: image_browser
+      entity_browser: image_event_browser
       field_widget_display: rendered_entity
+      field_widget_display_settings:
+        view_mode: view_medium
       field_widget_edit: true
       field_widget_remove: true
       open: true
       selection_mode: selection_append
-      field_widget_display_settings:
-        view_mode: view_medium
       field_widget_replace: false
     third_party_settings: {  }
     type: entity_browser_entity_reference
@@ -184,7 +184,7 @@ content:
   field_social_media_image:
     weight: 26
     settings:
-      entity_browser: image_browser
+      entity_browser: image_sm_browser
       field_widget_display: rendered_entity
       field_widget_display_settings:
         view_mode: preview
