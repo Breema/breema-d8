@@ -42,6 +42,18 @@ tbody tr.ief-entity-unpublished:focus {
   line-height: 1.25em;
 }
 
+.toolbar .toolbar-bar .toolbar-tab-search-full {
+  float: right;
+}
+.toolbar .toolbar-bar .toolbar-tab-search-full .button {
+  background: #f0f0f0 url(../../../../core/misc/icons/505050/loupe.svg) no-repeat center;
+  text-indent: -9999px;
+  overflow: hidden;
+  width: 30px;
+  height: 26px;
+  padding: 0 1.1em;
+}
+
 .seven-details__description {
   margin-bottom: 1em;
 }
