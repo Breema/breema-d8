@@ -37,7 +37,7 @@ widgets:
       form_mode: entity_browser
       submit_text: 'Save image'
     uuid: 39c11bda-1a03-415f-b1a2-863ede8db1ad
-    weight: -8
+    weight: -7
     label: 'Add image'
     id: entity_form
   0ef00f18-8068-41ab-9b20-f1fc832e9965:
@@ -49,4 +49,14 @@ widgets:
     uuid: 0ef00f18-8068-41ab-9b20-f1fc832e9965
     weight: -9
     label: 'My images'
+    id: view
+  1736c1ea-5dd8-4426-83a8-70e3c64b45ad:
+    settings:
+      view: breema_media_browser
+      view_display: image_select_modal
+      submit_text: 'Select image'
+      auto_select: false
+    uuid: 1736c1ea-5dd8-4426-83a8-70e3c64b45ad
+    weight: -8
+    label: 'All images'
     id: view
