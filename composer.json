@@ -139,6 +139,9 @@
   },
   "extra": {
     "patches": {
+      "drupal/address": {
+        "[#3087201-5] Views exposed filter for Administrative Area based on exposed Country Code filter not working" : "https://www.drupal.org/files/issues/2019-10-15/3087201-5.address-admin-area-filter-pick-country-fix.patch"
+      },
       "drupal/auto_entitylabel": {
         "[#2905230-6] Alter inline_entity_form table to display auto-computed entity labels" : "https://www.drupal.org/files/issues/Title_displayed_as_AutoEntityLabel_after_saving_via_Inline_Entity_Form-2905230-6.patch"
       },

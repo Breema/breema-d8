@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "27ad4358c9a16c51e54a070abe9ed663",
+    "content-hash": "e857049976338d6a4d4eba5f564c9cc7",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -1375,6 +1375,9 @@
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
                     }
+                },
+                "patches_applied": {
+                    "[#3087201-5] Views exposed filter for Administrative Area based on exposed Country Code filter not working": "https://www.drupal.org/files/issues/2019-10-15/3087201-5.address-admin-area-filter-pick-country-fix.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
