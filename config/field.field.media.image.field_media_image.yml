@@ -36,7 +36,7 @@ field_name: field_media_image
 entity_type: media
 bundle: image
 label: Image
-description: "Event images should be in a 3:2 aspect ratio (for example 960x640 pixels).<br />\nSocial media images should be in a 2:1 aspect ratio, and at least 1200px wide (for example 1200x600 pixels).<br />\nAll images should use RGB colors (not CMYK)."
+description: "Event images should be in a 3:2 aspect ratio (for example 960x640 pixels).<br />\nSocial media images should be in a 2:1 aspect ratio, and at least 1200px wide (for example 1200x600 pixels).<br />\nFor assistance with image sizing, please email <a href=\"mailto:website@breema.com\">website@breema.com</a>.<br />\nAll images should use RGB colors (not CMYK)."
 required: true
 translatable: true
 default_value: {  }
