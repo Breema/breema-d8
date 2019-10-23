@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.media.image.field_aspect_ratio
     - field.field.media.image.field_image_type
     - field.field.media.image.field_media_image
     - image.style.480x270_medium
@@ -16,6 +17,17 @@ targetEntityType: media
 bundle: image
 mode: default
 content:
+  field_aspect_ratio:
+    weight: 3
+    label: inline
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 1
+      prefix_suffix: false
+    third_party_settings: {  }
+    type: number_decimal
+    region: content
   field_image_type:
     weight: 2
     label: inline

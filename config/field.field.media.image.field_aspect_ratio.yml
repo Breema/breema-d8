@@ -1,0 +1,23 @@
+uuid: 398b6aa9-b253-418e-a83a-9c9381ee7169
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_aspect_ratio
+    - media.type.image
+id: media.image.field_aspect_ratio
+field_name: field_aspect_ratio
+entity_type: media
+bundle: image
+label: 'Aspect ratio'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

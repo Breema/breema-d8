@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.media.view_smaller
+    - field.field.media.image.field_aspect_ratio
     - field.field.media.image.field_image_type
     - field.field.media.image.field_media_image
     - image.style.224x126_smaller
@@ -28,6 +29,7 @@ content:
     region: content
 hidden:
   created: true
+  field_aspect_ratio: true
   field_image_type: true
   name: true
   thumbnail: true
