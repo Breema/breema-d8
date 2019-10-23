@@ -1755,6 +1755,23 @@ function breema_entity_operation(EntityInterface $entity) {
 }
 
 /**
+ * Implements hook_ENTITY_TYPE_presave() for Media entities.
+ *
+ * Sets field_aspect_ratio for image media entities.
+ *
+ * @param Drupal\media\Entity\Media $media
+ *   The Media entity about to be saved.
+ */
+function breema_media_presave(Media $media) {
+  if ($media->bundle() === 'image') {
+    $image_values = $media->get('field_media_image')->getValue();
+    $width = (float)$image_values[0]['width'];
+    $height = (float)$image_values[0]['height'];
+    $media->set('field_aspect_ratio', round(($width/$height), 1));
+  }
+}
+
+/**
  * Implements hook_ENTITY_TYPE_insert() as hook_node_insert().
  */
 function breema_node_insert(NodeInterface $node) {
