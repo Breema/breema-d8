@@ -12,7 +12,7 @@ third_party_settings:
 name: 'Directory entry'
 type: directory_entry
 description: 'An entry in the international directory.'
-help: ''
+help: '<div class="messages messages--status"><p>Need help filling out this form? See the <a href="/private-page/directory-entry-instructions" target="_blank">Directory Entry Instructions</a> page.</p></div>'
 new_revision: true
 preview_mode: 1
 display_submitted: false
