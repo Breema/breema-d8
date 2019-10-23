@@ -1653,16 +1653,17 @@ function breema_form_views_exposed_form_alter(&$form, \Drupal\Core\Form\FormStat
     case 'media':
     case 'breema_media_browser':
     case 'breema_media_browser_private':
-      $media_types = [
-        'file' => 'file_type',
-        'image' => 'image_type',
-        'video' => 'video_type',
+      $bundle_fields = [
+        'file_type' => 'file',
+        'image_type' => 'image',
+        'aspect_ratio' => 'image',
+        'video_type' => 'video',
       ];
-      foreach ($media_types as $type_name => $type_element) {
-        if (!empty($form['type']) && !empty($form[$type_element])) {
-          $form[$type_element]['#states'] = [
+      foreach ($bundle_fields as $field_element => $bundle) {
+        if (!empty($form['type']) && !empty($form[$field_element])) {
+          $form[$field_element]['#states'] = [
             'visible' => [
-              ':input[name="type"]' => ['value' => $type_name],
+              ':input[name="type"]' => ['value' => $bundle],
             ],
           ];
         }

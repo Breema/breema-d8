@@ -804,6 +804,90 @@ display:
           hierarchy: false
           error_message: true
           plugin_id: taxonomy_index_tid
+        field_aspect_ratio_value:
+          id: field_aspect_ratio_value
+          table: media__field_aspect_ratio
+          field: field_aspect_ratio_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value:
+            min: ''
+            max: ''
+            value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_aspect_ratio_value_op
+            label: 'Aspect ratio'
+            description: null
+            use_operator: false
+            operator: field_aspect_ratio_value_op
+            identifier: field_aspect_ratio_value
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            placeholder: null
+            min_placeholder: null
+            max_placeholder: null
+          is_grouped: true
+          group_info:
+            label: 'Aspect ratio'
+            description: ''
+            identifier: aspect_ratio
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items:
+              1:
+                title: Portrait
+                operator: '<'
+                value:
+                  value: '1.0'
+                  min: ''
+                  max: ''
+              2:
+                title: Square
+                operator: '='
+                value:
+                  value: '1.0'
+                  min: ''
+                  max: ''
+              3:
+                title: Landscape
+                operator: '>'
+                value:
+                  value: '1.0'
+                  min: ''
+                  max: ''
+              4:
+                title: 'Event (3:2)'
+                operator: '='
+                value:
+                  value: '1.5'
+                  min: ''
+                  max: ''
+              5:
+                title: 'Essence (32:19)'
+                operator: '='
+                value:
+                  value: '1.7'
+                  min: ''
+                  max: ''
+              6:
+                title: 'Social media (2:1)'
+                operator: between
+                value:
+                  value: ''
+                  min: '1.9'
+                  max: '2.1'
+          plugin_id: numeric
         field_video_type_target_id:
           id: field_video_type_target_id
           table: media__field_video_type
