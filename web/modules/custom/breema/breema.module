@@ -2932,6 +2932,28 @@ function breema_strip_links(&$text_field) {
 }
 
 /**
+ * Implements hook_toolbar().
+ */
+function breema_toolbar() {
+  $items = [];
+  // Add a top-level 'Log out' link to the toolbar (not as a tray).
+  $items['logout'] = [
+    '#type' => 'toolbar_item',
+    '#wrapper_attributes' => [
+      'class' => ['toolbar-tab-logout'],
+    ],
+    'tab' => [
+      '#type' => 'link',
+      '#title' => t('Log out'),
+      '#url' => Url::fromRoute('user.logout'),
+    ],
+    // Ensure this is at the far left of the toolbar, right where "Log in" was.
+    '#weight' => -10000,
+  ];
+  return $items;
+}
+
+/**
  * Implements hook_toolbar_alter().
  *
  * Hide the 'administration_search' feature from drupal/admin_toolbar [#2986082]
