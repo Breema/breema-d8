@@ -11,7 +11,7 @@ third_party_settings:
 name: Event
 type: event
 description: 'An event for the Breema Calendar.'
-help: ''
+help: "<div class=\"messages messages--status\"><p>Need help filling out this form?  See the <a href=\"/private-page/event-submission-instructions\" target=\"_blank\">Event Submission Instructions</a> page.</p>\n\n<p>If you're working with a recurring class, you can also consider <a href=\"/private-page/event-cloning-instructions\" target=\"_blank\">cloning a previous event</a> to quickly copy everything and update the date and time for the next class.</p></div>"
 new_revision: true
 preview_mode: 1
 display_submitted: false
