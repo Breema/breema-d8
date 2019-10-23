@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8647e911f5b13a9cde1df5767fbea495",
+    "content-hash": "27ad4358c9a16c51e54a070abe9ed663",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -5169,6 +5169,9 @@
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
                     }
+                },
+                "patches_applied": {
+                    "[#2861429-13] Add More Embedding Options": "https://www.drupal.org/files/issues/2019-10-22/2861429-13.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
