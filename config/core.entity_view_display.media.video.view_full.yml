@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.media.view_full
     - field.field.media.video.field_media_video_embed_field
+    - field.field.media.video.field_video_type
     - media.type.video
   module:
     - video_embed_field
@@ -14,17 +15,18 @@ bundle: video
 mode: view_full
 content:
   field_media_video_embed_field:
-    type: video_embed_field_lazyload
+    type: video_embed_field_video
     weight: 0
     region: content
     label: hidden
     settings:
-      image_style: ''
-      link_image_to: ''
-      autoplay: true
+      controls: '1'
       responsive: true
       width: 854
       height: 480
+      autoplay: false
+      showinfo: 0
+      modestbranding: 0
     third_party_settings: {  }
 hidden:
   created: true

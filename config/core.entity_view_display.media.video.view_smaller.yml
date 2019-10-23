@@ -20,9 +20,12 @@ content:
     region: content
     label: hidden
     settings:
+      controls: '1'
       width: 224
       height: 126
       autoplay: false
+      showinfo: 0
+      modestbranding: 0
       responsive: false
     third_party_settings: {  }
 hidden:

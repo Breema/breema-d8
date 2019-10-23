@@ -25,17 +25,18 @@ content:
       timezone: ''
     third_party_settings: {  }
   field_media_video_embed_field:
-    type: video_embed_field_lazyload
+    type: video_embed_field_video
     weight: 1
     region: content
     label: hidden
     settings:
+      controls: '1'
       responsive: true
       width: 854
       height: 480
-      autoplay: true
-      image_style: ''
-      link_image_to: ''
+      autoplay: false
+      showinfo: 0
+      modestbranding: 0
     third_party_settings: {  }
   field_video_type:
     type: entity_reference_label

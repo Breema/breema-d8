@@ -20,10 +20,13 @@ content:
     region: content
     label: hidden
     settings:
+      controls: '1'
       responsive: true
       width: 480
       height: 270
       autoplay: false
+      showinfo: 0
+      modestbranding: 0
     third_party_settings: {  }
 hidden:
   created: true
