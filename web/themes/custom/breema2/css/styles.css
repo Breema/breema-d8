@@ -1739,10 +1739,19 @@ details.e-books .details-wrapper {
 .toolbar .toolbar-bar .toolbar-tab > .toolbar-icon {
   width: 3em;
 }
+.toolbar .toolbar-bar .toolbar-tab-logout > .toolbar-icon {
+  text-indent: 0;
+  padding: 1em 0.75em;
+  width: auto;
+}
 
 @media only screen and (min-width: 400px) {
   .toolbar .toolbar-bar .toolbar-tab > .toolbar-icon {
     width: 4em;
+  }
+  .toolbar .toolbar-bar .toolbar-tab-logout > .toolbar-icon {
+    width: auto;
+    padding: 1em;
   }
 }
 @media only screen and (min-width: 575px) {

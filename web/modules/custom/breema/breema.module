@@ -2937,6 +2937,15 @@ function breema_strip_links(&$text_field) {
 function breema_toolbar() {
   $items = [];
   // Add a top-level 'Log out' link to the toolbar (not as a tray).
+  $links = [
+    'logout' => [
+      'title' => t('Confirm log out'),
+      // Might be tempting to reuse a Url object, but then the wrong classes get
+      // added and we get into trouble. So even though we're using "the same
+      // URL" for both, we need separate Url objects.
+      'url' => Url::fromRoute('user.logout'),
+    ],
+  ];
   $items['logout'] = [
     '#type' => 'toolbar_item',
     '#wrapper_attributes' => [
@@ -2946,6 +2955,20 @@ function breema_toolbar() {
       '#type' => 'link',
       '#title' => t('Log out'),
       '#url' => Url::fromRoute('user.logout'),
+      '#attributes' => [
+        'title' => t('Log out'),
+        'class' => ['toolbar-item', 'trigger', 'toolbar-icon', 'toolbar-icon-logout'],
+      ],
+    ],
+    'tray' => [
+      '#heading' => t('Log out'),
+      'logout_link' => [
+        '#theme' => 'links',
+        '#links' => $links,
+        '#attributes' => [
+          'class' => ['toolbar-menu'],
+        ],
+      ],
     ],
     // Ensure this is at the far left of the toolbar, right where "Log in" was.
     '#weight' => -10000,
