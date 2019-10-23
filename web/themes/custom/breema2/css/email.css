@@ -752,8 +752,8 @@ a.telephone:before,
   margin: 0;
 }
 .site-footer__bottom .menu-item a {
-  font-size: 0.93em;
-  padding: 0 1.5em;
+  font-size: 0.9em;
+  padding: 0 0.5em 0 0.35em;
   border-right: 1px solid rgba(255, 255, 255, 0.25);
 }
 .site-footer__bottom .menu-item:first-child a {
@@ -764,6 +764,11 @@ a.telephone:before,
   border-right: none;
 }
 
+@media (min-width: 400px) {
+  .site-footer__bottom .menu-item a {
+    padding: 0 1em 0 0.8em;
+  }
+}
 .block-footer-email-subscribe-block .action--secondary a {
   color: #752d53;
   background-color: rgba(255, 255, 255, 0.8);
