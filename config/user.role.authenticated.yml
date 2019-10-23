@@ -15,6 +15,8 @@ permissions:
   - 'access event_browser entity browser pages'
   - 'access forward'
   - 'access image_browser entity browser pages'
+  - 'access image_event_browser entity browser pages'
+  - 'access image_sm_browser entity browser pages'
   - 'access media_browser entity browser pages'
   - 'access media_embed entity browser pages'
   - 'access place_browser entity browser pages'
