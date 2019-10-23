@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - entity_browser.browser.image_browser
+    - entity_browser.browser.image_sm_browser
     - field.field.node.layout_page.field_main_image
     - field.field.node.layout_page.field_meta_summary
     - field.field.node.layout_page.field_paragraphs
@@ -91,7 +91,7 @@ content:
   field_social_media_image:
     weight: 5
     settings:
-      entity_browser: image_browser
+      entity_browser: image_sm_browser
       field_widget_display: rendered_entity
       field_widget_display_settings:
         view_mode: preview
