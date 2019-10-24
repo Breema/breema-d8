@@ -1,0 +1,79 @@
+uuid: a29d99ef-8fc5-4653-afa0-c1ec1196f930
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser_compact
+    - field.field.node.article.body
+    - field.field.node.article.field_article_language
+    - field.field.node.article.field_authors_breema
+    - field.field.node.article.field_authors_other
+    - field.field.node.article.field_date
+    - field.field.node.article.field_main_image
+    - field.field.node.article.field_original_article_url
+    - field.field.node.article.field_resources
+    - field.field.node.article.field_social_media_image
+    - field.field.node.article.field_source_name
+    - field.field.node.article.field_source_url
+    - image.style.224x126_smaller
+    - node.type.article
+  module:
+    - datetime
+    - media
+    - smart_trim
+    - user
+_core:
+  default_config_hash: qVtHNxqdXB9w369AO5JB5SVhflquWqFm5xfyvYLAIlM
+id: node.article.teaser_compact
+targetEntityType: node
+bundle: article
+mode: teaser_compact
+content:
+  body:
+    type: smart_trim
+    weight: 2
+    region: content
+    settings:
+      trim_length: 600
+      trim_type: chars
+      trim_suffix: ...
+      wrap_class: trimmed
+      more_text: More
+      more_class: more-link
+      summary_handler: full
+      wrap_output: false
+      more_link: false
+      trim_options:
+        text: false
+        trim_zero: false
+    third_party_settings: {  }
+    label: hidden
+  field_date:
+    weight: 1
+    label: inline
+    settings:
+      timezone_override: ''
+      format_type: date_text
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_main_image:
+    weight: 0
+    label: hidden
+    settings:
+      image_style: 224x126_smaller
+      image_link: ''
+    third_party_settings: {  }
+    type: media_thumbnail
+    region: content
+hidden:
+  field_article_language: true
+  field_authors_breema: true
+  field_authors_other: true
+  field_original_article_url: true
+  field_resources: true
+  field_social_media_image: true
+  field_source_name: true
+  field_source_url: true
+  group_content: true
+  links: true

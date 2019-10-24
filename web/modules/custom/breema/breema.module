@@ -2590,7 +2590,7 @@ function breema_entity_node_article_view_alter(array &$build, EntityInterface $e
   }
   if (!empty($other_authors)) {
     foreach ($other_authors as $other_author) {
-      if ($view_mode === 'teaser') {
+      if ($view_mode === 'teaser' || $view_mode === 'teaser_compact') {
         breema_strip_links($other_author['value']);
       }
       $authors[] = $other_author['value'];
@@ -2608,7 +2608,7 @@ function breema_entity_node_article_view_alter(array &$build, EntityInterface $e
 
   $source_info = [];
   $source_name = $entity->get('field_source_name')->value;
-  if ($view_mode === 'teaser') {
+  if ($view_mode === 'teaser' || $view_mode === 'teaser_compact') {
     $build['field_main_image']['#weight'] = -20;
     $build['read_more'] = [
       '#prefix' => '<div class="more-link">',
