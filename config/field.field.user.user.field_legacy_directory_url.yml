@@ -1,0 +1,20 @@
+uuid: 8737563b-7af4-4d45-be6e-bc45e225ac27
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_legacy_directory_url
+  module:
+    - user
+id: user.user.field_legacy_directory_url
+field_name: field_legacy_directory_url
+entity_type: user
+bundle: user
+label: 'Legacy directory URL'
+description: 'If this user had a listing in the International Directory on the legacy website, list it here. <strong>Only include the part after <code>index.php</code>.</strong> For example: <em>/site/page/directory/luna_lacey</em>'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

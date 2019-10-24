@@ -15,6 +15,7 @@ dependencies:
     - field.field.user.user.field_class_attended
     - field.field.user.user.field_class_other
     - field.field.user.user.field_directory_entry
+    - field.field.user.user.field_legacy_directory_url
     - field.field.user.user.field_name_first
     - field.field.user.user.field_name_last
     - field.field.user.user.field_profession
@@ -56,6 +57,7 @@ third_party_settings:
       children:
         - user_picture
         - field_directory_entry
+        - field_legacy_directory_url
       parent_name: ''
       weight: 11
       format_type: details
@@ -173,6 +175,14 @@ content:
       allow_existing: false
       allow_duplicate: false
     third_party_settings: {  }
+  field_legacy_directory_url:
+    weight: 3
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
   field_name_first:
     weight: 0
     settings:

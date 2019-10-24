@@ -18,6 +18,8 @@ permissions:
   - 'edit field_certification'
   - 'edit field_certification_level'
   - 'edit field_job_title'
+  - 'edit field_legacy_directory_url'
   - 'view field_certification_level'
   - 'view field_has_active_event'
+  - 'view field_legacy_directory_url'
   - 'view the administration theme'

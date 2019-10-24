@@ -2472,6 +2472,8 @@ function breema_entity_user_view_alter(array &$build, EntityInterface $entity, E
         ];
         $build['#group_children']['warning'] = 'group_public_directory_entry';
       }
+      // Always put this at the top of the field group.
+      $build['field_legacy_directory_url']['#weight'] = -200;
     }
     // @todo fix cache contexts/tags/etc.
   }
