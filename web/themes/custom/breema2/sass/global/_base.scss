@@ -190,6 +190,10 @@ hr {
   border-bottom: 1px dashed #aaa;
 }
 
+a.teaser-link h3 {
+ font-size: 1.4em;
+}
+
 a.teaser-link h4 {
  font-size: 1.075em;
 }
@@ -201,6 +205,7 @@ a.teaser-link {
 }
 
 a.teaser-link h2,
+a.teaser-link h3,
 a.teaser-link h4,
 a.teaser-link .more-link {
   color: $c-plum;
@@ -209,6 +214,8 @@ a.teaser-link .more-link {
 
 a.teaser-link:hover h2,
 a.teaser-link:focus h2,
+a.teaser-link:hover h3,
+a.teaser-link:focus h3,
 a.teaser-link:hover h4,
 a.teaser-link:focus h4,
 a.teaser-link:focus .more-link,
