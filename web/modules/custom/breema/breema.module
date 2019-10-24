@@ -2567,6 +2567,18 @@ function breema_entity_node_directory_entry_view_alter(array &$build, EntityInte
       // @todo we could format_plural() here if we really wanted.
       $build['events_list']['#prefix'] = '<h2>' . t('Upcoming events') . '</h2>';
     }
+    // Try to embed articles by this user.
+    $view = Views::getView('breema_articles');
+    $view->setDisplay('embed_by_author');
+    $view->setArguments($args);
+    $view->execute();
+    if (!empty($view->result)) {
+      $build['articles'] = [
+        '#prefix' => '<h2>' . t('Articles by @user', ['@user' => $author_entity->getAccountName()]) . '</h2>',
+        'articles' => $view->preview(),
+        '#weight' => 100,
+      ];
+    }
   }
 }
 
