@@ -13,6 +13,7 @@ use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Language\Language;
 use Drupal\Core\Render\Element;
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Session\AccountInterface;
@@ -34,6 +35,7 @@ use Drupal\views\Plugin\views\cache\CachePluginBase;
 
 use Drupal\flag\Entity\Flagging;
 use Drupal\group\Entity\Group;
+use Drupal\redirect\Entity\Redirect;
 
 use Drupal\breema\BreemaEventMgr;
 
@@ -2128,6 +2130,9 @@ function breema_user_insert(UserInterface $user) {
  * If field_certification_level changed, update group memberships.
  */
 function breema_user_update(UserInterface $user) {
+  $nodes = $user->get('field_directory_entry')->referencedEntities();
+  $directory_entry = !empty($nodes) ? array_pop($nodes) : NULL;
+
   $old_level = $user->original->get('field_certification_level')->value;
   $new_level = $user->get('field_certification_level')->value;
   if ($old_level !== $new_level) {
@@ -2135,8 +2140,6 @@ function breema_user_update(UserInterface $user) {
 
     // If the user has a directory entry, re-save it to (potentially) update the
     // certifications listed there, too.
-    $directory_entries = $user->get('field_directory_entry')->referencedEntities();
-    $directory_entry = !empty($directory_entries) ? array_pop($directory_entries) : NULL;
     if (!empty($directory_entry)) {
       $directory_entry->setNewRevision();
       // Record what user updated field_certification_level.
@@ -2146,6 +2149,13 @@ function breema_user_update(UserInterface $user) {
       $directory_entry->save();
     }
   }
+  // Regardless of if the user has a directory entry, any time a user is
+  // updated, we want to make sure if there's a value for the legacy directory
+  // URL that we have a good redirect for it. Note that if a user edits their
+  // directory entry directly, that'll trigger a user update, too. We use
+  // drupal_register_shutdown_function() to ensure everything is committed to
+  // the DB before we do our magic.
+  drupal_register_shutdown_function('breema_user_ensure_legacy_directory_redirect', $user, $directory_entry);
 }
 
 /**
@@ -2227,6 +2237,66 @@ function _breema_set_user_groups(UserInterface $user, array $new_group_ids) {
     }
   }
 
+}
+
+/**
+ * Ensures if a user has a field_legacy_directory_url that we redirect it.
+ *
+ * If the user has a directory entry, we redirect there. Otherwise, we redirect
+ * to the 'International Directory' list page.
+ *
+ * @param \Drupal\user\UserInterface $user
+ *   The user to check the legacy redirect on.
+ * @param \Drupal\node\NodeInterface|NULL $node
+ *   The user's directory entry node, or NULL if none.
+ */
+function breema_user_ensure_legacy_directory_redirect($user, $directory_entry) {
+  $legacy_url = $user->get('field_legacy_directory_url')->value;
+  if (empty($legacy_url)) {
+    return;
+  }
+  $nid = !empty($directory_entry) ? $directory_entry->id() : 0;
+  $redirect_repo = \Drupal::service('redirect.repository');
+  $legacy_redirect = $redirect_repo->findMatchingRedirect($legacy_url);
+
+  // If we already have a redirect for the legacy URL, make sure it's right.
+  if (!empty($legacy_redirect)) {
+    $legacy_redirect_target = $legacy_redirect->getRedirect();
+    // If we have a directory entry, make sure it matches.
+    if (!empty($nid)) {
+      if ($legacy_redirect_target['uri'] === "internal:/node/$nid") {
+        // Legacy redirect already points to the directory entry, done.
+        return;
+      }
+      else {
+        // Legacy redirect points somewhere else, update it.
+        $legacy_redirect->setRedirect("/node/$nid");
+        $legacy_redirect->save();
+      }
+    }
+    // If there's no directory entry, make sure redirect points to /directory.
+    elseif ($legacy_redirect_target['uri'] !== 'internal:/directory') {
+      // Wherever that redirect is pointing is now wrong, update.
+      $legacy_redirect->setRedirect("/directory");
+      $legacy_redirect->save();
+    }
+  }
+  // No existing redirect with the legacy URL, make one.
+  else {
+    $redirect = Redirect::create();
+    $redirect->setSource($legacy_url);
+    $redirect->setLanguage(Language::LANGCODE_NOT_SPECIFIED);
+    $redirect->setStatusCode(301);
+    // If there's a directory entry for this user, redirect there.
+    if (!empty($nid)) {
+      $redirect->setRedirect("/node/$nid");
+    }
+    // Otherwise, use the global /directory listing.
+    else {
+      $redirect->setRedirect("/directory");
+    }
+    $redirect->save();
+  }
 }
 
 /**
