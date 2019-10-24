@@ -962,7 +962,14 @@ function breema_paragraph_build_defaults_alter(array &$build, EntityInterface $e
     // E.g. an event-specific tag, or event an event/location specific one.
     $build['#cache']['tags'][] = 'node_list';
     // Cache this paragraph for at most 1 hour.
+    // @todo This doesn't do anything for page_cache.
+    // @see https://www.drupal.org/project/drupal/issues/2352009
+    // @see https://www.drupal.org/project/drupal/issues/2835068
+    // ... :(
     $build['#cache']['max-age'] = 3600;
+    // So, we brute force it by setting a custom cache tag we can invalidate
+    // via hook_cron(). OMFG.
+    $build['#cache']['tags'][] = 'breema_max_age';
   }
 }
 
@@ -2804,6 +2811,9 @@ function breema_node_38_view_alter(array &$build, EntityInterface $entity, Entit
 function breema_cron() {
   $event_mgr = new BreemaEventMgr();
   $event_mgr->update();
+
+  // Brute force invalidate anything with the 'breema_max_age' #cache tag.
+  \Drupal::service('cache_tags.invalidator')->invalidateTags(['breema_max_age']);
 }
 
 /**
