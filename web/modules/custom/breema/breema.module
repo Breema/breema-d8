@@ -1589,6 +1589,32 @@ function breema_user_form_validate($form, FormStateInterface $form_state) {
   // Force the first/last names to the trimmed copies.
   $form_state->setValueForElement(['#parents' => ['field_name_first', 0, 'value']], $first_name);
   $form_state->setValueForElement(['#parents' => ['field_name_last', 0, 'value']], $last_name);
+
+  // Custom validation for the 'Legacy directory URL' field:
+  $legacy_directory_url = trim($values['field_legacy_directory_url'][0]['value']);
+  if (strpos($legacy_directory_url, 'index.php') !== FALSE) {
+    $form_state->setErrorByName('field_legacy_directory_url', t('Do not include the @index_php part of the URL.', ['@index_php' => 'index.php']));
+  }
+  if (strpos($legacy_directory_url, '/') !== 0) {
+    $form_state->setErrorByName('field_legacy_directory_url', t('Legacy directory URL must begin with a slash (/).'));
+  }
+  $legacy_url_in_use = \Drupal::entityQuery('user')
+    ->condition('uid', (int)$user_entity->id(), '<>')
+    ->condition('field_legacy_directory_url', $legacy_directory_url, '=')
+    ->range(0, 1)
+    ->execute();
+  if (!empty($legacy_url_in_use)) {
+    $uid = array_pop($legacy_url_in_use);
+    $account = User::load($uid);
+    $placeholders = [
+      '%current_user' => $user_name,
+      '%user_name' => $account->label(),
+      ':edit_url' => $account->toUrl('edit-form', ['fragment' => 'edit-group-public-info'])->toString(),
+    ];
+    $form_state->setErrorByName('field_legacy_directory_url', t('This legacy URL is already in use by %user_name. Something is wrong. Either you have the wrong value for %current_user or you should <a href=":edit_url" target="_blank">edit %user_name</a> and fix their value.', $placeholders));
+  }
+  // Force the trimmed version back into the form so we save a clean value.
+  $form_state->setValueForElement(['#parents' => ['field_legacy_directory_url', 0, 'value']], $legacy_directory_url);
 }
 
 /**
