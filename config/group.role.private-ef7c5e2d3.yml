@@ -1,0 +1,17 @@
+uuid: 02945394-a62e-42d9-af9c-8c05c7e1bf97
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.private
+  enforced:
+    config:
+      - user.role.event_administrator
+id: private-ef7c5e2d3
+label: 'Event administrator'
+weight: 0
+internal: true
+audience: outsider
+group_type: private
+permissions_ui: false
+permissions: {  }

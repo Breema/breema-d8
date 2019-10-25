@@ -4,7 +4,7 @@ status: true
 dependencies: {  }
 id: user_administrator
 label: 'User administrator'
-weight: -2
+weight: -1
 is_admin: null
 permissions:
   - 'access administration pages'
