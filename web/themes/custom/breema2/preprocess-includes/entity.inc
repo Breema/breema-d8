@@ -20,6 +20,13 @@ function breema2_preprocess_node__event(&$variables) {
 }
 
 /**
+ * Bundle-specific callback to preprocess private_page nodes.
+ */
+function breema2_preprocess_node__private_page(&$variables) {
+  $variables['changed'] = date('F j, Y', $variables['node']->get('changed')->value);
+}
+
+/**
  * Bundle-specific callback to preprocess Essence of Breema nodes.
  */
 function breema2_preprocess_node__essence(&$variables) {
