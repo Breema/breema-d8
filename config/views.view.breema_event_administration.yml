@@ -11,6 +11,7 @@ dependencies:
     - user.role.administrator
     - user.role.content_administrator
     - user.role.content_editor
+    - user.role.event_administrator
   module:
     - address
     - datetime
@@ -39,6 +40,7 @@ display:
           role:
             content_editor: content_editor
             content_administrator: content_administrator
+            event_administrator: event_administrator
             administrator: administrator
       cache:
         type: tag

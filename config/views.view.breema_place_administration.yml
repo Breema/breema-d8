@@ -8,6 +8,7 @@ dependencies:
     - user.role.administrator
     - user.role.content_administrator
     - user.role.content_editor
+    - user.role.event_administrator
     - user.role.user_administrator
   module:
     - address
@@ -34,6 +35,7 @@ display:
           role:
             content_editor: content_editor
             content_administrator: content_administrator
+            event_administrator: event_administrator
             user_administrator: user_administrator
             administrator: administrator
       cache:
