@@ -15,7 +15,6 @@ permissions:
   - 'create image media'
   - 'create media'
   - 'create video media'
-  - 'delete media'
   - 'delete own audio_file media'
   - 'delete own directory_entry content'
   - 'delete own file media'
