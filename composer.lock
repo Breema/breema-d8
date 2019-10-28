@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e857049976338d6a4d4eba5f564c9cc7",
+    "content-hash": "f8f72a3ee18fda19138315bb3aa84d79",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -2431,7 +2431,10 @@
                 },
                 "patches_applied": {
                     "[#2135445-39] Toolbar displays Manage tab even if the user is not permitted to see it": "https://www.drupal.org/files/issues/2019-01-12/2135445-39.no-empty-manage-tray.patch",
-                    "[#2648950-193] Use form element of type date instead textfield when selecting a date in an exposed filter": "https://www.drupal.org/files/issues/2019-03-15/2648950-193.patch",
+                    "[#2419131-130] Fix #states for 'datetime' form elements": "https://www.drupal.org/files/issues/2019-10-26/2419131-130.datetime-states-fix-seven-bartik.8_7_x.patch",
+                    "[#2625136-103] label visibility for exposed numeric/date filters with multiple form elements": "https://www.drupal.org/files/issues/2019-10-25/2625136-103.8_7_x.patch",
+                    "[#2648950-219] Use form element of type date instead textfield when selecting a date in an exposed filter": "https://www.drupal.org/files/issues/2019-10-27/2648950-219.8_7_x.patch",
+                    "[#2648950-219] Fix conflicts between #2648950 and #2625136": "https://www.drupal.org/files/issues/2019-10-27/2648950-219.changes-for-2625136.DO-NOT-TEST.patch",
                     "[#2801501-8] Don't force the 'Manage' tray open in the toolbar on every page load": "https://www.drupal.org/files/issues/2019-08-16/2801501-8.no-auto-open-toolbar.patch",
                     "[#2835825-21 Media: Migration support": "https://www.drupal.org/files/issues/2835825-21.patch",
                     "[#2853188-14] Add negated regular expressions for views filters (string and integer)": "https://www.drupal.org/files/issues/2853188-14.patch",
