@@ -376,46 +376,67 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          operator: '>='
+          operator: '='
           value:
             min: ''
             max: ''
-            value: '-12 hours'
+            value: ''
             type: offset
           group: 1
           exposed: true
           expose:
-            operator_id: end_datetime_op
+            operator_id: field_date_time_end_value_op
             label: Date/time
             description: ''
-            use_operator: true
+            use_operator: false
             operator: field_date_time_end_value_op
-            identifier: end_datetime
+            identifier: datetime_end
             required: false
             remember: false
             multiple: false
             remember_roles:
               authenticated: authenticated
               anonymous: '0'
+              student: '0'
               practitioner: '0'
               instructor: '0'
+              event_expert: '0'
+              content_editor: '0'
               content_administrator: '0'
+              event_administrator: '0'
+              user_administrator: '0'
               administrator: '0'
-            placeholder: ''
-            min_placeholder: ''
-            max_placeholder: ''
-          is_grouped: false
+            min_placeholder: null
+            max_placeholder: null
+            placeholder: null
+          is_grouped: true
           group_info:
-            label: ''
+            label: Date/time
             description: ''
-            identifier: ''
+            identifier: datetime_end
             optional: true
             widget: select
             multiple: false
             remember: false
-            default_group: All
+            default_group: '1'
             default_group_multiple: {  }
-            group_items: {  }
+            group_items:
+              1:
+                title: Upcoming
+                operator: '>='
+                value:
+                  type: offset
+                  value: '-12 hours'
+                  min: ''
+                  max: ''
+              2:
+                title: Past
+                operator: '<'
+                value:
+                  type: offset
+                  value: '-12 hours'
+                  min: ''
+                  max: ''
           plugin_id: datetime
         field_address_country_code:
           id: field_address_country_code
