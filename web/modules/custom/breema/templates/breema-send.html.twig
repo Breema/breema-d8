@@ -1,7 +1,12 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="{{ email_css_path}}" media="all" />
+    {% if css_path %}
+      <link rel="stylesheet" href="{{ css_path }}" media="all" />
+    {% endif %}
+    {% if inline_css %}
+      <style type="text/css">{{ inline_css }}</style>
+    {% endif %}
   </head>
   <body>
    <div id="page-wrapper">
@@ -11,15 +16,15 @@
       </div>
       <div class="body">
         {% if header %}
-          <div class="message-header">{{ header }}</div>
+          <div class="message-header">{{ header }}</div><hr />
         {% endif %}
         {% if message %}
-          <div class="message">{{ message }}</div>
+          <div class="message">{{ message }}</div><hr />
         {% endif %}
         <div class="content">{{ content }}</div>
       </div>
       {% if footer %}
-        <div class="footer">{{ footer }}</div>
+        <hr /><div class="footer">{{ footer }}</div>
       {% endif %}
      </div>
    </div>

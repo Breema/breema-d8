@@ -1053,6 +1053,9 @@ function breema_theme($existing, $type, $theme, $path) {
  */
 function breema_preprocess_breema_send(&$variables) {
   $variables['front_page'] = Url::fromUri('internal:/', ['absolute' => TRUE])->toString();
+  $variables['site_name'] = \Drupal::config('system.site')->get('name');
+  $css_path = drupal_get_path('theme', 'breema2') . '/css/email-send.css';
+  $variables['inline_css'] = file_get_contents($css_path);
 }
 
 /**
