@@ -1543,6 +1543,16 @@ function breema_form_user_form_alter(&$form, \Drupal\Core\Form\FormStateInterfac
     return;
   }
 
+  // For regular (non-admin) users, clear out the field_overrides and only hide
+  // the name + organization fields. Require the full (default) requirements on
+  // all actual address fields, based on the country.
+  $form['field_address']['widget'][0]['address']['#field_overrides'] = [
+    'givenName' => 'hidden',
+    'additionalName' => 'hidden',
+    'familyName' => 'hidden',
+    'organization' => 'hidden',
+  ];
+
   // Hide the 'Group memberships' widget for non-admins.
   $form['group_content']['#access'] = FALSE;
 
