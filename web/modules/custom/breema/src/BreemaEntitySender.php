@@ -89,7 +89,7 @@ class BreemaEntitySender implements BreemaEntitySenderInterface {
   /**
    * {@inheritdoc}
    */
-  public function sendEntity(EntityInterface $entity, $key, $to) {
+  public function sendEntity(EntityInterface $entity, $key, $to, $header = [], $footer = []) {
     // Build the entity content.
     $view_mode = '';
     $elements = [];
@@ -105,11 +105,20 @@ class BreemaEntitySender implements BreemaEntitySenderInterface {
         }
       }
     }
-    $params = [
-      'body' => $this->renderer->render($elements),
-      'entity' => $entity,
-      'entity_label' => $entity->label(),
+    $body = [
+      '#theme' => 'breema_send',
+      '#recipient' => $to,
+      '#header' => $header,
+      '#entity' => $entity,
+      '#content' => $this->renderer->render($elements),
+      '#view_mode' => $view_mode,
+      '#footer' => $footer,
     ];
+
+    // Render the message.
+    $params['body'] = $this->renderer->render($body);
+    $params['entity'] = $entity;
+
     // @todo DI
     $langcode = \Drupal::currentUser()->getPreferredLangcode();
     $result = $this->mailer->mail('breema', $key, $to, $langcode, $params, NULL, TRUE);

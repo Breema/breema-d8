@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{{ email_css_path}}" media="all" />
+  </head>
+  <body>
+   <div id="page-wrapper">
+    <div class="layout-container">
+      <div class="header">
+        <h1 class="site-name"><a href="{{ front_page }}" title="{{ site_name }}">{{ site_name }}</a></h1>
+      </div>
+      <div class="body">
+        {% if header %}
+          <div class="message-header">{{ header }}</div>
+        {% endif %}
+        {% if message %}
+          <div class="message">{{ message }}</div>
+        {% endif %}
+        <div class="content">{{ content }}</div>
+      </div>
+      {% if footer %}
+        <div class="footer">{{ footer }}</div>
+      {% endif %}
+     </div>
+   </div>
+  </body>
+</html>

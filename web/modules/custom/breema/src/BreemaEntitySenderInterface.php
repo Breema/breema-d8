@@ -18,7 +18,11 @@ interface BreemaEntitySenderInterface {
    *   The mail key to use when sending this entity.
    * @param string $to
    *   The e-mail address to send the message to.
+   * @param array $header
+   *   Optional render array for a header above the entity.
+   * @param array $footer
+   *   Optional render array for a footer below the entity.
    */
-  public function sendEntity(EntityInterface $entity, $key, $to);
+  public function sendEntity(EntityInterface $entity, $key, $to, $header = [], $footer = []);
 
 }

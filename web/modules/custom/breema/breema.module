@@ -1029,6 +1029,33 @@ function _breema_get_more_events_action_links() {
 }
 
 /**
+ * Implements hook_theme().
+ */
+function breema_theme($existing, $type, $theme, $path) {
+  return [
+    'breema_send' => [
+      'variables' => [
+        'recipient' => NULL,
+        'header' => NULL,
+        'content' => NULL,
+        'footer' => NULL,
+        'entity' => NULL,
+        'view_mode' => NULL,
+      ],
+    ],
+  ];
+}
+
+/**
+ * Implements hook_preprocess_breema_send().
+ *
+ * Setup template variables for the breema send email template.
+ */
+function breema_preprocess_breema_send(&$variables) {
+  $variables['front_page'] = Url::fromUri('internal:/', ['absolute' => TRUE])->toString();
+}
+
+/**
  * Implements hook_theme_registry_alter()
  */
 function breema_theme_registry_alter(&$theme_registry) {
@@ -1887,11 +1914,20 @@ function breema_node_cud__event(NodeInterface $node, $operation) {
     }
   }
 
+  $footer = [
+    '#theme' => 'item_list',
+    '#list_type' => 'ul',
+    '#items' => [
+      t('This event: @url', ['@url' => $params['entity']->toUrl('canonical', ['absolute' => TRUE])->toString()]),
+      t('Administer all events with transfer credit: @url', ['@url' => $admin_all->toString()]),
+    ],
+  ];
+
   switch ($operation) {
     case 'insert':
       $new_xfer = $node->get('field_transfer_credit')->value;
       if (!empty($new_xfer)) {
-        \Drupal::service('breema.entity_sender')->sendEntity($node, 'event_xfer_insert', BREEMA_EVENT_TRANSFER_CREDIT_EMAIL);
+        \Drupal::service('breema.entity_sender')->sendEntity($node, 'event_xfer_insert', BREEMA_EVENT_TRANSFER_CREDIT_EMAIL, [], $footer);
       }
       break;
 
@@ -1899,7 +1935,7 @@ function breema_node_cud__event(NodeInterface $node, $operation) {
       $old_xfer = $node->original->get('field_transfer_credit')->value;
       $new_xfer = $node->get('field_transfer_credit')->value;
       if (!empty($new_xfer) && $old_xfer !== $new_xfer) {
-        \Drupal::service('breema.entity_sender')->sendEntity($node, 'event_xfer_update', BREEMA_EVENT_TRANSFER_CREDIT_EMAIL);
+        \Drupal::service('breema.entity_sender')->sendEntity($node, 'event_xfer_update', BREEMA_EVENT_TRANSFER_CREDIT_EMAIL, [], $footer);
       }
       break;
 
@@ -1950,7 +1986,18 @@ function breema_node_cud__place(NodeInterface $node, $operation) {
  */
 function breema_node_cud__session_resume(NodeInterface $node, $operation) {
   if ($operation === 'insert') {
-    \Drupal::service('breema.entity_sender')->sendEntity($node, 'session_resume_insert', BREEMA_SESSION_RESUME_EMAIL);
+    $admin_all = Url::fromUri('internal:/admin/content/breema-session-resume', ['absolute' => TRUE]);
+    $user_resumes_url = Url::fromRoute('entity.user.breema_resume_dashboard', ['user' => $node->getOwnerId()], ['absolute' => TRUE]);
+    $footer = [
+      '#theme' => 'item_list',
+      '#list_type' => 'ul',
+      '#items' => [
+        t('This session resume: @url', ['@url' => $node->toUrl('canonical', ['absolute' => TRUE])->toString()]),
+        t('All session resumes for this user: @url', ['@url' => $user_resumes_url->toString()]),
+        t('Administer all session resumes: @url', ['@url' => $admin_all->toString()]),
+      ],
+    ];
+    \Drupal::service('breema.entity_sender')->sendEntity($node, 'session_resume_insert', BREEMA_SESSION_RESUME_EMAIL, [], $footer);
   }
 }
 
@@ -1984,48 +2031,28 @@ function breema_ensure_flag($flag_id, NodeInterface $node, $uid) {
  * Implements hook_mail().
  */
 function breema_mail($key, &$message, $params) {
+  // For now, all of our email is HTML. Make sure the headers are right.
+  $message['headers']['Content-Type'] = 'text/html; charset=utf-8';
+  $message['from'] = \Drupal::config('system.site')->get('mail');
+  $message['body'][] = $params['body'];
+
   $options = [
     'langcode' => $message['langcode'],
   ];
+  $placeholders = ['@label' => $params['entity']->label()];
+
   switch ($key) {
     case 'session_resume_insert':
-      $message['from'] = \Drupal::config('system.site')->get('mail');
-      $message['subject'] = t('New: @title', ['@title' => $params['entity']->label()], $options);
-      $message['body'][] = $params['body'];
-      // @todo: Should this happen here or when building the message?
-      $message['body'][] = '<hr />';
-      $message['body'][] = '<p>' . t('This session resume: @url', ['@url' => $params['entity']->toUrl('canonical', ['absolute' => TRUE])->toString()]) . '</p>';
-      $admin_all = Url::fromUri('internal:/admin/content/breema-session-resume', ['absolute' => TRUE]);
-      $user_resumes_url = Url::fromRoute('entity.user.breema_resume_dashboard', ['user' => $params['entity']->getOwnerId()], ['absolute' => TRUE]);
-      $message['body'][] = '<p>' . t('All session resumes for this user: @url', ['@url' => $user_resumes_url->toString()]) . '</p>';
-      $message['body'][] = '<p>' . t('Administer all session resumes: @url', ['@url' => $admin_all->toString()]) . '</p>';
+      $message['subject'] = t('New: @label', $placeholders, $options);
       break;
 
     case 'event_xfer_update':
     case 'event_xfer_insert':
-      $message['from'] = \Drupal::config('system.site')->get('mail');
-      $placeholders = ['@title' => $params['entity']->label()];
-      $message['subject'] = $key === 'event_xfer_update' ? t('Updated event now with transfer credit: @title', $placeholders, $options) : t('New event with transfer credit: @title', $placeholders, $options);
-      $message['body'][] = $params['body'];
-      // @todo: Should this happen here or when building the message?
-      $message['body'][] = '<hr />';
-      $message['body'][] = '<p>' . t('This event: @url', ['@url' => $params['entity']->toUrl('canonical', ['absolute' => TRUE])->toString()]) . '</p>';
-      $admin_all = Url::fromUri('internal:/admin/content/breema-events-xfer', ['absolute' => TRUE]);
-      $message['body'][] = '<p>' . t('Administer all events with transfer credit: @url', ['@url' => $admin_all->toString()]) . '</p>';
+      $message['subject'] = $key === 'event_xfer_update' ? t('Updated event now with transfer credit: @label', $placeholders, $options) : t('New event with transfer credit: @label', $placeholders, $options);
       break;
 
     case 'user_applied':
-      $message['from'] = \Drupal::config('system.site')->get('mail');
-      $placeholders = ['@name' => $params['entity']->label()];
-      $message['subject'] = t('New user applied for certificate program: @name', $placeholders, $options);
-      $message['body'][] = '<p>' . t('@name applied for the practitioner certificate program.', $placeholders, $options) . '</p>';
-      $message['body'][] = '<p>' . t('View profile: @url', ['@url' => $params['entity']->toUrl('canonical', ['absolute' => TRUE])->toString()]) . '</p>';
-      $message['body'][] = '<p class="email">E-mail: ' . $params['entity']->get('mail')->value . '</p>';
-      $message['body'][] = '<hr />';
-      $message['body'][] = $params['body'];
-      $message['body'][] = '<hr />';
-      $admin_all = Url::fromUri('internal:/admin/people', ['absolute' => TRUE]);
-      $message['body'][] = '<p>' . t('Administer all accounts: @url', ['@url' => $admin_all->toString()]) . '</p>';
+      $message['subject'] = t('New user applied for certificate program: @label', $placeholders, $options);
       break;
 
   }
@@ -2137,7 +2164,18 @@ function breema_user_insert(UserInterface $user) {
     $admin_user = User::load(1);
     $account_switcher = \Drupal::service('account_switcher');
     $account_switcher->switchTo($admin_user);
-    \Drupal::service('breema.entity_sender')->sendEntity($user, 'user_applied', BREEMA_NEW_USER_EMAIL);
+    $header = [
+      '#markup' => '<p>' . t('@name applied for the Breema Practitioner Certificate Program.', ['@name' => $user->label()]) . '</p>'
+      . '<p>' . t('View profile: @url', ['@url' => $user->toUrl('canonical', ['absolute' => TRUE])->toString()]) . '</p>'
+      . '<p class="email">E-mail: ' . $user->get('mail')->value . '</p>',
+    ];
+
+    $admin_all = Url::fromUri('internal:/admin/people', ['absolute' => TRUE]);
+    $footer = [
+      '#markup' => '<p>' . t('Administer all accounts: @url', ['@url' => $admin_all->toString()]) . '</p>',
+    ];
+
+    \Drupal::service('breema.entity_sender')->sendEntity($user, 'user_applied', BREEMA_NEW_USER_EMAIL, $header, $footer);
     $account_switcher->switchBack();
   }
 }
