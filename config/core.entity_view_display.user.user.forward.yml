@@ -1,0 +1,176 @@
+uuid: 7b3a11a3-56aa-4c48-b89f-33f3b4c4d094
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.user.forward
+    - field.field.user.user.field_address
+    - field.field.user.user.field_anatomy_homework_language
+    - field.field.user.user.field_anatomy_requirement
+    - field.field.user.user.field_anatomy_transcript
+    - field.field.user.user.field_breema_center_staff
+    - field.field.user.user.field_breema_clinic_practitioner
+    - field.field.user.user.field_certification
+    - field.field.user.user.field_certification_level
+    - field.field.user.user.field_class_attended
+    - field.field.user.user.field_class_other
+    - field.field.user.user.field_directory_entry
+    - field.field.user.user.field_legacy_directory_url
+    - field.field.user.user.field_name_first
+    - field.field.user.user.field_name_last
+    - field.field.user.user.field_profession
+    - field.field.user.user.field_telephone
+    - field.field.user.user.field_why_interested
+    - field.field.user.user.user_picture
+  module:
+    - address
+    - field_group
+    - file
+    - gcontent_field
+    - options
+    - telephone
+    - user
+third_party_settings:
+  field_group:
+    group_public_directory_entry:
+      children:
+        - user_picture
+        - field_directory_entry
+        - field_legacy_directory_url
+      parent_name: ''
+      weight: 2
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        open: true
+        required_fields: false
+      label: 'Public directory entry'
+      region: hidden
+    group_private_profile:
+      children:
+        - field_address
+        - field_telephone
+        - field_profession
+        - group_content
+      parent_name: ''
+      weight: 0
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        open: true
+        required_fields: false
+      label: 'Private profile'
+      region: content
+    group_cert_application:
+      children:
+        - field_why_interested
+        - field_anatomy_requirement
+        - field_anatomy_transcript
+        - field_anatomy_homework_language
+        - field_class_attended
+        - field_class_other
+      parent_name: ''
+      weight: 1
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        open: true
+        required_fields: false
+      label: 'Practitioner Certification Application'
+      region: content
+_core:
+  default_config_hash: V51QPCKkgNREKtSmB9Iu2wmAMEpktVpnzklWaZV8UYo
+id: user.user.forward
+targetEntityType: user
+bundle: user
+mode: forward
+content:
+  field_address:
+    weight: 7
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: address_default
+    region: content
+  field_anatomy_homework_language:
+    weight: 6
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_anatomy_requirement:
+    weight: 4
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_anatomy_transcript:
+    weight: 5
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    type: file_default
+    region: content
+  field_class_attended:
+    weight: 7
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_class_other:
+    weight: 8
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_profession:
+    weight: 9
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_telephone:
+    weight: 8
+    label: above
+    settings:
+      title: ''
+    third_party_settings: {  }
+    type: telephone_link
+    region: content
+  field_why_interested:
+    weight: 3
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  group_content:
+    type: parent_group_label_formatter
+    weight: 10
+    region: content
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+hidden:
+  field_breema_center_staff: true
+  field_breema_clinic_practitioner: true
+  field_certification: true
+  field_certification_level: true
+  field_directory_entry: true
+  field_legacy_directory_url: true
+  field_name_first: true
+  field_name_last: true
+  member_for: true
+  user_picture: true

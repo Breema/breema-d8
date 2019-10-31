@@ -1,0 +1,10 @@
+uuid: de42fb7b-88ef-4af1-a645-a50cc951c782
+langcode: en
+status: true
+dependencies:
+  module:
+    - user
+id: user.forward
+label: Forward
+targetEntityType: user
+cache: true
