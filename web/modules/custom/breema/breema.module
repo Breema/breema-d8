@@ -205,6 +205,17 @@ function breema_preprocess_html(&$variables) {
         $meta_tags[] = ['property' => 'og:type', 'content' => $og_type];
         break;
 
+      case 'directory_entry':
+        $meta_tags[] = [
+          'property' => 'profile:first_name',
+          'content' => $node->get('field_name_first')->value,
+        ];
+        $meta_tags[] = [
+          'property' => 'profile:last_name',
+          'content' => $node->get('field_name_last')->value,
+        ];
+        break;
+
       case 'event':
         // @todo: wish there was a better type for events.
         // For now, we treat them basically like articles, and put the
