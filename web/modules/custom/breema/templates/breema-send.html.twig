@@ -16,15 +16,12 @@
       </div>
       <div class="body">
         {% if header %}
-          <div class="message-header">{{ header }}</div><hr />
-        {% endif %}
-        {% if message %}
-          <div class="message">{{ message }}</div><hr />
+          <div class="message-header">{{ header }}</div>
         {% endif %}
         <div class="content">{{ content }}</div>
       </div>
       {% if footer %}
-        <hr /><div class="footer">{{ footer }}</div>
+        <div class="footer">{{ footer }}</div>
       {% endif %}
      </div>
    </div>
