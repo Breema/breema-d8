@@ -1705,10 +1705,12 @@ function breema_form_views_exposed_form_alter(&$form, \Drupal\Core\Form\FormStat
   }
 
   // Completely hide the boundary filters so they don't flicker on JS loading.
-  if (!empty($form['boundary'])) {
-    foreach (Element::children($form['boundary']) as $key) {
-      $form['boundary'][$key]['#type'] = 'hidden';
+  if (!empty($form['boundary_wrapper'])) {
+    foreach (Element::children($form['boundary_wrapper']['boundary']) as $key) {
+      $form['boundary_wrapper']['boundary'][$key]['#type'] = 'hidden';
     }
+    $form['boundary_wrapper']['#type'] = 'container';
+    $form['boundary_wrapper']['#title'] = '';
   }
 
   if (!empty($form['country'])) {
