@@ -1617,8 +1617,10 @@ function breema_user_form_validate($form, FormStateInterface $form_state) {
   $form_state->setValueForElement(['#parents' => ['field_name_first', 0, 'value']], $first_name);
   $form_state->setValueForElement(['#parents' => ['field_name_last', 0, 'value']], $last_name);
 
-  // Custom validation for the 'Legacy directory URL' field:
-  $legacy_directory_url = trim($values['field_legacy_directory_url'][0]['value']);
+  // Custom validation for the 'Legacy directory URL' field.
+  if (!empty($values['field_legacy_directory_url'][0]['value'])) {
+    $legacy_directory_url = trim($values['field_legacy_directory_url'][0]['value']);
+  }
   if (!empty($legacy_directory_url)) {
     if (strpos($legacy_directory_url, 'index.php') !== FALSE) {
       $form_state->setErrorByName('field_legacy_directory_url', t('Do not include the @index_php part of the URL.', ['@index_php' => 'index.php']));
