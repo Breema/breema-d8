@@ -468,7 +468,7 @@ function breema_get_node_meta_description(NodeInterface $node) {
           $description = $meta_summary[0]['value'];
         }
       }
-      elseif ($node->hasField('body')) {
+      if (empty($description) && $node->hasField('body')) {
         $description = breema_get_node_summary($node, 'body');
       }
       else {
