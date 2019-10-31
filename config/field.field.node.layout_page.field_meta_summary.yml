@@ -10,7 +10,7 @@ field_name: field_meta_summary
 entity_type: node
 bundle: layout_page
 label: 'Meta summary'
-description: 'One or two sentence summary of this page, for example to use when sharing to social media.'
+description: 'One or two sentence summary of this page to use when sharing to social media.'
 required: false
 translatable: false
 default_value: {  }

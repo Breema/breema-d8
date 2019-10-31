@@ -10,6 +10,7 @@ dependencies:
     - field.field.node.place.field_geolocation
     - field.field.node.place.field_has_active_event
     - field.field.node.place.field_main_image
+    - field.field.node.place.field_meta_summary
     - field.field.node.place.field_social_media_image
     - field.field.node.place.field_telephone
     - field.field.node.place.field_upcoming_events
@@ -81,6 +82,7 @@ hidden:
   body: true
   field_geolocation: true
   field_has_active_event: true
+  field_meta_summary: true
   field_social_media_image: true
   flag_my_places: true
   group_content: true

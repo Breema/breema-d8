@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.essence.body
     - field.field.node.essence.field_date
     - field.field.node.essence.field_main_image
+    - field.field.node.essence.field_meta_summary
     - field.field.node.essence.field_resources
     - field.field.node.essence.field_social_media_image
     - field.field.node.essence.field_source_other
@@ -63,6 +64,7 @@ content:
     third_party_settings: {  }
 hidden:
   field_date: true
+  field_meta_summary: true
   field_social_media_image: true
   field_source_other: true
   field_source_type: true

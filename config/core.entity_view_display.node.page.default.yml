@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.page.body
     - field.field.node.page.field_main_image
+    - field.field.node.page.field_meta_summary
     - field.field.node.page.field_resources
     - field.field.node.page.field_social_media_image
     - image.style.480x270_medium
@@ -51,5 +52,6 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
+  field_meta_summary: true
   field_social_media_image: true
   group_content: true

@@ -55,6 +55,7 @@ permissions:
   - 'edit any product content'
   - 'edit any session_resume content'
   - 'edit any video media'
+  - 'edit field_meta_summary'
   - 'edit own layout_page content'
   - 'enter all revision log entry'
   - 'override all authored by option'
@@ -71,4 +72,5 @@ permissions:
   - 'view all media revisions'
   - 'view all revisions'
   - 'view any unpublished content'
+  - 'view field_meta_summary'
   - 'view own unpublished media'

@@ -1,0 +1,19 @@
+uuid: 954a526f-6ff8-4c99-838f-ef4e7cd9c686
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_meta_summary
+    - node.type.place
+id: node.place.field_meta_summary
+field_name: field_meta_summary
+entity_type: node
+bundle: place
+label: 'Meta summary'
+description: 'One or two sentence summary of this page to use when sharing to social media. If blank, the <em>Summary</em> of the <em>Description</em> field will be used, instead.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

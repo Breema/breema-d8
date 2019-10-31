@@ -45,9 +45,11 @@ content:
   field_meta_summary:
     weight: 6
     settings:
-      rows: 4
+      rows: 2
       placeholder: ''
-    third_party_settings: {  }
+    third_party_settings:
+      advanced_text_formatter:
+        show_token_tree: 0
     type: string_textarea
     region: content
   field_paragraphs:

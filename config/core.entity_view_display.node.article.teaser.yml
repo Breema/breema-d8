@@ -10,6 +10,7 @@ dependencies:
     - field.field.node.article.field_authors_other
     - field.field.node.article.field_date
     - field.field.node.article.field_main_image
+    - field.field.node.article.field_meta_summary
     - field.field.node.article.field_original_article_url
     - field.field.node.article.field_resources
     - field.field.node.article.field_social_media_image
@@ -70,6 +71,7 @@ hidden:
   field_article_language: true
   field_authors_breema: true
   field_authors_other: true
+  field_meta_summary: true
   field_original_article_url: true
   field_resources: true
   field_social_media_image: true

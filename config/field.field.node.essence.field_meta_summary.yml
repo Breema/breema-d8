@@ -1,0 +1,19 @@
+uuid: c7565620-86d5-4436-ab93-6e482b246b8d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_meta_summary
+    - node.type.essence
+id: node.essence.field_meta_summary
+field_name: field_meta_summary
+entity_type: node
+bundle: essence
+label: 'Meta summary'
+description: 'One or two sentence summary of this page to use when sharing to social media. If blank, the <em>Summary</em> of the <em>Excerpt</em> field will be used, instead.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long
