@@ -109,7 +109,7 @@ display:
             field_address_country_code: field_address_country_code
             field_instructors: field_instructors
             created: created
-            uid_1: uid_1
+            uid: uid
             changed: changed
             revision_uid: revision_uid
             status: status
@@ -210,8 +210,8 @@ display:
               separator: ''
               empty_column: false
               responsive: priority-low
-            uid_1:
-              sortable: true
+            uid:
+              sortable: false
               default_sort_order: asc
               align: ''
               separator: ''
@@ -225,7 +225,7 @@ display:
               empty_column: false
               responsive: priority-low
             revision_uid:
-              sortable: true
+              sortable: false
               default_sort_order: asc
               align: ''
               separator: ''
@@ -1056,8 +1056,8 @@ display:
           entity_type: node
           entity_field: created
           plugin_id: field
-        uid_1:
-          id: uid_1
+        uid:
+          id: uid
           table: node_field_data
           field: uid
           relationship: none
@@ -1390,7 +1390,7 @@ display:
           exposed: true
           expose:
             operator_id: date_time_op
-            label: Date
+            label: 'Start date'
             description: ''
             use_operator: false
             operator: field_date_time_value_op
