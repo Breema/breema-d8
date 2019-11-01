@@ -111,6 +111,7 @@ display:
             created: created
             uid_1: uid_1
             changed: changed
+            status: status
           info:
             nid:
               sortable: true
@@ -118,7 +119,7 @@ display:
               align: ''
               separator: ''
               empty_column: false
-              responsive: ''
+              responsive: priority-medium
             title:
               sortable: true
               default_sort_order: asc
@@ -139,14 +140,14 @@ display:
               align: ''
               separator: ''
               empty_column: false
-              responsive: ''
+              responsive: priority-low
             field_date_time_2:
               sortable: true
               default_sort_order: desc
               align: ''
               separator: ''
               empty_column: false
-              responsive: ''
+              responsive: priority-low
             field_transfer_credit:
               sortable: true
               default_sort_order: desc
@@ -160,14 +161,14 @@ display:
               align: ''
               separator: ''
               empty_column: false
-              responsive: ''
+              responsive: priority-medium
             field_address_address_line1:
               sortable: false
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
-              responsive: ''
+              responsive: priority-low
             field_address_locality:
               sortable: true
               default_sort_order: asc
@@ -181,14 +182,14 @@ display:
               align: ''
               separator: ''
               empty_column: false
-              responsive: ''
+              responsive: priority-low
             field_address_postal_code:
               sortable: true
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
-              responsive: ''
+              responsive: priority-low
             field_address_country_code:
               sortable: true
               default_sort_order: asc
@@ -200,7 +201,7 @@ display:
               align: ''
               separator: ''
               empty_column: false
-              responsive: ''
+              responsive: priority-medium
             created:
               sortable: true
               default_sort_order: desc
@@ -216,6 +217,13 @@ display:
               empty_column: false
               responsive: priority-medium
             changed:
+              sortable: true
+              default_sort_order: desc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: priority-low
+            status:
               sortable: true
               default_sort_order: desc
               align: ''
@@ -1024,8 +1032,8 @@ display:
           click_sort_column: value
           type: timestamp
           settings:
-            date_format: html_datetime
-            custom_date_format: ''
+            date_format: custom
+            custom_date_format: 'Y-m-d H:i:s'
             timezone: ''
           group_column: value
           group_columns: {  }
@@ -1156,8 +1164,8 @@ display:
           click_sort_column: value
           type: timestamp
           settings:
-            date_format: html_datetime
-            custom_date_format: ''
+            date_format: custom
+            custom_date_format: 'Y-m-d H:i:s'
             timezone: ''
           group_column: value
           group_columns: {  }
@@ -1172,7 +1180,6 @@ display:
           entity_type: node
           entity_field: changed
           plugin_id: field
-      filters:
         status:
           id: status
           table: node_field_data
@@ -1180,37 +1187,67 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          operator: '='
-          value: '1'
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
+          label: Published
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: boolean
+          settings:
+            format: boolean
+            format_custom_true: ''
+            format_custom_false: ''
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
           entity_type: node
           entity_field: status
-          plugin_id: boolean
+          plugin_id: field
+      filters:
         type:
           id: type
           table: node_field_data
@@ -1316,6 +1353,52 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           plugin_id: datetime
+        status:
+          id: status
+          table: node_field_data
+          field: status
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: '1'
+          group: 1
+          exposed: true
+          expose:
+            operator_id: ''
+            label: 'Published status'
+            description: null
+            use_operator: false
+            operator: status_op
+            identifier: status
+            required: true
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: true
+          group_info:
+            label: Status
+            description: ''
+            identifier: status
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items:
+              1:
+                title: Published
+                operator: '='
+                value: '1'
+              2:
+                title: Unpublished
+                operator: '='
+                value: '0'
+          entity_type: node
+          entity_field: status
+          plugin_id: boolean
         field_address_country_code:
           id: field_address_country_code
           table: node__field_address
