@@ -16,6 +16,7 @@ module:
   config_direct_save: 0
   contact: 0
   contextual: 0
+  csv_serialization: 0
   ctools: 0
   datetime: 0
   datetime_extras: 0
@@ -75,6 +76,7 @@ module:
   recaptcha: 0
   redirect: 0
   responsive_menu: 0
+  rest: 0
   search: 0
   serialization: 0
   shortcut: 0
