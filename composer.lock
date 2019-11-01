@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1bfa15d64b028595b41dd21cddada72e",
+    "content-hash": "d09d44537886ba43083155ba7961ad17",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -2435,6 +2435,7 @@
                     "[#2625136-115] Fix label visibility and add wrapper container for exposed numeric/date filters with multiple form elements": "https://www.drupal.org/files/issues/2019-10-28/2625136-115.8_7_x.patch",
                     "[#2648950-224] Use form element of type date instead textfield when selecting a date in an exposed filter": "https://www.drupal.org/files/issues/2019-10-30/2648950-224.8_7_x.patch",
                     "[#2648950-224] Fix conflicts between #2648950 and #2625136": "https://www.drupal.org/files/issues/2019-10-30/2648950-224.changes-for-2625136.DO-NOT-TEST.patch",
+                    "[#2769289-32] Can't show 'revision author' on views of type 'Content'": "https://www.drupal.org/files/issues/2019-08-13/2769289-32.patch",
                     "[#2801501-8] Don't force the 'Manage' tray open in the toolbar on every page load": "https://www.drupal.org/files/issues/2019-08-16/2801501-8.no-auto-open-toolbar.patch",
                     "[#2835825-21 Media: Migration support": "https://www.drupal.org/files/issues/2835825-21.patch",
                     "[#2853188-14] Add negated regular expressions for views filters (string and integer)": "https://www.drupal.org/files/issues/2853188-14.patch",
