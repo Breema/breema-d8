@@ -38,6 +38,7 @@
     "drupal/config_installer": "^1.0",
     "drupal/console": "^1",
     "drupal/core": "^8.5",
+    "drupal/csv_serialization": "^2.0",
     "drupal/ctools": "^3.0",
     "drupal/datetime_extras": "^1.0",
     "drupal/diff": "^1.0@RC",
@@ -244,7 +245,7 @@
     "preferred-install": "dist",
     "sort-packages": true,
     "platform": {
-      "php": "7.0.8"
+      "php": "7.2.8"
     }
   }
 }
