@@ -231,7 +231,9 @@ function breema_preprocess_html(&$variables) {
         $meta_tags[] = ['property' => 'og:type', 'content' => 'article'];
         $authors = $node->get($author_field)->referencedEntities();
         $i = 0;
+        $author_names = [];
         foreach ($authors as $author) {
+          $author_names[] = $author->label();
           $id = 'article_author_' . $i++;
           $dir_entries = $author->get('field_directory_entry')->referencedEntities();
           if (!empty($dir_entries)) {
@@ -241,6 +243,12 @@ function breema_preprocess_html(&$variables) {
               'content' => $dir_entries[0]->toUrl('canonical', ['absolute' => TRUE])->toString(),
             ];
           }
+        }
+        if (!empty($author_names) && $node->bundle() === 'article') {
+          $meta_tags[] = [
+            'name' => 'author',
+            'content' => breema_fancy_implode($author_names),
+          ];
         }
         $meta_tags[] = [
           'property' => 'article:published_time',
