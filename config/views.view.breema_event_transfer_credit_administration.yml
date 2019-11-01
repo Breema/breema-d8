@@ -3,7 +3,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_address
     - field.storage.node.field_date_time
     - field.storage.node.field_instructors
     - field.storage.node.field_location
@@ -17,7 +16,6 @@ dependencies:
     - address
     - datetime
     - datetime_extras
-    - datetime_range
     - node
     - user
 id: breema_event_transfer_credit_administration
@@ -97,15 +95,18 @@ display:
           description: ''
           columns:
             nid: nid
-            uuid: uuid
             title: title
             field_date_time: field_date_time
-            field_date_time_1: field_date_time_1
             field_transfer_credit: field_transfer_credit
             field_location: field_location
-            field_address: field_address
+            field_address_address_line1: field_address_address_line1
+            field_address_locality: field_address_locality
+            field_address_administrative_area: field_address_administrative_area
+            field_address_postal_code: field_address_postal_code
+            field_address_country_code: field_address_country_code
             field_instructors: field_instructors
             created: created
+            uid_1: uid_1
             changed: changed
           info:
             nid:
@@ -115,11 +116,6 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
-            uuid:
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: priority-low
             title:
               sortable: true
               default_sort_order: asc
@@ -130,13 +126,6 @@ display:
             field_date_time:
               sortable: true
               default_sort_order: desc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_date_time_1:
-              sortable: false
-              default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
@@ -155,13 +144,41 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
-            field_address:
+            field_address_address_line1:
               sortable: false
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
-              responsive: priority-medium
+              responsive: ''
+            field_address_locality:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_address_administrative_area:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_address_postal_code:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_address_country_code:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
             field_instructors:
               align: ''
               separator: ''
@@ -174,14 +191,21 @@ display:
               separator: ''
               empty_column: false
               responsive: priority-low
+            uid_1:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: priority-medium
             changed:
               sortable: true
               default_sort_order: desc
               align: ''
               separator: ''
               empty_column: false
-              responsive: ''
-          default: nid
+              responsive: priority-low
+          default: field_date_time
           empty_table: false
       row:
         type: fields
@@ -251,71 +275,6 @@ display:
           field_api_classes: false
           entity_type: node
           entity_field: nid
-          plugin_id: field
-        uuid:
-          id: uuid
-          table: node
-          field: uuid
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: UUID
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: string
-          settings:
-            link_to_entity: false
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          entity_type: node
-          entity_field: uuid
           plugin_id: field
         title:
           id: title
@@ -416,71 +375,6 @@ display:
           type: daterange_compact
           settings:
             format_type: medium
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
-        field_date_time_1:
-          id: field_date_time_1
-          table: node__field_date_time
-          field: field_date_time
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: 'Date range'
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: daterange_custom
-          settings:
-            timezone_override: ''
-            date_format: m/d/y
-            separator: ' - '
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -621,14 +515,14 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
-        field_address:
-          id: field_address
+        field_address_address_line1:
+          id: field_address_address_line1
           table: node__field_address
-          field: field_address
+          field: field_address_address_line1
           relationship: none
           group_type: group
           admin_label: ''
-          label: Address
+          label: 'Street address'
           exclude: false
           alter:
             alter_text: false
@@ -669,20 +563,206 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          click_sort_column: langcode
-          type: address_default
-          settings: {  }
-          group_column: ''
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
+          plugin_id: standard
+        field_address_locality:
+          id: field_address_locality
+          table: node__field_address
+          field: field_address_locality
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: City
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          display_name: true
+          plugin_id: subdivision
+        field_address_administrative_area:
+          id: field_address_administrative_area
+          table: node__field_address
+          field: field_address_administrative_area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: State/province
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          display_name: true
+          plugin_id: subdivision
+        field_address_postal_code:
+          id: field_address_postal_code
+          table: node__field_address
+          field: field_address_postal_code
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Postal code'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          plugin_id: standard
+        field_address_country_code:
+          id: field_address_country_code
+          table: node__field_address
+          field: field_address_country_code
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Country
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          display_name: true
+          plugin_id: country
         field_instructors:
           id: field_instructors
           table: node__field_instructors
@@ -812,6 +892,71 @@ display:
           field_api_classes: false
           entity_type: node
           entity_field: created
+          plugin_id: field
+        uid_1:
+          id: uid_1
+          table: node_field_data
+          field: uid
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Authored by'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: entity_reference_label
+          settings:
+            link: false
+          group_column: target_id
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          entity_type: node
+          entity_field: uid
           plugin_id: field
         changed:
           id: changed
@@ -988,11 +1133,11 @@ display:
           exposed: true
           expose:
             operator_id: date_time_op
-            label: Date/time
+            label: Date
             description: ''
             use_operator: false
             operator: field_date_time_value_op
-            identifier: date_time
+            identifier: date
             required: false
             remember: false
             multiple: false
@@ -1005,6 +1150,7 @@ display:
               event_expert: '0'
               content_editor: '0'
               content_administrator: '0'
+              event_administrator: '0'
               user_administrator: '0'
               administrator: '0'
             placeholder: ''
@@ -1156,7 +1302,6 @@ display:
         - 'user.node_grants:view'
         - user.roles
       tags:
-        - 'config:field.storage.node.field_address'
         - 'config:field.storage.node.field_date_time'
         - 'config:field.storage.node.field_instructors'
         - 'config:field.storage.node.field_location'
@@ -1188,7 +1333,6 @@ display:
         - 'user.node_grants:view'
         - user.roles
       tags:
-        - 'config:field.storage.node.field_address'
         - 'config:field.storage.node.field_date_time'
         - 'config:field.storage.node.field_instructors'
         - 'config:field.storage.node.field_location'
