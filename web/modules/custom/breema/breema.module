@@ -1702,16 +1702,6 @@ function breema_form_views_exposed_form_alter(&$form, \Drupal\Core\Form\FormStat
     }
   }
 
-  if (!empty($form['geolocation_op'])) {
-    $form['geolocation_op']['#title'] = t('Geolocation');
-    $form['geolocation_op']['#options'] = [
-      ' ' => t('- Any -'),
-      'not empty' => t('Defined'),
-      'empty' => t('Undefined'),
-    ];
-    $form['geolocation_op']['#default_value'] = ' ';
-  }
-
   // Completely hide the boundary filters so they don't flicker on JS loading.
   if (!empty($form['boundary_wrapper'])) {
     foreach (Element::children($form['boundary_wrapper']['boundary']) as $key) {

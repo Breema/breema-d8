@@ -1291,18 +1291,32 @@ display:
             placeholder: ''
             min_placeholder: ''
             max_placeholder: ''
-          is_grouped: false
+          is_grouped: true
           group_info:
-            label: ''
+            label: Geolocation
             description: ''
-            identifier: ''
+            identifier: geolocation
             optional: true
             widget: select
             multiple: false
             remember: false
             default_group: All
             default_group_multiple: {  }
-            group_items: {  }
+            group_items:
+              1:
+                title: Defined
+                operator: 'not empty'
+                value:
+                  value: ''
+                  min: ''
+                  max: ''
+              2:
+                title: Undefined
+                operator: empty
+                value:
+                  value: ''
+                  min: ''
+                  max: ''
           plugin_id: numeric
         field_email_value:
           id: field_email_value
