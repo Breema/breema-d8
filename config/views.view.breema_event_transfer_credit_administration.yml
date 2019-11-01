@@ -1425,6 +1425,7 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
+          granularity: day
           plugin_id: datetime
         status:
           id: status
