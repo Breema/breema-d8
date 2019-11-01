@@ -1952,11 +1952,12 @@ function breema_node_cud__event(NodeInterface $node, $operation) {
     }
   }
 
+  $admin_all = Url::fromUri('internal:/admin/content/breema-events-xfer', ['absolute' => TRUE]);
   $footer = [
     '#theme' => 'item_list',
     '#list_type' => 'ul',
     '#items' => [
-      t('This event: @url', ['@url' => $params['entity']->toUrl('canonical', ['absolute' => TRUE])->toString()]),
+      t('This event: @url', ['@url' => $node->toUrl('canonical', ['absolute' => TRUE])->toString()]),
       t('Administer all events with transfer credit: @url', ['@url' => $admin_all->toString()]),
     ],
   ];
