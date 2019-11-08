@@ -2,12 +2,14 @@ uuid: a0c03e1c-c44b-499c-8b90-9bf90a6c4944
 langcode: en
 status: true
 dependencies:
+  config:
+    - flag.flag.my_places
   module:
     - flag
-id: flag_action.my_places.unflag
+id: flag_action.my_places_unflag
 label: 'Remove from my places'
 type: node
-plugin: 'flag_action:my_places.unflag'
+plugin: 'flag_action:my_places_unflag'
 configuration:
   flag_id: my_places
   flag_action: unflag

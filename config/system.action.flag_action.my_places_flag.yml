@@ -2,12 +2,14 @@ uuid: 71518ac9-7526-4b39-9fd0-6bcac22b8046
 langcode: en
 status: true
 dependencies:
+  config:
+    - flag.flag.my_places
   module:
     - flag
-id: flag_action.my_places.flag
+id: flag_action.my_places_flag
 label: 'Add to my places'
 type: node
-plugin: 'flag_action:my_places.flag'
+plugin: 'flag_action:my_places_flag'
 configuration:
   flag_id: my_places
   flag_action: flag
