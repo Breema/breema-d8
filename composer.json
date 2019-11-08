@@ -183,13 +183,6 @@
       "drupal/flexslider": {
         "[#3086080-3] Add flexslider support for any (multi-valued) entity reference field" : "https://www.drupal.org/files/issues/2019-10-06/3086080-3.flexslider-entity.patch"
       },
-      "drupal/forward": {
-        "[#2969337-6] Settings form UI improvement for dependent config options" : "https://www.drupal.org/files/issues/2018-05-03/2969337-6.patch",
-        "[#2969352-10] Follow-up fix for plain text emails" : "https://www.drupal.org/files/issues/2018-05-04/2969352-10.plain-text-needs-helper-class.patch",
-        "[#2969594-2] Simplify entity rendering code in ForwardForm::submitForm()" : "https://www.drupal.org/files/issues/2018-05-04/2969594-2.simplify-entity-rendering.patch",
-        "[#2971228-6] Provide #recipient as a variable for the forward twig template" : "https://www.drupal.org/files/issues/2019-02-20/2971228-6.forward-recipient-template-variable.patch",
-        "[#2972096-12] Fix config export to only show entities where forward is enabled" : "https://www.drupal.org/files/issues/2019-02-20/2972096-11.forward-clean-config-8x-2x-backport.patch"
-      },
       "drupal/geolocation": {
         "[#2921121-2] Empty h2 markup when locations don't use a 'title' field" : "https://www.drupal.org/files/issues/2921121-1.hide-location-title-completely.patch",
         "[#2921437-11] Provide simple JS pager for raw results on Google common map display" : "https://www.drupal.org/files/issues/2019-03-07/2921437-11.raw-location-js-pager.patch"
