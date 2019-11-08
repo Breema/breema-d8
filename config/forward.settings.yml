@@ -23,11 +23,9 @@ forward_email_logo: ''
 forward_email_subject: '[forward:sender-name] has forwarded a page to you from [site:name]'
 forward_email_message: '[forward:sender-name] thought you would like to see this page from [site:name] web site.'
 forward_bypass_access_control: 0
-forward_filter_format: ''
 forward_flood_control_limit: 10
 forward_flood_control_error: 'You can''t send more than @number messages per hour. Please try again later.'
 forward_max_recipients: 1
-forward_max_recipients_error: 'You can''t send email to more than @number recipient(s) at a time.'
 _core:
   default_config_hash: nxSrDLfGrYXfq31BHWTA8e--X4HfLSVGF_8lJkB3CHA
 forward_email_from_address: website@breema.com
@@ -38,3 +36,7 @@ forward_node_event: true
 forward_node_page: true
 forward_node_place: true
 forward_node_product: true
+forward_form_allow_plain_text: false
+forward_filter_format_html: ''
+forward_filter_format_plain_text: ''
+forward_email_footer: ''
