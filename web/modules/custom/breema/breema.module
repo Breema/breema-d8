@@ -3293,3 +3293,11 @@ function breema_query_breema_day_of_week_alter(AlterableInterface $query) {
   $query->where("DATE_FORMAT(node__field_date_time.field_date_time_value, '%w') = :day_of_week", $args);
   // @todo Consider a condition on the start time, too?
 }
+
+/**
+ * Implements hook_preprocess_views_view_fullcalendar()
+ */
+function breema_preprocess_views_view_fullcalendar(array &$variables) {
+  $variables['#attached']['drupalSettings']['minTime'] = '07:00:00';
+  $variables['#attached']['drupalSettings']['maxTime'] = '22:00:00';
+}
