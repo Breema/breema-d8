@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3116095283bba39b56c816158bf63243",
+    "content-hash": "e60e9597ed33a2ab4931dd1d9c9aaba7",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -3823,6 +3823,9 @@
                         "status": "not-covered",
                         "message": "Dev releases are not covered by Drupal security advisories."
                     }
+                },
+                "patches_applied": {
+                    "[#3009683-4] Restrict hours on calendar": "https://www.drupal.org/files/issues/2019-11-09/3009683-4.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
