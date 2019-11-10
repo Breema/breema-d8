@@ -1104,12 +1104,21 @@ ol.location-results .field--name-field-upcoming-events > .field__item {
 }
 .flexslider h2,
 .flexslider a.teaser-link h2 {
-  margin-top: 0;
+  margin: 0 0 0.4em 0;
   font-size: 2.20em;
+  line-height: 1em;
   color: #a82133;
 }
-.flexslider h3 {
+.flexslider h3,
+.flexslider a.teaser-link h3 {
+  margin: 0 0 0.2em 0;
   font-size: 1.8em;
+  line-height: 1em;
+  color: #007cb2;
+}
+.flexslider a.teaser-link:hover h3,
+.flexslider a.teaser-link:focus h3 {
+  text-decoration: none;
   color: #007cb2;
 }
 .flexslider .slides {

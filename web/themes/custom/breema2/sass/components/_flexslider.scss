@@ -12,7 +12,7 @@
 
   a.teaser-link .node--sticky {
     background-color: inherit;
- }
+  }
 
   p {
     margin: 0 0 0.5em 0;
@@ -21,12 +21,21 @@
 
   h2,
   a.teaser-link h2 {
-    margin-top: 0;
+    margin: 0 0 0.4em 0;
     font-size: 2.20em;
+    line-height: 1em;
     color: $c-red;
   }
-  h3 {
+  h3,
+  a.teaser-link h3 {
+    margin: 0 0 0.2em 0;
     font-size: 1.8em;
+    line-height: 1em;
+    color: $c-blue;
+  }
+  a.teaser-link:hover h3,
+  a.teaser-link:focus h3 {
+    text-decoration: none;
     color: $c-blue;
   }
   .slides {
