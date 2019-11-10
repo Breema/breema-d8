@@ -56,25 +56,35 @@ h1 {
   color: #a82133;
 }
 
+h2,
 .main-content h2 {
   font-size: 1.5em;
   color: #a82133;
+  margin: 0 0 0.5em 0;
 }
-.main-content a h2 {
+
+a h2 {
   color: #752d53;
 }
-.main-content a:focus h2,
-.main-content a:hover h2 {
+
+a:focus h2,
+a:hover h2 {
   color: #883584;
 }
-.main-content h3 {
+
+h3 {
   font-size: 1.25em;
+  margin: 0 0 0.5em 0;
 }
-.main-content h4 {
+
+h4 {
   font-size: 1.1em;
+  margin: 0 0 0.5em 0;
 }
-.main-content h5 {
+
+h5 {
   font-size: 1.05em;
+  margin: 0 0 0.5em 0;
 }
 
 a {

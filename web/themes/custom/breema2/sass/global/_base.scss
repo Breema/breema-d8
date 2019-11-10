@@ -11,28 +11,30 @@ h1 {
   margin: 0 0 0.5em 0;
   color: $c-red;
 }
-
-.main-content {
-  h2 {
-    font-size: 1.5em;
-    color: $c-red;
-  }
-  a h2 {
-    color: $c-plum;
-  }
-  a:focus h2,
-  a:hover h2 {
-    color: $c-purple;
-  }
-  h3 {
-    font-size: 1.25em;
-  }
-  h4 {
-   font-size: 1.1em;
-  }
-  h5 {
-    font-size: 1.05em;
-  }
+h2,
+.main-content h2 {
+  font-size: 1.5em;
+  color: $c-red;
+  margin: 0 0 0.5em 0;
+}
+a h2 {
+  color: $c-plum;
+}
+a:focus h2,
+a:hover h2 {
+  color: $c-purple;
+}
+h3 {
+  font-size: 1.25em;
+  margin: 0 0 0.5em 0;
+}
+h4 {
+ font-size: 1.1em;
+  margin: 0 0 0.5em 0;
+}
+h5 {
+  font-size: 1.05em;
+  margin: 0 0 0.5em 0;
 }
 
 a {
