@@ -1610,7 +1610,7 @@ ul.menu.mm-listview a.is-active {
 
 .block-social-share-block {
   float: right;
-  margin: 0 1em;
+  margin: 0 1em 1em;
   position: relative;
   z-index: 1;
 }
