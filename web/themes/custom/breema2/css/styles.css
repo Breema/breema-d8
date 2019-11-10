@@ -19,6 +19,18 @@
   font-weight: bold;
   font-style: italic;
 }
+p.large {
+  font-size: 1.15em;
+}
+
+p.larger {
+  font-size: 1.2em;
+}
+
+p.huge {
+  font-size: 1.3em;
+}
+
 body {
   font-family: "Cabin", sans-serif;
   color: #1a272e;
@@ -85,14 +97,6 @@ a:hover {
 p.address {
   margin: 1em 0;
   font-style: italic;
-}
-
-p.huge {
-  font-size: 1.3em;
-}
-
-p.large {
-  font-size: 1.15em;
 }
 
 blockquote,
