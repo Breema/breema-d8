@@ -19,7 +19,7 @@ content:
   field_media_file:
     label: visually_hidden
     settings:
-      use_description_as_link_text: false
+      use_description_as_link_text: true
     third_party_settings: {  }
     type: file_default
     weight: 1
