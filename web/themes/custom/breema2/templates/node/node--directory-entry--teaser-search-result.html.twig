@@ -9,6 +9,15 @@
     'clearfix',
   ]
 %}
+{%
+  set title_fields = [
+    'field_certification',
+    'field_job_title',
+    'field_breema_center_staff',
+    'field_breema_clinic_practitioner',
+  ]
+%}
+
 {{ attach_library('classy/node') }}
 
 <article{{ attributes.addClass(classes) }}>
@@ -22,11 +31,13 @@
           </h2>
         </a>
       </header>
-      {{ content.field_certification }}
+      {% for field in title_fields %}
+        {{ content[field] }}
+      {% endfor %}
     </div>
     <div class="grid-item">
       <div{{ content_attributes }}>
-        {{ content|without('field_upcoming_events', 'field_certification', 'headshot') }}
+        {{ content|without('headshot', 'field_upcoming_events', 'field_certification', 'field_job_title', 'field_breema_center_staff', 'field_breema_clinic_practitioner') }}
       </div>
     </div>
   </div>
