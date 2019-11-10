@@ -27,9 +27,13 @@
 
 @media (min-width: 630px) {
   .grid--container-1-2,
-  .grid--container-1-2-3,
-  .grid--container-1-2-4 {
+  .grid--container-1-2-4,
+  .region-sidebar-first .grid--container-1-2-3 {
     grid-template-columns: 1fr 1fr;
+  }
+  .grid--container-1-2-4 {
+    grid-column-gap: 20px;
+    grid-row-gap: 30px;
   }
   .grid--container-1-2u3366 {
     grid-template-columns: 1fr 2fr;
@@ -46,7 +50,6 @@
   .grid--container-1-3 {
     grid-template-columns: 1fr 1fr 1fr;
   }
-  .grid--container-1-2-3,
   .region-sidebar-first .grid--container-1-2-3 {
     grid-template-columns: 1fr 1fr 1fr;
   }
@@ -54,6 +57,10 @@
 @media (min-width: 851px) {
   .grid--container {
     grid-column-gap: 15px;
+  }
+  .grid--container-1-2-4 {
+    grid-column-gap: 20px;
+    grid-row-gap: 30px;
   }
   .grid--container-1-2,
   .region-sidebar-first .grid--container-1-2,
@@ -63,10 +70,18 @@
   .grid--container-1-2-3 {
     grid-template-columns: 1fr 1fr;
   }
+  .grid--container.field--name-field-tiles {
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+  }
 
 }
 
 @media (min-width: 1024px) {
+  .grid--container.field--name-field-tiles {
+    grid-column-gap: 40px;
+    grid-row-gap: 20px;
+  }
   .grid--container-1-2 {
     grid-template-columns: 1fr 1fr;
   }
@@ -78,6 +93,11 @@
 @media (min-width: 1251px) {
   .grid--container {
     grid-column-gap: 20px;
+    grid-row-gap: 15px;
+  }
+  .grid--container.field--name-field-tiles {
+    grid-column-gap: 60px;
+    grid-row-gap: 30px;
   }
   .grid--container-1-2-4 {
     grid-template-columns: 1fr 1fr 1fr 1fr;
