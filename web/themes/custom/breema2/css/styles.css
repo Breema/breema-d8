@@ -1099,6 +1099,14 @@ ol.location-results .field--name-field-upcoming-events > .field__item {
   padding: 1em 0 0 0;
 }
 
+#block-breema2-essence-subscribe-content,
+#block-breema2-essence-subscribe-list {
+  padding-bottom: 1em;
+  margin-bottom: 2em;
+  border-bottom: 1px solid #bbb;
+  text-align: center;
+}
+
 .view-breema-event-search ul.results li {
   margin: 0 0 0.5em 0;
   padding: 0 0 0.5em 0;
