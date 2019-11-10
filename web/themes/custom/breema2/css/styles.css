@@ -1354,6 +1354,14 @@ ul.menu a.is-active {
   margin: 0 auto;
 }
 
+.profile .field {
+  margin: 0 0 1em 0;
+}
+.profile .field--name-body,
+.profile .field--name-field-directory-entry {
+  margin: 0;
+}
+
 .responsive-menu-block-wrapper {
   display: none;
 }
