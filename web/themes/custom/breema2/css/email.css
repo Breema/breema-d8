@@ -1189,6 +1189,13 @@ ol.location-results .field--name-field-upcoming-events > .field__item {
   margin: 0 auto;
 }
 
+.node--type-place .field--name-field-geolocation {
+  margin: 0 0 1em 0;
+}
+.node--type-place .field--name-body {
+  margin: 1em 0;
+}
+
 .attachment-after {
   margin: 1em 0 0 0;
 }

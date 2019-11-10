@@ -1356,6 +1356,13 @@ ul.menu a.is-active {
   margin: 0 auto;
 }
 
+.node--type-place .field--name-field-geolocation {
+  margin: 0 0 1em 0;
+}
+.node--type-place .field--name-body {
+  margin: 1em 0;
+}
+
 .profile .field {
   margin: 0 0 1em 0;
 }
