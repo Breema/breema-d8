@@ -20,6 +20,7 @@ settings:
             - Bold
             - Italic
             - RemoveFormat
+            - Styles
         -
           name: Linking
           items:
@@ -49,7 +50,7 @@ settings:
     language:
       language_list: un
     stylescombo:
-      styles: ''
+      styles: "p.large|Large text\r\np.larger|Larger text\r\np.huge|Huge text\r\n"
 image_upload:
   status: true
   scheme: public
