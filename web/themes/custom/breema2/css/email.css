@@ -1022,6 +1022,11 @@ ol.location-results .field--name-field-upcoming-events > .field__item {
   padding: 1em 0 0 0;
 }
 
+.node--type-directory-entry .node--type-article .field--name-body {
+  clear: none;
+  padding: 0;
+}
+
 .block-essence-footer-block .action {
   max-width: 250px;
   display: block;

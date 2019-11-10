@@ -6,7 +6,13 @@
   padding-top: 2em;
 }
 
+// We want the body to not wrap next to the headshot.
 .node--type-directory-entry .field--name-body {
   clear: both;
   padding: 1em 0 0 0;
+}
+// But we *do* want article teasers to wrap up next to the thumbnail.
+.node--type-directory-entry .node--type-article .field--name-body {
+  clear: none;
+  padding: 0;
 }
