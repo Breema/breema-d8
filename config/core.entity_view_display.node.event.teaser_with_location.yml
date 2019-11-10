@@ -6,6 +6,7 @@ dependencies:
     - core.entity_view_mode.node.teaser_with_location
     - field.field.node.event.body
     - field.field.node.event.field_address
+    - field.field.node.event.field_breema_center_sponsored
     - field.field.node.event.field_categories
     - field.field.node.event.field_date_time
     - field.field.node.event.field_display_instructor_bios
@@ -78,6 +79,7 @@ content:
 hidden:
   body: true
   field_address: true
+  field_breema_center_sponsored: true
   field_categories: true
   field_display_instructor_bios: true
   field_facebook_event: true
