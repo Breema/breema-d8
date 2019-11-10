@@ -14,3 +14,12 @@ p.larger {
 p.huge {
   font-size: 1.3em;
 }
+
+li {
+  p:first-child {
+    margin-top: 0;
+  }
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
