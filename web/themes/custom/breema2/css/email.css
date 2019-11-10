@@ -506,7 +506,7 @@ a.telephone:before,
 }
 
 .region-sidebar-first .grid--container {
-  grid-row-gap: 5px;
+  grid-row-gap: 0;
 }
 
 .grid--container-2 {

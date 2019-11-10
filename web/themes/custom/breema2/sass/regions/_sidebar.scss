@@ -15,8 +15,9 @@
     font-size: 1.2em;
   }
   .item-list li {
-    margin: 0 0 0.25em 0;
-    padding: 0;
+    margin: 0 0 0.5em 0;
+    padding: 0 0 0.5em 0;
+    border-bottom: 1px solid darken($c-grey, 5%);
   }
   // No top padding on articles in ol's in the sidebar, so they
   // vertically align with the list identifiers themselves.

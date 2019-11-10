@@ -506,7 +506,7 @@ a.telephone:before,
 }
 
 .region-sidebar-first .grid--container {
-  grid-row-gap: 5px;
+  grid-row-gap: 0;
 }
 
 .grid--container-2 {
@@ -751,8 +751,9 @@ a.telephone:before,
   font-size: 1.2em;
 }
 .sidebar .item-list li {
-  margin: 0 0 0.25em 0;
-  padding: 0;
+  margin: 0 0 0.5em 0;
+  padding: 0 0 0.5em 0;
+  border-bottom: 1px solid #d1d3d0;
 }
 .sidebar ol li {
   margin: 0 0 0.5em 0;
