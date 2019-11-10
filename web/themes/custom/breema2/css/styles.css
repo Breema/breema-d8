@@ -212,14 +212,17 @@ figure .node--view-mode-view-full,
 }
 
 .text-formatted li {
-  margin: 0.5em 0;
+  margin: 0 0 1em 0;
 }
 .text-formatted ol, .text-formatted ul {
-  margin: 0 0 1em 1em;
+  margin: 0 0 0 1em;
   display: inline-block;
 }
 .text-formatted ol ol, .text-formatted ul ul {
   margin: 0 0 0 1em;
+}
+.text-formatted ol ol li:last-child, .text-formatted ul ul li:last-child {
+  margin: 0;
 }
 .text-formatted ul.social-media-links--platforms {
   margin: 0;
