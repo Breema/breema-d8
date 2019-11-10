@@ -279,6 +279,33 @@ function breema_preprocess_html(&$variables) {
 
     }
   }
+  else {
+    $meta_tags = [];
+    $route = $route_match->getRouteObject();
+    $view_id = $route->getDefault('view_id');
+    if (!empty($view_id)) {
+      $display_id = $route->getDefault('display_id');
+      $view = Views::getView($view_id);
+      $view->setDisplay($display_id);
+      $extenders = $view->getDisplay()->getExtenders();
+      if (!empty($extenders['breema_metatag_display_extender'])) {
+        // Retrieve the metatag settings from the extender.
+        $metatags = $extenders['breema_metatag_display_extender']->getMetatags();
+        if (!empty($metatags)) {
+          if (!empty($metatags['description'])) {
+            $meta_tags[] = ['property' => 'og:description', 'name' => 'description', 'content' => $metatags['description']];
+          }
+          if (!empty($metatags['image'])) {
+            $media_entity = Media::load($metatags['image']);
+            if (!empty($media_entity)) {
+              $share_image_info = $media_entity->get('field_media_image')->getValue();
+              $share_image_file = File::load($share_image_info[0]['target_id']);
+            }
+          }
+        }
+      }
+    }
+  }
 
   // Since the front page is in fact a node, we need these checks outside the
   // other conditionals so that it always runs for nodes.
@@ -352,32 +379,33 @@ function breema_preprocess_html(&$variables) {
           break;
       }
     }
-    // If we found something, use it.
-    if (!empty($share_image_file)) {
-      $meta_tags = array_merge(
-        $meta_tags,
+  }
+
+  // If we found something, use it.
+  if (!empty($share_image_file)) {
+    $meta_tags = array_merge(
+      $meta_tags,
+      [
+        ['property' => 'twitter:card', 'content' => 'summary_large_image'],
+        ['property' => 'og:image', 'content' => $share_image_file->url()],
         [
-          ['property' => 'twitter:card', 'content' => 'summary_large_image'],
-          ['property' => 'og:image', 'content' => $share_image_file->url()],
-          [
-            'property' => 'og:image:type',
-            'content' => $share_image_file->getMimeType(),
-          ],
-          [
-            'property' => 'og:image:width',
-            'content' => $share_image_info[0]['width'],
-          ],
-          [
-            'property' => 'og:image:height',
-            'content' => $share_image_info[0]['height'],
-          ],
-        ]
-      );
-    }
-    else {
-      // No image, tell Twitter to use the regular 'summary' card type.
-      $meta_tags[] = ['property' => 'twitter:card', 'content' => 'summary'];
-    }
+          'property' => 'og:image:type',
+          'content' => $share_image_file->getMimeType(),
+        ],
+        [
+          'property' => 'og:image:width',
+          'content' => $share_image_info[0]['width'],
+        ],
+        [
+          'property' => 'og:image:height',
+          'content' => $share_image_info[0]['height'],
+        ],
+      ]
+    );
+  }
+  else {
+    // No image, tell Twitter to use the regular 'summary' card type.
+    $meta_tags[] = ['property' => 'twitter:card', 'content' => 'summary'];
   }
 
   // Global properties, regardless of page:
