@@ -1,3 +1,29 @@
+/* Cabin (most of the site) */
+@font-face {
+  font-family: 'Cabin';
+  src: url("../fonts/Cabin-Regular.woff") format("woff"), url("../fonts/Cabin-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: 'Cabin';
+  src: url("../fonts/Cabin-Bold.woff") format("woff"), url("../fonts/Cabin-Bold.ttf") format("truetype");
+  font-weight: bold;
+}
+@font-face {
+  font-family: 'Cabin';
+  src: url("../fonts/Cabin-Italic.woff") format("woff"), url("../fonts/Cabin-Italic.ttf") format("truetype");
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Cabin';
+  src: url("../fonts/Cabin-BoldItalic.woff") format("woff"), url("../fonts/Cabin-BoldItalic.ttf") format("truetype");
+  font-weight: bold;
+  font-style: italic;
+}
+body {
+  font-family: "Cabin", sans-serif;
+  color: #1a272e;
+}
+
 p.large {
   font-size: 1.15em;
 }

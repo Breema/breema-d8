@@ -19,6 +19,11 @@
   font-weight: bold;
   font-style: italic;
 }
+body {
+  font-family: "Cabin", sans-serif;
+  color: #1a272e;
+}
+
 p.large {
   font-size: 1.15em;
 }
@@ -32,8 +37,6 @@ p.huge {
 }
 
 body {
-  font-family: "Cabin", sans-serif;
-  color: #1a272e;
   background-color: #752d53;
 }
 
