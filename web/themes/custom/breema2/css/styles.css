@@ -1851,3 +1851,10 @@ details.e-books .details-wrapper {
     width: auto;
   }
 }
+.attachment-after {
+  margin: 1em 0 0 0;
+}
+
+.feed-icon {
+  margin: 0;
+}

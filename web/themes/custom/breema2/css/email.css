@@ -1187,6 +1187,14 @@ ol.location-results .field--name-field-upcoming-events > .field__item {
   margin: 0 auto;
 }
 
+.attachment-after {
+  margin: 1em 0 0 0;
+}
+
+.feed-icon {
+  margin: 0;
+}
+
 img {
   max-width: 100%;
   height: auto;
