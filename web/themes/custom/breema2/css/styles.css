@@ -1065,6 +1065,10 @@ ol.location-results .field--name-field-upcoming-events > .field__item {
 
 .view-breema-events-by-instructor {
   clear: both;
+  padding-bottom: 1em;
+}
+
+.view-breema-events-by-instructor.view-display-id-block_map {
   padding-top: 2em;
 }
 
