@@ -1084,6 +1084,10 @@ ol.location-results .field--name-field-upcoming-events > .field__item {
     max-width: none;
   }
 }
+.field--name-field-resources .field__item {
+  margin: 0 0 1em 0;
+}
+
 /**
  * @file
  * Styles for pagination.
