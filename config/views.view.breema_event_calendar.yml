@@ -639,9 +639,11 @@ display:
             agendaDay: agendaDay
             listYear: listYear
           default_view: month
-          firstDay: '6'
+          firstDay: '1'
           nav_links: 1
+          timeFormat: 'H(:mm)'
           alloweventOverlap: 1
+          updateAllowed: 1
           updateConfirm: 1
           defaultLanguage: en
           languageSelector: 1
@@ -661,7 +663,7 @@ display:
             private_page: '#3a87ad'
             product: '#3a87ad'
             session_resume: '#3a87ad'
-          bundle_type: article
+          bundle_type: event
           classes: ''
     cache_metadata:
       max-age: -1
