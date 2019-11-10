@@ -965,13 +965,15 @@ a.telephone:before,
   text-align: center;
   max-width: 150px;
 }
-
-div.danger {
+.sidebar .danger {
   display: block;
-  margin: 1em auto 0;
+  margin: 0 auto;
   text-align: center;
 }
 
+.danger {
+  margin: 0 0 0 0.25em;
+}
 .danger a {
   color: #d20505;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;

@@ -68,15 +68,15 @@
       max-width: 150px;
     }
   }
-}
-
-div.danger {
-  display: block;
-  margin: 1em auto 0;
-  text-align: center;
+  .danger {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+  }
 }
 
 .danger {
+  margin: 0 0 0 0.25em;
   a {
     color: $c-red-danger;
     font-family: $ff-helv;
