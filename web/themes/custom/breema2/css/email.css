@@ -670,6 +670,7 @@ a.telephone:before,
   word-spacing: 100vw;
   font-size: 22px;
   line-height: 22px;
+  margin-top: 10px;
 }
 .site-branding__name a {
   color: #a82133;
