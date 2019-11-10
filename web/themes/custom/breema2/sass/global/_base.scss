@@ -186,53 +186,41 @@ hr {
   border-bottom: 1px dashed #aaa;
 }
 
-a.teaser-link h3 {
- font-size: 1.4em;
-}
-
 a.teaser-link {
   color: black;
   text-decoration: none;
   border-bottom: none;
+
+  h3 {
+    font-size: 1.4em;
+  }
+  h2, h3, h4, .more-link {
+    color: $c-plum;
+    margin: 0 0 0.4em 0;
+    line-height: 1.2em;
+  }
+
+  article.node {
+    padding: 0.25em;
+  }
+  .field--type-entity-reference {
+    margin: 0;
+  }
+  article .field--type-entity-reference article {
+    margin: 0;
+    padding: 0;
+  }
+  .field--name-field-date-time {
+    font-style: italic;
+    margin: 0 0 0.25em 0;
+  }
 }
 
-a.teaser-link h2,
-a.teaser-link h3,
-a.teaser-link h4,
-a.teaser-link .more-link {
-  color: $c-plum;
-  margin: 0 0 0.4em 0;
-  line-height: 1.2em;
-}
-
-a.teaser-link:hover h2,
-a.teaser-link:focus h2,
-a.teaser-link:hover h3,
-a.teaser-link:focus h3,
-a.teaser-link:hover h4,
-a.teaser-link:focus h4,
-a.teaser-link:focus .more-link,
-a.teaser-link:hover .more-link {
-  color: $c-purple;
-  text-decoration: underline;
-}
-
-a.teaser-link article.node {
-  padding: 0.25em;
-}
-
-a.teaser-link .field--type-entity-reference {
-  margin: 0;
-}
-
-a.teaser-link article .field--type-entity-reference article {
-  margin: 0;
-  padding: 0;
-}
-
-a.teaser-link .field--name-field-date-time {
-  font-style: italic;
-  margin: 0 0 0.25em 0;
+a.teaser-link:hover, a.teaser-link:focus {
+  h2, h3, h4, .more-link {
+    color: $c-purple;
+    text-decoration: underline;
+  }
 }
 
 .node--type-article .source-info {
