@@ -1072,12 +1072,12 @@ ol.location-results .field--name-field-upcoming-events > .field__item {
   padding-top: 2em;
 }
 
-.node--type-directory-entry .field--name-body {
+.node--type-directory-entry.node--view-mode-full .field--name-body {
   clear: both;
   padding: 1em 0 0 0;
 }
 
-.node--type-directory-entry .node--type-article .field--name-body {
+.node--type-directory-entry.node--view-mode-full .node--type-article .field--name-body {
   clear: none;
   padding: 0;
 }
