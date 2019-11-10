@@ -1,13 +1,17 @@
-.media--view-mode-view-large {
+.media--type-video.media--view-mode-view-full {
+  clear: both;
+  padding: 1em 0 0 0;
+}
+.media--type-video.media--view-mode-view-large {
   max-width: 640px;
 }
-.media--view-mode-view-medium {
+.media--type-video.media--view-mode-view-medium {
   max-width: 480px;
 }
-.media--view-mode-view-small {
+.media--type-video.media--view-mode-view-small {
   max-width: 320px;
 }
-.media--view-mode-view-smaller {
+.media--type-video.media--view-mode-view-smaller {
   max-width: 224px;
 }
 
