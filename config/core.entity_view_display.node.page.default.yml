@@ -39,7 +39,7 @@ content:
     region: content
   field_resources:
     weight: 3
-    label: hidden
+    label: visually_hidden
     settings:
       view_mode: view_full
       link: false
