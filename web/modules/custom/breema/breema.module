@@ -1348,6 +1348,14 @@ function breema_form_node_form_alter(&$form, \Drupal\Core\Form\FormStateInterfac
     $form['field_website']['widget']['#description_display'] = 'before';
     $form['field_website']['#description_display'] = 'before';
     $form['field_instructors']['widget']['add_more']['#value'] = t('Add another instructor');
+
+    // If the location is set to The Breema Center (nid 2), hide the checkbox
+    // for 'Breema Center sponsored', since we'll force it to TRUE, anyway.
+    $form['field_breema_center_sponsored']['#states'] = [
+      'invisible' => [
+        ':input[name="field_location[target_id]"]' => ['value' => 'node:2'],
+      ],
+    ];
   }
   elseif ($node->bundle() === 'essence') {
     $form['field_source_product']['#states'] = [
@@ -2431,6 +2439,10 @@ function breema_node_presave(NodeInterface $node) {
       $geolocation = $place->get('field_geolocation')->getValue();
       $node->set('field_address', $address);
       $node->set('field_geolocation', $geolocation);
+      // If it's the Breema Center, force 'Breema Center sponsored' to TRUE.
+      if ($place->id() == 2) {
+        $node->set('field_breema_center_sponsored', TRUE);
+      }
     }
 
     $parent_value = $node->get('field_parent_event')->getValue();
