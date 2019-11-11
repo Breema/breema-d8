@@ -773,6 +773,17 @@ a.teaser-link:hover .node--unpublished {
 .sidebar ol li article.node {
   padding: 0 0.25em 0.25em;
 }
+.sidebar .action a {
+  margin: 0 auto;
+  display: block;
+  text-align: center;
+  max-width: 150px;
+}
+.sidebar .danger {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
 
 @media (min-width: 630px) {
   .sidebar .block {
@@ -967,18 +978,6 @@ a.teaser-link:hover .node--unpublished {
 }
 
 .action.center {
-  text-align: center;
-}
-
-.sidebar .action a {
-  margin: 0 auto;
-  display: block;
-  text-align: center;
-  max-width: 150px;
-}
-.sidebar .danger {
-  display: block;
-  margin: 0 auto;
   text-align: center;
 }
 
