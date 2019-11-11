@@ -14,6 +14,9 @@ function breema_views_data_alter(&$data) {
   // Allow the filter for 'User: Email' to test for NULL.
   $data['users_field_data']['mail']['filter']['allow empty'] = TRUE;
 
+  // Tell the filter for 'Breema Center sponsored' to treat NULL as FALSE.
+  $data['node__field_breema_center_sponsored']['field_breema_center_sponsored_value']['filter']['accept null'] = TRUE;
+
   $data['sessions'] = [];
   $data['sessions']['table'] = [];
   $data['sessions']['table']['group'] = t('Sessions');
