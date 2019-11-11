@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.storage.node.field_breema_center_sponsored
     - field.storage.node.field_date_time
     - field.storage.node.field_instructors
     - field.storage.node.field_location
@@ -96,6 +97,7 @@ display:
             node_bulk_form: node_bulk_form
             status: status
             title: title
+            field_breema_center_sponsored: title
             field_date_time: field_date_time
             field_location: field_location
             uid: uid
@@ -116,6 +118,13 @@ display:
               empty_column: false
               responsive: ''
             title:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: '<br />'
+              empty_column: false
+              responsive: ''
+            field_breema_center_sponsored:
               sortable: false
               default_sort_order: asc
               align: ''
@@ -334,6 +343,71 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
+        field_breema_center_sponsored:
+          id: field_breema_center_sponsored
+          table: node__field_breema_center_sponsored
+          field: field_breema_center_sponsored
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'BC sponsored'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: boolean
+          settings:
+            format: custom
+            format_custom_true: 'BC sponsored'
+            format_custom_false: ''
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
         field_date_time:
           id: field_date_time
           table: node__field_date_time
@@ -962,6 +1036,60 @@ display:
           hierarchy: false
           error_message: true
           plugin_id: taxonomy_index_tid
+        field_breema_center_sponsored_value:
+          id: field_breema_center_sponsored_value
+          table: node__field_breema_center_sponsored
+          field: field_breema_center_sponsored_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: '0'
+          group: 1
+          exposed: true
+          expose:
+            operator_id: ''
+            label: 'BC sponsored'
+            description: ''
+            use_operator: false
+            operator: field_breema_center_sponsored_value_op
+            identifier: bc_sponsored
+            required: true
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              student: '0'
+              practitioner: '0'
+              instructor: '0'
+              event_expert: '0'
+              content_editor: '0'
+              content_administrator: '0'
+              event_administrator: '0'
+              user_administrator: '0'
+              administrator: '0'
+          is_grouped: true
+          group_info:
+            label: 'BC sponsored'
+            description: ''
+            identifier: bc_sponsored
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items:
+              1:
+                title: 'Yes'
+                operator: '='
+                value: '1'
+              2:
+                title: 'No'
+                operator: '='
+                value: '0'
+          plugin_id: boolean
       sorts:
         sticky:
           id: sticky
@@ -1038,6 +1166,7 @@ display:
         - 'user.node_grants:view'
         - user.roles
       tags:
+        - 'config:field.storage.node.field_breema_center_sponsored'
         - 'config:field.storage.node.field_date_time'
         - 'config:field.storage.node.field_instructors'
         - 'config:field.storage.node.field_location'
@@ -1069,6 +1198,7 @@ display:
         - 'user.node_grants:view'
         - user.roles
       tags:
+        - 'config:field.storage.node.field_breema_center_sponsored'
         - 'config:field.storage.node.field_date_time'
         - 'config:field.storage.node.field_instructors'
         - 'config:field.storage.node.field_location'
