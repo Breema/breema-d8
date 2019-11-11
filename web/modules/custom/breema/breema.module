@@ -3234,7 +3234,51 @@ function breema_entity_access(EntityInterface $entity, $operation, AccountInterf
       }
     }
   }
+  if ($entity->getEntityTypeId() === 'node' && $entity->bundle() === 'directory_entry' && $operation === 'delete') {
+    $nid = $entity->id();
+    $redirects = \Drupal::service('redirect.repository')
+      ->findByDestinationUri(["internal:/node/$nid", "entity:node/$nid"]);
+    if (!empty($redirects) && count($redirects) > 1) {
+      return AccessResult::forbidden('Directory entry has multiple redirects and should not be deleted');
+    }
+  }
+
   return AccessResult::neutral();
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter() for 'node_directory_entry_delete_form'.
+ *
+ * Adds a warning message if the directory entry has multiple redirects.
+ */
+function breema_form_node_directory_entry_delete_form_alter(&$form, FormStateInterface $form_state) {
+  $node = $form_state->getFormObject()->getEntity();
+  $nid = $node->id();
+  $redirects = \Drupal::service('redirect.repository')
+    ->findByDestinationUri(["internal:/node/$nid", "entity:node/$nid"]);
+  if (!empty($redirects) && count($redirects) > 1) {
+    $redirect_items = [];
+    foreach ($redirects as $redirect) {
+      $redirect_items[] = [
+        '#plain_text' => $redirect->getSourcePathWithQuery(),
+      ];
+    }
+    $form['warning'] = [
+      '#type' => 'container',
+      '#attributes' => [
+        'class' => ['messages', 'messages--warning'],
+      ],
+      '#weight' => '-100',
+      'message' => [
+        '#markup' => t('WARNING: This directory entry has multiple redirects. If you delete it, you will need to recreate them:'),
+      ],
+      'redirects' => [
+        '#theme' => 'item_list',
+        '#list_type' => 'ul',
+        '#items' => $redirect_items,
+      ],
+    ];
+  }
 }
 
 /**
