@@ -40,6 +40,16 @@ content:
     settings: {  }
     third_party_settings: {  }
     region: content
+  field_breema_center_sponsored:
+    type: boolean
+    weight: 13
+    region: content
+    label: hidden
+    settings:
+      format: custom
+      format_custom_true: 'Breema Center sponsored event'
+      format_custom_false: ''
+    third_party_settings: {  }
   field_facebook_event:
     weight: 8
     label: hidden
@@ -160,7 +170,6 @@ content:
     third_party_settings: {  }
 hidden:
   field_address: true
-  field_breema_center_sponsored: true
   field_categories: true
   field_date_time: true
   field_display_instructor_bios: true
