@@ -1119,6 +1119,10 @@ ol.location-results .field--name-field-upcoming-events > .field__item {
   border-bottom: 1px solid #dedfdd;
 }
 
+.field--name-field-breema-center-sponsored {
+  font-weight: bold;
+}
+
 .flexslider-field-wrapper {
   margin: 0 0 20px 0;
   padding: 5px;
