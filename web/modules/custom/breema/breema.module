@@ -1982,28 +1982,30 @@ function breema_node_cud__event(NodeInterface $node, $operation) {
     }
   }
 
-  $admin_all = Url::fromUri('internal:/admin/content/breema-events-xfer', ['absolute' => TRUE]);
-  $footer = [
-    '#theme' => 'item_list',
-    '#list_type' => 'ul',
-    '#items' => [
-      t('This event: @url', ['@url' => $node->toUrl('canonical', ['absolute' => TRUE])->toString()]),
-      t('Administer all events with transfer credit: @url', ['@url' => $admin_all->toString()]),
-    ],
-  ];
+  $new_tc = $node->get('field_transfer_credit')->value;
+  $bc_sponsored = $node->get('field_breema_center_sponsored')->value;
+  if (empty($bc_sponsored) && !empty($new_tc)) {
+    $admin_all = Url::fromUri('internal:/admin/content/breema-events-xfer', ['absolute' => TRUE]);
+    $footer = [
+      '#theme' => 'item_list',
+      '#list_type' => 'ul',
+      '#items' => [
+        t('This event: @url', ['@url' => $node->toUrl('canonical', ['absolute' => TRUE])->toString()]),
+        t('Administer all events with transfer credit: @url', ['@url' => $admin_all->toString()]),
+      ],
+    ];
+  }
 
   switch ($operation) {
     case 'insert':
-      $new_xfer = $node->get('field_transfer_credit')->value;
-      if (!empty($new_xfer)) {
+      if (empty($bc_sponsored) && !empty($new_tc)) {
         \Drupal::service('breema.entity_sender')->sendEntity($node, 'event_xfer_insert', BREEMA_EVENT_TRANSFER_CREDIT_EMAIL, [], $footer);
       }
       break;
 
     case 'update':
-      $old_xfer = $node->original->get('field_transfer_credit')->value;
-      $new_xfer = $node->get('field_transfer_credit')->value;
-      if (!empty($new_xfer) && $old_xfer !== $new_xfer) {
+      $old_tc = $node->original->get('field_transfer_credit')->value;
+      if (empty($bc_sponsored) && !empty($new_tc) && $old_tc !== $new_tc) {
         \Drupal::service('breema.entity_sender')->sendEntity($node, 'event_xfer_update', BREEMA_EVENT_TRANSFER_CREDIT_EMAIL, [], $footer);
       }
       break;
