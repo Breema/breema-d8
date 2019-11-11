@@ -1535,7 +1535,7 @@ html.mm-opened .mm-page {
 .responsive-menu-toggle {
   display: inline-block;
   float: right;
-  margin-right: 1.5em;
+  margin: 1em 1.5em 0 0;
 }
 
 .responsive-menu-toggle-icon {
