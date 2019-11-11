@@ -24,6 +24,55 @@ body {
   color: #1a272e;
 }
 
+a {
+  text-decoration: none;
+  border-bottom: none;
+  color: #752d53;
+}
+
+a:focus,
+a:hover {
+  text-decoration: underline;
+  border-bottom: none;
+  color: #883584;
+}
+
+h1 {
+  margin: 0 0 0.5em 0;
+  color: #a82133;
+}
+
+h2,
+.main-content h2 {
+  font-size: 1.5em;
+  color: #a82133;
+  margin: 0 0 0.5em 0;
+}
+
+a h2 {
+  color: #752d53;
+}
+
+a:focus h2,
+a:hover h2 {
+  color: #883584;
+}
+
+h3 {
+  font-size: 1.25em;
+  margin: 0 0 0.5em 0;
+}
+
+h4 {
+  font-size: 1.1em;
+  margin: 0 0 0.5em 0;
+}
+
+h5 {
+  font-size: 1.05em;
+  margin: 0 0 0.5em 0;
+}
+
 p.large {
   font-size: 1.15em;
 }
@@ -36,9 +85,128 @@ p.huge {
   font-size: 1.3em;
 }
 
+p.address {
+  margin: 1em 0;
+  font-style: italic;
+}
+
+blockquote,
+figure,
+p {
+  overflow: hidden;
+}
+
+blockquote, figure {
+  margin: 0 0 1.5em 0;
+}
+
+blockquote {
+  font-style: normal;
+  font-size: 110%;
+  background-color: #f1f0eb;
+  color: #143d8b;
+  padding: 10px;
+  border-left: none;
+}
+blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+figure {
+  min-width: 250px;
+}
+figure audio {
+  margin: 10px 0 0 10px;
+}
+figure blockquote {
+  margin: 0;
+}
+
+blockquote:after,
+blockquote:before {
+  content: none;
+}
+
+.attribution,
+figure.quote figcaption {
+  margin: 0 0 0.5em 0;
+  padding: 0 0 0 1em;
+}
+
+.attribution:before,
+figure.quote figcaption:before {
+  color: #999;
+  content: "\2015\0020";
+  /* quote dash and a space */
+}
+
+@media (min-width: 715px) {
+  .attribution,
+  figure.quote figcaption {
+    padding: 0 0 0 2em;
+  }
+}
 li p:first-child {
   margin-top: 0;
 }
 li p:last-child {
   margin-bottom: 0;
+}
+
+.item-list ul,
+.item-list ul li {
+  margin: 0;
+  padding: 0;
+}
+
+.cke_editable li, .text-formatted li {
+  margin: 0 0 1em 0;
+}
+.cke_editable ol, .cke_editable ul, .text-formatted ol, .text-formatted ul {
+  margin: 0 0 0 1em;
+  display: inline-block;
+}
+.cke_editable ol ol, .cke_editable ul ul, .text-formatted ol ol, .text-formatted ul ul {
+  margin: 0 0 0 1em;
+}
+.cke_editable ol ol li:last-child, .cke_editable ul ul li:last-child, .text-formatted ol ol li:last-child, .text-formatted ul ul li:last-child {
+  margin: 0;
+}
+.cke_editable ul.social-media-links--platforms, .text-formatted ul.social-media-links--platforms {
+  margin: 0;
+  padding: 0;
+}
+
+ul.inline {
+  display: inline;
+  padding-left: 0;
+}
+ul.inline li {
+  display: inline;
+  padding: 0 0.5em;
+  list-style-type: none;
+}
+
+hr {
+  margin: 1em 0;
+  border: 0;
+  border-bottom: 1px dashed #aaa;
+}
+
+.align-left,
+.align-right {
+  float: none;
+  margin: 0 0 1em 0;
+}
+
+@media (min-width: 715px) {
+  .align-left {
+    float: left;
+    margin: 0 1em 0 0;
+  }
+
+  .align-right {
+    float: right;
+    margin: 0 0 0 1em;
+  }
 }

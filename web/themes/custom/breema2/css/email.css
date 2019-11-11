@@ -24,31 +24,17 @@ body {
   color: #1a272e;
 }
 
-p.large {
-  font-size: 1.15em;
+a {
+  text-decoration: none;
+  border-bottom: none;
+  color: #752d53;
 }
 
-p.larger {
-  font-size: 1.2em;
-}
-
-p.huge {
-  font-size: 1.3em;
-}
-
-li p:first-child {
-  margin-top: 0;
-}
-li p:last-child {
-  margin-bottom: 0;
-}
-
-body {
-  background-color: #752d53;
-}
-
-#page-wrapper {
-  background-color: #fff;
+a:focus,
+a:hover {
+  text-decoration: underline;
+  border-bottom: none;
+  color: #883584;
 }
 
 h1 {
@@ -87,31 +73,16 @@ h5 {
   margin: 0 0 0.5em 0;
 }
 
-a {
-  text-decoration: none;
-  border-bottom: none;
-  color: #752d53;
+p.large {
+  font-size: 1.15em;
 }
 
-a:focus,
-a:hover {
-  text-decoration: underline;
-  border-bottom: none;
-  color: #883584;
+p.larger {
+  font-size: 1.2em;
 }
 
-.tabs ul.primary li a:focus,
-.tabs ul.primary li a:hover {
-  text-decoration: none;
-}
-
-.field--type-image img {
-  margin: 0;
-}
-
-.node .field--type-image {
-  float: none;
-  margin: 0;
+p.huge {
+  font-size: 1.3em;
 }
 
 p.address {
@@ -175,6 +146,92 @@ figure.quote figcaption:before {
     padding: 0 0 0 2em;
   }
 }
+li p:first-child {
+  margin-top: 0;
+}
+li p:last-child {
+  margin-bottom: 0;
+}
+
+.item-list ul,
+.item-list ul li {
+  margin: 0;
+  padding: 0;
+}
+
+.cke_editable li, .text-formatted li {
+  margin: 0 0 1em 0;
+}
+.cke_editable ol, .cke_editable ul, .text-formatted ol, .text-formatted ul {
+  margin: 0 0 0 1em;
+  display: inline-block;
+}
+.cke_editable ol ol, .cke_editable ul ul, .text-formatted ol ol, .text-formatted ul ul {
+  margin: 0 0 0 1em;
+}
+.cke_editable ol ol li:last-child, .cke_editable ul ul li:last-child, .text-formatted ol ol li:last-child, .text-formatted ul ul li:last-child {
+  margin: 0;
+}
+.cke_editable ul.social-media-links--platforms, .text-formatted ul.social-media-links--platforms {
+  margin: 0;
+  padding: 0;
+}
+
+ul.inline {
+  display: inline;
+  padding-left: 0;
+}
+ul.inline li {
+  display: inline;
+  padding: 0 0.5em;
+  list-style-type: none;
+}
+
+hr {
+  margin: 1em 0;
+  border: 0;
+  border-bottom: 1px dashed #aaa;
+}
+
+.align-left,
+.align-right {
+  float: none;
+  margin: 0 0 1em 0;
+}
+
+@media (min-width: 715px) {
+  .align-left {
+    float: left;
+    margin: 0 1em 0 0;
+  }
+
+  .align-right {
+    float: right;
+    margin: 0 0 0 1em;
+  }
+}
+body {
+  background-color: #752d53;
+}
+
+#page-wrapper {
+  background-color: #fff;
+}
+
+.tabs ul.primary li a:focus,
+.tabs ul.primary li a:hover {
+  text-decoration: none;
+}
+
+.field--type-image img {
+  margin: 0;
+}
+
+.node .field--type-image {
+  float: none;
+  margin: 0;
+}
+
 .media--view-mode-view-full,
 .node--view-mode-full {
   margin: 0 0 1.5em 0;
@@ -203,36 +260,6 @@ figure .node--view-mode-view-full,
 .node--type-session-resume.node--view-mode-teaser {
   margin: 0 0 2em 0;
   padding: 0 1em;
-}
-
-.item-list ul,
-.item-list ul li {
-  margin: 0;
-  padding: 0;
-}
-
-.text-formatted li {
-  margin: 0 0 1em 0;
-}
-.text-formatted ol, .text-formatted ul {
-  margin: 0 0 0 1em;
-  display: inline-block;
-}
-.text-formatted ol ol, .text-formatted ul ul {
-  margin: 0 0 0 1em;
-}
-.text-formatted ol ol li:last-child, .text-formatted ul ul li:last-child {
-  margin: 0;
-}
-.text-formatted ul.social-media-links--platforms {
-  margin: 0;
-  padding: 0;
-}
-
-hr {
-  margin: 1em 0;
-  border: 0;
-  border-bottom: 1px dashed #aaa;
 }
 
 a.teaser-link {
@@ -300,12 +327,6 @@ a.teaser-link .node--view-mode-teaser-with-location .field--name-field-location 
   font-size: 90%;
 }
 
-.align-left,
-.align-right {
-  float: none;
-  margin: 0 0 1em 0;
-}
-
 a.teaser-link .field--name-field-main-image.field--type-entity-reference,
 .field--name-field-main-image.field--type-entity-reference,
 .field--name-field-main-image.field--type-image {
@@ -325,16 +346,6 @@ a.teaser-link .field--name-field-main-image.field--type-entity-reference,
   .field--name-field-main-image.field--type-entity-reference,
   .field--name-field-main-image.field--type-image {
     margin: 0 1em 0 0;
-  }
-
-  .align-left {
-    float: left;
-    margin: 0 1em 0 0;
-  }
-
-  .align-right {
-    float: right;
-    margin: 0 0 0 1em;
   }
 }
 .node--view-mode-teaser-search-result .field--name-field-location p.address,

@@ -5,6 +5,48 @@ body {
   color: $c-black;
 }
 
+a {
+  text-decoration: none;
+  border-bottom: none;
+  color: $c-plum;
+}
+a:focus,
+a:hover {
+  text-decoration: underline;
+  border-bottom: none;
+  color: $c-purple;
+}
+
+h1 {
+  margin: 0 0 0.5em 0;
+  color: $c-red;
+}
+h2,
+.main-content h2 {
+  font-size: 1.5em;
+  color: $c-red;
+  margin: 0 0 0.5em 0;
+}
+a h2 {
+  color: $c-plum;
+}
+a:focus h2,
+a:hover h2 {
+  color: $c-purple;
+}
+h3 {
+  font-size: 1.25em;
+  margin: 0 0 0.5em 0;
+}
+h4 {
+  font-size: 1.1em;
+  margin: 0 0 0.5em 0;
+}
+h5 {
+  font-size: 1.05em;
+  margin: 0 0 0.5em 0;
+}
+
 p.large {
   font-size: 1.15em;
 }
@@ -17,11 +59,128 @@ p.huge {
   font-size: 1.3em;
 }
 
+p.address {
+  margin: 1em 0;
+  font-style: italic;
+}
+
+blockquote,
+figure,
+p {
+  overflow: hidden;
+}
+
+blockquote, figure {
+  margin: 0 0 1.5em 0;
+}
+
+blockquote {
+  font-style: normal;
+  font-size: 110%;
+  background-color: $c-blockquote-back;
+  color: $c-blockquote-front;
+  padding: 10px;
+  border-left: none;
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+figure {
+  min-width: 250px;
+  audio {
+    margin: 10px 0 0 10px;
+  }
+  blockquote {
+    margin: 0;
+  }
+}
+
+blockquote:after,
+blockquote:before {
+  content: none;
+}
+
+.attribution,
+figure.quote figcaption {
+  margin: 0 0 0.5em 0;
+  padding: 0 0 0 1em;
+}
+.attribution:before,
+figure.quote figcaption:before {
+  color: $c-gr9;
+  content: "\2015\0020"; /* quote dash and a space */
+}
+@media (min-width: 715px) {
+  .attribution,
+  figure.quote figcaption {
+    padding: 0 0 0 2em;
+  }
+}
+
 li {
   p:first-child {
     margin-top: 0;
   }
   p:last-child {
     margin-bottom: 0;
+  }
+}
+
+.item-list ul,
+.item-list ul li {
+  margin: 0;
+  padding: 0;
+}
+
+.cke_editable, .text-formatted {
+  li {
+    margin: 0 0 1em 0;
+  }
+  ol, ul {
+    margin: 0 0 0 1em;
+    display: inline-block;
+  }
+  ol ol, ul ul {
+    margin: 0 0 0 1em;
+    li:last-child {
+      margin: 0;
+    }
+  }
+  ul.social-media-links--platforms {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+ul.inline {
+  display: inline;
+  padding-left: 0;
+  li {
+    display: inline;
+    padding: 0 0.5em;
+    list-style-type: none;
+  }
+}
+
+hr {
+  margin: 1em 0;
+  border: 0;
+  border-bottom: 1px dashed #aaa;
+}
+
+.align-left,
+.align-right {
+  float: none;
+  margin: 0 0 1em 0;
+}
+@media (min-width: 715px) {
+  .align-left {
+    float: left;
+    margin: 0 1em 0 0;
+  }
+  .align-right {
+    float: right;
+    margin: 0 0 0 1em;
   }
 }
