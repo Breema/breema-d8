@@ -1350,7 +1350,9 @@ function breema_form_node_form_alter(&$form, \Drupal\Core\Form\FormStateInterfac
     $form['field_instructors']['widget']['add_more']['#value'] = t('Add another instructor');
 
     // If the location is set to The Breema Center (nid 2), hide the checkbox
-    // for 'Breema Center sponsored', since we'll force it to TRUE, anyway.
+    // for 'Breema Center sponsored', since we'll force it to FALSE. It'd be
+    // confusing to set this checkbox on events @ the BC, and adds clutter/noise
+    // when viewing the event (on full event pages and the admin report).
     $form['field_breema_center_sponsored']['#states'] = [
       'invisible' => [
         ':input[name="field_location[target_id]"]' => ['value' => 'node:2'],
@@ -1984,6 +1986,9 @@ function breema_node_cud__event(NodeInterface $node, $operation) {
 
   $new_tc = $node->get('field_transfer_credit')->value;
   $bc_sponsored = $node->get('field_breema_center_sponsored')->value;
+  $location = $node->get('field_location')->getValue();
+  $at_bc = !empty($location) && $location[0]['target_id'] == 2;
+  $bc_sponsored = $bc_sponsored || $at_bc;
   if (empty($bc_sponsored) && !empty($new_tc)) {
     $admin_all = Url::fromUri('internal:/admin/content/breema-events-xfer', ['absolute' => TRUE]);
     $footer = [
@@ -2441,9 +2446,11 @@ function breema_node_presave(NodeInterface $node) {
       $geolocation = $place->get('field_geolocation')->getValue();
       $node->set('field_address', $address);
       $node->set('field_geolocation', $geolocation);
-      // If it's the Breema Center, force 'Breema Center sponsored' to TRUE.
+      // If it's the Breema Center, force 'Breema Center sponsored' to FALSE.
+      // It's confusing and clutter to have this set to TRUE on all BC events.
+      // All the code and views that care already check for @ BC separately.
       if ($place->id() == 2) {
-        $node->set('field_breema_center_sponsored', TRUE);
+        $node->set('field_breema_center_sponsored', FALSE);
       }
     }
 
