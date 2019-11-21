@@ -293,7 +293,8 @@ function breema_preprocess_html(&$variables) {
         $metatags = $extenders['breema_metatag_display_extender']->getMetatags();
         if (!empty($metatags)) {
           if (!empty($metatags['description'])) {
-            $meta_tags[] = ['property' => 'og:description', 'name' => 'description', 'content' => $metatags['description']];
+            $meta_tags[] = ['property' => 'og:description', 'content' => $metatags['description']];
+            $meta_tags[] = ['name' => 'description', 'content' => $metatags['description']];
           }
           if (!empty($metatags['image'])) {
             $media_entity = Media::load($metatags['image']);
@@ -312,7 +313,8 @@ function breema_preprocess_html(&$variables) {
   if (!empty($node) && $node instanceof NodeInterface) {
     $description = breema_get_node_meta_description($node);
     if (!empty($description)) {
-      $meta_tags[] = ['property' => 'og:description', 'name' => 'description', 'content' => $description];
+      $meta_tags[] = ['name' => 'description', 'content' => $description];
+      $meta_tags[] = ['property' => 'og:description', 'content' => $description];
     }
 
     // Find the right image to share.
