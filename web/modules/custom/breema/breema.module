@@ -2155,6 +2155,7 @@ function breema_shortcut_default_set($account) {
     'user_administrator' => 'user-administrator',
     'content_administrator' => 'content-administrator',
     'content_editor' => 'content-administrator',
+    'event_administrator' => 'event-administrator',
     'instructor' => 'instructor',
     'practitioner' => 'practitioner',
     'student' => 'student',

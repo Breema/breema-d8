@@ -1,0 +1,6 @@
+uuid: d7732c9c-cfe9-4667-bf41-8cb43758a189
+langcode: en
+status: true
+dependencies: {  }
+id: event-administrator
+label: 'Event administrator'
