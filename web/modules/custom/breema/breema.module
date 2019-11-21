@@ -2306,9 +2306,12 @@ function breema_user_update(UserInterface $user) {
 function _breema_user_update_groups(UserInterface $user, $certification_level) {
   switch ($certification_level) {
     case 'none':
-    case 'student':
       // Remove from all private groups.
       _breema_set_user_groups($user, []);
+      break;
+
+    case 'student':
+      _breema_set_user_groups($user, ['4']);
       break;
 
     case 'practitioner':
