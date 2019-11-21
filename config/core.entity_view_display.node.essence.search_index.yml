@@ -1,0 +1,70 @@
+uuid: ab31b070-6f3c-4336-98a5-16ec9b8269ba
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.search_index
+    - field.field.node.essence.body
+    - field.field.node.essence.field_date
+    - field.field.node.essence.field_main_image
+    - field.field.node.essence.field_meta_summary
+    - field.field.node.essence.field_resources
+    - field.field.node.essence.field_social_media_image
+    - field.field.node.essence.field_source_other
+    - field.field.node.essence.field_source_product
+    - field.field.node.essence.field_source_type
+    - node.type.essence
+  module:
+    - options
+    - text
+    - user
+id: node.essence.search_index
+targetEntityType: node
+bundle: essence
+mode: search_index
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_meta_summary:
+    type: basic_string
+    weight: 1
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  field_source_other:
+    type: string
+    weight: 4
+    region: content
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_source_product:
+    weight: 2
+    label: hidden
+    settings:
+      view_mode: teaser_compact
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+  field_source_type:
+    type: list_default
+    weight: 3
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_date: true
+  field_main_image: true
+  field_resources: true
+  field_social_media_image: true
+  group_content: true
+  links: true
