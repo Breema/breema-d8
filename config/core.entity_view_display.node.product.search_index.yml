@@ -1,0 +1,71 @@
+uuid: 2d9368a9-c8a5-4eb9-bfa7-f085a1393d6f
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.search_index
+    - field.field.node.product.body
+    - field.field.node.product.field_by
+    - field.field.node.product.field_main_image
+    - field.field.node.product.field_meta_summary
+    - field.field.node.product.field_product_info
+    - field.field.node.product.field_publication_year
+    - field.field.node.product.field_social_media_image
+    - field.field.node.product.field_title_main
+    - field.field.node.product.field_title_sub
+    - node.type.product
+  module:
+    - entity_reference_revisions
+    - text
+    - user
+id: node.product.search_index
+targetEntityType: node
+bundle: product
+mode: search_index
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_by:
+    weight: 0
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_meta_summary:
+    type: basic_string
+    weight: 4
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  field_product_info:
+    type: entity_reference_revisions_entity_view
+    weight: 2
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_publication_year:
+    weight: 1
+    label: inline
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+hidden:
+  field_main_image: true
+  field_social_media_image: true
+  field_title_main: true
+  field_title_sub: true
+  group_content: true
+  links: true
