@@ -1,0 +1,64 @@
+id: breema_csv_user_student_us
+label: Student user accounts from CSV data dump (US-only)
+migration_tags:
+  - Breema CSV
+  - user
+
+destination:
+  plugin: entity:user
+
+source:
+  plugin: csv
+  path: private://csv/breema-users-student-us.csv
+  header_row_count: 0
+  keys:
+    - email
+    - first_name
+    - last_name
+  # First,Last,Email,State,City,Zip
+  column_names:
+    0:
+      first_name: First Name
+    1:
+      last_name: Last Name
+    2:
+      email: Email
+    3:
+      state: State
+    4:
+      city: City
+    5:
+      postal_code: Postal code
+
+process:
+  name:
+    plugin: concat
+    source:
+      - first_name
+      - last_name
+    delimiter: ' '
+  mail: email
+  field_name_first: first_name
+  field_name_last: last_name
+  'field_address/country_code':
+    plugin: default_value
+    default_value: US
+  'field_address/administrative_area': state
+  'field_address/locality': city
+  'field_address/postal_code': postal_code
+  field_certification_level:
+    plugin: default_value
+    default_value: student
+  field_anatomy_homework_language:
+    plugin: default_value
+    default_value: en
+  field_breema_center_staff:
+    plugin: default_value
+    default_value: false
+  field_breema_clinic_practitioner:
+    plugin: default_value
+    default_value: false
+
+migration_dependencies:
+  required: {}
+  optional: {}
