@@ -1,0 +1,42 @@
+uuid: 3a77bfe8-9bd6-4b8b-a8e5-0b9f7aea3495
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.search_index
+    - field.field.node.page.body
+    - field.field.node.page.field_main_image
+    - field.field.node.page.field_meta_summary
+    - field.field.node.page.field_resources
+    - field.field.node.page.field_social_media_image
+    - node.type.page
+  module:
+    - text
+    - user
+_core:
+  default_config_hash: g1S3_GLaxq4l3I9RIca5Mlz02MxI2KmOquZpHw59akM
+id: node.page.search_index
+targetEntityType: node
+bundle: page
+mode: search_index
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_meta_summary:
+    type: basic_string
+    weight: 0
+    region: content
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_main_image: true
+  field_resources: true
+  field_social_media_image: true
+  group_content: true
+  links: true
