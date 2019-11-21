@@ -25,7 +25,9 @@ visibility:
     roles:
       instructor: instructor
       event_expert: event_expert
+      content_editor: content_editor
       content_administrator: content_administrator
+      event_administrator: event_administrator
       administrator: administrator
     negate: false
     context_mapping:
