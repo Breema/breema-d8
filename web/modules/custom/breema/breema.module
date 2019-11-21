@@ -3306,13 +3306,19 @@ function breema_form_node_directory_entry_delete_form_alter(&$form, FormStateInt
  */
 function breema_find_next_event($day_of_week, $place_nid = NULL, $type_tid = NULL) {
   $next_event = NULL;
-  // Hack around UTC timezone hell. PDT is 7 hours behind UTC. Since everything
-  // is stored in the DB as UTC, if an event at the Breema Center starts at
-  // "10am", the DB will have 10am UTC which is really 3am PDT. So, if we want
-  // to know when a BC event has expired, we need to consider 7 hours "in the
-  // past" as "now".
-  $date = new DrupalDateTime('7 hours ago');
+
+  // Deal with UTC timezone + DST hell. Since everything is stored in the DB as
+  // UTC, if an event at the Breema Center starts at "10am", the DB will have
+  // 10am UTC which is really 2am PST or 3am PDT. So, if we want to know when a
+  // BC event has expired, we need to get 'now' in Oakland time, adjust for DST,
+  // and convert to UTC.
+  // @todo Revisit this when each event (place?) has a local timezone.
+
+  // Start with 'now' in Oakland.
+  $date = new DrupalDateTime('now', new \DateTimezone('America/Los_Angeles'));
+  // Convert that to UTC.
   $date->setTimezone(new \DateTimezone(DATETIME_STORAGE_TIMEZONE));
+  // Format as a date to match the storage format for datetime fields.
   $now = $date->format(DATETIME_DATETIME_STORAGE_FORMAT);
   $query = \Drupal::entityQuery('node')
     // Find events.
