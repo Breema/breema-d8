@@ -25,7 +25,8 @@ dependencies:
     - field.field.node.event.field_website
     - node.type.event
   module:
-    - fixed_text_link_formatter
+    - address
+    - datetime_range
     - link
     - text
     - user
@@ -41,23 +42,45 @@ content:
     settings: {  }
     third_party_settings: {  }
     region: content
-  field_facebook_event:
-    weight: 8
+  field_address:
+    type: address_default
+    weight: 4
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  field_categories:
+    type: entity_reference_label
+    weight: 14
+    region: content
     label: hidden
     settings:
-      link_text: 'Facebook event'
-      link_class: ''
-      rel: nofollow
-      allow_override: false
-      target: '0'
-      trim_length: null
-      url_only: false
-      url_plain: false
+      link: false
     third_party_settings: {  }
-    type: fixed_text_link
+  field_date_time:
+    type: daterange_custom
+    weight: 1
     region: content
+    label: hidden
+    settings:
+      timezone_override: ''
+      date_format: 'D l j M F Y g:i a'
+      separator: '-'
+    third_party_settings: {  }
+  field_facebook_event:
+    type: link
+    weight: 11
+    region: content
+    label: hidden
+    settings:
+      trim_length: null
+      url_only: true
+      url_plain: true
+      rel: '0'
+      target: '0'
+    third_party_settings: {  }
   field_instructors:
-    weight: 4
+    weight: 5
     label: hidden
     settings:
       link: false
@@ -83,48 +106,36 @@ content:
     type: entity_reference_entity_view
     region: content
   field_parent_event:
-    weight: 10
-    label: inline
+    weight: 12
+    label: hidden
     settings:
-      link: true
+      link: false
     third_party_settings: {  }
     type: entity_reference_label
     region: content
   field_registration_link:
-    weight: 2
+    weight: 9
     label: hidden
     settings:
-      link_text: 'Register here for the event'
-      link_class: ''
-      rel: nofollow
-      allow_override: false
-      target: '0'
       trim_length: null
-      url_only: false
-      url_plain: false
+      url_only: true
+      url_plain: true
+      rel: '0'
+      target: '0'
     third_party_settings: {  }
-    type: fixed_text_link
+    type: link
     region: content
   field_required_hours:
-    weight: 5
+    type: number_integer
+    weight: 8
+    region: content
     label: inline
     settings:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-    type: number_integer
-    region: content
-  field_resources:
-    weight: 12
-    label: visually_hidden
-    settings:
-      view_mode: view_large
-      link: false
-    third_party_settings: {  }
-    type: entity_reference_entity_view
-    region: content
   field_subtitle:
-    weight: 1
+    weight: 2
     label: hidden
     settings:
       link_to_entity: false
@@ -143,28 +154,26 @@ content:
     type: number_decimal
     region: content
   field_website:
-    weight: 9
+    weight: 10
     label: hidden
     settings:
-      trim_length: 80
-      url_only: false
-      url_plain: false
-      rel: ''
-      target: ''
+      trim_length: null
+      url_only: true
+      url_plain: true
+      rel: '0'
+      target: '0'
     third_party_settings: {  }
     type: link
     region: content
   links:
-    weight: 11
+    weight: 13
     region: content
     settings: {  }
     third_party_settings: {  }
 hidden:
-  field_address: true
   field_breema_center_sponsored: true
-  field_categories: true
-  field_date_time: true
   field_display_instructor_bios: true
   field_geolocation: true
+  field_resources: true
   field_social_media_image: true
   group_content: true
