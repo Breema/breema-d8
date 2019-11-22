@@ -1815,7 +1815,37 @@ function breema_form_views_exposed_form_alter(&$form, \Drupal\Core\Form\FormStat
       $form['search']['#size'] = 30;
       break;
 
+    case 'breema_event_search':
+      // Convert the exposed sorts into hidden form values.
+      $form['sort_by'] = [
+        '#type' => 'value',
+        '#value' => 'field_date_time_value',
+      ];
+      $form['sort_order'] = [
+        '#type' => 'value',
+        // By default, we'll see 'Upcoming', so we want ascending.
+        '#value' => 'ASC',
+      ];
+      // Add a custom #element_validate callback to set the value.
+      $form['sort_order']['#element_validate'][] = 'breema_validate_event_sort_order_element';
+      break;
+
   }
+}
+
+/**
+ * Sets the 'sort_order' form value on the /events page based on 'datetime_end'.
+ *
+ * @param array $element
+ *   The form element to validate.
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ *   The form state object.
+ */
+function breema_validate_event_sort_order_element(array $element, FormStateInterface &$form_state) {
+  $datetime_end = $form_state->getValue('datetime_end');
+  // Upcoming is '1', where we want ASC. Otherwise, DESC.
+  $order = $datetime_end === '1' ? 'ASC' : 'DESC';
+  $form_state->setValue($element['#parents'], $order);
 }
 
 /**

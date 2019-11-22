@@ -606,6 +606,36 @@ display:
         title: ''
         description: ''
         weight: 0
+      sorts:
+        sticky:
+          id: sticky
+          table: node_field_data
+          field: sticky
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: DESC
+          exposed: false
+          expose:
+            label: ''
+          entity_type: node
+          entity_field: sticky
+          plugin_id: standard
+        field_date_time_value:
+          id: field_date_time_value
+          table: node__field_date_time
+          field: field_date_time_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: ASC
+          exposed: true
+          expose:
+            label: Date/time
+          granularity: minute
+          plugin_id: datetime
+      defaults:
+        sorts: false
     cache_metadata:
       max-age: -1
       contexts:
@@ -613,6 +643,8 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
+        - 'url.query_args:sort_by'
+        - 'url.query_args:sort_order'
         - user
         - 'user.node_grants:view'
         - user.permissions
