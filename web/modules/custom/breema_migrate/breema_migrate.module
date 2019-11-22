@@ -19,7 +19,7 @@ function breema_migrate_map_country_to_code($source_country) {
   }
 
   if (empty($source_country)) {
-    return 'US';
+    return '';
   }
   return array_search(strtolower($source_country), $country_map);
 }
