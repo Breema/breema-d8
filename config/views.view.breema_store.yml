@@ -248,7 +248,11 @@ display:
     display_title: 'Page: Books'
     position: 1
     display_options:
-      display_extenders: {  }
+      display_extenders:
+        breema_metatag_display_extender:
+          metatags:
+            description: 'Browse Breema Center books, audiobooks, class passes, or gift certificates for sale at the Breema Store. Breema Center books focus on the principles and philosophy of Breema as well as about working with the bodywork and exercises. Jon Schreiber, the author, is the Director of the Breema Center and Breema Clinic.'
+            image: ''
       path: store/books
       menu:
         type: 'default tab'
@@ -298,7 +302,11 @@ display:
     display_title: 'Page: Gift certificates'
     position: 1
     display_options:
-      display_extenders: {  }
+      display_extenders:
+        breema_metatag_display_extender:
+          metatags:
+            description: 'Browse Breema Center class passes and gift certificates for sale at the Breema Store. Breema Center books focus on the principles and philosophy of Breema as well as about working with the bodywork and exercises. Jon Schreiber, the author, is the Director of the Breema Center and Breema Clinic.'
+            image: ''
       path: store/gifts
       menu:
         type: tab

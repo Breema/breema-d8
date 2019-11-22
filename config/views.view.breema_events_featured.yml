@@ -254,7 +254,11 @@ display:
     display_title: Page
     position: 2
     display_options:
-      display_extenders: {  }
+      display_extenders:
+        breema_metatag_display_extender:
+          metatags:
+            description: 'Experience Breema first-hand by participating in a featured event, class, workshop, or intensive and by receiving a Breema session. Upcoming Experience Breema Events often include complimentary mini-sessions and Self-Breema exercises.'
+            image: ''
       style:
         type: html_list
         options:
