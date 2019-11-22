@@ -141,6 +141,7 @@
   "extra": {
     "patches": {
       "drupal/address": {
+        "[#2995992-33] Required Country field should display the '- Select a value -' option to match core behavior" : "https://www.drupal.org/files/issues/2019-11-09/2995992-33.patch",
         "[#3087201-5] Views exposed filter for Administrative Area based on exposed Country Code filter not working" : "https://www.drupal.org/files/issues/2019-10-15/3087201-5.address-admin-area-filter-pick-country-fix.patch"
       },
       "drupal/auto_entitylabel": {
