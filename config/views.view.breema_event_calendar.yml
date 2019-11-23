@@ -687,7 +687,7 @@ display:
         breema_metatag_display_extender:
           metatags:
             description: 'Find Breema events near you through a calendar of classes, workshops, and intensives that take place worldwide. Enter your zip, city, state, or country to begin the search for your local Breema events.'
-            image: ''
+            image: '1093'
       path: events/calendar
       menu:
         type: tab

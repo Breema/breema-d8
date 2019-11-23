@@ -590,7 +590,7 @@ display:
         breema_metatag_display_extender:
           metatags:
             description: 'Check out the upcoming Breema events around the world. Find a Breema class, workshop, or intensive near you.'
-            image: ''
+            image: '1089'
       path: events
       menu:
         type: 'default tab'

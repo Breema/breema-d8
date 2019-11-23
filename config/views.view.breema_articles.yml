@@ -403,7 +403,7 @@ display:
         breema_metatag_display_extender:
           metatags:
             description: 'Read current and past published articles from Breema students around the world. In various languages, students share how Breema has facilitated harmony and balance in their lives.'
-            image: ''
+            image: '1094'
       path: about-breema/articles
       menu:
         type: normal

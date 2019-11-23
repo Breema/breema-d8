@@ -506,8 +506,8 @@ display:
       display_extenders:
         breema_metatag_display_extender:
           metatags:
-            description: 'Explore the International Directory of Certified Breema Practitioners and Instructors. Find practitioners and instructors near you to experience Breema first-hand.'
-            image: ''
+            description: 'Explore the International Directory of events, Certified Breema Practitioners and Instructors. Find events, practitioners, and instructors near you to experience Breema first-hand.'
+            image: '1089'
       path: directory/list
       menu:
         type: 'default tab'
@@ -597,8 +597,8 @@ display:
       display_extenders:
         breema_metatag_display_extender:
           metatags:
-            description: 'Explore the International Directory map of Certified Breema Practitioners and Instructors. Find practitioners and instructors near you to experience Breema first-hand.'
-            image: ''
+            description: 'Explore the map of international events, Certified Breema Practitioners and Instructors. Find events, practitioners, and instructors near you to experience Breema first-hand.'
+            image: '1096'
       display_description: ''
       defaults:
         style: false

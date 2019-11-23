@@ -216,7 +216,7 @@ display:
         breema_metatag_display_extender:
           metatags:
             description: 'Essential writings from Breema Center books offer inspiration, clarity, and direction. Find them on social media or join our email list to receive them regularly.'
-            image: ''
+            image: '1092'
       path: about-breema/essence
       menu:
         type: normal
