@@ -80,6 +80,7 @@ class BreemaEventMgr {
     foreach (['place', 'directory_entry'] as $node_type) {
       $this->updateData($node_type);
     }
+    $this->clearStickyFromPastEvents();
   }
 
   /**
@@ -144,4 +145,33 @@ class BreemaEventMgr {
       }
     }
   }
+
+  /**
+   * Clears the 'sticky' bit from events in the past.
+   */
+  public function clearStickyFromPastEvents() {
+    $now = new DrupalDateTime('now');
+    $now->setTimezone(new \DateTimeZone(DATETIME_STORAGE_TIMEZONE));
+    $query = \Drupal::entityQuery('node');
+    $query
+      ->condition('status', 1)
+      ->condition('sticky', 1)
+      ->condition('type', 'event')
+      ->condition('field_date_time.end_value', $now->format(DATETIME_DATETIME_STORAGE_FORMAT), '<');
+    $results = $query->execute();
+    if (!empty($results)) {
+      $events = Node::loadMultiple($results);
+    }
+    if (!empty($events)) {
+      foreach ($events as $event) {
+        $event->setNewRevision(TRUE);
+        $event->revision_log = "Cron: Removing sticky bit from event that is now over.";
+        $event->revision_uid = 1;
+        $event->revision_timestamp = $now->format('U');
+        $event->sticky = 0;
+        $event->save();
+      }
+    }
+  }
+
 }
