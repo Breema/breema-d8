@@ -3408,3 +3408,25 @@ function breema_preprocess_views_view_fullcalendar(array &$variables) {
   $variables['#attached']['drupalSettings']['minTime'] = '07:00:00';
   $variables['#attached']['drupalSettings']['maxTime'] = '22:00:00';
 }
+
+/**
+ * Implements hook_preprocess_address_plain()
+ */
+function breema_preprocess_address_plain(array &$variables) {
+  $country = \Drupal::service('address.country_repository')->get($variables['country']['code']);
+  $variables['country_three_letter'] = $country->getThreeLetterCode();
+
+  // Address.module sometimes gives us a code, other times a name.
+  // We have to figure out the best thing to print for search indexing.
+  // @todo Remove this once address.module handles this correctly.
+  // @see https://www.drupal.org/project/address/issues/2881391
+  if (!empty($variables['locality']['code'])) {
+    $variables['locality_value'] = $variables['locality']['code'];
+  }
+  elseif (!empty($variables['locality']['name'])) {
+    $variables['locality_value'] = $variables['locality']['name'];
+  }
+  elseif (!is_array($variables['locality'])) {
+    $variables['locality_value'] = $variables['locality'];
+  }
+}
