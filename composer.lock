@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "df727d32ed53003f3c200d5a49e79dce",
+    "content-hash": "55ff7297f58644a01e3353ea352fa131",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -1377,7 +1377,8 @@
                     }
                 },
                 "patches_applied": {
-                    "[#2995992-33] Required Country field should display the '- Select a value -' option to match core behavior": "https://www.drupal.org/files/issues/2019-11-09/2995992-33.patch",
+                    "[#2856797-24] Missing theme suggestions for address_plain": "https://www.drupal.org/files/issues/2019-12-03/2856797-24.address-theme-suggestions.patch",
+                    "[#2995992-33] Country field should display the '- Select -' option to match core behavior": "https://www.drupal.org/files/issues/2019-11-09/2995992-33.patch",
                     "[#3087201-5] Views exposed filter for Administrative Area based on exposed Country Code filter not working": "https://www.drupal.org/files/issues/2019-10-15/3087201-5.address-admin-area-filter-pick-country-fix.patch"
                 }
             },
