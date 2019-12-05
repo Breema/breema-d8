@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "55ff7297f58644a01e3353ea352fa131",
+    "content-hash": "2247c637c08fbcd0d40f8e75697db155",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -3188,6 +3188,9 @@
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
                     }
+                },
+                "patches_applied": {
+                    "[#3077225-3] Logs flooded with warning messages 'Invalid display settings encountered'": "https://www.drupal.org/files/issues/2019-08-26/3077225-reduce-invalid-config-logs.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -8998,6 +9001,7 @@
                 "GPL-2.0-or-later"
             ],
             "description": "Locked core dependencies",
+            "abandoned": "drupal/core-recommended",
             "time": "2019-11-13T23:30:49+00:00"
         },
         {
