@@ -159,6 +159,7 @@ hidden:
   field_name_first: true
   field_name_last: true
   field_resources: true
+  field_social_media_image: true
   field_upcoming_events: true
   group_content: true
   uid: true

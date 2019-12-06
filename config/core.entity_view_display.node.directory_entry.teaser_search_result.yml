@@ -83,10 +83,10 @@ content:
       link_class: facebook
       rel: nofollow
       target: _blank
-      allow_override: 0
-      trim_length: ''
-      url_only: ''
-      url_plain: ''
+      allow_override: false
+      trim_length: null
+      url_only: false
+      url_plain: false
     third_party_settings: {  }
   field_job_title:
     weight: 0
@@ -133,6 +133,7 @@ hidden:
   field_name_first: true
   field_name_last: true
   field_resources: true
+  field_social_media_image: true
   group_content: true
   links: true
   uid: true
