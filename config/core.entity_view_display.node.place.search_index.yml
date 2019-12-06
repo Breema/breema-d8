@@ -19,7 +19,6 @@ dependencies:
   module:
     - address
     - link
-    - telephone
     - text
     - user
 id: node.place.search_index
@@ -59,19 +58,10 @@ content:
     weight: 2
     label: hidden
     settings:
-      title: ''
+      link_to_entity: false
     third_party_settings: {  }
-    type: telephone_link
+    type: string
     region: content
-  field_upcoming_events:
-    type: entity_reference_entity_view
-    weight: 6
-    region: content
-    label: hidden
-    settings:
-      view_mode: teaser
-      link: false
-    third_party_settings: {  }
   field_website:
     weight: 4
     label: hidden
@@ -89,6 +79,7 @@ hidden:
   field_has_active_event: true
   field_main_image: true
   field_social_media_image: true
+  field_upcoming_events: true
   flag_my_places: true
   group_content: true
   links: true
