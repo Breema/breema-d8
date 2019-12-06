@@ -29,7 +29,6 @@ dependencies:
     - datetime_range
     - link
     - text
-    - user
 id: node.event.search_index
 targetEntityType: node
 bundle: event
@@ -171,9 +170,11 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
+  created: true
   field_breema_center_sponsored: true
   field_display_instructor_bios: true
   field_geolocation: true
   field_resources: true
   field_social_media_image: true
   group_content: true
+  uid: true

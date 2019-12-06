@@ -21,7 +21,6 @@ dependencies:
     - node.type.directory_entry
   module:
     - smart_trim
-    - user
 id: node.directory_entry.teaser_compact
 targetEntityType: node
 bundle: directory_entry
@@ -75,6 +74,7 @@ content:
     type: string
     region: content
 hidden:
+  created: true
   field_address: true
   field_certification: true
   field_email: true
@@ -89,3 +89,4 @@ hidden:
   field_website: true
   group_content: true
   links: true
+  uid: true

@@ -24,7 +24,6 @@ dependencies:
     - options
     - smart_trim
     - telephone
-    - user
 id: node.directory_entry.teaser
 targetEntityType: node
 bundle: directory_entry
@@ -102,6 +101,7 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
+  created: true
   field_breema_clinic_practitioner: true
   field_facebook_page: true
   field_geolocation: true
@@ -112,3 +112,4 @@ hidden:
   field_upcoming_events: true
   field_website: true
   group_content: true
+  uid: true

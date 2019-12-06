@@ -14,7 +14,6 @@ dependencies:
     - node.type.layout_page
   module:
     - media
-    - user
 id: node.layout_page.teaser
 targetEntityType: node
 bundle: layout_page
@@ -35,9 +34,11 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
+  created: true
   field_meta_summary: true
   field_paragraphs: true
   field_slideshow: true
   field_social_media_image: true
   field_tiles: true
   group_content: true
+  uid: true

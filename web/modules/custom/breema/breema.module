@@ -12,6 +12,7 @@ use Drupal\Core\Database\Query\AlterableInterface;
 use Drupal\Core\Datetime\DrupalDateTime;
 use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
 use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Language\Language;
@@ -3429,4 +3430,25 @@ function breema_preprocess_address_plain(array &$variables) {
   elseif (!is_array($variables['locality'])) {
     $variables['locality_value'] = $variables['locality'];
   }
+}
+
+/**
+ * Implements HOOK_entity_base_field_info_alter().
+ *
+ * Make 'uid' and 'created' fields configurable (to hide them from search!).
+ */
+function breema_entity_base_field_info_alter(&$base_field_definitions, EntityTypeInterface $entity_type) {
+  if ($entity_type->id() == 'node') {
+    $base_field_definitions['uid']->setDisplayConfigurable('view', TRUE);
+    $base_field_definitions['created']->setDisplayConfigurable('view', TRUE);
+  }
+}
+
+/**
+ * Implements HOOK_entity_type_build().
+ *
+ * Make 'uid' and 'created' fields configurable (to hide them from search!).
+ */
+function breema_entity_type_build(array &$entity_types) {
+  $entity_types['node']->set('enable_base_field_custom_preprocess_skipping', TRUE);
 }

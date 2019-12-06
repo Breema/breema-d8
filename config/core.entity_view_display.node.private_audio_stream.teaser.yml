@@ -13,7 +13,6 @@ dependencies:
     - audiofield
     - datetime_extras
     - smart_trim
-    - user
 id: node.private_audio_stream.teaser
 targetEntityType: node
 bundle: private_audio_stream
@@ -77,6 +76,8 @@ content:
       download_link: 0
     third_party_settings: {  }
 hidden:
+  created: true
   field_title_prefix: true
   group_content: true
   links: true
+  uid: true

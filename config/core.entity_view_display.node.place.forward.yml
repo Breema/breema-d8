@@ -21,7 +21,6 @@ dependencies:
     - breema
     - link
     - telephone
-    - user
 id: node.place.forward
 targetEntityType: node
 bundle: place
@@ -106,6 +105,7 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
+  created: true
   field_geolocation: true
   field_has_active_event: true
   field_meta_summary: true
@@ -113,3 +113,4 @@ hidden:
   field_upcoming_events: true
   flag_my_places: true
   group_content: true
+  uid: true

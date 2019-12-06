@@ -12,7 +12,6 @@ dependencies:
   module:
     - media
     - smart_trim
-    - user
 id: node.private_page.teaser
 targetEntityType: node
 bundle: private_page
@@ -47,6 +46,8 @@ content:
       image_link: ''
     third_party_settings: {  }
 hidden:
+  created: true
   field_resources: true
   group_content: true
   links: true
+  uid: true

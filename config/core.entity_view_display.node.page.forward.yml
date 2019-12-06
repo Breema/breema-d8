@@ -14,7 +14,6 @@ dependencies:
   module:
     - advanced_text_formatter
     - media
-    - user
 _core:
   default_config_hash: g1S3_GLaxq4l3I9RIca5Mlz02MxI2KmOquZpHw59akM
 id: node.page.forward
@@ -67,7 +66,9 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
+  created: true
   field_meta_summary: true
   field_resources: true
   field_social_media_image: true
   group_content: true
+  uid: true

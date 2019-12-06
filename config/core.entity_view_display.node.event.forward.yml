@@ -29,7 +29,6 @@ dependencies:
     - datetime_extras
     - fixed_text_link_formatter
     - link
-    - user
 id: node.event.forward
 targetEntityType: node
 bundle: event
@@ -183,6 +182,7 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
+  created: true
   field_address: true
   field_breema_center_sponsored: true
   field_categories: true
@@ -191,3 +191,4 @@ hidden:
   field_resources: true
   field_social_media_image: true
   group_content: true
+  uid: true

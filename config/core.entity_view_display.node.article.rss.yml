@@ -22,7 +22,6 @@ dependencies:
     - datetime
     - media
     - text
-    - user
 _core:
   default_config_hash: 2rIr6K5Q0UQ9khg0zE_CK-PtJH76UL-BDDZcZnZzwCc
 id: node.article.rss
@@ -61,6 +60,7 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
+  created: true
   field_article_language: true
   field_authors_breema: true
   field_authors_other: true
@@ -71,3 +71,4 @@ hidden:
   field_source_name: true
   field_source_url: true
   group_content: true
+  uid: true

@@ -21,7 +21,6 @@ dependencies:
     - datetime
     - link
     - text
-    - user
 _core:
   default_config_hash: qVtHNxqdXB9w369AO5JB5SVhflquWqFm5xfyvYLAIlM
 id: node.article.search_index
@@ -99,9 +98,11 @@ content:
       target: '0'
     third_party_settings: {  }
 hidden:
+  created: true
   field_article_language: true
   field_main_image: true
   field_resources: true
   field_social_media_image: true
   group_content: true
   links: true
+  uid: true

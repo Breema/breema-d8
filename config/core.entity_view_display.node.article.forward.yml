@@ -22,7 +22,6 @@ dependencies:
     - advanced_text_formatter
     - datetime
     - media
-    - user
 _core:
   default_config_hash: qVtHNxqdXB9w369AO5JB5SVhflquWqFm5xfyvYLAIlM
 id: node.article.forward
@@ -84,6 +83,7 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
+  created: true
   field_article_language: true
   field_authors_breema: true
   field_authors_other: true
@@ -94,3 +94,4 @@ hidden:
   field_source_name: true
   field_source_url: true
   group_content: true
+  uid: true

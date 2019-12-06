@@ -22,7 +22,6 @@ dependencies:
     - datetime
     - media
     - smart_trim
-    - user
 _core:
   default_config_hash: 4NcL2hSQZBpJbYtNuh5jC6kyQTcAc1m5bQpTegEWEso
 id: node.article.teaser
@@ -68,6 +67,7 @@ content:
       image_link: ''
     third_party_settings: {  }
 hidden:
+  created: true
   field_article_language: true
   field_authors_breema: true
   field_authors_other: true
@@ -79,3 +79,4 @@ hidden:
   field_source_url: true
   group_content: true
   links: true
+  uid: true

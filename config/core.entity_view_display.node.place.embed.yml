@@ -20,7 +20,6 @@ dependencies:
     - breema
     - link
     - telephone
-    - user
 id: node.place.embed
 targetEntityType: node
 bundle: place
@@ -67,6 +66,7 @@ content:
     third_party_settings: {  }
 hidden:
   body: true
+  created: true
   field_geolocation: true
   field_has_active_event: true
   field_main_image: true
@@ -75,3 +75,4 @@ hidden:
   field_upcoming_events: true
   flag_my_places: true
   group_content: true
+  uid: true

@@ -18,7 +18,6 @@ dependencies:
     - node.type.place
   module:
     - address
-    - user
 id: node.place.teaser_with_location
 targetEntityType: node
 bundle: place
@@ -33,6 +32,7 @@ content:
     region: content
 hidden:
   body: true
+  created: true
   field_email: true
   field_geolocation: true
   field_has_active_event: true
@@ -45,3 +45,4 @@ hidden:
   flag_my_places: true
   group_content: true
   links: true
+  uid: true

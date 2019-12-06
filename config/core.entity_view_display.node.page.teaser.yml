@@ -14,7 +14,6 @@ dependencies:
   module:
     - media
     - smart_trim
-    - user
 _core:
   default_config_hash: cSv5lDnbIgDug475Hdz3woED2XMqYv3awI-J9u1JLbY
 id: node.page.teaser
@@ -51,8 +50,10 @@ content:
       image_link: ''
     third_party_settings: {  }
 hidden:
+  created: true
   field_meta_summary: true
   field_resources: true
   field_social_media_image: true
   group_content: true
   links: true
+  uid: true

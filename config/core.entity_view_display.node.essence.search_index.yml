@@ -17,7 +17,6 @@ dependencies:
   module:
     - options
     - text
-    - user
 id: node.essence.search_index
 targetEntityType: node
 bundle: essence
@@ -62,9 +61,11 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
+  created: true
   field_date: true
   field_main_image: true
   field_resources: true
   field_social_media_image: true
   group_content: true
   links: true
+  uid: true

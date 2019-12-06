@@ -28,7 +28,6 @@ dependencies:
     - options
     - telephone
     - text
-    - user
 id: node.directory_entry.default
 targetEntityType: node
 bundle: directory_entry
@@ -140,6 +139,7 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
+  created: true
   field_geolocation: true
   field_has_active_event: true
   field_name_first: true
@@ -147,3 +147,4 @@ hidden:
   field_social_media_image: true
   field_upcoming_events: true
   group_content: true
+  uid: true

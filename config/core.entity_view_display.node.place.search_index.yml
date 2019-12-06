@@ -20,7 +20,6 @@ dependencies:
     - address
     - link
     - text
-    - user
 id: node.place.search_index
 targetEntityType: node
 bundle: place
@@ -75,6 +74,7 @@ content:
     type: link_separate
     region: content
 hidden:
+  created: true
   field_geolocation: true
   field_has_active_event: true
   field_main_image: true
@@ -83,3 +83,4 @@ hidden:
   flag_my_places: true
   group_content: true
   links: true
+  uid: true

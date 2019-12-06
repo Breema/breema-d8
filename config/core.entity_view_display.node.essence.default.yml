@@ -17,7 +17,6 @@ dependencies:
   module:
     - media
     - text
-    - user
 id: node.essence.default
 targetEntityType: node
 bundle: essence
@@ -63,9 +62,11 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
+  created: true
   field_date: true
   field_meta_summary: true
   field_social_media_image: true
   field_source_other: true
   field_source_type: true
   group_content: true
+  uid: true

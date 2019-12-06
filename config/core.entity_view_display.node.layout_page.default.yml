@@ -14,7 +14,6 @@ dependencies:
   module:
     - entity_reference_revisions
     - flexslider_fields
-    - user
 id: node.layout_page.default
 targetEntityType: node
 bundle: layout_page
@@ -54,7 +53,9 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
+  created: true
   field_main_image: true
   field_meta_summary: true
   field_social_media_image: true
   group_content: true
+  uid: true

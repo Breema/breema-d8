@@ -26,7 +26,6 @@ dependencies:
     - node.type.event
   module:
     - datetime_extras
-    - user
 id: node.event.teaser_no_image
 targetEntityType: node
 bundle: event
@@ -58,6 +57,7 @@ content:
     region: content
 hidden:
   body: true
+  created: true
   field_address: true
   field_breema_center_sponsored: true
   field_categories: true
@@ -75,3 +75,4 @@ hidden:
   field_website: true
   group_content: true
   links: true
+  uid: true

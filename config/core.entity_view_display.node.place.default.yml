@@ -21,7 +21,6 @@ dependencies:
     - link
     - telephone
     - text
-    - user
 id: node.place.default
 targetEntityType: node
 bundle: place
@@ -121,8 +120,10 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
+  created: true
   field_has_active_event: true
   field_meta_summary: true
   field_social_media_image: true
   field_upcoming_events: true
   group_content: true
+  uid: true

@@ -27,7 +27,6 @@ dependencies:
   module:
     - datetime_extras
     - smart_trim
-    - user
 id: node.event.embed
 targetEntityType: node
 bundle: event
@@ -70,6 +69,7 @@ content:
     type: entity_reference_entity_view
     region: content
 hidden:
+  created: true
   field_address: true
   field_breema_center_sponsored: true
   field_categories: true
@@ -88,3 +88,4 @@ hidden:
   field_website: true
   group_content: true
   links: true
+  uid: true

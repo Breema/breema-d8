@@ -18,7 +18,6 @@ dependencies:
   module:
     - media
     - text
-    - user
 id: node.product.embed
 targetEntityType: node
 bundle: product
@@ -58,9 +57,11 @@ content:
     third_party_settings: {  }
 hidden:
   body: true
+  created: true
   field_meta_summary: true
   field_product_info: true
   field_publication_year: true
   field_social_media_image: true
   group_content: true
   links: true
+  uid: true

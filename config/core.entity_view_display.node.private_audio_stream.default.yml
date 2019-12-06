@@ -13,7 +13,6 @@ dependencies:
     - datetime_extras
     - gcontent_field
     - text
-    - user
 id: node.private_audio_stream.default
 targetEntityType: node
 bundle: private_audio_stream
@@ -79,4 +78,6 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
+  created: true
   field_title_prefix: true
+  uid: true

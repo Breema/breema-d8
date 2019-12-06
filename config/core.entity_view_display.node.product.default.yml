@@ -18,7 +18,6 @@ dependencies:
     - entity_reference_revisions
     - media
     - text
-    - user
 id: node.product.default
 targetEntityType: node
 bundle: product
@@ -71,8 +70,10 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
+  created: true
   field_meta_summary: true
   field_social_media_image: true
   field_title_main: true
   field_title_sub: true
   group_content: true
+  uid: true

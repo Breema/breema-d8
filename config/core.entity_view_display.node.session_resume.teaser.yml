@@ -13,7 +13,6 @@ dependencies:
     - node.type.session_resume
   module:
     - smart_trim
-    - user
 id: node.session_resume.teaser
 targetEntityType: node
 bundle: session_resume
@@ -60,7 +59,9 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
+  created: true
   field_date: true
   field_questions: true
   field_recipient_prior_experience: true
   group_content: true
+  uid: true
