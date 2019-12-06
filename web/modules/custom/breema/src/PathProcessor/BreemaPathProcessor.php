@@ -25,6 +25,10 @@ class BreemaPathProcessor implements InboundPathProcessorInterface {
     if (strpos($path, '/deutsch') === 0) {
       return '/deutsch';
     }
+    // Wildcard route for /classes-events/*
+    if (strpos($path, '/classes-events') === 0) {
+      return '/breema/legacy/classes-events';
+    }
     // Check for PDF URLs.
     if (strpos($path, '/images/uploads/pdf/') === 0) {
       // Handle anything we know how to redirect.

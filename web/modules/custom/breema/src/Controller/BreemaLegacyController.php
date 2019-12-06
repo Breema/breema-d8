@@ -15,6 +15,13 @@ use Drupal\Core\Url;
 class BreemaLegacyController extends ControllerBase {
 
   /**
+   * Redirects legacy classes-events* URLs to the /events/center page.
+   */
+  public function redirectClassesEvents() {
+    return $this->redirect('entity.node.canonical', ['node' => 38]);
+  }
+
+  /**
    * Handle legacy directory URLs and redirect to the appropriate search.
    *
    * @param string $region

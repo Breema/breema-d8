@@ -70,6 +70,13 @@ entity.user.breema_resume_dashboard:
   requirements:
     _custom_access: '\Drupal\breema\Controller\BreemaController::accessResumes'
 
+breema.legacy.classes_events:
+  path: '/breema/legacy/classes-events'
+  defaults:
+    _controller: '\Drupal\breema\Controller\BreemaLegacyController::redirectClassesEvents'
+  requirements:
+    _access: 'TRUE'
+
 breema.legacy.directory.general:
   path: '/site/list/directory/{region}'
   defaults:
