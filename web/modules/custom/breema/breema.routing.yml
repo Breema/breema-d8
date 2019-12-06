@@ -91,8 +91,22 @@ breema.legacy.directory.general:
   requirements:
     _access: 'TRUE'
 
+breema.legacy.directory.general.pager:
+  path: '/site/list/directory/{region}/pg/{page}'
+  defaults:
+    _controller: '\Drupal\breema\Controller\BreemaLegacyController::redirectDirectory'
+  requirements:
+    _access: 'TRUE'
+
 breema.legacy.directory.specific:
   path: '/site/list/directory/{region}/{detail}'
+  defaults:
+    _controller: '\Drupal\breema\Controller\BreemaLegacyController::redirectDirectory'
+  requirements:
+    _access: 'TRUE'
+
+breema.legacy.directory.specific.pager:
+  path: '/site/list/directory/{region}/{detail}/{page}'
   defaults:
     _controller: '\Drupal\breema\Controller\BreemaLegacyController::redirectDirectory'
   requirements:
