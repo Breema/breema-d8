@@ -29,6 +29,10 @@ class BreemaPathProcessor implements InboundPathProcessorInterface {
     if (strpos($path, '/classes-events') === 0) {
       return '/breema/legacy/classes-events';
     }
+    // Wildcard route for /calendar/YYYY/MM*
+    if (preg_match('@^/calendar/\d+/\d+@', $path) === 1) {
+      return '/breema/legacy/calendar';
+    }
     // Check for PDF URLs.
     if (strpos($path, '/images/uploads/pdf/') === 0) {
       // Handle anything we know how to redirect.

@@ -15,6 +15,13 @@ use Drupal\Core\Url;
 class BreemaLegacyController extends ControllerBase {
 
   /**
+   * Redirects legacy calendar/* URLs to the /events/calendar view.
+   */
+  public function redirectCalendar() {
+    return $this->redirect('view.breema_event_calendar.page_1', [], []);
+  }
+
+  /**
    * Redirects legacy classes-events* URLs to the /events/center page.
    */
   public function redirectClassesEvents() {

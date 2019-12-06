@@ -77,6 +77,13 @@ breema.legacy.classes_events:
   requirements:
     _access: 'TRUE'
 
+breema.legacy.calendar:
+  path: '/breema/legacy/calendar'
+  defaults:
+    _controller: '\Drupal\breema\Controller\BreemaLegacyController::redirectCalendar'
+  requirements:
+    _access: 'TRUE'
+
 breema.legacy.directory.general:
   path: '/site/list/directory/{region}'
   defaults:
