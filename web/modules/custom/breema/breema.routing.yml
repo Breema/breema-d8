@@ -119,6 +119,13 @@ breema.legacy.inspiration:
   requirements:
     _access: 'TRUE'
 
+breema.legacy.press:
+  path: '/press/{year}'
+  defaults:
+    _controller: '\Drupal\breema\Controller\BreemaLegacyController::redirectPress'
+  requirements:
+    _access: 'TRUE'
+
 breema.legacy.deutsch:
   path: '/deutsch'
   defaults:

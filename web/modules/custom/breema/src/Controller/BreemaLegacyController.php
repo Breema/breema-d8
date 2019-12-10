@@ -72,6 +72,18 @@ class BreemaLegacyController extends ControllerBase {
   }
 
   /**
+   * Redirects legacy press URLs to the Articles about Breema list.
+   *
+   * @param string $year
+   *   The year parameter from the legacy URL (ignored).
+   * @return \Symfony\Component\HttpFoundation\RedirectResponse
+   *   The RedirectResponse to send visitors to /about-breema/articles
+   */
+  public function redirectPress($year = NULL) {
+    return $this->redirect('view.breema_articles.page_1', [], []);
+  }
+
+  /**
    * Handle legacy deutsch* URLs and redirect to the front page.
    *
    * @return \Symfony\Component\HttpFoundation\RedirectResponse
