@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7a0626f934c55c906f10d9cf4527f069",
+    "content-hash": "02c62cb4a19948637496013f83500ab5",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -2937,17 +2937,17 @@
         },
         {
             "name": "drupal/embed",
-            "version": "1.0.0",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/embed.git",
-                "reference": "8.x-1.0"
+                "reference": "8.x-1.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/embed-8.x-1.0.zip",
-                "reference": "8.x-1.0",
-                "shasum": "cc746ad807260e01c7788dd82110dcebbb4d678a"
+                "url": "https://ftp.drupal.org/files/projects/embed-8.x-1.1.zip",
+                "reference": "8.x-1.1",
+                "shasum": "d1c1dbd5eb8f82ce635b1abab40837c2c7e0ff9f"
             },
             "require": {
                 "drupal/core": "~8.0"
@@ -2958,8 +2958,8 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.0",
-                    "datestamp": "1490755685",
+                    "version": "8.x-1.1",
+                    "datestamp": "1575666184",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -2995,7 +2995,7 @@
             "description": "Provide a framework for various different types of embeds in WYSIWYG editors, common functionality, interfaces, and standards.",
             "homepage": "https://www.drupal.org/project/embed",
             "support": {
-                "source": "http://cgit.drupalcode.org/embed",
+                "source": "https://git.drupalcode.org/project/embed",
                 "issues": "https://www.drupal.org/project/issues/embed",
                 "irc": "irc://irc.freenode.org/drupal-media"
             }
@@ -3241,13 +3241,13 @@
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/entity_reference_revisions.git",
-                "reference": "9ed3a5d1228d348c6c2fff33055b77c7aa0c9ef4"
+                "reference": "995ee350fef13885017a5a7a680a07bdb9f07fbb"
             },
             "require": {
-                "drupal/core": "~8.0"
+                "drupal/core": "^8.7.7 || ^9"
             },
             "require-dev": {
-                "drupal/diff": "*"
+                "drupal/diff": "~1.0"
             },
             "type": "drupal-module",
             "extra": {
@@ -3263,12 +3263,12 @@
                     }
                 },
                 "patches_applied": {
-                    "[#2799479-90] Views doesn't recognize relationship to host": "https://www.drupal.org/files/issues/2019-10-07/2799479-90.patch"
+                    "[#2799479-108] Views doesn't recognize relationship to host": "https://www.drupal.org/files/issues/2019-12-10/2799479-108.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
             "license": [
-                "GPL-2.0-or-later"
+                "GPL-2.0"
             ],
             "authors": [
                 {
@@ -3288,12 +3288,12 @@
                     "homepage": "https://www.drupal.org/user/227761"
                 }
             ],
-            "description": "Adds a Entity Reference field type with revision support.",
+            "description": "Entity Reference Revisions",
             "homepage": "https://www.drupal.org/project/entity_reference_revisions",
             "support": {
                 "source": "https://git.drupalcode.org/project/entity_reference_revisions"
             },
-            "time": "2019-10-05T13:06:25+00:00"
+            "time": "2019-12-10T23:22:39+00:00"
         },
         {
             "name": "drupal/entityqueue",
@@ -3856,7 +3856,7 @@
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/geocoder.git",
-                "reference": "a5979b153d8cce6dd91d78c0fc9612e152816091"
+                "reference": "36e14f2e80db9fff612c5da26d66856c2030d5f9"
             },
             "require": {
                 "drupal/core": "~8.0",
@@ -3878,8 +3878,8 @@
                     "dev-2.x": "2.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-2.3+4-dev",
-                    "datestamp": "1572535384",
+                    "version": "8.x-2.3+5-dev",
+                    "datestamp": "1575970681",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Dev releases are not covered by Drupal security advisories."
@@ -3945,7 +3945,7 @@
                 "issues": "https://drupal.org/project/issues/geocoder",
                 "irc": "irc://irc.freenode.org/drupal-geo"
             },
-            "time": "2019-10-31T15:19:47+00:00"
+            "time": "2019-12-10T10:10:28+00:00"
         },
         {
             "name": "drupal/geolocation",

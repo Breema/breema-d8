@@ -180,7 +180,7 @@
         "[#3077225-3] Logs flooded with warning messages 'Invalid display settings encountered'" : "https://www.drupal.org/files/issues/2019-08-26/3077225-reduce-invalid-config-logs.patch"
       },
       "drupal/entity_reference_revisions": {
-        "[#2799479-90] Views doesn't recognize relationship to host" : "https://www.drupal.org/files/issues/2019-10-07/2799479-90.patch"
+        "[#2799479-108] Views doesn't recognize relationship to host" : "https://www.drupal.org/files/issues/2019-12-10/2799479-108.patch"
       },
       "drupal/filefield_paths": {
         "[#2718783-13] Call to undefined method BaseFieldDefinition::getThirdPartySettings()" : "https://www.drupal.org/files/issues/call_to_undefined-2718783-13.patch"
