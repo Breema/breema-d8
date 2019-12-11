@@ -23,7 +23,7 @@
     }
   ],
   "require": {
-    "composer/installers": "^1.0.20",
+    "composer/installers": "^1.7",
     "cweagans/composer-patches": "^1.0",
     "drupal-composer/drupal-scaffold": "^2.0.1",
     "drupal/address": "^1.2",
@@ -37,7 +37,7 @@
     "drupal/config_direct_save": "^1.0",
     "drupal/config_installer": "^1.0",
     "drupal/console": "^1",
-    "drupal/core": "^8.5",
+    "drupal/core-recommended": "^8.8",
     "drupal/csv_serialization": "^2.0",
     "drupal/ctools": "^3.0",
     "drupal/datetime_extras": "^1.0",
@@ -86,7 +86,6 @@
     "drush/drush": "~8",
     "enyo/dropzone": "^5.1",
     "rvtraveller/qs-composer-installer": "^1.1",
-    "webflo/drupal-core-strict": "^8.5",
     "woothemes/flexslider": "~2.0"
   },
   "require-dev": {
@@ -159,13 +158,11 @@
         "[#2625136-115] Fix label visibility and add wrapper container for exposed numeric/date filters with multiple form elements" : "https://www.drupal.org/files/issues/2019-10-28/2625136-115.8_7_x.patch",
         "[#2648950-224] Use form element of type date instead textfield when selecting a date in an exposed filter" : "https://www.drupal.org/files/issues/2019-10-30/2648950-224.8_7_x.patch",
         "[#2648950-224] Fix conflicts between #2648950 and #2625136" : "https://www.drupal.org/files/issues/2019-10-30/2648950-224.changes-for-2625136.DO-NOT-TEST.patch",
-        "[#2769289-32] Can't show 'revision author' on views of type 'Content'" : "https://www.drupal.org/files/issues/2019-08-13/2769289-32.patch",
         "[#2868014-79] Views date filter datetime granularity option" : "https://www.drupal.org/files/issues/2019-10-30/2868014-79.patch",
         "[#2868014-79] Build upon [#2648950-224]" : "https://www.drupal.org/files/issues/2019-10-30/2868014-79.changes-for-everything-else.DO-NOT-TEST.patch",
         "[#2801501-8] Don't force the 'Manage' tray open in the toolbar on every page load" : "https://www.drupal.org/files/issues/2019-08-16/2801501-8.no-auto-open-toolbar.patch",
         "[#2835825-21 Media: Migration support" : "https://www.drupal.org/files/issues/2835825-21.patch",
         "[#2853188-14] Add negated regular expressions for views filters (string and integer)" : "https://www.drupal.org/files/issues/2853188-14.patch",
-        "[#2866386-4] 'view_path' is set to /views/ajax after second ajax request" : "https://www.drupal.org/files/issues/2866386-4.patch",
         "[#2945243-16] Remain on a View page after saving it" : "https://www.drupal.org/files/issues/2019-11-20/2945243-16.patch",
         "[#2951268-25] Improve rendering of account link in the toolbar" : "https://www.drupal.org/files/issues/2019-05-26/2951268-25.patch",
         "[#2959869-5] Creating Media Type gives this Error: Call to a member function getName()" : "https://www.drupal.org/files/issues/2018-04-16/create-media-error-2959869-5.patch"
