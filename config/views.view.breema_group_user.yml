@@ -14,7 +14,6 @@ description: 'Lists of a given user''s groups.'
 tag: ''
 base_table: groups_field_data
 base_field: id
-core: 8.x
 display:
   default:
     display_plugin: default
