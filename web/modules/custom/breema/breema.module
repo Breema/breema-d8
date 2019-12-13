@@ -3452,3 +3452,65 @@ function breema_entity_base_field_info_alter(&$base_field_definitions, EntityTyp
 function breema_entity_type_build(array &$entity_types) {
   $entity_types['node']->set('enable_base_field_custom_preprocess_skipping', TRUE);
 }
+
+/**
+ * Implements HOOK_ranking().
+ */
+function breema_ranking() {
+  $rankings = [];
+  // First, add rankings for all node types.
+  $types = \Drupal::service('entity_type.bundle.info')->getBundleInfo('node');
+  foreach ($types as $id => $info) {
+    $rankings["type_$id"] = [
+      'title' => t('Content type:') . ' ' . $info['label'],
+      'score' => "CASE n.type WHEN '$id' THEN 1 ELSE 0 END",
+    ];
+  }
+
+  $event_join = [
+    'type' => 'LEFT',
+    'table' => 'node__field_date_time',
+    'alias' => 'nfdt',
+    'on' => 'nfdt.revision_id = n.vid',
+  ];
+
+  // Now, add event-specific rankings based on date/time.
+  // @todo Fix this when we have accurate event-specific timezones.
+  $now = new DrupalDateTime('-12 hours');
+  $now->setTimezone(new \DateTimeZone(DATETIME_STORAGE_TIMEZONE));
+  $db_now = $now->format(DATETIME_DATETIME_STORAGE_FORMAT);
+
+  $this_week = new DrupalDateTime('+1 week');
+  $this_week->setTimezone(new \DateTimeZone(DATETIME_STORAGE_TIMEZONE));
+  $db_week = $this_week->format(DATETIME_DATETIME_STORAGE_FORMAT);
+
+  $this_month = new DrupalDateTime('+1 month');
+  $this_month->setTimezone(new \DateTimeZone(DATETIME_STORAGE_TIMEZONE));
+  $db_month = $this_month->format(DATETIME_DATETIME_STORAGE_FORMAT);
+
+  $rankings['event_week'] = [
+    'title' => t('Event: This week'),
+    'join' => $event_join,
+    'score' => "nfdt.field_date_time_value BETWEEN '$db_now' AND '$db_week'",
+  ];
+
+  $rankings['event_month'] = [
+    'title' => t('Event: This month'),
+    'join' => $event_join,
+    'score' => "nfdt.field_date_time_value BETWEEN '$db_week' AND '$db_month'",
+  ];
+
+  $rankings['event_future'] = [
+    'title' => t('Event: Future'),
+    'join' => $event_join,
+    'score' => "nfdt.field_date_time_value >= '$db_month'",
+  ];
+
+  $rankings['event_past'] = [
+    'title' => t('Event: Past'),
+    'join' => $event_join,
+    'score' => "nfdt.field_date_time_end_value < '$db_now'",
+  ];
+
+  return $rankings;
+}
