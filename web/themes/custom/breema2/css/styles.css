@@ -1643,6 +1643,11 @@ ul.menu.mm-listview a.is-active {
   border: none;
 }
 
+.search-help-link {
+  white-space: nowrap;
+  display: block;
+}
+
 .block-social-share-block {
   float: right;
   margin: 0 1em 1em;
