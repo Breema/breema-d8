@@ -1874,6 +1874,32 @@ function breema_form_user_login_form_alter(&$form, FormStateInterface $form_stat
 }
 
 /**
+ * Implements hook_form_FORM_ID_alter() for 'search_form'.
+ *
+ * Add custom description text to point users to event search + int'l directory.
+ */
+function breema_form_search_form_alter(&$form, FormStateInterface $form_state) {
+  $placeholders = [
+    ':event_search_url' => Url::fromRoute('view.breema_event_search.page_1')->toString(),
+    ':directory_url' => Url::fromRoute('view.breema_directory.page_list')->toString(),
+  ];
+  $form['description'] = [
+    '#markup' => t('To search for events, additional filters are available at the <a href=":event_search_url">Event search</a> page. To find Breema instructors and practitioners, see the <a href=":directory_url">International Directory</a>.', $placeholders),
+    '#prefix' => '<div class="description">',
+    '#suffix' => '</div>',
+  ];
+  $weights = [
+    'basic' => -10,
+    'description' => -5,
+    'help_link' => 0,
+    'advanced' => 5,
+  ];
+  foreach ($weights as $key => $weight) {
+    $form[$key]['#weight'] = $weight;
+  }
+}
+
+/**
  * Implements hook_form_FORM_ID_alter() for 'user_pass' form.
  *
  * Fix #title for 'name' element to mention 'Full name' not 'Username'.
