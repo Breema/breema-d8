@@ -1,4 +1,10 @@
-.search-help-link {
-  white-space: nowrap;    
-  display: block;
+.search-form {
+  .search-help-link {
+    display: block;
+    white-space: nowrap;    
+  }
+  .description {
+    clear: both;
+    display: block;
+  }
 }

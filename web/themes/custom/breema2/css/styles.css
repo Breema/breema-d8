@@ -1643,8 +1643,12 @@ ul.menu.mm-listview a.is-active {
   border: none;
 }
 
-.search-help-link {
+.search-form .search-help-link {
+  display: block;
   white-space: nowrap;
+}
+.search-form .description {
+  clear: both;
   display: block;
 }
 
