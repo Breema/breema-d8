@@ -8,11 +8,21 @@ _core:
   default_config_hash: 97tvtzGOa8_flb22CzSjgtm_YkiGMHvEBO-6q2K9V_U
 id: node_search
 label: Content
-path: node
+path: content
 weight: -10
 plugin: node_search
 configuration:
   rankings:
-    recent: 2
-    relevance: 1
-    sticky: 4
+    event_future: 2
+    event_month: 7
+    event_upcoming: 4
+    event_week: 8
+    relevance: 2
+    sticky: 2
+    type_article: 2
+    type_directory_entry: 10
+    type_essence: 2
+    type_layout_page: 3
+    type_page: 3
+    type_place: 6
+    type_product: 4
