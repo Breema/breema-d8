@@ -1152,6 +1152,9 @@ function breema_views_pre_render(ViewExecutable $view) {
         $view->element['#attached']['library'][] = 'breema/entity-browser';
         break;
 
+      case 'breema_directory':
+        return breema_views_pre_render_breema_directory($view);
+
       case 'breema_events_by_instructor':
         return breema_views_pre_render_breema_events_by_instructor($view);
 
@@ -1260,6 +1263,23 @@ function breema_views_pre_render_breema_events_by_location(ViewExecutable $view)
     $settings = &$view->display_handler->getPlugin('style')->options;
     if (count($view->result) < 3) {
       $settings['class'] = 'grid--container'; // not grid--container-1-2
+    }
+  }
+}
+
+/**
+ * Implements hook_views_pre_render() for breema_directory
+ *
+ * Since the map display is configured to show the map even when the view is
+ * empty, we're not seeing the empty text (e.g. if you zoom in too far or over a
+ * country without any Breema people/events). Therefore, if we notice the
+ * results are empty, we move the 'empty' handler(s) to the view's footer.
+ */
+function breema_views_pre_render_breema_directory(ViewExecutable $view) {
+  if ($view->current_display === 'page_map') {
+    if (empty($view->result)) {
+      // Move the empty area handler to the footer (so it'll be rendered).
+      $view->footer = $view->empty;
     }
   }
 }
