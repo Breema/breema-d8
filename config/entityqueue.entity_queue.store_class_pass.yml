@@ -1,0 +1,25 @@
+uuid: 344ac8a2-052b-4a52-bbd9-4c16b9ce419e
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: store_class_pass
+label: 'Store: Classes'
+handler: simple
+handler_configuration: {  }
+entity_settings:
+  target_type: node
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      product: product
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+queue_settings:
+  min_size: 0
+  max_size: 0
+  act_as_queue: false
+  reverse_in_admin: false
