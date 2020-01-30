@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - entityqueue.entity_queue.store_books
+    - entityqueue.entity_queue.store_class_pass
     - entityqueue.entity_queue.store_gifts
   module:
     - entityqueue
@@ -297,6 +298,58 @@ display:
         - user.permissions
       tags:
         - 'config:entityqueue.entity_queue.store_books'
+        - entity_field_info
+        - views_data
+  page_classes:
+    display_plugin: page
+    id: page_classes
+    display_title: 'Page: Classes'
+    position: 1
+    display_options:
+      display_extenders:
+        breema_metatag_display_extender:
+          metatags:
+            description: 'Browse Breema Center class passes and gift certificates for sale at the Breema Store. Receiving Breema bodywork and participating in a Breema class, workshop, or intensive is an exciting, nourishing, and revitalizing experience.'
+            image: '1090'
+      path: store/classes
+      menu:
+        type: tab
+        title: Classes
+        description: ''
+        expanded: false
+        parent: 'menu_link_content:b70fabc7-b209-4bc5-aa30-18b6b7782b4b'
+        weight: 10
+        context: '0'
+        menu_name: main
+      tab_options:
+        type: normal
+        title: Store
+        description: ''
+        weight: 0
+      display_description: ''
+      relationships:
+        entityqueue_relationship:
+          id: entityqueue_relationship
+          table: node_field_data
+          field: entityqueue_relationship
+          relationship: none
+          group_type: group
+          admin_label: 'Content queue'
+          required: true
+          limit_queue: store_class_pass
+          entity_type: node
+          plugin_id: entity_queue
+      defaults:
+        relationships: false
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
+        - 'config:entityqueue.entity_queue.store_class_pass'
         - entity_field_info
         - views_data
   page_gifts:
