@@ -201,8 +201,8 @@
         "[#2927884-6] Remove revision log messages from entities other than nodes" : "https://www.drupal.org/files/issues/2019-07-16/inline_entity_form-remove_log_message-2927884-6.patch"
       },
       "drupal/menu_block": {
-        "[#2809699-87] Menu parent as block title" : "https://www.drupal.org/files/issues/2019-10-06/2809699-87.menu_block-label_configuration.patch",
-        "[#2950943-15] Add links to menu parent block title" : "https://www.drupal.org/files/issues/2019-10-06/2950943-15.menu_block-title_as_link.patch"
+        "[#2809699-99] Menu parent as block title" : "https://www.drupal.org/files/issues/2020-01-20/menu_block-label_configuration-2809699-99.patch",
+        "[#2950943-19] Add links to menu parent block title" : "https://www.drupal.org/files/issues/2020-02-05/2950943-19.menu_block-title_as_link.patch"
       },
       "drupal/video_embed_field": {
         "[#2861429-13] Add More Embedding Options" : "https://www.drupal.org/files/issues/2019-10-22/2861429-13.patch"

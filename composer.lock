@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "db4b99d49272eb5fcff1ffbb9d6e1851",
+    "content-hash": "45be16f4f189cba91fa865c7355c91b2",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -4351,8 +4351,8 @@
                     }
                 },
                 "patches_applied": {
-                    "[#2809699-87] Menu parent as block title": "https://www.drupal.org/files/issues/2019-10-06/2809699-87.menu_block-label_configuration.patch",
-                    "[#2950943-15] Add links to menu parent block title": "https://www.drupal.org/files/issues/2019-10-06/2950943-15.menu_block-title_as_link.patch"
+                    "[#2809699-99] Menu parent as block title": "https://www.drupal.org/files/issues/2020-01-20/menu_block-label_configuration-2809699-99.patch",
+                    "[#2950943-19] Add links to menu parent block title": "https://www.drupal.org/files/issues/2020-02-05/2950943-19.menu_block-title_as_link.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
