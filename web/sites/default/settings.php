@@ -22,6 +22,11 @@ include __DIR__ . "/settings.pantheon.php";
 $settings['config_sync_directory'] = dirname(DRUPAL_ROOT) . '/config';
 
 /**
+ * Completely disable the Update Manager and filesystem updates.
+ */
+$settings['allow_authorize_operations'] = FALSE;
+
+/**
  * If there is a local settings file, then include it
  */
 $local_settings = __DIR__ . "/settings.local.php";
