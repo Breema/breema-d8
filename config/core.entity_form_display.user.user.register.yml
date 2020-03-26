@@ -16,6 +16,7 @@ dependencies:
     - field.field.user.user.field_class_attended
     - field.field.user.user.field_class_other
     - field.field.user.user.field_directory_entry
+    - field.field.user.user.field_legacy_directory_url
     - field.field.user.user.field_name_first
     - field.field.user.user.field_name_last
     - field.field.user.user.field_profession
@@ -175,6 +176,7 @@ hidden:
   field_breema_clinic_practitioner: true
   field_certification: true
   field_directory_entry: true
+  field_legacy_directory_url: true
   google_analytics: true
   group_content: true
   path: true
