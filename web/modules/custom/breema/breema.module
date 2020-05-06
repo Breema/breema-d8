@@ -1040,7 +1040,8 @@ function breema_preprocess_paragraph__recurring_event_tile(&$variables) {
   $category = $variables['paragraph']->get('field_event_category')->getValue();
   $category = !empty($category[0]['target_id']) ? $category[0]['target_id'] : NULL;
   $day_of_week = $variables['paragraph']->get('field_day_of_week')->value;
-  $next_event = breema_find_next_event($day_of_week, $location, $category);
+  $start_time = $variables['paragraph']->get('field_start_time')->value;
+  $next_event = breema_find_next_event($day_of_week, $location, $category, $start_time);
   if (!empty($next_event)) {
     $variables['url'] = $next_event->toUrl()->toString();
   }
@@ -3393,12 +3394,15 @@ function breema_form_node_directory_entry_delete_form_alter(&$form, FormStateInt
  *   The optional node ID (nid) of the place where the event will take place.
  * @param integer $type_tid
  *   The optional term ID (tid) of the event Category for the desired event.
+ * @param string $start_time
+ *   Optional start time to use for the next event, in 'hh:mm' format (24 hour).
+ *
  * @return \Drupal\node\NodeInterface|NULL
  *   The fully loaded event entity that matches, or NULL if none exists.
  *
  * @see breema_preprocess_paragraph__recurring_event_tile()
  */
-function breema_find_next_event($day_of_week, $place_nid = NULL, $type_tid = NULL) {
+function breema_find_next_event($day_of_week, $place_nid = NULL, $type_tid = NULL, $start_time = '') {
   $next_event = NULL;
 
   // Deal with UTC timezone + DST hell. Since everything is stored in the DB as
@@ -3438,7 +3442,8 @@ function breema_find_next_event($day_of_week, $place_nid = NULL, $type_tid = NUL
   // day_of_week metadata into it, then alter the query.
   // @see breema_query_breema_day_of_week_alter().
   $query->addTag('breema_day_of_week')
-    ->addMetaData('breema_day_of_week', $day_of_week);
+    ->addMetaData('breema_day_of_week', $day_of_week)
+    ->addMetaData('breema_start_time', $start_time);
 
   // Actually run the query.
   $nids = $query->execute();
@@ -3453,11 +3458,18 @@ function breema_find_next_event($day_of_week, $place_nid = NULL, $type_tid = NUL
  * Implements hook_query_TAG_alter() for breema_day_of_week tag.
  */
 function breema_query_breema_day_of_week_alter(AlterableInterface $query) {
-  $args = [
-    ':day_of_week' => $query->getMetaData('breema_day_of_week'),
-  ];
-  $query->where("DATE_FORMAT(node__field_date_time.field_date_time_value, '%w') = :day_of_week", $args);
-  // @todo Consider a condition on the start time, too?
+  $query->where(
+    "DATE_FORMAT(node__field_date_time.field_date_time_value, '%w') = :day_of_week",
+    [':day_of_week' => $query->getMetaData('breema_day_of_week')]
+  );
+
+  $start_time = $query->getMetaData('breema_start_time');
+  if (!empty($start_time)) {
+    $query->where(
+      "DATE_FORMAT(node__field_date_time.field_date_time_value, '%H:%i') = :start_time",
+      [':start_time' => $start_time]
+    );
+  }
 }
 
 /**
