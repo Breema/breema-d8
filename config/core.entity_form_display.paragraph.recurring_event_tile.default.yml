@@ -9,8 +9,10 @@ dependencies:
     - field.field.paragraph.recurring_event_tile.field_header_text
     - field.field.paragraph.recurring_event_tile.field_location
     - field.field.paragraph.recurring_event_tile.field_media
+    - field.field.paragraph.recurring_event_tile.field_start_time
     - paragraphs.paragraphs_type.recurring_event_tile
   module:
+    - advanced_text_formatter
     - entity_browser
 id: paragraph.recurring_event_tile.default
 targetEntityType: paragraph
@@ -24,7 +26,7 @@ content:
     type: options_select
     region: content
   field_event_category:
-    weight: 3
+    weight: 4
     settings: {  }
     third_party_settings: {  }
     type: options_select
@@ -38,7 +40,7 @@ content:
     type: string_textfield
     region: content
   field_location:
-    weight: 4
+    weight: 5
     settings:
       entity_browser: place_browser
       field_widget_display: label
@@ -66,9 +68,19 @@ content:
     third_party_settings: {  }
     type: entity_browser_entity_reference
     region: content
+  field_start_time:
+    weight: 3
+    settings:
+      size: 6
+      placeholder: 'hh:mm'
+    third_party_settings:
+      advanced_text_formatter:
+        show_token_tree: 0
+    type: string_textfield
+    region: content
   status:
     type: boolean_checkbox
-    weight: 5
+    weight: 6
     region: content
     settings:
       display_label: true

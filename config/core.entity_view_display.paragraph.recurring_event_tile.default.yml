@@ -8,6 +8,7 @@ dependencies:
     - field.field.paragraph.recurring_event_tile.field_header_text
     - field.field.paragraph.recurring_event_tile.field_location
     - field.field.paragraph.recurring_event_tile.field_media
+    - field.field.paragraph.recurring_event_tile.field_start_time
     - paragraphs.paragraphs_type.recurring_event_tile
 id: paragraph.recurring_event_tile.default
 targetEntityType: paragraph
@@ -35,3 +36,4 @@ hidden:
   field_day_of_week: true
   field_event_category: true
   field_location: true
+  field_start_time: true

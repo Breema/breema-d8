@@ -1,0 +1,19 @@
+uuid: 89260a7f-643e-4ca7-a2d3-d1dd943ec83e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_start_time
+    - paragraphs.paragraphs_type.recurring_event_tile
+id: paragraph.recurring_event_tile.field_start_time
+field_name: field_start_time
+entity_type: paragraph
+bundle: recurring_event_tile
+label: 'Start time'
+description: 'If there are multiple events on the selected day of the week, you can define the start time that you want to use. This should be in 24 hour time in the format <em>hh:mm</em> (must use 2 digits for each part). For example, 7am would be <em>07:00</em>, 10:30am would be <em>10:30</em>, and 7pm would be <em>19:00</em>.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
