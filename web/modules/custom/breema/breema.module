@@ -1929,6 +1929,19 @@ function breema_form_user_pass_alter(&$form, FormStateInterface $form_state) {
 }
 
 /**
+ * Implements hook_field_widget_WIDGET_TYPE_form_alter for entity_browser widgets.
+ *
+ * Hide the #prefix that includes the annoying 'You can select up to 1 media
+ * items (0 left).' message we don't want to see.
+ *
+ * @see https://www.drupal.org/project/entity_browser/releases/8.x-2.3
+ * @see https://www.drupal.org/node/2877751
+ */
+function breema_field_widget_entity_browser_entity_reference_form_alter(&$element, FormStateInterface $form_state, $context) {
+  unset($element['current']['#prefix']);
+}
+
+/**
  * Implements hook_entity_type_alter().
  */
 function breema_entity_type_alter(array &$entity_types) {
