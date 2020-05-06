@@ -168,9 +168,6 @@
       "drupal/datetime_extras": {
         "[#2834016-28] Add 'Compact' datetime range formatter" : "https://www.drupal.org/files/issues/2019-01-15/2834016-28.patch"
       },
-      "drupal/duration_field": {
-        "[#3020676-6] Support the #date_increment property in the 'duration' form element." : "https://www.drupal.org/files/issues/2018-12-14/3020676-6.duration_date_increment.full_.patch"
-      },
       "drupal/entity_embed": {
         "[#3077225-3] Logs flooded with warning messages 'Invalid display settings encountered'" : "https://www.drupal.org/files/issues/2019-08-26/3077225-reduce-invalid-config-logs.patch"
       },
