@@ -812,6 +812,8 @@ function breema_preprocess_field(&$variables, $hook) {
  * Invoke any bundle-specific preprocess if we're not default view mode.
  */
 function breema_preprocess_paragraph(&$variables) {
+  $paragraph_type = $variables['paragraph']->getParagraphType()->id();
+
   if (!empty($variables['content']['field_header_text'])) {
     $variables['content']['field_header_text']['#prefix'] = '<h2>';
     $variables['content']['field_header_text']['#suffix'] = '</h2>';
@@ -836,7 +838,7 @@ function breema_preprocess_paragraph(&$variables) {
   }
 
   // Strip the description to cosmetic tags only (no links or media).
-  if (!empty($variables['content']['field_description'][0])) {
+  if ($paragraph_type !== 'text' && !empty($variables['content']['field_description'][0])) {
     breema_strip_links($variables['content']['field_description'][0]['#text']);
   }
 
@@ -848,8 +850,7 @@ function breema_preprocess_paragraph(&$variables) {
   // Unfortunately, when using non-default view mode, this preprocess hook isn't
   // automatically getting invoked, so we have to do it manually.
   if ($variables['view_mode'] !== 'default') {
-    $function = 'breema_preprocess_paragraph__';
-    $function .= $variables['paragraph']->getParagraphType()->id();
+    $function = 'breema_preprocess_paragraph__' . $paragraph_type;
     if (function_exists($function)) {
       $function($variables);
     }
