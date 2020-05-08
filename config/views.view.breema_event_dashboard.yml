@@ -209,7 +209,7 @@ display:
           value:
             min: ''
             max: ''
-            value: '-12 hours'
+            value: '-8 hours'
             type: offset
           group: 1
           exposed: false
@@ -466,7 +466,7 @@ display:
           value:
             min: ''
             max: ''
-            value: '-12 hours'
+            value: '-8 hours'
             type: offset
           group: 1
           exposed: false
@@ -767,7 +767,7 @@ display:
                 operator: '>='
                 value:
                   type: offset
-                  value: '-12 hours'
+                  value: '-8 hours'
                   min: ''
                   max: ''
               2:
@@ -775,7 +775,7 @@ display:
                 operator: '<'
                 value:
                   type: offset
-                  value: '-12 hours'
+                  value: '-8 hours'
                   min: ''
                   max: ''
           plugin_id: datetime

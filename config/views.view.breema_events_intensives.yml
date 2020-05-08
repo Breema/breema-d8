@@ -157,7 +157,7 @@ display:
           value:
             min: ''
             max: ''
-            value: '-12 hours'
+            value: '-8 hours'
             type: date
           group: 1
           exposed: false

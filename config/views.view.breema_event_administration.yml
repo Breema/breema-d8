@@ -891,7 +891,7 @@ display:
                 operator: '>='
                 value:
                   type: date
-                  value: '-12 hours'
+                  value: '-8 hours'
                   min: ''
                   max: ''
               2:
@@ -899,7 +899,7 @@ display:
                 operator: '<'
                 value:
                   type: offset
-                  value: '-12 hours'
+                  value: '-8 hours'
                   min: ''
                   max: ''
           granularity: second
