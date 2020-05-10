@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "02921fc64802a5006fb10d34c2c27687",
+    "content-hash": "837503055e1453f6fa24a0b28c70e091",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -2930,6 +2930,9 @@
                     "services": {
                         "drush.services.yml": "^9"
                     }
+                },
+                "patches_applied": {
+                    "[#3133532-5] JavaScript #states not working on 'duration' form elements": "https://www.drupal.org/files/issues/2020-05-08/3133532-5.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",

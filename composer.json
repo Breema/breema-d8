@@ -168,6 +168,9 @@
       "drupal/datetime_extras": {
         "[#2834016-28] Add 'Compact' datetime range formatter" : "https://www.drupal.org/files/issues/2019-01-15/2834016-28.patch"
       },
+      "drupal/duration_field": {
+        "[#3133532-5] JavaScript #states not working on 'duration' form elements" : "https://www.drupal.org/files/issues/2020-05-08/3133532-5.patch"
+      },
       "drupal/entity_embed": {
         "[#3077225-3] Logs flooded with warning messages 'Invalid display settings encountered'" : "https://www.drupal.org/files/issues/2019-08-26/3077225-reduce-invalid-config-logs.patch"
       },
