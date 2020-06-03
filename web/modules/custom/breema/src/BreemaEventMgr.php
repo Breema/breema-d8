@@ -8,6 +8,7 @@
 namespace Drupal\breema;
 
 use Drupal\Core\Datetime\DrupalDateTime;
+use Drupal\datetime\Plugin\Field\FieldType\DateTimeItemInterface;
 use Drupal\node\Entity\Node;
 use Drupal\node\NodeInterface;
 
@@ -43,7 +44,7 @@ class BreemaEventMgr {
     $query
       ->condition('status', 1)
       ->condition('type', 'event')
-      ->condition('field_date_time.end_value', $now->format(DATETIME_DATETIME_STORAGE_FORMAT), '>=')
+      ->condition('field_date_time.end_value', $now->format(DateTimeItemInterface::DATETIME_STORAGE_FORMAT), '>=')
       ->sort('sticky', 'DESC')
       ->sort('field_date_time.value');
     $results = $query->execute();
@@ -157,7 +158,7 @@ class BreemaEventMgr {
       ->condition('status', 1)
       ->condition('sticky', 1)
       ->condition('type', 'event')
-      ->condition('field_date_time.end_value', $now->format(DATETIME_DATETIME_STORAGE_FORMAT), '<');
+      ->condition('field_date_time.end_value', $now->format(DateTimeItemInterface::DATETIME_STORAGE_FORMAT), '<');
     $results = $query->execute();
     if (!empty($results)) {
       $events = Node::loadMultiple($results);

@@ -23,6 +23,7 @@ use Drupal\Core\StringTranslation\PluralTranslatableMarkup;
 use Drupal\Core\Template\Attribute;
 use Drupal\Core\Url;
 use Drupal\block\Entity\Block;
+use Drupal\datetime\Plugin\Field\FieldType\DateTimeItemInterface;
 use Drupal\file\Entity\File;
 use Drupal\media\Entity\Media;
 use Drupal\node\Entity\Node;
@@ -3416,7 +3417,7 @@ function breema_find_next_event($day_of_week, $place_nid = NULL, $type_tid = NUL
   // Start with 'now' in Oakland.
   $date = new DrupalDateTime('now', new \DateTimezone('America/Los_Angeles'));
   // Format as a date to match the storage format for datetime fields.
-  $now = $date->format(DATETIME_DATETIME_STORAGE_FORMAT);
+  $now = $date->format(DateTimeItemInterface::DATETIME_STORAGE_FORMAT);
 
   $query = \Drupal::entityQuery('node')
     // Find events.
@@ -3549,15 +3550,15 @@ function breema_ranking() {
   // @todo Fix this when we have accurate event-specific timezones.
   $now = new DrupalDateTime('-12 hours');
   $now->setTimezone(new \DateTimeZone(DATETIME_STORAGE_TIMEZONE));
-  $db_now = $now->format(DATETIME_DATETIME_STORAGE_FORMAT);
+  $db_now = $now->format(DateTimeItemInterface::DATETIME_STORAGE_FORMAT);
 
   $this_week = new DrupalDateTime('+1 week');
   $this_week->setTimezone(new \DateTimeZone(DATETIME_STORAGE_TIMEZONE));
-  $db_week = $this_week->format(DATETIME_DATETIME_STORAGE_FORMAT);
+  $db_week = $this_week->format(DateTimeItemInterface::DATETIME_STORAGE_FORMAT);
 
   $this_month = new DrupalDateTime('+1 month');
   $this_month->setTimezone(new \DateTimeZone(DATETIME_STORAGE_TIMEZONE));
-  $db_month = $this_month->format(DATETIME_DATETIME_STORAGE_FORMAT);
+  $db_month = $this_month->format(DateTimeItemInterface::DATETIME_STORAGE_FORMAT);
 
   $rankings['event_week'] = [
     'title' => t('Event: This week'),
