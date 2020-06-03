@@ -40,7 +40,7 @@ class BreemaDirectoryEntryBlock extends BlockBase {
           '#suffix' => '</div>',
         ];
       }
-      $view_builder = \Drupal::entityManager()->getViewBuilder('node');
+      $view_builder = \Drupal::service('entity_type.manager')->getViewBuilder('node');
       $block['teaser'] = $view_builder->view($entry, 'teaser');
       $block += _breema_get_directory_entry_action_links($entry);
     }

@@ -2,6 +2,7 @@
 
 namespace Drupal\breema\Controller;
 
+use Drupal\user\UserInterface;
 use Drupal\Core\Access\AccessResult;
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Url;
@@ -64,7 +65,7 @@ class BreemaController extends ControllerBase {
       if (is_string($node) || is_int($node)) {
         $node = Node::Load($node);
       }
-      if ($node instanceof \Drupal\node\NodeInterface) {
+      if ($node instanceof NodeInterface) {
         return $node;
       }
     }
@@ -84,7 +85,7 @@ class BreemaController extends ControllerBase {
       if (is_string($user) || is_int($user)) {
         $user = User::Load($user);
       }
-      if ($user instanceof \Drupal\user\UserInterface) {
+      if ($user instanceof UserInterface) {
         return $user;
       }
     }

@@ -1315,7 +1315,7 @@ function breema_entity_browser_form_alter(&$form, FormStateInterface $form_state
  *
  * Invokes the directory_entry form alter method with the right user entity.
  */
-function breema_inline_entity_form_entity_form_alter(&$entity_form, \Drupal\Core\Form\FormStateInterface &$form_state) {
+function breema_inline_entity_form_entity_form_alter(&$entity_form, FormStateInterface &$form_state) {
   if ($entity_form['#entity_type'] == 'node' && !empty($entity_form['#bundle'])) {
     if (!empty($entity_form['field_website']['widget']['add_more']['#value'])) {
       $entity_form['field_website']['widget']['add_more']['#value'] = t('Add another website');
@@ -1350,7 +1350,7 @@ function breema_form_contact_message_personal_form_alter(&$form, FormStateInterf
 /**
  * Implements hook_form_FORM_ID_alter() for 'node_form'.
  */
-function breema_form_node_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state) {
+function breema_form_node_form_alter(&$form, FormStateInterface $form_state) {
   $node = $form_state->getFormObject()->getEntity();
   // Find the appropriate user entity and invoke the shared method.
   if ($node->bundle() === 'directory_entry') {
@@ -1559,7 +1559,7 @@ function breema_file_media_form_alter(&$form, FormStateInterface $form_state) {
  *
  * Alter the user form specifically when used as user_register.
  */
-function breema_form_user_register_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state) {
+function breema_form_user_register_form_alter(&$form, FormStateInterface $form_state) {
   $route_name = \Drupal::routeMatch()->getRouteName();
   if ($route_name === 'user.register') {
     $form['actions']['submit']['#value'] = t('Apply to the Practitioner Certificate Program');
@@ -1573,7 +1573,7 @@ function breema_form_user_register_form_alter(&$form, \Drupal\Core\Form\FormStat
  * Hide the 'completed' option for everyone but admins.
  * Hide various fields unless it's a new user or an admiin.
  */
-function breema_form_user_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state) {
+function breema_form_user_form_alter(&$form, FormStateInterface $form_state) {
   if (!empty($form['field_class_attended']['widget']['add_more']['#value'])) {
     $form['field_class_attended']['widget']['add_more']['#value'] = t('Add another class');
   }
@@ -1754,7 +1754,7 @@ function breema_user_form_validate($form, FormStateInterface $form_state) {
  *
  * Sets more sane sizes for the various text field exposed filters.
  */
-function breema_form_views_exposed_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state) {
+function breema_form_views_exposed_form_alter(&$form, FormStateInterface $form_state) {
   $filter_sizes = [
     'postal_code' => 10,
     'telephone' => 15,
@@ -2191,7 +2191,7 @@ function breema_ensure_flag($flag_id, NodeInterface $node, $uid) {
       'flagged_entity' => $node->id(),
       'uid' => $uid
     ];
-    $flagging = \Drupal::entityManager()->getStorage('flagging')->create($values);
+    $flagging = \Drupal::service('entity_type.manager')->getStorage('flagging')->create($values);
     $flagging->save();
     $existing_flag_uids[$node->id()][$uid] = TRUE;
   }
@@ -2581,7 +2581,7 @@ function breema_node_presave(NodeInterface $node) {
  * Implements hook_entity_create_access().
  */
 function breema_entity_create_access(AccountInterface $account, array $context, $entity_bundle) {
-  $user = \Drupal\user\Entity\User::load($account->id());
+  $user = User::load($account->id());
   if (!$user->hasRole('content_administrator')
       && $context['entity_type_id'] == 'node'
       && $entity_bundle == 'directory_entry')
@@ -2598,7 +2598,7 @@ function breema_entity_create_access(AccountInterface $account, array $context, 
 /**
  * Creates a merged title with the main title and optional subtitle.
  */
-function breema_merge_titles(\Drupal\node\NodeInterface $node) {
+function breema_merge_titles(NodeInterface $node) {
   $merged_title = '';
   if ($node->hasField('field_title_main')) {
     $main_title = $node->get('field_title_main')->getValue();
@@ -2799,12 +2799,12 @@ function breema_entity_node_directory_entry_view_alter(array &$build, EntityInte
     if ($access_manager->checkNamedRoute('entity.user.contact_form', ['user' => $author_uid])) {
       $contact_url = Url::fromRoute('entity.user.contact_form', ['user' => $author_uid]);
     }
-    $author_entity = user_load($author_uid);
+    $author_entity = User::load($author_uid);
     $user_picture = $author_entity->get('user_picture')->getValue();
   }
 
   if (!empty($user_picture[0]['target_id'])) {
-    $user_picture_file = file_load($user_picture[0]['target_id']);
+    $user_picture_file = File::load($user_picture[0]['target_id']);
     if (!empty($user_picture_file)) {
       $build['headshot'] = [
         '#theme' => 'image_style',
