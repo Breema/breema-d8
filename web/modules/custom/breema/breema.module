@@ -3549,15 +3549,15 @@ function breema_ranking() {
   // Now, add event-specific rankings based on date/time.
   // @todo Fix this when we have accurate event-specific timezones.
   $now = new DrupalDateTime('-12 hours');
-  $now->setTimezone(new \DateTimeZone(DATETIME_STORAGE_TIMEZONE));
+  $now->setTimezone(new \DateTimeZone(DateTimeItemInterface::STORAGE_TIMEZONE));
   $db_now = $now->format(DateTimeItemInterface::DATETIME_STORAGE_FORMAT);
 
   $this_week = new DrupalDateTime('+1 week');
-  $this_week->setTimezone(new \DateTimeZone(DATETIME_STORAGE_TIMEZONE));
+  $this_week->setTimezone(new \DateTimeZone(DateTimeItemInterface::STORAGE_TIMEZONE));
   $db_week = $this_week->format(DateTimeItemInterface::DATETIME_STORAGE_FORMAT);
 
   $this_month = new DrupalDateTime('+1 month');
-  $this_month->setTimezone(new \DateTimeZone(DATETIME_STORAGE_TIMEZONE));
+  $this_month->setTimezone(new \DateTimeZone(DateTimeItemInterface::STORAGE_TIMEZONE));
   $db_month = $this_month->format(DateTimeItemInterface::DATETIME_STORAGE_FORMAT);
 
   $rankings['event_week'] = [

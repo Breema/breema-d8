@@ -39,7 +39,7 @@ class BreemaEventMgr {
     $this->activeInstructors = [];
 
     $now = new DrupalDateTime('now');
-    $now->setTimezone(new \DateTimeZone(DATETIME_STORAGE_TIMEZONE));
+    $now->setTimezone(new \DateTimeZone(DateTimeItemInterface::STORAGE_TIMEZONE));
     $query = \Drupal::entityQuery('node');
     $query
       ->condition('status', 1)
@@ -152,7 +152,7 @@ class BreemaEventMgr {
    */
   public function clearStickyFromPastEvents() {
     $now = new DrupalDateTime('now');
-    $now->setTimezone(new \DateTimeZone(DATETIME_STORAGE_TIMEZONE));
+    $now->setTimezone(new \DateTimeZone(DateTimeItemInterface::STORAGE_TIMEZONE));
     $query = \Drupal::entityQuery('node');
     $query
       ->condition('status', 1)
