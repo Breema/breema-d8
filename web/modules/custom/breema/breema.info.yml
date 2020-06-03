@@ -2,4 +2,5 @@ name: breema
 type: module
 description: Custom code for www.breema.com
 core: 8.x
+core_version_requirement: ^8 || ^9
 package: Custom
