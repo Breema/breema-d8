@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "837503055e1453f6fa24a0b28c70e091",
+    "content-hash": "62b04ab05499870710c9f160dc829646",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -4326,10 +4326,10 @@
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/menu_block.git",
-                "reference": "390c593499f5c9d1e608c9c10cf2e1dc3dca6f5c"
+                "reference": "d2c71d46bd5ad8ea5e9227cf34aa9bdf9006275b"
             },
             "require": {
-                "drupal/core": "*"
+                "drupal/core": "^8 || ^9"
             },
             "type": "drupal-module",
             "extra": {
@@ -4337,17 +4337,14 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.5+7-dev",
-                    "datestamp": "1568350685",
+                    "version": "8.x-1.6+3-dev",
+                    "datestamp": "1590127183",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Dev releases are not covered by Drupal security advisories."
                     }
                 },
-                "patches_applied": {
-                    "[#2809699-99] Menu parent as block title": "https://www.drupal.org/files/issues/2020-01-20/menu_block-label_configuration-2809699-99.patch",
-                    "[#2950943-19] Add links to menu parent block title": "https://www.drupal.org/files/issues/2020-02-05/2950943-19.menu_block-title_as_link.patch"
-                }
+                "patches_applied": []
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
             "license": [
@@ -4380,7 +4377,7 @@
             "support": {
                 "source": "https://git.drupalcode.org/project/menu_block"
             },
-            "time": "2019-11-25T06:47:11+00:00"
+            "time": "2020-05-29T20:29:36+00:00"
         },
         {
             "name": "drupal/menu_trail_by_path",

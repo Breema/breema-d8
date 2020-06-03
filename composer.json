@@ -196,10 +196,6 @@
       "drupal/inline_entity_form": {
         "[#2729333-7] Can't select a default bundle when using entity reference views" : "https://www.drupal.org/files/issues/2729333-ief-bundle-selection-erv-7.patch"
       },
-      "drupal/menu_block": {
-        "[#2809699-99] Menu parent as block title" : "https://www.drupal.org/files/issues/2020-01-20/menu_block-label_configuration-2809699-99.patch",
-        "[#2950943-19] Add links to menu parent block title" : "https://www.drupal.org/files/issues/2020-02-05/2950943-19.menu_block-title_as_link.patch"
-      },
       "drupal/video_embed_field": {
         "[#2861429-13] Add More Embedding Options" : "https://www.drupal.org/files/issues/2019-10-22/2861429-13.patch"
       }
