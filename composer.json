@@ -90,21 +90,9 @@
     "woothemes/flexslider": "~2.0"
   },
   "require-dev": {
-    "behat/behat": "3.*",
-    "behat/mink": "^1.7",
-    "behat/mink-extension": "^2.2",
-    "behat/mink-goutte-driver": "^1.2",
-    "drupal/drupal-extension": "^3.1",
     "drupal/migrate_plus": "^4.0",
     "drupal/migrate_source_csv": "^2.0",
     "drupal/migrate_tools": "^4.0",
-    "drush-ops/behat-drush-endpoint": "^0.0.4",
-    "jcalderonzumba/gastonjs": "^1.0.2",
-    "jcalderonzumba/mink-phantomjs-driver": "^0.3.1",
-    "mikey179/vfsstream": "^1.2",
-    "pantheon-systems/quicksilver-pushback": "~1",
-    "phpunit/phpunit": "^4.8",
-    "symfony/css-selector": "^2.8",
     "zaporylie/composer-drupal-optimizations": "^1.1"
   },
   "conflict": {
