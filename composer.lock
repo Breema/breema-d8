@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f1d4990503428cdda6825f50e6d7390b",
+    "content-hash": "e2a286fe71f8a5213d5c6612b31b17a2",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -4042,11 +4042,17 @@
         },
         {
             "name": "drupal/filefield_paths",
-            "version": "dev-1.x",
+            "version": "1.0.0-beta2",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/filefield_paths.git",
-                "reference": "8a85f4b2d0dbf64c0213ddc5015af0fa0701efd3"
+                "reference": "8.x-1.0-beta2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/filefield_paths-8.x-1.0-beta2.zip",
+                "reference": "8.x-1.0-beta2",
+                "shasum": "5235b41274fab8cdebd40396a199ebb024fb9d07"
             },
             "require": {
                 "drupal/core": "*"
@@ -4063,11 +4069,11 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.0-beta1+13-dev",
-                    "datestamp": "1529559825",
+                    "version": "8.x-1.0-beta2",
+                    "datestamp": "1584455004",
                     "security-coverage": {
                         "status": "not-covered",
-                        "message": "Dev releases are not covered by Drupal security advisories."
+                        "message": "Beta releases are not covered by Drupal security advisories."
                     }
                 },
                 "patches_applied": {
@@ -4082,14 +4088,17 @@
                 {
                     "name": "Deciphered",
                     "homepage": "https://www.drupal.org/user/103796"
+                },
+                {
+                    "name": "voleger",
+                    "homepage": "https://www.drupal.org/user/3260314"
                 }
             ],
             "description": "Adds improved Token based file sorting and renaming functionalities.",
             "homepage": "https://www.drupal.org/project/filefield_paths",
             "support": {
                 "source": "https://git.drupalcode.org/project/filefield_paths"
-            },
-            "time": "2018-06-21T05:37:12+00:00"
+            }
         },
         {
             "name": "drupal/fixed_text_link_formatter",
@@ -10501,7 +10510,6 @@
         "drupal/computed_field": 15,
         "drupal/diff": 5,
         "drupal/field_permissions": 10,
-        "drupal/filefield_paths": 20,
         "drupal/fullcalendar_view": 20,
         "drupal/geolocation": 20,
         "drupal/group": 20,
