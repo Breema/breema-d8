@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7b123b957ce6117f5970d6e7c39ccace",
+    "content-hash": "014e8fa0152cd8de9bc23271accb4012",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -3237,26 +3237,29 @@
         },
         {
             "name": "drupal/entityqueue",
-            "version": "dev-1.x",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/entityqueue.git",
-                "reference": "58a145c2e1fcdaab3938cd7c4f753e37beb0ca1f"
+                "reference": "8.x-1.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/entityqueue-8.x-1.0.zip",
+                "reference": "8.x-1.0",
+                "shasum": "c108a7303d401d803994025d4855ed171a434593"
             },
             "require": {
                 "drupal/core": "^8.7.7 || ^9"
             },
             "type": "drupal-module",
             "extra": {
-                "branch-alias": {
-                    "dev-1.x": "1.x-dev"
-                },
                 "drupal": {
-                    "version": "8.x-1.0-beta5+5-dev",
-                    "datestamp": "1578919683",
+                    "version": "8.x-1.0",
+                    "datestamp": "1586937737",
                     "security-coverage": {
-                        "status": "not-covered",
-                        "message": "Dev releases are not covered by Drupal security advisories."
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
                     }
                 }
             },
@@ -3278,10 +3281,6 @@
                 {
                     "name": "quicksketch",
                     "homepage": "https://www.drupal.org/user/35821"
-                },
-                {
-                    "name": "tim.plunkett",
-                    "homepage": "https://www.drupal.org/user/241634"
                 }
             ],
             "description": "The Entityqueue module allows users to create queues of any entity type.",
@@ -3290,8 +3289,7 @@
                 "source": "http://cgit.drupalcode.org/entityqueue",
                 "issues": "https://www.drupal.org/project/issues/entityqueue",
                 "irc": "irc://irc.freenode.org/drupal-contribute"
-            },
-            "time": "2020-01-13T12:47:19+00:00"
+            }
         },
         {
             "name": "drupal/field_group",
@@ -9780,7 +9778,6 @@
         "drupal/computed_field": 15,
         "drupal/diff": 5,
         "drupal/entity_reference_revisions": 20,
-        "drupal/entityqueue": 20,
         "drupal/field_permissions": 10,
         "drupal/filefield_paths": 20,
         "drupal/fullcalendar_view": 20,
