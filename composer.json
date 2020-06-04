@@ -57,7 +57,7 @@
     "drupal/flexslider": "~2.0",
     "drupal/forward": "^2.2",
     "drupal/fullcalendar_view": "2.x-dev",
-    "drupal/geocoder": "2.x-dev",
+    "drupal/geocoder": "^2",
     "drupal/geolocation": "1.x-dev",
     "drupal/google_analytics": "^3.0",
     "drupal/group": "1.x-dev",
