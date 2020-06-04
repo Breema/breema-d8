@@ -42,7 +42,6 @@
     "drupal/ctools": "^3.0",
     "drupal/datetime_extras": "^1.0",
     "drupal/diff": "^1.0@RC",
-    "drupal/dropzonejs": "^2.0",
     "drupal/duration_field": "^2.0",
     "drupal/embed": "^1.0",
     "drupal/entity": "^1.0",
@@ -84,7 +83,6 @@
     "drupal/views_contextual_filters_or": "^1.0",
     "drupal/xmlsitemap": "^1.0@alpha",
     "drush/drush": "~8",
-    "enyo/dropzone": "^5.1",
     "rvtraveller/qs-composer-installer": "^1.1",
     "woothemes/flexslider": "~2.0"
   },
