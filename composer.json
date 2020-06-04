@@ -56,7 +56,7 @@
     "drupal/flag": "^4.0",
     "drupal/flexslider": "~2.0",
     "drupal/forward": "^2.2",
-    "drupal/fullcalendar_view": "2.x-dev",
+    "drupal/fullcalendar_view": "^2.6",
     "drupal/geocoder": "^2",
     "drupal/geolocation": "1.x-dev",
     "drupal/google_analytics": "^3.0",
