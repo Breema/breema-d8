@@ -47,7 +47,7 @@
     "drupal/entity": "^1.0",
     "drupal/entity_browser": "^2.0",
     "drupal/entity_embed": "^1.0",
-    "drupal/entity_reference_revisions": "1.x-dev",
+    "drupal/entity_reference_revisions": "^1.0",
     "drupal/entityqueue": "^1.0",
     "drupal/field_group": "^3.0",
     "drupal/field_permissions": "^1.0@beta",
@@ -157,9 +157,6 @@
       },
       "drupal/entity_embed": {
         "[#3077225-3] Logs flooded with warning messages 'Invalid display settings encountered'" : "https://www.drupal.org/files/issues/2019-08-26/3077225-reduce-invalid-config-logs.patch"
-      },
-      "drupal/entity_reference_revisions": {
-        "[#2799479-108] Views doesn't recognize relationship to host" : "https://www.drupal.org/files/issues/2019-12-10/2799479-108.patch"
       },
       "drupal/filefield_paths": {
         "[#2718783-13] Call to undefined method BaseFieldDefinition::getThirdPartySettings()" : "https://www.drupal.org/files/issues/call_to_undefined-2718783-13.patch"
