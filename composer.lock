@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "789d609edea0c80d3d4f03d9fd9231c0",
+    "content-hash": "f800e15772583cbc48cb90fd7d828b36",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -2263,27 +2263,33 @@
         },
         {
             "name": "drupal/captcha",
-            "version": "dev-1.x",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/captcha.git",
-                "reference": "548a8bab6a96114673c156eb2d755ed0beefdf9d"
+                "reference": "8.x-1.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/captcha-8.x-1.1.zip",
+                "reference": "8.x-1.1",
+                "shasum": "2eaf6f00ea256652c09f785b26dc933cc5b3dd26"
             },
             "require": {
-                "drupal/core": "*"
+                "drupal/core": "^8.8 || ^9"
             },
             "type": "drupal-module",
             "extra": {
-                "branch-alias": {
-                    "dev-1.x": "1.x-dev"
-                },
                 "drupal": {
-                    "version": "8.x-1.0-beta3+15-dev",
-                    "datestamp": "1571224984",
+                    "version": "8.x-1.1",
+                    "datestamp": "1591160977",
                     "security-coverage": {
-                        "status": "not-covered",
-                        "message": "Dev releases are not covered by Drupal security advisories."
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
                     }
+                },
+                "branch-alias": {
+                    "dev-8.x-1.x": "1.x-dev"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -2298,6 +2304,10 @@
                 {
                     "name": "elachlan",
                     "homepage": "https://www.drupal.org/user/1021502"
+                },
+                {
+                    "name": "japerry",
+                    "homepage": "https://www.drupal.org/user/45640"
                 },
                 {
                     "name": "naveenvalecha",
@@ -2319,9 +2329,9 @@
             "description": "The CAPTCHA module provides this feature to virtually any user facing web form on a Drupal site.",
             "homepage": "https://www.drupal.org/project/captcha",
             "support": {
-                "source": "https://git.drupalcode.org/project/captcha"
-            },
-            "time": "2020-01-02T23:39:30+00:00"
+                "source": "https://git.drupalcode.org/project/captcha",
+                "issues": "https://www.drupal.org/project/issues/captcha"
+            }
         },
         {
             "name": "drupal/ckeditor_blockquote_attribution",
@@ -10487,7 +10497,6 @@
     "minimum-stability": "alpha",
     "stability-flags": {
         "drupal/auto_entitylabel": 20,
-        "drupal/captcha": 20,
         "drupal/ckeditor_blockquote_attribution": 10,
         "drupal/computed_field": 15,
         "drupal/diff": 5,
