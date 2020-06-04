@@ -82,7 +82,7 @@
     "drupal/view_unpublished": "^1.0",
     "drupal/views_contextual_filters_or": "^1.0",
     "drupal/xmlsitemap": "^1.0@alpha",
-    "drush/drush": "~8",
+    "drush/drush": "^10",
     "rvtraveller/qs-composer-installer": "^1.1",
     "woothemes/flexslider": "~2.0"
   },
