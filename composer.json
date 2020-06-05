@@ -28,7 +28,7 @@
     "drupal-composer/drupal-scaffold": "^2.0.1",
     "drupal/address": "^1.2",
     "drupal/admin_toolbar": "^2.0",
-    "drupal/advanced_text_formatter": "^1.0",
+    "drupal/advanced_text_formatter": "^2.0",
     "drupal/audiofield": "^1.9",
     "drupal/auto_entitylabel": "2.x-dev",
     "drupal/captcha": "^1.0",

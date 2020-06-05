@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3655832af8eeb7780d23567442ecb30a",
+    "content-hash": "5ddb49cff845cb6d34c2fd39212163db",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -2084,29 +2084,26 @@
         },
         {
             "name": "drupal/advanced_text_formatter",
-            "version": "1.0.0",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/advanced_text_formatter.git",
-                "reference": "8.x-1.0"
+                "reference": "2.0.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/advanced_text_formatter-8.x-1.0.zip",
-                "reference": "8.x-1.0",
-                "shasum": "406e6d86ea617bcdeea1565fdbd6354a75448adf"
+                "url": "https://ftp.drupal.org/files/projects/advanced_text_formatter-2.0.0.zip",
+                "reference": "2.0.0",
+                "shasum": "ecd1d0e46dfc137251f9b71e724c6edddd5c48df"
             },
             "require": {
-                "drupal/core": "*"
+                "drupal/core": "^8 || ^9"
             },
             "type": "drupal-module",
             "extra": {
-                "branch-alias": {
-                    "dev-1.x": "1.x-dev"
-                },
                 "drupal": {
-                    "version": "8.x-1.0",
-                    "datestamp": "1557589686",
+                    "version": "2.0.0",
+                    "datestamp": "1591025593",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
