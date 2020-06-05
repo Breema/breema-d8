@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d41b5ce2a5617a590fe85cf50f99d2e8",
+    "content-hash": "5ddb49cff845cb6d34c2fd39212163db",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -5400,26 +5400,29 @@
         },
         {
             "name": "drupal/responsive_menu",
-            "version": "4.1.0",
+            "version": "2.6.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/responsive_menu.git",
-                "reference": "4.1.0"
+                "reference": "8.x-2.6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/responsive_menu-4.1.0.zip",
-                "reference": "4.1.0",
-                "shasum": "6922f0f96076fcadddac1356d905598d8e73b348"
+                "url": "https://ftp.drupal.org/files/projects/responsive_menu-8.x-2.6.zip",
+                "reference": "8.x-2.6",
+                "shasum": "8dc4f4251ada211fad52aa9d0c02d50c4752d457"
             },
             "require": {
-                "drupal/core": "^8 || ^9"
+                "drupal/core": "^8.4"
             },
             "type": "drupal-module",
             "extra": {
+                "branch-alias": {
+                    "dev-2.x": "2.x-dev"
+                },
                 "drupal": {
-                    "version": "4.1.0",
-                    "datestamp": "1589717865",
+                    "version": "8.x-2.6",
+                    "datestamp": "1515872884",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"

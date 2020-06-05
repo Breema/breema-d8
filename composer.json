@@ -71,7 +71,7 @@
     "drupal/r4032login": "^1.1",
     "drupal/recaptcha": "^3.0",
     "drupal/redirect": "^1.0",
-    "drupal/responsive_menu": "^2.6",
+    "drupal/responsive_menu": "^4",
     "drupal/simple_block": "^1.0@beta",
     "drupal/smart_trim": "^1.0",
     "drupal/smtp": "^1.0",
