@@ -1596,23 +1596,23 @@ html.mm-opened .mm-page {
   transition-property: transform, top, bottom, left, opacity;
 }
 
-html.mm-wrapper_opening .responsive-menu-toggle-icon:before,
-html.mm-wrapper_opening .responsive-menu-toggle-icon:after {
+.mm-wrapper_opening .responsive-menu-toggle-icon:before,
+.mm-wrapper_opening .responsive-menu-toggle-icon:after {
   top: 14px;
 }
 
-html.mm-wrapper_opening .responsive-menu-toggle-icon span.icon {
+.mm-wrapper_opening .responsive-menu-toggle-icon span.icon {
   left: -25px;
   opacity: 0;
 }
 
-html.mm-wrapper_opening .responsive-menu-toggle-icon:before {
+.mm-wrapper_opening .responsive-menu-toggle-icon:before {
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
 }
 
-html.mm-wrapper_opening .responsive-menu-toggle-icon:after {
+.mm-wrapper_opening .responsive-menu-toggle-icon:after {
   -webkit-transform: rotate(-45deg);
   -ms-transform: rotate(-45deg);
   transform: rotate(-45deg);
