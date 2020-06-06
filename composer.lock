@@ -5560,27 +5560,30 @@
         },
         {
             "name": "drupal/smtp",
-            "version": "1.0.0-rc2",
+            "version": "1.0.0-rc3",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/smtp.git",
-                "reference": "8.x-1.0-rc2"
+                "reference": "8.x-1.0-rc3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/smtp-8.x-1.0-rc2.zip",
-                "reference": "8.x-1.0-rc2",
-                "shasum": "0dde6db7969a746c5e50a0553c7948f0480f64c6"
+                "url": "https://ftp.drupal.org/files/projects/smtp-8.x-1.0-rc3.zip",
+                "reference": "8.x-1.0-rc3",
+                "shasum": "53492cf93aff2c644015fe8b3d6219dd5ad82b34"
             },
             "require": {
                 "drupal/core": "^8.7.7 || ^9",
-                "phpmailer/phpmailer": "~6.0"
+                "phpmailer/phpmailer": "^6.1.5"
+            },
+            "suggest": {
+                "drupal/mailsystem": "Allows using SMTP alongside other mail modules."
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.0-rc2",
-                    "datestamp": "1589493632",
+                    "version": "8.x-1.0-rc3",
+                    "datestamp": "1591402047",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "RC releases are not covered by Drupal security advisories."
