@@ -13,12 +13,11 @@ horizontal_superfish_delay: 300
 horizontal_superfish_speed: 100
 horizontal_superfish_speed_out: 100
 horizontal_superfish_hoverintent: true
-hammerjs: false
 breakpoint_css_filepath: 'public://css'
 use_breakpoint: true
 allow_admin: false
 wrapper_admin: true
 wrapper_theme: false
-extension_keyboard: true
 _core:
   default_config_hash: U7p9WqE0yMw-SNTivefWcS3D61GPAcUrlQxPCm4mYxQ
+drag: false
