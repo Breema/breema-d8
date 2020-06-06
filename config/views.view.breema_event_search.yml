@@ -523,7 +523,7 @@ display:
           empty: true
           tokenize: false
           content:
-            value: 'To search by states, select the country, click ''Search'' and a state or province selector will appear if available.'
+            value: "To search by states, select the country, click 'Search' and a state or province selector will appear if available.\r\n\r\nPlease click on the classes to find information on time zones."
             format: basic_html
           plugin_id: text
       footer: {  }
