@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6368d1c8931212babfdd8b6c750cbfa5",
+    "content-hash": "1b2e42c2dcf0525a74548ecde9df977f",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -4635,11 +4635,17 @@
         },
         {
             "name": "drupal/group",
-            "version": "dev-1.x",
+            "version": "1.0.0-rc5",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/group.git",
-                "reference": "f64e11d80732bd4be654abe14f221433b73b403c"
+                "reference": "8.x-1.0-rc5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/group-8.x-1.0-rc5.zip",
+                "reference": "8.x-1.0-rc5",
+                "shasum": "234831baa8816d98d1093a37e5c66bb993a271eb"
             },
             "require": {
                 "drupal/core": "^8.6",
@@ -4647,19 +4653,16 @@
             },
             "type": "drupal-module",
             "extra": {
-                "branch-alias": {
-                    "dev-1.x": "1.x-dev"
-                },
                 "drupal": {
-                    "version": "8.x-1.0-rc5+0-dev",
-                    "datestamp": "1576853584",
+                    "version": "8.x-1.0-rc5",
+                    "datestamp": "1576854190",
                     "security-coverage": {
                         "status": "not-covered",
-                        "message": "Dev releases are not covered by Drupal security advisories."
+                        "message": "RC releases are not covered by Drupal security advisories."
                     }
                 },
                 "patches_applied": {
-                    "[#2813405-179] Add a field to view and edit content's groups": "https://www.drupal.org/files/issues/2019-07-10/group-field_to_view_and_edit_content_groups-2813405-179.patch"
+                    "[#2813405-223] Add a field to view and edit content's groups": "https://www.drupal.org/files/issues/2020-01-08/group-field_to_view_and_edit_content_groups-2813405-223.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -4683,8 +4686,7 @@
             "support": {
                 "source": "https://git.drupalcode.org/project/group",
                 "issues": "https://drupal.org/project/issues/group"
-            },
-            "time": "2019-12-20T14:49:57+00:00"
+            }
         },
         {
             "name": "drupal/inline_entity_form",
@@ -6233,12 +6235,12 @@
             "version": "0.9.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/njh/easyrdf.git",
+                "url": "https://github.com/easyrdf/easyrdf.git",
                 "reference": "acd09dfe0555fbcfa254291e433c45fdd4652566"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/njh/easyrdf/zipball/acd09dfe0555fbcfa254291e433c45fdd4652566",
+                "url": "https://api.github.com/repos/easyrdf/easyrdf/zipball/acd09dfe0555fbcfa254291e433c45fdd4652566",
                 "reference": "acd09dfe0555fbcfa254291e433c45fdd4652566",
                 "shasum": ""
             },
@@ -10626,7 +10628,6 @@
         "drupal/diff": 5,
         "drupal/field_permissions": 10,
         "drupal/geolocation": 20,
-        "drupal/group": 20,
         "drupal/inline_entity_form": 10,
         "drupal/menu_block": 20,
         "drupal/simple_block": 10,
