@@ -13,7 +13,6 @@ module:
   ckeditor_blockquote_attribution: 0
   comment: 0
   config: 0
-  config_direct_save: 0
   contact: 0
   contextual: 0
   csv_serialization: 0
