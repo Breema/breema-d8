@@ -37,7 +37,7 @@ content:
     weight: 6
     label: above
     settings:
-      image_style: ''
+      image_style: 480x270_medium
       image_link: ''
     third_party_settings: {  }
     type: image
