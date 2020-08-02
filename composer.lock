@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1b2e42c2dcf0525a74548ecde9df977f",
+    "content-hash": "771557a9bc33f089ac46325c04beec26",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -4717,7 +4717,8 @@
                     }
                 },
                 "patches_applied": {
-                    "[#2729333-7] Can't select a default bundle when using entity reference views": "https://www.drupal.org/files/issues/2729333-ief-bundle-selection-erv-7.patch"
+                    "[#2729333-7] Can't select a default bundle when using entity reference views": "https://www.drupal.org/files/issues/2729333-ief-bundle-selection-erv-7.patch",
+                    "[#3162874-5] Provide reliable access to the entity in template_preprocess_inline_entity_form_entity_table()": "https://www.drupal.org/files/issues/2020-08-02/3162874-5.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
