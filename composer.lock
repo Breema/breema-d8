@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9d4654ae748092a0247357af8d2d4911",
+    "content-hash": "503e69ea791808807635828bc6b68a20",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -4230,41 +4230,40 @@
         },
         {
             "name": "drupal/flexslider",
-            "version": "2.0.0-beta1",
+            "version": "2.0.0-rc2",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/flexslider.git",
-                "reference": "8.x-2.0-beta1"
+                "reference": "8.x-2.0-rc2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/flexslider-8.x-2.0-beta1.zip",
-                "reference": "8.x-2.0-beta1",
-                "shasum": "fa298a5b065c5868a36c45d95fa57068be079220"
+                "url": "https://ftp.drupal.org/files/projects/flexslider-8.x-2.0-rc2.zip",
+                "reference": "8.x-2.0-rc2",
+                "shasum": "67a3299fa43b3b28973771a6f4921bbebf6c0a2d"
             },
             "require": {
-                "drupal/core": "*",
-                "drupal/libraries": "*"
+                "drupal/core": "^8.8.0 || ^9.0"
             },
             "require-dev": {
                 "drupal/flexslider_fields": "*",
                 "drupal/flexslider_views": "*"
             },
+            "suggest": {
+                "woothemes/flexslider": "~2.0"
+            },
             "type": "drupal-module",
             "extra": {
-                "branch-alias": {
-                    "dev-2.x": "2.x-dev"
-                },
                 "drupal": {
-                    "version": "8.x-2.0-beta1",
-                    "datestamp": "1492020545",
+                    "version": "8.x-2.0-rc2",
+                    "datestamp": "1593555188",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Project has not opted into security advisory coverage!"
                     }
                 },
                 "patches_applied": {
-                    "[#3086080-3] Add flexslider support for any (multi-valued) entity reference field": "https://www.drupal.org/files/issues/2019-10-06/3086080-3.flexslider-entity.patch"
+                    "[#3086080-14] Add flexslider support for any (multi-valued) entity reference field": "https://www.drupal.org/files/issues/2020-08-02/3086080-14.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -4273,8 +4272,9 @@
             ],
             "authors": [
                 {
-                    "name": "ClassicCut",
-                    "homepage": "https://www.drupal.org/user/2703101"
+                    "name": "FlexSlider Module Contributors",
+                    "homepage": "https://www.drupal.org/node/1316346/committers",
+                    "role": "Contributors"
                 },
                 {
                     "name": "amaria",
@@ -4293,10 +4293,11 @@
                     "homepage": "https://www.drupal.org/user/657848"
                 }
             ],
-            "description": "Integrate the FlexSlider 2 library with Drupal",
+            "description": "FlexSlider 2 integration for Drupal",
             "homepage": "https://www.drupal.org/project/flexslider",
             "support": {
-                "source": "https://git.drupalcode.org/project/flexslider"
+                "source": "https://git.drupalcode.org/project/flexslider",
+                "issues": "https://drupal.org/project/issues/flexslider"
             }
         },
         {
