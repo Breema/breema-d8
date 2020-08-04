@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "503e69ea791808807635828bc6b68a20",
+    "content-hash": "8061b8e24eefda79709acc205531087b",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -4080,7 +4080,8 @@
                     }
                 },
                 "patches_applied": {
-                    "[#2718783-13] Call to undefined method BaseFieldDefinition::getThirdPartySettings()": "https://www.drupal.org/files/issues/call_to_undefined-2718783-13.patch"
+                    "[#2718783-13] Call to undefined method BaseFieldDefinition::getThirdPartySettings()": "https://www.drupal.org/files/issues/call_to_undefined-2718783-13.patch",
+                    "[#3119771-2] The Original filename field 'origname' needs to be installed on the file table": "https://www.drupal.org/files/issues/2020-03-13/3119771-2.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",

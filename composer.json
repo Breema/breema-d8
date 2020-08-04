@@ -161,7 +161,8 @@
         "[#3077225-3] Logs flooded with warning messages 'Invalid display settings encountered'" : "https://www.drupal.org/files/issues/2019-08-26/3077225-reduce-invalid-config-logs.patch"
       },
       "drupal/filefield_paths": {
-        "[#2718783-13] Call to undefined method BaseFieldDefinition::getThirdPartySettings()" : "https://www.drupal.org/files/issues/call_to_undefined-2718783-13.patch"
+        "[#2718783-13] Call to undefined method BaseFieldDefinition::getThirdPartySettings()" : "https://www.drupal.org/files/issues/call_to_undefined-2718783-13.patch",
+        "[#3119771-2] The Original filename field 'origname' needs to be installed on the file table" : "https://www.drupal.org/files/issues/2020-03-13/3119771-2.patch"
       },
       "drupal/flexslider": {
         "[#3086080-14] Add flexslider support for any (multi-valued) entity reference field" : "https://www.drupal.org/files/issues/2020-08-02/3086080-14.patch"
