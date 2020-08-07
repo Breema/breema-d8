@@ -285,13 +285,14 @@ display:
       path: events/featured
       menu:
         type: normal
-        title: 'Featured events'
+        title: 'Featured Events'
         description: ''
         expanded: false
         parent: 'menu_link_content:accd1d1b-00f1-455f-b811-0b00937ba209'
         weight: -52
         context: '0'
         menu_name: main
+        enabled: true
     cache_metadata:
       max-age: -1
       contexts:
