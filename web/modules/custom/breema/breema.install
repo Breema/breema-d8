@@ -1,13 +1,13 @@
 <?php
 
-use Drupal\Core\Entity\EntityInterface;
-use Drupal\node\Entity\Node;
-use Drupal\user\Entity\User;
-
 /**
  * @file
  * Update functions for the breema module.
  */
+
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\node\Entity\Node;
+use Drupal\user\Entity\User;
 
 /**
  * Convert node 2 into a place and set the address and contact info.
