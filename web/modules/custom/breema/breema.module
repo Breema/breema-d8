@@ -41,6 +41,7 @@ use Drupal\group\Entity\Group;
 use Drupal\redirect\Entity\Redirect;
 
 use Drupal\breema\BreemaEventMgr;
+use Drupal\breema\PublishScheduler;
 
 /**
  * E-mail address to notify about new session resumes.
@@ -3120,6 +3121,9 @@ function breema_node_38_view_alter(array &$build, EntityInterface $entity, Entit
 function breema_cron() {
   $event_mgr = new BreemaEventMgr();
   $event_mgr->update();
+
+  $publish_scheduler = new PublishScheduler();
+  $publish_scheduler->enforceSchedule();
 
   // Brute force invalidate anything with the 'breema_max_age' #cache tag.
   \Drupal::service('cache_tags.invalidator')->invalidateTags(['breema_max_age']);
