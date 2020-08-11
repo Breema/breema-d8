@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c0c2c09c4cb15989e8b003a714b3a81f",
+    "content-hash": "8e3cab9f55caa28913a589f1815ed154",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -4514,6 +4514,40 @@
             "time": "2019-10-01T10:45:43+00:00"
         },
         {
+            "name": "drupal/gnode",
+            "version": "1.0.0-rc5",
+            "require": {
+                "drupal/core": "^8",
+                "drupal/group": "self.version"
+            },
+            "type": "metapackage",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.0-rc5",
+                    "datestamp": "1596201556",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "RC releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "kristiaanvandeneynde",
+                    "homepage": "https://www.drupal.org/user/1345130"
+                }
+            ],
+            "description": "Enables Group functionality for the Node module",
+            "homepage": "https://www.drupal.org/project/group",
+            "support": {
+                "source": "https://git.drupalcode.org/project/group"
+            }
+        },
+        {
             "name": "drupal/google_analytics",
             "version": "3.1.0",
             "source": {
@@ -4638,6 +4672,51 @@
             "support": {
                 "source": "https://git.drupalcode.org/project/group",
                 "issues": "https://drupal.org/project/issues/group"
+            }
+        },
+        {
+            "name": "drupal/group_notify",
+            "version": "1.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/group_notify.git",
+                "reference": "8.x-1.4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/group_notify-8.x-1.4.zip",
+                "reference": "8.x-1.4",
+                "shasum": "3687f0e1d0f7e6cb3645ded8e9205cc8fd5c0cf7"
+            },
+            "require": {
+                "drupal/core": "~8.0",
+                "drupal/gnode": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.4",
+                    "datestamp": "1591575254",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Project has not opted into security advisory coverage!"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "gregcube",
+                    "homepage": "https://www.drupal.org/user/336930"
+                }
+            ],
+            "description": "Send notifications/ email to group members when new content is added.",
+            "homepage": "https://www.drupal.org/project/group_notify",
+            "support": {
+                "source": "https://git.drupalcode.org/project/group_notify"
             }
         },
         {

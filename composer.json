@@ -60,6 +60,7 @@
     "drupal/geolocation": "1.x-dev",
     "drupal/google_analytics": "^3.0",
     "drupal/group": "^1.0",
+    "drupal/group_notify": "^1.4",
     "drupal/inline_entity_form": "^1.0@beta",
     "drupal/login_emailusername": "^1.1",
     "drupal/menu_block": "1.x-dev",
