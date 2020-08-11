@@ -26,13 +26,13 @@ class BreemaGroupListeningBlock extends BreemaUserGroupBlockBase {
 
     $groups = $this->getCurrentUserGroups();
 
-    if (!empty($groups['listening'])) {
+    if (!empty($groups['audio'])) {
       $options = [
         'label' => 'hidden',
         'type' => 'text_summary_or_trimmed',
       ];
       $group_count = 0;
-      foreach ($groups['listening'] as $group) {
+      foreach ($groups['audio'] as $group) {
         $block['#cache']['tags'][] = 'group:' . $group->id();
         $block['group_' . $group->id()] = [
           '#prefix' => '<h3>' . $group->toLink()->toString() . '</h3>',

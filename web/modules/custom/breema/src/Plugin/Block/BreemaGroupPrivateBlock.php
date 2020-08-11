@@ -27,9 +27,9 @@ class BreemaGroupPrivateBlock extends BreemaUserGroupBlockBase {
 
     $groups = $this->getCurrentUserGroups();
 
-    if (!empty($groups['certification'])) {
+    if (!empty($groups['private'])) {
       $group_count = 0;
-      foreach ($groups['certification'] as $group) {
+      foreach ($groups['private'] as $group) {
         $block['#cache']['tags'][] = 'group:' . $group->id();
         $block['group_' . $group->id()] = [
           '#prefix' => '<h3>' . $group->toLink()->toString() . '</h3>',
@@ -38,8 +38,8 @@ class BreemaGroupPrivateBlock extends BreemaUserGroupBlockBase {
       }
 
       $all_group_count = $group_count;
-      if (!empty($groups['listening'])) {
-        $all_group_count += count($groups['listening']);
+      if (!empty($groups['audio'])) {
+        $all_group_count += count($groups['audio']);
       }
       if ($all_group_count > 1) {
         $block['dashboard_link'] = [

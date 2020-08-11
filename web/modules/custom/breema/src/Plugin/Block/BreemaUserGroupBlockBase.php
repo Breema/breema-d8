@@ -66,30 +66,19 @@ abstract class BreemaUserGroupBlockBase extends BlockBase implements ContainerFa
   /**
    * Gets all the groups the current user belongs to.
    *
-   * @return array[]
+   * @return \Drupal\group\Entity\GroupInterface[][]
    *   Nested array of groups the current user is a member of. The top level
-   *   keys are 'listening' and 'certification'.
+   *   keys are group type/bundle ('private' or 'audio'). Those arrays are then
+   *   keyed by group ID and the values are the loaded Group entities.
    */
   protected function getCurrentUserGroups() {
     $groups = [];
-    $listening_terms = $this->entityTypeManager->getStorage('taxonomy_term')
-       ->loadByProperties(['name' => 'Listening']);
-
-    if (!empty($listening_terms)) {
-      $listening_term = array_pop($listening_terms);
-      $user_entity = User::load($this->currentUser->id());
-      // Load all groups the current user belongs to.
-      $groups = GroupContent::loadByEntity($user_entity);
-      foreach ($groups as $user_group) {
-        $group = $user_group->getGroup();
-        $group_type = $group->get('field_group_type')->getValue();
-        if (!empty($group_type[0]['target_id']) && $group_type[0]['target_id'] === $listening_term->id()) {
-          $groups['listening'][$group->id()] = $group;
-        }
-        else {
-          $groups['certification'][$group->id()] = $group;
-        }
-      }
+    $user_entity = User::load($this->currentUser->id());
+    // Load all groups the current user belongs to.
+    $groups = GroupContent::loadByEntity($user_entity);
+    foreach ($groups as $user_group) {
+      $group = $user_group->getGroup();
+      $groups[$group->bundle()][$group->id()] = $group;
     }
     return $groups;
   }
