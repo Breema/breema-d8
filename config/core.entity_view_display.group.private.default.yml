@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - field.field.group.private.field_body
-    - field.field.group.private.field_group_type
     - field.field.group.private.field_resources
     - group.type.private
   module:
@@ -33,6 +32,5 @@ content:
 hidden:
   changed: true
   created: true
-  field_group_type: true
   label: true
   uid: true
