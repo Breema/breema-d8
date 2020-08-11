@@ -1,0 +1,22 @@
+uuid: 40a75e77-831f-4dab-bb7c-01d217287da6
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.private_audio_stream
+id: node.private_audio_stream.status
+field_name: status
+entity_type: node
+bundle: private_audio_stream
+label: Published
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean
