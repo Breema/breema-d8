@@ -1,0 +1,17 @@
+uuid: 435a8e51-04e9-4584-85a2-995b68e46f4a
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.audio
+  enforced:
+    config:
+      - user.role.user_administrator
+id: audio-1b726bb78
+label: 'User administrator'
+weight: -1
+internal: true
+audience: outsider
+group_type: audio
+permissions_ui: false
+permissions: {  }

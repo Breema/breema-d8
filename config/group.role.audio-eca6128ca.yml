@@ -1,0 +1,17 @@
+uuid: d35ef914-6b3c-439b-adca-52312cba815d
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.audio
+  enforced:
+    config:
+      - user.role.content_administrator
+id: audio-eca6128ca
+label: 'Content administrator'
+weight: -3
+internal: true
+audience: outsider
+group_type: audio
+permissions_ui: false
+permissions: {  }

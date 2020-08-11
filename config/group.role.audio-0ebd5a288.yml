@@ -1,0 +1,17 @@
+uuid: c3e5b819-61a2-4a99-b248-b5bea190d452
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.audio
+  enforced:
+    config:
+      - user.role.instructor
+id: audio-0ebd5a288
+label: Instructor
+weight: -6
+internal: true
+audience: outsider
+group_type: audio
+permissions_ui: false
+permissions: {  }

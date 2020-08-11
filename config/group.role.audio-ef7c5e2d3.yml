@@ -1,0 +1,17 @@
+uuid: 36f34ce6-269e-45da-ac67-7d35d6c203b3
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.audio
+  enforced:
+    config:
+      - user.role.event_administrator
+id: audio-ef7c5e2d3
+label: 'Event administrator'
+weight: -2
+internal: true
+audience: outsider
+group_type: audio
+permissions_ui: false
+permissions: {  }

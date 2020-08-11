@@ -1,0 +1,17 @@
+uuid: 9a27a299-91b8-4d25-a763-30b3060f7200
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.audio
+  enforced:
+    config:
+      - user.role.administrator
+id: audio-a416e6833
+label: 'Full administrator'
+weight: 0
+internal: true
+audience: outsider
+group_type: audio
+permissions_ui: false
+permissions: {  }

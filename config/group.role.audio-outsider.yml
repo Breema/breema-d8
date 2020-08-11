@@ -1,0 +1,14 @@
+uuid: 488a59b6-304f-4b22-909e-cbd3a9f82acf
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.audio
+id: audio-outsider
+label: Outsider
+weight: -101
+internal: true
+audience: outsider
+group_type: audio
+permissions_ui: true
+permissions: {  }

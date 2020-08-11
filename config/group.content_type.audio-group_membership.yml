@@ -1,0 +1,17 @@
+uuid: 2a4812e4-7d65-4c1e-bf41-d63a2439fea1
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.audio
+  module:
+    - user
+id: audio-group_membership
+label: 'Audio group: Group membership'
+description: 'Adds users to groups as members.'
+group_type: audio
+content_plugin: group_membership
+plugin_config:
+  group_cardinality: 0
+  entity_cardinality: 1
+  use_creation_wizard: false

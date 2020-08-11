@@ -1,0 +1,23 @@
+uuid: feb3cc38-95a8-47d6-86ec-4121bd074e50
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.group.field_body
+    - group.type.audio
+  module:
+    - text
+id: group.audio.field_body
+field_name: field_body
+entity_type: group
+bundle: audio
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

@@ -1,0 +1,37 @@
+uuid: 83df39d5-525a-4b17-9ea0-5a8e5827da16
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.group.body
+    - field.field.group.audio.field_body
+    - field.field.group.audio.field_resources
+    - group.type.audio
+  module:
+    - text
+id: group.audio.body
+targetEntityType: group
+bundle: audio
+mode: body
+content:
+  field_body:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_resources:
+    weight: 1
+    label: visually_hidden
+    settings:
+      view_mode: view_full
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+hidden:
+  changed: true
+  created: true
+  label: true
+  uid: true

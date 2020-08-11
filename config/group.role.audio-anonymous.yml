@@ -1,0 +1,14 @@
+uuid: 8431b972-9e7e-4888-96eb-673bec5f7370
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.audio
+id: audio-anonymous
+label: Anonymous
+weight: -102
+internal: true
+audience: anonymous
+group_type: audio
+permissions_ui: true
+permissions: {  }

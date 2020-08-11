@@ -1,0 +1,17 @@
+uuid: 5a33aad1-e4b7-4a81-8d44-5e19e5336b50
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.audio
+  enforced:
+    config:
+      - user.role.student
+id: audio-4997befd3
+label: Student
+weight: -8
+internal: true
+audience: outsider
+group_type: audio
+permissions_ui: false
+permissions: {  }

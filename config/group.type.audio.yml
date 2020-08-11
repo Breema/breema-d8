@@ -1,0 +1,10 @@
+uuid: e078b5b5-3fd2-44f7-accc-6e5db13732a9
+langcode: en
+status: true
+dependencies: {  }
+id: audio
+label: 'Audio group'
+description: "A group for private audio content specific to a set of users.\t\r\n"
+creator_membership: false
+creator_wizard: false
+creator_roles: {  }

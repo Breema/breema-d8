@@ -1,0 +1,17 @@
+uuid: f273cfa5-5ca0-4f43-ba94-1c90af0f34ad
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.audio
+id: audio-member
+label: Member
+weight: -100
+internal: true
+audience: member
+group_type: audio
+permissions_ui: true
+permissions:
+  - 'update own group_membership content'
+  - 'view group'
+  - 'view group_node:private_audio_stream entity'

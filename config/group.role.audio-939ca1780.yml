@@ -1,0 +1,17 @@
+uuid: 992bc47c-7e52-4c6c-afa0-507554031337
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.audio
+  enforced:
+    config:
+      - user.role.practitioner
+id: audio-939ca1780
+label: Practitioner
+weight: -7
+internal: true
+audience: outsider
+group_type: audio
+permissions_ui: false
+permissions: {  }
