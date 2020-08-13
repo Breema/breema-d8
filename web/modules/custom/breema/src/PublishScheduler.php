@@ -78,6 +78,8 @@ class PublishScheduler {
         $node->revision_log = 'PublishScheduler: Publish audio that is now available.';
         $node->revision_uid = 1;
         $node->revision_timestamp = $u_now;
+        // Tell group_notify to trigger notifications.
+        $node->group_notify_all = TRUE;
         $node->setPublished();
         $node->save();
         $this->logAction($node, 'Published');
