@@ -21,12 +21,12 @@ content:
   body:
     label: hidden
     type: text_default
-    weight: 2
+    weight: 3
     settings: {  }
     third_party_settings: {  }
     region: content
   field_available_dates:
-    weight: 1
+    weight: 2
     label: inline
     settings:
       format_type: date_only
@@ -34,7 +34,7 @@ content:
     type: daterange_compact
     region: content
   field_stream_url:
-    weight: 0
+    weight: 1
     label: hidden
     settings:
       audio_player: mediaelement_audio_player
@@ -65,7 +65,7 @@ content:
     region: content
   group_content:
     type: parent_group_entity_formatter
-    weight: 3
+    weight: 0
     region: content
     label: hidden
     settings:
