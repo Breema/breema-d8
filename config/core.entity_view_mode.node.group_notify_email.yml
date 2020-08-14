@@ -1,0 +1,12 @@
+uuid: 7570d3a9-13a4-4282-a32b-48c527e78b5a
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: NFl_2rhYQYkGMQLi1QEO4l_tLtxGeOearwpU3u5WGZo
+id: node.group_notify_email
+label: 'Group Notify Email'
+targetEntityType: node
+cache: true

@@ -1,0 +1,12 @@
+uuid: aec7a41d-45fa-4eb1-af9e-317796839074
+langcode: en
+status: true
+dependencies:
+  module:
+    - comment
+_core:
+  default_config_hash: eAoqpwJHl9tiN7fEp_w2vBlk94jnMhjLbmGJ036SZds
+id: comment.group_notify_email
+label: 'Group Notify Email'
+targetEntityType: comment
+cache: true
