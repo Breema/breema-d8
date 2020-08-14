@@ -11,9 +11,9 @@ id: group.audio.field_body
 field_name: field_body
 entity_type: group
 bundle: audio
-label: Body
-description: ''
-required: false
+label: 'Website description'
+description: 'This text will be shown to users on the website when the visit the group page itself (e.g. at <em>/group/listen-to-streaming</em>) and also when viewing individual private audio pages (e.g. at <em>/private-audio/streaming-library-Month-Day-Year</em>).'
+required: true
 translatable: true
 default_value: {  }
 default_value_callback: ''
