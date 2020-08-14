@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.group.body
     - field.field.group.audio.field_body
+    - field.field.group.audio.field_email_description
     - field.field.group.audio.field_resources
     - group.type.audio
   module:
@@ -33,5 +34,6 @@ content:
 hidden:
   changed: true
   created: true
+  field_email_description: true
   label: true
   uid: true

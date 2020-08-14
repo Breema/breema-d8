@@ -1,38 +1,31 @@
-uuid: 4fc3659e-dd98-4c8b-b071-9b0b227b46a6
+uuid: e60d60e0-5500-47e2-95c0-c735905698a3
 langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.group.email
     - field.field.group.audio.field_body
     - field.field.group.audio.field_email_description
     - field.field.group.audio.field_resources
     - group.type.audio
   module:
     - text
-id: group.audio.default
+id: group.audio.email
 targetEntityType: group
 bundle: audio
-mode: default
+mode: email
 content:
-  field_body:
+  field_email_description:
+    type: text_default
     weight: 0
+    region: content
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    type: text_default
-    region: content
-  field_resources:
-    weight: 1
-    label: visually_hidden
-    settings:
-      view_mode: view_full
-      link: false
-    third_party_settings: {  }
-    type: entity_reference_entity_view
-    region: content
 hidden:
   changed: true
   created: true
-  field_email_description: true
+  field_body: true
+  field_resources: true
   label: true
   uid: true

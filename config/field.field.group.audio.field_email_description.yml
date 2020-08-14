@@ -1,0 +1,21 @@
+uuid: 855ab9f9-0c83-4458-a313-c73227437c1d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.group.field_email_description
+    - group.type.audio
+  module:
+    - text
+id: group.audio.field_email_description
+field_name: field_email_description
+entity_type: group
+bundle: audio
+label: 'E-mail description'
+description: "This text will be used instead of the <em>Website description</em> to generate the automated e-mail notification when new <em>Private audio stream</em> pages are published in this group. If empty, the <em>Website description</em> will be used as a default.\r\n"
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long
