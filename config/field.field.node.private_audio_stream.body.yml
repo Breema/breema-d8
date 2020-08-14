@@ -11,8 +11,8 @@ id: node.private_audio_stream.body
 field_name: body
 entity_type: node
 bundle: private_audio_stream
-label: Body
-description: ''
+label: 'Custom text'
+description: 'Optional text specific to this individual <em>Private audio stream</em>. The general instructions are controlled by editing the group page itself.'
 required: false
 translatable: true
 default_value: {  }
