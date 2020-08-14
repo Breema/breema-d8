@@ -1,0 +1,10 @@
+uuid: 0a055c08-b29a-491b-bd5f-325f94968568
+langcode: en
+status: true
+dependencies:
+  module:
+    - group
+id: group.email
+label: E-mail
+targetEntityType: group
+cache: true
