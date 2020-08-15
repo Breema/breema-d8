@@ -7,6 +7,7 @@ use Drupal\Core\Messenger\MessengerTrait;
 use Drupal\datetime\Plugin\Field\FieldType\DateTimeItemInterface;
 use Drupal\node\Entity\Node;
 use Drupal\node\NodeInterface;
+use Drupal\user\Entity\User;
 
 /**
  * Publishes and unpublishes content based on date fields on each entity.
@@ -33,11 +34,28 @@ class PublishScheduler {
   protected $logger = NULL;
 
   /**
+   * The account switcher service.
+   *
+   * @var \Drupal\Core\Session\AccountSwitcherInterface $account_switcher
+   */
+  protected $accountSwitcher = NULL;
+
+
+  /**
+   * The user with full access to view and edit unpublished group nodes.
+   *
+   * @var \Drupal\user\Entity\User
+   */
+  protected $adminUser = NULL;
+
+  /**
    * Constructs a PublishScheduler object.
    */
   public function __construct() {
     // It will be easier to do all the date math with 'now' based in Oakland.
     $this->now = new DrupalDateTime('now', new \DateTimezone('America/Los_Angeles'));
+    $this->accountSwitcher = \Drupal::service('account_switcher');
+    $this->adminUser = User::load(1);
   }
 
   /**
@@ -49,9 +67,15 @@ class PublishScheduler {
   public function enforceSchedule() {
     // @todo Only check the schedule once per day, at time TBD?
     // Wait for noon UTC / 5am PDT or so?
+
+    // This will generally run as an anonymous user via hook_cron, so we need to
+    // switch to a super group admin to be able to see the unpublished nodes
+    // across all groups, publish them, etc.
+    $this->accountSwitcher->switchTo($this->adminUser);
     $this->publishAvailablePrivateAudio();
     $this->unpublishExpiredPrivateAudio();
     $this->publishEssenceOfBreema();
+    $this->accountSwitcher->switchBack();
   }
 
   /**
