@@ -1,0 +1,38 @@
+{#
+/**
+ * @file
+ * Group Notify theme implementation to display a node in an email.
+ *
+ * @see template_preprocess_node()
+ *
+ * @ingroup themeable
+ */
+#}
+{%
+  set audio_fields = [
+    'group_content',
+    'field_stream_url',
+    'field_available_dates',
+  ]
+%}
+{%
+  set hidden_fields = [
+    'comment',
+    'links',
+    'field_tags',
+  ]
+%}
+
+<article id="node-{{ node.id }}" {{ attributes }}>
+
+  <h2{{ title_attributes }}>{{ label }}</h2>
+
+  {% for field in audio_fields %}
+    {{ content[field] }}
+  {% endfor %}
+
+  <div{{ content_attributes }}>
+    {{ content|without(audio_fields, hidden_fields) }}
+  </div>
+
+</article>
