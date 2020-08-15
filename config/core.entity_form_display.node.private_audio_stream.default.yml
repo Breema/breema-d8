@@ -115,4 +115,5 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
+  group_notify: true
   title: true
