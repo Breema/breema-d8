@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d0aa5538f166c1e03a09a41105df6bb1",
+    "content-hash": "0c75bb218ba8a67854743ed46c8755a5",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -4680,7 +4680,7 @@
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/group_notify.git",
-                "reference": "5ea0c601ae383b6248d8cb12838b9931156c74dc"
+                "reference": "2dc206d0c8c0dce36dd2a823dfef967e7189890a"
             },
             "require": {
                 "drupal/core": "^8 || ^9",
@@ -4692,12 +4692,16 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.4+7-dev",
-                    "datestamp": "1597356414",
+                    "version": "8.x-1.4+9-dev",
+                    "datestamp": "1597445359",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Project has not opted into security advisory coverage!"
                     }
+                },
+                "patches_applied": {
+                    "[#3165158-4] Stop hard-coding any content in the email, rely on the 'group_notify_email' view mode": "https://www.drupal.org/files/issues/2020-08-14/3165324-4.after-3165324.patch",
+                    "[#3165399-4] hook_theme_suggestions_HOOK_alter() prevents themes from overriding twig templates for the group_notify_email view mode": "https://www.drupal.org/files/issues/2020-08-15/3165399-4.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -4715,7 +4719,7 @@
             "support": {
                 "source": "https://git.drupalcode.org/project/group_notify"
             },
-            "time": "2020-08-13T23:28:29+00:00"
+            "time": "2020-08-14T23:56:34+00:00"
         },
         {
             "name": "drupal/inline_entity_form",

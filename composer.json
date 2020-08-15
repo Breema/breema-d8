@@ -178,6 +178,10 @@
         "[#2923755-7] Ability to change group type after group creation" : "https://www.drupal.org/files/issues/2020-08-10/2923755-8.rc5_.do-not-test.patch",
         "[#2813405-223] Add a field to view and edit content's groups" : "https://www.drupal.org/files/issues/2020-01-08/group-field_to_view_and_edit_content_groups-2813405-223.patch"
       },
+      "drupal/group_notify": {
+        "[#3165158-4] Stop hard-coding any content in the email, rely on the 'group_notify_email' view mode" : "https://www.drupal.org/files/issues/2020-08-14/3165324-4.after-3165324.patch",
+        "[#3165399-4] hook_theme_suggestions_HOOK_alter() prevents themes from overriding twig templates for the group_notify_email view mode" : "https://www.drupal.org/files/issues/2020-08-15/3165399-4.patch"
+      },
       "drupal/inline_entity_form": {
         "[#2729333-7] Can't select a default bundle when using entity reference views" : "https://www.drupal.org/files/issues/2729333-ief-bundle-selection-erv-7.patch",
         "[#3162874-5] Provide reliable access to the entity in template_preprocess_inline_entity_form_entity_table()" : "https://www.drupal.org/files/issues/2020-08-02/3162874-5.patch"
