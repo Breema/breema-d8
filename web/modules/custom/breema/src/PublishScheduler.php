@@ -65,8 +65,10 @@ class PublishScheduler {
    * unpublishing content that has expired.
    */
   public function enforceSchedule() {
-    // @todo Only check the schedule once per day, at time TBD?
-    // Wait for noon UTC / 5am PDT or so?
+    // Never do anything before 5am PDT.
+    if ($this->now->format('G') < 5) {
+      return;
+    }
 
     // This will generally run as an anonymous user via hook_cron, so we need to
     // switch to a super group admin to be able to see the unpublished nodes
