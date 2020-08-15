@@ -54,8 +54,6 @@ class PublishScheduler {
   public function __construct() {
     // It will be easier to do all the date math with 'now' based in Oakland.
     $this->now = new DrupalDateTime('now', new \DateTimezone('America/Los_Angeles'));
-    $this->accountSwitcher = \Drupal::service('account_switcher');
-    $this->adminUser = User::load(1);
   }
 
   /**
@@ -68,6 +66,14 @@ class PublishScheduler {
     // Never do anything before 5am PDT.
     if ($this->now->format('G') < 5) {
       return;
+    }
+
+    // If they're still NULL, set up the protected members we'll need.
+    if (is_null($this->accountSwitcher)) {
+      $this->accountSwitcher = \Drupal::service('account_switcher');
+    }
+    if (is_null($this->adminUser)) {
+      $this->adminUser = User::load(1);
     }
 
     // This will generally run as an anonymous user via hook_cron, so we need to
