@@ -90,7 +90,8 @@ class PublishScheduler {
    * Publishes 'Private audio stream' content that should now be visible.
    */
   protected function publishAvailablePrivateAudio() {
-    $now = $this->now->format(DateTimeItemInterface::DATETIME_STORAGE_FORMAT);
+    $now = $this->now->format(DateTimeItemInterface::DATE_STORAGE_FORMAT);
+
     // Find all currently unpublished private audio nodes that have entered the
     // window of time when they should be available.
     $query = \Drupal::entityQuery('node');
@@ -98,12 +99,14 @@ class PublishScheduler {
       ->condition('status', 0)
       ->condition('type', 'private_audio_stream')
       ->condition('field_available_dates.value', $now, '<=')
-      ->condition('field_available_dates.end_value', $now, '>');
+      ->condition('field_available_dates.end_value', $now, '>=');
     $results = $query->execute();
     if (!empty($results)) {
       $nodes = Node::loadMultiple($results);
     }
     if (!empty($nodes)) {
+      // This will give us the current timestamp in UTC, regardless of the
+      // PDT timezone we set in the constructor for other kinds of formatting.
       $u_now = $this->now->format('U');
       foreach ($nodes as $node) {
         $node->setNewRevision(TRUE);
@@ -123,7 +126,8 @@ class PublishScheduler {
    * Unpublishes 'Private audio stream' content that has expired.
    */
   protected function unpublishExpiredPrivateAudio() {
-    $now = $this->now->format(DateTimeItemInterface::DATETIME_STORAGE_FORMAT);
+    $now = $this->now->format(DateTimeItemInterface::DATE_STORAGE_FORMAT);
+
     // Find all currently published private audio nodes that have expired.
     $query = \Drupal::entityQuery('node');
     $query
@@ -135,6 +139,8 @@ class PublishScheduler {
       $nodes = Node::loadMultiple($results);
     }
     if (!empty($nodes)) {
+      // This will give us the current timestamp in UTC, regardless of the
+      // PDT timezone we set in the constructor for other kinds of formatting.
       $u_now = $this->now->format('U');
       foreach ($nodes as $node) {
         $node->setNewRevision(TRUE);
