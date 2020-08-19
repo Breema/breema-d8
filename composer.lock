@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0c75bb218ba8a67854743ed46c8755a5",
+    "content-hash": "dd6b103e24a6ea4f84207b3acd8bbdd8",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -5622,6 +5622,9 @@
                 },
                 "branch-alias": {
                     "dev-8.x-1.x": "1.x-dev"
+                },
+                "patches_applied": {
+                    "[#3165981-3] Include more info for the logger->info() call": "https://www.drupal.org/files/issues/2020-08-18/3165981-3.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
