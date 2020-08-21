@@ -41,8 +41,6 @@ content:
       duration_granularity: d
       default_duration:
         d: 5
-        h: 0
-        i: 0
       time_increment: 86400
     third_party_settings: {  }
     type: daterange_duration
