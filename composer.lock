@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "dd6b103e24a6ea4f84207b3acd8bbdd8",
+    "content-hash": "6a200adc5d3d1285c8b35e19ad896169",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -3261,7 +3261,8 @@
                     }
                 },
                 "patches_applied": {
-                    "[#2834016-28] Add 'Compact' datetime range formatter": "https://www.drupal.org/files/issues/2019-01-15/2834016-28.patch"
+                    "[#2834016-28] Add 'Compact' datetime range formatter": "https://www.drupal.org/files/issues/2019-01-15/2834016-28.patch",
+                    "[#3165990-7] UX bug with the duration widget for date-only ranges": "https://www.drupal.org/files/issues/2020-08-20/3165990-7.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",

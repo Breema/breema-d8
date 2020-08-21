@@ -152,7 +152,8 @@
         "[#2959869-5] Creating Media Type gives this Error: Call to a member function getName()" : "https://www.drupal.org/files/issues/2018-04-16/create-media-error-2959869-5.patch"
       },
       "drupal/datetime_extras": {
-        "[#2834016-28] Add 'Compact' datetime range formatter" : "https://www.drupal.org/files/issues/2019-01-15/2834016-28.patch"
+        "[#2834016-28] Add 'Compact' datetime range formatter" : "https://www.drupal.org/files/issues/2019-01-15/2834016-28.patch",
+        "[#3165990-7] UX bug with the duration widget for date-only ranges" : "https://www.drupal.org/files/issues/2020-08-20/3165990-7.patch"
       },
       "drupal/duration_field": {
         "[#3133532-5] JavaScript #states not working on 'duration' form elements" : "https://www.drupal.org/files/issues/2020-05-08/3133532-5.patch"
