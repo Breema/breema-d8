@@ -284,7 +284,7 @@ display:
           empty: false
           tokenize: false
           content:
-            value: "Für Bücher über Breema auf Deutsch wenden Sie sich bitte an <a href=\"/directory/entry/aron-saltiel\">Aron Saltiel</a>.\r\n<hr />"
+            value: "<strong>At this time we can ship only to addresses in the US.</strong><br>\r\nFür Bücher über Breema auf Deutsch wenden Sie sich bitte an <a href=\"/directory/entry/aron-saltiel\">Aron Saltiel</a>.\r\n<hr />"
             format: basic_html
           plugin_id: text
       defaults:
