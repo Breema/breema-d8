@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6a200adc5d3d1285c8b35e19ad896169",
+    "content-hash": "a3f82794f53e014f7a9120e9af2a1ecc",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -4677,11 +4677,17 @@
         },
         {
             "name": "drupal/group_notify",
-            "version": "dev-1.x",
+            "version": "1.5.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/group_notify.git",
-                "reference": "2dc206d0c8c0dce36dd2a823dfef967e7189890a"
+                "reference": "8.x-1.5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/group_notify-8.x-1.5.zip",
+                "reference": "8.x-1.5",
+                "shasum": "f141dc99ffe806fefaabfbfda349be45240f3f08"
             },
             "require": {
                 "drupal/core": "^8 || ^9",
@@ -4689,20 +4695,16 @@
             },
             "type": "drupal-module",
             "extra": {
-                "branch-alias": {
-                    "dev-1.x": "1.x-dev"
-                },
                 "drupal": {
-                    "version": "8.x-1.4+9-dev",
-                    "datestamp": "1597445359",
+                    "version": "8.x-1.5",
+                    "datestamp": "1598496317",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Project has not opted into security advisory coverage!"
                     }
                 },
                 "patches_applied": {
-                    "[#3165158-4] Stop hard-coding any content in the email, rely on the 'group_notify_email' view mode": "https://www.drupal.org/files/issues/2020-08-14/3165324-4.after-3165324.patch",
-                    "[#3165399-4] hook_theme_suggestions_HOOK_alter() prevents themes from overriding twig templates for the group_notify_email view mode": "https://www.drupal.org/files/issues/2020-08-15/3165399-4.patch"
+                    "[#3168128-2] Group notify should never send notifications for unpublished entities": "https://www.drupal.org/files/issues/2020-08-29/3168128-2.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -4719,8 +4721,7 @@
             "homepage": "https://www.drupal.org/project/group_notify",
             "support": {
                 "source": "https://git.drupalcode.org/project/group_notify"
-            },
-            "time": "2020-08-14T23:56:34+00:00"
+            }
         },
         {
             "name": "drupal/inline_entity_form",
@@ -10664,7 +10665,6 @@
         "drupal/diff": 5,
         "drupal/field_permissions": 10,
         "drupal/geolocation": 20,
-        "drupal/group_notify": 20,
         "drupal/inline_entity_form": 10,
         "drupal/menu_block": 20,
         "drupal/simple_block": 10,
