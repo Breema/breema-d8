@@ -1,0 +1,5 @@
+services:
+  breema.commands:
+    class: \Drupal\breema\Commands\BreemaCommands
+    tags:
+      - { name: drush.command }
