@@ -377,7 +377,7 @@ function breema_preprocess_html(&$variables) {
           // have a main_image), use the standard "Essence of Breema" image.
           if (empty($share_image_file)) {
             // @todo Make this configurable? Or at least a slick constant?
-            $default_essence_media = Media::load(419);
+            $default_essence_media = Media::load(1092);
             $share_image_info = $default_essence_media->get('field_media_image')->getValue();
             $share_image_file = File::load($share_image_info[0]['target_id']);
           }
