@@ -158,7 +158,31 @@ class PublishScheduler {
    * Publishes Essence of Breema posts that should now be visible.
    */
   protected function publishEssenceOfBreema() {
-    // @todo
+    // Find all currently unpublished EoB nodes that should now be published.
+    $now = $this->now->format(DateTimeItemInterface::DATE_STORAGE_FORMAT);
+    $query = \Drupal::entityQuery('node');
+    $query
+      ->condition('status', 0)
+      ->condition('type', 'essence')
+      ->condition('field_date.value', $now, '<=');
+    $results = $query->execute();
+    if (!empty($results)) {
+      $nodes = Node::loadMultiple($results);
+    }
+    if (!empty($nodes)) {
+      // This will give us the current timestamp in UTC, regardless of the
+      // PDT timezone we set in the constructor for other kinds of formatting.
+      $u_now = $this->now->format('U');
+      foreach ($nodes as $node) {
+        $node->setNewRevision(TRUE);
+        $node->revision_log = 'PublishScheduler: Publish EoB that is now available.';
+        $node->revision_uid = 1;
+        $node->revision_timestamp = $u_now;
+        $node->setPublished();
+        $node->save();
+        $this->logAction($node, 'Published');
+      }
+    }
   }
 
   /**
@@ -187,8 +211,7 @@ class PublishScheduler {
     }
     elseif ($node->bundle() === 'essence') {
       $message = 'Published %label (id: @id) [available: @start]';
-      // @todo
-      // $context['@start'] = $node->get('field_available_dates')->value;
+      $context['@start'] = $node->get('field_date')->value;
     }
     $this->logger->info($message, $context);
   }
