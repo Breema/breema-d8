@@ -12,7 +12,7 @@ field_name: field_stream_url
 entity_type: node
 bundle: private_audio_stream
 label: 'Stream URL'
-description: '<em>https://breema.streamguys.com/vod/X.m4a/playlist.m3u8</em>'
+description: '<em>https://breema.streamguys1.com/vod/X.m4a/playlist.m3u8</em>'
 required: true
 translatable: false
 default_value: {  }
