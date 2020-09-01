@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.private_audio_stream.body
     - field.field.node.private_audio_stream.field_available_dates
+    - field.field.node.private_audio_stream.field_stream_status
     - field.field.node.private_audio_stream.field_stream_url
     - field.field.node.private_audio_stream.field_title_prefix
     - node.type.private_audio_stream
@@ -45,6 +46,12 @@ content:
     third_party_settings: {  }
     type: daterange_duration
     region: content
+  field_stream_status:
+    type: options_select
+    weight: 11
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_stream_url:
     weight: 1
     settings:
@@ -87,7 +94,7 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 11
+    weight: 12
     region: content
     third_party_settings: {  }
   sticky:

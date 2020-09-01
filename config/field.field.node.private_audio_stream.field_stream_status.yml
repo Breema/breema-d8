@@ -1,0 +1,23 @@
+uuid: cb720cdb-54cb-4818-a7a4-95e83c258274
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_stream_status
+    - node.type.private_audio_stream
+  module:
+    - options
+id: node.private_audio_stream.field_stream_status
+field_name: field_stream_status
+entity_type: node
+bundle: private_audio_stream
+label: 'Stream status'
+description: 'Is the stream file uploaded to StreamGuys and accessible, or has it been removed?'
+required: true
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings: {  }
+field_type: list_integer
