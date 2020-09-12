@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "84adcdf4cfef3279c3bf57f553359d5b",
+    "content-hash": "e2cfbafde8f966fb39120a58d8fac061",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -4704,7 +4704,8 @@
                     }
                 },
                 "patches_applied": {
-                    "[#3168128-2] Group notify should never send notifications for unpublished entities": "https://www.drupal.org/files/issues/2020-08-29/3168128-2.patch"
+                    "[#3168128-2] Group notify should never send notifications for unpublished entities": "https://www.drupal.org/files/issues/2020-08-29/3168128-2.patch",
+                    "[#3170625-3] Duplicate notifications sent if multiple messages triggered in the same page load": "https://www.drupal.org/files/issues/2020-09-12/3170625-2.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
