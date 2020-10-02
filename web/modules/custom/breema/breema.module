@@ -2999,12 +2999,16 @@ function breema_entity_node_event_view_alter(array &$build, EntityInterface $ent
     $args = [$entity->id()];
   }
   $weight = 500;
-  foreach (['list', 'calendar'] as $key) {
-    $view = Views::getView('breema_event_children');
-    $view->setDisplay('block_' . $key);
-    $view->setArguments($args);
-    $view->execute();
-    if (!empty($view->result)) {
+
+  $view = Views::getView('breema_event_children');
+  $view->setDisplay('embed_all');
+  $view->setArguments($args);
+  $view->execute();
+  if (!empty($view->result)) {
+    foreach (['list', 'calendar'] as $key) {
+      $view = Views::getView('breema_event_children');
+      $view->setDisplay('block_' . $key);
+      $view->setArguments($args);
       $build['schedule_' . $key] = $view->preview();
       $build['schedule_' . $key]['#weight'] = $weight++;
     }
