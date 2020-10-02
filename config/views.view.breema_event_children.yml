@@ -221,6 +221,76 @@ display:
           expose:
             operator_limit_selection: false
             operator_list: {  }
+        field_date_time_end_value:
+          id: field_date_time_end_value
+          table: node__field_date_time
+          field: field_date_time_end_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value:
+            min: ''
+            max: ''
+            value: ''
+            type: date
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_date_time_end_value_op
+            label: 'Date/time (field_date_time:end_value)'
+            description: null
+            use_operator: false
+            operator: field_date_time_end_value_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_date_time_end_value
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            min_placeholder: null
+            max_placeholder: null
+            placeholder: null
+          is_grouped: true
+          group_info:
+            label: Date/time
+            description: ''
+            identifier: date
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: '1'
+            default_group_multiple: {  }
+            group_items:
+              1:
+                title: Upcoming
+                operator: '>='
+                value:
+                  type: offset
+                  value: '-8 hours'
+                  min: ''
+                  max: ''
+              2:
+                title: Past
+                operator: '<'
+                value:
+                  type: offset
+                  value: '-8 hours'
+                  min: ''
+                  max: ''
+              3:
+                title: ''
+                operator: '='
+                value:
+                  type: date
+                  value: ''
+                  min: ''
+                  max: ''
+          granularity: second
+          plugin_id: datetime
       sorts:
         field_date_time_value:
           id: field_date_time_value
@@ -281,6 +351,7 @@ display:
           plugin_id: numeric
       display_extenders: {  }
       title: Schedule
+      use_ajax: true
     cache_metadata:
       max-age: -1
       contexts:
@@ -298,7 +369,8 @@ display:
     display_title: 'Block: Calendar'
     position: 1
     display_options:
-      display_extenders: {  }
+      display_extenders:
+        breema_metatag_display_extender: {  }
       block_category: Breema
       block_description: 'Sub-events: calendar'
       block_hide_empty: true
@@ -306,7 +378,7 @@ display:
       style:
         type: fullcalendar_view_display
         options:
-          default_date_source: first
+          default_date_source: now
           defaultDate: ''
           start: field_date_time
           end: field_date_time
@@ -320,10 +392,13 @@ display:
           default_view: agendaWeek
           firstDay: '6'
           nav_links: 1
+          timeFormat: 'H(:mm)'
           alloweventOverlap: 1
+          updateAllowed: 1
           updateConfirm: 1
           defaultLanguage: en
           languageSelector: 0
+          dialogWindow: 0
           createEventLink: 1
           openEntityInNewTab: 0
           tax_field: ''
@@ -367,7 +442,8 @@ display:
     display_title: 'Block: List'
     position: 1
     display_options:
-      display_extenders: {  }
+      display_extenders:
+        breema_metatag_display_extender: {  }
       block_category: Breema
       block_description: 'Sub-events: list'
       block_hide_empty: true
