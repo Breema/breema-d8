@@ -1059,6 +1059,32 @@ ol.location-results .field--name-field-upcoming-events > .field__item {
   font-weight: bold;
 }
 
+.field--type-tzfield {
+  margin: 0 0 0 0.75em;
+}
+.field--type-tzfield details {
+  margin: 0;
+  border: none;
+}
+.field--type-tzfield details summary {
+  background: none;
+  text-shadow: none;
+}
+.field--type-tzfield details .details-wrapper {
+  padding: 0.5em 1em;
+}
+.field--type-tzfield details[open] {
+  border: 1px solid #dedfdd;
+  margin: 0 0 0.5em 0;
+  background-color: #fff;
+}
+
+.block-event-datetime-block .container-inline {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: flex-start;
+}
+
 .media--type-video.media--view-mode-view-full {
   clear: both;
   padding: 1em 0 0 0;

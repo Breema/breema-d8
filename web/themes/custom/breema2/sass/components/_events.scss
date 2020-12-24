@@ -11,3 +11,31 @@
 .field--name-field-breema-center-sponsored {
   font-weight: bold;
 }
+
+.field--type-tzfield {
+  margin: 0 0 0 0.75em;
+  details {
+    margin: 0;
+    border: none;
+    summary {
+      background: none;
+      text-shadow: none;
+    }
+    .details-wrapper {
+      padding: 0.5em 1em;
+    }
+  }
+  details[open] {
+    border: 1px solid $c-grey;
+    margin: 0 0 0.5em 0;
+    background-color: $c-white;
+  }
+}
+
+.block-event-datetime-block {
+  .container-inline {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: flex-start;
+  }
+}
