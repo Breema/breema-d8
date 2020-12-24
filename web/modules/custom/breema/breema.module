@@ -2536,6 +2536,7 @@ function breema_user_ensure_legacy_directory_redirect($user, $directory_entry) {
  *
  * Denormalize the address and geolocation from the place into the event.
  * On schedule (child) events, set title based on subtitle and parent title.
+ * On place nodes, if the TZ is blank, try to find it from the geolocation.
  */
 function breema_node_presave(NodeInterface $node) {
   if ($node->bundle() == 'event') {
@@ -2574,6 +2575,29 @@ function breema_node_presave(NodeInterface $node) {
       foreach ($author_fields as $field) {
         $value = $author_entity->get($field)->getValue();
         $node->set($field, $value);
+      }
+    }
+  }
+  elseif ($node->bundle() == 'place') {
+    if (empty($node->get('field_timezone')->value)) {
+      $geolocation = $node->get('field_geolocation')->getValue();
+      if (!empty($geolocation[0]['lat'])) {
+        $location = [
+          'latitude' => $geolocation[0]['lat'],
+          'longitude' => $geolocation[0]['lng'],
+        ];
+      }
+      else {
+        $address = $node->get('field_address')->getValue();
+        $location = [
+          'countryCode' => $address[0]['country_code'],
+          // @todo: Handle the region correctly for non-US countries.
+          'region' => $geolocation[0]['administrative_area'],
+        ];
+      }
+      $geotz = geotimezone_query($location, 'identifier');
+      if (!empty($geotz)) {
+        $node->set('field_timezone', $geotz);
       }
     }
   }
