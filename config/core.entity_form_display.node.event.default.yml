@@ -21,6 +21,7 @@ dependencies:
     - field.field.node.event.field_resources
     - field.field.node.event.field_social_media_image
     - field.field.node.event.field_subtitle
+    - field.field.node.event.field_timezone
     - field.field.node.event.field_transfer_credit
     - field.field.node.event.field_website
     - node.type.event
@@ -283,4 +284,5 @@ hidden:
   field_address: true
   field_geolocation: true
   field_parent_event: true
+  field_timezone: true
   group_content: true

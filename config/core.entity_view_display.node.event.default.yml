@@ -20,6 +20,7 @@ dependencies:
     - field.field.node.event.field_resources
     - field.field.node.event.field_social_media_image
     - field.field.node.event.field_subtitle
+    - field.field.node.event.field_timezone
     - field.field.node.event.field_transfer_credit
     - field.field.node.event.field_website
     - node.type.event
@@ -175,5 +176,6 @@ hidden:
   field_display_instructor_bios: true
   field_geolocation: true
   field_social_media_image: true
+  field_timezone: true
   group_content: true
   uid: true
