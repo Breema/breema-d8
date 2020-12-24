@@ -1,0 +1,21 @@
+uuid: 5eb18f06-d418-4bae-bdca-917962dc5396
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_timezone
+    - node.type.event
+  module:
+    - tzfield
+id: node.event.field_timezone
+field_name: field_timezone
+entity_type: node
+bundle: event
+label: Timezone
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: tzfield

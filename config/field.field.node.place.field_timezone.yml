@@ -1,0 +1,21 @@
+uuid: cf5e5ec1-92ce-4a29-87c1-a585fc66c0fe
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_timezone
+    - node.type.place
+  module:
+    - tzfield
+id: node.place.field_timezone
+field_name: field_timezone
+entity_type: node
+bundle: place
+label: Timezone
+description: 'Select the timezone for this place. If left blank, the site will attempt to determine this automatically from the address.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: tzfield
