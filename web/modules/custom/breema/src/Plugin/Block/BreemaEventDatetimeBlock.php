@@ -26,12 +26,19 @@ class BreemaEventDatetimeBlock extends BlockBase {
     if (!empty($node)) {
       if ($node->bundle() == 'event') {
         $block['#cache']['tags'][] = 'node:' . $node->id();
-        $options = [
-          'label' => 'hidden',
-          'type' => 'daterange_compact',
-          'settings' => ['format_type' => 'full'],
+        $block['container'] = [
+          '#type' => 'container',
+          '#attributes' => ['class' => ['container-inline']],
+          'datetime' => $node->get('field_date_time')->view([
+            'label' => 'hidden',
+            'type' => 'daterange_compact',
+            'settings' => ['format_type' => 'full'],
+          ]),
+          'timezone' => $node->get('field_timezone')->view([
+            'label' => 'hidden',
+            'type' => 'tzfield_details',
+          ]),
         ];
-        $block['datetime'] = $node->get('field_date_time')->view($options);
       }
     }
     return $block;
