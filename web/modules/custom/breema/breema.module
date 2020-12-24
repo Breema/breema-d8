@@ -2547,6 +2547,7 @@ function breema_node_presave(NodeInterface $node) {
       $geolocation = $place->get('field_geolocation')->getValue();
       $node->set('field_address', $address);
       $node->set('field_geolocation', $geolocation);
+      $node->set('field_timezone', $place->get('field_timezone')->getValue());
       // If it's the Breema Center, force 'Breema Center sponsored' to FALSE.
       // It's confusing and clutter to have this set to TRUE on all BC events.
       // All the code and views that care already check for @ BC separately.
