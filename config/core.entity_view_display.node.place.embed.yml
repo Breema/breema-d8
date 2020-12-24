@@ -13,6 +13,7 @@ dependencies:
     - field.field.node.place.field_meta_summary
     - field.field.node.place.field_social_media_image
     - field.field.node.place.field_telephone
+    - field.field.node.place.field_timezone
     - field.field.node.place.field_upcoming_events
     - field.field.node.place.field_website
     - node.type.place
@@ -72,6 +73,7 @@ hidden:
   field_main_image: true
   field_meta_summary: true
   field_social_media_image: true
+  field_timezone: true
   field_upcoming_events: true
   flag_my_places: true
   group_content: true
