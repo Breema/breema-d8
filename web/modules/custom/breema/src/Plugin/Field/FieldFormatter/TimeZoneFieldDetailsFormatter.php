@@ -28,7 +28,7 @@ use Drupal\Core\Field\FieldItemListInterface;
  *   }
  * )
  */
-class TimeZoneFieldFormatter extends FormatterBase {
+class TimeZoneFieldDetailsFormatter extends FormatterBase {
 
   /**
    * {@inheritdoc}
