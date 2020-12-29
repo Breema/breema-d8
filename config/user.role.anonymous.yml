@@ -22,5 +22,6 @@ permissions:
   - 'view field_certification'
   - 'view field_job_title'
   - 'view field_parent_event'
+  - 'view field_timezone'
   - 'view media'
   - 'view the administration theme'
