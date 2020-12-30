@@ -102,3 +102,39 @@ fieldset .form-item {
 .view-breema-event-transfer-credit-administration .view-header {
   margin: 0 0 1em 0;
 }
+
+details.tzfield-details {
+  margin: 0;
+  border: none;
+}
+details.tzfield-details .seven-details__summary {
+  text-shadow: none;
+}
+details.tzfield-details summary {
+  padding: 0;
+}
+details.tzfield-details .seven-details__wrapper {
+  padding: 0.25em;
+}
+details.tzfield-details li {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  white-space: nowrap;
+}
+td.views-field-field-timezone {
+  position: relative;
+}
+details[closed].tzfield-details {
+  top: 35%;
+  left: 8px;
+}
+details[open].tzfield-details {
+  position: absolute;
+  z-index: 10;
+  border: 1px solid #dedfdd;
+  padding: 0.25em;
+  background-color: #fff;
+  top: 35%;
+  left: 8px;
+}
