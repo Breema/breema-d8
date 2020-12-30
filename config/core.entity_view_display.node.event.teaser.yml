@@ -15,6 +15,7 @@ dependencies:
     - field.field.node.event.field_instructors
     - field.field.node.event.field_location
     - field.field.node.event.field_main_image
+    - field.field.node.event.field_online
     - field.field.node.event.field_parent_event
     - field.field.node.event.field_registration_link
     - field.field.node.event.field_required_hours
@@ -77,6 +78,7 @@ hidden:
   field_facebook_event: true
   field_geolocation: true
   field_location: true
+  field_online: true
   field_parent_event: true
   field_registration_link: true
   field_required_hours: true

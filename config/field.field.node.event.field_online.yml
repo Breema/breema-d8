@@ -1,0 +1,23 @@
+uuid: 959270a9-1cda-454f-a6ff-d9f3aa7ec575
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_online
+    - node.type.event
+id: node.event.field_online
+field_name: field_online
+entity_type: node
+bundle: event
+label: 'Online event'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Online
+  off_label: 'In Person'
+field_type: boolean
