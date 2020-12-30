@@ -26,6 +26,7 @@ dependencies:
     - field.field.node.event.field_website
     - node.type.event
   module:
+    - breema
     - fixed_text_link_formatter
     - link
     - text
@@ -37,13 +38,13 @@ content:
   body:
     label: hidden
     type: text_default
-    weight: 6
+    weight: 7
     settings: {  }
     third_party_settings: {  }
     region: content
   field_breema_center_sponsored:
     type: boolean
-    weight: 13
+    weight: 14
     region: content
     label: hidden
     settings:
@@ -51,8 +52,15 @@ content:
       format_custom_true: 'Breema Center sponsored event'
       format_custom_false: ''
     third_party_settings: {  }
+  field_date_time:
+    type: daterange_multi_tz
+    weight: 4
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
   field_facebook_event:
-    weight: 8
+    weight: 9
     label: hidden
     settings:
       link_text: 'Facebook event'
@@ -67,7 +75,7 @@ content:
     type: fixed_text_link
     region: content
   field_instructors:
-    weight: 4
+    weight: 5
     label: hidden
     settings:
       link: false
@@ -93,7 +101,7 @@ content:
     type: entity_reference_entity_view
     region: content
   field_parent_event:
-    weight: 10
+    weight: 11
     label: inline
     settings:
       link: true
@@ -116,7 +124,7 @@ content:
     type: fixed_text_link
     region: content
   field_required_hours:
-    weight: 5
+    weight: 6
     label: inline
     settings:
       thousand_separator: ''
@@ -125,7 +133,7 @@ content:
     type: number_integer
     region: content
   field_resources:
-    weight: 12
+    weight: 13
     label: visually_hidden
     settings:
       view_mode: view_large
@@ -142,7 +150,7 @@ content:
     type: string
     region: content
   field_transfer_credit:
-    weight: 7
+    weight: 8
     label: inline
     settings:
       thousand_separator: ''
@@ -153,7 +161,7 @@ content:
     type: number_decimal
     region: content
   field_website:
-    weight: 9
+    weight: 10
     label: hidden
     settings:
       trim_length: 80
@@ -165,7 +173,7 @@ content:
     type: link
     region: content
   links:
-    weight: 11
+    weight: 12
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -173,7 +181,6 @@ hidden:
   created: true
   field_address: true
   field_categories: true
-  field_date_time: true
   field_display_instructor_bios: true
   field_geolocation: true
   field_online: true
