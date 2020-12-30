@@ -26,6 +26,7 @@ dependencies:
     - field.field.node.event.field_website
     - node.type.event
   module:
+    - breema
     - datetime_extras
 id: node.event.teaser_no_image
 targetEntityType: node
@@ -42,20 +43,27 @@ content:
     third_party_settings: {  }
   field_instructors:
     type: entity_reference_label
-    weight: 2
+    weight: 3
     region: content
     label: hidden
     settings:
       link: false
     third_party_settings: {  }
   field_subtitle:
-    weight: 1
+    weight: 2
     label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
     region: content
+  field_timezone:
+    type: tzfield_abbreviation
+    weight: 1
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   body: true
   created: true
@@ -72,7 +80,6 @@ hidden:
   field_required_hours: true
   field_resources: true
   field_social_media_image: true
-  field_timezone: true
   field_transfer_credit: true
   field_website: true
   group_content: true

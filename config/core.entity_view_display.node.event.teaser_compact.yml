@@ -26,6 +26,7 @@ dependencies:
     - field.field.node.event.field_website
     - node.type.event
   module:
+    - breema
     - datetime_extras
 id: node.event.teaser_compact
 targetEntityType: node
@@ -40,6 +41,13 @@ content:
     third_party_settings: {  }
     type: daterange_compact
     region: content
+  field_timezone:
+    type: tzfield_abbreviation
+    weight: 1
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   body: true
   created: true
@@ -58,7 +66,6 @@ hidden:
   field_resources: true
   field_social_media_image: true
   field_subtitle: true
-  field_timezone: true
   field_transfer_credit: true
   field_website: true
   group_content: true
