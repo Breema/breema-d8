@@ -22,7 +22,7 @@ use Drupal\Core\Field\FieldItemListInterface;
  *
  * @FieldFormatter(
  *   id = "tzfield_details",
- *   label = @Translation("Timezone abbreviation and details"),
+ *   label = @Translation("Timezone details"),
  *   field_types = {
  *     "tzfield"
  *   }
@@ -71,6 +71,7 @@ class TimeZoneFieldDetailsFormatter extends FormatterBase {
       '#type' => 'details',
       '#title' => $info['abbreviation'],
       '#open' => FALSE,
+      '#attributes' => ['class' => ['tzfield-details']],
       'info' => [
         '#theme' => 'item_list',
         '#items' => $items,
