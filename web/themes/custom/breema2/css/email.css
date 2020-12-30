@@ -1077,6 +1077,7 @@ ol.location-results .field--name-field-upcoming-events > .field__item {
   font-size: 0.9em;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-style: italic;
+  margin: 0 0 0.3em 0;
 }
 
 .field--name-field-date-time,
