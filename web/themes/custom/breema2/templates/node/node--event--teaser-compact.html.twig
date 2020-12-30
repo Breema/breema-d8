@@ -15,13 +15,16 @@
 <div class="teaser-wrapper clearfix">
 <article{{ attributes.addClass(classes) }}>
   <header>
-    {{ content.field_date_time }}
+    <div class="date-time-tz-wrapper">
+      {{ content.field_date_time }}
+      {{ content.field_timezone }}
+    </div>
     <h4{{ title_attributes.addClass('node__title') }}>
       {{ label }}
     </h4>
   </header>
   <div{{ content_attributes.addClass('clearfix') }}>
-    {{ content|without('field_date_time') }}
+    {{ content|without('field_date_time', 'field_timezone') }}
   </div>
 </article>
 </div>

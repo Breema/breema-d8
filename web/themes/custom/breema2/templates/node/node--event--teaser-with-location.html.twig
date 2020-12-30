@@ -19,13 +19,16 @@
       {{ content.field_main_image }}
       <div class="event-text">
         <header>
-          {{ content.field_date_time }}
+          <div class="date-time-tz-wrapper">
+            {{ content.field_date_time }}
+            {{ content.field_timezone }}
+          </div>
           <h4{{ title_attributes.addClass('node__title') }}>
             {{ label }}
           </h4>
         </header>
         <div{{ content_attributes.addClass('clearfix') }}>
-          {{ content|without('field_date_time', 'field_main_image', 'field_location') }}
+          {{ content|without('field_date_time', 'field_timezone', 'field_main_image', 'field_location') }}
         </div>
       </div>
     </div>
