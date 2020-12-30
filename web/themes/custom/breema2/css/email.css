@@ -323,8 +323,7 @@ a.teaser-link article .field--type-entity-reference article {
   padding: 0;
 }
 a.teaser-link .field--name-field-date-time {
-  font-style: italic;
-  margin: 0 0 0.25em 0;
+  margin: 0 0.5em 0.25em 0;
 }
 
 a.teaser-link:hover h2, a.teaser-link:hover h3, a.teaser-link:hover h4, a.teaser-link:hover .more-link, a.teaser-link:focus h2, a.teaser-link:focus h3, a.teaser-link:focus h4, a.teaser-link:focus .more-link {
@@ -436,14 +435,8 @@ a.teaser-link:hover .node--unpublished {
   border-bottom: none;
 }
 
-.field--name-field-date-time {
-  font-size: 0.9em;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-
 .block-event-datetime-block .field--name-field-date-time {
   font-size: 1.25em;
-  font-style: italic;
 }
 
 .node--view-mode-full .field--name-field-subtitle {
@@ -1060,7 +1053,7 @@ ol.location-results .field--name-field-upcoming-events > .field__item {
 }
 
 .field--type-tzfield {
-  margin: 0 0 0 0.75em;
+  margin: 0;
 }
 .field--type-tzfield details {
   margin: 0;
@@ -1077,12 +1070,27 @@ ol.location-results .field--name-field-upcoming-events > .field__item {
   border: 1px solid #dedfdd;
   margin: 0 0 0.5em 0;
   background-color: #fff;
+  white-space: nowrap;
 }
 
-.block-event-datetime-block .container-inline {
-  display: flex;
-  flex-flow: row wrap;
-  align-items: flex-start;
+.date-time-tz-wrapper {
+  font-size: 0.9em;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-style: italic;
+}
+
+.field--name-field-date-time,
+.field--name-field-timezone {
+  display: inline;
+}
+
+.block-event-datetime-block .field--name-field-date-time {
+  font-style: italic;
+  margin: 0 0.5em 0 0;
+  vertical-align: top;
+}
+.block-event-datetime-block .field--name-field-timezone {
+  display: inline-block;
 }
 
 .media--type-video.media--view-mode-view-full {

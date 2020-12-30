@@ -78,8 +78,7 @@ a.teaser-link {
     padding: 0;
   }
   .field--name-field-date-time {
-    font-style: italic;
-    margin: 0 0 0.25em 0;
+    margin: 0 0.5em 0.25em 0;
   }
 }
 
@@ -190,14 +189,8 @@ a.teaser-link:hover .node--unpublished {
   border-bottom: none;
 }
 
-.field--name-field-date-time {
-  font-size: 0.9em;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-
 .block-event-datetime-block .field--name-field-date-time {
   font-size: 1.25em;
-  font-style: italic;
 }
 
 .node--view-mode-full .field--name-field-subtitle {

@@ -13,7 +13,7 @@
 }
 
 .field--type-tzfield {
-  margin: 0 0 0 0.75em;
+  margin: 0;
   details {
     margin: 0;
     border: none;
@@ -29,13 +29,28 @@
     border: 1px solid $c-grey;
     margin: 0 0 0.5em 0;
     background-color: $c-white;
+    white-space: nowrap;
   }
 }
 
+.date-time-tz-wrapper {
+  font-size: 0.9em;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-style: italic;
+}
+
+.field--name-field-date-time,
+.field--name-field-timezone {
+  display: inline;
+}
+
 .block-event-datetime-block {
-  .container-inline {
-    display: flex;
-    flex-flow: row wrap;
-    align-items: flex-start;
+  .field--name-field-date-time {
+    font-style: italic;
+    margin: 0 0.5em 0 0;
+    vertical-align: top;
+  }
+  .field--name-field-timezone {
+    display: inline-block;
   }
 }
