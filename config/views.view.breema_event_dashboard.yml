@@ -7,8 +7,10 @@ dependencies:
     - field.storage.node.field_date_time
     - field.storage.node.field_instructors
     - field.storage.node.field_location
+    - field.storage.node.field_timezone
     - node.type.event
   module:
+    - breema
     - datetime
     - datetime_extras
     - node
@@ -634,7 +636,8 @@ display:
     display_title: 'Embed: User dashboard'
     position: 1
     display_options:
-      display_extenders: {  }
+      display_extenders:
+        breema_metatag_display_extender: {  }
       display_description: ''
       header: {  }
       defaults:
@@ -841,6 +844,7 @@ display:
             status: status
             title: title
             field_date_time: field_date_time
+            field_timezone: field_date_time
             field_location: field_location
             field_instructors: field_instructors
             uid: uid
@@ -863,6 +867,13 @@ display:
             field_date_time:
               sortable: true
               default_sort_order: desc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_timezone:
+              sortable: false
+              default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
@@ -1063,6 +1074,68 @@ display:
           type: daterange_compact
           settings:
             format_type: medium
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_timezone:
+          id: field_timezone
+          table: node__field_timezone
+          field: field_timezone
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: false
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: tzfield_abbreviation
+          settings: {  }
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -1365,3 +1438,4 @@ display:
         - 'config:field.storage.node.field_date_time'
         - 'config:field.storage.node.field_instructors'
         - 'config:field.storage.node.field_location'
+        - 'config:field.storage.node.field_timezone'
