@@ -1,4 +1,12 @@
-google_map_api_key: AIzaSyC5Js_aarTgSAIEdJUchwfMQHob_D2m-pk
-google_map_custom_url_parameters: {  }
+google_map_api_key: AIzaSyBbcfc_WZ7gVPsPeDZAq_KAlTGkYJOZJ40
+google_map_custom_url_parameters:
+  libraries: {  }
+  region: ''
+  language: ''
+  v: ''
+  client: ''
+  channel: ''
 _core:
   default_config_hash: wNpilbhustdj8tLBsYJ6GPdxS5lUKU5rRei_XxSyd3A
+google_map_api_server_key: ''
+use_current_language: false
