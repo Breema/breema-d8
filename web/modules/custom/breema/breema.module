@@ -2569,8 +2569,10 @@ function breema_node_presave(NodeInterface $node) {
     if (!empty($parent_value)) {
       $parent_events = $node->get('field_parent_event')->referencedEntities();
       $parent_event = array_pop($parent_events);
-      $title = $node->get('field_subtitle')->value . ' - ' . $parent_event->label();
-      $node->setTitle($title);
+      if (!empty($parent_event)) {
+        $title = $node->get('field_subtitle')->value . ' - ' . $parent_event->label();
+        $node->setTitle($title);
+      }
     }
   }
   elseif ($node->bundle() == 'directory_entry') {
