@@ -1887,6 +1887,15 @@ function breema_form_views_form_user_admin_people_page_1_alter(&$form, FormState
 }
 
 /**
+ * Implements hook_form_FORM_ID_alter() for views_form_content_page_1.
+ *
+ * Sets the default action to something useful: 'Save content'.
+ */
+function breema_form_views_form_content_page_1_alter(&$form, FormStateInterface $form_state) {
+  $form['header']['node_bulk_form']['action']['#default_value'] = 'node_save_action';
+}
+
+/**
  * Implements hook_form_FORM_ID_alter() for 'user_login_form'.
  *
  * Remove unneeded #description text and fix #title for 'name' element.
