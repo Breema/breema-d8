@@ -1116,6 +1116,11 @@ ol.location-results .field--name-field-upcoming-events > .field__item {
   display: inline-block;
 }
 
+.multi-tz {
+  font-size: 1.1em;
+  font-weight: 500;
+}
+
 .media--type-video.media--view-mode-view-full {
   clear: both;
   padding: 1em 0 0 0;
