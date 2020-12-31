@@ -7,16 +7,46 @@
 
 @font-face {
   font-family: 'Cabin';
-  src: url('../fonts/Cabin-Bold.woff') format('woff'),
-       url('../fonts/Cabin-Bold.ttf') format('truetype');
-  font-weight: bold;
+  src: url('../fonts/Cabin-Italic.woff') format('woff'),
+       url('../fonts/Cabin-Italic.ttf') format('truetype');
+  font-style: italic;
 }
 
 @font-face {
   font-family: 'Cabin';
-  src: url('../fonts/Cabin-Italic.woff') format('woff'),
-       url('../fonts/Cabin-Italic.ttf') format('truetype');
+  src: url('../fonts/Cabin-Medium.woff') format('woff'),
+       url('../fonts/Cabin-Medium.ttf') format('truetype');
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'Cabin';
+  src: url('../fonts/Cabin-MediumItalic.woff') format('woff'),
+       url('../fonts/Cabin-MediumItalic.ttf') format('truetype');
+  font-weight: 500;
   font-style: italic;
+}
+
+@font-face {
+  font-family: 'Cabin';
+  src: url('../fonts/Cabin-SemiBold.woff') format('woff'),
+       url('../fonts/Cabin-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: 'Cabin';
+  src: url('../fonts/Cabin-SemiBoldItalic.woff') format('woff'),
+       url('../fonts/Cabin-SemiBoldItalic.ttf') format('truetype');
+  font-weight: 600;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Cabin';
+  src: url('../fonts/Cabin-Bold.woff') format('woff'),
+       url('../fonts/Cabin-Bold.ttf') format('truetype');
+  font-weight: bold;
 }
 
 @font-face {
