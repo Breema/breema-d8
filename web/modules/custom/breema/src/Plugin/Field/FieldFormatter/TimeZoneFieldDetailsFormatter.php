@@ -129,6 +129,9 @@ class TimeZoneFieldDetailsFormatter extends FormatterBase {
 
       case 'America/Sao_Paulo':
         $info['full_name'] = $this->t('Brasília time');
+        // Sadly, PHP thinks the abbreviation is '-03'. Give it something more
+        // accurate and in use. There is no daylight savings, so we're safe.
+        $info['abbreviation'] = 'BRT';
         break;
 
       case 'Asia/Jerusalem':
