@@ -12,7 +12,6 @@ permissions:
   - 'access audio_browser entity browser pages'
   - 'access comments'
   - 'access content'
-  - 'access devel information'
   - 'access event_browser entity browser pages'
   - 'access forward'
   - 'access image_browser entity browser pages'
