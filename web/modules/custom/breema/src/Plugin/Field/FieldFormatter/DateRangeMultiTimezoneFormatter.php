@@ -46,7 +46,7 @@ class DateRangeMultiTimezoneFormatter extends FormatterBase {
           'America/Los_Angeles' => 'g:ia T',
           'America/New_York' => 'g:ia T',
           'Europe/Vienna' => 'G:i T',
-          'Asia/Jerusalem' => 'g:ia T',
+          'Asia/Jerusalem' => 'G:i T',
         ];
         $times = [];
         foreach ($display_timezones as $display_tz => $format) {
