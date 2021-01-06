@@ -6,8 +6,10 @@ dependencies:
     - core.entity_view_mode.node.teaser
     - field.storage.node.field_date_time
     - field.storage.node.field_subtitle
+    - field.storage.node.field_timezone
     - node.type.event
   module:
+    - breema
     - datetime
     - datetime_extras
     - fullcalendar_view
@@ -522,6 +524,68 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
+        field_timezone:
+          id: field_timezone
+          table: node__field_timezone
+          field: field_timezone
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: false
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: tzfield_abbreviation
+          settings: {  }
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
         field_date_time:
           id: field_date_time
           table: node__field_date_time
@@ -533,7 +597,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<a href=\"{{ view_node }}\" class=\"teaser-link\">\r\n<div class=\"teaser-wrapper clearfix\">\r\n<article>\r\n  <header>\r\n    <div class=\"field--name-field-date-time\">{{ field_date_time }}</div>\r\n    <h4>{{ field_subtitle }}</h4>\r\n  </header>\r\n</article>\r\n</div>\r\n</a>"
+            text: "<a href=\"{{ view_node }}\" class=\"teaser-link\">\r\n<div class=\"teaser-wrapper clearfix\">\r\n<article>\r\n  <header>\r\n    <div class=\"field--name-field-date-time\">{{ field_date_time }} {{ field_timezone }}</div>\r\n    <h4>{{ field_subtitle }}</h4>\r\n  </header>\r\n</article>\r\n</div>\r\n</a>"
             make_link: false
             path: ''
             absolute: false
@@ -697,6 +761,7 @@ display:
       tags:
         - 'config:field.storage.node.field_date_time'
         - 'config:field.storage.node.field_subtitle'
+        - 'config:field.storage.node.field_timezone'
   embed_all:
     display_plugin: embed
     id: embed_all
