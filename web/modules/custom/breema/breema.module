@@ -2604,7 +2604,7 @@ function breema_node_presave(NodeInterface $node) {
         $location = [
           'countryCode' => $address[0]['country_code'],
           // @todo: Handle the region correctly for non-US countries.
-          'region' => $geolocation[0]['administrative_area'],
+          'regionCode' => $address[0]['administrative_area'],
         ];
       }
       $geotz = geotimezone_query($location, 'identifier');
