@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2a3c03628e446633e197efa48dab7aef",
+    "content-hash": "e86f8fbb2dec4317c0eb8f50e69492fe",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -3413,17 +3413,17 @@
         },
         {
             "name": "drupal/duration_field",
-            "version": "2.0.0-rc3",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/duration_field.git",
-                "reference": "8.x-2.0-rc3"
+                "reference": "8.x-2.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/duration_field-8.x-2.0-rc3.zip",
-                "reference": "8.x-2.0-rc3",
-                "shasum": "a47e52fe7c9d1ee92f43899862ba2fa2c6ff929d"
+                "url": "https://ftp.drupal.org/files/projects/duration_field-8.x-2.0.zip",
+                "reference": "8.x-2.0",
+                "shasum": "90d719d57c881fee797acdd0398353ad18716212"
             },
             "require": {
                 "drupal/core": "^8 || ^9"
@@ -3431,11 +3431,11 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-2.0-rc3",
-                    "datestamp": "1588434010",
+                    "version": "8.x-2.0",
+                    "datestamp": "1607303973",
                     "security-coverage": {
-                        "status": "not-covered",
-                        "message": "RC releases are not covered by Drupal security advisories."
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
                     }
                 },
                 "drush": {
@@ -3443,9 +3443,7 @@
                         "drush.services.yml": "^9"
                     }
                 },
-                "patches_applied": {
-                    "[#3133532-5] JavaScript #states not working on 'duration' form elements": "https://www.drupal.org/files/issues/2020-05-08/3133532-5.patch"
-                }
+                "patches_applied": []
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
             "license": [
