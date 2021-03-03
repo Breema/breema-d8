@@ -37,7 +37,7 @@
     "drupal/config_installer": "^1.0",
     "drupal/console": "^1",
     "drupal/core-recommended": "^8.9",
-    "drupal/csv_serialization": "^2.0",
+    "drupal/csv_serialization": "^2",
     "drupal/ctools": "^3.0",
     "drupal/datetime_extras": "^1.0",
     "drupal/diff": "^1.0@RC",
