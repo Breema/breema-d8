@@ -16,6 +16,7 @@ use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Language\Language;
+use Drupal\Core\Mail\MailFormatHelper;
 use Drupal\Core\Render\Element;
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Session\AccountInterface;
@@ -2234,6 +2235,29 @@ function breema_mail($key, &$message, $params) {
 
     case 'user_applied':
       $message['subject'] = t('New user applied for certificate program: @label', $placeholders, $options);
+      break;
+
+  }
+}
+
+/**
+ * Implements hook_mail_alter().
+ */
+function breema_mail_alter(&$message) {
+  // For personal contact form, force the body to be plain text.
+  switch ($message['id']) {
+    case 'contact_user_copy':
+    case 'contact_user_mail':
+      if (!empty($message['body'][3])) {
+        $message['body'][3] = MailFormatHelper::htmlToText($message['body'][3]);
+      }
+      break;
+
+    case 'contact_page_copy':
+    case 'contact_page_mail':
+      if (!empty($message['body'][1])) {
+        $message['body'][1] = MailFormatHelper::htmlToText($message['body'][1]);
+      }
       break;
 
   }
