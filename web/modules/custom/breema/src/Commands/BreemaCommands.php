@@ -72,7 +72,7 @@ class BreemaCommands extends DrushCommands {
       return;
     }
 
-    $sftp = new SFTP('iron.streamguys1.com');
+    $sftp = new SFTP('breema.streamguys1.com');
     if (!$sftp->login('c2918', $key)) {
       $this->logger()->error(dt('Failed to login.'));
       // @todo Print error messages?
