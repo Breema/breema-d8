@@ -1232,6 +1232,7 @@ ol.location-results .field--name-field-upcoming-events > .field__item {
 
 .media-align-center img {
   margin: 0 auto;
+  display: block;
 }
 .media-align-center .field--name-field-main-image {
   float: none;
