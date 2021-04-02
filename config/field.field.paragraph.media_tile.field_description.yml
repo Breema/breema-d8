@@ -1,0 +1,21 @@
+uuid: dea9a629-fa00-4a74-bb75-dc2da44e961f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_description
+    - paragraphs.paragraphs_type.media_tile
+  module:
+    - text
+id: paragraph.media_tile.field_description
+field_name: field_description
+entity_type: paragraph
+bundle: media_tile
+label: Description
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

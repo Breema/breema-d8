@@ -4,18 +4,31 @@ status: true
 dependencies:
   config:
     - entity_browser.browser.media_browser
+    - field.field.paragraph.media_tile.field_description
     - field.field.paragraph.media_tile.field_header_text
     - field.field.paragraph.media_tile.field_link
     - field.field.paragraph.media_tile.field_media
     - paragraphs.paragraphs_type.media_tile
   module:
+    - advanced_text_formatter
     - entity_browser
     - link
+    - text
 id: paragraph.media_tile.default
 targetEntityType: paragraph
 bundle: media_tile
 mode: default
 content:
+  field_description:
+    weight: 3
+    settings:
+      rows: 3
+      placeholder: ''
+    third_party_settings:
+      advanced_text_formatter:
+        show_token_tree: 0
+    type: text_textarea
+    region: content
   field_header_text:
     weight: 0
     settings:
@@ -49,7 +62,7 @@ content:
     region: content
   status:
     type: boolean_checkbox
-    weight: 3
+    weight: 4
     region: content
     settings:
       display_label: true
