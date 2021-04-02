@@ -33,6 +33,10 @@ class BreemaCommands extends DrushCommands {
     $now = new DrupalDateTime('now', new \DateTimezone('America/Los_Angeles'));
     $today = $now->format(DateTimeItemInterface::DATE_STORAGE_FORMAT);
 
+    // For things to log to the dblog, not just CLI output.
+    $db_logger = \Drupal::service('logger.factory')->get('breema_streamguys');
+    $db_logger->info('Removal robot checking for work.');
+
     // Find all the private audio nodes that have expired but that have
     // available stream links.
     $query = \Drupal::entityQuery('node');
@@ -57,25 +61,30 @@ class BreemaCommands extends DrushCommands {
     }
 
     if (empty($files)) {
-      $this->logger()->warning(dt('No stale files to remove.'));
+      $db_logger->info('No stale files to remove.');
       return;
     }
 
     $rsa_key = $this->getKeyFromPath($options['key-path']);
     if (empty($rsa_key)) {
-      $this->logger()->error(dt('Cannot find RSA private key. Use --key-file option to define it.'));
+      $db_logger->error('Cannot find RSA private key. Use --key-file option to define it.');
       return;
     }
     $key = new RSA();
     if (!$key->loadKey($rsa_key)) {
-      $this->logger()->error(dt('Cannot load RSA private key from @file', ['@file' => $options['key-path']]));
+      $db_logger->error('Cannot load RSA private key from @file', ['@file' => $options['key-path']]);
       return;
     }
 
     $sftp = new SFTP('breema.streamguys1.com');
     if (!$sftp->login('c2918', $key)) {
-      $this->logger()->error(dt('Failed to login.'));
-      // @todo Print error messages?
+      $errors = $sftp->getErrors();
+      if (!empty($errors)) {
+        $db_logger->error('Failed to login: @errors', ['@errors' => var_export($errors, TRUE)]);
+      }
+      else {
+        $db_logger->error('Failed to login, but no errors returned.');
+      }
       return;
     }
     $sftp->chdir('content');
@@ -94,8 +103,6 @@ class BreemaCommands extends DrushCommands {
     }
     if ($removed) {
       $u_now = $now->format('U');
-      // We want to log these to the dblog, not just CLI output.
-      $db_logger = \Drupal::service('logger.factory')->get('breema_streamguys');
       foreach ($removed as $nid => $file) {
         $nodes[$nid]->setNewRevision(TRUE);
         $nodes[$nid]->field_stream_status = 0;
@@ -113,7 +120,7 @@ class BreemaCommands extends DrushCommands {
       $this->logger()->success(dt('Stale files removed, stream status values updated.'));
     }
     else {
-      $this->logger()->error(dt('Unable to remove any files.'));
+      $db_logger->error('Unable to remove any files.');
     }
   }
 
