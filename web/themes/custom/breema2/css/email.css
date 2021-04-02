@@ -1247,12 +1247,18 @@ ol.location-results .field--name-field-upcoming-events > .field__item {
   float: right;
 }
 
+.field--name-field-tiles .paragraph {
+  max-width: 380px;
+  margin: 0 auto 2rem;
+}
 .field--name-field-tiles .paragraph h2 {
   text-align: center;
 }
 .field--name-field-tiles .paragraph .field--type-image img {
   display: block;
-  margin: 0 auto;
+  margin: 0 auto 1rem;
+  max-height: 250px;
+  width: auto;
 }
 
 .node--type-place .field--name-field-geolocation {

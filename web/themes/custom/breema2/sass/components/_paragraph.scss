@@ -41,11 +41,15 @@
 
 // Center the header text and image on all 'tile' paragraphs:
 .field--name-field-tiles .paragraph {
+  max-width: 380px;
+  margin: 0 auto 2rem;
   h2 {
     text-align: center;
   }
   .field--type-image img {
     display: block;
-    margin: 0 auto;
+    margin: 0 auto 1rem;
+    max-height: 250px;
+    width: auto;
   }
 }
