@@ -1254,6 +1254,9 @@ ol.location-results .field--name-field-upcoming-events > .field__item {
 .field--name-field-tiles .paragraph h2 {
   text-align: center;
 }
+.field--name-field-tiles .paragraph .field--name-field-description {
+  padding: 0 1rem;
+}
 .field--name-field-tiles .paragraph .field--type-image img {
   display: block;
   margin: 0 auto 1rem;
