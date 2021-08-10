@@ -28,7 +28,7 @@ settings:
   parent: 'main:'
   suggestion: main
   label_type: root
-  label_link: 1
+  label_link: true
 visibility:
   request_path:
     id: request_path
