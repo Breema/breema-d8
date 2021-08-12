@@ -1195,6 +1195,28 @@ ol.location-results .field--name-field-upcoming-events > .field__item {
   font-weight: 500;
 }
 
+.field--name-field-registration-link {
+  margin: 0.5em 0 1em;
+}
+
+.field--name-field-event-format {
+  margin: 0.5em 0;
+}
+.field--name-field-event-format .field--item {
+  padding: 0.25em 0.5em;
+  margin: 0 0 0 1em;
+  border: 2px solid #fff;
+}
+.field--name-field-event-format .field--item:first-child {
+  margin: 0;
+}
+.field--name-field-event-format .in-person {
+  border-color: #f07028;
+}
+.field--name-field-event-format .online {
+  border-color: #e7b21c;
+}
+
 .flexslider-field-wrapper {
   margin: 0 0 20px 0;
   padding: 5px;

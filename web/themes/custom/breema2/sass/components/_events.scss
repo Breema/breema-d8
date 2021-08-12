@@ -60,3 +60,25 @@
   font-size: 1.1em;
   font-weight: 500;
 }
+
+.field--name-field-registration-link {
+  margin: 0.5em 0 1em;
+}
+
+.field--name-field-event-format {
+  margin: 0.5em 0;
+  .field--item {
+    padding: 0.25em 0.5em;
+    margin: 0 0 0 1em;
+    border: 2px solid #fff;
+  }
+  .field--item:first-child {
+    margin: 0;
+  }
+  .in-person {
+    border-color: $c-event-in-person;
+  }
+  .online {
+    border-color: $c-event-online;
+  }
+}
