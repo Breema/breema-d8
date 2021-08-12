@@ -210,3 +210,52 @@ function breema_update_8007(&$sandbox) {
     ]);
   }
 }
+
+/**
+ * Set field_event_format from field_online values on all event nodes.
+ */
+function breema_update_8008(&$sandbox) {
+  if (!isset($sandbox['total'])) {
+    $event_ids = \Drupal::entityQuery('node')
+      ->accessCheck(FALSE)
+      ->condition('type', 'event')
+      ->sort('nid')
+      ->execute();
+    $sandbox['total'] = count($event_ids);
+    $sandbox['current'] = 0;
+    if (empty($sandbox['total'])) {
+      $sandbox['#finished'] = 1;
+      return;
+    }
+  }
+  $nodes_per_batch = 50;
+  $nids = \Drupal::entityQuery('node')
+    ->accessCheck(FALSE)
+    ->condition('type', 'event')
+    ->sort('nid')
+    ->range($sandbox['current'], $nodes_per_batch)
+    ->execute();
+  if (empty($nids)) {
+    $sandbox['#finished'] = 1;
+    return;
+  }
+  $events = Node::loadMultiple($nids);
+  foreach ($events as $event) {
+    $is_online = $event->get('field_online')->value;
+    $event->set('field_event_format', $is_online ? 'online' : 'in-person');
+    $event->save();
+    $sandbox['current']++;
+  }
+
+  if ($sandbox['current'] >= $sandbox['total']) {
+    $sandbox['#finished'] = 1;
+    return t('Completed: @count events saved.', ['@count' => $sandbox['current']]);
+  }
+  else {
+    $sandbox['#finished'] = ($sandbox['current'] / $sandbox['total']);
+    return t('Processing: @percent done: @count events saved', [
+      '@count' => $sandbox['current'],
+      '@percent' => (string)round($sandbox['#finished'] * 100, 2) . '%',
+    ]);
+  }
+}
