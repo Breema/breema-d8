@@ -10,6 +10,7 @@ dependencies:
     - field.field.node.event.field_categories
     - field.field.node.event.field_date_time
     - field.field.node.event.field_display_instructor_bios
+    - field.field.node.event.field_event_format
     - field.field.node.event.field_facebook_event
     - field.field.node.event.field_geolocation
     - field.field.node.event.field_instructors
@@ -31,6 +32,7 @@ dependencies:
     - breema
     - datetime_extras
     - media
+    - options
 id: node.event.teaser_search_result
 targetEntityType: node
 bundle: event
@@ -43,6 +45,13 @@ content:
     label: hidden
     settings:
       format_type: medium
+    third_party_settings: {  }
+  field_event_format:
+    type: list_default
+    weight: 6
+    region: content
+    label: hidden
+    settings: {  }
     third_party_settings: {  }
   field_instructors:
     weight: 4

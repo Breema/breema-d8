@@ -9,6 +9,7 @@ dependencies:
     - field.field.node.event.field_categories
     - field.field.node.event.field_date_time
     - field.field.node.event.field_display_instructor_bios
+    - field.field.node.event.field_event_format
     - field.field.node.event.field_facebook_event
     - field.field.node.event.field_geolocation
     - field.field.node.event.field_instructors
@@ -29,6 +30,7 @@ dependencies:
     - breema
     - fixed_text_link_formatter
     - link
+    - options
     - text
 id: node.event.default
 targetEntityType: node
@@ -38,13 +40,13 @@ content:
   body:
     label: hidden
     type: text_default
-    weight: 7
+    weight: 8
     settings: {  }
     third_party_settings: {  }
     region: content
   field_breema_center_sponsored:
     type: boolean
-    weight: 14
+    weight: 15
     region: content
     label: hidden
     settings:
@@ -54,13 +56,20 @@ content:
     third_party_settings: {  }
   field_date_time:
     type: daterange_multi_tz
-    weight: 4
+    weight: 5
     region: content
     label: hidden
     settings: {  }
     third_party_settings: {  }
+  field_event_format:
+    weight: 3
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
   field_facebook_event:
-    weight: 9
+    weight: 10
     label: hidden
     settings:
       link_text: 'Facebook event'
@@ -75,7 +84,7 @@ content:
     type: fixed_text_link
     region: content
   field_instructors:
-    weight: 5
+    weight: 6
     label: hidden
     settings:
       link: false
@@ -83,7 +92,7 @@ content:
     type: entity_reference_label
     region: content
   field_location:
-    weight: 3
+    weight: 4
     label: hidden
     settings:
       view_mode: embed
@@ -101,7 +110,7 @@ content:
     type: entity_reference_entity_view
     region: content
   field_parent_event:
-    weight: 11
+    weight: 12
     label: inline
     settings:
       link: true
@@ -124,7 +133,7 @@ content:
     type: fixed_text_link
     region: content
   field_required_hours:
-    weight: 6
+    weight: 7
     label: inline
     settings:
       thousand_separator: ''
@@ -133,7 +142,7 @@ content:
     type: number_integer
     region: content
   field_resources:
-    weight: 13
+    weight: 14
     label: visually_hidden
     settings:
       view_mode: view_large
@@ -150,7 +159,7 @@ content:
     type: string
     region: content
   field_transfer_credit:
-    weight: 8
+    weight: 9
     label: inline
     settings:
       thousand_separator: ''
@@ -161,7 +170,7 @@ content:
     type: number_decimal
     region: content
   field_website:
-    weight: 10
+    weight: 11
     label: hidden
     settings:
       trim_length: 80
@@ -173,7 +182,7 @@ content:
     type: link
     region: content
   links:
-    weight: 12
+    weight: 13
     region: content
     settings: {  }
     third_party_settings: {  }

@@ -10,6 +10,7 @@ dependencies:
     - field.field.node.event.field_categories
     - field.field.node.event.field_date_time
     - field.field.node.event.field_display_instructor_bios
+    - field.field.node.event.field_event_format
     - field.field.node.event.field_facebook_event
     - field.field.node.event.field_geolocation
     - field.field.node.event.field_instructors
@@ -189,6 +190,7 @@ hidden:
   field_breema_center_sponsored: true
   field_categories: true
   field_display_instructor_bios: true
+  field_event_format: true
   field_geolocation: true
   field_online: true
   field_resources: true
