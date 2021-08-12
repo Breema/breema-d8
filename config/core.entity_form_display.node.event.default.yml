@@ -10,6 +10,7 @@ dependencies:
     - field.field.node.event.field_categories
     - field.field.node.event.field_date_time
     - field.field.node.event.field_display_instructor_bios
+    - field.field.node.event.field_event_format
     - field.field.node.event.field_facebook_event
     - field.field.node.event.field_geolocation
     - field.field.node.event.field_instructors
@@ -116,6 +117,12 @@ content:
     third_party_settings: {  }
     type: boolean_checkbox
     region: content
+  field_event_format:
+    weight: 4
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
+    region: content
   field_facebook_event:
     weight: 11
     settings:
@@ -163,13 +170,6 @@ content:
       field_widget_replace: false
     third_party_settings: {  }
     type: entity_browser_entity_reference
-    region: content
-  field_online:
-    weight: 4
-    settings:
-      display_label: true
-    third_party_settings: {  }
-    type: boolean_checkbox
     region: content
   field_registration_link:
     weight: 10
@@ -291,6 +291,7 @@ content:
 hidden:
   field_address: true
   field_geolocation: true
+  field_online: true
   field_parent_event: true
   field_timezone: true
   group_content: true
