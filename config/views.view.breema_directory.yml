@@ -400,6 +400,56 @@ display:
           entity_type: node
           entity_field: type
           plugin_id: bundle
+        field_event_format_value:
+          id: field_event_format_value
+          table: node__field_event_format
+          field: field_event_format_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_event_format_value_op
+            label: 'Event format'
+            description: ''
+            use_operator: false
+            operator: field_event_format_value_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: event_format
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              student: '0'
+              practitioner: '0'
+              instructor: '0'
+              event_expert: '0'
+              content_editor: '0'
+              content_administrator: '0'
+              event_administrator: '0'
+              user_administrator: '0'
+              administrator: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          plugin_id: list_field
       sorts:
         sticky:
           id: sticky
@@ -1074,6 +1124,56 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           plugin_id: numeric
+        field_event_format_value:
+          id: field_event_format_value
+          table: node__field_event_format
+          field: field_event_format_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_event_format_value_op
+            label: 'Event format'
+            description: ''
+            use_operator: false
+            operator: field_event_format_value_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: event_format
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              student: '0'
+              practitioner: '0'
+              instructor: '0'
+              event_expert: '0'
+              content_editor: '0'
+              content_administrator: '0'
+              event_administrator: '0'
+              user_administrator: '0'
+              administrator: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          plugin_id: list_field
       filter_groups:
         operator: AND
         groups:
@@ -1256,6 +1356,7 @@ display:
         - 'config:core.entity_view_display.node.place.teaser_search_result'
         - 'config:core.entity_view_display.node.place.teaser_with_location'
         - 'config:core.entity_view_display.node.private_audio_stream.default'
+        - 'config:core.entity_view_display.node.private_audio_stream.group_notify_email'
         - 'config:core.entity_view_display.node.private_audio_stream.teaser'
         - 'config:core.entity_view_display.node.private_page.default'
         - 'config:core.entity_view_display.node.private_page.teaser'
