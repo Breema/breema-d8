@@ -34,7 +34,14 @@ class DateRangeMultiTimezoneFormatter extends FormatterBase {
         $start_date = $item->start_date->format('Y-m-d');
         $entity = $item->getEntity();
         // @todo It's a bit funky to hard-code this, but probably simpler.
-        if (empty($entity->field_online->value)) {
+        $is_online = FALSE;
+        foreach ($entity->field_event_format->getValue() as $format) {
+          if ($format['value'] === 'online') {
+            $is_online = TRUE;
+            break;
+          }
+        }
+        if (!$is_online) {
           continue;
         }
         // @todo The field to use for this should be configurable.
