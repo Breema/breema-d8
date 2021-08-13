@@ -30,6 +30,7 @@ dependencies:
   module:
     - breema
     - datetime_extras
+    - options
 id: node.event.teaser_no_image
 targetEntityType: node
 bundle: event
@@ -42,6 +43,13 @@ content:
     label: hidden
     settings:
       format_type: medium
+    third_party_settings: {  }
+  field_event_format:
+    type: list_default
+    weight: 4
+    region: content
+    label: hidden
+    settings: {  }
     third_party_settings: {  }
   field_instructors:
     type: entity_reference_label
@@ -73,7 +81,6 @@ hidden:
   field_breema_center_sponsored: true
   field_categories: true
   field_display_instructor_bios: true
-  field_event_format: true
   field_facebook_event: true
   field_geolocation: true
   field_location: true
