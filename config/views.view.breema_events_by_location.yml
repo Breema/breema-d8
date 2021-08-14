@@ -9,6 +9,7 @@ dependencies:
   module:
     - datetime
     - node
+    - options
     - user
 id: breema_events_by_location
 label: 'Breema events by location'
@@ -249,6 +250,56 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           plugin_id: numeric
+        field_event_format_value:
+          id: field_event_format_value
+          table: node__field_event_format
+          field: field_event_format_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_event_format_value_op
+            label: Format
+            description: ''
+            use_operator: false
+            operator: field_event_format_value_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: event_format
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              student: '0'
+              practitioner: '0'
+              instructor: '0'
+              event_expert: '0'
+              content_editor: '0'
+              content_administrator: '0'
+              event_administrator: '0'
+              user_administrator: '0'
+              administrator: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          plugin_id: list_field
       sorts:
         sticky:
           id: sticky
@@ -288,11 +339,13 @@ display:
         operator: AND
         groups:
           1: AND
+      use_ajax: true
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url
         - url.query_args
         - 'user.node_grants:view'
         - user.permissions
@@ -444,7 +497,8 @@ display:
     display_title: 'Block: Breema Center'
     position: 1
     display_options:
-      display_extenders: {  }
+      display_extenders:
+        breema_metatag_display_extender: {  }
       block_description: 'Breema events at The Center'
       block_hide_empty: true
       display_description: ''
@@ -472,6 +526,7 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url
         - url.query_args
         - 'user.node_grants:view'
         - user.permissions
@@ -504,6 +559,7 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
