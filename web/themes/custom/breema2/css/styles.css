@@ -1996,3 +1996,12 @@ details.e-books .details-wrapper {
 .feed-icon {
   margin: 0;
 }
+
+#views-exposed-form-breema-events-by-location-block-breema-center .form--inline .form-actions {
+  clear: none;
+  float: left;
+  margin: 1em 0 0 1em;
+}
+#views-exposed-form-breema-events-by-location-block-breema-center .form--inline .form-item {
+  margin-top: 0;
+}
