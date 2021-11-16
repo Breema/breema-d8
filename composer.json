@@ -95,8 +95,7 @@
     "drupal/core-dev": "^8.9",
     "drupal/migrate_plus": "^4.0",
     "drupal/migrate_source_csv": "^2.0",
-    "drupal/migrate_tools": "^4.0",
-    "zaporylie/composer-drupal-optimizations": "^1.1"
+    "drupal/migrate_tools": "^4.0"
   },
   "conflict": {
       "drupal/drupal": "*"
