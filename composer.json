@@ -210,6 +210,9 @@
       "export-configuration": "drush config-export --yes"
     },
     "drupal-scaffold": {
+      "locations": {
+        "web-root": "web/"
+      },
       "source": "https://raw.githubusercontent.com/pantheon-systems/drops-8/{version}/{path}",
       "includes": [
         "sites/default/default.services.pantheon.preproduction.yml",
