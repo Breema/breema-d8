@@ -230,7 +230,7 @@
     "preferred-install": "dist",
     "sort-packages": true,
     "platform": {
-      "php": "7.2.8"
+      "php": "7.4.25"
     }
   }
 }
