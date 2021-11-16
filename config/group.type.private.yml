@@ -5,6 +5,7 @@ dependencies: {  }
 id: private
 label: 'Private group'
 description: 'A group for private content specific to a set of users.'
+new_revision: true
 creator_membership: false
 creator_wizard: false
 creator_roles: {  }

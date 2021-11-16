@@ -5,6 +5,7 @@ dependencies: {  }
 id: audio
 label: 'Audio group'
 description: "A group for private audio content specific to a set of users.\t\r\n"
+new_revision: true
 creator_membership: false
 creator_wizard: false
 creator_roles: {  }
