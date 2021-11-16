@@ -4300,17 +4300,17 @@
         },
         {
             "name": "drupal/forward",
-            "version": "2.5.0",
+            "version": "2.6.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/forward.git",
-                "reference": "8.x-2.5"
+                "reference": "8.x-2.6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/forward-8.x-2.5.zip",
-                "reference": "8.x-2.5",
-                "shasum": "d0dae87f1ff96a11ba9f2e5a356605321d9d5317"
+                "url": "https://ftp.drupal.org/files/projects/forward-8.x-2.6.zip",
+                "reference": "8.x-2.6",
+                "shasum": "dfd1b53ea8579321eea8619d0b9f7bf244fb7590"
             },
             "require": {
                 "drupal/core": "^8 || ^9",
@@ -4319,8 +4319,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-2.5",
-                    "datestamp": "1591144927",
+                    "version": "8.x-2.6",
+                    "datestamp": "1633312795",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
