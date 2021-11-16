@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e58ca0e9fa2d2a138be2a8cf840ed241",
+    "content-hash": "beb971145b0bf4e4581be9e690bb95f0",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -8316,44 +8316,6 @@
             "time": "2019-03-08T08:55:37+00:00"
         },
         {
-            "name": "rvtraveller/qs-composer-installer",
-            "version": "1.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/rvtraveller/qs-composer-installer.git",
-                "reference": "20d6f4397e4b77599646767ad030092a60f5f92a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/rvtraveller/qs-composer-installer/zipball/20d6f4397e4b77599646767ad030092a60f5f92a",
-                "reference": "20d6f4397e4b77599646767ad030092a60f5f92a",
-                "shasum": ""
-            },
-            "require": {
-                "composer-plugin-api": "~1.0",
-                "composer/installers": "~1.0"
-            },
-            "require-dev": {
-                "composer/composer": "~1.0@dev"
-            },
-            "type": "composer-plugin",
-            "extra": {
-                "class": "rvtraveller\\QuicksilverComposerInstaller\\QuicksilverComposerInstallerPlugin"
-            },
-            "autoload": {
-                "psr-4": {
-                    "rvtraveller\\QuicksilverComposerInstaller\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "Install Quicksilver modules for Pantheon into custom locations.",
-            "homepage": "https://github.com/rvtraveller/qs-composer-installer",
-            "time": "2017-01-27T20:40:31+00:00"
-        },
-        {
             "name": "stack/builder",
             "version": "v1.0.5",
             "source": {
@@ -13436,5 +13398,6 @@
     "platform-dev": [],
     "platform-overrides": {
         "php": "7.2.8"
-    }
+    },
+    "plugin-api-version": "2.1.0"
 }

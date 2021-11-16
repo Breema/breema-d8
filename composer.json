@@ -88,7 +88,6 @@
     "drupal/xmlsitemap": "^1.0@alpha",
     "drush/drush": "^10",
     "phpseclib/phpseclib": "^2.0",
-    "rvtraveller/qs-composer-installer": "^1.1",
     "woothemes/flexslider": "~2.0"
   },
   "require-dev": {
