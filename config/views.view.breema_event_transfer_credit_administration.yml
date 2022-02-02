@@ -1350,14 +1350,14 @@ display:
             description: null
             use_operator: false
             operator: status_op
+            operator_limit_selection: false
+            operator_list: {  }
             identifier: status
             required: true
             remember: false
             multiple: false
             remember_roles:
               authenticated: authenticated
-            operator_limit_selection: false
-            operator_list: {  }
           is_grouped: true
           group_info:
             label: Status
@@ -1367,7 +1367,7 @@ display:
             widget: select
             multiple: false
             remember: false
-            default_group: All
+            default_group: '1'
             default_group_multiple: {  }
             group_items:
               1:
@@ -1575,7 +1575,8 @@ display:
     display_title: 'REST export'
     position: 3
     display_options:
-      display_extenders: {  }
+      display_extenders:
+        breema_metatag_display_extender: {  }
       style:
         type: serializer
         options:
@@ -2937,6 +2938,8 @@ display:
       defaults:
         fields: false
         sorts: false
+        filters: true
+        filter_groups: true
       sorts:
         nid:
           id: nid
