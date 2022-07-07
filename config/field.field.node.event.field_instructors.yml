@@ -11,7 +11,7 @@ entity_type: node
 bundle: event
 label: Instructors
 description: ''
-required: false
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''
@@ -23,8 +23,13 @@ settings:
       type: role
       role:
         instructor: instructor
+        student: '0'
         practitioner: '0'
+        event_expert: '0'
+        content_editor: '0'
         content_administrator: '0'
+        event_administrator: '0'
+        user_administrator: '0'
         administrator: '0'
     target_bundles: null
     sort:
