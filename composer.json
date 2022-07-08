@@ -133,6 +133,7 @@
         "[#2905230-6] Alter inline_entity_form table to display auto-computed entity labels" : "https://www.drupal.org/files/issues/Title_displayed_as_AutoEntityLabel_after_saving_via_Inline_Entity_Form-2905230-6.patch"
       },
       "drupal/core": {
+        "[DotComHost]: Add Plesk redirect" : "assets/patch/dotcomhost-plesk-redirect.patch",
         "[#2135445-39] Toolbar displays Manage tab even if the user is not permitted to see it" : "https://www.drupal.org/files/issues/2019-01-12/2135445-39.no-empty-manage-tray.patch",
         "[#2419131-139] Fix #states for 'datetime' form elements" : "https://www.drupal.org/files/issues/2019-10-29/2419131-139.datetime-states.8_7_x.patch",
         "[#2625136-115] Fix label visibility and add wrapper container for exposed numeric/date filters with multiple form elements" : "https://www.drupal.org/files/issues/2019-10-28/2625136-115.8_7_x.patch",

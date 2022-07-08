@@ -1,0 +1,10 @@
+diff --git a/core/assets/scaffold/files/htaccess b/core/assets/scaffold/files/htaccess
+index 6f9123d..a0982cf 100644
+--- a/core/assets/scaffold/files/htaccess
++++ b/core/assets/scaffold/files/htaccess
+@@ -180,3 +180,5 @@ AddEncoding gzip svgz
+   # Disable Proxy header, since it's an attack vector.
+   RequestHeader unset Proxy
+ </IfModule>
++
++Redirect /plesk https://v214.dotcomcloud.com:8443
