@@ -109,3 +109,5 @@ Thumbs.db
 # Site-specific file paths
 tmp
 private-files
+/.editorconfig
+/.gitattributes
