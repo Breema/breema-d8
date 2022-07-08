@@ -7,6 +7,7 @@ dependencies:
   module:
     - datetime
     - node
+    - options
     - user
 id: breema_event_past
 label: 'Breema event past'
@@ -67,12 +68,10 @@ display:
             previous: ‹‹
             next: ››
       style:
-        type: default
+        type: entity_reference
         options:
-          grouping: {  }
-          row_class: ''
-          default_row_class: true
-          uses_fields: false
+          search_fields:
+            title: title
       row:
         type: fields
         options:
@@ -230,18 +229,157 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
-  entity_reference_1:
+  past_all:
     display_plugin: entity_reference
-    id: entity_reference_1
-    display_title: 'Entity Reference'
+    id: past_all
+    display_title: 'Past: All'
     position: 1
     display_options:
-      display_extenders: {  }
-      style:
-        type: entity_reference
-        options:
-          search_fields:
-            title: title
+      display_extenders:
+        breema_metatag_display_extender: {  }
+      display_description: ''
+      defaults:
+        style: true
+        row: true
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - 'user.node_grants:view'
+        - user.permissions
+      tags: {  }
+  past_in_person:
+    display_plugin: entity_reference
+    id: past_in_person
+    display_title: 'Past: In-person'
+    position: 1
+    display_options:
+      display_extenders:
+        breema_metatag_display_extender: {  }
+      display_description: ''
+      filters:
+        status:
+          value: '1'
+          table: node_field_data
+          field: status
+          plugin_id: boolean
+          entity_type: node
+          entity_field: status
+          id: status
+          expose:
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+          group: 1
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          value:
+            event: event
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+          expose:
+            operator_limit_selection: false
+            operator_list: {  }
+          group: 1
+        field_date_time_end_value:
+          id: field_date_time_end_value
+          table: node__field_date_time
+          field: field_date_time_end_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '<='
+          value:
+            min: ''
+            max: ''
+            value: '-8 hours'
+            type: date
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            placeholder: ''
+            min_placeholder: ''
+            max_placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: datetime
+        field_event_format_value:
+          id: field_event_format_value
+          table: node__field_event_format
+          field: field_event_format_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value:
+            in-person: in-person
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          plugin_id: list_field
+      defaults:
+        filters: false
+        filter_groups: false
+        style: true
+        row: true
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
     cache_metadata:
       max-age: -1
       contexts:

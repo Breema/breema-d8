@@ -1,0 +1,17 @@
+uuid: 509b7444-b885-44d9-a637-d0f089feb7ad
+langcode: en
+status: true
+dependencies: {  }
+name: event_in_person_browser
+label: 'Event (in person) browser'
+display: modal
+display_configuration:
+  width: ''
+  height: ''
+  link_text: 'Select events'
+  auto_open: false
+selection_display: no_display
+selection_display_configuration: {  }
+widget_selector: single
+widget_selector_configuration: {  }
+widgets: {  }

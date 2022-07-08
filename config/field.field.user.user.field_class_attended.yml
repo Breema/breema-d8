@@ -21,6 +21,6 @@ settings:
   handler_settings:
     view:
       view_name: breema_event_past
-      display_name: entity_reference_1
+      display_name: past_in_person
       arguments: {  }
 field_type: entity_reference
