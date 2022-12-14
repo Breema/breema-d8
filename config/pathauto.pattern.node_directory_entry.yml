@@ -10,7 +10,7 @@ type: 'canonical_entities:node'
 pattern: 'directory/entry/[node:title]'
 selection_criteria:
   40d5759e-7105-4d10-bf8e-1819d43635d5:
-    id: node_type
+    id: 'entity_bundle:node'
     bundles:
       directory_entry: directory_entry
     negate: false

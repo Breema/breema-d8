@@ -10,7 +10,7 @@ type: 'canonical_entities:node'
 pattern: 'private-page/[node:title]'
 selection_criteria:
   4d302ec3-f64d-4245-90e1-4ef4e63ccef4:
-    id: node_type
+    id: 'entity_bundle:node'
     bundles:
       private_page: private_page
     negate: false

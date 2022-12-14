@@ -10,7 +10,7 @@ type: 'canonical_entities:node'
 pattern: 'user/[node:author]/resumes/[node:field_date:date:html_date]-session'
 selection_criteria:
   4fdbfaca-c7f8-4995-8174-19919d6bea66:
-    id: node_type
+    id: 'entity_bundle:node'
     bundles:
       session_resume: session_resume
     negate: false
