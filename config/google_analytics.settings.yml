@@ -1,5 +1,4 @@
 account: ''
-premium: false
 domain_mode: 0
 cross_domains: ''
 visibility:
@@ -21,11 +20,10 @@ track:
   site_search: false
   adsense: false
   displayfeatures: true
+  tel: true
 privacy:
   anonymizeip: true
-custom:
-  dimension: {  }
-  metric: {  }
+custom: {  }
 codesnippet:
   create: {  }
   before: ''
