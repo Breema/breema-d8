@@ -95,7 +95,6 @@ module:
   toolbar_responsive_search: 0
   tour: 0
   tzfield: 0
-  update: 0
   user: 0
   variationcache: 0
   video_embed_field: 0
