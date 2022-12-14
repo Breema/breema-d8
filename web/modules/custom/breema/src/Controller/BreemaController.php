@@ -24,12 +24,15 @@ class BreemaController extends ControllerBase {
    */
   public function allowClone() {
     $bundle = '';
+    $add_access = FALSE;
     $node = $this->loadNodeFromRoute();
     if (!empty($node)) {
       $bundle = $node->bundle();
+      $add_access = $node->access('add');
     }
-    // For now, we only want to allow cloning events.
-    return AccessResult::allowedIf($bundle == 'event');
+    // For now, we only want to allow cloning events, and only by users that can
+    // create events.
+    return AccessResult::allowedIf($bundle === 'event' && $add_access);
   }
 
   /**
