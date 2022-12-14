@@ -58,7 +58,7 @@
     "drupal/geocoder": "^2",
     "drupal/geolocation": "1.x-dev",
     "drupal/geotimezone": "^3.0",
-    "drupal/google_analytics": "^3.0",
+    "drupal/google_analytics": "^4",
     "drupal/group": "^1.0",
     "drupal/group_notify": "^1.5",
     "drupal/inline_entity_form": "^1.0@beta",
