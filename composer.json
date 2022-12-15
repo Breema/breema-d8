@@ -229,7 +229,8 @@
       "composer/installers": true,
       "drupal/console-extend-plugin": true,
       "cweagans/composer-patches": true,
-      "drupal/core-composer-scaffold": true
+      "drupal/core-composer-scaffold": true,
+      "dealerdirect/phpcodesniffer-composer-installer": true
     }
   }
 }
