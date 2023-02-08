@@ -5,9 +5,9 @@ dependencies:
   config:
     - field.storage.node.field_breema_center_sponsored
     - field.storage.node.field_date_time
+    - field.storage.node.field_event_format
     - field.storage.node.field_instructors
     - field.storage.node.field_location
-    - field.storage.node.field_online
     - field.storage.node.field_timezone
     - node.type.event
     - taxonomy.vocabulary.event_category
@@ -21,6 +21,7 @@ dependencies:
     - datetime
     - datetime_extras
     - node
+    - options
     - taxonomy
     - user
 id: breema_event_administration
@@ -551,14 +552,14 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
-        field_online:
-          id: field_online
-          table: node__field_online
-          field: field_online
+        field_event_format:
+          id: field_event_format
+          table: node__field_event_format
+          field: field_event_format
           relationship: none
           group_type: group
           admin_label: ''
-          label: Online
+          label: Format
           exclude: false
           alter:
             alter_text: false
@@ -600,11 +601,8 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
-          type: boolean
-          settings:
-            format: custom
-            format_custom_true: Online
-            format_custom_false: 'In person'
+          type: list_default
+          settings: {  }
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -1328,9 +1326,9 @@ display:
       tags:
         - 'config:field.storage.node.field_breema_center_sponsored'
         - 'config:field.storage.node.field_date_time'
+        - 'config:field.storage.node.field_event_format'
         - 'config:field.storage.node.field_instructors'
         - 'config:field.storage.node.field_location'
-        - 'config:field.storage.node.field_online'
         - 'config:field.storage.node.field_timezone'
   page_1:
     display_plugin: page
@@ -1363,7 +1361,7 @@ display:
       tags:
         - 'config:field.storage.node.field_breema_center_sponsored'
         - 'config:field.storage.node.field_date_time'
+        - 'config:field.storage.node.field_event_format'
         - 'config:field.storage.node.field_instructors'
         - 'config:field.storage.node.field_location'
-        - 'config:field.storage.node.field_online'
         - 'config:field.storage.node.field_timezone'
