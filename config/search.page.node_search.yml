@@ -17,10 +17,11 @@ configuration:
     event_month: 7
     event_upcoming: 4
     event_week: 8
+    promote: 10
     relevance: 2
     sticky: 2
     type_article: 2
-    type_directory_entry: 10
+    type_directory_entry: 6
     type_essence: 2
     type_layout_page: 3
     type_page: 3
