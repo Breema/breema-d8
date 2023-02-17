@@ -81,7 +81,7 @@ class BreemaEventMgr {
     foreach (['place', 'directory_entry'] as $node_type) {
       $this->updateData($node_type);
     }
-    $this->clearStickyFromPastEvents();
+    $this->clearEnhancementsFromPastEvents();
   }
 
   /**
@@ -148,17 +148,43 @@ class BreemaEventMgr {
   }
 
   /**
-   * Clears the 'sticky' bit from events in the past.
+   * Clears the 'sticky' and/or 'promote' bits from events in the past.
    */
-  public function clearStickyFromPastEvents() {
+  public function clearEnhancementsFromPastEvents() {
+    // First, clear everything that's both promoted and sticky.
+    $this->clearEnhancementFromPastEvents(TRUE, TRUE);
+    // Then, clear only sticky.
+    $this->clearEnhancementFromPastEvents(TRUE, FALSE);
+    // Finally, clear only promoted.
+    $this->clearEnhancementFromPastEvents(FALSE, TRUE);
+  }
+
+  /**
+   * Clears any enhancements (sticky and promote) from events in the past.
+   *
+   * @param bool $use_sticky
+   *   TRUE if the query should include events that are sticky.
+   * @param bool $use_promote
+   *   TRUE if the query should include events that are promoted.
+   */
+  protected function clearEnhancementFromPastEvents(bool $use_sticky, bool $use_promote) {
     $now = new DrupalDateTime('now');
     $now->setTimezone(new \DateTimeZone(DateTimeItemInterface::STORAGE_TIMEZONE));
     $query = \Drupal::entityQuery('node');
     $query
       ->condition('status', 1)
-      ->condition('sticky', 1)
       ->condition('type', 'event')
       ->condition('field_date_time.end_value', $now->format(DateTimeItemInterface::DATETIME_STORAGE_FORMAT), '<');
+    if ($use_sticky) {
+      $query->condition('sticky', 1);
+      $revision_log = t('Cron: Removing sticky flag from event that is now over.');
+    }
+    if ($use_promote) {
+      $query->condition('promote', 1);
+      $revision_log = $revision_log ?
+        t('Cron: Removing sticky and promoted flags from event that is now over.')
+        : t('Cron: Removing promoted flag from event that is now over.');
+    }
     $results = $query->execute();
     if (!empty($results)) {
       $events = Node::loadMultiple($results);
@@ -166,13 +192,14 @@ class BreemaEventMgr {
     if (!empty($events)) {
       foreach ($events as $event) {
         $event->setNewRevision(TRUE);
-        $event->revision_log = "Cron: Removing sticky bit from event that is now over.";
+        $event->revision_log = $revision_log;
         $event->revision_uid = 1;
         $event->revision_timestamp = $now->format('U');
+        // Doesn't hurt to always clear both flags for past events.
         $event->sticky = 0;
+        $event->promote = 0;
         $event->save();
       }
     }
   }
-
 }
