@@ -1377,6 +1377,19 @@ function breema_form_node_form_alter(&$form, FormStateInterface $form_state) {
     $form['field_website']['#description_display'] = 'before';
     $form['field_instructors']['widget']['add_more']['#value'] = t('Add another instructor');
 
+    // Hide the 'Breema Center Weekend Workshop' category for non-admins.
+    $is_user_admin = (bool) array_intersect(
+      \Drupal::currentUser()->getRoles(),
+      [
+        'administrator',
+        'content_administrator',
+        'event_administrator',
+      ]
+    );
+    if (!$is_user_admin) {
+      unset($form['field_categories']['widget']['#options'][39]);
+    }
+
     // If the location is set to The Breema Center (nid 2), hide the checkbox
     // for 'Breema Center sponsored', since we'll force it to FALSE. It'd be
     // confusing to set this checkbox on events @ the BC, and adds clutter/noise
@@ -2761,6 +2774,9 @@ function breema_entity_view_alter(array &$build, EntityInterface $entity, Entity
       if ($entity->id() == 38) {
         return breema_node_38_view_alter($build, $entity, $display);
       }
+      if ($entity->id() == 5796) {
+        return breema_node_5796_view_alter($build, $entity, $display);
+      }
       // Otherwise, see if there's a bundle-specific method and use it.
       $bundle = $entity->bundle();
       $function = 'breema_entity_node_' . $bundle . '_view_alter';
@@ -3171,6 +3187,24 @@ function breema_node_38_view_alter(array &$build, EntityInterface $entity, Entit
     $view->execute();
     if (!empty($view->result)) {
       $build['event_list'] = $view->preview();
+      $build['event_list']['#weight'] = 100;
+    }
+  }
+}
+
+/**
+ * Callback for hook_entity_view_alter() for node 5796 ("Weekend Workshops").
+ *
+ * We need these so that the content appears when the page is forwarded, too.
+ */
+function breema_node_5796_view_alter(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display) {
+  if ($display->getMode() === 'default' || $display->getMode() === 'forward') {
+    $view = Views::getView('breema_events_center_weekend_workshops');
+    $view->setDisplay('embed_1');
+    $view->execute();
+    if (!empty($view->result)) {
+      $build['event_list'] = $view->preview();
+      $build['event_list']['#prefix'] = '<h2>' . t('Upcoming Weekend Workshops') . '</h2>';
       $build['event_list']['#weight'] = 100;
     }
   }
