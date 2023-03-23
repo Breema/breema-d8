@@ -1424,10 +1424,11 @@ function breema_form_node_form_alter(&$form, FormStateInterface $form_state) {
     $form['field_authors_other']['widget']['add_more']['#value'] = t('Add another author');
     $form['field_authors_breema']['widget']['add_more']['#value'] = t('Add another Breema author');
   }
-  // Special case for front page (layout page):
-  elseif ($node->id() == 1007) {
-    // The front page should *never* be added to any groups, so hide the
-    // 'Groups' computed field widget.
+  // The front page should *never* be added to any groups, so hide the 'Groups'
+  // computed field widget. Use the URL alias not a specific NID so that this
+  // keeps working when we change front page layouts over time. If the alias
+  // ends with 'front', hide the widget.
+  elseif ($node->id() && substr($node->toUrl('canonical')->toString(), -5) === 'front') {
     $form['group_content']['#access'] = FALSE;
   }
 }
