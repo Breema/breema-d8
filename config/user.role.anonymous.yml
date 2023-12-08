@@ -12,6 +12,7 @@ permissions:
   - 'access comments'
   - 'access content'
   - 'access event_browser entity browser pages'
+  - 'access event_in_person_browser entity browser pages'
   - 'access forward'
   - 'access site-wide contact form'
   - 'access user contact forms'

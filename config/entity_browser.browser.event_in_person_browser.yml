@@ -1,7 +1,11 @@
 uuid: 509b7444-b885-44d9-a637-d0f089feb7ad
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  config:
+    - views.view.breema_event_browser
+  module:
+    - views
 name: event_in_person_browser
 label: 'Event (in person) browser'
 display: modal
@@ -14,4 +18,14 @@ selection_display: no_display
 selection_display_configuration: {  }
 widget_selector: single
 widget_selector_configuration: {  }
-widgets: {  }
+widgets:
+  1a201188-95ab-498c-982b-c9a9da0027e0:
+    settings:
+      submit_text: 'Select events'
+      auto_select: false
+      view: breema_event_browser
+      view_display: event_in_person_browser
+    uuid: 1a201188-95ab-498c-982b-c9a9da0027e0
+    weight: 1
+    label: 'In Person Events'
+    id: view
