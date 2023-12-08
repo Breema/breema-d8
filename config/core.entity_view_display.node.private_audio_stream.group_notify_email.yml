@@ -12,7 +12,6 @@ dependencies:
     - node.type.private_audio_stream
   module:
     - datetime_extras
-    - gcontent_field
     - link
     - text
 id: node.private_audio_stream.group_notify_email
@@ -58,6 +57,7 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
+  entitygroupfield: true
   field_stream_status: true
   field_title_prefix: true
   links: true

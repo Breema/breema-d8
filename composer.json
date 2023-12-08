@@ -46,6 +46,7 @@
     "drupal/entity_browser": "^2.0",
     "drupal/entity_embed": "^1.0",
     "drupal/entity_reference_revisions": "^1.0",
+    "drupal/entitygroupfield": "^1.0@beta",
     "drupal/entityqueue": "^1.0",
     "drupal/field_group": "^3.0",
     "drupal/field_permissions": "^1.0@beta",

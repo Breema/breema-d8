@@ -37,6 +37,7 @@ content:
     region: content
 hidden:
   created: true
+  entitygroupfield: true
   field_experience: true
   field_questions: true
   field_recipient_prior_experience: true

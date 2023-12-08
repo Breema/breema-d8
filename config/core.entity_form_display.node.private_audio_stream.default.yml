@@ -11,7 +11,7 @@ dependencies:
     - node.type.private_audio_stream
   module:
     - datetime_extras
-    - gcontent_field
+    - entitygroupfield
     - link
     - path
     - text
@@ -35,6 +35,16 @@ content:
     weight: 6
     region: content
     settings: {  }
+    third_party_settings: {  }
+  entitygroupfield:
+    type: entitygroupfield_select_widget
+    weight: 4
+    region: content
+    settings:
+      multiple: true
+      required: true
+      label: 'Group name'
+      help_text: ''
     third_party_settings: {  }
   field_available_dates:
     weight: 2

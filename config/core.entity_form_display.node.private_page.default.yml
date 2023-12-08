@@ -10,7 +10,7 @@ dependencies:
     - node.type.private_page
   module:
     - entity_browser
-    - gcontent_field
+    - entitygroupfield
     - path
     - text
 id: node.private_page.default
@@ -33,6 +33,16 @@ content:
     weight: 6
     region: content
     settings: {  }
+    third_party_settings: {  }
+  entitygroupfield:
+    type: entitygroupfield_select_widget
+    weight: 4
+    region: content
+    settings:
+      multiple: true
+      required: true
+      label: 'Group name'
+      help_text: ''
     third_party_settings: {  }
   field_main_image:
     weight: 1

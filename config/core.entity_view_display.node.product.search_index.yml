@@ -63,6 +63,7 @@ content:
     region: content
 hidden:
   created: true
+  entitygroupfield: true
   field_main_image: true
   field_social_media_image: true
   field_title_main: true

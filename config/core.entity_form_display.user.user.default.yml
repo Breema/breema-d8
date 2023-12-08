@@ -26,9 +26,9 @@ dependencies:
   module:
     - address
     - entity_browser
+    - entitygroupfield
     - field_group
     - file
-    - gcontent_field
     - image
     - inline_entity_form
     - path
@@ -81,9 +81,19 @@ content:
     settings: {  }
     third_party_settings: {  }
   contact:
-    weight: 12
+    weight: 13
     region: content
     settings: {  }
+    third_party_settings: {  }
+  entitygroupfield:
+    type: entitygroupfield_select_widget
+    weight: 12
+    region: content
+    settings:
+      help_text: ''
+      label: 'Group name'
+      multiple: true
+      required: false
     third_party_settings: {  }
   field_address:
     weight: 7
@@ -225,13 +235,13 @@ content:
       required: 0
     third_party_settings: {  }
   language:
-    weight: 14
+    weight: 15
     region: content
     settings: {  }
     third_party_settings: {  }
   path:
     type: path
-    weight: 13
+    weight: 14
     region: content
     settings: {  }
     third_party_settings: {  }

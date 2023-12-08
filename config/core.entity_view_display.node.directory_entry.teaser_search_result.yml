@@ -17,6 +17,7 @@ dependencies:
     - field.field.node.directory_entry.field_name_first
     - field.field.node.directory_entry.field_name_last
     - field.field.node.directory_entry.field_resources
+    - field.field.node.directory_entry.field_social_media_image
     - field.field.node.directory_entry.field_telephone
     - field.field.node.directory_entry.field_upcoming_events
     - field.field.node.directory_entry.field_website
@@ -128,6 +129,7 @@ content:
 hidden:
   body: true
   created: true
+  entitygroupfield: true
   field_geolocation: true
   field_has_active_event: true
   field_name_first: true

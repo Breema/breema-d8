@@ -9,7 +9,6 @@ dependencies:
     - image.style.224x126_smaller
     - node.type.private_page
   module:
-    - gcontent_field
     - media
     - text
 id: node.private_page.default
@@ -48,7 +47,7 @@ content:
     region: content
     label: above
     settings:
-      link: '1'
+      link: true
     third_party_settings: {  }
   links:
     weight: 4
@@ -57,4 +56,5 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
+  entitygroupfield: true
   uid: true

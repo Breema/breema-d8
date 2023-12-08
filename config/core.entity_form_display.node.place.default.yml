@@ -165,6 +165,7 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
+  entitygroupfield: true
   field_geolocation: true
   field_has_active_event: true
   field_upcoming_events: true

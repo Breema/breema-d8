@@ -34,6 +34,7 @@ content:
 hidden:
   body: true
   created: true
+  entitygroupfield: true
   field_email: true
   field_geolocation: true
   field_has_active_event: true

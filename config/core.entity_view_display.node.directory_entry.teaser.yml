@@ -10,14 +10,17 @@ dependencies:
     - field.field.node.directory_entry.field_breema_clinic_practitioner
     - field.field.node.directory_entry.field_certification
     - field.field.node.directory_entry.field_email
+    - field.field.node.directory_entry.field_facebook_page
     - field.field.node.directory_entry.field_geolocation
     - field.field.node.directory_entry.field_has_active_event
     - field.field.node.directory_entry.field_job_title
     - field.field.node.directory_entry.field_name_first
     - field.field.node.directory_entry.field_name_last
     - field.field.node.directory_entry.field_resources
+    - field.field.node.directory_entry.field_social_media_image
     - field.field.node.directory_entry.field_telephone
     - field.field.node.directory_entry.field_upcoming_events
+    - field.field.node.directory_entry.field_website
     - node.type.directory_entry
   module:
     - address
@@ -102,6 +105,7 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
+  entitygroupfield: true
   field_breema_clinic_practitioner: true
   field_facebook_page: true
   field_geolocation: true

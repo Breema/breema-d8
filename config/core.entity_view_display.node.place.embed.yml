@@ -68,6 +68,7 @@ content:
 hidden:
   body: true
   created: true
+  entitygroupfield: true
   field_geolocation: true
   field_has_active_event: true
   field_main_image: true

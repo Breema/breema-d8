@@ -70,5 +70,6 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
+  entitygroupfield: true
   group_content: true
   uid: true

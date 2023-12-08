@@ -60,6 +60,7 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
+  entitygroupfield: true
   field_date: true
   field_questions: true
   field_recipient_prior_experience: true

@@ -26,7 +26,7 @@ dependencies:
     - address
     - field_group
     - file
-    - gcontent_field
+    - entitygroupfield
     - options
     - telephone
     - user
@@ -164,6 +164,7 @@ content:
       link: true
     third_party_settings: {  }
 hidden:
+  entitygroupfield: true
   field_breema_center_staff: true
   field_breema_clinic_practitioner: true
   field_certification: true

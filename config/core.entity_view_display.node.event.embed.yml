@@ -73,6 +73,7 @@ content:
     region: content
 hidden:
   created: true
+  entitygroupfield: true
   field_address: true
   field_breema_center_sponsored: true
   field_categories: true

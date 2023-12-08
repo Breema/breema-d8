@@ -58,6 +58,7 @@ content:
 hidden:
   body: true
   created: true
+  entitygroupfield: true
   field_meta_summary: true
   field_product_info: true
   field_publication_year: true

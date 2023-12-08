@@ -188,6 +188,7 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
+  entitygroupfield: true
   field_address: true
   field_categories: true
   field_display_instructor_bios: true

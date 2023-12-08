@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a2f4b7ceaa6d862a07a4bc87d548fc81",
+    "content-hash": "5e6c2112f2a60d38f49c82a13b272efd",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -3801,6 +3801,62 @@
             "homepage": "https://www.drupal.org/project/entity_reference_revisions",
             "support": {
                 "source": "https://git.drupalcode.org/project/entity_reference_revisions"
+            }
+        },
+        {
+            "name": "drupal/entitygroupfield",
+            "version": "1.0.0-beta1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/entitygroupfield.git",
+                "reference": "1.0.0-beta1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/entitygroupfield-1.0.0-beta1.zip",
+                "reference": "1.0.0-beta1",
+                "shasum": "7d6ebf9f6f8b5b231fbb9aa0977a91a6082261b5"
+            },
+            "require": {
+                "drupal/core": "^8.8 || ^9 || ^10",
+                "drupal/group": "~1.0"
+            },
+            "require-dev": {
+                "drupal/entity": "*",
+                "drupal/variationcache": "~1.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "1.0.0-beta1",
+                    "datestamp": "1700081174",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Beta releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Derek Wright",
+                    "homepage": "https://www.drupal.org/u/dww",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Ivan Duarte",
+                    "homepage": "https://www.drupal.org/u/jidrone",
+                    "role": "Co-Maintainer"
+                }
+            ],
+            "description": "Defines a field to view and edit the groups associated with content.",
+            "homepage": "http://drupal.org/project/entitygroupfield",
+            "support": {
+                "source": "https://git.drupalcode.org/project/entitygroupfield",
+                "issues": "https://drupal.org/project/issues/entitygroupfield"
             }
         },
         {
@@ -14754,6 +14810,7 @@
         "drupal/auto_entitylabel": 20,
         "drupal/ckeditor_blockquote_attribution": 10,
         "drupal/diff": 5,
+        "drupal/entitygroupfield": 15,
         "drupal/field_permissions": 10,
         "drupal/geolocation": 20,
         "drupal/inline_entity_form": 10,
@@ -14768,5 +14825,5 @@
     "platform-overrides": {
         "php": "7.4.25"
     },
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.6.0"
 }

@@ -26,7 +26,7 @@ dependencies:
     - address
     - field_group
     - file
-    - gcontent_field
+    - entitygroupfield
     - image
     - options
     - telephone
@@ -235,5 +235,6 @@ content:
     third_party_settings: {  }
     label: hidden
 hidden:
+  entitygroupfield: true
   field_name_first: true
   field_name_last: true

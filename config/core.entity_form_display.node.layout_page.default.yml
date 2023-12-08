@@ -13,7 +13,6 @@ dependencies:
     - node.type.layout_page
   module:
     - entity_browser
-    - gcontent_field
     - paragraphs
     - path
 id: node.layout_page.default
@@ -66,9 +65,9 @@ content:
       form_display_mode: default
       default_paragraph_type: _none
       features:
-        duplicate: duplicate
-        collapse_edit_all: collapse_edit_all
         add_above: add_above
+        collapse_edit_all: collapse_edit_all
+        duplicate: duplicate
     third_party_settings: {  }
     region: content
   field_slideshow:
@@ -85,9 +84,9 @@ content:
       form_display_mode: default
       default_paragraph_type: _none
       features:
-        duplicate: duplicate
-        collapse_edit_all: collapse_edit_all
         add_above: add_above
+        collapse_edit_all: collapse_edit_all
+        duplicate: duplicate
     third_party_settings: {  }
     region: content
   field_social_media_image:
@@ -119,9 +118,9 @@ content:
       form_display_mode: default
       default_paragraph_type: _none
       features:
-        duplicate: duplicate
-        collapse_edit_all: collapse_edit_all
         add_above: '0'
+        collapse_edit_all: collapse_edit_all
+        duplicate: duplicate
     third_party_settings: {  }
     region: content
   group_content:
@@ -183,4 +182,5 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  entitygroupfield: true

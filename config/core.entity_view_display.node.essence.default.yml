@@ -63,6 +63,7 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
+  entitygroupfield: true
   field_date: true
   field_meta_summary: true
   field_social_media_image: true
