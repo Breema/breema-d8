@@ -780,6 +780,17 @@ display:
           empty: false
           content: '@total users'
           plugin_id: result
+        display_link:
+          id: display_link
+          table: views
+          field: display_link
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          display_id: rest_export_1
+          label: 'Download as CSV'
+          plugin_id: display_link
       defaults:
         header: false
     cache_metadata:
