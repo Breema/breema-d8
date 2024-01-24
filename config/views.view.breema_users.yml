@@ -8,7 +8,6 @@ dependencies:
     - field.storage.user.field_name_first
     - field.storage.user.field_name_last
     - field.storage.user.field_telephone
-    - system.menu.admin
     - user.role.administrator
     - user.role.event_administrator
     - user.role.user_administrator
@@ -766,7 +765,7 @@ display:
         breema_metatag_display_extender: {  }
       path: admin/people/breema-users
       menu:
-        type: normal
+        type: tab
         title: 'Breema Users'
         description: ''
         expanded: false
@@ -783,7 +782,7 @@ display:
           group_type: group
           admin_label: ''
           empty: false
-          content: '@total users'
+          content: '<p>@total users</p>'
           plugin_id: result
         display_link:
           id: display_link
