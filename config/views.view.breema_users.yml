@@ -768,6 +768,11 @@ display:
       menu:
         type: normal
         title: 'Breema Users'
+        description: ''
+        expanded: false
+        parent: entity.user.collection
+        weight: 0
+        context: '0'
         menu_name: admin
       header:
         result:
