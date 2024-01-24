@@ -62,9 +62,26 @@ display:
           sort_asc_label: Asc
           sort_desc_label: Desc
       pager:
-        type: none
+        type: full
         options:
+          items_per_page: 200
           offset: 0
+          id: 0
+          total_pages: null
+          tags:
+            previous: '‹ Previous'
+            next: 'Next ›'
+            first: '« First'
+            last: 'Last »'
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+          quantity: 9
       style:
         type: table
         options:
@@ -781,14 +798,14 @@ display:
           element_wrapper_class: ''
           element_default_classes: true
           empty: ''
-          hide_empty: false
+          hide_empty: true
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
           type: timestamp
           settings:
-            date_format: html_datetime
-            custom_date_format: ''
+            date_format: custom
+            custom_date_format: 'Y-m-d H:i:s'
             timezone: ''
           group_column: value
           group_columns: {  }
@@ -848,14 +865,14 @@ display:
           element_wrapper_class: ''
           element_default_classes: true
           empty: ''
-          hide_empty: false
+          hide_empty: true
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
           type: timestamp
           settings:
-            date_format: html_datetime
-            custom_date_format: ''
+            date_format: custom
+            custom_date_format: 'Y-m-d H:i:s'
             timezone: ''
           group_column: value
           group_columns: {  }
@@ -997,7 +1014,7 @@ display:
           group_type: group
           admin_label: ''
           empty: false
-          content: '<p>@total users</p>'
+          content: '<p>Showing @start - @end of @total users</p>'
           plugin_id: result
         display_link:
           id: display_link
@@ -1674,8 +1691,8 @@ display:
           element_wrapper_class: ''
           element_default_classes: true
           empty: ''
-          hide_empty: false
-          empty_zero: false
+          hide_empty: true
+          empty_zero: true
           hide_alter_empty: true
           click_sort_column: value
           type: timestamp
@@ -1741,8 +1758,8 @@ display:
           element_wrapper_class: ''
           element_default_classes: true
           empty: ''
-          hide_empty: false
-          empty_zero: false
+          hide_empty: true
+          empty_zero: true
           hide_alter_empty: true
           click_sort_column: value
           type: timestamp
