@@ -2377,26 +2377,27 @@
         },
         {
             "name": "drupal/ckeditor_blockquote_attribution",
-            "version": "1.0.0",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/ckeditor_blockquote_attribution.git",
-                "reference": "8.x-1.0"
+                "reference": "8.x-1.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/ckeditor_blockquote_attribution-8.x-1.0.zip",
-                "reference": "8.x-1.0",
-                "shasum": "a2f1010c24baeba400bd6eb07a29aecf18b6c321"
+                "url": "https://ftp.drupal.org/files/projects/ckeditor_blockquote_attribution-8.x-1.2.zip",
+                "reference": "8.x-1.2",
+                "shasum": "07806267b39e87143581bd4bc640011c1bc1c76b"
             },
             "require": {
+                "drupal/ckeditor": "*",
                 "drupal/core": "^8 || ^9"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.0",
-                    "datestamp": "1600705663",
+                    "version": "8.x-1.2",
+                    "datestamp": "1687253025",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -2411,6 +2412,10 @@
                 {
                     "name": "alxp",
                     "homepage": "https://www.drupal.org/user/173521"
+                },
+                {
+                    "name": "kuhikar",
+                    "homepage": "https://www.drupal.org/user/3241981"
                 }
             ],
             "description": "CKEditor button that inserts a blockquote along with HTML 5 figure and citation markup.",
