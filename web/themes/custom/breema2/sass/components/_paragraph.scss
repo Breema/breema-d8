@@ -17,6 +17,11 @@
   margin: 1em 0 0.5em 0;
 }
 
+.node--type-layout-page .paragraph--type--text {
+  margin: 0 auto 2em;
+  max-width: 1030px;
+}
+
 // These classes are only set on paragraphs, so we can style them here.
 .media-align-center {
   img {
