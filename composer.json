@@ -54,7 +54,7 @@
     "drupal/fixed_text_link_formatter": "^1.1",
     "drupal/flag": "^4.0",
     "drupal/flexslider": "^2.0",
-    "drupal/forward": "^2.2",
+    "drupal/forward": "^4.0",
     "drupal/fullcalendar_view": "^2.6",
     "drupal/geocoder": "^2",
     "drupal/geolocation": "1.x-dev",

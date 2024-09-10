@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "41cd778b256fe04cbbc07842866ad6ef",
+    "content-hash": "93bf2816612f2771bff1374d51f9df03",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -4289,9 +4289,6 @@
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
                     }
-                },
-                "patches_applied": {
-                    "[#3086080-14] Add flexslider support for any (multi-valued) entity reference field": "https://www.drupal.org/files/issues/2020-08-02/3086080-14.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -4305,8 +4302,8 @@
                     "role": "Contributors"
                 },
                 {
-                    "name": "amaria",
-                    "homepage": "https://www.drupal.org/user/66428"
+                    "name": "ClassicCut",
+                    "homepage": "https://www.drupal.org/user/2703101"
                 },
                 {
                     "name": "minorOffense",
@@ -4330,27 +4327,26 @@
         },
         {
             "name": "drupal/forward",
-            "version": "2.6.0",
+            "version": "4.0.2",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/forward.git",
-                "reference": "8.x-2.6"
+                "reference": "4.0.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/forward-8.x-2.6.zip",
-                "reference": "8.x-2.6",
-                "shasum": "dfd1b53ea8579321eea8619d0b9f7bf244fb7590"
+                "url": "https://ftp.drupal.org/files/projects/forward-4.0.2.zip",
+                "reference": "4.0.2",
+                "shasum": "5768654463e16b8c091035b0705b0ba9a60edc0d"
             },
             "require": {
-                "drupal/core": "^8 || ^9",
-                "drupal/node": "*"
+                "drupal/core": "^8.8 || ^9 || ^10"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-2.6",
-                    "datestamp": "1633312795",
+                    "version": "4.0.2",
+                    "datestamp": "1670690705",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -4388,9 +4384,7 @@
             "description": "Forward pages and other site elements to a friend.",
             "homepage": "http://drupal.org/project/forward",
             "support": {
-                "source": "http://cgit.drupalcode.org/forward",
-                "issues": "http://drupal.org/project/forward",
-                "irc": "irc://irc.freenode.org/drupal-contribute"
+                "source": "https://git.drupalcode.org/project/forward"
             }
         },
         {
