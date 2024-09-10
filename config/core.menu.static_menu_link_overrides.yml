@@ -5,5 +5,11 @@ definitions:
     parent: ''
     enabled: true
     expanded: false
+  contact__site_page:
+    weight: -46
+    menu_name: footer
+    parent: ''
+    enabled: false
+    expanded: false
 _core:
   default_config_hash: jdY7AU0tU-QsjmiOw3W8vwpYMb-By--_MSFgbqKUTYM
