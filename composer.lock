@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "93bf2816612f2771bff1374d51f9df03",
+    "content-hash": "844255347b562f291e6c11e4d1343bfe",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -5011,26 +5011,26 @@
         },
         {
             "name": "drupal/menu_trail_by_path",
-            "version": "1.3.0",
+            "version": "2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/menu_trail_by_path.git",
-                "reference": "8.x-1.3"
+                "reference": "2.0.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/menu_trail_by_path-8.x-1.3.zip",
-                "reference": "8.x-1.3",
-                "shasum": "64ba3a163302ff132c29a75b75ca4f6cce6b24dd"
+                "url": "https://ftp.drupal.org/files/projects/menu_trail_by_path-2.0.1.zip",
+                "reference": "2.0.1",
+                "shasum": "3c2c1b0ee669c26e6ccba8a345605b7c932be2bf"
             },
             "require": {
-                "drupal/core": "^8.8|^9.0"
+                "drupal/core": "^8.8 || ^9.0 || ^10"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.3",
-                    "datestamp": "1586900806",
+                    "version": "2.0.1",
+                    "datestamp": "1701298206",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -5043,12 +5043,8 @@
             ],
             "authors": [
                 {
-                    "name": "Berdir",
+                    "name": "berdir",
                     "homepage": "https://www.drupal.org/user/214652"
-                },
-                {
-                    "name": "SeriousMatters",
-                    "homepage": "https://www.drupal.org/user/290439"
                 },
                 {
                     "name": "davy-r",
@@ -5061,6 +5057,10 @@
                 {
                     "name": "redndahead",
                     "homepage": "https://www.drupal.org/user/160320"
+                },
+                {
+                    "name": "SeriousMatters",
+                    "homepage": "https://www.drupal.org/user/290439"
                 }
             ],
             "description": "Expand menus and set active-trail according to the current path.",
