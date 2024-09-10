@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "844255347b562f291e6c11e4d1343bfe",
+    "content-hash": "2a7161edd945b9c00980324ed5e07ae5",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -4892,26 +4892,26 @@
         },
         {
             "name": "drupal/login_emailusername",
-            "version": "1.2.0",
+            "version": "2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/login_emailusername.git",
-                "reference": "8.x-1.2"
+                "reference": "2.1.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/login_emailusername-8.x-1.2.zip",
-                "reference": "8.x-1.2",
-                "shasum": "188462f807e04d7913062e9415c3c2779e21a848"
+                "url": "https://ftp.drupal.org/files/projects/login_emailusername-2.1.0.zip",
+                "reference": "2.1.0",
+                "shasum": "5a3858d06e7d67110a6cd8eda38cbfeb350f115c"
             },
             "require": {
-                "drupal/core": "^8.8 || ^9"
+                "drupal/core": "^8.8 || ^9 || ^10"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.2",
-                    "datestamp": "1604843985",
+                    "version": "2.1.0",
+                    "datestamp": "1677072401",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -4923,7 +4923,7 @@
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
             "license": [
-                "GPL-2.0+"
+                "GPL-2.0-or-later"
             ],
             "authors": [
                 {
@@ -4932,12 +4932,12 @@
                     "role": "contributor"
                 },
                 {
-                    "name": "devdesagar",
-                    "homepage": "https://www.drupal.org/user/3569773"
-                },
-                {
                     "name": "rjjakes",
                     "homepage": "https://www.drupal.org/user/3457245"
+                },
+                {
+                    "name": "VladimirAus",
+                    "homepage": "https://www.drupal.org/user/673120"
                 }
             ],
             "description": "Login with the email as username.",

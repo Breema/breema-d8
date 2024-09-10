@@ -63,7 +63,7 @@
     "drupal/group": "^1.0",
     "drupal/group_notify": "^1.5",
     "drupal/inline_entity_form": "^1.0@beta",
-    "drupal/login_emailusername": "^1.1",
+    "drupal/login_emailusername": "^2.1",
     "drupal/menu_block": "1.x-dev",
     "drupal/menu_trail_by_path": "^2.0",
     "drupal/override_node_options": "^2.4",
