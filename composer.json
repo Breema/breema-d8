@@ -29,7 +29,7 @@
     "drupal/admin_toolbar": "^3",
     "drupal/advanced_text_formatter": "^3.0@RC",
     "drupal/audiofield": "^1.9",
-    "drupal/auto_entitylabel": "2.x-dev",
+    "drupal/auto_entitylabel": "^3.0@beta",
     "drupal/captcha": "^1.0",
     "drupal/ckeditor_blockquote_attribution": "^1.0@beta",
     "drupal/config_installer": "^1.0",
@@ -129,9 +129,6 @@
     "patches": {
       "drupal/address": {
         "[#2995992-37] Country field should display the '- Select -' option to match core behavior" : "https://www.drupal.org/files/issues/2019-11-21/2995992-37.only-after-3096129.patch"
-      },
-      "drupal/auto_entitylabel": {
-        "[#2905230-6] Alter inline_entity_form table to display auto-computed entity labels" : "https://www.drupal.org/files/issues/Title_displayed_as_AutoEntityLabel_after_saving_via_Inline_Entity_Form-2905230-6.patch"
       },
       "drupal/core": {
         "[DotComHost]: Add Plesk redirect" : "assets/patch/dotcomhost-plesk-redirect.patch",
