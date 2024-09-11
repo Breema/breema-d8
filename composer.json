@@ -89,9 +89,6 @@
     "phpseclib/phpseclib": "^2.0",
     "woothemes/flexslider": "~2.0"
   },
-  "require-dev": {
-    "drupal/core-dev": "^8.9"
-  },
   "conflict": {
       "drupal/drupal": "*"
   },
