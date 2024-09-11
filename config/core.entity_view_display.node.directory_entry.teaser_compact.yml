@@ -10,14 +10,17 @@ dependencies:
     - field.field.node.directory_entry.field_breema_clinic_practitioner
     - field.field.node.directory_entry.field_certification
     - field.field.node.directory_entry.field_email
+    - field.field.node.directory_entry.field_facebook_page
     - field.field.node.directory_entry.field_geolocation
     - field.field.node.directory_entry.field_has_active_event
     - field.field.node.directory_entry.field_job_title
     - field.field.node.directory_entry.field_name_first
     - field.field.node.directory_entry.field_name_last
     - field.field.node.directory_entry.field_resources
+    - field.field.node.directory_entry.field_social_media_image
     - field.field.node.directory_entry.field_telephone
     - field.field.node.directory_entry.field_upcoming_events
+    - field.field.node.directory_entry.field_website
     - node.type.directory_entry
   module:
     - smart_trim
@@ -35,14 +38,18 @@ content:
       trim_type: chars
       trim_suffix: ...
       wrap_class: trimmed
-      more_link: true
-      more_text: 'Read more'
-      more_class: more-link
       summary_handler: trim
       wrap_output: false
       trim_options:
         text: false
         trim_zero: false
+      more:
+        display_link: true
+        target_blank: false
+        link_trim_only: false
+        class: more-link
+        text: 'Read more'
+        aria_label: 'Read more about [node:title]'
     third_party_settings: {  }
     region: content
   field_breema_center_staff:
@@ -75,6 +82,7 @@ content:
     region: content
 hidden:
   created: true
+  entitygroupfield: true
   field_address: true
   field_certification: true
   field_email: true
