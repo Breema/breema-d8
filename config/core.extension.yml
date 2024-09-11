@@ -72,7 +72,6 @@ module:
   path: 0
   path_alias: 0
   queue_mail: 0
-  quickedit: 0
   r4032login: 0
   rdf: 0
   recaptcha: 0
