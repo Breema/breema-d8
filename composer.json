@@ -178,9 +178,6 @@
         "[#2729333-7] Can't select a default bundle when using entity reference views" : "https://www.drupal.org/files/issues/2729333-ief-bundle-selection-erv-7.patch",
         "[#3162874-5] Provide reliable access to the entity in template_preprocess_inline_entity_form_entity_table()" : "https://www.drupal.org/files/issues/2020-08-02/3162874-5.patch"
       },
-      "drupal/smtp": {
-        "[#3165981-3] Include more info for the logger->info() call" : "https://www.drupal.org/files/issues/2020-08-18/3165981-3.patch"
-      },
       "drupal/video_embed_field": {
         "[#2861429-13] Add More Embedding Options" : "https://www.drupal.org/files/issues/2019-10-22/2861429-13.patch"
       }
