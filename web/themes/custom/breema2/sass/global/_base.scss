@@ -237,9 +237,10 @@ a.teaser-link:hover .node--unpublished {
   }
   a:before {
     position: absolute;
-    font-family: 'FontAwesome';
-    // fa-facebook
-    content: "\f09a";
+    font-family: 'Font Awesome 5 Brands';
+    font-weight: 400;
+    // fab fa-facebook-f
+    content: "\f39e";
     left: 1px;
   }
 }

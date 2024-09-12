@@ -206,20 +206,21 @@ a.telephone:before,
 .field--type-email a:before,
 .field--type-telephone a:before {
   position: absolute;
-  font-family: 'FontAwesome';
+  font-family: 'Font Awesome 5 Free';
   left: 0px;
 }
 
 a.email:before,
 .contact-form-link a:before,
 .field--type-email a:before {
-  // fa-envelope-o
-  content: "\f003";
+  // fa-envelope
+  content: "\f0e0";
+  font-weight: 400;
 }
 
 a.telephone:before,
 .field--type-telephone a:before {
-  // fa-phone
-  content: "\f095";
-  top: 0px;
+  // fa-phone-alt
+  content: "\f879";
+  font-weight: 600;
 }
