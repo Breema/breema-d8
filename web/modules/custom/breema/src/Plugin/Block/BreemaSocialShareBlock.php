@@ -188,18 +188,18 @@ class BreemaSocialShareBlock extends BlockBase {
     }
     switch ($service_id) {
       case 'facebook':
-        $fa_icon = 'fa-facebook';
+        $fa_icon = 'fab fa-facebook-f';
         break;
 
       case 'forward':
-        $fa_icon = 'fa-envelope';
+        $fa_icon = 'fa fa-envelope';
         break;
 
       case 'more':
-        $fa_icon = 'fa-plus';
+        $fa_icon = 'fa fa-plus';
         break;
     }
-    return '<span class="fa ' . $fa_icon . '"></span>' .
+    return '<span class="' . $fa_icon . '"></span>' .
       '<span class="visually-hidden">' . $service_text . '</span>';
   }
 

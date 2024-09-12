@@ -11,6 +11,9 @@ entity-browser:
 
 block.share:
   version: VERSION
+  css:
+    theme:
+      //cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css: {}
   js:
     js/breema.share.js: {}
   dependencies:
