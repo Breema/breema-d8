@@ -40,3 +40,5 @@ forward_form_allow_plain_text: false
 forward_filter_format_html: ''
 forward_filter_format_plain_text: ''
 forward_email_footer: ''
+forward_form_title: 'Forward this page'
+forward_form_noindex: false
