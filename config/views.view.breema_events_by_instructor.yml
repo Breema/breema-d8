@@ -11,6 +11,7 @@ dependencies:
     - address
     - datetime
     - geolocation
+    - geolocation_google_maps
     - node
     - user
 id: breema_events_by_instructor
@@ -337,20 +338,24 @@ display:
             fit_bounds:
               enable: true
               weight: 0
+              map_center_id: fit_bounds
             first_row:
               weight: 0
               enable: false
+              map_center_id: first_row
             fixed_value:
               weight: 0
               settings:
-                latitude: ''
-                longitude: ''
+                latitude: null
+                longitude: null
               enable: false
+              map_center_id: location_plugins
             client_location:
               weight: 0
               enable: false
               settings:
                 update_map: '0'
+              map_center_id: client_location
           show_raw_locations: 0
           max_raw_locations: 0
           raw_locations_per_page: 20
@@ -360,17 +365,18 @@ display:
           marker_clusterer: 1
           marker_clusterer_image_path: ''
           marker_clusterer_styles: ''
-          google_map_settings:
+          map_provider_id: google_maps
+          map_provider_settings:
             height: 400px
             width: 100%
             type: ROADMAP
-            zoom: '10'
+            zoom: 10
             maxZoom: 15
             minZoom: 0
             mapTypeControl: 1
             streetViewControl: 0
             zoomControl: 1
-            rotateControl: 0
+            rotateControl: false
             fullscreenControl: 0
             scrollwheel: 1
             gestureHandling: auto
@@ -703,7 +709,7 @@ display:
           replica: false
           query_comment: ''
           query_tags: {  }
-          contextual_filters_or: 0
+          contextual_filters_or: false
       block_category: Breema
       allow:
         items_per_page: true
