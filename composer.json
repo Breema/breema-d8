@@ -32,7 +32,6 @@
     "drupal/auto_entitylabel": "^3.0@beta",
     "drupal/captcha": "^1.0",
     "drupal/ckeditor_blockquote_attribution": "^1.0@beta",
-    "drupal/console": "^1",
     "drupal/core-composer-scaffold": "^8.9",
     "drupal/core-recommended": "^8.9",
     "drupal/csv_serialization": "^2",
