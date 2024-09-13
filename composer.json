@@ -57,7 +57,7 @@
     "drupal/forward": "^4.0",
     "drupal/fullcalendar_view": "^2.6",
     "drupal/geocoder": "^2",
-    "drupal/geolocation": "1.x-dev",
+    "drupal/geolocation": "3.7.0",
     "drupal/geotimezone": "^3.0",
     "drupal/google_analytics": "^4",
     "drupal/group": "^1.0",
@@ -156,10 +156,6 @@
       },
       "drupal/fullcalendar_view": {
         "[#3009683-4] Restrict hours on calendar" : "https://www.drupal.org/files/issues/2019-11-09/3009683-4.patch"
-      },
-      "drupal/geolocation": {
-        "[#2921121-2] Empty h2 markup when locations don't use a 'title' field" : "https://www.drupal.org/files/issues/2921121-1.hide-location-title-completely.patch",
-        "[#2921437-11] Provide simple JS pager for raw results on Google common map display" : "https://www.drupal.org/files/issues/2019-03-07/2921437-11.raw-location-js-pager.patch"
       },
       "drupal/group": {
         "[#2923755-8] Ability to change group type after group creation" : "https://www.drupal.org/files/issues/2020-08-10/2923755-8.1_x.patch",
