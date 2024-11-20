@@ -12,27 +12,21 @@
 {{ attach_library('classy/node') }}
 
 <article{{ attributes.addClass(classes) }}>
-  {% if not page %}
-    <a href="{{ url }}" rel="bookmark" class="teaser-link">
-  {% endif %}
-  <header>
-    {{ title_prefix }}
-    {% if not page %}
-      <h2{{ title_attributes.addClass('node__title') }}>{{ label }}</h2>
-    {% endif %}
-    {{ title_suffix }}
-  </header>
   <div{{ content_attributes.addClass('node__content', 'clearfix') }}>
+    {% if not page %}
+      <a href="{{ url }}" rel="bookmark" class="teaser-link">
+      <span class="visually-hidden">{{'Essence of Breema: '| t}}{{ label }}</span>
+    {% endif %}
     {{ content.field_main_image }}
+    {% if not page %}
+      </a>
+    {% endif %}
     <figure>
       <blockquote>
         {{ content.body }}
       </blockquote>
       <figcaption class="attribution">From {{ source }}</figcaption>
     </figure>
-    {% if not page %}
-      </a>
-    {% endif %}
     {{ content|without('field_main_image', 'body') }}
   </div>
 </article>
