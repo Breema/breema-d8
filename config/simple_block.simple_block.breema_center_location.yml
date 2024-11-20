@@ -1,0 +1,11 @@
+uuid: 68d36561-4acc-4bc5-afd6-7c2cb22dcf86
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.full_html
+id: breema_center_location
+title: 'Breema Center Location'
+content:
+  value: "<div class=\"info\" style=\"display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center;\">\r\n<h2 style=\"font-size:2em;\"><a href=\"/about-center\">The Breema Center</a></h2>\r\n\r\n<p class=\"huge address\"><a href=\"https://www.google.com/maps/dir/Current+Location/6076+Claremont+Ave.,Oakland,CA,94618,US\">6076 Claremont Avenue<br />\r\nOakland, CA<br />\r\n94618</a></p>\r\n\r\n<p class=\"huge\"><a class=\"telephone\" href=\"tel:+15104280937\">510-428-0937</a></p>\r\n\r\n<p class=\"huge\"><a class=\"email\" href=\"mailto:center@breema.com\">center@breema.com</a></p>\r\n</div>\r\n"
+  format: full_html

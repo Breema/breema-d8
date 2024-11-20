@@ -1,0 +1,28 @@
+uuid: 8e6c676f-9a56-467c-81ee-4ad37c0162fa
+langcode: en
+status: true
+dependencies:
+  config:
+    - simple_block.simple_block.breema_center_location
+  module:
+    - simple_block
+    - system
+  theme:
+    - breema2
+id: breema2_breema_center_location
+theme: breema2
+region: content
+weight: 0
+provider: null
+plugin: 'simple_block:breema_center_location'
+settings:
+  id: 'simple_block:breema_center_location'
+  label: 'Breema Center Location'
+  provider: simple_block
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }
