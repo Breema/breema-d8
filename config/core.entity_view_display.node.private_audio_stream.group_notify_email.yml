@@ -12,6 +12,7 @@ dependencies:
     - node.type.private_audio_stream
   module:
     - datetime_extras
+    - entitygroupfield
     - link
     - text
 id: node.private_audio_stream.group_notify_email
@@ -26,6 +27,15 @@ content:
     settings: {  }
     third_party_settings: {  }
     region: content
+  entitygroupfield:
+    type: parent_group_entity_formatter
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      view_mode: email
+      link: false
+    third_party_settings: {  }
   field_available_dates:
     weight: 2
     label: inline
@@ -57,7 +67,6 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
-  entitygroupfield: true
   field_stream_status: true
   field_title_prefix: true
   links: true
