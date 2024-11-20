@@ -1,0 +1,35 @@
+uuid: 28b2d615-3e4a-43fe-a4ca-06b8a72dc3a3
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.private
+id: private-editor
+label: Editor
+weight: 2
+internal: false
+audience: member
+group_type: private
+permissions_ui: true
+permissions:
+  - 'access content overview'
+  - 'access group_node overview'
+  - 'create group_node:layout_page content'
+  - 'create group_node:layout_page entity'
+  - 'create group_node:private_page content'
+  - 'create group_node:private_page entity'
+  - 'delete own group_node:layout_page content'
+  - 'delete own group_node:private_page content'
+  - 'edit group'
+  - 'update any group_node:layout_page content'
+  - 'update any group_node:layout_page entity'
+  - 'update any group_node:private_page content'
+  - 'update any group_node:private_page entity'
+  - 'view group'
+  - 'view group revisions'
+  - 'view group_node:layout_page content'
+  - 'view group_node:layout_page entity'
+  - 'view group_node:private_page content'
+  - 'view group_node:private_page entity'
+  - 'view unpublished group_node:layout_page entity'
+  - 'view unpublished group_node:private_page entity'
