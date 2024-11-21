@@ -24,9 +24,9 @@ dependencies:
     - field.field.user.user.user_picture
   module:
     - address
+    - entitygroupfield
     - field_group
     - file
-    - entitygroupfield
     - options
     - telephone
     - user
@@ -34,9 +34,9 @@ third_party_settings:
   field_group:
     group_public_directory_entry:
       children:
-        - user_picture
         - field_directory_entry
         - field_legacy_directory_url
+        - user_picture
       parent_name: ''
       weight: 2
       format_type: details
@@ -52,7 +52,7 @@ third_party_settings:
         - field_address
         - field_telephone
         - field_profession
-        - group_content
+        - entitygroupfield
       parent_name: ''
       weight: 0
       format_type: details
@@ -88,6 +88,14 @@ targetEntityType: user
 bundle: user
 mode: forward
 content:
+  entitygroupfield:
+    type: parent_group_label_formatter
+    weight: 10
+    region: content
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
   field_address:
     weight: 7
     label: above
@@ -164,7 +172,6 @@ content:
       link: true
     third_party_settings: {  }
 hidden:
-  entitygroupfield: true
   field_breema_center_staff: true
   field_breema_clinic_practitioner: true
   field_certification: true

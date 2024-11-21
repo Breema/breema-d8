@@ -9,6 +9,7 @@ dependencies:
     - image.style.224x126_smaller
     - node.type.private_page
   module:
+    - entitygroupfield
     - media
     - text
 id: node.private_page.default
@@ -23,6 +24,14 @@ content:
     settings: {  }
     third_party_settings: {  }
     region: content
+  entitygroupfield:
+    type: parent_group_label_formatter
+    weight: 3
+    region: content
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
   field_main_image:
     weight: 0
     label: hidden
@@ -56,5 +65,4 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
-  entitygroupfield: true
   uid: true

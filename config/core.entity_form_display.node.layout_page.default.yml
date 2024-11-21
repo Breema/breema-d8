@@ -13,6 +13,7 @@ dependencies:
     - node.type.layout_page
   module:
     - entity_browser
+    - entitygroupfield
     - paragraphs
     - path
 id: node.layout_page.default
@@ -25,6 +26,16 @@ content:
     weight: 9
     region: content
     settings: {  }
+    third_party_settings: {  }
+  entitygroupfield:
+    type: entitygroupfield_select_widget
+    weight: 7
+    region: content
+    settings:
+      help_text: ''
+      label: 'Group name'
+      multiple: true
+      required: false
     third_party_settings: {  }
   field_main_image:
     weight: 4
@@ -182,5 +193,4 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden:
-  entitygroupfield: true
+hidden: {  }

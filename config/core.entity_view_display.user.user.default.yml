@@ -24,9 +24,9 @@ dependencies:
     - image.style.320x320_small
   module:
     - address
+    - entitygroupfield
     - field_group
     - file
-    - entitygroupfield
     - image
     - options
     - telephone
@@ -58,7 +58,7 @@ third_party_settings:
         - field_address
         - field_telephone
         - field_profession
-        - group_content
+        - entitygroupfield
       parent_name: ''
       weight: 0
       format_type: details
@@ -94,6 +94,14 @@ targetEntityType: user
 bundle: user
 mode: default
 content:
+  entitygroupfield:
+    type: parent_group_label_formatter
+    weight: 10
+    region: content
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
   field_address:
     weight: 7
     label: visually_hidden
@@ -235,6 +243,5 @@ content:
     third_party_settings: {  }
     label: hidden
 hidden:
-  entitygroupfield: true
   field_name_first: true
   field_name_last: true
