@@ -163,14 +163,6 @@ content:
     third_party_settings: {  }
     type: basic_string
     region: content
-  group_content:
-    type: parent_group_label_formatter
-    weight: 10
-    region: content
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
 hidden:
   field_breema_center_staff: true
   field_breema_clinic_practitioner: true

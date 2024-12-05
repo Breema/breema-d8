@@ -97,6 +97,5 @@ hidden:
   field_timezone: true
   field_transfer_credit: true
   field_website: true
-  group_content: true
   links: true
   uid: true

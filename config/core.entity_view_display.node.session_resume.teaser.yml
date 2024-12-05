@@ -68,5 +68,4 @@ hidden:
   field_date: true
   field_questions: true
   field_recipient_prior_experience: true
-  group_content: true
   uid: true

@@ -128,5 +128,4 @@ hidden:
   field_social_media_image: true
   field_timezone: true
   field_upcoming_events: true
-  group_content: true
   uid: true

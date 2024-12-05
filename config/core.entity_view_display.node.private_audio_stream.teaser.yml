@@ -87,6 +87,5 @@ hidden:
   entitygroupfield: true
   field_stream_status: true
   field_title_prefix: true
-  group_content: true
   links: true
   uid: true

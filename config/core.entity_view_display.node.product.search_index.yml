@@ -68,6 +68,5 @@ hidden:
   field_social_media_image: true
   field_title_main: true
   field_title_sub: true
-  group_content: true
   links: true
   uid: true

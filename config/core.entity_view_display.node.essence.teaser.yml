@@ -78,5 +78,4 @@ hidden:
   field_source_other: true
   field_source_product: true
   field_source_type: true
-  group_content: true
   uid: true

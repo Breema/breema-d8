@@ -35,9 +35,9 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
+  entitygroupfield: true
   field_main_image: true
   field_resources: true
   field_social_media_image: true
-  group_content: true
   links: true
   uid: true

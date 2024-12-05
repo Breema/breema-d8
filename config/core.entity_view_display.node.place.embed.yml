@@ -77,5 +77,4 @@ hidden:
   field_timezone: true
   field_upcoming_events: true
   flag_my_places: true
-  group_content: true
   uid: true

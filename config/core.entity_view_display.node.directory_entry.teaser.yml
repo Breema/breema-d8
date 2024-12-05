@@ -120,5 +120,4 @@ hidden:
   field_social_media_image: true
   field_upcoming_events: true
   field_website: true
-  group_content: true
   uid: true

@@ -88,6 +88,5 @@ hidden:
   field_social_media_image: true
   field_timezone: true
   flag_my_places: true
-  group_content: true
   links: true
   uid: true
