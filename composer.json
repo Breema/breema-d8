@@ -87,6 +87,7 @@
     "drupal/xmlsitemap": "^1.0@alpha",
     "drush/drush": "^10",
     "phpseclib/phpseclib": "^2.0",
+    "symfony/mime": "^5.4",
     "woothemes/flexslider": "~2.0"
   },
   "conflict": {
