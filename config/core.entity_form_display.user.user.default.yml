@@ -225,15 +225,6 @@ content:
     third_party_settings: {  }
     type: telephone_default
     region: content
-  group_content:
-    type: group_selector_widget
-    weight: 15
-    region: content
-    settings:
-      widget: select
-      multiple: '1'
-      required: 0
-    third_party_settings: {  }
   language:
     weight: 15
     region: content

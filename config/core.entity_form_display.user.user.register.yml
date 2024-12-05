@@ -171,6 +171,7 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
+  entitygroupfield: true
   field_anatomy_transcript: true
   field_breema_center_staff: true
   field_breema_clinic_practitioner: true
@@ -178,7 +179,6 @@ hidden:
   field_directory_entry: true
   field_legacy_directory_url: true
   google_analytics: true
-  group_content: true
   path: true
   timezone: true
   user_picture: true

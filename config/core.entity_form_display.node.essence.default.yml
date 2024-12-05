@@ -177,4 +177,3 @@ content:
     third_party_settings: {  }
 hidden:
   entitygroupfield: true
-  group_content: true

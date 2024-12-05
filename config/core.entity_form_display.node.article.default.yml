@@ -231,5 +231,5 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
-  group_content: true
+  entitygroupfield: true
   promote: true

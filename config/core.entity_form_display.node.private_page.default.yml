@@ -74,15 +74,6 @@ content:
     third_party_settings: {  }
     type: entity_browser_entity_reference
     region: content
-  group_content:
-    weight: 4
-    settings:
-      widget: select
-      multiple: '1'
-      required: '1'
-    third_party_settings: {  }
-    type: group_selector_widget
-    region: content
   path:
     type: path
     weight: 9

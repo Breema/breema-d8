@@ -78,15 +78,6 @@ content:
     third_party_settings: {  }
     type: string_textfield
     region: content
-  group_content:
-    type: group_selector_widget
-    weight: 4
-    region: content
-    settings:
-      widget: select
-      multiple: '1'
-      required: '1'
-    third_party_settings: {  }
   path:
     type: path
     weight: 9

@@ -134,15 +134,6 @@ content:
         duplicate: duplicate
     third_party_settings: {  }
     region: content
-  group_content:
-    type: group_selector_widget
-    weight: 7
-    region: content
-    settings:
-      widget: select
-      multiple: '1'
-      required: 0
-    third_party_settings: {  }
   path:
     type: path
     weight: 12
