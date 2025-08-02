@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5d1f0ecfefe147fc27a9392552ffc305",
+    "content-hash": "c7c37d1831b21c16e997cf4df058dafd",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1139,55 +1139,6 @@
             "support": {
                 "source": "https://git.drupalcode.org/project/captcha",
                 "issues": "https://www.drupal.org/project/issues/captcha"
-            }
-        },
-        {
-            "name": "drupal/ckeditor_blockquote_attribution",
-            "version": "1.2.0",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/ckeditor_blockquote_attribution.git",
-                "reference": "8.x-1.2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/ckeditor_blockquote_attribution-8.x-1.2.zip",
-                "reference": "8.x-1.2",
-                "shasum": "07806267b39e87143581bd4bc640011c1bc1c76b"
-            },
-            "require": {
-                "drupal/ckeditor": "*",
-                "drupal/core": "^8 || ^9"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "drupal": {
-                    "version": "8.x-1.2",
-                    "datestamp": "1687253025",
-                    "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "alxp",
-                    "homepage": "https://www.drupal.org/user/173521"
-                },
-                {
-                    "name": "kuhikar",
-                    "homepage": "https://www.drupal.org/user/3241981"
-                }
-            ],
-            "description": "CKEditor button that inserts a blockquote along with HTML 5 figure and citation markup.",
-            "homepage": "https://www.drupal.org/project/ckeditor_blockquote_attribution",
-            "support": {
-                "source": "https://git.drupalcode.org/project/ckeditor_blockquote_attribution"
             }
         },
         {
@@ -8995,7 +8946,6 @@
     "stability-flags": {
         "drupal/advanced_text_formatter": 5,
         "drupal/auto_entitylabel": 10,
-        "drupal/ckeditor_blockquote_attribution": 10,
         "drupal/diff": 5,
         "drupal/entitygroupfield": 10,
         "drupal/field_permissions": 10,
