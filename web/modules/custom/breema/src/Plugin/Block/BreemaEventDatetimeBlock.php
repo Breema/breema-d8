@@ -32,7 +32,7 @@ class BreemaEventDatetimeBlock extends BlockBase {
           'datetime' => $node->get('field_date_time')->view([
             'label' => 'hidden',
             'type' => 'daterange_compact',
-            'settings' => ['format_type' => 'full'],
+            'settings' => ['daterange_compact_format' => 'full'],
           ]),
           'timezone' => $node->get('field_timezone')->view([
             'label' => 'hidden',

@@ -16,8 +16,8 @@ dependencies:
   module:
     - address
     - csv_serialization
+    - daterange_compact
     - datetime
-    - datetime_extras
     - datetime_range
     - node
     - rest
@@ -410,7 +410,7 @@ display:
           click_sort_column: value
           type: daterange_compact
           settings:
-            format_type: medium
+            daterange_compact_format: medium
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -1812,7 +1812,7 @@ display:
           click_sort_column: value
           type: daterange_compact
           settings:
-            format_type: medium
+            daterange_compact_format: medium
           group_column: value
           group_columns: {  }
           group_rows: true

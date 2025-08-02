@@ -11,7 +11,7 @@ dependencies:
     - field.field.node.private_audio_stream.field_title_prefix
     - node.type.private_audio_stream
   module:
-    - datetime_extras
+    - daterange_compact
     - entitygroupfield
     - link
     - text
@@ -40,7 +40,7 @@ content:
     weight: 2
     label: inline
     settings:
-      format_type: date_only
+      daterange_compact_format: date_only
     third_party_settings: {  }
     type: daterange_compact
     region: content

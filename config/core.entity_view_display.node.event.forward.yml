@@ -29,7 +29,7 @@ dependencies:
     - node.type.event
   module:
     - advanced_text_formatter
-    - datetime_extras
+    - daterange_compact
     - fixed_text_link_formatter
     - link
 id: node.event.forward
@@ -73,7 +73,7 @@ content:
     region: content
     label: hidden
     settings:
-      format_type: medium
+      daterange_compact_format: medium
     third_party_settings: {  }
   field_facebook_event:
     weight: 9

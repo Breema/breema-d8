@@ -12,8 +12,8 @@ dependencies:
   module:
     - address
     - breema
+    - daterange_compact
     - datetime
-    - datetime_extras
     - entity_browser
     - node
     - options
@@ -195,7 +195,7 @@ display:
           click_sort_column: value
           type: daterange_compact
           settings:
-            format_type: medium
+            daterange_compact_format: medium
           group_column: value
           group_columns: {  }
           group_rows: true

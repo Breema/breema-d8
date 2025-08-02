@@ -30,7 +30,7 @@ dependencies:
     - node.type.event
   module:
     - breema
-    - datetime_extras
+    - daterange_compact
     - media
     - options
 id: node.event.teaser_with_location
@@ -42,7 +42,7 @@ content:
     weight: 0
     label: hidden
     settings:
-      format_type: medium
+      daterange_compact_format: medium
     third_party_settings: {  }
     type: daterange_compact
     region: content

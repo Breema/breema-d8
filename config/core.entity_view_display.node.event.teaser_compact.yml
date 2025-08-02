@@ -29,7 +29,7 @@ dependencies:
     - node.type.event
   module:
     - breema
-    - datetime_extras
+    - daterange_compact
 id: node.event.teaser_compact
 targetEntityType: node
 bundle: event
@@ -39,7 +39,7 @@ content:
     weight: 0
     label: hidden
     settings:
-      format_type: medium
+      daterange_compact_format: date_only
     third_party_settings: {  }
     type: daterange_compact
     region: content

@@ -28,7 +28,7 @@ dependencies:
     - field.field.node.event.field_website
     - node.type.event
   module:
-    - datetime_extras
+    - daterange_compact
     - smart_trim
 id: node.event.embed
 targetEntityType: node
@@ -64,7 +64,7 @@ content:
     region: content
     label: hidden
     settings:
-      format_type: date_only
+      daterange_compact_format: date_only
     third_party_settings: {  }
   field_main_image:
     weight: 0

@@ -29,7 +29,7 @@ dependencies:
     - image.style.320x180_small
     - node.type.event
   module:
-    - datetime_extras
+    - daterange_compact
     - media
 id: node.event.teaser
 targetEntityType: node
@@ -40,7 +40,7 @@ content:
     weight: 0
     label: hidden
     settings:
-      format_type: medium
+      daterange_compact_format: date_only
     third_party_settings: {  }
     type: daterange_compact
     region: content

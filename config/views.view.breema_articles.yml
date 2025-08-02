@@ -424,7 +424,7 @@ display:
         description: ''
         expanded: false
         parent: 'menu_link_content:d477c330-2b79-49b3-9874-8162c6ea74a7'
-        weight: 60
+        weight: -55
         context: '0'
         menu_name: main
     cache_metadata:

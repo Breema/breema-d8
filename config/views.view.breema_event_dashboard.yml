@@ -11,8 +11,8 @@ dependencies:
     - node.type.event
   module:
     - breema
+    - daterange_compact
     - datetime
-    - datetime_extras
     - node
     - search
     - user
@@ -45,7 +45,7 @@ display:
           replica: false
           query_comment: ''
           query_tags: {  }
-          contextual_filters_or: 1
+          contextual_filters_or: true
       exposed_form:
         type: basic
         options:
@@ -1073,7 +1073,7 @@ display:
           click_sort_column: value
           type: daterange_compact
           settings:
-            format_type: medium
+            daterange_compact_format: medium
           group_column: value
           group_columns: {  }
           group_rows: true
