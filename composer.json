@@ -53,7 +53,6 @@
     "drupal/flexslider": "^2.0",
     "drupal/forward": "^4.0",
     "drupal/fullcalendar_view": "^2.6",
-    "drupal/geocoder": "^2",
     "drupal/geolocation": "3.7.0",
     "drupal/geotimezone": "^3.0",
     "drupal/google_analytics": "^4",
