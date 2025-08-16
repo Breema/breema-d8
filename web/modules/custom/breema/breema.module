@@ -393,7 +393,7 @@ function breema_preprocess_html(&$variables) {
       $meta_tags,
       [
         ['property' => 'twitter:card', 'content' => 'summary_large_image'],
-        ['property' => 'og:image', 'content' => $share_image_file->url()],
+        ['property' => 'og:image', 'content' => $share_image_file->createFileUrl()],
         [
           'property' => 'og:image:type',
           'content' => $share_image_file->getMimeType(),
