@@ -125,7 +125,6 @@
         "[DotComHost]: Add Plesk redirect" : "assets/patch/dotcomhost-plesk-redirect.patch",
         "[#2135445-39] Toolbar displays Manage tab even if the user is not permitted to see it" : "assets/patch/2135445-39.no-empty-manage-tray.patch",
         "[#2419131-169] Fix #states for 'datetime' form elements" : "assets/patch/2419131-169.datetime-states.9_5_x.patch",
-        "[#2625136-115] Fix label visibility and add wrapper container for exposed numeric/date filters with multiple form elements" : "https://www.drupal.org/files/issues/2019-10-28/2625136-115.8_7_x.patch",
         "[#2648950-224] Use form element of type date instead textfield when selecting a date in an exposed filter" : "https://www.drupal.org/files/issues/2019-10-30/2648950-224.8_7_x.patch",
         "[#2648950-224] Fix conflicts between #2648950 and #2625136" : "https://www.drupal.org/files/issues/2019-10-30/2648950-224.changes-for-2625136.DO-NOT-TEST.patch",
         "[#2825860-38] Notice: Undefined index in Views acceptExposedInput()" : "https://www.drupal.org/files/issues/2020-06-04/2825860-exposed-filter-notice-38.patch",
