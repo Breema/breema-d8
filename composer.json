@@ -54,6 +54,7 @@
     "drupal/flexslider": "^2.0",
     "drupal/forward": "^4.0",
     "drupal/fullcalendar_view": "^2.6",
+    "drupal/geocoder": "^3.47",
     "drupal/geolocation": "3.7.0",
     "drupal/geotimezone": "^3.0",
     "drupal/google_analytics": "^4",
@@ -129,7 +130,6 @@
         "[#2648950-224] Fix conflicts between #2648950 and #2625136" : "assets/patch/2648950-224.changes-for-2625136.DO-NOT-TEST.patch",
         "[#2825860-38] Notice: Undefined index in Views acceptExposedInput()" : "assets/patch/2825860-38.exposed-filter-notice.patch",
         "[#2868014-79] Views date filter datetime granularity option" : "assets/patch/2868014-79.patch",
-        "[#2868014-79] Build upon [#2648950-224]" : "https://www.drupal.org/files/issues/2019-10-30/2868014-79.changes-for-everything-else.DO-NOT-TEST.patch",
         "[#2801501-15] Don't force the 'Manage' tray open in the toolbar on every page load" : "assets/patch/2801501-15.no-auto-open-toolbar.9.5.x.do-not-test.patch",
         "[#2853188-14] Add negated regular expressions for views filters (string and integer)" : "assets/patch/2853188-14.9_5_x.patch",
         "[#2951268-46] Improve rendering of account link in the toolbar" : "assets/patch/2951268-46.patch"
