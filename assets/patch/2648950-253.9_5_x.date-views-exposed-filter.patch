@@ -1,0 +1,1893 @@
+diff --git a/core/lib/Drupal/Core/Datetime/Element/Datetime.php b/core/lib/Drupal/Core/Datetime/Element/Datetime.php
+index d42b3a0ed1..37cb5263a7 100644
+--- a/core/lib/Drupal/Core/Datetime/Element/Datetime.php
++++ b/core/lib/Drupal/Core/Datetime/Element/Datetime.php
+@@ -74,10 +74,18 @@ public static function valueCallback(&$element, $input, FormStateInterface $form
+     $element += ['#date_timezone' => date_default_timezone_get()];
+ 
+     if ($input !== FALSE) {
+-      $date_input = $element['#date_date_element'] != 'none' && !empty($input['date']) ? $input['date'] : '';
+-      $time_input = $element['#date_time_element'] != 'none' && !empty($input['time']) ? $input['time'] : '';
+       $date_format = $element['#date_date_element'] != 'none' ? static::getHtml5DateFormat($element) : '';
+       $time_format = $element['#date_time_element'] != 'none' ? static::getHtml5TimeFormat($element) : '';
++      if ($input instanceof DrupalDateTime) {
++        $values = [
++          'date' => $input->format($date_format),
++          'time' => $input->format($time_format),
++        ];
++        $input = $values;
++      }
++
++      $date_input = $element['#date_date_element'] != 'none' && !empty($input['date']) ? $input['date'] : '';
++      $time_input = $element['#date_time_element'] != 'none' && !empty($input['time']) ? $input['time'] : '';
+ 
+       // Seconds will be omitted in a post in case there's no entry.
+       if (!empty($time_input) && strlen($time_input) == 5) {
+diff --git a/core/modules/datetime/src/Plugin/views/filter/Date.php b/core/modules/datetime/src/Plugin/views/filter/Date.php
+index f73a675fef..a67e7e6ab9 100644
+--- a/core/modules/datetime/src/Plugin/views/filter/Date.php
++++ b/core/modules/datetime/src/Plugin/views/filter/Date.php
+@@ -4,7 +4,9 @@
+ 
+ use Drupal\Component\Datetime\DateTimePlus;
+ use Drupal\Core\Datetime\DateFormatterInterface;
++use Drupal\Core\Form\FormStateInterface;
+ use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
++use Drupal\Core\Render\Element;
+ use Drupal\datetime\Plugin\Field\FieldType\DateTimeItem;
+ use Drupal\datetime\Plugin\Field\FieldType\DateTimeItemInterface;
+ use Drupal\views\FieldAPIHandlerTrait;
+@@ -179,4 +181,59 @@ protected function getOffset($time, $timezone) {
+     return $origin_offset;
+   }
+ 
++  /**
++   * {@inheritdoc}
++   */
++  public function buildExposedForm(&$form, FormStateInterface $form_state) {
++    parent::buildExposedForm($form, $form_state);
++
++    // Hide the date_time_element for date-only fields.
++    // What elements are visible and where they live in the form structure is
++    // really complicated. Cases to consider:
++    // - Operation is fixed and requires no elements (empty / not empty).
++    // - Operation is fixed and requires a single element (=, !=, >=, etc).
++    // - Operation is fixed and requires 2 elements (between / not between).
++    // - Operation is exposed but limited to one or more of the above.
++    // - Operation is exposed and unlimited (we have value, max and min).
++    // Instead of trying to code for all of this separately, we recursively
++    // search through the form element and any children, looking for anything
++    // of type 'datetime', and disable the time element.
++    // @see \Drupal\views\Plugin\views\filter\NumericFilter::valueForm()
++    if ($this->fieldStorageDefinition->getSetting('datetime_type') === DateTimeItem::DATETIME_TYPE_DATE) {
++      $field_identifier = $this->options['expose']['identifier'];
++      // The form elements might be encased in a wrapper, so check that first.
++      $field_wrapper = $field_identifier . '_wrapper';
++      if (isset($form[$field_wrapper])) {
++        $this->alterFormElementGranularity($form[$field_wrapper], 'day');
++      }
++      if (isset($form[$field_identifier])) {
++        $this->alterFormElementGranularity($form[$field_identifier], 'day');
++      }
++    }
++  }
++
++  /**
++   * Alters the granularity of any datetime elements in the given form element.
++   *
++   * Recursively searches all children of the element to handle nested forms.
++   *
++   * @param array $element
++   *   The form element to alter.
++   * @param string $granularity
++   *   The granularity to use for datetime form elements (e.g. 'day').
++   *
++   * @todo Expand this to handle other granularity values.
++   * @see https://www.drupal.org/project/drupal/issues/2868014
++   */
++  protected function alterFormElementGranularity(&$element, $granularity) {
++    if (isset($element['#type']) && $element['#type'] === 'datetime') {
++      if ($granularity === 'day') {
++        $element['#date_time_element'] = 'none';
++      }
++    }
++    foreach (Element::children($element) as $child) {
++      $this->alterFormElementGranularity($element[$child], $granularity);
++    }
++  }
++
+ }
+diff --git a/core/modules/datetime/tests/modules/datetime_test/test_views/views.view.test_filter_datetime_exposed.yml b/core/modules/datetime/tests/modules/datetime_test/test_views/views.view.test_filter_datetime_exposed.yml
+new file mode 100644
+index 0000000000..747225b93d
+--- /dev/null
++++ b/core/modules/datetime/tests/modules/datetime_test/test_views/views.view.test_filter_datetime_exposed.yml
+@@ -0,0 +1,103 @@
++langcode: und
++status: true
++dependencies:
++  module:
++    - node
++id: test_filter_datetime_exposed
++label: ''
++module: views
++description: ''
++tag: ''
++base_table: node_field_data
++base_field: nid
++display:
++  default:
++    display_options:
++      access:
++        type: none
++      cache:
++        type: none
++      exposed_form:
++        type: basic
++      fields:
++        nid:
++          field: nid
++          id: nid
++          table: node_field_data
++          plugin_id: node
++      filters:
++        field_date_value:
++          id: field_date_value
++          table: node__field_date
++          field: field_date_value
++          relationship: none
++          group_type: group
++          admin_label: ''
++          operator: '='
++          value:
++            min: ''
++            max: ''
++            value: ''
++            type: date
++          group: 1
++          exposed: true
++          expose:
++            operator_id: field_date_value_op
++            label: 'Date (field_date)'
++            description: ''
++            use_operator: false
++            operator: field_date_value_op
++            identifier: field_date_value
++            required: false
++            remember: false
++            multiple: false
++            remember_roles:
++              authenticated: authenticated
++              anonymous: '0'
++          is_grouped: false
++          group_info:
++            label: ''
++            description: ''
++            identifier: ''
++            optional: true
++            widget: select
++            multiple: false
++            remember: false
++            default_group: All
++            default_group_multiple: {  }
++            group_items: {  }
++          plugin_id: datetime
++      sorts:
++        id:
++          field: nid
++          id: nid
++          order: ASC
++          relationship: none
++          table: node_field_data
++          plugin_id: numeric
++      pager:
++        type: full
++      query:
++        options:
++          query_comment: ''
++        type: views_query
++      style:
++        type: default
++      row:
++        type: fields
++    display_plugin: default
++    display_title: Master
++    id: default
++    position: 0
++    cache_metadata:
++      max-age: 0
++  page_1:
++    display_plugin: page
++    id: page_1
++    display_title: Page
++    position: 1
++    display_options:
++      display_extenders: {  }
++      path: test-filter-datetime-exposed
++    cache_metadata:
++      max-age: 0
+diff --git a/core/modules/datetime/tests/src/Functional/DateFilterTest.php b/core/modules/datetime/tests/src/Functional/DateFilterTest.php
+index a7d7d524c4..da11a40f08 100644
+--- a/core/modules/datetime/tests/src/Functional/DateFilterTest.php
++++ b/core/modules/datetime/tests/src/Functional/DateFilterTest.php
+@@ -87,14 +87,18 @@ public function testLimitExposedOperators() {
+     $this->drupalGet('test_exposed_filter_datetime');
+     $this->assertSession()->statusCodeEquals(200);
+     $this->assertSession()->optionExists('edit-field-date-value-op', '=');
++    $this->assertSession()->optionExists('edit-field-date-value-op', '!=');
+     $this->assertSession()->optionNotExists('edit-field-date-value-op', '>');
+     $this->assertSession()->optionNotExists('edit-field-date-value-op', '>=');
+ 
+     // Because there are not operators that use the min and max fields, those
+     // fields should not be in the exposed form.
+-    $this->assertSession()->fieldExists('edit-field-date-value-value');
+-    $this->assertSession()->fieldNotExists('edit-field-date-value-min');
+-    $this->assertSession()->fieldNotExists('edit-field-date-value-max');
++    $this->assertSession()->fieldExists('edit-field-date-value-value-date');
++    $this->assertSession()->fieldExists('edit-field-date-value-value-time');
++    $this->assertSession()->fieldNotExists('edit-field-date-value-min-date');
++    $this->assertSession()->fieldNotExists('edit-field-date-value-min-time');
++    $this->assertSession()->fieldNotExists('edit-field-date-value-max-date');
++    $this->assertSession()->fieldNotExists('edit-field-date-value-max-time');
+ 
+     $edit = [];
+     $edit['options[operator]'] = '>';
+@@ -112,9 +116,12 @@ public function testLimitExposedOperators() {
+     $this->assertSession()->optionExists('edit-field-date-value-op', '>');
+     $this->assertSession()->optionExists('edit-field-date-value-op', '>=');
+ 
+-    $this->assertSession()->fieldExists('edit-field-date-value-value');
+-    $this->assertSession()->fieldExists('edit-field-date-value-min');
+-    $this->assertSession()->fieldExists('edit-field-date-value-max');
++    $this->assertSession()->fieldExists('edit-field-date-value-value-date');
++    $this->assertSession()->fieldExists('edit-field-date-value-value-time');
++    $this->assertSession()->fieldExists('edit-field-date-value-min-date');
++    $this->assertSession()->fieldExists('edit-field-date-value-min-time');
++    $this->assertSession()->fieldExists('edit-field-date-value-max-date');
++    $this->assertSession()->fieldExists('edit-field-date-value-max-time');
+ 
+     // Set the default to an excluded operator.
+     $edit = [];
+diff --git a/core/modules/datetime/tests/src/Functional/Handler/FilterDateTest.php b/core/modules/datetime/tests/src/Functional/Handler/FilterDateTest.php
+new file mode 100644
+index 0000000000..b70834a366
+--- /dev/null
++++ b/core/modules/datetime/tests/src/Functional/Handler/FilterDateTest.php
+@@ -0,0 +1,106 @@
++<?php
++
++namespace Drupal\Tests\datetime\Functional\Handler;
++
++use Drupal\datetime\Plugin\Field\FieldType\DateTimeItem;
++use Drupal\field\Entity\FieldConfig;
++use Drupal\field\Entity\FieldStorageConfig;
++use Drupal\node\Entity\NodeType;
++use Drupal\Tests\views\Functional\ViewTestBase;
++use Drupal\views\Tests\ViewTestData;
++
++/**
++ * Tests exposed Drupal\datetime\Plugin\views\filter\Date handler.
++ *
++ * @group datetime
++ */
++class FilterDateTest extends ViewTestBase {
++
++  /**
++   * Views used by this test.
++   *
++   * @var array
++   */
++  public static $testViews = ['test_filter_datetime_exposed'];
++
++  /**
++   * Modules to enable.
++   *
++   * @var array
++   */
++  protected static $modules = ['node', 'datetime', 'datetime_test'];
++
++  /**
++   * {@inheritdoc}
++   */
++  protected $defaultTheme = 'stark';
++
++  /**
++   * {@inheritdoc}
++   */
++  protected function setUp($import_test_views = TRUE): void {
++    parent::setUp($import_test_views);
++
++    // Add a 'datetime' date field to page node bundle.
++    NodeType::create([
++      'type' => 'page',
++      'name' => 'Page',
++    ])->save();
++    $field_storage = FieldStorageConfig::create([
++      'field_name' => 'field_date',
++      'type' => 'datetime',
++      'entity_type' => 'node',
++      'settings' => ['datetime_type' => DateTimeItem::DATETIME_TYPE_DATETIME],
++    ]);
++    $field_storage->save();
++    $field = FieldConfig::create([
++      'field_name' => 'field_date',
++      'entity_type' => 'node',
++      'bundle' => 'page',
++    ]);
++    $field->save();
++
++    // Views needs to be aware of the new field.
++    $this->container->get('views.views_data')->clear();
++
++    // Load test views.
++    ViewTestData::createTestViews(get_class($this), ['datetime_test']);
++  }
++
++  /**
++   * Test 'datetime' type exposed filter.
++   */
++  public function testDateTimeExposedFilter() {
++    $this->drupalLogin($this->drupalCreateUser(['access content']));
++
++    // Verify that exposed input element exists in the output with the proper
++    // types.
++    $this->drupalGet('test-filter-datetime-exposed');
++    $this->assertSession()->elementExists('css', 'input[id="edit-field-date-value-date"][type="date"]');
++    $this->assertSession()->elementExists('css', 'input[id="edit-field-date-value-time"][type="time"]');
++
++  }
++
++  /**
++   * Test 'date' only type exposed filter.
++   */
++  public function testDateOnlyExposedFilter() {
++    $this->drupalLogin($this->drupalCreateUser(['access content']));
++
++    // Change field storage to date-only.
++    $storage = FieldStorageConfig::load('node.field_date');
++    $storage->setSetting('datetime_type', DateTimeItem::DATETIME_TYPE_DATE);
++    $storage->save();
++
++    // Views needs to be aware of the field change.
++    $this->container->get('views.views_data')->clear();
++
++    // Verify that exposed input element exists in the output with only the
++    // date component.
++    $this->drupalGet('test-filter-datetime-exposed');
++    $this->assertSession()->elementExists('css', 'input[id="edit-field-date-value-date"][type="date"]');
++    $this->assertSession()->elementNotExists('css', 'input[id="edit-field-date-value-time"]');
++
++  }
++
++}
+diff --git a/core/modules/views/src/Plugin/views/filter/Date.php b/core/modules/views/src/Plugin/views/filter/Date.php
+index 9aa8168f08..5a638fcc93 100644
+--- a/core/modules/views/src/Plugin/views/filter/Date.php
++++ b/core/modules/views/src/Plugin/views/filter/Date.php
+@@ -2,7 +2,9 @@
+ 
+ namespace Drupal\views\Plugin\views\filter;
+ 
++use Drupal\Core\Datetime\DrupalDateTime;
+ use Drupal\Core\Form\FormStateInterface;
++use Drupal\Core\Render\Element;
+ 
+ /**
+  * Filter to handle dates stored as a timestamp.
+@@ -19,6 +21,12 @@ protected function defineOptions() {
+     // value is already set up properly, we're just adding our new field to it.
+     $options['value']['contains']['type']['default'] = 'date';
+ 
++    // We have to remove all the placeholder-related options, since those are
++    // invalid for HTML5 date elements.
++    unset($options['expose']['contains']['placeholder']);
++    unset($options['expose']['contains']['min_placeholder']);
++    unset($options['expose']['contains']['max_placeholder']);
++
+     return $options;
+   }
+ 
+@@ -192,4 +200,109 @@ protected function opSimple($field) {
+     $this->query->addWhereExpression($this->options['group'], "$field $this->operator $value");
+   }
+ 
++  /**
++   * Override parent method to remove the placeholder options.
++   */
++  public function buildExposeForm(&$form, FormStateInterface $form_state) {
++    parent::buildExposeForm($form, $form_state);
++    $form['expose']['placeholder']['#access'] = FALSE;
++    $form['expose']['min_placeholder']['#access'] = FALSE;
++    $form['expose']['max_placeholder']['#access'] = FALSE;
++  }
++
++  /**
++   * Override parent method to change input type.
++   */
++  public function buildExposedForm(&$form, FormStateInterface $form_state) {
++    parent::buildExposedForm($form, $form_state);
++
++    // Change the appropriate form elements to a 'datetime' if the exposed
++    // filter is configured for 'date' input.
++    if ($this->value['type'] === 'date') {
++      // What elements are visible and where they live in the form structure is
++      // really complicated. Cases to consider:
++      // - Operation is fixed and requires no elements (empty / not empty).
++      // - Operation is fixed and requires a single element (=, !=, >=, etc).
++      // - Operation is fixed and requires 2 elements (between / not between).
++      // - Operation is exposed but limited to one or more of the above.
++      // - Operation is exposed and unlimited (we have value, max and min).
++      // Instead of trying to code for all of this separately, we see what form
++      // elements we have and where they live, and set them to datetime.
++      // Recursively search through the form element and any children, looking
++      // for anything of type 'textfield', and convert it to 'datetime'.
++      // @see \Drupal\views\Plugin\views\filter\NumericFilter::valueForm()
++      $field_identifier = $this->options['expose']['identifier'];
++      // The form elements might be encased in a wrapper, so check that first.
++      $field_wrapper = $field_identifier . '_wrapper';
++      if (isset($form[$field_wrapper])) {
++        $this->convertTextElementToDatetime($form[$field_wrapper]);
++      }
++      elseif (isset($form[$field_identifier])) {
++        $this->convertTextElementToDatetime($form[$field_identifier]);
++      }
++
++      if (in_array($this->operator, ['between', 'not between'], TRUE)) {
++        // Check the element input matches the form structure.
++        $input = $form_state->getUserInput();
++        if (isset($input[$field_identifier], $input[$field_identifier]['min']) && !is_array($input[$field_identifier]['min']) && $value = $input[$field_identifier]['min']) {
++          $date = new DrupalDateTime($value);
++          $input[$field_identifier]['min'] = [
++            'date' => $date->format('Y-m-d'),
++            'time' => $date->format('H:i:s'),
++          ];
++        }
++        if (isset($input[$field_identifier], $input[$field_identifier]['max']) && !is_array($input[$field_identifier]['max']) && $value = $input[$field_identifier]['max']) {
++          $date = new DrupalDateTime($value);
++          $input[$field_identifier]['max'] = [
++            'date' => $date->format('Y-m-d'),
++            'time' => $date->format('H:i:s'),
++          ];
++        }
++        $form_state->setUserInput($input);
++      }
++      else {
++        // Check the element input matches the form structure.
++        $input = $form_state->getUserInput();
++        if (isset($input[$field_identifier]) && !is_array($input[$field_identifier]) && $value = $input[$field_identifier]) {
++          $date = new DrupalDateTime($value);
++          $input[$field_identifier] = [
++            'date' => $date->format('Y-m-d'),
++            'time' => $date->format('H:i:s'),
++          ];
++        }
++        $form_state->setUserInput($input);
++      }
++    }
++  }
++
++  /**
++   * Finds elements in the exposed form and converts from textfield to datetime.
++   *
++   * Recursively searches all children of the element to handle nested forms.
++   *
++   * @param array $element
++   *   The form element to convert (if appropriate).
++   */
++  protected function convertTextElementToDatetime(&$element) {
++    if (isset($element['#type']) && $element['#type'] === 'textfield') {
++      $element['#type'] = 'datetime';
++    }
++    foreach (Element::children($element) as $child) {
++      $this->convertTextElementToDatetime($element[$child]);
++    }
++  }
++
++  /**
++   * Override parent method to remove 'regular_expression' as an option.
++   *
++   * Since we're operating on date fields, and have a date (and maybe time)
++   * picker as the widget (not a text field), a 'Regular expression' operation
++   * makes no sense.
++   */
++  public function operators() {
++    $operators = parent::operators();
++    unset($operators['regular_expression']);
++    return $operators;
++  }
++
+ }
+diff --git a/core/modules/views/tests/modules/views_test_config/test_views/views.view.test_filter_date_between_exposed.yml b/core/modules/views/tests/modules/views_test_config/test_views/views.view.test_filter_date_between_exposed.yml
+new file mode 100644
+index 0000000000..34301a1c55
+--- /dev/null
++++ b/core/modules/views/tests/modules/views_test_config/test_views/views.view.test_filter_date_between_exposed.yml
+@@ -0,0 +1,319 @@
++langcode: en
++status: true
++dependencies:
++  module:
++    - node
++    - user
++id: test_filter_date_between_exposed
++label: test_filter_date_between_exposed
++module: views
++description: ''
++tag: ''
++base_table: node_field_data
++base_field: nid
++display:
++  default:
++    display_plugin: default
++    id: default
++    display_title: Default
++    position: 0
++    display_options:
++      access:
++        type: perm
++        options:
++          perm: 'access content'
++      cache:
++        type: tag
++        options: {  }
++      query:
++        type: views_query
++        options:
++          disable_sql_rewrite: false
++          distinct: false
++          replica: false
++          query_comment: ''
++          query_tags: {  }
++      exposed_form:
++        type: basic
++        options:
++          submit_button: Apply
++          reset_button: false
++          reset_button_label: Reset
++          exposed_sorts_label: 'Sort by'
++          expose_sort_order: true
++          sort_asc_label: Asc
++          sort_desc_label: Desc
++      pager:
++        type: mini
++        options:
++          items_per_page: 10
++          offset: 0
++          id: 0
++          total_pages: null
++          expose:
++            items_per_page: false
++            items_per_page_label: 'Items per page'
++            items_per_page_options: '5, 10, 25, 50'
++            items_per_page_options_all: false
++            items_per_page_options_all_label: '- All -'
++            offset: false
++            offset_label: Offset
++          tags:
++            previous: ‹‹
++            next: ››
++      style:
++        type: default
++      row:
++        type: fields
++      fields:
++        title:
++          id: title
++          table: node_field_data
++          field: title
++          settings:
++            link_to_entity: true
++          plugin_id: field
++          relationship: none
++          group_type: group
++          admin_label: ''
++          label: ''
++          exclude: false
++          alter:
++            alter_text: false
++            text: ''
++            make_link: false
++            path: ''
++            absolute: false
++            external: false
++            replace_spaces: false
++            path_case: none
++            trim_whitespace: false
++            alt: ''
++            rel: ''
++            link_class: ''
++            prefix: ''
++            suffix: ''
++            target: ''
++            nl2br: false
++            max_length: 0
++            word_boundary: true
++            ellipsis: true
++            more_link: false
++            more_link_text: ''
++            more_link_path: ''
++            strip_tags: false
++            trim: false
++            preserve_tags: ''
++            html: false
++          element_type: ''
++          element_class: ''
++          element_label_type: ''
++          element_label_class: ''
++          element_label_colon: true
++          element_wrapper_type: ''
++          element_wrapper_class: ''
++          element_default_classes: true
++          empty: ''
++          hide_empty: false
++          empty_zero: false
++          hide_alter_empty: true
++          click_sort_column: value
++          type: string
++          group_column: value
++          group_columns: {  }
++          group_rows: true
++          delta_limit: 0
++          delta_offset: 0
++          delta_reversed: false
++          delta_first_last: false
++          multi_type: separator
++          separator: ', '
++          field_api_classes: false
++      filters:
++        status:
++          value: '1'
++          table: node_field_data
++          field: status
++          plugin_id: boolean
++          entity_type: node
++          entity_field: status
++          id: status
++          expose:
++            operator: ''
++          group: 1
++        created:
++          id: created
++          table: node_field_data
++          field: created
++          relationship: none
++          group_type: group
++          admin_label: ''
++          operator: '='
++          value:
++            min: ''
++            max: ''
++            value: ''
++            type: date
++          group: 1
++          exposed: true
++          expose:
++            operator_id: created_op
++            label: 'Authored on'
++            description: ''
++            use_operator: false
++            operator: created_op
++            identifier: created
++            required: false
++            remember: false
++            multiple: false
++            remember_roles:
++              authenticated: authenticated
++              anonymous: '0'
++              administrator: '0'
++          is_grouped: false
++          group_info:
++            label: ''
++            description: ''
++            identifier: ''
++            optional: true
++            widget: select
++            multiple: false
++            remember: false
++            default_group: All
++            default_group_multiple: {  }
++            group_items: {  }
++          entity_type: node
++          entity_field: created
++          plugin_id: date
++      sorts:
++        created:
++          id: created
++          table: node_field_data
++          field: created
++          order: ASC
++          entity_type: node
++          entity_field: created
++          plugin_id: date
++          relationship: none
++          group_type: group
++          admin_label: ''
++          exposed: false
++          expose:
++            label: ''
++          granularity: second
++      title: test_filter_date_exposed
++      header: {  }
++      footer: {  }
++      empty: {  }
++      relationships: {  }
++      arguments: {  }
++      display_extenders: {  }
++    cache_metadata:
++      max-age: -1
++      contexts:
++        - 'languages:language_content'
++        - 'languages:language_interface'
++        - url
++        - url.query_args
++        - 'user.node_grants:view'
++        - user.permissions
++      tags: {  }
++  page_1:
++    display_plugin: page
++    id: page_1
++    display_title: Page
++    position: 1
++    display_options:
++      display_extenders: {  }
++      path: test-filter-date-exposed
++    cache_metadata:
++      max-age: -1
++      contexts:
++        - 'languages:language_content'
++        - 'languages:language_interface'
++        - url
++        - url.query_args
++        - 'user.node_grants:view'
++        - user.permissions
++      tags: {  }
++  page_2:
++    display_plugin: page
++    id: page_2
++    display_title: Page
++    position: 1
++    display_options:
++      display_extenders: {  }
++      path: test-filter-date-between-exposed
++      filters:
++        status:
++          value: '1'
++          table: node_field_data
++          field: status
++          plugin_id: boolean
++          entity_type: node
++          entity_field: status
++          id: status
++          expose:
++            operator: ''
++          group: 1
++        created:
++          id: created
++          table: node_field_data
++          field: created
++          relationship: none
++          group_type: group
++          admin_label: ''
++          operator: between
++          value:
++            min: ''
++            max: ''
++            value: ''
++            type: date
++          group: 1
++          exposed: true
++          expose:
++            operator_id: created_op
++            label: 'Authored on'
++            description: ''
++            use_operator: false
++            operator: created_op
++            identifier: created
++            required: false
++            remember: false
++            multiple: false
++            remember_roles:
++              authenticated: authenticated
++              anonymous: '0'
++              administrator: '0'
++          is_grouped: false
++          group_info:
++            label: ''
++            description: ''
++            identifier: ''
++            optional: true
++            widget: select
++            multiple: false
++            remember: false
++            default_group: All
++            default_group_multiple: {  }
++            group_items: {  }
++          entity_type: node
++          entity_field: created
++          plugin_id: date
++      defaults:
++        filters: false
++        filter_groups: false
++      filter_groups:
++        operator: AND
++        groups:
++          1: AND
++    cache_metadata:
++      max-age: -1
++      contexts:
++        - 'languages:language_content'
++        - 'languages:language_interface'
++        - url
++        - url.query_args
++        - 'user.node_grants:view'
++        - user.permissions
++      tags: {  }
+diff --git a/core/modules/views/tests/modules/views_test_config/test_views/views.view.test_filter_date_exposed_operators.yml b/core/modules/views/tests/modules/views_test_config/test_views/views.view.test_filter_date_exposed_operators.yml
+new file mode 100644
+index 0000000000..b98159b108
+--- /dev/null
++++ b/core/modules/views/tests/modules/views_test_config/test_views/views.view.test_filter_date_exposed_operators.yml
+@@ -0,0 +1,322 @@
++langcode: en
++status: true
++dependencies:
++  module:
++    - node
++    - user
++id: test_filter_date_exposed_operators
++label: test_filter_date_exposed_operators
++module: views
++description: ''
++tag: ''
++base_table: node_field_data
++base_field: nid
++display:
++  default:
++    display_plugin: default
++    id: default
++    display_title: Default
++    position: 0
++    display_options:
++      access:
++        type: perm
++        options:
++          perm: 'access content'
++      cache:
++        type: tag
++        options: {  }
++      query:
++        type: views_query
++        options:
++          disable_sql_rewrite: false
++          distinct: false
++          replica: false
++          query_comment: ''
++          query_tags: {  }
++      exposed_form:
++        type: basic
++        options:
++          submit_button: Apply
++          reset_button: false
++          reset_button_label: Reset
++          exposed_sorts_label: 'Sort by'
++          expose_sort_order: true
++          sort_asc_label: Asc
++          sort_desc_label: Desc
++      pager:
++        type: mini
++        options:
++          items_per_page: 10
++          offset: 0
++          id: 0
++          total_pages: null
++          expose:
++            items_per_page: false
++            items_per_page_label: 'Items per page'
++            items_per_page_options: '5, 10, 25, 50'
++            items_per_page_options_all: false
++            items_per_page_options_all_label: '- All -'
++            offset: false
++            offset_label: Offset
++          tags:
++            previous: ‹‹
++            next: ››
++      style:
++        type: default
++      row:
++        type: fields
++      fields:
++        title:
++          id: title
++          table: node_field_data
++          field: title
++          settings:
++            link_to_entity: true
++          plugin_id: field
++          relationship: none
++          group_type: group
++          admin_label: ''
++          label: ''
++          exclude: false
++          alter:
++            alter_text: false
++            text: ''
++            make_link: false
++            path: ''
++            absolute: false
++            external: false
++            replace_spaces: false
++            path_case: none
++            trim_whitespace: false
++            alt: ''
++            rel: ''
++            link_class: ''
++            prefix: ''
++            suffix: ''
++            target: ''
++            nl2br: false
++            max_length: 0
++            word_boundary: true
++            ellipsis: true
++            more_link: false
++            more_link_text: ''
++            more_link_path: ''
++            strip_tags: false
++            trim: false
++            preserve_tags: ''
++            html: false
++          element_type: ''
++          element_class: ''
++          element_label_type: ''
++          element_label_class: ''
++          element_label_colon: true
++          element_wrapper_type: ''
++          element_wrapper_class: ''
++          element_default_classes: true
++          empty: ''
++          hide_empty: false
++          empty_zero: false
++          hide_alter_empty: true
++          click_sort_column: value
++          type: string
++          group_column: value
++          group_columns: {  }
++          group_rows: true
++          delta_limit: 0
++          delta_offset: 0
++          delta_reversed: false
++          delta_first_last: false
++          multi_type: separator
++          separator: ', '
++          field_api_classes: false
++      filters:
++        status:
++          value: '1'
++          table: node_field_data
++          field: status
++          plugin_id: boolean
++          entity_type: node
++          entity_field: status
++          id: status
++          expose:
++            operator: ''
++          group: 1
++        created:
++          id: created
++          table: node_field_data
++          field: created
++          relationship: none
++          group_type: group
++          admin_label: ''
++          operator: '='
++          value:
++            min: ''
++            max: ''
++            value: ''
++            type: date
++          group: 1
++          exposed: true
++          expose:
++            operator_id: created_op
++            label: 'Authored on'
++            description: ''
++            use_operator: true
++            operator: created_op
++            identifier: created
++            required: false
++            remember: false
++            multiple: false
++            remember_roles:
++              authenticated: authenticated
++              anonymous: '0'
++              administrator: '0'
++            placeholder: ''
++            min_placeholder: ''
++            max_placeholder: ''
++          is_grouped: false
++          group_info:
++            label: ''
++            description: ''
++            identifier: ''
++            optional: true
++            widget: select
++            multiple: false
++            remember: false
++            default_group: All
++            default_group_multiple: {  }
++            group_items: {  }
++          entity_type: node
++          entity_field: created
++          plugin_id: date
++      sorts:
++        created:
++          id: created
++          table: node_field_data
++          field: created
++          order: ASC
++          entity_type: node
++          entity_field: created
++          plugin_id: date
++          relationship: none
++          group_type: group
++          admin_label: ''
++          exposed: false
++          expose:
++            label: ''
++          granularity: second
++      title: test_filter_date_exposed
++      header: {  }
++      footer: {  }
++      empty: {  }
++      relationships: {  }
++      arguments: {  }
++      display_extenders: {  }
++    cache_metadata:
++      max-age: -1
++      contexts:
++        - 'languages:language_content'
++        - 'languages:language_interface'
++        - url
++        - url.query_args
++        - 'user.node_grants:view'
++        - user.permissions
++      tags: {  }
++  page_1:
++    display_plugin: page
++    id: page_1
++    display_title: Page
++    position: 1
++    display_options:
++      display_extenders: {  }
++      path: test-filter-date-exposed-operators
++    cache_metadata:
++      max-age: -1
++      contexts:
++        - 'languages:language_content'
++        - 'languages:language_interface'
++        - url
++        - url.query_args
++        - 'user.node_grants:view'
++        - user.permissions
++      tags: {  }
++  page_2:
++    display_plugin: page
++    id: page_2
++    display_title: Page
++    position: 1
++    display_options:
++      display_extenders: {  }
++      path: test-filter-date-between-exposed
++      filters:
++        status:
++          value: '1'
++          table: node_field_data
++          field: status
++          plugin_id: boolean
++          entity_type: node
++          entity_field: status
++          id: status
++          expose:
++            operator: ''
++          group: 1
++        created:
++          id: created
++          table: node_field_data
++          field: created
++          relationship: none
++          group_type: group
++          admin_label: ''
++          operator: between
++          value:
++            min: ''
++            max: ''
++            value: ''
++            type: date
++          group: 1
++          exposed: true
++          expose:
++            operator_id: created_op
++            label: 'Authored on'
++            description: ''
++            use_operator: false
++            operator: created_op
++            identifier: created
++            required: false
++            remember: false
++            multiple: false
++            remember_roles:
++              authenticated: authenticated
++              anonymous: '0'
++              administrator: '0'
++          is_grouped: false
++          group_info:
++            label: ''
++            description: ''
++            identifier: ''
++            optional: true
++            widget: select
++            multiple: false
++            remember: false
++            default_group: All
++            default_group_multiple: {  }
++            group_items: {  }
++          entity_type: node
++          entity_field: created
++          plugin_id: date
++      defaults:
++        filters: false
++        filter_groups: false
++      filter_groups:
++        operator: AND
++        groups:
++          1: AND
++    cache_metadata:
++      max-age: -1
++      contexts:
++        - 'languages:language_content'
++        - 'languages:language_interface'
++        - url
++        - url.query_args
++        - 'user.node_grants:view'
++        - user.permissions
++      tags: {  }
+diff --git a/core/modules/views/tests/modules/views_test_config/test_views/views.view.test_filter_date_not_between_exposed.yml b/core/modules/views/tests/modules/views_test_config/test_views/views.view.test_filter_date_not_between_exposed.yml
+new file mode 100644
+index 0000000000..064e69ca20
+--- /dev/null
++++ b/core/modules/views/tests/modules/views_test_config/test_views/views.view.test_filter_date_not_between_exposed.yml
+@@ -0,0 +1,319 @@
++langcode: en
++status: true
++dependencies:
++  module:
++    - node
++    - user
++id: test_filter_date_not_between_exposed
++label: test_filter_date_not_between_exposed
++module: views
++description: ''
++tag: ''
++base_table: node_field_data
++base_field: nid
++display:
++  default:
++    display_plugin: default
++    id: default
++    display_title: Default
++    position: 0
++    display_options:
++      access:
++        type: perm
++        options:
++          perm: 'access content'
++      cache:
++        type: tag
++        options: {  }
++      query:
++        type: views_query
++        options:
++          disable_sql_rewrite: false
++          distinct: false
++          replica: false
++          query_comment: ''
++          query_tags: {  }
++      exposed_form:
++        type: basic
++        options:
++          submit_button: Apply
++          reset_button: false
++          reset_button_label: Reset
++          exposed_sorts_label: 'Sort by'
++          expose_sort_order: true
++          sort_asc_label: Asc
++          sort_desc_label: Desc
++      pager:
++        type: mini
++        options:
++          items_per_page: 10
++          offset: 0
++          id: 0
++          total_pages: null
++          expose:
++            items_per_page: false
++            items_per_page_label: 'Items per page'
++            items_per_page_options: '5, 10, 25, 50'
++            items_per_page_options_all: false
++            items_per_page_options_all_label: '- All -'
++            offset: false
++            offset_label: Offset
++          tags:
++            previous: ‹‹
++            next: ››
++      style:
++        type: default
++      row:
++        type: fields
++      fields:
++        title:
++          id: title
++          table: node_field_data
++          field: title
++          settings:
++            link_to_entity: true
++          plugin_id: field
++          relationship: none
++          group_type: group
++          admin_label: ''
++          label: ''
++          exclude: false
++          alter:
++            alter_text: false
++            text: ''
++            make_link: false
++            path: ''
++            absolute: false
++            external: false
++            replace_spaces: false
++            path_case: none
++            trim_whitespace: false
++            alt: ''
++            rel: ''
++            link_class: ''
++            prefix: ''
++            suffix: ''
++            target: ''
++            nl2br: false
++            max_length: 0
++            word_boundary: true
++            ellipsis: true
++            more_link: false
++            more_link_text: ''
++            more_link_path: ''
++            strip_tags: false
++            trim: false
++            preserve_tags: ''
++            html: false
++          element_type: ''
++          element_class: ''
++          element_label_type: ''
++          element_label_class: ''
++          element_label_colon: true
++          element_wrapper_type: ''
++          element_wrapper_class: ''
++          element_default_classes: true
++          empty: ''
++          hide_empty: false
++          empty_zero: false
++          hide_alter_empty: true
++          click_sort_column: value
++          type: string
++          group_column: value
++          group_columns: {  }
++          group_rows: true
++          delta_limit: 0
++          delta_offset: 0
++          delta_reversed: false
++          delta_first_last: false
++          multi_type: separator
++          separator: ', '
++          field_api_classes: false
++      filters:
++        status:
++          value: '1'
++          table: node_field_data
++          field: status
++          plugin_id: boolean
++          entity_type: node
++          entity_field: status
++          id: status
++          expose:
++            operator: ''
++          group: 1
++        created:
++          id: created
++          table: node_field_data
++          field: created
++          relationship: none
++          group_type: group
++          admin_label: ''
++          operator: '='
++          value:
++            min: ''
++            max: ''
++            value: ''
++            type: date
++          group: 1
++          exposed: true
++          expose:
++            operator_id: created_op
++            label: 'Authored on'
++            description: ''
++            use_operator: false
++            operator: created_op
++            identifier: created
++            required: false
++            remember: false
++            multiple: false
++            remember_roles:
++              authenticated: authenticated
++              anonymous: '0'
++              administrator: '0'
++          is_grouped: false
++          group_info:
++            label: ''
++            description: ''
++            identifier: ''
++            optional: true
++            widget: select
++            multiple: false
++            remember: false
++            default_group: All
++            default_group_multiple: {  }
++            group_items: {  }
++          entity_type: node
++          entity_field: created
++          plugin_id: date
++      sorts:
++        created:
++          id: created
++          table: node_field_data
++          field: created
++          order: ASC
++          entity_type: node
++          entity_field: created
++          plugin_id: date
++          relationship: none
++          group_type: group
++          admin_label: ''
++          exposed: false
++          expose:
++            label: ''
++          granularity: second
++      title: test_filter_date_exposed
++      header: {  }
++      footer: {  }
++      empty: {  }
++      relationships: {  }
++      arguments: {  }
++      display_extenders: {  }
++    cache_metadata:
++      max-age: -1
++      contexts:
++        - 'languages:language_content'
++        - 'languages:language_interface'
++        - url
++        - url.query_args
++        - 'user.node_grants:view'
++        - user.permissions
++      tags: {  }
++  page_1:
++    display_plugin: page
++    id: page_1
++    display_title: Page
++    position: 1
++    display_options:
++      display_extenders: {  }
++      path: test-filter-date-exposed
++    cache_metadata:
++      max-age: -1
++      contexts:
++        - 'languages:language_content'
++        - 'languages:language_interface'
++        - url
++        - url.query_args
++        - 'user.node_grants:view'
++        - user.permissions
++      tags: {  }
++  page_2:
++    display_plugin: page
++    id: page_2
++    display_title: Page
++    position: 1
++    display_options:
++      display_extenders: {  }
++      path: test-filter-date-not-between-exposed
++      filters:
++        status:
++          value: '1'
++          table: node_field_data
++          field: status
++          plugin_id: boolean
++          entity_type: node
++          entity_field: status
++          id: status
++          expose:
++            operator: ''
++          group: 1
++        created:
++          id: created
++          table: node_field_data
++          field: created
++          relationship: none
++          group_type: group
++          admin_label: ''
++          operator: 'not between'
++          value:
++            min: ''
++            max: ''
++            value: ''
++            type: date
++          group: 1
++          exposed: true
++          expose:
++            operator_id: created_op
++            label: 'Authored on'
++            description: ''
++            use_operator: false
++            operator: created_op
++            identifier: created
++            required: false
++            remember: false
++            multiple: false
++            remember_roles:
++              authenticated: authenticated
++              anonymous: '0'
++              administrator: '0'
++          is_grouped: false
++          group_info:
++            label: ''
++            description: ''
++            identifier: ''
++            optional: true
++            widget: select
++            multiple: false
++            remember: false
++            default_group: All
++            default_group_multiple: {  }
++            group_items: {  }
++          entity_type: node
++          entity_field: created
++          plugin_id: date
++      defaults:
++        filters: false
++        filter_groups: false
++      filter_groups:
++        operator: AND
++        groups:
++          1: AND
++    cache_metadata:
++      max-age: -1
++      contexts:
++        - 'languages:language_content'
++        - 'languages:language_interface'
++        - url
++        - url.query_args
++        - 'user.node_grants:view'
++        - user.permissions
++      tags: {  }
+diff --git a/core/modules/views/tests/modules/views_test_config/test_views/views.view.test_filter_placeholder_text.yml b/core/modules/views/tests/modules/views_test_config/test_views/views.view.test_filter_placeholder_text.yml
+index 6eda868404..83223126ac 100644
+--- a/core/modules/views/tests/modules/views_test_config/test_views/views.view.test_filter_placeholder_text.yml
++++ b/core/modules/views/tests/modules/views_test_config/test_views/views.view.test_filter_placeholder_text.yml
+@@ -206,10 +206,10 @@ display:
+           entity_type: node
+           entity_field: title
+           plugin_id: string
+-        created:
+-          id: created
++        nid:
++          id: nid
+           table: node_field_data
+-          field: created
++          field: nid
+           relationship: none
+           group_type: group
+           admin_label: ''
+@@ -218,16 +218,15 @@ display:
+             min: ''
+             max: ''
+             value: ''
+-            type: date
+           group: 1
+           exposed: true
+           expose:
+-            operator_id: created_op
+-            label: 'Authored on'
++            operator_id: nid_op
++            label: ID
+             description: ''
+             use_operator: true
+-            operator: created_op
+-            identifier: created
++            operator: nid_op
++            identifier: nid
+             required: false
+             remember: false
+             multiple: false
+@@ -251,12 +250,12 @@ display:
+             default_group_multiple: {  }
+             group_items: {  }
+           entity_type: node
+-          entity_field: created
+-          plugin_id: date
+-        created_1:
+-          id: created_1
++          entity_field: nid
++          plugin_id: numeric
++        nid_1:
++          id: nid_1
+           table: node_field_data
+-          field: created
++          field: nid
+           relationship: none
+           group_type: group
+           admin_label: ''
+@@ -264,17 +263,16 @@ display:
+           value:
+             min: ''
+             max: ''
+-            value: ''
+-            type: date
++            value: 'nid placeholder'
+           group: 1
+           exposed: true
+           expose:
+-            operator_id: created_with_placeholders_op
+-            label: 'Authored on'
++            operator_id: nid_placeholder_op
++            label: ID
+             description: ''
+             use_operator: true
+-            operator: created_1_op
+-            identifier: created_with_placeholders
++            operator: nid_1_op
++            identifier: nid_placeholder
+             required: false
+             remember: false
+             multiple: false
+@@ -282,9 +280,9 @@ display:
+               authenticated: authenticated
+               anonymous: '0'
+               administrator: '0'
+-            placeholder: 'created placeholder'
+-            min_placeholder: 'min placeholder'
+-            max_placeholder: 'max placeholder'
++            placeholder: 'nid placeholder'
++            min_placeholder: 'nid min placeholder'
++            max_placeholder: 'nid max placeholder'
+           is_grouped: false
+           group_info:
+             label: ''
+@@ -298,8 +296,8 @@ display:
+             default_group_multiple: {  }
+             group_items: {  }
+           entity_type: node
+-          entity_field: created
+-          plugin_id: date
++          entity_field: nid
++          plugin_id: numeric
+       sorts: {  }
+       title: 'Placeholder text test'
+       header: {  }
+@@ -313,12 +311,12 @@ display:
+         groups:
+           1: AND
+     cache_metadata:
+-      max-age: 0
++      max-age: -1
+       contexts:
+-        - 'languages:language_content'
+-        - 'languages:language_interface'
+-        - url
+-        - 'user.node_grants:view'
++      - 'languages:language_content'
++      - 'languages:language_interface'
++      - url
++      - 'user.node_grants:view'
+       tags: {  }
+   page_1:
+     display_plugin: page
+@@ -329,10 +327,10 @@ display:
+       display_extenders: {  }
+       path: placeholder-text-test
+     cache_metadata:
+-      max-age: 0
++      max-age: -1
+       contexts:
+-        - 'languages:language_content'
+-        - 'languages:language_interface'
+-        - url
+-        - 'user.node_grants:view'
++      - 'languages:language_content'
++      - 'languages:language_interface'
++      - url
++      - 'user.node_grants:view'
+       tags: {  }
+diff --git a/core/modules/views/tests/src/Functional/Handler/FilterDateTest.php b/core/modules/views/tests/src/Functional/Handler/FilterDateTest.php
+index 4869101917..cefbd8bf38 100644
+--- a/core/modules/views/tests/src/Functional/Handler/FilterDateTest.php
++++ b/core/modules/views/tests/src/Functional/Handler/FilterDateTest.php
+@@ -22,7 +22,11 @@ class FilterDateTest extends ViewTestBase {
+    *
+    * @var array
+    */
+-  public static $testViews = ['test_filter_date_between'];
++  public static $testViews = [
++    'test_filter_date_between',
++    'test_filter_date_between_exposed',
++    'test_filter_date_exposed_operators',
++  ];
+ 
+   /**
+    * Modules to enable.
+@@ -90,6 +94,8 @@ public function testDateFilter() {
+     $this->_testUiValidation();
+     $this->_testFilterDateUI();
+     $this->_testFilterDatetimeUI();
++    $this->_testExposedFilterTimestampUI();
++    $this->_testExposedFilterExposedOperator();
+   }
+ 
+   /**
+@@ -282,7 +288,8 @@ protected function _testFilterDateUI() {
+     $this->assertCount(1, $results);
+     $this->assertEquals($this->nodes[3]->id(), $results[0]->getText());
+     $this->submitForm([
+-      'created' => $this->dateFormatter->format(250000, 'custom', 'Y-m-d H:i:s'),
++      'created[date]' => $this->dateFormatter->format(250000, 'custom', 'Y-m-d'),
++      'created[time]' => $this->dateFormatter->format(250000, 'custom', 'H:i:s'),
+     ], 'Apply');
+     $results = $this->cssSelect('.view-content .field-content');
+     $this->assertCount(2, $results);
+@@ -343,7 +350,203 @@ public function testExposedFilter() {
+     $this->submitForm([], 'Save');
+ 
+     $this->drupalGet('exposed-date-filter');
+-    $this->assertSession()->fieldExists('created');
++    $this->assertSession()->fieldExists('created[date]');
++    $this->assertSession()->fieldExists('created[time]');
++  }
++
++  /**
++   * Make sure the exposed timestamp filters work.
++   */
++  protected function _testExposedFilterTimestampUI() {
++    $this->drupalLogin($this->drupalCreateUser(['access content']));
++
++    // Test the exposed "=" filter.
++    $this->drupalGet('test-filter-date-exposed');
++
++    // Verify that exposed input elements exists in the output with the proper
++    // types.
++    $date_field = $this->assertSession()->fieldExists('edit-created-date');
++    $this->assertEquals('date', $date_field->getAttribute('type'));
++    $this->assertEquals('', $date_field->getValue());
++
++    $time_field = $this->assertSession()->fieldExists('edit-created-time');
++    $this->assertEquals('time', $time_field->getAttribute('type'));
++    $this->assertEquals('', $time_field->getValue());
++
++    // Verify the node list.
++    $this->assertSession()->pageTextContains($this->nodes[0]->getTitle());
++    $this->assertSession()->pageTextContains($this->nodes[1]->getTitle());
++    $this->assertSession()->pageTextContains($this->nodes[2]->getTitle());
++    $this->assertSession()->pageTextContains($this->nodes[3]->getTitle());
++
++    // Apply the filter.
++    $timezone = $this->config('system.date')->get('timezone.default');
++    $created = $this->nodes[1]->getCreatedTime();
++    $date = $this->dateFormatter->format($created, 'custom', 'Y-m-d', $timezone);
++    $time = $this->dateFormatter->format($created, 'custom', 'H:i:s', $timezone);
++
++    $edit = [
++      'created[date]' => $date,
++      'created[time]' => $time,
++    ];
++
++    $this->drupalGet('test-filter-date-exposed', ['query' => $edit]);
++
++    // Verify the exposed inputs have the values being filtered on.
++    $date_field = $this->assertSession()->fieldExists('edit-created-date');
++    $this->assertEquals($date, $date_field->getValue());
++    $time_field = $this->assertSession()->fieldExists('edit-created-time');
++    $this->assertEquals($time, $time_field->getValue());
++
++    // Verify the node list.
++    $this->assertSession()->pageTextNotContains($this->nodes[0]->getTitle());
++    $this->assertSession()->pageTextContains($this->nodes[1]->getTitle());
++    $this->assertSession()->pageTextNotContains($this->nodes[2]->getTitle());
++    $this->assertSession()->pageTextNotContains($this->nodes[3]->getTitle());
++
++    // Test the exposed "between" filter.
++    $this->drupalGet('test-filter-date-between-exposed');
++
++    // Verify that exposed input elements exists in the output with the proper
++    // types.
++    $date_field = $this->assertSession()->fieldExists('edit-created-min-date');
++    $this->assertEquals('date', $date_field->getAttribute('type'));
++    $this->assertEquals('', $date_field->getValue());
++
++    $time_field = $this->assertSession()->fieldExists('edit-created-min-time');
++    $this->assertEquals('time', $time_field->getAttribute('type'));
++    $this->assertEquals('', $time_field->getValue());
++    $date_field = $this->assertSession()->fieldExists('edit-created-max-date');
++    $this->assertEquals('date', $date_field->getAttribute('type'));
++    $this->assertEquals('', $date_field->getValue());
++
++    $time_field = $this->assertSession()->fieldExists('edit-created-max-time');
++    $this->assertEquals('time', $time_field->getAttribute('type'));
++    $this->assertEquals('', $time_field->getValue());
++
++    // Verify the node list.
++    $this->assertSession()->pageTextContains($this->nodes[0]->getTitle());
++    $this->assertSession()->pageTextContains($this->nodes[1]->getTitle());
++    $this->assertSession()->pageTextContains($this->nodes[2]->getTitle());
++    $this->assertSession()->pageTextContains($this->nodes[3]->getTitle());
++
++    // Apply the filter.
++    $timezone = $this->config('system.date')->get('timezone.default');
++    $created = $this->nodes[1]->getCreatedTime();
++    $min_date = $this->dateFormatter->format($created - 3600, 'custom', 'Y-m-d', $timezone);
++    $min_time = $this->dateFormatter->format($created - 3600, 'custom', 'H:i:s', $timezone);
++    $max_date = $this->dateFormatter->format($created + 3600, 'custom', 'Y-m-d', $timezone);
++    $max_time = $this->dateFormatter->format($created + 3600, 'custom', 'H:i:s', $timezone);
++
++    $edit = [
++      'created[min][date]' => $min_date,
++      'created[min][time]' => $min_time,
++      'created[max][date]' => $max_date,
++      'created[max][time]' => $max_time,
++    ];
++
++    $this->drupalGet('test-filter-date-between-exposed', ['query' => $edit]);
++
++    // Verify the exposed inputs have the values being filtered on.
++    $date_field = $this->assertSession()->fieldExists('edit-created-min-date');
++    $this->assertEquals($min_date, $date_field->getValue());
++    $time_field = $this->assertSession()->fieldExists('edit-created-min-time');
++    $this->assertEquals($min_time, $time_field->getValue());
++    $date_field = $this->assertSession()->fieldExists('edit-created-max-date');
++    $this->assertEquals($max_date, $date_field->getValue());
++    $time_field = $this->assertSession()->fieldExists('edit-created-max-time');
++    $this->assertEquals($max_time, $time_field->getValue());
++
++    // Verify the node list.
++    $this->assertSession()->pageTextNotContains($this->nodes[0]->getTitle());
++    $this->assertSession()->pageTextContains($this->nodes[1]->getTitle());
++    $this->assertSession()->pageTextNotContains($this->nodes[2]->getTitle());
++    $this->assertSession()->pageTextNotContains($this->nodes[3]->getTitle());
++  }
++
++  /**
++   * Make sure the date time widgets work properly with exposed operator.
++   */
++  protected function _testExposedFilterExposedOperator() {
++    $this->drupalLogin($this->drupalCreateUser(['access content']));
++
++    // Test the exposed "=" filter.
++    $this->drupalGet('test-filter-date-exposed-operators');
++
++    // Verify that exposed input elements exists in the output with the proper
++    // types.
++    $date_field = $this->assertSession()->fieldExists('edit-created-value-date');
++    $this->assertEquals('date', $date_field->getAttribute('type'));
++    $this->assertEquals('', $date_field->getValue());
++    $time_field = $this->assertSession()->fieldExists('edit-created-value-time');
++    $this->assertEquals('time', $time_field->getAttribute('type'));
++    $this->assertEquals('', $time_field->getValue());
++
++    // Verify the node list.
++    $this->assertSession()->pageTextContains($this->nodes[0]->getTitle());
++    $this->assertSession()->pageTextContains($this->nodes[1]->getTitle());
++    $this->assertSession()->pageTextContains($this->nodes[2]->getTitle());
++    $this->assertSession()->pageTextContains($this->nodes[3]->getTitle());
++
++    // Apply the filter.
++    $timezone = $this->config('system.date')->get('timezone.default');
++    $created = $this->nodes[1]->getCreatedTime();
++    $date = $this->dateFormatter->format($created, 'custom', 'Y-m-d', $timezone);
++    $time = $this->dateFormatter->format($created, 'custom', 'H:i:s', $timezone);
++
++    // When operator is exposed, when the operator is not 'between' or
++    // 'not-between', the date goes inside the value key in the array
++    // corresponding to the identifier.
++    $edit = [
++      'created[value][date]' => $date,
++      'created[value][time]' => $time,
++      'created_op' => '=',
++    ];
++
++    $this->drupalGet('test-filter-date-exposed-operators', ['query' => $edit]);
++
++    // Verify the exposed inputs have the values being filtered on.
++    $date_field = $this->assertSession()->fieldExists('edit-created-value-date');
++    $this->assertEquals($date, $date_field->getValue());
++    $time_field = $this->assertSession()->fieldExists('edit-created-value-time');
++    $this->assertEquals($time, $time_field->getValue());
++
++    // Verify the node list.
++    $this->assertSession()->pageTextNotContains($this->nodes[0]->getTitle());
++    $this->assertSession()->pageTextContains($this->nodes[1]->getTitle());
++    $this->assertSession()->pageTextNotContains($this->nodes[2]->getTitle());
++    $this->assertSession()->pageTextNotContains($this->nodes[3]->getTitle());
++
++    $min_date = $this->dateFormatter->format($created - 3600, 'custom', 'Y-m-d', $timezone);
++    $min_time = $this->dateFormatter->format($created - 3600, 'custom', 'H:i:s', $timezone);
++    $max_date = $this->dateFormatter->format($created + 3600, 'custom', 'Y-m-d', $timezone);
++    $max_time = $this->dateFormatter->format($created + 3600, 'custom', 'H:i:s', $timezone);
++
++    $edit = [
++      'created_op' => 'between',
++      'created[min][date]' => $min_date,
++      'created[min][time]' => $min_time,
++      'created[max][date]' => $max_date,
++      'created[max][time]' => $max_time,
++    ];
++
++    $this->drupalGet('test-filter-date-exposed-operators', ['query' => $edit]);
++
++    // Verify the exposed inputs have the values being filtered on.
++    $date_field = $this->assertSession()->fieldExists('edit-created-min-date');
++    $this->assertEquals($min_date, $date_field->getValue());
++    $time_field = $this->assertSession()->fieldExists('edit-created-min-time');
++    $this->assertEquals($min_time, $time_field->getValue());
++    $date_field = $this->assertSession()->fieldExists('edit-created-max-date');
++    $this->assertEquals($max_date, $date_field->getValue());
++    $time_field = $this->assertSession()->fieldExists('edit-created-max-time');
++    $this->assertEquals($max_time, $time_field->getValue());
++
++    // Verify the node list.
++    $this->assertSession()->pageTextNotContains($this->nodes[0]->getTitle());
++    $this->assertSession()->pageTextContains($this->nodes[1]->getTitle());
++    $this->assertSession()->pageTextNotContains($this->nodes[2]->getTitle());
++    $this->assertSession()->pageTextNotContains($this->nodes[3]->getTitle());
+   }
+ 
+ }
+diff --git a/core/modules/views/tests/src/Functional/Handler/FilterPlaceholderTextTest.php b/core/modules/views/tests/src/Functional/Handler/FilterPlaceholderTextTest.php
+index 84a371be34..470e424af4 100644
+--- a/core/modules/views/tests/src/Functional/Handler/FilterPlaceholderTextTest.php
++++ b/core/modules/views/tests/src/Functional/Handler/FilterPlaceholderTextTest.php
+@@ -44,23 +44,23 @@ public function testPlaceholderText() {
+     $this->assertEquals('title placeholder', $results[0]->getAttribute('placeholder'));
+ 
+     // Numeric filter that has no placeholders configured.
+-    $results = $this->cssSelect('input[name="created[value]"]');
++    $results = $this->cssSelect('input[name="nid[value]"]');
+     $this->assertFalse($results[0]->hasAttribute('placeholder'));
+-    $results = $this->cssSelect('input[name="created[min]"]');
++    $results = $this->cssSelect('input[name="nid[min]"]');
+     $this->assertFalse($results[0]->hasAttribute('placeholder'));
+-    $results = $this->cssSelect('input[name="created[max]"]');
++    $results = $this->cssSelect('input[name="nid[max]"]');
+     $this->assertFalse($results[0]->hasAttribute('placeholder'));
+ 
+     // Numeric filter that has all placeholders configured.
+-    $results = $this->cssSelect('input[name="created_with_placeholders[value]"]');
++    $results = $this->cssSelect('input[name="nid_placeholder[value]"]');
+     $this->assertTrue($results[0]->hasAttribute('placeholder'));
+-    $this->assertEquals('created placeholder', $results[0]->getAttribute('placeholder'));
+-    $results = $this->cssSelect('input[name="created_with_placeholders[min]"]');
++    $this->assertEquals('nid placeholder', $results[0]->getAttribute('placeholder'));
++    $results = $this->cssSelect('input[name="nid_placeholder[min]"]');
+     $this->assertTrue($results[0]->hasAttribute('placeholder'));
+-    $this->assertEquals('min placeholder', $results[0]->getAttribute('placeholder'));
+-    $results = $this->cssSelect('input[name="created_with_placeholders[max]"]');
++    $this->assertEquals('nid min placeholder', $results[0]->getAttribute('placeholder'));
++    $results = $this->cssSelect('input[name="nid_placeholder[max]"]');
+     $this->assertTrue($results[0]->hasAttribute('placeholder'));
+-    $this->assertEquals('max placeholder', $results[0]->getAttribute('placeholder'));
++    $this->assertEquals('nid max placeholder', $results[0]->getAttribute('placeholder'));
+   }
+ 
+ }
