@@ -128,7 +128,7 @@
         "[#2648950-253] Use form element of type date instead textfield when selecting a date in an exposed filter" : "assets/patch/2648950-253.9_5_x.date-views-exposed-filter.patch",
         "[#2648950-224] Fix conflicts between #2648950 and #2625136" : "assets/patch/2648950-224.changes-for-2625136.DO-NOT-TEST.patch",
         "[#2825860-38] Notice: Undefined index in Views acceptExposedInput()" : "assets/patch/2825860-38.exposed-filter-notice.patch",
-        "[#2868014-79] Views date filter datetime granularity option" : "https://www.drupal.org/files/issues/2019-10-30/2868014-79.patch",
+        "[#2868014-79] Views date filter datetime granularity option" : "assets/patch/2868014-79.patch",
         "[#2868014-79] Build upon [#2648950-224]" : "https://www.drupal.org/files/issues/2019-10-30/2868014-79.changes-for-everything-else.DO-NOT-TEST.patch",
         "[#2801501-8] Don't force the 'Manage' tray open in the toolbar on every page load" : "https://www.drupal.org/files/issues/2019-08-16/2801501-8.no-auto-open-toolbar.patch",
         "[#2853188-14] Add negated regular expressions for views filters (string and integer)" : "assets/patch/2853188-14.9_5_x.patch",
