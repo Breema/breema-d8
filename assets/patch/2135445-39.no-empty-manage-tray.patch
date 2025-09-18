@@ -1,0 +1,71 @@
+diff --git a/core/modules/settings_tray/tests/src/FunctionalJavascript/SettingsTrayBlockFormTest.php b/core/modules/settings_tray/tests/src/FunctionalJavascript/SettingsTrayBlockFormTest.php
+index d505a0b..bd23c50 100644
+--- a/core/modules/settings_tray/tests/src/FunctionalJavascript/SettingsTrayBlockFormTest.php
++++ b/core/modules/settings_tray/tests/src/FunctionalJavascript/SettingsTrayBlockFormTest.php
+@@ -30,6 +30,7 @@ protected function setUp() {
+ 
+     $user = $this->createUser([
+       'administer blocks',
++      'access administration pages',
+       'access contextual links',
+       'access toolbar',
+       'administer nodes',
+diff --git a/core/modules/toolbar/tests/src/Functional/ToolbarAdminMenuTest.php b/core/modules/toolbar/tests/src/Functional/ToolbarAdminMenuTest.php
+index 9585c86..ec3f87e 100644
+--- a/core/modules/toolbar/tests/src/Functional/ToolbarAdminMenuTest.php
++++ b/core/modules/toolbar/tests/src/Functional/ToolbarAdminMenuTest.php
+@@ -395,6 +395,19 @@ public function testExternalLink() {
+   }
+ 
+   /**
++   * Tests that there is no Manage tab in the Toolbar for authenticated users.
++   *
++   * The authorized user should not have a Manage tab simply with the 'access
++   * toolbar' permission. They need 'access administration pages' for that.
++   */
++  public function testEmptyMenuTray() {
++    // Log out the admin user because we're testing restricted access.
++    $this->drupalLogout();
++    $this->drupalLogin($this->drupalCreateUser(['access toolbar']));
++    $this->assertSession()->elementNotExists('css', 'a[id=toolbar-item-administration]');
++  }
++
++  /**
+    * Get the hash value from the admin menu subtrees route path.
+    *
+    * @return string
+diff --git a/core/modules/toolbar/tests/src/FunctionalJavascript/ToolbarIntegrationTest.php b/core/modules/toolbar/tests/src/FunctionalJavascript/ToolbarIntegrationTest.php
+index fd16398..c3cda91 100644
+--- a/core/modules/toolbar/tests/src/FunctionalJavascript/ToolbarIntegrationTest.php
++++ b/core/modules/toolbar/tests/src/FunctionalJavascript/ToolbarIntegrationTest.php
+@@ -22,6 +22,7 @@ class ToolbarIntegrationTest extends WebDriverTestBase {
+   public function testToolbarToggling() {
+     $admin_user = $this->drupalCreateUser([
+       'access toolbar',
++      'access administration pages',
+       'administer site configuration',
+       'access content overview',
+     ]);
+diff --git a/core/modules/toolbar/toolbar.module b/core/modules/toolbar/toolbar.module
+index 044d749..6a900c6 100644
+--- a/core/modules/toolbar/toolbar.module
++++ b/core/modules/toolbar/toolbar.module
+@@ -159,6 +159,18 @@ function toolbar_toolbar() {
+     '#weight' => -20,
+   ];
+ 
++  // If the current user cannot access administration pages, we can save a large
++  // amount of unnecessary work by ending here. It'd be better to actually know
++  // if the admin menu tree is empty for them, but trying to load that tree only
++  // happens in a #pre_render callback, and at that point, it's too late. The
++  // entire toolbar is rendered with the 'user.permissions' #cache context, so
++  // we can safely do this here and it'll still be cached correctly.
++  // @see toolbar_prerender_toolbar_administration_tray()
++  // @see toolbar_page_top()
++  if (!\Drupal::currentUser()->hasPermission('access administration pages')) {
++    return $items;
++  }
++
+   // To conserve bandwidth, we only include the top-level links in the HTML.
+   // The subtrees are fetched through a JSONP script that is generated at the
+   // toolbar_subtrees route. We provide the JavaScript requesting that JSONP
