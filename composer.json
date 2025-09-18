@@ -132,7 +132,7 @@
         "[#2868014-79] Build upon [#2648950-224]" : "https://www.drupal.org/files/issues/2019-10-30/2868014-79.changes-for-everything-else.DO-NOT-TEST.patch",
         "[#2801501-15] Don't force the 'Manage' tray open in the toolbar on every page load" : "assets/patch/2801501-15.no-auto-open-toolbar.9.5.x.do-not-test.patch",
         "[#2853188-14] Add negated regular expressions for views filters (string and integer)" : "assets/patch/2853188-14.9_5_x.patch",
-        "[#2951268-25] Improve rendering of account link in the toolbar" : "https://www.drupal.org/files/issues/2019-05-26/2951268-25.patch"
+        "[#2951268-46] Improve rendering of account link in the toolbar" : "assets/patch/2951268-46.patch"
       },
       "drupal/datetime_extras": {
         "[#3165990-7] UX bug with the duration widget for date-only ranges" : "https://www.drupal.org/files/issues/2020-08-20/3165990-7.patch"
