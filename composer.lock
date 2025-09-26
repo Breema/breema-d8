@@ -1809,26 +1809,26 @@
         },
         {
             "name": "drupal/audiofield",
-            "version": "1.11.0",
+            "version": "1.13.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/audiofield.git",
-                "reference": "8.x-1.11"
+                "reference": "8.x-1.13"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/audiofield-8.x-1.11.zip",
-                "reference": "8.x-1.11",
-                "shasum": "b677d0b178f16baffec8b52bb0c05a06384daf67"
+                "url": "https://ftp.drupal.org/files/projects/audiofield-8.x-1.13.zip",
+                "reference": "8.x-1.13",
+                "shasum": "85bb66d231b2f961728b559351d5dfd155b2c78c"
             },
             "require": {
-                "drupal/core": "^8 || ^9"
+                "drupal/core": "^8 || ^9 || ^10"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.11",
-                    "datestamp": "1630089337",
+                    "version": "8.x-1.13",
+                    "datestamp": "1681143245",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -1849,10 +1849,6 @@
                     "name": "Daniel Moberly",
                     "homepage": "https://www.drupal.org/u/danielmoberly",
                     "role": "Maintainer"
-                },
-                {
-                    "name": "josipsaric",
-                    "homepage": "https://www.drupal.org/user/3063287"
                 },
                 {
                     "name": "tamerzg",
