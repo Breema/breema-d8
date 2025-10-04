@@ -28,70 +28,11 @@ base_table: media_field_data
 base_field: mid
 display:
   default:
-    display_plugin: default
     id: default
     display_title: Master
+    display_plugin: default
     position: 0
     display_options:
-      access:
-        type: perm
-        options:
-          perm: 'view media'
-      cache:
-        type: tag
-        options: {  }
-      query:
-        type: views_query
-        options:
-          disable_sql_rewrite: false
-          distinct: false
-          replica: false
-          query_comment: ''
-          query_tags: {  }
-      exposed_form:
-        type: basic
-        options:
-          submit_button: Search
-          reset_button: true
-          reset_button_label: Reset
-          exposed_sorts_label: 'Sort by'
-          expose_sort_order: true
-          sort_asc_label: Asc
-          sort_desc_label: Desc
-      pager:
-        type: full
-        options:
-          items_per_page: 12
-          offset: 0
-          id: 0
-          total_pages: null
-          tags:
-            previous: '‹ Previous'
-            next: 'Next ›'
-            first: '« First'
-            last: 'Last »'
-          expose:
-            items_per_page: false
-            items_per_page_label: 'Items per page'
-            items_per_page_options: '5, 10, 25, 50'
-            items_per_page_options_all: false
-            items_per_page_options_all_label: '- All -'
-            offset: false
-            offset_label: Offset
-          quantity: 9
-      style:
-        type: default
-        options:
-          grouping: {  }
-          row_class: 'entity-browser-row entity-browser-grid'
-          default_row_class: true
-      row:
-        type: fields
-        options:
-          inline: {  }
-          separator: ''
-          hide_empty: false
-          default_field_elements: true
       fields:
         thumbnail__target_id:
           id: thumbnail__target_id
@@ -100,6 +41,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: media
+          entity_field: thumbnail
+          plugin_id: field
           label: ''
           exclude: false
           alter:
@@ -144,8 +88,10 @@ display:
           click_sort_column: target_id
           type: image
           settings:
-            image_style: 320x180_small
             image_link: ''
+            image_style: 320x180_small
+            image_loading:
+              attribute: lazy
           group_column: ''
           group_columns: {  }
           group_rows: true
@@ -156,9 +102,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          entity_type: media
-          entity_field: thumbnail
-          plugin_id: field
         bundle:
           id: bundle
           table: media_field_data
@@ -166,6 +109,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: media
+          entity_field: bundle
+          plugin_id: field
           label: ''
           exclude: true
           alter:
@@ -221,9 +167,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          entity_type: media
-          entity_field: bundle
-          plugin_id: field
         field_media_image_width:
           id: field_media_image_width
           table: media__field_media_image
@@ -231,6 +174,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: numeric
           label: ''
           exclude: true
           alter:
@@ -280,7 +224,6 @@ display:
           format_plural_string: !!binary MQNAY291bnQ=
           prefix: ''
           suffix: ''
-          plugin_id: numeric
         field_media_image_height:
           id: field_media_image_height
           table: media__field_media_image
@@ -288,6 +231,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: numeric
           label: ''
           exclude: true
           alter:
@@ -337,7 +281,6 @@ display:
           format_plural_string: !!binary MQNAY291bnQ=
           prefix: ''
           suffix: ''
-          plugin_id: numeric
         name:
           id: name
           table: media_field_data
@@ -345,6 +288,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: media
+          entity_field: media
+          plugin_id: field
           label: ''
           exclude: false
           alter:
@@ -400,9 +346,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          entity_type: media
-          entity_field: media
-          plugin_id: field
         entity_browser_select:
           id: entity_browser_select
           table: media
@@ -410,6 +353,8 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: media
+          plugin_id: entity_browser_select
           label: ''
           exclude: false
           alter:
@@ -451,8 +396,62 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
+      pager:
+        type: full
+        options:
+          offset: 0
+          items_per_page: 12
+          total_pages: null
+          id: 0
+          tags:
+            next: 'Next ›'
+            previous: '‹ Previous'
+            first: '« First'
+            last: 'Last »'
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+          quantity: 9
+      exposed_form:
+        type: basic
+        options:
+          submit_button: Search
+          reset_button: true
+          reset_button_label: Reset
+          exposed_sorts_label: 'Sort by'
+          expose_sort_order: true
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+      access:
+        type: perm
+        options:
+          perm: 'view media'
+      cache:
+        type: tag
+        options: {  }
+      empty: {  }
+      sorts:
+        mid:
+          id: mid
+          table: media_field_data
+          field: mid
+          relationship: none
+          group_type: group
+          admin_label: ''
           entity_type: media
-          plugin_id: entity_browser_select
+          entity_field: mid
+          plugin_id: standard
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: mid
+          exposed: false
+      arguments: {  }
       filters:
         status:
           id: status
@@ -461,6 +460,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: media
+          entity_field: status
+          plugin_id: boolean
           operator: '='
           value: '1'
           group: 1
@@ -471,14 +473,14 @@ display:
             description: ''
             use_operator: false
             operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
             identifier: ''
             required: false
             remember: false
             multiple: false
             remember_roles:
               authenticated: authenticated
-            operator_limit_selection: false
-            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -491,9 +493,6 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          entity_type: media
-          entity_field: status
-          plugin_id: boolean
         bundle:
           id: bundle
           table: media_field_data
@@ -501,6 +500,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: media
+          entity_field: bundle
+          plugin_id: bundle
           operator: in
           value:
             audio_file: audio_file
@@ -515,6 +517,8 @@ display:
             description: ''
             use_operator: false
             operator: bundle_op
+            operator_limit_selection: false
+            operator_list: {  }
             identifier: type
             required: false
             remember: false
@@ -530,8 +534,6 @@ display:
               user_administrator: '0'
               administrator: '0'
             reduce: true
-            operator_limit_selection: false
-            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -544,9 +546,6 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          entity_type: media
-          entity_field: bundle
-          plugin_id: bundle
         field_file_type_target_id:
           id: field_file_type_target_id
           table: media__field_file_type
@@ -554,6 +553,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: taxonomy_index_tid
           operator: or
           value: {  }
           group: 1
@@ -564,6 +564,8 @@ display:
             description: ''
             use_operator: false
             operator: field_file_type_target_id_op
+            operator_limit_selection: false
+            operator_list: {  }
             identifier: file_type
             required: false
             remember: false
@@ -576,8 +578,6 @@ display:
               content_administrator: '0'
               administrator: '0'
             reduce: false
-            operator_limit_selection: false
-            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -591,12 +591,11 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: false
-          type: select
-          limit: true
           vid: file_type
+          type: select
           hierarchy: false
+          limit: true
           error_message: true
-          plugin_id: taxonomy_index_tid
         field_image_type_target_id:
           id: field_image_type_target_id
           table: media__field_image_type
@@ -604,6 +603,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: taxonomy_index_tid
           operator: or
           value: {  }
           group: 1
@@ -614,6 +614,8 @@ display:
             description: ''
             use_operator: false
             operator: field_image_type_target_id_op
+            operator_limit_selection: false
+            operator_list: {  }
             identifier: image_type
             required: false
             remember: false
@@ -626,8 +628,6 @@ display:
               content_administrator: '0'
               administrator: '0'
             reduce: false
-            operator_limit_selection: false
-            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -641,12 +641,11 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: false
-          type: select
-          limit: true
           vid: image_type
+          type: select
           hierarchy: false
+          limit: true
           error_message: true
-          plugin_id: taxonomy_index_tid
         field_aspect_ratio_value:
           id: field_aspect_ratio_value
           table: media__field_aspect_ratio
@@ -654,6 +653,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: numeric
           operator: '='
           value:
             min: ''
@@ -667,17 +667,17 @@ display:
             description: null
             use_operator: false
             operator: field_aspect_ratio_value_op
+            operator_limit_selection: false
+            operator_list: {  }
             identifier: field_aspect_ratio_value
             required: false
             remember: false
             multiple: false
             remember_roles:
               authenticated: authenticated
-            placeholder: null
             min_placeholder: null
             max_placeholder: null
-            operator_limit_selection: false
-            operator_list: {  }
+            placeholder: null
           is_grouped: true
           group_info:
             label: 'Aspect ratio'
@@ -694,45 +694,44 @@ display:
                 title: Portrait
                 operator: '<'
                 value:
-                  value: '1.0'
                   min: ''
                   max: ''
+                  value: '1.0'
               2:
                 title: Square
                 operator: '='
                 value:
-                  value: '1.0'
                   min: ''
                   max: ''
+                  value: '1.0'
               3:
                 title: Landscape
                 operator: '>'
                 value:
-                  value: '1.0'
                   min: ''
                   max: ''
+                  value: '1.0'
               4:
                 title: 'Event (3:2)'
                 operator: '='
                 value:
-                  value: '1.5'
                   min: ''
                   max: ''
+                  value: '1.5'
               5:
                 title: 'Essence (32:19)'
                 operator: '='
                 value:
-                  value: '1.7'
                   min: ''
                   max: ''
+                  value: '1.7'
               6:
                 title: 'Social media (2:1)'
                 operator: between
                 value:
-                  value: ''
                   min: '1.9'
                   max: '2.1'
-          plugin_id: numeric
+                  value: ''
         field_video_type_target_id:
           id: field_video_type_target_id
           table: media__field_video_type
@@ -740,6 +739,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: taxonomy_index_tid
           operator: or
           value: {  }
           group: 1
@@ -750,6 +750,8 @@ display:
             description: ''
             use_operator: false
             operator: field_video_type_target_id_op
+            operator_limit_selection: false
+            operator_list: {  }
             identifier: video_type
             required: false
             remember: false
@@ -762,8 +764,6 @@ display:
               content_administrator: '0'
               administrator: '0'
             reduce: false
-            operator_limit_selection: false
-            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -777,12 +777,11 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: false
-          type: select
-          limit: true
           vid: video_type
+          type: select
           hierarchy: false
+          limit: true
           error_message: true
-          plugin_id: taxonomy_index_tid
         name:
           id: name
           table: media_field_data
@@ -790,6 +789,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: media
+          entity_field: name
+          plugin_id: string
           operator: contains
           value: ''
           group: 1
@@ -800,6 +802,8 @@ display:
             description: ''
             use_operator: false
             operator: name_op
+            operator_limit_selection: false
+            operator_list: {  }
             identifier: name
             required: false
             remember: false
@@ -808,8 +812,6 @@ display:
               authenticated: authenticated
               anonymous: '0'
             placeholder: ''
-            operator_limit_selection: false
-            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -822,9 +824,6 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          entity_type: media
-          entity_field: name
-          plugin_id: string
         langcode:
           id: langcode
           table: media_field_data
@@ -832,6 +831,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: media
+          entity_field: langcode
+          plugin_id: language
           operator: in
           value: {  }
           group: 1
@@ -842,6 +844,8 @@ display:
             description: ''
             use_operator: false
             operator: langcode_op
+            operator_limit_selection: false
+            operator_list: {  }
             identifier: langcode
             required: false
             remember: false
@@ -850,8 +854,6 @@ display:
               authenticated: authenticated
               anonymous: '0'
             reduce: false
-            operator_limit_selection: false
-            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -864,35 +866,36 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          entity_type: media
-          entity_field: langcode
-          plugin_id: language
-      sorts:
-        mid:
-          id: mid
-          table: media_field_data
-          field: mid
-          relationship: none
-          group_type: group
-          admin_label: ''
-          order: DESC
-          exposed: false
-          expose:
-            label: ''
-          entity_type: media
-          entity_field: mid
-          plugin_id: standard
-      header: {  }
-      footer: {  }
-      empty: {  }
-      relationships: {  }
-      arguments: {  }
-      display_extenders: {  }
       filter_groups:
         operator: AND
         groups:
           1: AND
+      style:
+        type: default
+        options:
+          grouping: {  }
+          row_class: 'entity-browser-row entity-browser-grid'
+          default_row_class: true
+      row:
+        type: fields
+        options:
+          default_field_elements: true
+          inline: {  }
+          separator: ''
+          hide_empty: false
+      query:
+        type: views_query
+        options:
+          query_comment: ''
+          disable_sql_rewrite: false
+          distinct: false
+          replica: false
+          query_tags: {  }
+      relationships: {  }
       css_class: entity-browser-view
+      header: {  }
+      footer: {  }
+      display_extenders: {  }
     cache_metadata:
       max-age: -1
       contexts:
@@ -904,13 +907,11 @@ display:
         - user.permissions
       tags: {  }
   event_image_select_modal:
-    display_plugin: entity_browser
     id: event_image_select_modal
     display_title: 'Event Image select modal'
+    display_plugin: entity_browser
     position: 1
     display_options:
-      display_extenders: {  }
-      display_description: 'An entity browser modal to select images appropriate for events.'
       filters:
         status:
           id: status
@@ -919,6 +920,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: media
+          entity_field: status
+          plugin_id: boolean
           operator: '='
           value: '1'
           group: 1
@@ -929,14 +933,14 @@ display:
             description: ''
             use_operator: false
             operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
             identifier: ''
             required: false
             remember: false
             multiple: false
             remember_roles:
               authenticated: authenticated
-            operator_limit_selection: false
-            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -949,9 +953,6 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          entity_type: media
-          entity_field: status
-          plugin_id: boolean
         bundle:
           id: bundle
           table: media_field_data
@@ -959,6 +960,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: media
+          entity_field: bundle
+          plugin_id: bundle
           operator: in
           value:
             image: image
@@ -970,6 +974,8 @@ display:
             description: ''
             use_operator: false
             operator: bundle_op
+            operator_limit_selection: false
+            operator_list: {  }
             identifier: provider
             required: false
             remember: false
@@ -978,8 +984,6 @@ display:
               authenticated: authenticated
               anonymous: '0'
             reduce: false
-            operator_limit_selection: false
-            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -992,9 +996,6 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          entity_type: media
-          entity_field: bundle
-          plugin_id: bundle
         field_image_type_target_id:
           id: field_image_type_target_id
           table: media__field_image_type
@@ -1002,6 +1003,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: taxonomy_index_tid
           operator: or
           value: {  }
           group: 1
@@ -1012,6 +1014,8 @@ display:
             description: ''
             use_operator: false
             operator: field_image_type_target_id_op
+            operator_limit_selection: false
+            operator_list: {  }
             identifier: image_type
             required: false
             remember: false
@@ -1024,8 +1028,6 @@ display:
               content_administrator: '0'
               administrator: '0'
             reduce: false
-            operator_limit_selection: false
-            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -1039,12 +1041,11 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: false
-          type: select
-          limit: true
           vid: image_type
+          type: select
           hierarchy: false
+          limit: true
           error_message: true
-          plugin_id: taxonomy_index_tid
         name:
           id: name
           table: media_field_data
@@ -1052,6 +1053,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: media
+          entity_field: name
+          plugin_id: string
           operator: contains
           value: ''
           group: 1
@@ -1062,6 +1066,8 @@ display:
             description: ''
             use_operator: false
             operator: name_op
+            operator_limit_selection: false
+            operator_list: {  }
             identifier: name
             required: false
             remember: false
@@ -1070,8 +1076,6 @@ display:
               authenticated: authenticated
               anonymous: '0'
             placeholder: ''
-            operator_limit_selection: false
-            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -1084,9 +1088,6 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          entity_type: media
-          entity_field: name
-          plugin_id: string
         field_aspect_ratio_value:
           id: field_aspect_ratio_value
           table: media__field_aspect_ratio
@@ -1094,6 +1095,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: numeric
           operator: '='
           value:
             min: ''
@@ -1107,17 +1109,17 @@ display:
             description: ''
             use_operator: false
             operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
             identifier: ''
             required: false
             remember: false
             multiple: false
             remember_roles:
               authenticated: authenticated
-            placeholder: ''
             min_placeholder: ''
             max_placeholder: ''
-            operator_limit_selection: false
-            operator_list: {  }
+            placeholder: ''
           is_grouped: false
           group_info:
             label: ''
@@ -1130,15 +1132,16 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          plugin_id: numeric
-      defaults:
-        filters: false
-        filter_groups: false
-        fields: true
       filter_groups:
         operator: AND
         groups:
           1: AND
+      defaults:
+        fields: true
+        filters: false
+        filter_groups: false
+      display_description: 'An entity browser modal to select images appropriate for events.'
+      display_extenders: {  }
     cache_metadata:
       max-age: -1
       contexts:
@@ -1150,13 +1153,11 @@ display:
         - user.permissions
       tags: {  }
   image_select_modal:
-    display_plugin: entity_browser
     id: image_select_modal
     display_title: 'Image select modal'
+    display_plugin: entity_browser
     position: 1
     display_options:
-      display_extenders: {  }
-      display_description: 'An entity browser modal to select all accessible images (site-wide).'
       filters:
         status:
           id: status
@@ -1165,6 +1166,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: media
+          entity_field: status
+          plugin_id: boolean
           operator: '='
           value: '1'
           group: 1
@@ -1175,14 +1179,14 @@ display:
             description: ''
             use_operator: false
             operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
             identifier: ''
             required: false
             remember: false
             multiple: false
             remember_roles:
               authenticated: authenticated
-            operator_limit_selection: false
-            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -1195,9 +1199,6 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          entity_type: media
-          entity_field: status
-          plugin_id: boolean
         bundle:
           id: bundle
           table: media_field_data
@@ -1205,6 +1206,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: media
+          entity_field: bundle
+          plugin_id: bundle
           operator: in
           value:
             image: image
@@ -1216,6 +1220,8 @@ display:
             description: ''
             use_operator: false
             operator: bundle_op
+            operator_limit_selection: false
+            operator_list: {  }
             identifier: provider
             required: false
             remember: false
@@ -1224,8 +1230,6 @@ display:
               authenticated: authenticated
               anonymous: '0'
             reduce: false
-            operator_limit_selection: false
-            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -1238,9 +1242,6 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          entity_type: media
-          entity_field: bundle
-          plugin_id: bundle
         field_image_type_target_id:
           id: field_image_type_target_id
           table: media__field_image_type
@@ -1248,6 +1249,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: taxonomy_index_tid
           operator: or
           value: {  }
           group: 1
@@ -1258,6 +1260,8 @@ display:
             description: ''
             use_operator: false
             operator: field_image_type_target_id_op
+            operator_limit_selection: false
+            operator_list: {  }
             identifier: image_type
             required: false
             remember: false
@@ -1270,8 +1274,6 @@ display:
               content_administrator: '0'
               administrator: '0'
             reduce: false
-            operator_limit_selection: false
-            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -1285,12 +1287,11 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: false
-          type: select
-          limit: true
           vid: image_type
+          type: select
           hierarchy: false
+          limit: true
           error_message: true
-          plugin_id: taxonomy_index_tid
         field_aspect_ratio_value:
           id: field_aspect_ratio_value
           table: media__field_aspect_ratio
@@ -1298,6 +1299,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: numeric
           operator: '='
           value:
             min: ''
@@ -1311,17 +1313,17 @@ display:
             description: null
             use_operator: false
             operator: field_aspect_ratio_value_op
+            operator_limit_selection: false
+            operator_list: {  }
             identifier: field_aspect_ratio_value
             required: false
             remember: false
             multiple: false
             remember_roles:
               authenticated: authenticated
-            placeholder: null
             min_placeholder: null
             max_placeholder: null
-            operator_limit_selection: false
-            operator_list: {  }
+            placeholder: null
           is_grouped: true
           group_info:
             label: 'Aspect ratio'
@@ -1338,45 +1340,44 @@ display:
                 title: Portrait
                 operator: '<'
                 value:
-                  value: '1.0'
                   min: ''
                   max: ''
+                  value: '1.0'
               2:
                 title: Square
                 operator: '='
                 value:
-                  value: '1.0'
                   min: ''
                   max: ''
+                  value: '1.0'
               3:
                 title: Landscape
                 operator: '>'
                 value:
-                  value: '1.0'
                   min: ''
                   max: ''
+                  value: '1.0'
               4:
                 title: 'Event (3:2)'
                 operator: '='
                 value:
-                  value: '1.5'
                   min: ''
                   max: ''
+                  value: '1.5'
               5:
                 title: 'Essence (32:19)'
                 operator: '='
                 value:
-                  value: '1.7'
                   min: ''
                   max: ''
+                  value: '1.7'
               6:
                 title: 'Social media (2:1)'
                 operator: between
                 value:
-                  value: ''
                   min: '1.9'
                   max: '2.1'
-          plugin_id: numeric
+                  value: ''
         name:
           id: name
           table: media_field_data
@@ -1384,6 +1385,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: media
+          entity_field: name
+          plugin_id: string
           operator: contains
           value: ''
           group: 1
@@ -1394,6 +1398,8 @@ display:
             description: ''
             use_operator: false
             operator: name_op
+            operator_limit_selection: false
+            operator_list: {  }
             identifier: name
             required: false
             remember: false
@@ -1402,8 +1408,6 @@ display:
               authenticated: authenticated
               anonymous: '0'
             placeholder: ''
-            operator_limit_selection: false
-            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -1416,9 +1420,6 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          entity_type: media
-          entity_field: name
-          plugin_id: string
         langcode:
           id: langcode
           table: media_field_data
@@ -1426,6 +1427,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: media
+          entity_field: langcode
+          plugin_id: language
           operator: in
           value: {  }
           group: 1
@@ -1436,6 +1440,8 @@ display:
             description: ''
             use_operator: false
             operator: langcode_op
+            operator_limit_selection: false
+            operator_list: {  }
             identifier: langcode
             required: false
             remember: false
@@ -1444,8 +1450,6 @@ display:
               authenticated: authenticated
               anonymous: '0'
             reduce: false
-            operator_limit_selection: false
-            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -1458,17 +1462,16 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          entity_type: media
-          entity_field: langcode
-          plugin_id: language
-      defaults:
-        filters: false
-        filter_groups: false
-        fields: true
       filter_groups:
         operator: AND
         groups:
           1: AND
+      defaults:
+        fields: true
+        filters: false
+        filter_groups: false
+      display_description: 'An entity browser modal to select all accessible images (site-wide).'
+      display_extenders: {  }
     cache_metadata:
       max-age: -1
       contexts:
@@ -1480,16 +1483,16 @@ display:
         - user.permissions
       tags: {  }
   media_select_modal:
-    display_plugin: entity_browser
     id: media_select_modal
     display_title: 'Media select modal'
+    display_plugin: entity_browser
     position: 1
     display_options:
-      display_extenders: {  }
-      display_description: 'An entity browser modal to select all accessible media (site-wide).'
       defaults:
         filters: true
         filter_groups: true
+      display_description: 'An entity browser modal to select all accessible media (site-wide).'
+      display_extenders: {  }
     cache_metadata:
       max-age: -1
       contexts:
@@ -1501,13 +1504,11 @@ display:
         - user.permissions
       tags: {  }
   sm_image_select_modal:
-    display_plugin: entity_browser
     id: sm_image_select_modal
     display_title: 'Social Media Image select modal'
+    display_plugin: entity_browser
     position: 1
     display_options:
-      display_extenders: {  }
-      display_description: 'An entity browser modal to select images appropriate for social media.'
       filters:
         status:
           id: status
@@ -1516,6 +1517,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: media
+          entity_field: status
+          plugin_id: boolean
           operator: '='
           value: '1'
           group: 1
@@ -1526,14 +1530,14 @@ display:
             description: ''
             use_operator: false
             operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
             identifier: ''
             required: false
             remember: false
             multiple: false
             remember_roles:
               authenticated: authenticated
-            operator_limit_selection: false
-            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -1546,9 +1550,6 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          entity_type: media
-          entity_field: status
-          plugin_id: boolean
         bundle:
           id: bundle
           table: media_field_data
@@ -1556,6 +1557,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: media
+          entity_field: bundle
+          plugin_id: bundle
           operator: in
           value:
             image: image
@@ -1567,6 +1571,8 @@ display:
             description: ''
             use_operator: false
             operator: bundle_op
+            operator_limit_selection: false
+            operator_list: {  }
             identifier: provider
             required: false
             remember: false
@@ -1575,8 +1581,6 @@ display:
               authenticated: authenticated
               anonymous: '0'
             reduce: false
-            operator_limit_selection: false
-            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -1589,9 +1593,6 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          entity_type: media
-          entity_field: bundle
-          plugin_id: bundle
         field_image_type_target_id:
           id: field_image_type_target_id
           table: media__field_image_type
@@ -1599,6 +1600,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: taxonomy_index_tid
           operator: or
           value: {  }
           group: 1
@@ -1609,6 +1611,8 @@ display:
             description: ''
             use_operator: false
             operator: field_image_type_target_id_op
+            operator_limit_selection: false
+            operator_list: {  }
             identifier: image_type
             required: false
             remember: false
@@ -1621,8 +1625,6 @@ display:
               content_administrator: '0'
               administrator: '0'
             reduce: false
-            operator_limit_selection: false
-            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -1636,12 +1638,11 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: false
-          type: select
-          limit: true
           vid: image_type
+          type: select
           hierarchy: false
+          limit: true
           error_message: true
-          plugin_id: taxonomy_index_tid
         name:
           id: name
           table: media_field_data
@@ -1649,6 +1650,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: media
+          entity_field: name
+          plugin_id: string
           operator: contains
           value: ''
           group: 1
@@ -1659,6 +1663,8 @@ display:
             description: ''
             use_operator: false
             operator: name_op
+            operator_limit_selection: false
+            operator_list: {  }
             identifier: name
             required: false
             remember: false
@@ -1667,8 +1673,6 @@ display:
               authenticated: authenticated
               anonymous: '0'
             placeholder: ''
-            operator_limit_selection: false
-            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -1681,9 +1685,6 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          entity_type: media
-          entity_field: name
-          plugin_id: string
         field_aspect_ratio_value:
           id: field_aspect_ratio_value
           table: media__field_aspect_ratio
@@ -1691,6 +1692,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: numeric
           operator: between
           value:
             min: '1.9'
@@ -1704,17 +1706,17 @@ display:
             description: ''
             use_operator: false
             operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
             identifier: ''
             required: false
             remember: false
             multiple: false
             remember_roles:
               authenticated: authenticated
-            placeholder: ''
             min_placeholder: ''
             max_placeholder: ''
-            operator_limit_selection: false
-            operator_list: {  }
+            placeholder: ''
           is_grouped: false
           group_info:
             label: ''
@@ -1727,15 +1729,16 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          plugin_id: numeric
-      defaults:
-        filters: false
-        filter_groups: false
-        fields: true
       filter_groups:
         operator: AND
         groups:
           1: AND
+      defaults:
+        fields: true
+        filters: false
+        filter_groups: false
+      display_description: 'An entity browser modal to select images appropriate for social media.'
+      display_extenders: {  }
     cache_metadata:
       max-age: -1
       contexts:
@@ -1747,13 +1750,11 @@ display:
         - user.permissions
       tags: {  }
   user_image_select_modal:
-    display_plugin: entity_browser
     id: user_image_select_modal
     display_title: 'User image select modal'
+    display_plugin: entity_browser
     position: 1
     display_options:
-      display_extenders: {  }
-      display_description: 'An entity browser modal to select user images.'
       arguments:
         uid:
           id: uid
@@ -1762,6 +1763,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: media
+          entity_field: uid
+          plugin_id: numeric
           default_action: default
           exception:
             value: all
@@ -1775,8 +1779,8 @@ display:
           summary_options:
             base_path: ''
             count: true
-            items_per_page: 25
             override: false
+            items_per_page: 25
           summary:
             sort_order: asc
             number_of_records: 0
@@ -1788,14 +1792,6 @@ display:
           validate_options: {  }
           break_phrase: false
           not: false
-          entity_type: media
-          entity_field: uid
-          plugin_id: numeric
-      defaults:
-        arguments: false
-        filters: false
-        filter_groups: false
-        fields: true
       filters:
         status:
           id: status
@@ -1804,6 +1800,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: media
+          entity_field: status
+          plugin_id: boolean
           operator: '='
           value: '1'
           group: 1
@@ -1814,14 +1813,14 @@ display:
             description: ''
             use_operator: false
             operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
             identifier: ''
             required: false
             remember: false
             multiple: false
             remember_roles:
               authenticated: authenticated
-            operator_limit_selection: false
-            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -1834,9 +1833,6 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          entity_type: media
-          entity_field: status
-          plugin_id: boolean
         bundle:
           id: bundle
           table: media_field_data
@@ -1844,6 +1840,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: media
+          entity_field: bundle
+          plugin_id: bundle
           operator: in
           value:
             image: image
@@ -1855,6 +1854,8 @@ display:
             description: ''
             use_operator: false
             operator: bundle_op
+            operator_limit_selection: false
+            operator_list: {  }
             identifier: provider
             required: false
             remember: false
@@ -1863,8 +1864,6 @@ display:
               authenticated: authenticated
               anonymous: '0'
             reduce: false
-            operator_limit_selection: false
-            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -1877,9 +1876,6 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          entity_type: media
-          entity_field: bundle
-          plugin_id: bundle
         field_image_type_target_id:
           id: field_image_type_target_id
           table: media__field_image_type
@@ -1887,6 +1883,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: taxonomy_index_tid
           operator: or
           value: {  }
           group: 1
@@ -1897,6 +1894,8 @@ display:
             description: ''
             use_operator: false
             operator: field_image_type_target_id_op
+            operator_limit_selection: false
+            operator_list: {  }
             identifier: image_type
             required: false
             remember: false
@@ -1909,8 +1908,6 @@ display:
               content_administrator: '0'
               administrator: '0'
             reduce: false
-            operator_limit_selection: false
-            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -1924,12 +1921,11 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: false
-          type: select
-          limit: true
           vid: image_type
+          type: select
           hierarchy: false
+          limit: true
           error_message: true
-          plugin_id: taxonomy_index_tid
         field_aspect_ratio_value:
           id: field_aspect_ratio_value
           table: media__field_aspect_ratio
@@ -1937,6 +1933,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: numeric
           operator: '='
           value:
             min: ''
@@ -1950,17 +1947,17 @@ display:
             description: null
             use_operator: false
             operator: field_aspect_ratio_value_op
+            operator_limit_selection: false
+            operator_list: {  }
             identifier: field_aspect_ratio_value
             required: false
             remember: false
             multiple: false
             remember_roles:
               authenticated: authenticated
-            placeholder: null
             min_placeholder: null
             max_placeholder: null
-            operator_limit_selection: false
-            operator_list: {  }
+            placeholder: null
           is_grouped: true
           group_info:
             label: 'Aspect ratio'
@@ -1977,45 +1974,44 @@ display:
                 title: Portrait
                 operator: '<'
                 value:
-                  value: '1.0'
                   min: ''
                   max: ''
+                  value: '1.0'
               2:
                 title: Square
                 operator: '='
                 value:
-                  value: '1.0'
                   min: ''
                   max: ''
+                  value: '1.0'
               3:
                 title: Landscape
                 operator: '>'
                 value:
-                  value: '1.0'
                   min: ''
                   max: ''
+                  value: '1.0'
               4:
                 title: 'Event (3:2)'
                 operator: '='
                 value:
-                  value: '1.5'
                   min: ''
                   max: ''
+                  value: '1.5'
               5:
                 title: 'Essence (32:19)'
                 operator: '='
                 value:
-                  value: '1.7'
                   min: ''
                   max: ''
+                  value: '1.7'
               6:
                 title: 'Social media (2:1)'
                 operator: between
                 value:
-                  value: ''
                   min: '1.9'
                   max: '2.1'
-          plugin_id: numeric
+                  value: ''
         name:
           id: name
           table: media_field_data
@@ -2023,6 +2019,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: media
+          entity_field: name
+          plugin_id: string
           operator: contains
           value: ''
           group: 1
@@ -2033,6 +2032,8 @@ display:
             description: ''
             use_operator: false
             operator: name_op
+            operator_limit_selection: false
+            operator_list: {  }
             identifier: name
             required: false
             remember: false
@@ -2041,8 +2042,6 @@ display:
               authenticated: authenticated
               anonymous: '0'
             placeholder: ''
-            operator_limit_selection: false
-            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -2055,9 +2054,6 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          entity_type: media
-          entity_field: name
-          plugin_id: string
         langcode:
           id: langcode
           table: media_field_data
@@ -2065,6 +2061,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: media
+          entity_field: langcode
+          plugin_id: language
           operator: in
           value: {  }
           group: 1
@@ -2075,6 +2074,8 @@ display:
             description: ''
             use_operator: false
             operator: langcode_op
+            operator_limit_selection: false
+            operator_list: {  }
             identifier: langcode
             required: false
             remember: false
@@ -2083,8 +2084,6 @@ display:
               authenticated: authenticated
               anonymous: '0'
             reduce: false
-            operator_limit_selection: false
-            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -2097,13 +2096,17 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          entity_type: media
-          entity_field: langcode
-          plugin_id: language
       filter_groups:
         operator: AND
         groups:
           1: AND
+      defaults:
+        fields: true
+        arguments: false
+        filters: false
+        filter_groups: false
+      display_description: 'An entity browser modal to select user images.'
+      display_extenders: {  }
     cache_metadata:
       max-age: -1
       contexts:
@@ -2115,13 +2118,11 @@ display:
         - user.permissions
       tags: {  }
   user_media_select_modal:
-    display_plugin: entity_browser
     id: user_media_select_modal
     display_title: 'User media select modal'
+    display_plugin: entity_browser
     position: 1
     display_options:
-      display_extenders: {  }
-      display_description: 'An entity browser modal to select user media.'
       arguments:
         uid:
           id: uid
@@ -2130,6 +2131,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: media
+          entity_field: uid
+          plugin_id: numeric
           default_action: default
           exception:
             value: all
@@ -2143,8 +2147,8 @@ display:
           summary_options:
             base_path: ''
             count: true
-            items_per_page: 25
             override: false
+            items_per_page: 25
           summary:
             sort_order: asc
             number_of_records: 0
@@ -2156,13 +2160,12 @@ display:
           validate_options: {  }
           break_phrase: false
           not: false
-          entity_type: media
-          entity_field: uid
-          plugin_id: numeric
       defaults:
         arguments: false
         filters: true
         filter_groups: true
+      display_description: 'An entity browser modal to select user media.'
+      display_extenders: {  }
     cache_metadata:
       max-age: -1
       contexts:

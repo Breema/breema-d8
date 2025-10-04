@@ -25,56 +25,12 @@ base_table: node_field_data
 base_field: nid
 display:
   default:
-    display_plugin: default
     id: default
     display_title: Master
+    display_plugin: default
     position: 0
     display_options:
-      access:
-        type: perm
-        options:
-          perm: 'create event content'
-      cache:
-        type: tag
-        options: {  }
-      query:
-        type: views_query
-        options:
-          disable_sql_rewrite: false
-          distinct: true
-          replica: false
-          query_comment: ''
-          query_tags: {  }
-          contextual_filters_or: true
-      exposed_form:
-        type: basic
-        options:
-          submit_button: Search
-          reset_button: true
-          reset_button_label: Reset
-          exposed_sorts_label: 'Sort by'
-          expose_sort_order: true
-          sort_asc_label: Asc
-          sort_desc_label: Desc
-      pager:
-        type: some
-        options:
-          items_per_page: 6
-          offset: 0
-      style:
-        type: html_list
-        options:
-          row_class: ''
-          default_row_class: false
-          uses_fields: false
-          type: ul
-          wrapper_class: item-list
-          class: 'grid--container grid--container-1-2-3'
-      row:
-        type: 'entity:node'
-        options:
-          relationship: none
-          view_mode: teaser_compact_location
+      title: 'Event dashboard'
       fields:
         title:
           id: title
@@ -83,6 +39,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: node
+          entity_field: title
+          plugin_id: field
           label: ''
           exclude: false
           alter:
@@ -138,118 +97,29 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          entity_type: node
-          entity_field: title
-          plugin_id: field
-      filters:
-        type:
-          id: type
-          table: node_field_data
-          field: type
-          value:
-            event: event
-          entity_type: node
-          entity_field: type
-          plugin_id: bundle
-          group: 1
-          expose:
-            operator_limit_selection: false
-            operator_list: {  }
-        status:
-          id: status
-          table: node_field_data
-          field: status
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: '='
-          value: '1'
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: Published
-            description: ''
-            use_operator: false
-            operator: status_op
-            identifier: status
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              practitioner: '0'
-              instructor: '0'
-              content_administrator: '0'
-              administrator: '0'
-            operator_limit_selection: false
-            operator_list: {  }
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          plugin_id: boolean
-          entity_type: node
-          entity_field: status
-        field_date_time_end_value:
-          id: field_date_time_end_value
-          table: node__field_date_time
-          field: field_date_time_end_value
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: '>='
-          value:
-            min: ''
-            max: ''
-            value: '-8 hours'
-            type: offset
-          group: 1
-          exposed: false
-          expose:
-            operator_id: end_datetime_op
-            label: Date/time
-            description: ''
-            use_operator: true
-            operator: field_date_time_end_value_op
-            identifier: end_datetime
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              practitioner: '0'
-              instructor: '0'
-              content_administrator: '0'
-              administrator: '0'
-            placeholder: ''
-            min_placeholder: ''
-            max_placeholder: ''
-            operator_limit_selection: false
-            operator_list: {  }
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          plugin_id: datetime
+      pager:
+        type: some
+        options:
+          offset: 0
+          items_per_page: 6
+      exposed_form:
+        type: basic
+        options:
+          submit_button: Search
+          reset_button: true
+          reset_button_label: Reset
+          exposed_sorts_label: 'Sort by'
+          expose_sort_order: true
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+      access:
+        type: perm
+        options:
+          perm: 'create event content'
+      cache:
+        type: tag
+        options: {  }
+      empty: {  }
       sorts:
         sticky:
           id: sticky
@@ -258,13 +128,14 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          order: DESC
-          exposed: false
-          expose:
-            label: ''
           entity_type: node
           entity_field: sticky
           plugin_id: standard
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: sticky
+          exposed: false
         field_date_time_value:
           id: field_date_time_value
           table: node__field_date_time
@@ -272,17 +143,13 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: datetime
           order: ASC
-          exposed: false
           expose:
             label: ''
+            field_identifier: field_date_time_value
+          exposed: false
           granularity: minute
-          plugin_id: datetime
-      title: 'Event dashboard'
-      header: {  }
-      footer: {  }
-      empty: {  }
-      relationships: {  }
       arguments:
         uid:
           id: uid
@@ -291,6 +158,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: node
+          entity_field: uid
+          plugin_id: numeric
           default_action: default
           exception:
             value: all
@@ -304,8 +174,8 @@ display:
           summary_options:
             base_path: ''
             count: true
-            items_per_page: 25
             override: false
+            items_per_page: 25
           summary:
             sort_order: asc
             number_of_records: 0
@@ -322,9 +192,6 @@ display:
             roles: {  }
           break_phrase: false
           not: false
-          entity_type: node
-          entity_field: uid
-          plugin_id: numeric
         field_instructors_target_id:
           id: field_instructors_target_id
           table: node__field_instructors
@@ -332,6 +199,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: numeric
           default_action: default
           exception:
             value: all
@@ -345,8 +213,8 @@ display:
           summary_options:
             base_path: ''
             count: true
-            items_per_page: 25
             override: false
+            items_per_page: 25
           summary:
             sort_order: asc
             number_of_records: 0
@@ -356,58 +224,23 @@ display:
             type: 'entity:user'
             fail: 'not found'
           validate_options:
+            access: false
             operation: view
             multiple: 0
-            access: false
             restrict_roles: false
             roles: {  }
           break_phrase: false
           not: false
-          plugin_id: numeric
-      display_extenders: {  }
-      filter_groups:
-        operator: AND
-        groups:
-          1: AND
-      use_more: true
-      use_more_always: false
-      use_more_text: more
-      link_url: 'user/{{ arguments.uid }}/events'
-      link_display: custom_url
-    cache_metadata:
-      max-age: -1
-      contexts:
-        - 'languages:language_content'
-        - 'languages:language_interface'
-        - url
-        - user
-        - 'user.node_grants:view'
-        - user.permissions
-      tags: {  }
-  embed_past:
-    display_plugin: embed
-    id: embed_past
-    display_title: 'Embed: Past events'
-    position: 3
-    display_options:
-      display_extenders: {  }
-      display_description: ''
-      title: Past
-      defaults:
-        title: false
-        empty: true
-        filters: false
-        filter_groups: false
       filters:
         type:
           id: type
           table: node_field_data
           field: type
-          value:
-            event: event
           entity_type: node
           entity_field: type
           plugin_id: bundle
+          value:
+            event: event
           group: 1
           expose:
             operator_limit_selection: false
@@ -419,6 +252,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: node
+          entity_field: status
+          plugin_id: boolean
           operator: '='
           value: '1'
           group: 1
@@ -429,6 +265,8 @@ display:
             description: ''
             use_operator: false
             operator: status_op
+            operator_limit_selection: false
+            operator_list: {  }
             identifier: status
             required: false
             remember: false
@@ -440,8 +278,6 @@ display:
               instructor: '0'
               content_administrator: '0'
               administrator: '0'
-            operator_limit_selection: false
-            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -454,9 +290,6 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          plugin_id: boolean
-          entity_type: node
-          entity_field: status
         field_date_time_end_value:
           id: field_date_time_end_value
           table: node__field_date_time
@@ -464,6 +297,169 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: datetime
+          operator: '>='
+          value:
+            min: ''
+            max: ''
+            value: '-8 hours'
+            type: offset
+          group: 1
+          exposed: false
+          expose:
+            operator_id: end_datetime_op
+            label: Date/time
+            description: ''
+            use_operator: true
+            operator: field_date_time_end_value_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: end_datetime
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              practitioner: '0'
+              instructor: '0'
+              content_administrator: '0'
+              administrator: '0'
+            min_placeholder: ''
+            max_placeholder: ''
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      style:
+        type: html_list
+        options:
+          row_class: ''
+          default_row_class: false
+          uses_fields: false
+          type: ul
+          wrapper_class: item-list
+          class: 'grid--container grid--container-1-2-3'
+      row:
+        type: 'entity:node'
+        options:
+          relationship: none
+          view_mode: teaser_compact_location
+      query:
+        type: views_query
+        options:
+          query_comment: ''
+          disable_sql_rewrite: false
+          distinct: true
+          replica: false
+          query_tags: {  }
+          contextual_filters_or: true
+      relationships: {  }
+      use_more: true
+      use_more_always: false
+      use_more_text: more
+      link_display: custom_url
+      link_url: 'user/{{ arguments.uid }}/events'
+      header: {  }
+      footer: {  }
+      display_extenders: {  }
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - user
+        - 'user.node_grants:view'
+        - user.permissions
+      tags: {  }
+  embed_past:
+    id: embed_past
+    display_title: 'Embed: Past events'
+    display_plugin: embed
+    position: 3
+    display_options:
+      title: Past
+      filters:
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+          value:
+            event: event
+          group: 1
+          expose:
+            operator_limit_selection: false
+            operator_list: {  }
+        status:
+          id: status
+          table: node_field_data
+          field: status
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          entity_field: status
+          plugin_id: boolean
+          operator: '='
+          value: '1'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: Published
+            description: ''
+            use_operator: false
+            operator: status_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: status
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              practitioner: '0'
+              instructor: '0'
+              content_administrator: '0'
+              administrator: '0'
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+        field_date_time_end_value:
+          id: field_date_time_end_value
+          table: node__field_date_time
+          field: field_date_time_end_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: datetime
           operator: '<'
           value:
             min: ''
@@ -478,6 +474,8 @@ display:
             description: ''
             use_operator: true
             operator: field_date_time_end_value_op
+            operator_limit_selection: false
+            operator_list: {  }
             identifier: end_datetime
             required: false
             remember: false
@@ -489,11 +487,9 @@ display:
               instructor: '0'
               content_administrator: '0'
               administrator: '0'
-            placeholder: ''
             min_placeholder: ''
             max_placeholder: ''
-            operator_limit_selection: false
-            operator_list: {  }
+            placeholder: ''
           is_grouped: false
           group_info:
             label: ''
@@ -506,11 +502,17 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          plugin_id: datetime
       filter_groups:
         operator: AND
         groups:
           1: AND
+      defaults:
+        empty: true
+        title: false
+        filters: false
+        filter_groups: false
+      display_description: ''
+      display_extenders: {  }
     cache_metadata:
       max-age: -1
       contexts:
@@ -522,29 +524,22 @@ display:
         - user.permissions
       tags: {  }
   embed_pending:
-    display_plugin: embed
     id: embed_pending
     display_title: 'Embed: Pending events'
+    display_plugin: embed
     position: 3
     display_options:
-      display_extenders: {  }
-      display_description: ''
       title: 'Pending moderation'
-      defaults:
-        title: false
-        empty: true
-        filters: false
-        filter_groups: false
       filters:
         type:
           id: type
           table: node_field_data
           field: type
-          value:
-            event: event
           entity_type: node
           entity_field: type
           plugin_id: bundle
+          value:
+            event: event
           group: 1
           expose:
             operator_limit_selection: false
@@ -556,6 +551,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: node
+          entity_field: status
+          plugin_id: boolean
           operator: '='
           value: '0'
           group: 1
@@ -566,6 +564,8 @@ display:
             description: ''
             use_operator: false
             operator: status_op
+            operator_limit_selection: false
+            operator_list: {  }
             identifier: status
             required: false
             remember: false
@@ -577,8 +577,6 @@ display:
               instructor: '0'
               content_administrator: '0'
               administrator: '0'
-            operator_limit_selection: false
-            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -591,13 +589,17 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          plugin_id: boolean
-          entity_type: node
-          entity_field: status
       filter_groups:
         operator: AND
         groups:
           1: AND
+      defaults:
+        empty: true
+        title: false
+        filters: false
+        filter_groups: false
+      display_description: ''
+      display_extenders: {  }
     cache_metadata:
       max-age: -1
       contexts:
@@ -609,17 +611,17 @@ display:
         - user.permissions
       tags: {  }
   embed_upcoming:
-    display_plugin: embed
     id: embed_upcoming
     display_title: 'Embed: Upcoming events'
+    display_plugin: embed
     position: 3
     display_options:
-      display_extenders: {  }
-      display_description: ''
       title: Upcoming
       defaults:
-        title: false
         empty: true
+        title: false
+      display_description: ''
+      display_extenders: {  }
     cache_metadata:
       max-age: -1
       contexts:
@@ -631,282 +633,11 @@ display:
         - user.permissions
       tags: {  }
   embed_user_dashboard:
-    display_plugin: embed
     id: embed_user_dashboard
     display_title: 'Embed: User dashboard'
+    display_plugin: embed
     position: 1
     display_options:
-      display_extenders:
-        breema_metatag_display_extender: {  }
-      display_description: ''
-      header: {  }
-      defaults:
-        header: false
-        filters: false
-        filter_groups: false
-        style: false
-        row: false
-        fields: false
-        pager: false
-        empty: false
-        use_more: false
-        use_more_always: false
-        use_more_text: false
-      filters:
-        type:
-          id: type
-          table: node_field_data
-          field: type
-          value:
-            event: event
-          entity_type: node
-          entity_field: type
-          plugin_id: bundle
-          group: 1
-          expose:
-            operator_limit_selection: false
-            operator_list: {  }
-        status:
-          id: status
-          table: node_field_data
-          field: status
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: '='
-          value: All
-          group: 1
-          exposed: true
-          expose:
-            operator_id: ''
-            label: Published
-            description: ''
-            use_operator: false
-            operator: status_op
-            identifier: status
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              practitioner: '0'
-              instructor: '0'
-              content_administrator: '0'
-              administrator: '0'
-            operator_limit_selection: false
-            operator_list: {  }
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          plugin_id: boolean
-          entity_type: node
-          entity_field: status
-        field_date_time_end_value:
-          id: field_date_time_end_value
-          table: node__field_date_time
-          field: field_date_time_end_value
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: '='
-          value:
-            min: ''
-            max: ''
-            value: ''
-            type: offset
-          group: 1
-          exposed: true
-          expose:
-            operator_id: field_date_time_end_value_op
-            label: Date/time
-            description: ''
-            use_operator: false
-            operator: field_date_time_end_value_op
-            identifier: datetime_end
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              student: '0'
-              practitioner: '0'
-              instructor: '0'
-              event_expert: '0'
-              content_editor: '0'
-              content_administrator: '0'
-              event_administrator: '0'
-              user_administrator: '0'
-              administrator: '0'
-            min_placeholder: null
-            max_placeholder: null
-            placeholder: null
-            operator_limit_selection: false
-            operator_list: {  }
-          is_grouped: true
-          group_info:
-            label: Date/time
-            description: ''
-            identifier: datetime_end
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items:
-              1:
-                title: Upcoming
-                operator: '>='
-                value:
-                  type: offset
-                  value: '-8 hours'
-                  min: ''
-                  max: ''
-              2:
-                title: Past
-                operator: '<'
-                value:
-                  type: offset
-                  value: '-8 hours'
-                  min: ''
-                  max: ''
-          plugin_id: datetime
-        keys:
-          id: keys
-          table: node_search_index
-          field: keys
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: optional
-          value: ''
-          group: 1
-          exposed: true
-          expose:
-            operator_id: keys_op
-            label: Search
-            description: ''
-            use_operator: false
-            operator: keys_op
-            identifier: keys
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              practitioner: '0'
-              instructor: '0'
-              content_administrator: '0'
-              administrator: '0'
-            operator_limit_selection: false
-            operator_list: {  }
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          plugin_id: search_keywords
-      filter_groups:
-        operator: AND
-        groups:
-          1: AND
-      style:
-        type: table
-        options:
-          grouping: {  }
-          row_class: ''
-          default_row_class: true
-          override: true
-          sticky: false
-          caption: ''
-          summary: ''
-          description: ''
-          columns:
-            status: status
-            title: title
-            field_date_time: field_date_time
-            field_timezone: field_date_time
-            field_location: field_location
-            field_instructors: field_instructors
-            uid: uid
-            operations: operations
-          info:
-            status:
-              sortable: true
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: priority-medium
-            title:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_date_time:
-              sortable: true
-              default_sort_order: desc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_timezone:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_location:
-              sortable: true
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: priority-medium
-            field_instructors:
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: priority-low
-            uid:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: priority-low
-            operations:
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-          default: '-1'
-          empty_table: false
-      row:
-        type: fields
-        options: {  }
       fields:
         status:
           id: status
@@ -915,6 +646,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: node
+          entity_field: status
+          plugin_id: field
           label: Status
           exclude: false
           alter:
@@ -960,8 +694,8 @@ display:
           type: boolean
           settings:
             format: custom
-            format_custom_true: Published
             format_custom_false: Unpublished
+            format_custom_true: Published
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -972,34 +706,27 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          entity_type: node
-          entity_field: status
-          plugin_id: field
         title:
           id: title
           table: node_field_data
           field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
           entity_type: node
           entity_field: title
+          plugin_id: field
+          label: Title
+          exclude: false
           alter:
             alter_text: false
             make_link: false
             absolute: false
-            trim: false
             word_boundary: false
             ellipsis: false
             strip_tags: false
+            trim: false
             html: false
-          hide_empty: false
-          empty_zero: false
-          settings:
-            link_to_entity: true
-          plugin_id: field
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: Title
-          exclude: false
           element_type: ''
           element_class: ''
           element_label_type: ''
@@ -1009,9 +736,13 @@ display:
           element_wrapper_class: ''
           element_default_classes: true
           empty: ''
+          hide_empty: false
+          empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
           type: string
+          settings:
+            link_to_entity: true
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -1029,6 +760,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: field
           label: Date/time
           exclude: false
           alter:
@@ -1084,7 +816,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          plugin_id: field
         field_timezone:
           id: field_timezone
           table: node__field_timezone
@@ -1092,6 +823,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: field
           label: ''
           exclude: false
           alter:
@@ -1146,7 +878,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          plugin_id: field
         field_location:
           id: field_location
           table: node__field_location
@@ -1154,6 +885,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: field
           label: Location
           exclude: false
           alter:
@@ -1209,7 +941,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          plugin_id: field
         field_instructors:
           id: field_instructors
           table: node__field_instructors
@@ -1217,6 +948,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: field
           label: Instructors
           exclude: false
           alter:
@@ -1272,7 +1004,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          plugin_id: field
         uid:
           id: uid
           table: node_field_data
@@ -1280,6 +1011,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: node
+          entity_field: uid
+          plugin_id: field
           label: Author
           exclude: false
           alter:
@@ -1335,9 +1069,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          entity_type: node
-          entity_field: uid
-          plugin_id: field
         operations:
           id: operations
           table: node
@@ -1345,6 +1076,8 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: node
+          plugin_id: entity_operations
           label: Operations
           exclude: false
           alter:
@@ -1387,18 +1120,16 @@ display:
           empty_zero: false
           hide_alter_empty: true
           destination: false
-          entity_type: node
-          plugin_id: entity_operations
       pager:
         type: mini
         options:
-          items_per_page: 50
           offset: 0
-          id: 0
+          items_per_page: 50
           total_pages: null
+          id: 0
           tags:
-            previous: ‹‹
             next: ››
+            previous: ‹‹
           expose:
             items_per_page: false
             items_per_page_label: 'Items per page'
@@ -1415,15 +1146,286 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: text
           empty: true
-          tokenize: false
           content:
             value: 'No events match your search.'
             format: basic_html
-          plugin_id: text
+          tokenize: false
+      filters:
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+          value:
+            event: event
+          group: 1
+          expose:
+            operator_limit_selection: false
+            operator_list: {  }
+        status:
+          id: status
+          table: node_field_data
+          field: status
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          entity_field: status
+          plugin_id: boolean
+          operator: '='
+          value: All
+          group: 1
+          exposed: true
+          expose:
+            operator_id: ''
+            label: Published
+            description: ''
+            use_operator: false
+            operator: status_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: status
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              practitioner: '0'
+              instructor: '0'
+              content_administrator: '0'
+              administrator: '0'
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+        field_date_time_end_value:
+          id: field_date_time_end_value
+          table: node__field_date_time
+          field: field_date_time_end_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: datetime
+          operator: '='
+          value:
+            min: ''
+            max: ''
+            value: ''
+            type: offset
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_date_time_end_value_op
+            label: Date/time
+            description: ''
+            use_operator: false
+            operator: field_date_time_end_value_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: datetime_end
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              student: '0'
+              practitioner: '0'
+              instructor: '0'
+              event_expert: '0'
+              content_editor: '0'
+              content_administrator: '0'
+              event_administrator: '0'
+              user_administrator: '0'
+              administrator: '0'
+            min_placeholder: null
+            max_placeholder: null
+            placeholder: null
+          is_grouped: true
+          group_info:
+            label: Date/time
+            description: ''
+            identifier: datetime_end
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items:
+              1:
+                title: Upcoming
+                operator: '>='
+                value:
+                  min: ''
+                  max: ''
+                  value: '-8 hours'
+                  type: offset
+              2:
+                title: Past
+                operator: '<'
+                value:
+                  min: ''
+                  max: ''
+                  value: '-8 hours'
+                  type: offset
+        keys:
+          id: keys
+          table: node_search_index
+          field: keys
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_keywords
+          operator: optional
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: keys_op
+            label: Search
+            description: ''
+            use_operator: false
+            operator: keys_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: keys
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              practitioner: '0'
+              instructor: '0'
+              content_administrator: '0'
+              administrator: '0'
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      style:
+        type: table
+        options:
+          grouping: {  }
+          row_class: ''
+          default_row_class: true
+          columns:
+            status: status
+            title: title
+            field_date_time: field_date_time
+            field_timezone: field_date_time
+            field_location: field_location
+            field_instructors: field_instructors
+            uid: uid
+            operations: operations
+          default: '-1'
+          info:
+            status:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: priority-medium
+            title:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_date_time:
+              sortable: true
+              default_sort_order: desc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_timezone:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_location:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: priority-medium
+            field_instructors:
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: priority-low
+            uid:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: priority-low
+            operations:
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+          override: true
+          sticky: false
+          summary: ''
+          empty_table: false
+          caption: ''
+          description: ''
+      row:
+        type: fields
+        options: {  }
+      defaults:
+        empty: false
+        pager: false
+        use_more: false
+        use_more_always: false
+        use_more_text: false
+        style: false
+        row: false
+        fields: false
+        filters: false
+        filter_groups: false
+        header: false
+      display_description: ''
       use_more: false
       use_more_always: false
       use_more_text: more
+      header: {  }
+      display_extenders:
+        breema_metatag_display_extender: {  }
     cache_metadata:
       max-age: -1
       contexts:

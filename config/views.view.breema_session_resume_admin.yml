@@ -22,122 +22,12 @@ base_table: node_field_data
 base_field: nid
 display:
   default:
-    display_plugin: default
     id: default
     display_title: Master
+    display_plugin: default
     position: 0
     display_options:
-      access:
-        type: role
-        options:
-          role:
-            content_editor: content_editor
-            content_administrator: content_administrator
-            user_administrator: user_administrator
-            administrator: administrator
-      cache:
-        type: tag
-        options: {  }
-      query:
-        type: views_query
-        options:
-          disable_sql_rewrite: false
-          distinct: false
-          replica: false
-          query_comment: ''
-          query_tags: {  }
-      exposed_form:
-        type: basic
-        options:
-          submit_button: Search
-          reset_button: true
-          reset_button_label: Reset
-          exposed_sorts_label: 'Sort by'
-          expose_sort_order: true
-          sort_asc_label: Asc
-          sort_desc_label: Desc
-      pager:
-        type: full
-        options:
-          items_per_page: 50
-          offset: 0
-          id: 0
-          total_pages: null
-          tags:
-            previous: ‹‹
-            next: ››
-            first: '« First'
-            last: 'Last »'
-          expose:
-            items_per_page: true
-            items_per_page_label: 'Items per page'
-            items_per_page_options: '5, 10, 25, 50'
-            items_per_page_options_all: true
-            items_per_page_options_all_label: '- All -'
-            offset: false
-            offset_label: Offset
-          quantity: 9
-      style:
-        type: table
-        options:
-          grouping: {  }
-          row_class: ''
-          default_row_class: true
-          override: true
-          sticky: true
-          caption: ''
-          summary: ''
-          description: ''
-          columns:
-            nid: nid
-            node_bulk_form: node_bulk_form
-            uid: uid
-            field_date: field_date
-            changed: changed
-            operations: operations
-          info:
-            nid:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            node_bulk_form:
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: priority-medium
-            uid:
-              sortable: true
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_date:
-              sortable: true
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            changed:
-              sortable: true
-              default_sort_order: desc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: priority-low
-            operations:
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: priority-medium
-          default: changed
-          empty_table: false
-      row:
-        type: fields
+      title: 'Breema Session Resume Administration'
       fields:
         nid:
           id: nid
@@ -146,6 +36,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: node
+          entity_field: nid
+          plugin_id: field
           label: ''
           exclude: true
           alter:
@@ -202,9 +95,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          entity_type: node
-          entity_field: nid
-          plugin_id: field
         node_bulk_form:
           id: node_bulk_form
           table: node
@@ -212,6 +102,8 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: node
+          plugin_id: node_bulk_form
           label: ''
           exclude: false
           alter:
@@ -262,8 +154,6 @@ display:
             - node_publish_action
             - node_save_action
             - node_unpublish_action
-          entity_type: node
-          plugin_id: node_bulk_form
         uid:
           id: uid
           table: node_field_data
@@ -271,6 +161,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: node
+          entity_field: uid
+          plugin_id: field
           label: User
           exclude: false
           alter:
@@ -326,9 +219,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          entity_type: node
-          entity_field: uid
-          plugin_id: field
         field_date:
           id: field_date
           table: node__field_date
@@ -336,6 +226,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          plugin_id: field
           label: 'Sesssion date'
           exclude: false
           alter:
@@ -392,7 +283,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          plugin_id: field
         changed:
           id: changed
           table: node_field_data
@@ -400,6 +290,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: node
+          entity_field: changed
+          plugin_id: field
           label: Changed
           exclude: false
           alter:
@@ -457,9 +350,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          entity_type: node
-          entity_field: changed
-          plugin_id: field
         operations:
           id: operations
           table: node
@@ -467,6 +357,8 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: node
+          plugin_id: entity_operations
           label: Operations
           exclude: false
           alter:
@@ -509,8 +401,64 @@ display:
           empty_zero: false
           hide_alter_empty: true
           destination: true
-          entity_type: node
-          plugin_id: entity_operations
+      pager:
+        type: full
+        options:
+          offset: 0
+          items_per_page: 50
+          total_pages: null
+          id: 0
+          tags:
+            next: ››
+            previous: ‹‹
+            first: '« First'
+            last: 'Last »'
+          expose:
+            items_per_page: true
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: true
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+          quantity: 9
+      exposed_form:
+        type: basic
+        options:
+          submit_button: Search
+          reset_button: true
+          reset_button_label: Reset
+          exposed_sorts_label: 'Sort by'
+          expose_sort_order: true
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+      access:
+        type: role
+        options:
+          role:
+            content_editor: content_editor
+            content_administrator: content_administrator
+            user_administrator: user_administrator
+            administrator: administrator
+      cache:
+        type: tag
+        options: {  }
+      empty:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: text
+          empty: true
+          content:
+            value: 'No session resumes match your search.'
+            format: basic_html
+          tokenize: false
+      sorts: {  }
+      arguments: {  }
       filters:
         type:
           id: type
@@ -519,6 +467,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
           operator: in
           value:
             session_resume: session_resume
@@ -530,6 +481,8 @@ display:
             description: ''
             use_operator: false
             operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
             identifier: ''
             required: false
             remember: false
@@ -537,8 +490,6 @@ display:
             remember_roles:
               authenticated: authenticated
             reduce: false
-            operator_limit_selection: false
-            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -551,9 +502,6 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          entity_type: node
-          entity_field: type
-          plugin_id: bundle
         uid:
           id: uid
           table: node_field_data
@@ -561,6 +509,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: node
+          entity_field: uid
+          plugin_id: user_name
           operator: in
           value: {  }
           group: 1
@@ -571,6 +522,8 @@ display:
             description: ''
             use_operator: false
             operator: uid_op
+            operator_limit_selection: false
+            operator_list: {  }
             identifier: uid
             required: false
             remember: false
@@ -585,8 +538,6 @@ display:
               user_administrator: '0'
               administrator: '0'
             reduce: false
-            operator_limit_selection: false
-            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -599,9 +550,6 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          entity_type: node
-          entity_field: uid
-          plugin_id: user_name
         changed:
           id: changed
           table: node_field_data
@@ -609,6 +557,9 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: node
+          entity_field: changed
+          plugin_id: date
           operator: '>='
           value:
             min: ''
@@ -623,6 +574,8 @@ display:
             description: 'Offset from now ("-2 days" or "-10 hours")'
             use_operator: false
             operator: changed_op
+            operator_limit_selection: false
+            operator_list: {  }
             identifier: changed
             required: false
             remember: false
@@ -632,11 +585,9 @@ display:
               anonymous: '0'
               content_administrator: '0'
               administrator: '0'
-            placeholder: ''
             min_placeholder: ''
             max_placeholder: ''
-            operator_limit_selection: false
-            operator_list: {  }
+            placeholder: ''
           is_grouped: false
           group_info:
             label: ''
@@ -649,34 +600,83 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          entity_type: node
-          entity_field: changed
-          plugin_id: date
-      sorts: {  }
-      title: 'Breema Session Resume Administration'
-      header: {  }
-      footer: {  }
-      empty:
-        area:
-          id: area
-          table: views
-          field: area
-          relationship: none
-          group_type: group
-          admin_label: ''
-          empty: true
-          tokenize: false
-          content:
-            value: 'No session resumes match your search.'
-            format: basic_html
-          plugin_id: text
-      relationships: {  }
-      arguments: {  }
-      display_extenders: {  }
       filter_groups:
         operator: AND
         groups:
           1: AND
+      style:
+        type: table
+        options:
+          grouping: {  }
+          row_class: ''
+          default_row_class: true
+          columns:
+            nid: nid
+            node_bulk_form: node_bulk_form
+            uid: uid
+            field_date: field_date
+            changed: changed
+            operations: operations
+          default: changed
+          info:
+            nid:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            node_bulk_form:
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: priority-medium
+            uid:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_date:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            changed:
+              sortable: true
+              default_sort_order: desc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: priority-low
+            operations:
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: priority-medium
+          override: true
+          sticky: true
+          summary: ''
+          empty_table: false
+          caption: ''
+          description: ''
+      row:
+        type: fields
+      query:
+        type: views_query
+        options:
+          query_comment: ''
+          disable_sql_rewrite: false
+          distinct: false
+          replica: false
+          query_tags: {  }
+      relationships: {  }
+      header: {  }
+      footer: {  }
+      display_extenders: {  }
     cache_metadata:
       max-age: 0
       contexts:
@@ -689,9 +689,9 @@ display:
       tags:
         - 'config:field.storage.node.field_date'
   page_1:
-    display_plugin: page
     id: page_1
     display_title: Page
+    display_plugin: page
     position: 1
     display_options:
       display_extenders: {  }
@@ -700,11 +700,11 @@ display:
         type: tab
         title: 'Session Resumes'
         description: ''
-        expanded: false
-        parent: system.admin_content
         weight: 0
-        context: '0'
+        expanded: false
         menu_name: admin
+        parent: system.admin_content
+        context: '0'
     cache_metadata:
       max-age: 0
       contexts:
