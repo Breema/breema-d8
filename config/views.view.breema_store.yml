@@ -20,26 +20,65 @@ base_table: node_field_data
 base_field: nid
 display:
   default:
-    display_plugin: default
     id: default
     display_title: Master
+    display_plugin: default
     position: 0
     display_options:
-      access:
-        type: perm
+      title: Store
+      fields:
+        title:
+          id: title
+          table: node_field_data
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          entity_field: title
+          plugin_id: field
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            make_link: false
+            absolute: false
+            word_boundary: false
+            ellipsis: false
+            strip_tags: false
+            trim: false
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: true
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+      pager:
+        type: none
         options:
-          perm: 'access content'
-      cache:
-        type: tag
-        options: {  }
-      query:
-        type: views_query
-        options:
-          disable_sql_rewrite: false
-          distinct: false
-          replica: false
-          query_comment: ''
-          query_tags: {  }
+          offset: 0
+          items_per_page: null
       exposed_form:
         type: basic
         options:
@@ -50,11 +89,87 @@ display:
           expose_sort_order: true
           sort_asc_label: Asc
           sort_desc_label: Desc
-      pager:
-        type: none
+      access:
+        type: perm
         options:
-          items_per_page: null
-          offset: 0
+          perm: 'access content'
+      cache:
+        type: tag
+        options: {  }
+      empty: {  }
+      sorts:
+        entityqueue_relationship:
+          id: entityqueue_relationship
+          table: node_field_data
+          field: entityqueue_relationship
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          plugin_id: entity_queue_position
+          order: ASC
+          expose:
+            label: ''
+            field_identifier: entityqueue_relationship
+          exposed: false
+      arguments: {  }
+      filters:
+        status:
+          id: status
+          table: node_field_data
+          field: status
+          entity_type: node
+          entity_field: status
+          plugin_id: boolean
+          value: '1'
+          group: 1
+          expose:
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+        entityqueue_relationship:
+          id: entityqueue_relationship
+          table: node_field_data
+          field: entityqueue_relationship
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          plugin_id: entity_queue_in_queue
+          operator: '='
+          value: '1'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
       style:
         type: html_list
         options:
@@ -68,125 +183,14 @@ display:
         type: 'entity:node'
         options:
           view_mode: teaser
-      fields:
-        title:
-          id: title
-          table: node_field_data
-          field: title
-          entity_type: node
-          entity_field: title
-          label: ''
-          alter:
-            alter_text: false
-            make_link: false
-            absolute: false
-            trim: false
-            word_boundary: false
-            ellipsis: false
-            strip_tags: false
-            html: false
-          hide_empty: false
-          empty_zero: false
-          settings:
-            link_to_entity: true
-          plugin_id: field
-          relationship: none
-          group_type: group
-          admin_label: ''
-          exclude: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_alter_empty: true
-          click_sort_column: value
-          type: string
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-      filters:
-        status:
-          value: '1'
-          table: node_field_data
-          field: status
-          plugin_id: boolean
-          entity_type: node
-          entity_field: status
-          id: status
-          expose:
-            operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
-          group: 1
-        entityqueue_relationship:
-          id: entityqueue_relationship
-          table: node_field_data
-          field: entityqueue_relationship
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: '='
-          value: '1'
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            operator_limit_selection: false
-            operator_list: {  }
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          entity_type: node
-          plugin_id: entity_queue_in_queue
-      sorts:
-        entityqueue_relationship:
-          id: entityqueue_relationship
-          table: node_field_data
-          field: entityqueue_relationship
-          relationship: none
-          group_type: group
-          admin_label: ''
-          order: ASC
-          exposed: false
-          expose:
-            label: ''
-          entity_type: node
-          plugin_id: entity_queue_position
-      title: Store
-      header: {  }
-      footer: {  }
-      empty: {  }
+      query:
+        type: views_query
+        options:
+          query_comment: ''
+          disable_sql_rewrite: false
+          distinct: false
+          replica: false
+          query_tags: {  }
       relationships:
         entityqueue_relationship:
           id: entityqueue_relationship
@@ -195,16 +199,13 @@ display:
           relationship: none
           group_type: group
           admin_label: 'Content queue'
-          required: true
-          limit_queue: store_books
           entity_type: node
           plugin_id: entity_queue
-      arguments: {  }
+          required: true
+          limit_queue: store_books
+      header: {  }
+      footer: {  }
       display_extenders: {  }
-      filter_groups:
-        operator: AND
-        groups:
-          1: AND
     cache_metadata:
       max-age: -1
       contexts:
@@ -217,24 +218,24 @@ display:
         - entity_field_info
         - views_data
   feed_books:
-    display_plugin: feed
     id: feed_books
     display_title: 'Feed: Books'
+    display_plugin: feed
     position: 2
     display_options:
-      display_extenders: {  }
-      row:
-        type: node_rss
       pager:
         type: some
       style:
         type: rss
+      row:
+        type: node_rss
+      display_description: ''
+      display_extenders: {  }
       path: store/books.xml
       displays:
         page_books: page_books
         default: '0'
         page_gifts: '0'
-      display_description: ''
     cache_metadata:
       max-age: -1
       contexts:
@@ -247,11 +248,28 @@ display:
         - entity_field_info
         - views_data
   page_books:
-    display_plugin: page
     id: page_books
     display_title: 'Page: Books'
+    display_plugin: page
     position: 1
     display_options:
+      defaults:
+        header: false
+      display_description: ''
+      header:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: text
+          empty: false
+          content:
+            value: "<strong>At this time we can ship only to addresses in the US.</strong><br>\r\nFor international orders and bulk discounts please contact us at books@breema.com.<br>\r\nFür Bücher über Breema auf Deutsch wenden Sie sich bitte an <a href=\"/directory/entry/aron-saltiel\">Aron Saltiel</a>.\r\n<hr />"
+            format: basic_html
+          tokenize: false
       display_extenders:
         breema_metatag_display_extender:
           metatags:
@@ -262,33 +280,16 @@ display:
         type: 'default tab'
         title: Books
         description: ''
-        expanded: false
-        parent: ''
         weight: 0
-        context: '0'
+        expanded: false
         menu_name: main
+        parent: ''
+        context: '0'
       tab_options:
         type: normal
         title: Store
         description: ''
         weight: 0
-      display_description: ''
-      header:
-        area:
-          id: area
-          table: views
-          field: area
-          relationship: none
-          group_type: group
-          admin_label: ''
-          empty: false
-          tokenize: false
-          content:
-            value: "<strong>At this time we can ship only to addresses in the US.</strong><br>\r\nFor international orders and bulk discounts please contact us at books@breema.com.<br>\r\nFür Bücher über Breema auf Deutsch wenden Sie sich bitte an <a href=\"/directory/entry/aron-saltiel\">Aron Saltiel</a>.\r\n<hr />"
-            format: basic_html
-          plugin_id: text
-      defaults:
-        header: false
     cache_metadata:
       max-age: -1
       contexts:
@@ -301,11 +302,26 @@ display:
         - entity_field_info
         - views_data
   page_classes:
-    display_plugin: page
     id: page_classes
     display_title: 'Page: Classes'
+    display_plugin: page
     position: 1
     display_options:
+      defaults:
+        relationships: false
+      relationships:
+        entityqueue_relationship:
+          id: entityqueue_relationship
+          table: node_field_data
+          field: entityqueue_relationship
+          relationship: none
+          group_type: group
+          admin_label: 'Content queue'
+          entity_type: node
+          plugin_id: entity_queue
+          required: true
+          limit_queue: store_class_pass
+      display_description: ''
       display_extenders:
         breema_metatag_display_extender:
           metatags:
@@ -316,31 +332,16 @@ display:
         type: tab
         title: Classes
         description: ''
-        expanded: false
-        parent: 'menu_link_content:b70fabc7-b209-4bc5-aa30-18b6b7782b4b'
         weight: 10
-        context: '0'
+        expanded: false
         menu_name: main
+        parent: 'menu_link_content:b70fabc7-b209-4bc5-aa30-18b6b7782b4b'
+        context: '0'
       tab_options:
         type: normal
         title: Store
         description: ''
         weight: 0
-      display_description: ''
-      relationships:
-        entityqueue_relationship:
-          id: entityqueue_relationship
-          table: node_field_data
-          field: entityqueue_relationship
-          relationship: none
-          group_type: group
-          admin_label: 'Content queue'
-          required: true
-          limit_queue: store_class_pass
-          entity_type: node
-          plugin_id: entity_queue
-      defaults:
-        relationships: false
     cache_metadata:
       max-age: -1
       contexts:
@@ -353,11 +354,26 @@ display:
         - entity_field_info
         - views_data
   page_gifts:
-    display_plugin: page
     id: page_gifts
     display_title: 'Page: Gift certificates'
+    display_plugin: page
     position: 1
     display_options:
+      defaults:
+        relationships: false
+      relationships:
+        entityqueue_relationship:
+          id: entityqueue_relationship
+          table: node_field_data
+          field: entityqueue_relationship
+          relationship: none
+          group_type: group
+          admin_label: 'Content queue'
+          entity_type: node
+          plugin_id: entity_queue
+          required: true
+          limit_queue: store_gifts
+      display_description: ''
       display_extenders:
         breema_metatag_display_extender:
           metatags:
@@ -368,31 +384,16 @@ display:
         type: tab
         title: 'Gift certificates'
         description: ''
-        expanded: false
-        parent: ''
         weight: 0
-        context: '0'
+        expanded: false
         menu_name: main
+        parent: ''
+        context: '0'
       tab_options:
         type: normal
         title: Store
         description: ''
         weight: 0
-      display_description: ''
-      relationships:
-        entityqueue_relationship:
-          id: entityqueue_relationship
-          table: node_field_data
-          field: entityqueue_relationship
-          relationship: none
-          group_type: group
-          admin_label: 'Content queue'
-          required: true
-          limit_queue: store_gifts
-          entity_type: node
-          plugin_id: entity_queue
-      defaults:
-        relationships: false
     cache_metadata:
       max-age: -1
       contexts:
