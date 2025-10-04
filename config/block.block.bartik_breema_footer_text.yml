@@ -15,6 +15,6 @@ plugin: footer_text_block
 settings:
   id: footer_text_block
   label: 'Breema Footer text'
-  provider: breema
   label_display: '0'
+  provider: breema
 visibility: {  }

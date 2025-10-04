@@ -41,29 +41,29 @@ third_party_settings:
         - field_registration_link
         - field_facebook_event
         - group_other_links
+      label: Links
+      region: content
       parent_name: ''
       weight: 12
       format_type: fieldset
       format_settings:
-        description: ''
-        id: ''
         classes: ''
+        id: ''
+        description: ''
         required_fields: false
-      label: Links
-      region: content
     group_other_links:
       children:
         - field_website
+      label: 'Other links'
+      region: content
       parent_name: group_links
       weight: 12
       format_type: details
       format_settings:
-        id: ''
         classes: ''
+        id: ''
         open: false
         required_fields: false
-      label: 'Other links'
-      region: content
 id: node.event.default
 targetEntityType: node
 bundle: event
@@ -72,13 +72,13 @@ content:
   body:
     type: text_textarea_with_summary
     weight: 13
+    region: content
     settings:
       rows: 9
       summary_rows: 3
       placeholder: ''
       show_summary: false
     third_party_settings: {  }
-    region: content
   created:
     type: datetime_timestamp
     weight: 15
@@ -86,158 +86,158 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_breema_center_sponsored:
+    type: boolean_checkbox
     weight: 5
+    region: content
     settings:
       display_label: true
     third_party_settings: {  }
-    type: boolean_checkbox
-    region: content
   field_categories:
+    type: options_buttons
     weight: 8
+    region: content
     settings: {  }
     third_party_settings: {  }
-    type: options_buttons
-    region: content
   field_date_time:
+    type: daterange_duration
     weight: 2
+    region: content
     settings:
-      duration_granularity: 'd:h:i'
       default_duration:
         d: 0
         h: 2
         i: 0
+      duration_granularity: 'd:h:i'
       time_increment: 300
     third_party_settings: {  }
-    type: daterange_duration
-    region: content
   field_display_instructor_bios:
+    type: boolean_checkbox
     weight: 7
+    region: content
     settings:
       display_label: true
     third_party_settings: {  }
-    type: boolean_checkbox
-    region: content
   field_event_format:
+    type: options_buttons
     weight: 4
+    region: content
     settings: {  }
     third_party_settings: {  }
-    type: options_buttons
-    region: content
   field_facebook_event:
+    type: link_default
     weight: 11
+    region: content
     settings:
       placeholder_url: ''
       placeholder_title: ''
     third_party_settings: {  }
-    type: link_default
-    region: content
   field_instructors:
+    type: entity_reference_autocomplete
     weight: 6
+    region: content
     settings:
       match_operator: CONTAINS
+      match_limit: 10
       size: 60
       placeholder: ''
-      match_limit: 10
     third_party_settings: {  }
-    type: entity_reference_autocomplete
-    region: content
   field_location:
+    type: entity_browser_entity_reference
     weight: 3
+    region: content
     settings:
       entity_browser: place_browser
       field_widget_display: rendered_entity
       field_widget_edit: true
       field_widget_remove: true
+      field_widget_replace: false
       open: true
-      selection_mode: selection_append
       field_widget_display_settings:
         view_mode: teaser
-      field_widget_replace: false
+      selection_mode: selection_append
     third_party_settings: {  }
-    type: entity_browser_entity_reference
-    region: content
   field_main_image:
+    type: entity_browser_entity_reference
     weight: 11
+    region: content
     settings:
       entity_browser: image_event_browser
       field_widget_display: rendered_entity
-      field_widget_display_settings:
-        view_mode: view_medium
       field_widget_edit: true
       field_widget_remove: true
-      open: true
-      selection_mode: selection_append
       field_widget_replace: false
+      open: true
+      field_widget_display_settings:
+        view_mode: view_medium
+      selection_mode: selection_append
     third_party_settings: {  }
-    type: entity_browser_entity_reference
-    region: content
   field_registration_link:
+    type: link_default
     weight: 10
+    region: content
     settings:
       placeholder_url: ''
       placeholder_title: ''
     third_party_settings: {  }
-    type: link_default
-    region: content
   field_required_hours:
+    type: number
     weight: 9
+    region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
-    type: number
-    region: content
   field_resources:
+    type: entity_browser_entity_reference
     weight: 21
+    region: content
     settings:
       entity_browser: media_browser
       field_widget_display: label
       field_widget_edit: true
       field_widget_remove: true
-      selection_mode: selection_append
       field_widget_replace: false
       open: false
       field_widget_display_settings: {  }
+      selection_mode: selection_append
     third_party_settings: {  }
-    type: entity_browser_entity_reference
-    region: content
   field_social_media_image:
+    type: entity_browser_entity_reference
     weight: 22
+    region: content
     settings:
       entity_browser: image_sm_browser
       field_widget_display: rendered_entity
-      field_widget_display_settings:
-        view_mode: preview
       field_widget_edit: true
       field_widget_remove: true
-      selection_mode: selection_append
       field_widget_replace: false
       open: false
+      field_widget_display_settings:
+        view_mode: preview
+      selection_mode: selection_append
     third_party_settings: {  }
-    type: entity_browser_entity_reference
-    region: content
   field_subtitle:
+    type: string_textfield
     weight: 1
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
-    region: content
   field_transfer_credit:
+    type: number
     weight: 10
+    region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
-    type: number
-    region: content
   field_website:
+    type: link_default
     weight: 13
+    region: content
     settings:
       placeholder_url: ''
       placeholder_title: ''
     third_party_settings: {  }
-    type: link_default
-    region: content
   path:
     type: path
     weight: 18
@@ -246,24 +246,24 @@ content:
     third_party_settings: {  }
   promote:
     type: boolean_checkbox
-    settings:
-      display_label: true
     weight: 16
     region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    settings:
-      display_label: true
     weight: 20
     region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
-    settings:
-      display_label: true
     weight: 17
     region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   title:
     type: string_textfield
@@ -276,12 +276,12 @@ content:
   uid:
     type: entity_reference_autocomplete
     weight: 14
+    region: content
     settings:
       match_operator: CONTAINS
+      match_limit: 10
       size: 60
       placeholder: ''
-      match_limit: 10
-    region: content
     third_party_settings: {  }
   url_redirects:
     weight: 19

@@ -14,12 +14,12 @@ bundle: private_audio_file
 mode: entity_browser
 content:
   field_private_audio_file:
+    type: file_generic
     weight: 0
+    region: content
     settings:
       progress_indicator: throbber
     third_party_settings: {  }
-    type: file_generic
-    region: content
   name:
     type: string_textfield
     weight: 1

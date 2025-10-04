@@ -16,18 +16,17 @@ bundle: private_audio_file
 mode: default
 content:
   created:
-    label: hidden
     type: timestamp
-    weight: 0
-    region: content
+    label: hidden
     settings:
       date_format: medium
       custom_date_format: ''
       timezone: ''
     third_party_settings: {  }
+    weight: 0
+    region: content
   field_private_audio_file:
     type: file_audio
-    weight: 6
     label: above
     settings:
       controls: true
@@ -35,22 +34,25 @@ content:
       loop: false
       multiple_file_display_type: tags
     third_party_settings: {  }
+    weight: 6
     region: content
   thumbnail:
     type: image
-    weight: 5
     label: hidden
     settings:
-      image_style: 160x90_thumbnail
       image_link: ''
-    region: content
+      image_style: 160x90_thumbnail
+      image_loading:
+        attribute: lazy
     third_party_settings: {  }
-  uid:
-    label: hidden
-    type: author
-    weight: 0
+    weight: 5
     region: content
+  uid:
+    type: author
+    label: hidden
     settings: {  }
     third_party_settings: {  }
+    weight: 0
+    region: content
 hidden:
   name: true

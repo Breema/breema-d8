@@ -1,7 +1,21 @@
 uuid: 348289a5-2109-4356-9c16-31489c9f4c09
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  config:
+    - media.type.audio_file
+    - media.type.file
+    - media.type.image
+    - media.type.video
+    - node.type.directory_entry
+    - node.type.event
+    - node.type.place
+  module:
+    - media
+    - node
+    - override_node_options
+    - shortcut
+    - toolbar
 id: instructor
 label: Instructor
 weight: -6

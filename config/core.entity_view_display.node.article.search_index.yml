@@ -30,46 +30,44 @@ mode: search_index
 content:
   body:
     type: text_default
-    weight: 1
-    region: content
+    label: hidden
     settings: {  }
     third_party_settings: {  }
-    label: hidden
+    weight: 1
+    region: content
   field_authors_breema:
     type: entity_reference_label
-    weight: 2
-    region: content
     label: hidden
     settings:
       link: false
     third_party_settings: {  }
+    weight: 2
+    region: content
   field_authors_other:
     type: text_default
-    weight: 3
-    region: content
     label: hidden
     settings: {  }
     third_party_settings: {  }
+    weight: 3
+    region: content
   field_date:
-    weight: 0
+    type: datetime_custom
     label: hidden
     settings:
       timezone_override: ''
       date_format: 'j M F Y'
     third_party_settings: {  }
-    type: datetime_custom
+    weight: 0
     region: content
   field_meta_summary:
     type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
     weight: 4
     region: content
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
   field_original_article_url:
     type: link
-    weight: 5
-    region: content
     label: hidden
     settings:
       trim_length: null
@@ -78,17 +76,17 @@ content:
       rel: '0'
       target: '0'
     third_party_settings: {  }
+    weight: 5
+    region: content
   field_source_name:
     type: text_default
-    weight: 6
-    region: content
     label: hidden
     settings: {  }
     third_party_settings: {  }
+    weight: 6
+    region: content
   field_source_url:
     type: link
-    weight: 7
-    region: content
     label: hidden
     settings:
       trim_length: null
@@ -97,6 +95,8 @@ content:
       rel: '0'
       target: '0'
     third_party_settings: {  }
+    weight: 7
+    region: content
 hidden:
   created: true
   entitygroupfield: true

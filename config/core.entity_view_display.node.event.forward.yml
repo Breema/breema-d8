@@ -38,9 +38,8 @@ bundle: event
 mode: forward
 content:
   body:
-    label: hidden
     type: advanced_text
-    weight: 7
+    label: hidden
     settings:
       trim_length: '0'
       ellipsis: '1'
@@ -66,98 +65,99 @@ content:
       token_replace: 0
       autop: 0
     third_party_settings: {  }
+    weight: 7
     region: content
   field_date_time:
     type: daterange_compact
-    weight: 0
-    region: content
     label: hidden
     settings:
       daterange_compact_format: medium
     third_party_settings: {  }
+    weight: 0
+    region: content
   field_facebook_event:
-    weight: 9
+    type: fixed_text_link
     label: hidden
     settings:
-      link_text: 'Facebook event'
-      link_class: ''
-      rel: nofollow
-      allow_override: false
-      target: '0'
       trim_length: null
       url_only: false
       url_plain: false
+      rel: nofollow
+      target: '0'
+      link_text: 'Facebook event'
+      link_class: ''
+      allow_override: false
     third_party_settings: {  }
-    type: fixed_text_link
+    weight: 9
     region: content
   field_instructors:
-    weight: 5
+    type: entity_reference_label
     label: hidden
     settings:
       link: false
     third_party_settings: {  }
-    type: entity_reference_label
+    weight: 5
     region: content
   field_location:
-    weight: 4
+    type: entity_reference_entity_view
     label: hidden
     settings:
       view_mode: embed
       link: false
     third_party_settings: {  }
-    type: entity_reference_entity_view
+    weight: 4
     region: content
   field_main_image:
-    weight: 1
+    type: entity_reference_entity_view
     label: hidden
     settings:
       view_mode: view_large
       link: false
     third_party_settings: {  }
-    type: entity_reference_entity_view
+    weight: 1
     region: content
   field_parent_event:
-    weight: 11
+    type: entity_reference_label
     label: inline
     settings:
       link: true
     third_party_settings: {  }
-    type: entity_reference_label
+    weight: 11
     region: content
   field_registration_link:
-    weight: 3
+    type: fixed_text_link
     label: hidden
     settings:
-      link_text: 'Register here for the event'
-      link_class: ''
-      rel: nofollow
-      allow_override: false
-      target: '0'
       trim_length: null
       url_only: false
       url_plain: false
+      rel: nofollow
+      target: '0'
+      link_text: 'Register here for the event'
+      link_class: ''
+      allow_override: false
     third_party_settings: {  }
-    type: fixed_text_link
+    weight: 3
     region: content
   field_required_hours:
-    weight: 6
+    type: number_integer
     label: inline
     settings:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-    type: number_integer
+    weight: 6
     region: content
   field_subtitle:
-    weight: 2
+    type: string
     label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    type: string
+    weight: 2
     region: content
   field_transfer_credit:
-    weight: 8
+    type: number_decimal
     label: inline
     settings:
       thousand_separator: ''
@@ -165,10 +165,10 @@ content:
       scale: 1
       prefix_suffix: true
     third_party_settings: {  }
-    type: number_decimal
+    weight: 8
     region: content
   field_website:
-    weight: 10
+    type: link
     label: hidden
     settings:
       trim_length: 80
@@ -177,13 +177,13 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
-    type: link
+    weight: 10
     region: content
   links:
-    weight: 12
-    region: content
     settings: {  }
     third_party_settings: {  }
+    weight: 12
+    region: content
 hidden:
   created: true
   entitygroupfield: true

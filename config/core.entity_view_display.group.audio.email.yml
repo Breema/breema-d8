@@ -17,11 +17,11 @@ mode: email
 content:
   field_email_description:
     type: text_default
-    weight: 0
-    region: content
     label: hidden
     settings: {  }
     third_party_settings: {  }
+    weight: 0
+    region: content
 hidden:
   changed: true
   created: true

@@ -17,18 +17,18 @@ plugin: breema_session_resume_block
 settings:
   id: breema_session_resume_block
   label: 'Your Breema session resumes'
-  provider: breema
   label_display: visible
+  provider: breema
 visibility:
   user_role:
     id: user_role
-    roles:
-      authenticated: authenticated
     negate: false
     context_mapping:
       user: '@user.current_user_context:current_user'
+    roles:
+      authenticated: authenticated
   request_path:
     id: request_path
-    pages: "/front\r\n<front>\r\n/user/*/resumes\r\n"
     negate: true
     context_mapping: {  }
+    pages: "/front\r\n<front>\r\n/user/*/resumes\r\n"

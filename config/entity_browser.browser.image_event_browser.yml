@@ -21,32 +21,32 @@ widget_selector: tabs
 widget_selector_configuration: {  }
 widgets:
   d9bca9c0-6554-41c4-98c6-b4af02a038d2:
+    id: view
+    uuid: d9bca9c0-6554-41c4-98c6-b4af02a038d2
+    label: 'Event images'
+    weight: -10
     settings:
-      view: breema_media_browser
-      view_display: event_image_select_modal
       submit_text: 'Select image'
       auto_select: false
-    uuid: d9bca9c0-6554-41c4-98c6-b4af02a038d2
-    weight: -10
-    label: 'Event images'
-    id: view
+      view: breema_media_browser
+      view_display: event_image_select_modal
   39c11bda-1a03-415f-b1a2-863ede8db1ad:
+    id: entity_form
+    uuid: 39c11bda-1a03-415f-b1a2-863ede8db1ad
+    label: 'Add image'
+    weight: -8
     settings:
+      submit_text: 'Save image'
       entity_type: media
       bundle: image
       form_mode: entity_browser
-      submit_text: 'Save image'
-    uuid: 39c11bda-1a03-415f-b1a2-863ede8db1ad
-    weight: -8
-    label: 'Add image'
-    id: entity_form
   0ef00f18-8068-41ab-9b20-f1fc832e9965:
+    id: view
+    uuid: 0ef00f18-8068-41ab-9b20-f1fc832e9965
+    label: 'My images'
+    weight: -9
     settings:
-      view: breema_media_browser
-      view_display: user_image_select_modal
       submit_text: 'Select image'
       auto_select: false
-    uuid: 0ef00f18-8068-41ab-9b20-f1fc832e9965
-    weight: -9
-    label: 'My images'
-    id: view
+      view: breema_media_browser
+      view_display: user_image_select_modal

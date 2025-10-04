@@ -37,28 +37,28 @@ mode: teaser_compact_location
 content:
   field_date_time:
     type: daterange_compact
-    weight: 0
-    region: content
     label: hidden
     settings:
       daterange_compact_format: medium
     third_party_settings: {  }
+    weight: 0
+    region: content
   field_location:
-    weight: 2
+    type: entity_reference_entity_view
     label: hidden
     settings:
       view_mode: teaser_compact
       link: false
     third_party_settings: {  }
-    type: entity_reference_entity_view
+    weight: 2
     region: content
   field_timezone:
     type: tzfield_abbreviation
-    weight: 1
-    region: content
     label: hidden
     settings: {  }
     third_party_settings: {  }
+    weight: 1
+    region: content
 hidden:
   body: true
   created: true

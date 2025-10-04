@@ -21,31 +21,31 @@ bundle: private_audio_stream
 mode: group_notify_email
 content:
   body:
-    label: hidden
     type: text_default
-    weight: 3
+    label: hidden
     settings: {  }
     third_party_settings: {  }
+    weight: 3
     region: content
   entitygroupfield:
     type: parent_group_entity_formatter
-    weight: 0
-    region: content
     label: hidden
     settings:
       view_mode: email
       link: false
     third_party_settings: {  }
+    weight: 0
+    region: content
   field_available_dates:
-    weight: 2
+    type: daterange_compact
     label: inline
     settings:
       daterange_compact_format: date_only
     third_party_settings: {  }
-    type: daterange_compact
+    weight: 2
     region: content
   field_stream_url:
-    weight: 1
+    type: link
     label: hidden
     settings:
       trim_length: 80
@@ -54,7 +54,7 @@ content:
       rel: '0'
       target: '0'
     third_party_settings: {  }
-    type: link
+    weight: 1
     region: content
 hidden:
   created: true

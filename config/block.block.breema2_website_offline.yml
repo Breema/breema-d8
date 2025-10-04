@@ -18,13 +18,13 @@ plugin: 'simple_block:breema_site_offline_warning'
 settings:
   id: 'simple_block:breema_site_offline_warning'
   label: 'The Breema Center website will be offline'
-  provider: simple_block
   label_display: '0'
+  provider: simple_block
 visibility:
   user_role:
     id: user_role
-    roles:
-      authenticated: authenticated
     negate: false
     context_mapping:
       user: '@user.current_user_context:current_user'
+    roles:
+      authenticated: authenticated

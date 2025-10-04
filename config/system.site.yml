@@ -1,3 +1,6 @@
+_core:
+  default_config_hash: AyT9s8OUcclfALRE_imByOMgtZ19eOlqdF6zI3p7yqo
+langcode: en
 uuid: 4eead626-fd1d-4544-8063-f245938e1301
 name: 'The Breema Center'
 mail: website@breema.com
@@ -8,8 +11,5 @@ page:
   front: /node/5941
 admin_compact_mode: false
 weight_select_max: 100
-langcode: en
 default_langcode: en
-_core:
-  default_config_hash: AyT9s8OUcclfALRE_imByOMgtZ19eOlqdF6zI3p7yqo
 mail_notification: ''

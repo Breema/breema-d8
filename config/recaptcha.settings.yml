@@ -1,10 +1,10 @@
-site_key: ''
-secret_key: ''
+_core:
+  default_config_hash: ZKQ03ePk4sH2zESRw4tdZYw__nG2YN4Ru5roPL23g3A
+site_key: 6LeaOoEUAAAAAP6b43IXPDRbrf0aKkRi_hkFcz6G
+secret_key: 6LeaOoEUAAAAAKtdWaDptwhQxob2HPVPu5Te6gU7
 widget:
   theme: light
   type: image
   size: ''
-  tabindex: 0
   noscript: false
-_core:
-  default_config_hash: ZKQ03ePk4sH2zESRw4tdZYw__nG2YN4Ru5roPL23g3A
+  tabindex: 0

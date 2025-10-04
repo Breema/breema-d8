@@ -11,12 +11,12 @@ pattern: 'private-page/[node:title]'
 selection_criteria:
   4d302ec3-f64d-4245-90e1-4ef4e63ccef4:
     id: 'entity_bundle:node'
-    bundles:
-      private_page: private_page
     negate: false
+    uuid: 4d302ec3-f64d-4245-90e1-4ef4e63ccef4
     context_mapping:
       node: node
-    uuid: 4d302ec3-f64d-4245-90e1-4ef4e63ccef4
+    bundles:
+      private_page: private_page
 selection_logic: and
 weight: -5
 relationships: {  }

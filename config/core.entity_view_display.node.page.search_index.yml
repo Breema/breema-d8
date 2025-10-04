@@ -20,19 +20,19 @@ bundle: page
 mode: search_index
 content:
   body:
-    label: hidden
     type: text_default
-    weight: 1
-    region: content
+    label: hidden
     settings: {  }
     third_party_settings: {  }
+    weight: 1
+    region: content
   field_meta_summary:
     type: basic_string
-    weight: 0
-    region: content
     label: inline
     settings: {  }
     third_party_settings: {  }
+    weight: 0
+    region: content
 hidden:
   created: true
   entitygroupfield: true

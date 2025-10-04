@@ -11,12 +11,12 @@ pattern: '/about-breema/essence/[node:field_date:date:html_date]'
 selection_criteria:
   8c399da1-b02c-4bcd-ad16-59fb3626ff41:
     id: 'entity_bundle:node'
-    bundles:
-      essence: essence
     negate: false
+    uuid: 8c399da1-b02c-4bcd-ad16-59fb3626ff41
     context_mapping:
       node: node
-    uuid: 8c399da1-b02c-4bcd-ad16-59fb3626ff41
+    bundles:
+      essence: essence
 selection_logic: and
 weight: -5
 relationships: {  }

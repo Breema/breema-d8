@@ -19,8 +19,8 @@ display_configuration:
   auto_open: false
 selection_display: no_display
 selection_display_configuration:
-  entity_type: node
   display: label
+  entity_type: node
   display_settings: {  }
   select_text: 'Use selected'
   selection_hidden: false
@@ -30,92 +30,92 @@ widget_selector: tabs
 widget_selector_configuration: {  }
 widgets:
   ba1f9922-a2a8-4b76-b076-b2db03daa016:
+    id: view
+    uuid: ba1f9922-a2a8-4b76-b076-b2db03daa016
+    label: 'All media'
+    weight: -10
     settings:
-      view: breema_media_browser_private
-      view_display: private_media_select_modal
       submit_text: 'Select media'
       auto_select: false
-    uuid: ba1f9922-a2a8-4b76-b076-b2db03daa016
-    weight: -10
-    label: 'All media'
-    id: view
+      view: breema_media_browser_private
+      view_display: private_media_select_modal
   cb00f8fd-d94b-49e8-8673-4dbb729208ed:
+    id: entity_form
+    uuid: cb00f8fd-d94b-49e8-8673-4dbb729208ed
+    label: 'Add image'
+    weight: -4
     settings:
+      submit_text: 'Save image'
       entity_type: media
       bundle: image
       form_mode: entity_browser
-      submit_text: 'Save image'
-    uuid: cb00f8fd-d94b-49e8-8673-4dbb729208ed
-    weight: -4
-    label: 'Add image'
-    id: entity_form
   cae01553-a751-4172-920a-6b720d788919:
+    id: entity_form
+    uuid: cae01553-a751-4172-920a-6b720d788919
+    label: 'Add video'
+    weight: -5
     settings:
+      submit_text: 'Save video'
       entity_type: media
       bundle: video
       form_mode: entity_browser
-      submit_text: 'Save video'
-    uuid: cae01553-a751-4172-920a-6b720d788919
-    weight: -5
-    label: 'Add video'
-    id: entity_form
   ba738844-b106-43a6-a473-d9228d2fe84d:
+    id: entity_form
+    uuid: ba738844-b106-43a6-a473-d9228d2fe84d
+    label: 'Add file'
+    weight: -2
     settings:
+      submit_text: 'Save file'
       entity_type: media
       bundle: file
       form_mode: entity_browser
-      submit_text: 'Save file'
-    uuid: ba738844-b106-43a6-a473-d9228d2fe84d
-    weight: -2
-    label: 'Add file'
-    id: entity_form
   33d084dd-0e98-430a-bc4f-1775319629b4:
+    id: view
+    uuid: 33d084dd-0e98-430a-bc4f-1775319629b4
+    label: 'My media'
+    weight: -9
     settings:
-      view: breema_media_browser_private
-      view_display: user_media_select_modal
       submit_text: 'Select media'
       auto_select: false
-    uuid: 33d084dd-0e98-430a-bc4f-1775319629b4
-    weight: -9
-    label: 'My media'
-    id: view
+      view: breema_media_browser_private
+      view_display: user_media_select_modal
   ce252155-cf32-41c9-b8e3-284b680e2bba:
+    id: entity_form
+    uuid: ce252155-cf32-41c9-b8e3-284b680e2bba
+    label: 'Add audio file'
+    weight: -3
     settings:
+      submit_text: 'Save audio file'
       entity_type: media
       bundle: audio_file
       form_mode: entity_browser
-      submit_text: 'Save audio file'
-    uuid: ce252155-cf32-41c9-b8e3-284b680e2bba
-    weight: -3
-    label: 'Add audio file'
-    id: entity_form
   059cb9ce-ff36-459c-b94d-ec5a16d09811:
+    id: entity_form
+    uuid: 059cb9ce-ff36-459c-b94d-ec5a16d09811
+    label: 'Add private image'
+    weight: -8
     settings:
+      submit_text: 'Save private image'
       entity_type: media
       bundle: private_image
       form_mode: entity_browser
-      submit_text: 'Save private image'
-    uuid: 059cb9ce-ff36-459c-b94d-ec5a16d09811
-    weight: -8
-    label: 'Add private image'
-    id: entity_form
   2fb636ff-781f-467c-935f-cb4cc2f4ee62:
+    id: entity_form
+    uuid: 2fb636ff-781f-467c-935f-cb4cc2f4ee62
+    label: 'Add private audio file'
+    weight: -7
     settings:
+      submit_text: 'Save private audio file'
       entity_type: media
       bundle: private_audio_file
       form_mode: entity_browser
-      submit_text: 'Save private audio file'
-    uuid: 2fb636ff-781f-467c-935f-cb4cc2f4ee62
-    weight: -7
-    label: 'Add private audio file'
-    id: entity_form
   42d364f6-342a-49aa-b41e-dd9324696218:
+    id: entity_form
+    uuid: 42d364f6-342a-49aa-b41e-dd9324696218
+    label: 'Add private file'
+    weight: -6
     settings:
+      submit_text: 'Save private file'
       entity_type: media
       bundle: private_file
       form_mode: entity_browser
-      submit_text: 'Save private file'
-    uuid: 42d364f6-342a-49aa-b41e-dd9324696218
-    weight: -6
-    label: 'Add private file'
-    id: entity_form

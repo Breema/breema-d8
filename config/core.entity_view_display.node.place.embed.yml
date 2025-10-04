@@ -27,29 +27,29 @@ bundle: place
 mode: embed
 content:
   field_address:
-    weight: 0
+    type: address_directions_link
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    type: address_directions_link
+    weight: 0
     region: content
   field_email:
     type: email_mailto
-    weight: 2
-    region: content
     label: hidden
     settings: {  }
     third_party_settings: {  }
+    weight: 2
+    region: content
   field_telephone:
-    weight: 1
+    type: telephone_link
     label: hidden
     settings:
       title: ''
     third_party_settings: {  }
-    type: telephone_link
+    weight: 1
     region: content
   field_website:
-    weight: 3
+    type: link
     label: hidden
     settings:
       trim_length: 80
@@ -58,13 +58,13 @@ content:
       rel: '0'
       target: '0'
     third_party_settings: {  }
-    type: link
+    weight: 3
     region: content
   links:
-    weight: 4
-    region: content
     settings: {  }
     third_party_settings: {  }
+    weight: 4
+    region: content
 hidden:
   body: true
   created: true

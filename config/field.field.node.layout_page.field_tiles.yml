@@ -22,11 +22,14 @@ default_value_callback: ''
 settings:
   handler: 'default:paragraph'
   handler_settings:
-    negate: 0
     target_bundles:
       media_tile: media_tile
       recurring_event_tile: recurring_event_tile
+    negate: 0
     target_bundles_drag_drop:
+      essence_single:
+        weight: 15
+        enabled: false
       event_featured:
         weight: 12
         enabled: false
@@ -36,9 +39,6 @@ settings:
       featured_product:
         weight: 14
         enabled: false
-      essence_single:
-        weight: 15
-        enabled: false
       media_3_up:
         weight: 15
         enabled: false
@@ -46,8 +46,8 @@ settings:
         weight: 16
         enabled: false
       media_tile:
-        enabled: true
         weight: 17
+        enabled: true
       person:
         weight: 18
         enabled: false
@@ -64,8 +64,8 @@ settings:
         weight: 22
         enabled: false
       recurring_event_tile:
-        enabled: true
         weight: 27
+        enabled: true
       text:
         weight: 28
         enabled: false

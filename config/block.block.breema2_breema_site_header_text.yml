@@ -15,6 +15,6 @@ plugin: breema_site_header_block
 settings:
   id: breema_site_header_block
   label: 'Breema site header text'
-  provider: breema
   label_display: '0'
+  provider: breema
 visibility: {  }

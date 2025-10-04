@@ -19,18 +19,18 @@ plugin: 'simple_block:breema_login_header'
 settings:
   id: 'simple_block:breema_login_header'
   label: 'Breema User login header'
-  provider: simple_block
   label_display: '0'
+  provider: simple_block
 visibility:
   request_path:
     id: request_path
-    pages: /user/login
     negate: false
     context_mapping: {  }
+    pages: /user/login
   user_role:
     id: user_role
-    roles:
-      anonymous: anonymous
     negate: false
     context_mapping:
       user: '@user.current_user_context:current_user'
+    roles:
+      anonymous: anonymous

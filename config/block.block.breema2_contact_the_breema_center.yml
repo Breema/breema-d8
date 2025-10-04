@@ -18,11 +18,11 @@ plugin: 'simple_block:breema_center_contact_info'
 settings:
   id: 'simple_block:breema_center_contact_info'
   label: 'Contact The Breema Center'
-  provider: simple_block
   label_display: '0'
+  provider: simple_block
 visibility:
   request_path:
     id: request_path
-    pages: "/contact\r\n/contact/center"
     negate: false
     context_mapping: {  }
+    pages: "/contact\r\n/contact/center"

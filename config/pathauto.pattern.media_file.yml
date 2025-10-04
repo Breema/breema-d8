@@ -12,12 +12,12 @@ pattern: 'file/[media:name]'
 selection_criteria:
   785fb7f9-4885-4c4e-817a-b25860b28554:
     id: 'entity_bundle:media'
-    bundles:
-      file: file
     negate: false
+    uuid: 785fb7f9-4885-4c4e-817a-b25860b28554
     context_mapping:
       media: media
-    uuid: 785fb7f9-4885-4c4e-817a-b25860b28554
+    bundles:
+      file: file
 selection_logic: and
 weight: -5
 relationships: {  }

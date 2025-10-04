@@ -11,12 +11,12 @@ pattern: 'private-audio/[node:title]'
 selection_criteria:
   0aee2c92-75ea-4a40-a61d-28e97caf51f7:
     id: 'entity_bundle:node'
-    bundles:
-      private_audio_stream: private_audio_stream
     negate: false
+    uuid: 0aee2c92-75ea-4a40-a61d-28e97caf51f7
     context_mapping:
       node: node
-    uuid: 0aee2c92-75ea-4a40-a61d-28e97caf51f7
+    bundles:
+      private_audio_stream: private_audio_stream
 selection_logic: and
 weight: -5
 relationships: {  }

@@ -34,90 +34,88 @@ bundle: directory_entry
 mode: teaser_search_result
 content:
   field_address:
-    weight: 4
+    type: address_default
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    type: address_default
+    weight: 4
     region: content
   field_breema_center_staff:
-    weight: 1
+    type: boolean
     label: hidden
     settings:
       format: custom
-      format_custom_true: 'Breema Center staff'
       format_custom_false: ''
+      format_custom_true: 'Breema Center staff'
     third_party_settings: {  }
-    type: boolean
+    weight: 1
     region: content
   field_breema_clinic_practitioner:
-    weight: 2
+    type: boolean
     label: hidden
     settings:
       format: custom
-      format_custom_true: 'Breema Clinic practitioner'
       format_custom_false: ''
+      format_custom_true: 'Breema Clinic practitioner'
     third_party_settings: {  }
-    type: boolean
+    weight: 2
     region: content
   field_certification:
-    weight: 3
+    type: list_default
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    type: list_default
+    weight: 3
     region: content
   field_email:
-    weight: 5
+    type: email_mailto
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    type: email_mailto
+    weight: 5
     region: content
   field_facebook_page:
     type: fixed_text_link
-    weight: 7
-    region: content
     label: hidden
     settings:
-      link_text: 'Facebook page'
-      link_class: facebook
-      rel: nofollow
-      target: _blank
-      allow_override: false
       trim_length: null
       url_only: false
       url_plain: false
+      rel: nofollow
+      target: _blank
+      link_text: 'Facebook page'
+      link_class: facebook
+      allow_override: false
     third_party_settings: {  }
+    weight: 7
+    region: content
   field_job_title:
-    weight: 0
+    type: string
     label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    type: string
+    weight: 0
     region: content
   field_telephone:
-    weight: 6
+    type: telephone_link
     label: hidden
     settings:
       title: ''
     third_party_settings: {  }
-    type: telephone_link
+    weight: 6
     region: content
   field_upcoming_events:
     type: entity_reference_entity_view
-    weight: 9
-    region: content
     label: hidden
     settings:
       view_mode: teaser_compact_location
       link: false
     third_party_settings: {  }
+    weight: 9
+    region: content
   field_website:
     type: link
-    weight: 8
-    region: content
     label: hidden
     settings:
       trim_length: 80
@@ -126,6 +124,8 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
+    weight: 8
+    region: content
 hidden:
   body: true
   created: true

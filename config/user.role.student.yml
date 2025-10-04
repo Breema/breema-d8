@@ -1,7 +1,11 @@
 uuid: f00b250f-9f64-45ab-a08d-21741c328ef4
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  config:
+    - node.type.session_resume
+  module:
+    - node
 id: student
 label: Student
 weight: -8

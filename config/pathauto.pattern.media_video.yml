@@ -12,12 +12,12 @@ pattern: 'video/[media:name]'
 selection_criteria:
   7b4871d0-dc32-4057-8038-78644a26e5c8:
     id: 'entity_bundle:media'
-    bundles:
-      video: video
     negate: false
+    uuid: 7b4871d0-dc32-4057-8038-78644a26e5c8
     context_mapping:
       media: media
-    uuid: 7b4871d0-dc32-4057-8038-78644a26e5c8
+    bundles:
+      video: video
 selection_logic: and
 weight: -5
 relationships: {  }

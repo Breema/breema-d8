@@ -18,12 +18,12 @@ plugin: search_form_block
 settings:
   id: search_form_block
   label: Search
-  provider: search
   label_display: visible
+  provider: search
   page_id: ''
 visibility:
   request_path:
     id: request_path
-    pages: "/directory\r\n/directory/map\r\n/directory/search\r\n/search*\r\n"
     negate: true
     context_mapping: {  }
+    pages: "/directory\r\n/directory/map\r\n/directory/search\r\n/search*\r\n"

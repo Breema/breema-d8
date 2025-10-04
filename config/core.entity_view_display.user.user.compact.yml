@@ -11,9 +11,11 @@ dependencies:
     - field.field.user.user.field_breema_center_staff
     - field.field.user.user.field_breema_clinic_practitioner
     - field.field.user.user.field_certification
+    - field.field.user.user.field_certification_level
     - field.field.user.user.field_class_attended
     - field.field.user.user.field_class_other
     - field.field.user.user.field_directory_entry
+    - field.field.user.user.field_legacy_directory_url
     - field.field.user.user.field_name_first
     - field.field.user.user.field_name_last
     - field.field.user.user.field_profession
@@ -33,14 +35,17 @@ mode: compact
 content:
   user_picture:
     type: image
+    label: hidden
+    settings:
+      image_link: content
+      image_style: 128x128_tiny
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
     weight: 0
     region: content
-    settings:
-      image_style: 128x128_tiny
-      image_link: content
-    third_party_settings: {  }
-    label: hidden
 hidden:
+  entitygroupfield: true
   field_address: true
   field_anatomy_homework_language: true
   field_anatomy_requirement: true
@@ -48,9 +53,11 @@ hidden:
   field_breema_center_staff: true
   field_breema_clinic_practitioner: true
   field_certification: true
+  field_certification_level: true
   field_class_attended: true
   field_class_other: true
   field_directory_entry: true
+  field_legacy_directory_url: true
   field_name_first: true
   field_name_last: true
   field_profession: true

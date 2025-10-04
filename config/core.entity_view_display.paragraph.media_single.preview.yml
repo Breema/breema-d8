@@ -19,30 +19,30 @@ bundle: media_single
 mode: preview
 content:
   field_header_text:
-    weight: 0
+    type: string
     label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    type: string
+    weight: 0
     region: content
   field_media:
     type: entity_reference_entity_view
-    weight: 2
     label: hidden
     settings:
       view_mode: preview
       link: false
     third_party_settings: {  }
+    weight: 2
     region: content
   field_subheader:
     type: string
-    weight: 1
-    region: content
     label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
+    weight: 1
+    region: content
 hidden:
   field_description: true
   field_link: true

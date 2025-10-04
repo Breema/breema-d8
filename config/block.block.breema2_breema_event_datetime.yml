@@ -15,6 +15,6 @@ plugin: event_datetime_block
 settings:
   id: event_datetime_block
   label: 'Breema event date/time'
-  provider: breema
   label_display: '0'
+  provider: breema
 visibility: {  }

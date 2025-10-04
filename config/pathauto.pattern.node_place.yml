@@ -11,12 +11,12 @@ pattern: 'place/[node:field_address:country_code]/[node:field_address:administra
 selection_criteria:
   62995928-c034-460d-aab4-135a179776e0:
     id: 'entity_bundle:node'
-    bundles:
-      place: place
     negate: false
+    uuid: 62995928-c034-460d-aab4-135a179776e0
     context_mapping:
       node: node
-    uuid: 62995928-c034-460d-aab4-135a179776e0
+    bundles:
+      place: place
 selection_logic: and
 weight: -5
 relationships: {  }

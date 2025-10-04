@@ -16,11 +16,11 @@ plugin: footer_email_subscribe_block
 settings:
   id: footer_email_subscribe_block
   label: 'Sign-up for Essence of Breema - inspirational excerpts from Breema Center books and classes'
-  provider: breema
   label_display: visible
+  provider: breema
 visibility:
   request_path:
     id: request_path
-    pages: /about-breema/essence
     negate: false
     context_mapping: {  }
+    pages: /about-breema/essence

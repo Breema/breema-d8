@@ -18,11 +18,11 @@ plugin: 'simple_block:breema_center_location'
 settings:
   id: 'simple_block:breema_center_location'
   label: 'Breema Center Location'
-  provider: simple_block
   label_display: '0'
+  provider: simple_block
 visibility:
   request_path:
     id: request_path
-    pages: '<front>'
     negate: false
     context_mapping: {  }
+    pages: '<front>'

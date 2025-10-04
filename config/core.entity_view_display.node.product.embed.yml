@@ -24,37 +24,37 @@ bundle: product
 mode: embed
 content:
   field_by:
-    weight: 3
+    type: text_default
     label: inline
     settings: {  }
     third_party_settings: {  }
-    type: text_default
+    weight: 3
     region: content
   field_main_image:
-    weight: 0
+    type: media_thumbnail
     label: hidden
     settings:
-      image_style: 320x320_small
       image_link: ''
+      image_style: 320x320_small
     third_party_settings: {  }
-    type: media_thumbnail
+    weight: 0
     region: content
   field_title_main:
     type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
     weight: 1
     region: content
-    label: hidden
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
   field_title_sub:
     type: string
-    weight: 2
-    region: content
     label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
+    weight: 2
+    region: content
 hidden:
   body: true
   created: true

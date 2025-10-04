@@ -12,12 +12,12 @@ pattern: 'image/[media:name]'
 selection_criteria:
   c59686bb-8d81-4472-aec7-f7d39214156a:
     id: 'entity_bundle:media'
-    bundles:
-      image: image
     negate: false
+    uuid: c59686bb-8d81-4472-aec7-f7d39214156a
     context_mapping:
       media: media
-    uuid: c59686bb-8d81-4472-aec7-f7d39214156a
+    bundles:
+      image: image
 selection_logic: and
 weight: -5
 relationships: {  }

@@ -15,6 +15,6 @@ plugin: footer_email_subscribe_block
 settings:
   id: footer_email_subscribe_block
   label: 'E-mail lists'
-  provider: breema
   label_display: '0'
+  provider: breema
 visibility: {  }
