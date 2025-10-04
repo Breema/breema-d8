@@ -18,11 +18,11 @@ plugin: 'simple_block:breema_web_team_info'
 settings:
   id: 'simple_block:breema_web_team_info'
   label: 'The Breema Web Team'
-  provider: simple_block
   label_display: '0'
+  provider: simple_block
 visibility:
   request_path:
     id: request_path
-    pages: /contact/web_team
     negate: false
     context_mapping: {  }
+    pages: /contact/web_team

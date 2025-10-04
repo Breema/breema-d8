@@ -7,5 +7,12 @@ dependencies:
 id: breema_site_offline_warning
 title: 'The Breema Center website will be offline'
 content:
-  value: "<div class=\"messages messages--warning\">\n<p class=\"large\">The Breema Center Website will be offline on Monday, 21 October 2019, from 10:00 - 10:30am [PDT] (17:00-17:30 UTC).</p>\n\n<p>Please complete any tasks and <strong>log out before this time</strong>, so as not to lose any in-progress work.</p>\n\n<p>Thanks for your patience, and sorry for any inconvenience or interruption.</p>\n</div>\n"
+  value: |
+    <div class="messages messages--warning">
+    <p class="large">The Breema Center Website will be offline on Monday, 21 October 2019, from 10:00 - 10:30am [PDT] (17:00-17:30 UTC).</p>
+
+    <p>Please complete any tasks and <strong>log out before this time</strong>, so as not to lose any in-progress work.</p>
+
+    <p>Thanks for your patience, and sorry for any inconvenience or interruption.</p>
+    </div>
   format: basic_html

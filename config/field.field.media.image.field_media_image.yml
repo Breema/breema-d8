@@ -5,12 +5,12 @@ dependencies:
   config:
     - field.storage.media.field_media_image
     - media.type.image
-  enforced:
-    module:
-      - media
   module:
     - filefield_paths
     - image
+  enforced:
+    module:
+      - media
 third_party_settings:
   filefield_paths:
     enabled: true
@@ -20,15 +20,15 @@ third_party_settings:
         slashes: true
         pathauto: true
         transliterate: true
-    redirect: true
-    retroactive_update: false
-    active_updating: false
     file_name:
       value: '[file:ffp-name-only-original].[file:ffp-extension-original]'
       options:
         slashes: true
         pathauto: true
         transliterate: true
+    redirect: true
+    retroactive_update: false
+    active_updating: false
 _core:
   default_config_hash: pzPA-2JwyxlJ3qMb4L9viAnhNhbEhl2couH8A3FO020
 id: media.image.field_media_image
@@ -36,12 +36,18 @@ field_name: field_media_image
 entity_type: media
 bundle: image
 label: Image
-description: "Event images should be in a 3:2 aspect ratio (for example 960x640 pixels).<br />\nSocial media images should be in a 2:1 aspect ratio, and at least 1200px wide (for example 1200x600 pixels).<br />\nFor assistance with image sizing, please email <a href=\"mailto:website@breema.com\">website@breema.com</a>.<br />\nAll images should use RGB colors (not CMYK)."
+description: |-
+  Event images should be in a 3:2 aspect ratio (for example 960x640 pixels).<br />
+  Social media images should be in a 2:1 aspect ratio, and at least 1200px wide (for example 1200x600 pixels).<br />
+  For assistance with image sizing, please email <a href="mailto:website@breema.com">website@breema.com</a>.<br />
+  All images should use RGB colors (not CMYK).
 required: true
 translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:
+  handler: 'default:file'
+  handler_settings: {  }
   file_directory: 'image/[date:custom:Y]-[date:custom:m]'
   file_extensions: 'png gif jpg jpeg'
   max_filesize: ''
@@ -57,6 +63,4 @@ settings:
     title: ''
     width: null
     height: null
-  handler: 'default:file'
-  handler_settings: {  }
 field_type: image

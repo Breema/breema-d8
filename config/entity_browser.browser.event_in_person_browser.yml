@@ -20,12 +20,12 @@ widget_selector: single
 widget_selector_configuration: {  }
 widgets:
   1a201188-95ab-498c-982b-c9a9da0027e0:
+    id: view
+    uuid: 1a201188-95ab-498c-982b-c9a9da0027e0
+    label: 'In Person Events'
+    weight: 1
     settings:
       submit_text: 'Select events'
       auto_select: false
       view: breema_event_browser
       view_display: event_in_person_browser
-    uuid: 1a201188-95ab-498c-982b-c9a9da0027e0
-    weight: 1
-    label: 'In Person Events'
-    id: view

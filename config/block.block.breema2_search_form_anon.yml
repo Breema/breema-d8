@@ -16,14 +16,14 @@ plugin: search_form_block
 settings:
   id: search_form_block
   label: 'Search form'
-  provider: search
   label_display: '0'
+  provider: search
   page_id: ''
 visibility:
   user_role:
     id: user_role
-    roles:
-      anonymous: anonymous
     negate: false
     context_mapping:
       user: '@user.current_user_context:current_user'
+    roles:
+      anonymous: anonymous

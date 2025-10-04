@@ -36,19 +36,14 @@ bundle: event
 mode: embed
 content:
   body:
-    label: hidden
     type: smart_trim
-    weight: 2
+    label: hidden
     settings:
       trim_length: 400
       trim_type: chars
       trim_suffix: ...
-      wrap_class: trimmed
-      summary_handler: full
-      trim_options:
-        text: true
-        trim_zero: false
       wrap_output: false
+      wrap_class: trimmed
       more:
         display_link: false
         target_blank: false
@@ -56,24 +51,29 @@ content:
         class: more-link
         text: More
         aria_label: 'Read more about [node:title]'
+      summary_handler: full
+      trim_options:
+        text: true
+        trim_zero: false
     third_party_settings: {  }
+    weight: 2
     region: content
   field_date_time:
     type: daterange_compact
-    weight: 1
-    region: content
     label: hidden
     settings:
       daterange_compact_format: date_only
     third_party_settings: {  }
+    weight: 1
+    region: content
   field_main_image:
-    weight: 0
+    type: entity_reference_entity_view
     label: visually_hidden
     settings:
       view_mode: view_large
       link: false
     third_party_settings: {  }
-    type: entity_reference_entity_view
+    weight: 0
     region: content
 hidden:
   created: true

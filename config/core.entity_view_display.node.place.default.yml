@@ -28,46 +28,47 @@ bundle: place
 mode: default
 content:
   body:
-    label: hidden
     type: text_default
-    weight: 6
+    label: hidden
     settings: {  }
     third_party_settings: {  }
+    weight: 6
     region: content
   field_address:
-    weight: 2
+    type: address_directions_link
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    type: address_directions_link
+    weight: 2
     region: content
   field_email:
-    weight: 4
+    type: email_mailto
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    type: email_mailto
+    weight: 4
     region: content
   field_geolocation:
-    weight: 7
+    type: geolocation_map
     label: hidden
     settings:
       set_marker: true
+      common_map: false
+      use_overridden_map_settings: false
       title: ''
       info_text: ''
-      use_overridden_map_settings: false
-      common_map: false
       map_provider_id: google_maps
       map_provider_settings:
-        height: 300px
-        width: 300px
         type: ROADMAP
         zoom: 10
-        maxZoom: 15
         minZoom: 3
+        maxZoom: 15
+        rotateControl: false
+        height: 300px
+        width: 300px
+        gestureHandling: auto
         zoomControl: 1
         scrollwheel: 1
-        gestureHandling: auto
         draggable: 1
         preferScrollingToZooming: 1
         style: ''
@@ -75,32 +76,31 @@ content:
         marker_icon_path: ''
         mapTypeControl: 0
         streetViewControl: 0
-        rotateControl: false
         fullscreenControl: 0
         disableDoubleClickZoom: 0
         disableAutoPan: 0
     third_party_settings: {  }
-    type: geolocation_map
+    weight: 7
     region: content
   field_main_image:
-    weight: 0
+    type: entity_reference_entity_view
     label: visually_hidden
     settings:
       view_mode: view_medium
       link: false
     third_party_settings: {  }
-    type: entity_reference_entity_view
+    weight: 0
     region: content
   field_telephone:
-    weight: 3
+    type: telephone_link
     label: hidden
     settings:
       title: ''
     third_party_settings: {  }
-    type: telephone_link
+    weight: 3
     region: content
   field_website:
-    weight: 5
+    type: link
     label: hidden
     settings:
       trim_length: 80
@@ -109,18 +109,18 @@ content:
       rel: '0'
       target: '0'
     third_party_settings: {  }
-    type: link
+    weight: 5
     region: content
   flag_my_places:
+    settings: {  }
+    third_party_settings: {  }
     weight: 1
     region: content
+  links:
     settings: {  }
     third_party_settings: {  }
-  links:
     weight: 8
     region: content
-    settings: {  }
-    third_party_settings: {  }
 hidden:
   created: true
   entitygroupfield: true

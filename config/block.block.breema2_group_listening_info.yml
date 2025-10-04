@@ -17,18 +17,18 @@ plugin: group_listening_block
 settings:
   id: group_listening_block
   label: 'Your listening group'
-  provider: breema
   label_display: visible
+  provider: breema
 visibility:
   request_path:
     id: request_path
-    pages: "<front>\r\n/front\r\n/user/*/groups"
     negate: true
     context_mapping: {  }
+    pages: "<front>\r\n/front\r\n/user/*/groups"
   user_role:
     id: user_role
-    roles:
-      authenticated: authenticated
     negate: false
     context_mapping:
       user: '@user.current_user_context:current_user'
+    roles:
+      authenticated: authenticated

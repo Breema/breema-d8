@@ -25,35 +25,38 @@ default_value_callback: ''
 settings:
   handler: 'default:paragraph'
   handler_settings:
-    negate: 0
     target_bundles:
       event_single: event_single
       essence_single: essence_single
       media_single: media_single
       person: person
       product_single: product_single
+    negate: 0
     target_bundles_drag_drop:
+      essence_single:
+        weight: 14
+        enabled: true
       event_featured:
         weight: 11
         enabled: false
       event_single:
-        enabled: true
         weight: 12
+        enabled: true
       featured_product:
         weight: 13
         enabled: false
-      essence_single:
-        enabled: true
-        weight: 14
       media_3_up:
         weight: 14
         enabled: false
       media_single:
-        enabled: true
         weight: 15
-      person:
         enabled: true
+      media_tile:
+        weight: 20
+        enabled: false
+      person:
         weight: 16
+        enabled: true
       product_info_audio:
         weight: 17
         enabled: false
@@ -63,12 +66,9 @@ settings:
       product_info_general:
         weight: 19
         enabled: false
-      media_tile:
-        weight: 20
-        enabled: false
       product_single:
-        enabled: true
         weight: 20
+        enabled: true
       text:
         weight: 26
         enabled: false

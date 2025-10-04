@@ -30,19 +30,14 @@ bundle: directory_entry
 mode: teaser_compact
 content:
   body:
-    label: hidden
     type: smart_trim
-    weight: 3
+    label: hidden
     settings:
       trim_length: 500
       trim_type: chars
       trim_suffix: ...
-      wrap_class: trimmed
-      summary_handler: trim
       wrap_output: false
-      trim_options:
-        text: false
-        trim_zero: false
+      wrap_class: trimmed
       more:
         display_link: true
         target_blank: false
@@ -50,35 +45,40 @@ content:
         class: more-link
         text: 'Read more'
         aria_label: 'Read more about [node:title]'
+      summary_handler: trim
+      trim_options:
+        text: false
+        trim_zero: false
     third_party_settings: {  }
+    weight: 3
     region: content
   field_breema_center_staff:
-    weight: 1
+    type: boolean
     label: hidden
     settings:
       format: custom
-      format_custom_true: 'Breema Center staff'
       format_custom_false: ''
+      format_custom_true: 'Breema Center staff'
     third_party_settings: {  }
-    type: boolean
+    weight: 1
     region: content
   field_breema_clinic_practitioner:
-    weight: 2
+    type: boolean
     label: hidden
     settings:
       format: custom
-      format_custom_true: 'Breema Clinic practitioner'
       format_custom_false: ''
+      format_custom_true: 'Breema Clinic practitioner'
     third_party_settings: {  }
-    type: boolean
+    weight: 2
     region: content
   field_job_title:
-    weight: 0
+    type: string
     label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    type: string
+    weight: 0
     region: content
 hidden:
   created: true

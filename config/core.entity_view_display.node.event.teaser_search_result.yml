@@ -40,60 +40,60 @@ mode: teaser_search_result
 content:
   field_date_time:
     type: daterange_compact
-    weight: 0
-    region: content
     label: hidden
     settings:
       daterange_compact_format: medium
     third_party_settings: {  }
+    weight: 0
+    region: content
   field_event_format:
     type: list_default
-    weight: 6
-    region: content
     label: hidden
     settings: {  }
     third_party_settings: {  }
+    weight: 6
+    region: content
   field_instructors:
-    weight: 4
+    type: entity_reference_label
     label: hidden
     settings:
       link: false
     third_party_settings: {  }
-    type: entity_reference_label
+    weight: 4
     region: content
   field_location:
-    weight: 5
+    type: entity_reference_entity_view
     label: hidden
     settings:
       view_mode: teaser_with_location
       link: false
     third_party_settings: {  }
-    type: entity_reference_entity_view
+    weight: 5
     region: content
   field_main_image:
-    weight: 2
+    type: media_thumbnail
     label: hidden
     settings:
-      image_style: 160x90_thumbnail
       image_link: ''
+      image_style: 160x90_thumbnail
     third_party_settings: {  }
-    type: media_thumbnail
+    weight: 2
     region: content
   field_subtitle:
-    weight: 3
+    type: string
     label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    type: string
+    weight: 3
     region: content
   field_timezone:
     type: tzfield_abbreviation
-    weight: 1
-    region: content
     label: hidden
     settings: {  }
     third_party_settings: {  }
+    weight: 1
+    region: content
 hidden:
   body: true
   created: true

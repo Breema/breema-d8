@@ -24,19 +24,14 @@ bundle: essence
 mode: teaser
 content:
   body:
-    label: hidden
     type: smart_trim
-    weight: 1
+    label: hidden
     settings:
       trim_length: 300
       trim_type: chars
       trim_suffix: ...
-      wrap_class: trimmed
-      summary_handler: full
       wrap_output: false
-      trim_options:
-        text: false
-        trim_zero: false
+      wrap_class: trimmed
       more:
         display_link: false
         target_blank: false
@@ -44,31 +39,36 @@ content:
         class: more-link
         text: 'Read more'
         aria_label: 'Read more about [node:title]'
+      summary_handler: full
+      trim_options:
+        text: false
+        trim_zero: false
     third_party_settings: {  }
+    weight: 1
     region: content
   field_main_image:
     type: media_thumbnail
-    weight: 0
-    region: content
     label: hidden
     settings:
-      image_style: 224x126_smaller
       image_link: ''
+      image_style: 224x126_smaller
     third_party_settings: {  }
+    weight: 0
+    region: content
   field_resources:
     type: entity_reference_entity_view
-    weight: 2
-    region: content
     label: visually_hidden
     settings:
       view_mode: view_medium
       link: false
     third_party_settings: {  }
-  links:
-    weight: 3
+    weight: 2
     region: content
+  links:
     settings: {  }
     third_party_settings: {  }
+    weight: 3
+    region: content
 hidden:
   created: true
   entitygroupfield: true

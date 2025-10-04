@@ -23,19 +23,19 @@ default_value_callback: ''
 settings:
   handler: 'default:paragraph'
   handler_settings:
-    negate: 0
     target_bundles:
       product_info_audio: product_info_audio
       product_info_book: product_info_book
       product_info_general: product_info_general
+    negate: 0
     target_bundles_drag_drop:
       product_info_audio:
-        enabled: true
         weight: 4
+        enabled: true
       product_info_book:
-        enabled: true
         weight: 5
-      product_info_general:
         enabled: true
+      product_info_general:
         weight: 6
+        enabled: true
 field_type: entity_reference_revisions

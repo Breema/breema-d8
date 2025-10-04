@@ -39,61 +39,61 @@ bundle: event
 mode: teaser_with_location
 content:
   field_date_time:
-    weight: 0
+    type: daterange_compact
     label: hidden
     settings:
       daterange_compact_format: medium
     third_party_settings: {  }
-    type: daterange_compact
+    weight: 0
     region: content
   field_event_format:
     type: list_default
-    weight: 6
-    region: content
     label: hidden
     settings: {  }
     third_party_settings: {  }
+    weight: 6
+    region: content
   field_instructors:
     type: entity_reference_label
-    weight: 4
-    region: content
     label: hidden
     settings:
       link: false
     third_party_settings: {  }
+    weight: 4
+    region: content
   field_location:
-    weight: 5
+    type: entity_reference_entity_view
     label: hidden
     settings:
       view_mode: teaser_with_location
       link: false
     third_party_settings: {  }
-    type: entity_reference_entity_view
+    weight: 5
     region: content
   field_main_image:
     type: media_thumbnail
-    weight: 2
-    region: content
     label: hidden
     settings:
-      image_style: 320x180_small
       image_link: ''
+      image_style: 320x180_small
     third_party_settings: {  }
+    weight: 2
+    region: content
   field_subtitle:
-    weight: 3
+    type: string
     label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    type: string
+    weight: 3
     region: content
   field_timezone:
     type: tzfield_abbreviation
-    weight: 1
-    region: content
     label: hidden
     settings: {  }
     third_party_settings: {  }
+    weight: 1
+    region: content
 hidden:
   body: true
   created: true

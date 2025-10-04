@@ -14,20 +14,20 @@ bundle: private
 mode: default
 content:
   field_body:
-    weight: 0
+    type: text_default
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    type: text_default
+    weight: 0
     region: content
   field_resources:
     type: entity_reference_entity_view
-    weight: 1
     label: visually_hidden
     settings:
       view_mode: view_full
       link: false
     third_party_settings: {  }
+    weight: 1
     region: content
 hidden:
   changed: true

@@ -16,18 +16,14 @@ bundle: audio
 mode: teaser
 content:
   field_body:
-    weight: 0
+    type: smart_trim
     label: hidden
     settings:
       trim_length: 300
       trim_type: chars
       trim_suffix: ''
-      wrap_class: trimmed
-      summary_handler: full
-      trim_options:
-        text: true
-        trim_zero: false
       wrap_output: false
+      wrap_class: trimmed
       more:
         display_link: false
         target_blank: false
@@ -35,8 +31,12 @@ content:
         class: more-link
         text: More
         aria_label: 'Read more about [node:title]'
+      summary_handler: full
+      trim_options:
+        text: true
+        trim_zero: false
     third_party_settings: {  }
-    type: smart_trim
+    weight: 0
     region: content
 hidden:
   changed: true

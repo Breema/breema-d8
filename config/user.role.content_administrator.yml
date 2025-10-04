@@ -1,7 +1,52 @@
 uuid: 55297a22-fdc4-4639-8b5f-c8fda3b57c0a
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  config:
+    - filter.format.full_html
+    - media.type.audio_file
+    - media.type.file
+    - media.type.image
+    - media.type.private_audio_file
+    - media.type.private_file
+    - media.type.private_image
+    - media.type.video
+    - node.type.article
+    - node.type.directory_entry
+    - node.type.essence
+    - node.type.event
+    - node.type.layout_page
+    - node.type.page
+    - node.type.place
+    - node.type.private_audio_stream
+    - node.type.private_page
+    - node.type.product
+    - node.type.session_resume
+    - taxonomy.vocabulary.article_language
+    - taxonomy.vocabulary.event_category
+    - taxonomy.vocabulary.file_type
+    - taxonomy.vocabulary.image_type
+    - taxonomy.vocabulary.tags
+    - taxonomy.vocabulary.video_type
+  module:
+    - comment
+    - contextual
+    - entity_browser
+    - entityqueue
+    - field_permissions
+    - file
+    - filter
+    - media
+    - node
+    - override_node_options
+    - path
+    - redirect
+    - search
+    - shortcut
+    - system
+    - taxonomy
+    - toolbar
+    - view_unpublished
 id: content_administrator
 label: 'Content administrator'
 weight: -3
@@ -13,7 +58,6 @@ permissions:
   - 'access contextual links'
   - 'access files overview'
   - 'access image_browser entity browser pages'
-  - 'access in-place editing'
   - 'access media overview'
   - 'access media_browser entity browser pages'
   - 'access media_embed entity browser pages'

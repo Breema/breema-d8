@@ -18,43 +18,43 @@ bundle: private_page
 mode: default
 content:
   body:
-    label: hidden
     type: text_default
-    weight: 1
+    label: hidden
     settings: {  }
     third_party_settings: {  }
+    weight: 1
     region: content
   entitygroupfield:
     type: parent_group_label_formatter
-    weight: 3
-    region: content
     label: hidden
     settings:
       link: true
     third_party_settings: {  }
+    weight: 3
+    region: content
   field_main_image:
-    weight: 0
+    type: media_thumbnail
     label: hidden
     settings:
-      image_style: 224x126_smaller
       image_link: ''
+      image_style: 224x126_smaller
     third_party_settings: {  }
-    type: media_thumbnail
+    weight: 0
     region: content
   field_resources:
-    weight: 2
+    type: entity_reference_entity_view
     label: hidden
     settings:
       view_mode: view_full
       link: false
     third_party_settings: {  }
-    type: entity_reference_entity_view
+    weight: 2
     region: content
   links:
-    weight: 4
-    region: content
     settings: {  }
     third_party_settings: {  }
+    weight: 4
+    region: content
 hidden:
   created: true
   uid: true

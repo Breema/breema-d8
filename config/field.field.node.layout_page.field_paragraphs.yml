@@ -29,7 +29,6 @@ default_value_callback: ''
 settings:
   handler: 'default:paragraph'
   handler_settings:
-    negate: 0
     target_bundles:
       event_featured: event_featured
       featured_product: featured_product
@@ -40,44 +39,45 @@ settings:
       media_3_up: media_3_up
       product_single: product_single
       text: text
+    negate: 0
     target_bundles_drag_drop:
+      essence_single:
+        weight: 14
+        enabled: true
+      event_featured:
+        weight: 5
+        enabled: true
+      event_single:
+        weight: 12
+        enabled: true
+      featured_product:
+        weight: 9
+        enabled: true
+      media_3_up:
+        weight: 14
+        enabled: true
+      media_single:
+        weight: 13
+        enabled: true
+      media_tile:
+        weight: 18
+        enabled: false
+      person:
+        weight: 10
+        enabled: true
       product_info_audio:
         weight: 4
         enabled: false
-      event_featured:
-        enabled: true
-        weight: 5
       product_info_book:
         weight: 5
         enabled: false
       product_info_general:
         weight: 6
         enabled: false
-      featured_product:
-        enabled: true
-        weight: 9
-      person:
-        enabled: true
-        weight: 10
-      event_single:
-        enabled: true
-        weight: 12
-      media_single:
-        enabled: true
-        weight: 13
-      essence_single:
-        enabled: true
-        weight: 14
-      media_3_up:
-        enabled: true
-        weight: 14
-      media_tile:
-        weight: 18
-        enabled: false
       product_single:
-        enabled: true
         weight: 22
-      text:
         enabled: true
+      text:
         weight: 24
+        enabled: true
 field_type: entity_reference_revisions

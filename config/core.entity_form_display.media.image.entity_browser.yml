@@ -25,13 +25,13 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_media_image:
-    settings:
-      preview_image_style: 160x90_thumbnail
-      progress_indicator: throbber
-    third_party_settings: {  }
     type: image_image
     weight: 0
     region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: 160x90_thumbnail
+    third_party_settings: {  }
   name:
     type: string_textfield
     weight: 1

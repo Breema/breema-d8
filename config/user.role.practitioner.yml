@@ -1,7 +1,19 @@
 uuid: 3f2c1529-302e-449c-ba1e-45faea0a6bda
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  config:
+    - media.type.audio_file
+    - media.type.file
+    - media.type.image
+    - media.type.video
+    - node.type.directory_entry
+  module:
+    - media
+    - node
+    - override_node_options
+    - shortcut
+    - toolbar
 id: practitioner
 label: Practitioner
 weight: -7

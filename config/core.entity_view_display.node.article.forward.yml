@@ -31,8 +31,7 @@ mode: forward
 content:
   body:
     type: advanced_text
-    weight: 2
-    region: content
+    label: hidden
     settings:
       trim_length: '0'
       ellipsis: '1'
@@ -58,30 +57,31 @@ content:
       token_replace: 0
       autop: 0
     third_party_settings: {  }
-    label: hidden
+    weight: 2
+    region: content
   field_date:
-    weight: 0
+    type: datetime_default
     label: inline
     settings:
       timezone_override: ''
       format_type: date_text
     third_party_settings: {  }
-    type: datetime_default
+    weight: 0
     region: content
   field_main_image:
-    weight: 1
+    type: media_thumbnail
     label: hidden
     settings:
-      image_style: 480x270_medium
       image_link: ''
+      image_style: 480x270_medium
     third_party_settings: {  }
-    type: media_thumbnail
+    weight: 1
     region: content
   links:
-    weight: 3
-    region: content
     settings: {  }
     third_party_settings: {  }
+    weight: 3
+    region: content
 hidden:
   created: true
   entitygroupfield: true

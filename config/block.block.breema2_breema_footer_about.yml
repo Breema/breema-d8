@@ -15,6 +15,6 @@ plugin: about_breema_block
 settings:
   id: about_breema_block
   label: 'About Breema'
-  provider: breema
   label_display: visible
+  provider: breema
 visibility: {  }

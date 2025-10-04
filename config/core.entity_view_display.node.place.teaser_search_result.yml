@@ -27,47 +27,47 @@ bundle: place
 mode: teaser_search_result
 content:
   field_address:
-    weight: 1
+    type: address_directions_link
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    type: address_directions_link
+    weight: 1
     region: content
   field_email:
-    weight: 3
+    type: email_mailto
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    type: email_mailto
+    weight: 3
     region: content
   field_main_image:
     type: entity_reference_entity_view
-    weight: 0
-    region: content
     label: hidden
     settings:
       view_mode: view_smaller
       link: false
     third_party_settings: {  }
+    weight: 0
+    region: content
   field_telephone:
-    weight: 2
+    type: telephone_link
     label: hidden
     settings:
       title: ''
     third_party_settings: {  }
-    type: telephone_link
+    weight: 2
     region: content
   field_upcoming_events:
     type: entity_reference_entity_view
-    weight: 5
-    region: content
     label: above
     settings:
       view_mode: teaser_compact
       link: false
     third_party_settings: {  }
+    weight: 5
+    region: content
   field_website:
-    weight: 4
+    type: link
     label: hidden
     settings:
       trim_length: 80
@@ -76,7 +76,7 @@ content:
       rel: '0'
       target: '0'
     third_party_settings: {  }
-    type: link
+    weight: 4
     region: content
 hidden:
   body: true

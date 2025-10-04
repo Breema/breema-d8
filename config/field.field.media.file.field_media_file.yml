@@ -5,12 +5,12 @@ dependencies:
   config:
     - field.storage.media.field_media_file
     - media.type.file
-  enforced:
-    module:
-      - media
   module:
     - filefield_paths
     - file
+  enforced:
+    module:
+      - media
 third_party_settings:
   filefield_paths:
     enabled: true
@@ -20,15 +20,15 @@ third_party_settings:
         slashes: true
         pathauto: true
         transliterate: true
-    redirect: true
-    retroactive_update: false
-    active_updating: false
     file_name:
       value: '[file:ffp-name-only-original].[file:ffp-extension-original]'
       options:
         slashes: true
         pathauto: true
         transliterate: true
+    redirect: true
+    retroactive_update: false
+    active_updating: false
 _core:
   default_config_hash: _C8rbTRQABc6PuyRw2LD9zdf_muwzZVumKG6HSfzqfI
 id: media.file.field_media_file
@@ -42,10 +42,10 @@ translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:
+  handler: 'default:file'
+  handler_settings: {  }
   file_directory: 'file/[date:custom:Y]-[date:custom:m]'
   file_extensions: 'txt rtf doc docx ppt pptx xls xlsx pdf odf odg odp ods odt fodt fods fodp fodg key numbers pages'
   max_filesize: ''
   description_field: false
-  handler: 'default:file'
-  handler_settings: {  }
 field_type: file

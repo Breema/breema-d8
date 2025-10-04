@@ -17,20 +17,20 @@ plugin: directory_entry_block
 settings:
   id: directory_entry_block
   label: 'Your Breema Directory entry'
-  provider: breema
   label_display: visible
+  provider: breema
 visibility:
   request_path:
     id: request_path
-    pages: "/node/*/edit\r\n/user/*\r\n/node/add*\r\n<front>\r\n/front*"
     negate: true
     context_mapping: {  }
+    pages: "/node/*/edit\r\n/user/*\r\n/node/add*\r\n<front>\r\n/front*"
   user_role:
     id: user_role
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
     roles:
       practitioner: practitioner
       instructor: instructor
       content_administrator: content_administrator
-    negate: false
-    context_mapping:
-      user: '@user.current_user_context:current_user'

@@ -47,8 +47,6 @@ settings:
           items:
             - Source
   plugins:
-    language:
-      language_list: un
     stylescombo:
       styles: "p.large|Large text\r\np.larger|Larger text\r\np.huge|Huge text\r\n"
 image_upload:

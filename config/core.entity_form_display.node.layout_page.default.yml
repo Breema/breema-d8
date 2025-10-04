@@ -38,33 +38,34 @@ content:
       required: false
     third_party_settings: {  }
   field_main_image:
+    type: entity_browser_entity_reference
     weight: 4
+    region: content
     settings:
       entity_browser: image_browser
       field_widget_display: rendered_entity
       field_widget_edit: true
       field_widget_remove: true
-      selection_mode: selection_append
+      field_widget_replace: false
+      open: false
       field_widget_display_settings:
         view_mode: preview
-      open: false
-      field_widget_replace: false
+      selection_mode: selection_append
     third_party_settings: {  }
-    type: entity_browser_entity_reference
-    region: content
   field_meta_summary:
+    type: string_textarea
     weight: 6
+    region: content
     settings:
       rows: 2
       placeholder: ''
     third_party_settings:
       advanced_text_formatter:
         show_token_tree: 0
-    type: string_textarea
-    region: content
   field_paragraphs:
     type: paragraphs
     weight: 2
+    region: content
     settings:
       title: Paragraph
       title_plural: Paragraphs
@@ -80,10 +81,10 @@ content:
         collapse_edit_all: collapse_edit_all
         duplicate: duplicate
     third_party_settings: {  }
-    region: content
   field_slideshow:
     type: paragraphs
     weight: 1
+    region: content
     settings:
       title: Slide
       title_plural: Slides
@@ -99,25 +100,25 @@ content:
         collapse_edit_all: collapse_edit_all
         duplicate: duplicate
     third_party_settings: {  }
-    region: content
   field_social_media_image:
+    type: entity_browser_entity_reference
     weight: 5
+    region: content
     settings:
       entity_browser: image_sm_browser
       field_widget_display: rendered_entity
-      field_widget_display_settings:
-        view_mode: preview
       field_widget_edit: true
       field_widget_remove: true
-      selection_mode: selection_append
       field_widget_replace: false
       open: false
+      field_widget_display_settings:
+        view_mode: preview
+      selection_mode: selection_append
     third_party_settings: {  }
-    type: entity_browser_entity_reference
-    region: content
   field_tiles:
     type: paragraphs
     weight: 3
+    region: content
     settings:
       title: Tile
       title_plural: Tiles
@@ -133,7 +134,6 @@ content:
         collapse_edit_all: collapse_edit_all
         duplicate: duplicate
     third_party_settings: {  }
-    region: content
   path:
     type: path
     weight: 12
@@ -142,24 +142,24 @@ content:
     third_party_settings: {  }
   promote:
     type: boolean_checkbox
-    settings:
-      display_label: true
     weight: 10
     region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    settings:
-      display_label: true
     weight: 14
     region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
-    settings:
-      display_label: true
     weight: 11
     region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   title:
     type: string_textfield
@@ -172,12 +172,12 @@ content:
   uid:
     type: entity_reference_autocomplete
     weight: 8
+    region: content
     settings:
       match_operator: CONTAINS
+      match_limit: 10
       size: 60
       placeholder: ''
-      match_limit: 10
-    region: content
     third_party_settings: {  }
   url_redirects:
     weight: 13

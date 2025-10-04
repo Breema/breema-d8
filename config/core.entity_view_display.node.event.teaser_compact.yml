@@ -36,20 +36,20 @@ bundle: event
 mode: teaser_compact
 content:
   field_date_time:
-    weight: 0
+    type: daterange_compact
     label: hidden
     settings:
       daterange_compact_format: date_only
     third_party_settings: {  }
-    type: daterange_compact
+    weight: 0
     region: content
   field_timezone:
     type: tzfield_abbreviation
-    weight: 1
-    region: content
     label: hidden
     settings: {  }
     third_party_settings: {  }
+    weight: 1
+    region: content
 hidden:
   body: true
   created: true

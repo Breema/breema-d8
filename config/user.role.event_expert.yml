@@ -1,7 +1,16 @@
 uuid: 8fa232d8-d1f5-4e89-9aed-2f37b36ddbe7
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  config:
+    - node.type.directory_entry
+    - node.type.event
+    - node.type.place
+  module:
+    - breema
+    - flag
+    - node
+    - shortcut
 id: event_expert
 label: 'Event expert'
 weight: -5

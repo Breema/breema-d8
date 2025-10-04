@@ -1,7 +1,7 @@
 status: 1
 pattern: '[node:field_title_prefix] - [node:field_available_dates:start_date:date_text]'
-php: false
 escape: false
 dependencies:
   config:
     - node.type.private_audio_stream
+php: false

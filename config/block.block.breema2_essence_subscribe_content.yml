@@ -16,13 +16,13 @@ plugin: footer_email_subscribe_block
 settings:
   id: footer_email_subscribe_block
   label: 'Sign-up for Essence of Breema - inspirational excerpts from Breema Center books and classes'
-  provider: breema
   label_display: visible
+  provider: breema
 visibility:
-  node_type:
-    id: node_type
-    bundles:
-      essence: essence
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
     negate: false
     context_mapping:
       node: '@node.node_route_context:node'
+    bundles:
+      essence: essence

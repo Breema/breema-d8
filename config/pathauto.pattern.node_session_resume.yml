@@ -11,12 +11,12 @@ pattern: 'user/[node:author]/resumes/[node:field_date:date:html_date]-session'
 selection_criteria:
   4fdbfaca-c7f8-4995-8174-19919d6bea66:
     id: 'entity_bundle:node'
-    bundles:
-      session_resume: session_resume
     negate: false
+    uuid: 4fdbfaca-c7f8-4995-8174-19919d6bea66
     context_mapping:
       node: node
-    uuid: 4fdbfaca-c7f8-4995-8174-19919d6bea66
+    bundles:
+      session_resume: session_resume
 selection_logic: and
 weight: -5
 relationships: {  }

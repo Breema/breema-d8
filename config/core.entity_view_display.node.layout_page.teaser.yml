@@ -21,18 +21,18 @@ mode: teaser
 content:
   field_main_image:
     type: media_thumbnail
-    weight: 0
-    region: content
     label: hidden
     settings:
-      image_style: 160x90_thumbnail
       image_link: content
+      image_style: 160x90_thumbnail
     third_party_settings: {  }
-  links:
-    weight: 2
+    weight: 0
     region: content
+  links:
     settings: {  }
     third_party_settings: {  }
+    weight: 2
+    region: content
 hidden:
   created: true
   entitygroupfield: true

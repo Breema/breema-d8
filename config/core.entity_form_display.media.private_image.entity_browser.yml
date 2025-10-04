@@ -16,19 +16,19 @@ bundle: private_image
 mode: entity_browser
 content:
   field_image_type:
+    type: options_select
     weight: 2
+    region: content
     settings: {  }
     third_party_settings: {  }
-    type: options_select
-    region: content
   field_private_image:
+    type: image_image
     weight: 0
+    region: content
     settings:
       progress_indicator: throbber
       preview_image_style: 160x90_thumbnail
     third_party_settings: {  }
-    type: image_image
-    region: content
   name:
     type: string_textfield
     weight: 1

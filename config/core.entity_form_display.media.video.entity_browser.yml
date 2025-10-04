@@ -17,11 +17,11 @@ bundle: video
 mode: entity_browser
 content:
   field_media_video_embed_field:
-    settings: {  }
-    third_party_settings: {  }
     type: video_embed_field_textfield
     weight: 0
     region: content
+    settings: {  }
+    third_party_settings: {  }
   field_video_type:
     type: options_select
     weight: 2

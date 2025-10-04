@@ -17,11 +17,14 @@ plugin: breema_event_dashboard_block
 settings:
   id: breema_event_dashboard_block
   label: 'Your Breema Events'
-  provider: breema
   label_display: visible
+  provider: breema
 visibility:
   user_role:
     id: user_role
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
     roles:
       instructor: instructor
       event_expert: event_expert
@@ -29,11 +32,8 @@ visibility:
       content_administrator: content_administrator
       event_administrator: event_administrator
       administrator: administrator
-    negate: false
-    context_mapping:
-      user: '@user.current_user_context:current_user'
   request_path:
     id: request_path
-    pages: "/user/*/events\r\n/front\r\n<front>\r\n"
     negate: true
     context_mapping: {  }
+    pages: "/user/*/events\r\n/front\r\n<front>\r\n"

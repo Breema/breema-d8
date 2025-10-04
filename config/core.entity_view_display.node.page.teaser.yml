@@ -22,20 +22,14 @@ bundle: page
 mode: teaser
 content:
   body:
-    label: hidden
     type: smart_trim
-    weight: 1
-    region: content
+    label: hidden
     settings:
       trim_length: 600
       trim_type: chars
       trim_suffix: ...
-      wrap_class: trimmed
-      summary_handler: full
       wrap_output: false
-      trim_options:
-        text: false
-        trim_zero: false
+      wrap_class: trimmed
       more:
         display_link: false
         target_blank: false
@@ -43,16 +37,22 @@ content:
         class: more-link
         text: More
         aria_label: 'Read more about [node:title]'
+      summary_handler: full
+      trim_options:
+        text: false
+        trim_zero: false
     third_party_settings: {  }
+    weight: 1
+    region: content
   field_main_image:
     type: media_thumbnail
-    weight: 0
-    region: content
     label: hidden
     settings:
-      image_style: 320x180_small
       image_link: ''
+      image_style: 320x180_small
     third_party_settings: {  }
+    weight: 0
+    region: content
 hidden:
   created: true
   entitygroupfield: true

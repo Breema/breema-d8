@@ -16,18 +16,18 @@ mode: view_medium
 content:
   field_media_video_embed_field:
     type: video_embed_field_video
-    weight: 0
-    region: content
     label: hidden
     settings:
-      controls: '1'
+      autoplay: false
       responsive: true
       width: 480
       height: 270
-      autoplay: false
+      controls: '1'
       showinfo: 0
       modestbranding: 0
     third_party_settings: {  }
+    weight: 0
+    region: content
 hidden:
   created: true
   field_video_type: true

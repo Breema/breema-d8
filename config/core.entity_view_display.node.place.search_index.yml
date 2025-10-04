@@ -27,43 +27,43 @@ bundle: place
 mode: search_index
 content:
   body:
-    label: hidden
     type: text_default
-    weight: 5
+    label: hidden
     settings: {  }
     third_party_settings: {  }
+    weight: 5
     region: content
   field_address:
-    weight: 1
+    type: address_plain
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    type: address_plain
+    weight: 1
     region: content
   field_email:
-    weight: 3
+    type: basic_string
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    type: basic_string
+    weight: 3
     region: content
   field_meta_summary:
     type: basic_string
-    weight: 0
-    region: content
     label: hidden
     settings: {  }
     third_party_settings: {  }
+    weight: 0
+    region: content
   field_telephone:
-    weight: 2
+    type: string
     label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    type: string
+    weight: 2
     region: content
   field_website:
-    weight: 4
+    type: link_separate
     label: hidden
     settings:
       trim_length: null
@@ -72,7 +72,7 @@ content:
       rel: '0'
       target: '0'
     third_party_settings: {  }
-    type: link_separate
+    weight: 4
     region: content
 hidden:
   created: true

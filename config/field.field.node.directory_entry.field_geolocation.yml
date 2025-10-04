@@ -12,11 +12,9 @@ third_party_settings:
   geocoder_field:
     method: source
     weight: 0
-    geocode_field: field_address
-    reverse_geocode_field: {  }
-    hidden: false
     disabled: false
-    plugins:
+    hidden: false
+    providers:
       - googlemaps
     dumper: geolocation
     delta_handling: default
@@ -24,6 +22,8 @@ third_party_settings:
       handling: preserve
       status_message: true
       log: true
+    geocode_field: field_address
+    reverse_geocode_field: {  }
 id: node.directory_entry.field_geolocation
 field_name: field_geolocation
 entity_type: node

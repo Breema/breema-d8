@@ -21,32 +21,32 @@ widget_selector: tabs
 widget_selector_configuration: {  }
 widgets:
   7ec52599-951b-4de6-8740-9247ba783f13:
+    id: entity_form
+    uuid: 7ec52599-951b-4de6-8740-9247ba783f13
+    label: 'Add audio file'
+    weight: -8
     settings:
+      submit_text: 'Save audio file'
       entity_type: media
       bundle: audio_file
       form_mode: entity_browser
-      submit_text: 'Save audio file'
-    uuid: 7ec52599-951b-4de6-8740-9247ba783f13
-    weight: -8
-    label: 'Add audio file'
-    id: entity_form
   9b48d3b6-50c2-4634-9fba-11bcf5d4b09d:
+    id: view
+    uuid: 9b48d3b6-50c2-4634-9fba-11bcf5d4b09d
+    label: 'All audio'
+    weight: -10
     settings:
+      submit_text: 'Select audio'
+      auto_select: false
       view: breema_media_browser_audio
       view_display: audio_select_modal
+  fcc792e4-f57d-4976-a854-99baffd74062:
+    id: view
+    uuid: fcc792e4-f57d-4976-a854-99baffd74062
+    label: 'My audio'
+    weight: -9
+    settings:
       submit_text: 'Select audio'
       auto_select: false
-    uuid: 9b48d3b6-50c2-4634-9fba-11bcf5d4b09d
-    weight: -10
-    label: 'All audio'
-    id: view
-  fcc792e4-f57d-4976-a854-99baffd74062:
-    settings:
       view: breema_media_browser_audio
       view_display: user_audio_select_modal
-      submit_text: 'Select audio'
-      auto_select: false
-    uuid: fcc792e4-f57d-4976-a854-99baffd74062
-    weight: -9
-    label: 'My audio'
-    id: view

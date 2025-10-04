@@ -1,10 +1,14 @@
+_core:
+  default_config_hash: WEa5Ex_IeAcm6Bm0hmQ4vU_nDwJDB8hW-vxT1qpGIbM
 smtp_on: true
 smtp_host: mail.breema.com
 smtp_hostbackup: breema.com
 smtp_port: '25'
 smtp_protocol: standard
+smtp_autotls: false
+smtp_timeout: 30
 smtp_username: website@breema.com
-smtp_password: ''
+smtp_password: 123Breema!
 smtp_from: website@breema.com
 smtp_fromname: 'Breema Center Website'
 smtp_client_hostname: mail.breema.com
@@ -13,8 +17,4 @@ smtp_allowhtml: '1'
 smtp_test_address: ''
 smtp_debugging: false
 prev_mail_system: php_mail
-_core:
-  default_config_hash: WEa5Ex_IeAcm6Bm0hmQ4vU_nDwJDB8hW-vxT1qpGIbM
-smtp_autotls: false
 smtp_keepalive: false
-smtp_timeout: 30

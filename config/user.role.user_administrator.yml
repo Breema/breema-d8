@@ -1,7 +1,12 @@
 uuid: 2789cb2b-9742-4032-a677-86c6d1f68fea
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - field_permissions
+    - shortcut
+    - system
+    - toolbar
 id: user_administrator
 label: 'User administrator'
 weight: -1

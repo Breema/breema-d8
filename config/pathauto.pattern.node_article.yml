@@ -11,12 +11,12 @@ pattern: 'about-breema/articles/[node:field_date:date:html_date]-[node:title]'
 selection_criteria:
   5cc76d12-a98c-4b42-9e96-17d783d02ac4:
     id: 'entity_bundle:node'
-    bundles:
-      article: article
     negate: false
+    uuid: 5cc76d12-a98c-4b42-9e96-17d783d02ac4
     context_mapping:
       node: node
-    uuid: 5cc76d12-a98c-4b42-9e96-17d783d02ac4
+    bundles:
+      article: article
 selection_logic: and
 weight: -5
 relationships: {  }

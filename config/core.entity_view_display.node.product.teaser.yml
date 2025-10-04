@@ -25,16 +25,11 @@ mode: teaser
 content:
   body:
     type: smart_trim
-    weight: 2
-    region: content
     label: hidden
     settings:
       trim_length: 300
       trim_type: chars
       trim_suffix: ...
-      summary_handler: full
-      trim_options:
-        text: false
       wrap_output: false
       wrap_class: trimmed
       more:
@@ -44,28 +39,33 @@ content:
         class: more-link
         text: More
         aria_label: 'Read more about [node:title]'
+      summary_handler: full
+      trim_options:
+        text: false
     third_party_settings: {  }
+    weight: 2
+    region: content
   field_by:
     type: text_default
-    weight: 0
-    region: content
     label: inline
     settings: {  }
     third_party_settings: {  }
+    weight: 0
+    region: content
   field_product_info:
     type: entity_reference_revisions_entity_view
-    weight: 1
-    region: content
     label: hidden
     settings:
       view_mode: default
       link: ''
     third_party_settings: {  }
-  links:
-    weight: 3
+    weight: 1
     region: content
+  links:
     settings: {  }
     third_party_settings: {  }
+    weight: 3
+    region: content
 hidden:
   created: true
   entitygroupfield: true

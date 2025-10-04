@@ -18,34 +18,34 @@ bundle: product_info_general
 mode: default
 content:
   field_buy_now:
-    weight: 2
+    type: fixed_text_link
     label: hidden
     settings:
+      trim_length: null
+      url_only: false
+      url_plain: false
+      rel: '0'
+      target: '0'
       link_text: 'Buy now'
-      allow_override: 0
-      rel: 0
-      target: 0
-      trim_length: ''
-      url_only: ''
-      url_plain: ''
       link_class: ''
+      allow_override: false
     third_party_settings: {  }
-    type: fixed_text_link
+    weight: 2
     region: content
   field_cover_image:
-    weight: 0
+    type: media_thumbnail
     label: hidden
     settings:
-      image_style: 240x240_smaller
       image_link: ''
+      image_style: 240x240_smaller
     third_party_settings: {  }
-    type: media_thumbnail
+    weight: 0
     region: content
   field_description:
-    weight: 1
+    type: text_default
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    type: text_default
+    weight: 1
     region: content
 hidden: {  }

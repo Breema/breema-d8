@@ -25,11 +25,11 @@ bundle: place
 mode: teaser_with_location
 content:
   field_address:
-    weight: 0
+    type: address_default
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    type: address_default
+    weight: 0
     region: content
 hidden:
   body: true

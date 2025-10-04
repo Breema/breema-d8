@@ -20,19 +20,14 @@ bundle: private_audio_stream
 mode: teaser
 content:
   body:
-    label: hidden
     type: smart_trim
-    weight: 2
+    label: hidden
     settings:
       trim_length: 200
       trim_type: chars
       trim_suffix: ''
-      wrap_class: trimmed
-      summary_handler: full
       wrap_output: false
-      trim_options:
-        text: false
-        trim_zero: false
+      wrap_class: trimmed
       more:
         display_link: false
         target_blank: false
@@ -40,24 +35,28 @@ content:
         class: more-link
         text: More
         aria_label: 'Read more about [node:title]'
+      summary_handler: full
+      trim_options:
+        text: false
+        trim_zero: false
     third_party_settings: {  }
+    weight: 2
     region: content
   field_available_dates:
     type: daterange_compact
-    weight: 1
-    region: content
     label: inline
     settings:
       daterange_compact_format: date_only
     third_party_settings: {  }
+    weight: 1
+    region: content
   field_stream_url:
     type: audiofield_audioplayer
-    weight: 0
-    region: content
     label: hidden
     settings:
       audio_player: mediaelement_audio_player
       audio_player_jplayer_theme: none
+      audio_player_wavesurfer_combine_files: false
       audio_player_wavesurfer_audiorate: 1
       audio_player_wavesurfer_autocenter: true
       audio_player_wavesurfer_bargap: 0
@@ -65,23 +64,24 @@ content:
       audio_player_wavesurfer_barwidth: null
       audio_player_wavesurfer_cursorcolor: '#000000'
       audio_player_wavesurfer_cursorwidth: 1
+      audio_player_wavesurfer_forcedecode: false
+      audio_player_wavesurfer_normalize: false
+      audio_player_wavesurfer_playnexttrack: true
       audio_player_wavesurfer_progresscolor: '#000000'
+      audio_player_wavesurfer_responsive: false
+      audio_player_wavesurfer_use_peakfile: false
       audio_player_wavesurfer_wavecolor: '#000000'
+      audio_player_wordpress_combine_files: false
       audio_player_wordpress_animation: true
       audio_player_soundmanager_theme: default
       audio_player_initial_volume: 8
-      audio_player_wavesurfer_combine_files: false
-      audio_player_wavesurfer_forcedecode: false
-      audio_player_wavesurfer_normalize: false
-      audio_player_wavesurfer_responsive: false
-      audio_player_wordpress_combine_files: false
       audio_player_autoplay: false
       audio_player_lazyload: false
       download_button: false
       download_link: false
-      audio_player_wavesurfer_playnexttrack: true
-      audio_player_wavesurfer_use_peakfile: false
     third_party_settings: {  }
+    weight: 0
+    region: content
 hidden:
   created: true
   entitygroupfield: true

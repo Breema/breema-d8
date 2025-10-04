@@ -19,21 +19,21 @@ bundle: session_resume
 mode: teaser_compact
 content:
   field_date:
-    weight: 0
+    type: datetime_default
     label: hidden
     settings:
       timezone_override: ''
       format_type: html_date
     third_party_settings: {  }
-    type: datetime_default
+    weight: 0
     region: content
   field_location_text:
-    weight: 1
+    type: string
     label: visually_hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    type: string
+    weight: 1
     region: content
 hidden:
   created: true
