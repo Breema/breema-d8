@@ -31,6 +31,7 @@
     "drupal/audiofield": "^1.9",
     "drupal/auto_entitylabel": "^3.0@beta",
     "drupal/captcha": "^1.0",
+    "drupal/ckeditor": "^1.0",
     "drupal/core-composer-scaffold": "^9.5",
     "drupal/core-recommended": "^9.5",
     "drupal/csv_serialization": "^2",
