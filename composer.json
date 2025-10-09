@@ -53,7 +53,7 @@
     "drupal/filefield_paths": "^1.0",
     "drupal/fixed_text_link_formatter": "^1.1",
     "drupal/flag": "^4.0",
-    "drupal/flexslider": "^2.0",
+    "drupal/flexslider": "^3.0@alpha",
     "drupal/forward": "^4.0",
     "drupal/fullcalendar_view": "^2.6",
     "drupal/geocoder": "^3.47",
@@ -139,9 +139,6 @@
       },
       "drupal/entity_embed": {
         "[#3077225-3] Logs flooded with warning messages 'Invalid display settings encountered'" : "https://www.drupal.org/files/issues/2019-08-26/3077225-reduce-invalid-config-logs.patch"
-      },
-      "drupal/flexslider": {
-        "[#3086080-14] Add flexslider support for any (multi-valued) entity reference field" : "https://www.drupal.org/files/issues/2020-08-02/3086080-14.patch"
       },
       "drupal/fullcalendar_view": {
         "[#3009683-4] Restrict hours on calendar" : "https://www.drupal.org/files/issues/2019-11-09/3009683-4.patch"
