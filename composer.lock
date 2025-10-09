@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "eef7c58e9b4acb48b99062d61c8e113c",
+    "content-hash": "c5395946ca2e9d03d173e0b5c6d71e85",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3604,26 +3604,26 @@
         },
         {
             "name": "drupal/fixed_text_link_formatter",
-            "version": "1.6.0",
+            "version": "1.8.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/fixed_text_link_formatter.git",
-                "reference": "8.x-1.6"
+                "reference": "8.x-1.8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/fixed_text_link_formatter-8.x-1.6.zip",
-                "reference": "8.x-1.6",
-                "shasum": "3bfee04c04f31637ee4ed60a337c7d68e618f3d8"
+                "url": "https://ftp.drupal.org/files/projects/fixed_text_link_formatter-8.x-1.8.zip",
+                "reference": "8.x-1.8",
+                "shasum": "3008e9ac26775b698fca82d5ab3662d581441710"
             },
             "require": {
-                "drupal/core": "^8 || ^9"
+                "drupal/core": "^9.3 || ^10 || ^11"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.6",
-                    "datestamp": "1637654844",
+                    "version": "8.x-1.8",
+                    "datestamp": "1732914733",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -3636,15 +3636,23 @@
             ],
             "authors": [
                 {
-                    "name": "informaid",
+                    "name": "dww",
+                    "homepage": "https://www.drupal.org/user/46549"
+                },
+                {
+                    "name": "frondeau",
                     "homepage": "https://www.drupal.org/user/3227767"
+                },
+                {
+                    "name": "heddn",
+                    "homepage": "https://www.drupal.org/user/1463982"
                 },
                 {
                     "name": "legolasbo",
                     "homepage": "https://www.drupal.org/user/2480548"
                 }
             ],
-            "description": "Formats a link field with a configurable fixed link text.",
+            "description": "Fixed text link formatter.",
             "homepage": "https://www.drupal.org/project/fixed_text_link_formatter",
             "support": {
                 "source": "https://git.drupalcode.org/project/fixed_text_link_formatter"
