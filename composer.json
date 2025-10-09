@@ -57,7 +57,7 @@
     "drupal/forward": "^4.0",
     "drupal/fullcalendar_view": "^5.2",
     "drupal/geocoder": "^3.47",
-    "drupal/geolocation": "3.7.0",
+    "drupal/geolocation": "^3.13",
     "drupal/geotimezone": "^3.0",
     "drupal/google_analytics": "^4",
     "drupal/group": "^1.0",
