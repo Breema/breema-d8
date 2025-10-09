@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d256af0c52a3cc015a142a86703ef0a6",
+    "content-hash": "eef7c58e9b4acb48b99062d61c8e113c",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2668,23 +2668,23 @@
         },
         {
             "name": "drupal/datetime_extras",
-            "version": "1.0.0-alpha2",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/datetime_extras.git",
-                "reference": "8.x-1.0-alpha2"
+                "reference": "8.x-1.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/datetime_extras-8.x-1.0-alpha2.zip",
-                "reference": "8.x-1.0-alpha2",
-                "shasum": "716ec0c3500dfddd824b6abaff951a3c3669b185"
+                "url": "https://ftp.drupal.org/files/projects/datetime_extras-8.x-1.2.zip",
+                "reference": "8.x-1.2",
+                "shasum": "c4f423302afc89aebc20d0f024661b2556ef141d"
             },
             "require": {
-                "drupal/core": "^8 || ^9"
+                "drupal/core": "^9.3 || ^10 || ^11"
             },
             "require-dev": {
-                "drupal/duration_field": "^2.0"
+                "drupal/duration_field": "2.x-dev"
             },
             "suggest": {
                 "drupal/duration_field": "Required to use the 'daterange_duration' field widget"
@@ -2692,16 +2692,12 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.0-alpha2",
-                    "datestamp": "1587423674",
+                    "version": "8.x-1.2",
+                    "datestamp": "1752769295",
                     "security-coverage": {
-                        "status": "not-covered",
-                        "message": "Alpha releases are not covered by Drupal security advisories."
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
                     }
-                },
-                "patches_applied": {
-                    "[#2834016-28] Add 'Compact' datetime range formatter": "https://www.drupal.org/files/issues/2019-01-15/2834016-28.patch",
-                    "[#3165990-7] UX bug with the duration widget for date-only ranges": "https://www.drupal.org/files/issues/2020-08-20/3165990-7.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
@@ -2724,6 +2720,10 @@
                 {
                     "name": "mpdonadio",
                     "homepage": "https://www.drupal.org/user/325244"
+                },
+                {
+                    "name": "sickness29",
+                    "homepage": "https://www.drupal.org/user/2586096"
                 },
                 {
                     "name": "vijaycs85",
