@@ -63,6 +63,9 @@ module:
   history: 0
   image: 0
   inline_entity_form: 0
+  jquery_ui: 0
+  jquery_ui_autocomplete: 0
+  jquery_ui_menu: 0
   link: 0
   login_emailusername: 0
   media: 0
