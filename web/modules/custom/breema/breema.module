@@ -3578,14 +3578,6 @@ function breema_query_breema_day_of_week_alter(AlterableInterface $query) {
 }
 
 /**
- * Implements hook_preprocess_views_view_fullcalendar()
- */
-function breema_preprocess_views_view_fullcalendar(array &$variables) {
-  $variables['#attached']['drupalSettings']['minTime'] = '07:00:00';
-  $variables['#attached']['drupalSettings']['maxTime'] = '22:00:00';
-}
-
-/**
  * Implements hook_preprocess_address_plain()
  */
 function breema_preprocess_address_plain(array &$variables) {
