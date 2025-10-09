@@ -55,7 +55,7 @@
     "drupal/flag": "^4.0",
     "drupal/flexslider": "^3.0@alpha",
     "drupal/forward": "^4.0",
-    "drupal/fullcalendar_view": "^2.6",
+    "drupal/fullcalendar_view": "^5.2",
     "drupal/geocoder": "^3.47",
     "drupal/geolocation": "3.7.0",
     "drupal/geotimezone": "^3.0",
@@ -139,9 +139,6 @@
       },
       "drupal/entity_embed": {
         "[#3077225-3] Logs flooded with warning messages 'Invalid display settings encountered'" : "https://www.drupal.org/files/issues/2019-08-26/3077225-reduce-invalid-config-logs.patch"
-      },
-      "drupal/fullcalendar_view": {
-        "[#3009683-4] Restrict hours on calendar" : "https://www.drupal.org/files/issues/2019-11-09/3009683-4.patch"
       },
       "drupal/group": {
         "[#2923755-8] Ability to change group type after group creation" : "https://www.drupal.org/files/issues/2020-08-10/2923755-8.1_x.patch",

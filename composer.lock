@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5ffdbca5c498b04e329125accec48591",
+    "content-hash": "3812d92190a136ecedc3c1b17933f3cc",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3877,49 +3877,55 @@
         },
         {
             "name": "drupal/fullcalendar_view",
-            "version": "2.8.0",
+            "version": "5.2.5",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/fullcalendar_view.git",
-                "reference": "8.x-2.8"
+                "reference": "5.2.5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/fullcalendar_view-8.x-2.8.zip",
-                "reference": "8.x-2.8",
-                "shasum": "3a8043abac636f4f559b1bbde2e2a5964209a89f"
+                "url": "https://ftp.drupal.org/files/projects/fullcalendar_view-5.2.5.zip",
+                "reference": "5.2.5",
+                "shasum": "c82d82ef7fe9935a667042a8d7cd1abcba9e110e"
             },
             "require": {
-                "drupal/core": "^8 || ^9"
+                "drupal/core": "^9.2.0 || ^10 || ^11"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-2.8",
-                    "datestamp": "1626141050",
+                    "version": "5.2.5",
+                    "datestamp": "1756081429",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
                     }
-                },
-                "patches_applied": {
-                    "[#3009683-4] Restrict hours on calendar": "https://www.drupal.org/files/issues/2019-11-09/3009683-4.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
             "license": [
-                "GPL-2.0-or-later"
+                "GPL-2.0+"
             ],
             "authors": [
                 {
-                    "name": "Mingsong",
+                    "name": "karing",
+                    "homepage": "https://www.drupal.org/user/787114"
+                },
+                {
+                    "name": "mingsong",
                     "homepage": "https://www.drupal.org/user/2986445"
                 }
             ],
-            "description": "A view plugin to present contents in FullCalendar view",
-            "homepage": "https://www.drupal.org/project/fullcalendar_view",
+            "description": "This is a lightweight View plugin module that provides a calendar view format powered by FullCalendar JavaScript.",
+            "homepage": "http://drupal.org/project/fullcalendar_view",
+            "keywords": [
+                "Drupal",
+                "fullcalendar_view"
+            ],
             "support": {
-                "source": "https://git.drupalcode.org/project/fullcalendar_view"
+                "source": "http://cgit.drupalcode.org/fullcalendar_view",
+                "issues": "http://drupal.org/project/issues/fullcalendar_view"
             }
         },
         {
