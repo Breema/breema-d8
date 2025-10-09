@@ -35,7 +35,7 @@
     "drupal/ckeditor_blockquote_attribution": "^2.0",
     "drupal/core-composer-scaffold": "^9.5",
     "drupal/core-recommended": "^9.5",
-    "drupal/csv_serialization": "^2",
+    "drupal/csv_serialization": "^3.0",
     "drupal/ctools": "^4.1",
     "drupal/daterange_compact": "^2.0",
     "drupal/datetime_extras": "^1.0",
