@@ -315,24 +315,23 @@ display:
           start: field_date_time
           end: field_date_time
           title: field_subtitle
-          des: {  }
-          use_entity_fields: 1
-          right_buttons:
-            agendaWeek: agendaWeek
-            agendaDay: agendaDay
-            listYear: listYear
-          default_view: month
+          left_buttons: 'prev,next today'
+          right_buttons: 'dayGridMonth,timeGridWeek,timeGridDay,listYear'
+          default_view: dayGridMonth
+          default_mobile_view: listYear
+          mobile_width: '768'
           firstDay: '6'
           nav_links: 1
-          timeFormat: 'H(:mm)'
-          alloweventOverlap: 1
-          updateAllowed: 1
-          updateConfirm: 1
+          timeFormat: 'H:mm'
+          allowEventOverlap: 1
+          updateAllowed: 0
+          updateConfirm: 0
           defaultLanguage: en
           languageSelector: 0
           dialogWindow: 0
-          createEventLink: 1
           openEntityInNewTab: 0
+          createEventLink: 1
+          eventLimit: '4'
           tax_field: ''
           vocabularies: ''
           color_bundle:
@@ -347,8 +346,20 @@ display:
             private_page: '#3a87ad'
             product: '#3a87ad'
             session_resume: '#3a87ad'
+          rrule: ''
+          dialogModal: false
+          dialogCanvas: false
+          duration: ''
+          slotDuration: '00:30:00'
+          minTime: '07:00:00'
+          maxTime: '22:00:00'
           bundle_type: event
           classes: ''
+          fetchGoogleHolidays: false
+          googleHolidaysSettings:
+            googleCalendarAPIKey: ''
+            googleCalendarGroup: ''
+            renderGoogleHolidaysAsBackground: false
       row:
         type: 'entity:node'
         options:
