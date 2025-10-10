@@ -25,7 +25,7 @@
   "require": {
     "composer/installers": "^2.3",
     "cweagans/composer-patches": "^1.0",
-    "drupal/address": "^1.2",
+    "drupal/address": "^2.0",
     "drupal/admin_toolbar": "^3",
     "drupal/advanced_text_formatter": "^3.0@RC",
     "drupal/audiofield": "^1.9",
@@ -123,7 +123,7 @@
   "extra": {
     "patches": {
       "drupal/address": {
-        "[#2995992-37] Country field should display the '- Select -' option to match core behavior" : "https://www.drupal.org/files/issues/2019-11-21/2995992-37.only-after-3096129.patch"
+        "[#2995992-67] Country field should display the '- Select -' option to match core behavior" : "assets/patch/2995992-67--mr-77-5a9d80a4e.patch"
       },
       "drupal/core": {
         "[DotComHost]: Add Plesk redirect" : "assets/patch/dotcomhost-plesk-redirect.patch",
