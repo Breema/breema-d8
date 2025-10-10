@@ -5045,26 +5045,26 @@
         },
         {
             "name": "drupal/queue_mail",
-            "version": "1.4.0",
+            "version": "1.7.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/queue_mail.git",
-                "reference": "8.x-1.4"
+                "reference": "8.x-1.7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/queue_mail-8.x-1.4.zip",
-                "reference": "8.x-1.4",
-                "shasum": "ccc3603d084017ec4d3aa67fa60da171ef8d63b8"
+                "url": "https://ftp.drupal.org/files/projects/queue_mail-8.x-1.7.zip",
+                "reference": "8.x-1.7",
+                "shasum": "ae0486dcb8b33b511998f453bb392babf16767b6"
             },
             "require": {
-                "drupal/core": "^8.8.0 || ^9.0"
+                "drupal/core": "^9.4 || ^10.0 || ^11.0"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.4",
-                    "datestamp": "1632316348",
+                    "version": "8.x-1.7",
+                    "datestamp": "1727506370",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -5087,8 +5087,8 @@
                     "role": "Maintainer"
                 },
                 {
-                    "name": "sinn",
-                    "homepage": "https://www.drupal.org/user/682600"
+                    "name": "steven jones",
+                    "homepage": "https://www.drupal.org/user/99644"
                 },
                 {
                     "name": "wafaa",
