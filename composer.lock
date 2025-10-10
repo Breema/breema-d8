@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c185ef26808aadb4641a79ed5b13e4de",
+    "content-hash": "8b9b60bc878edd9ee37c1792c6b1ce71",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -4789,26 +4789,26 @@
         },
         {
             "name": "drupal/menu_trail_by_path",
-            "version": "2.0.1",
+            "version": "2.2.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/menu_trail_by_path.git",
-                "reference": "2.0.1"
+                "reference": "2.2.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/menu_trail_by_path-2.0.1.zip",
-                "reference": "2.0.1",
-                "shasum": "3c2c1b0ee669c26e6ccba8a345605b7c932be2bf"
+                "url": "https://ftp.drupal.org/files/projects/menu_trail_by_path-2.2.0.zip",
+                "reference": "2.2.0",
+                "shasum": "aba140af80ad217b6543c10bde312c85d75f945a"
             },
             "require": {
-                "drupal/core": "^8.8 || ^9.0 || ^10"
+                "drupal/core": "^9 || ^10 || ^11"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.0.1",
-                    "datestamp": "1701298206",
+                    "version": "2.2.0",
+                    "datestamp": "1747319648",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
