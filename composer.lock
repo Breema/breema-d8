@@ -6074,6 +6074,10 @@
                 {
                     "name": "m.lebedev",
                     "homepage": "https://www.drupal.org/user/2566550"
+                },
+                {
+                    "name": "nicxvan",
+                    "homepage": "https://www.drupal.org/user/531480"
                 }
             ],
             "description": "Modify views query to support OR conditions for contextual filters.",
@@ -6084,23 +6088,24 @@
         },
         {
             "name": "drupal/xmlsitemap",
-            "version": "1.2.0",
+            "version": "1.5.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/xmlsitemap.git",
-                "reference": "8.x-1.2"
+                "reference": "8.x-1.5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/xmlsitemap-8.x-1.2.zip",
-                "reference": "8.x-1.2",
-                "shasum": "528736c96ee5f19abbf798d1f8aefb211bf11b5d"
+                "url": "https://ftp.drupal.org/files/projects/xmlsitemap-8.x-1.5.zip",
+                "reference": "8.x-1.5",
+                "shasum": "ee53bf4d1c23ab41548021d9948925ecf76719d3"
             },
             "require": {
-                "drupal/core": "^8.8 || ^9",
+                "drupal/core": "^9.3 || ^10",
                 "ext-xmlwriter": "*"
             },
             "require-dev": {
+                "drupal/config_readonly": "^1.0",
                 "drupal/metatag": "^1.0",
                 "drupal/robotstxt": "^1.0"
             },
@@ -6110,8 +6115,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.2",
-                    "datestamp": "1638486168",
+                    "version": "8.x-1.5",
+                    "datestamp": "1691341085",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -6119,7 +6124,7 @@
                 },
                 "drush": {
                     "services": {
-                        "drush.services.yml": "^9 || ^10"
+                        "drush.services.yml": "^10 || ^11"
                     }
                 }
             },
@@ -6141,7 +6146,7 @@
                     "homepage": "https://www.drupal.org/user/2628879"
                 },
                 {
-                    "name": "Dave Reid",
+                    "name": "dave reid",
                     "homepage": "https://www.drupal.org/user/53892"
                 },
                 {
@@ -6173,7 +6178,7 @@
                     "homepage": "https://www.drupal.org/user/1835276"
                 }
             ],
-            "description": "Creates XML sitemaps for the site",
+            "description": "Creates XML Sitemaps for the site",
             "homepage": "https://www.drupal.org/project/xmlsitemap",
             "support": {
                 "source": "https://git.drupalcode.org/project/xmlsitemap",
