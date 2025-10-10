@@ -1,0 +1,77 @@
+diff --git a/src/Plugin/Field/FieldWidget/InlineEntityFormBase.php b/src/Plugin/Field/FieldWidget/InlineEntityFormBase.php
+index 2d6054e..21ef949 100644
+--- a/src/Plugin/Field/FieldWidget/InlineEntityFormBase.php
++++ b/src/Plugin/Field/FieldWidget/InlineEntityFormBase.php
+@@ -13,6 +13,7 @@ use Drupal\Core\Field\WidgetBase;
+ use Drupal\Core\Form\FormStateInterface;
+ use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
+ use Drupal\inline_entity_form\TranslationHelper;
++use Drupal\views\Views;
+ use Symfony\Component\DependencyInjection\ContainerInterface;
+ 
+ /**
+@@ -154,14 +155,62 @@ abstract class InlineEntityFormBase extends WidgetBase implements ContainerFacto
+    */
+   protected function getTargetBundles() {
+     $settings = $this->getFieldSettings();
++    $target_bundles = array();
++
+     if (!empty($settings['handler_settings']['target_bundles'])) {
+       $target_bundles = array_values($settings['handler_settings']['target_bundles']);
+       // Filter out target bundles which no longer exist.
+       $existing_bundles = array_keys($this->entityTypeBundleInfo->getBundleInfo($settings['target_type']));
+       $target_bundles = array_intersect($target_bundles, $existing_bundles);
+     }
+-    else {
+-      // If no target bundles have been specified then all are available.
++    elseif ($settings['handler'] == 'views' && !empty($settings['handler_settings']['view'])) {
++      // If an entity reference view is used, try to extract the target bundles
++      // from view filters or view arguments.
++      $view_name = $settings['handler_settings']['view']['view_name'];
++      $display_id = $settings['handler_settings']['view']['display_name'];
++      $view = Views::getView($view_name);
++
++      $base_table = $view->storage->get('base_table');
++      $bundle_field = '';
++
++      $entity_definitions = $this->entityTypeManager->getDefinitions();
++      foreach ($entity_definitions as $config_entity_type) {
++        if ($config_entity_type->getBaseTable() == $base_table || $config_entity_type->getDataTable() == $base_table) {
++          $bundle_field = $config_entity_type->getKey('bundle');
++          break;
++        }
++      }
++
++      if (!empty($bundle_field)) {
++        $filter = $view->getHandler($display_id, 'filter', $bundle_field);
++        if (is_array($filter) && isset($filter['value'])) {
++          $existing_bundles = array_keys($this->entityTypeBundleInfo->getBundleInfo($settings['target_type']));
++          $target_bundles = array_intersect(array_keys($filter['value']), $existing_bundles);
++        }
++        elseif (is_array($settings['handler_settings']['view']['arguments'])) {
++          $arguments = $view->getHandlers('argument', $display_id);
++          if (is_array($arguments) && isset($arguments[$bundle_field])) {
++            $i = 0;
++            foreach (array_keys($arguments) as $argument) {
++              if ($argument == $bundle_field) {
++                $exception = isset($arguments[$argument]['exception']['value']) ? $arguments[$argument]['exception']['value'] : NULL;
++                if (isset($settings['handler_settings']['view']['arguments'][$i])) {
++                  if (is_null($exception) || $settings['handler_settings']['view']['arguments'][$i] !== $exception) {
++                    $bundles = explode('+', $settings['handler_settings']['view']['arguments'][$i]);
++                    $existing_bundles = array_keys($this->entityTypeBundleInfo->getBundleInfo($settings['target_type']));
++                    $target_bundles = array_intersect($bundles, $existing_bundles);
++                  }
++                }
++              }
++              $i++;
++            }
++          }
++        }
++      }
++    }
++
++    // If no target bundles have been specified then all are available.
++    if (empty($target_bundles)) {
+       $target_bundles = array_keys($this->entityTypeBundleInfo->getBundleInfo($settings['target_type']));
+     }
+ 

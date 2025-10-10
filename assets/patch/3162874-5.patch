@@ -1,0 +1,16 @@
+diff --git a/inline_entity_form.module b/inline_entity_form.module
+index d535200..9920ad3 100644
+--- a/inline_entity_form.module
++++ b/inline_entity_form.module
+@@ -410,7 +410,10 @@ function template_preprocess_inline_entity_form_entity_table(array &$variables)
+       $cells['actions'] = $form[$key]['actions'];
+     }
+     // Create the row.
+-    $rows[] = $cells + ['#attributes' => ['class' => $row_classes]];
++    $rows[] = $cells + [
++      '#attributes' => ['class' => $row_classes],
++      '#entity' => $entity,
++    ];
+     // If the current entity array specifies a form, output it in the next row.
+     if (!empty($form[$key]['form'])) {
+       $row[] = $form[$key]['form'] + ['#wrapper_attributes' => ['colspan' => count($fields) + 1]];

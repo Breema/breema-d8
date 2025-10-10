@@ -144,8 +144,8 @@
         "[#2923755-8] Ability to change group type after group creation" : "https://www.drupal.org/files/issues/2020-08-10/2923755-8.1_x.patch"
       },
       "drupal/inline_entity_form": {
-        "[#2729333-7] Can't select a default bundle when using entity reference views" : "https://www.drupal.org/files/issues/2729333-ief-bundle-selection-erv-7.patch",
-        "[#3162874-5] Provide reliable access to the entity in template_preprocess_inline_entity_form_entity_table()" : "https://www.drupal.org/files/issues/2020-08-02/3162874-5.patch"
+        "[#2729333-7] Can't select a default bundle when using entity reference views" : "assets/patch/2729333-ief-bundle-selection-erv-7.patch",
+        "[#3162874-5] Provide reliable access to the entity in template_preprocess_inline_entity_form_entity_table()" : "assets/patch/3162874-5.patch"
       },
       "drupal/video_embed_field": {
         "[#2861429-13] Add More Embedding Options" : "https://www.drupal.org/files/issues/2019-10-22/2861429-13.patch"
