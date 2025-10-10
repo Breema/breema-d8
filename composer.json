@@ -148,7 +148,7 @@
         "[#3162874-5] Provide reliable access to the entity in template_preprocess_inline_entity_form_entity_table()" : "assets/patch/3162874-5.patch"
       },
       "drupal/video_embed_field": {
-        "[#2861429-13] Add More Embedding Options" : "https://www.drupal.org/files/issues/2019-10-22/2861429-13.patch"
+        "[#2861429-13] Add More Embedding Options" : "assets/patch/2861429-13.patch"
       }
     },
     "installer-paths": {

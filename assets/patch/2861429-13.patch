@@ -1,0 +1,138 @@
+diff --git a/src/Plugin/Field/FieldFormatter/Video.php b/src/Plugin/Field/FieldFormatter/Video.php
+index 361207a..99e7605 100644
+--- a/src/Plugin/Field/FieldFormatter/Video.php
++++ b/src/Plugin/Field/FieldFormatter/Video.php
+@@ -98,7 +98,10 @@ class Video extends FormatterBase implements ContainerFactoryPluginInterface {
+       }
+       else {
+         $autoplay = $this->currentUser->hasPermission('never autoplay videos') ? FALSE : $this->getSetting('autoplay');
+-        $element[$delta] = $provider->renderEmbedCode($this->getSetting('width'), $this->getSetting('height'), $autoplay);
++        $showinfo = $this->getSetting('showinfo');
++        $modestbranding = $this->getSetting('modestbranding');
++        $controls = $this->getSetting('controls');
++        $element[$delta] = $provider->renderEmbedCode($this->getSetting('width'), $this->getSetting('height'), $autoplay, $showinfo, $controls, $modestbranding);
+         $element[$delta]['#cache']['contexts'][] = 'user.permissions';
+ 
+         $element[$delta] = [
+@@ -127,6 +130,9 @@ class Video extends FormatterBase implements ContainerFactoryPluginInterface {
+       'width' => '854',
+       'height' => '480',
+       'autoplay' => TRUE,
++      'showinfo' => TRUE,
++      'controls' => TRUE,
++      'modestbranding' => TRUE,
+     ];
+   }
+ 
+@@ -141,6 +147,24 @@ class Video extends FormatterBase implements ContainerFactoryPluginInterface {
+       '#description' => $this->t('Autoplay the videos for users without the "never autoplay videos" permission. Roles with this permission will bypass this setting.'),
+       '#default_value' => $this->getSetting('autoplay'),
+     ];
++    $elements['showinfo'] = [
++      '#title' => $this->t('Show Info'),
++      '#type' => 'checkbox',
++      '#description' => $this->t('Display Video Title and uploader information.'),
++      '#default_value' => $this->getSetting('showinfo'),
++    ];
++    $elements['controls'] = [
++      '#title' => $this->t('Controls'),
++      '#type' => 'checkbox',
++      '#description' => $this->t('Enable the Controls from the video player.'),
++      '#default_value' => $this->getSetting('controls'),
++    ];
++    $elements['modestbranding'] = [
++      '#title' => $this->t('Modest Branding'),
++      '#type' => 'checkbox',
++      '#description' => $this->t('Enable Modest Branding from the video player.'),
++      '#default_value' => $this->getSetting('modestbranding'),
++    ];
+     $elements['responsive'] = [
+       '#title' => $this->t('Responsive Video'),
+       '#type' => 'checkbox',
+@@ -182,9 +206,12 @@ class Video extends FormatterBase implements ContainerFactoryPluginInterface {
+    */
+   public function settingsSummary() {
+     $dimensions = $this->getSetting('responsive') ? $this->t('Responsive') : $this->t('@widthx@height', ['@width' => $this->getSetting('width'), '@height' => $this->getSetting('height')]);
+-    $summary[] = $this->t('Embedded Video (@dimensions@autoplay).', [
++    $summary[] = $this->t('Embedded Video (@dimensions@autoplay@showinfo@controls@modestbranding).', [
+       '@dimensions' => $dimensions,
+       '@autoplay' => $this->getSetting('autoplay') ? $this->t(', autoplaying') : '',
++      '@showinfo' => $this->getSetting('showinfo') ? $this->t(', showinfo') : '',
++      '@controls' => $this->getSetting('controls') ? $this->t(', controls') : '',
++      '@modestbranding' => $this->getSetting('modestbranding') ? $this->t(', modestbranding') : '',
+     ]);
+     return $summary;
+   }
+diff --git a/src/Plugin/video_embed_field/Provider/Vimeo.php b/src/Plugin/video_embed_field/Provider/Vimeo.php
+index 70c7f6b..4c2467d 100644
+--- a/src/Plugin/video_embed_field/Provider/Vimeo.php
++++ b/src/Plugin/video_embed_field/Provider/Vimeo.php
+@@ -17,13 +17,18 @@ class Vimeo extends ProviderPluginBase {
+   /**
+    * {@inheritdoc}
+    */
+-  public function renderEmbedCode($width, $height, $autoplay) {
++  public function renderEmbedCode($width, $height, $autoplay, $showinfo, $controls, $modestbranding) {
+     $iframe = [
+       '#type' => 'video_embed_iframe',
+       '#provider' => 'vimeo',
+       '#url' => sprintf('https://player.vimeo.com/video/%s', $this->getVideoId()),
+       '#query' => [
+         'autoplay' => $autoplay,
++        'title' => $showinfo,
++        'byline' => $showinfo,
++        'portrait' => $showinfo,
++        'controls' => $controls,
++        'modestbranding' => $modestbranding,
+       ],
+       '#attributes' => [
+         'width' => $width,
+diff --git a/src/Plugin/video_embed_field/Provider/YouTube.php b/src/Plugin/video_embed_field/Provider/YouTube.php
+index 224edd2..a0afc28 100644
+--- a/src/Plugin/video_embed_field/Provider/YouTube.php
++++ b/src/Plugin/video_embed_field/Provider/YouTube.php
+@@ -17,7 +17,7 @@ class YouTube extends ProviderPluginBase {
+   /**
+    * {@inheritdoc}
+    */
+-  public function renderEmbedCode($width, $height, $autoplay) {
++  public function renderEmbedCode($width, $height, $autoplay, $showinfo, $controls, $modestbranding) {
+     $embed_code = [
+       '#type' => 'video_embed_iframe',
+       '#provider' => 'youtube',
+@@ -25,6 +25,9 @@ class YouTube extends ProviderPluginBase {
+       '#query' => [
+         'autoplay' => $autoplay,
+         'start' => $this->getTimeIndex(),
++        'showinfo' => $showinfo,
++        'controls' => $controls,
++        'modestbranding' => $modestbranding,
+         'rel' => '0',
+       ],
+       '#attributes' => [
+diff --git a/src/Plugin/video_embed_field/Provider/YouTubePlaylist.php b/src/Plugin/video_embed_field/Provider/YouTubePlaylist.php
+index 1043c5a..f53ddd3 100644
+--- a/src/Plugin/video_embed_field/Provider/YouTubePlaylist.php
++++ b/src/Plugin/video_embed_field/Provider/YouTubePlaylist.php
+@@ -17,7 +17,7 @@ class YouTubePlaylist extends ProviderPluginBase {
+   /**
+    * {@inheritdoc}
+    */
+-  public function renderEmbedCode($width, $height, $autoplay) {
++  public function renderEmbedCode($width, $height, $autoplay, $showinfo, $controls, $modestbranding) {
+     return [
+       '#type' => 'video_embed_iframe',
+       '#provider' => 'youtube_playlist',
+diff --git a/src/ProviderPluginInterface.php b/src/ProviderPluginInterface.php
+index 863feeb..7f97233 100644
+--- a/src/ProviderPluginInterface.php
++++ b/src/ProviderPluginInterface.php
+@@ -76,7 +76,7 @@ interface ProviderPluginInterface extends PluginInspectionInterface {
+    * @return mixed
+    *   A renderable array of the embed code.
+    */
+-  public function renderEmbedCode($width, $height, $autoplay);
++  public function renderEmbedCode($width, $height, $autoplay, $showinfo, $controls, $modestbranding);
+ 
+   /**
+    * Get the ID of the video from user input.
