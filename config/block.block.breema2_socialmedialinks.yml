@@ -21,86 +21,139 @@ settings:
     facebook:
       value: breemacenter
       description: ''
-      weight: '-30'
+      weight: '-43'
     instagram:
       value: breemacenter
       description: ''
-      weight: '-29'
+      weight: '-42'
     pinterest:
       value: breemacenter
       description: ''
-      weight: '-28'
-    twitter:
-      value: breemacenter
-      description: ''
-      weight: '-27'
+      weight: '-41'
     youtube:
       value: user/TheBreemaChannel
       description: ''
-      weight: '-26'
+      weight: '-40'
+    twitter:
+      value: ''
+      description: ''
+      weight: '-39'
     googleplus:
       value: ''
       description: ''
-      weight: '-25'
+      weight: '-38'
     behance:
       value: ''
       description: ''
-      weight: '-24'
+      weight: '-37'
     bitbucket:
       value: ''
       description: ''
-      weight: '-23'
+      weight: '-36'
     contact:
       value: ''
       description: ''
-      weight: '-22'
+      weight: '-35'
     drupal:
       value: ''
       description: ''
-      weight: '-21'
+      weight: '-34'
     email:
       value: ''
       description: ''
-      weight: '-20'
+      weight: '-33'
     flickr:
       value: ''
       description: ''
-      weight: '-19'
+      weight: '-32'
     github:
       value: ''
       description: ''
-      weight: '-18'
+      weight: '-31'
     linkedin:
       value: ''
       description: ''
-      weight: '-17'
+      weight: '-30'
     rss:
       value: ''
       description: ''
-      weight: '-16'
+      weight: '-29'
     slideshare:
       value: ''
       description: ''
-      weight: '-15'
+      weight: '-28'
     tumblr:
       value: ''
       description: ''
-      weight: '-14'
+      weight: '-27'
     vimeo:
       value: ''
       description: ''
-      weight: '-13'
+      weight: '-26'
     vkontakte:
       value: ''
       description: ''
-      weight: '-12'
+      weight: '-25'
     youtube_channel:
+      value: ''
+      description: ''
+      weight: '-24'
+    whatsapp:
+      value: ''
+      description: ''
+      weight: '-23'
+    telegram:
+      value: ''
+      description: ''
+      weight: '-22'
+    patreon:
+      value: ''
+      description: ''
+      weight: '-21'
+    xing:
+      value: ''
+      description: ''
+      weight: '-20'
+    mastodon:
+      value: ''
+      description: ''
+      weight: '-19'
+    meetup:
+      value: ''
+      description: ''
+      weight: '-18'
+    glassdoor:
+      value: ''
+      description: ''
+      weight: '-17'
+    amazon:
+      value: ''
+      description: ''
+      weight: '-16'
+    tiktok:
+      value: ''
+      description: ''
+      weight: '-15'
+    gitlab:
+      value: ''
+      description: ''
+      weight: '-14'
+    website:
+      value: ''
+      description: ''
+      weight: '-13'
+    goodreads:
+      value: ''
+      description: ''
+      weight: '-12'
+    googleplay:
       value: ''
       description: ''
       weight: '-11'
   appearance:
     orientation: h
     show_name: 0
+    suggestion: ''
   link_attributes:
     target: '<none>'
     rel: '<none>'
