@@ -94,13 +94,14 @@ class PublishScheduler {
 
     // Find all currently unpublished private audio nodes that have entered the
     // window of time when they should be available.
-    $query = \Drupal::entityQuery('node');
-    $query
+    $results = \Drupal::entityQuery('node')
+      ->accessCheck(FALSE)
       ->condition('status', 0)
       ->condition('type', 'private_audio_stream')
       ->condition('field_available_dates.value', $now, '<=')
-      ->condition('field_available_dates.end_value', $now, '>=');
-    $results = $query->execute();
+      ->condition('field_available_dates.end_value', $now, '>=')
+      ->execute();
+
     if (!empty($results)) {
       $nodes = Node::loadMultiple($results);
     }
@@ -129,12 +130,12 @@ class PublishScheduler {
     $now = $this->now->format(DateTimeItemInterface::DATE_STORAGE_FORMAT);
 
     // Find all currently published private audio nodes that have expired.
-    $query = \Drupal::entityQuery('node');
-    $query
+    $results = \Drupal::entityQuery('node')
+      ->accessCheck(FALSE)
       ->condition('status', 1)
       ->condition('type', 'private_audio_stream')
-      ->condition('field_available_dates.end_value', $now, '<');
-    $results = $query->execute();
+      ->condition('field_available_dates.end_value', $now, '<')
+      ->execute();
     if (!empty($results)) {
       $nodes = Node::loadMultiple($results);
     }
@@ -160,12 +161,12 @@ class PublishScheduler {
   protected function publishEssenceOfBreema() {
     // Find all currently unpublished EoB nodes that should now be published.
     $now = $this->now->format(DateTimeItemInterface::DATE_STORAGE_FORMAT);
-    $query = \Drupal::entityQuery('node');
-    $query
+    $results = \Drupal::entityQuery('node')
+      ->accessCheck(FALSE)
       ->condition('status', 0)
       ->condition('type', 'essence')
-      ->condition('field_date.value', $now, '<=');
-    $results = $query->execute();
+      ->condition('field_date.value', $now, '<=')
+      ->execute();
     if (!empty($results)) {
       $nodes = Node::loadMultiple($results);
     }

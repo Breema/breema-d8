@@ -60,8 +60,7 @@ class BreemaSessionResumeBlock extends BlockBase {
       ];
     }
     $url_options['query']['destination'] = \Drupal::destination()->get();
-    $node_type = NodeType::load('session_resume');
-    if (\Drupal::service('access_check.node.add')->access($current_user, $node_type)) {
+    if (\Drupal::entityTypeManager()->getAccessControlHandler('node')->createAccess('session_resume', NULL, [], FALSE)) {
       $block['add-link'] = [
         '#prefix' => '<div class="action action--primary">',
         '#type' => 'link',

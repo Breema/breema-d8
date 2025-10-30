@@ -39,13 +39,13 @@ class BreemaCommands extends DrushCommands {
 
     // Find all the private audio nodes that have expired but that have
     // available stream links.
-    $query = \Drupal::entityQuery('node');
-    $query
+    $results = \Drupal::entityQuery('node')
       ->accessCheck(FALSE)
       ->condition('type', 'private_audio_stream')
       ->condition('field_available_dates.end_value', $today, '<')
-      ->condition('field_stream_status', 1, '=');
-    $results = $query->execute();
+      ->condition('field_stream_status', 1, '=')
+      ->execute();
+
     if (!empty($results)) {
       $nodes = Node::loadMultiple($results);
     }

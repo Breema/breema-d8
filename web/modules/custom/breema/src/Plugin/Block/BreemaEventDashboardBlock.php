@@ -38,9 +38,7 @@ class BreemaEventDashboardBlock extends BlockBase {
     $url_options['query']['destination'] = \Drupal::destination()->get();
 
     $dashboard_url = Url::fromUri('internal:/user/' . $current_user->id() . '/events');
-    $node_type = NodeType::load('event');
-    $result = \Drupal::service('access_check.node.add')->access($current_user, $node_type);
-    if ($result) {
+    if (\Drupal::entityTypeManager()->getAccessControlHandler('node')->createAccess('event', NULL, [], FALSE)) {
       $add_url = Url::fromRoute('node.add', ['node_type' => 'event'], $url_options);
     }
     $args = [$current_user->id(), $current_user->id()];

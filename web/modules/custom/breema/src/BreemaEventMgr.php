@@ -40,14 +40,15 @@ class BreemaEventMgr {
 
     $now = new DrupalDateTime('now');
     $now->setTimezone(new \DateTimeZone(DateTimeItemInterface::STORAGE_TIMEZONE));
-    $query = \Drupal::entityQuery('node');
-    $query
+    $results = \Drupal::entityQuery('node')
+      ->accessCheck(FALSE)
       ->condition('status', 1)
       ->condition('type', 'event')
       ->condition('field_date_time.end_value', $now->format(DateTimeItemInterface::DATETIME_STORAGE_FORMAT), '>=')
       ->sort('sticky', 'DESC')
-      ->sort('field_date_time.value');
-    $results = $query->execute();
+      ->sort('field_date_time.value')
+      ->execute();
+
     if (!empty($results)) {
       $events = Node::loadMultiple($results);
     }
@@ -104,12 +105,14 @@ class BreemaEventMgr {
 
     if (empty($this->$property_name)) {
       $stale_ids = \Drupal::entityQuery('node')
+        ->accessCheck(FALSE)
         ->condition('type', $node_type)
         ->condition('field_has_active_event', 1, '=')
         ->execute();
     }
     else {
       $stale_ids = \Drupal::entityQuery('node')
+        ->accessCheck(FALSE)
         ->condition('type', $node_type)
         ->condition('field_has_active_event', 1, '=')
         ->condition('nid', array_keys($this->$property_name), 'NOT IN')
@@ -170,8 +173,8 @@ class BreemaEventMgr {
   protected function clearEnhancementFromPastEvents(bool $use_sticky, bool $use_promote) {
     $now = new DrupalDateTime('now');
     $now->setTimezone(new \DateTimeZone(DateTimeItemInterface::STORAGE_TIMEZONE));
-    $query = \Drupal::entityQuery('node');
-    $query
+    $query = \Drupal::entityQuery('node')
+      ->accessCheck(FALSE)
       ->condition('status', 1)
       ->condition('type', 'event')
       ->condition('field_date_time.end_value', $now->format(DateTimeItemInterface::DATETIME_STORAGE_FORMAT), '<');

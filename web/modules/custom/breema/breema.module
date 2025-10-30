@@ -1110,7 +1110,7 @@ function breema_theme($existing, $type, $theme, $path) {
 function breema_preprocess_breema_send(&$variables) {
   $variables['front_page'] = Url::fromUri('internal:/', ['absolute' => TRUE])->toString();
   $variables['site_name'] = \Drupal::config('system.site')->get('name');
-  $css_path = drupal_get_path('theme', 'breema2') . '/css/email-send.css';
+  $css_path = \Drupal::service('extension.list.theme')->getPath('breema2') . '/css/email-send.css';
   $css_optimizer = new CssOptimizer();
   $variables['inline_css'] = $css_optimizer->loadFile($css_path, TRUE);
 }
@@ -1119,7 +1119,7 @@ function breema_preprocess_breema_send(&$variables) {
  * Implements hook_theme_registry_alter()
  */
 function breema_theme_registry_alter(&$theme_registry) {
-  $breema_path = drupal_get_path('module', 'breema') . '/templates';
+  $breema_path = \Drupal::service('extension.list.module')->getPath('breema') . '/templates';
   $theme_registry['field__paragraph__field_book_type'] = [
     'path' => $breema_path,
     'template' => 'field--paragraph--field-book-type',
@@ -1722,6 +1722,7 @@ function breema_user_form_validate($form, FormStateInterface $form_state) {
   $last_name = trim($values['field_name_last'][0]['value']);
   $user_name = $first_name . ' ' . $last_name;
   $name_in_use = (bool) \Drupal::entityQuery('user')
+    ->accessCheck(FALSE)
     ->condition('uid', (int)$user_entity->id(), '<>')
     ->condition('name', $user_name, '=')
     ->range(0, 1)
@@ -1747,6 +1748,7 @@ function breema_user_form_validate($form, FormStateInterface $form_state) {
       $form_state->setErrorByName('field_legacy_directory_url', t('Legacy directory URL must begin with a slash (/).'));
     }
     $legacy_url_in_use = \Drupal::entityQuery('user')
+      ->accessCheck(FALSE)
       ->condition('uid', (int)$user_entity->id(), '<>')
       ->condition('field_legacy_directory_url', $legacy_directory_url, '=')
       ->range(0, 1)
@@ -2152,11 +2154,11 @@ function breema_node_cud__place(NodeInterface $node, $operation) {
     breema_ensure_flag('my_places', $node, $node->getOwnerId());
   }
 
-  $query = \Drupal::entityQuery('node');
-  $query
+  $results = \Drupal::entityQuery('node')
+    ->accessCheck(FALSE)
     ->condition('type', 'event')
-    ->condition('field_location', $node->id());
-  $results = $query->execute();
+    ->condition('field_location', $node->id())
+    ->execute();
   if (!empty($results)) {
     $events = Node::loadMultiple($results);
   }
@@ -2419,7 +2421,7 @@ function breema_user_update(UserInterface $user) {
     if (!empty($directory_entry)) {
       $directory_entry->setNewRevision();
       // Record what user updated field_certification_level.
-      $directory_entry->setRevisionAuthorId(\Drupal::currentUser()->id());
+      $directory_entry->setRevisionUserId(\Drupal::currentUser()->id());
       // This should always be English, don't use t().
       $directory_entry->revision_log = 'Changing certification level';
       $directory_entry->save();
@@ -2709,9 +2711,7 @@ function _breema_get_directory_entry_action_links(NodeInterface $directory_entry
 
   // If there's no entry, and the user has permission, add links to create one.
   if (empty($directory_entry)) {
-    $current_user = \Drupal::currentUser();
-    $node_type = NodeType::load('directory_entry');
-    $result = \Drupal::service('access_check.node.add')->access($current_user, $node_type);
+    $result = \Drupal::entityTypeManager()->getAccessControlHandler('node')->createAccess('directory_entry', NULL, [], FALSE);
     if ($result) {
       $directory_url = Url::fromUri('base:/directory');
       $add_entry_url = Url::fromRoute('node.add', ['node_type' => 'directory_entry'], $url_options);
@@ -3512,6 +3512,8 @@ function breema_find_next_event($day_of_week, $place_nid = NULL, $type_tid = NUL
   $now = $date->format(DateTimeItemInterface::DATETIME_STORAGE_FORMAT);
 
   $query = \Drupal::entityQuery('node')
+    // Only return nodes the current user is allowed to see.
+    ->accessCheck(TRUE)
     // Find events.
     ->condition('type', 'event')
     // That are published.
