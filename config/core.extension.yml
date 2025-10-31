@@ -7,7 +7,6 @@ module:
   advanced_text_formatter: 0
   audiofield: 0
   auto_entitylabel: 0
-  automated_cron: 0
   block: 0
   breakpoint: 0
   captcha: 0
