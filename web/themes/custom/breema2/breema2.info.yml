@@ -2,7 +2,7 @@ name: Breema2
 type: theme
 base theme: bartik
 description: 'Theme for Breema.com version 2.0. Based on Bartik.'
-core_version_requirement: ^8.8 || ^9
+core_version_requirement: ^8.8 || ^9 || ^10
 
 libraries:
   - breema2/global
