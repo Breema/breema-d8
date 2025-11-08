@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - entityqueue.entity_queue.event_featured
     - media.type.audio_file
     - media.type.file
     - media.type.image
