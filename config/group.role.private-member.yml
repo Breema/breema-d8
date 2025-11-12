@@ -12,7 +12,6 @@ audience: member
 group_type: private
 permissions_ui: true
 permissions:
-  - 'update own group_membership content'
   - 'view group'
   - 'view group_membership content'
   - 'view group_node:layout_page entity'

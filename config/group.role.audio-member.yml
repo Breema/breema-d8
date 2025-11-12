@@ -12,6 +12,5 @@ audience: member
 group_type: audio
 permissions_ui: true
 permissions:
-  - 'update own group_membership content'
   - 'view group'
   - 'view group_node:private_audio_stream entity'
