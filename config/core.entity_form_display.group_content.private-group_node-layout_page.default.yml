@@ -1,0 +1,24 @@
+uuid: eed8684c-5a94-40bc-bdb3-f7d71e29ad27
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.content_type.private-group_node-layout_page
+id: group_content.private-group_node-layout_page.default
+targetEntityType: group_content
+bundle: private-group_node-layout_page
+mode: default
+content:
+  entity_id:
+    type: entity_reference_autocomplete
+    weight: 0
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  path: true
+  uid: true

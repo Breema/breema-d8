@@ -1,0 +1,24 @@
+uuid: 37b454d1-c5b4-47d6-93de-b7192403f773
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.content_type.group_content_type_36650933ea6db
+id: group_content.group_content_type_36650933ea6db.default
+targetEntityType: group_content
+bundle: group_content_type_36650933ea6db
+mode: default
+content:
+  entity_id:
+    type: entity_reference_autocomplete
+    weight: 0
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  path: true
+  uid: true
