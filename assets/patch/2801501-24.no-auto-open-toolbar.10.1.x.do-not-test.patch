@@ -1,0 +1,46 @@
+diff --git a/core/modules/toolbar/js/toolbar.js b/core/modules/toolbar/js/toolbar.js
+index c7eba1e..95de55d 100644
+--- a/core/modules/toolbar/js/toolbar.js
++++ b/core/modules/toolbar/js/toolbar.js
+@@ -83,9 +83,7 @@
+           locked: JSON.parse(
+             localStorage.getItem('Drupal.toolbar.trayVerticalLocked'),
+           ),
+-          activeTab: document.getElementById(
+-            JSON.parse(localStorage.getItem('Drupal.toolbar.activeTabID')),
+-          ),
++          activeTab: null,
+           height: $('#toolbar-administration').outerHeight(),
+         });
+ 
+@@ -129,7 +127,6 @@
+         // Force layout render to fix mobile view. Only needed on load, not
+         // for every media query match.
+         model.trigger('change:isFixed', model, model.get('isFixed'));
+-        model.trigger('change:activeTray', model, model.get('activeTray'));
+ 
+         // Render collapsible menus.
+         const menuModel = new Drupal.toolbar.MenuModel();
+@@ -188,22 +185,6 @@
+         )
+           ? JSON.parse(sessionStorage.getItem('Drupal.toolbar.toolbarState'))
+           : {};
+-        // If the toolbar's orientation is horizontal, no active tab is defined,
+-        // and the orientation state is not set (which means the user has not
+-        // yet interacted with the toolbar), then show the tray of the first
+-        // toolbar tab by default (but not the first 'Home' toolbar tab).
+-        if (
+-          Drupal.toolbar.models.toolbarModel.get('orientation') ===
+-            'horizontal' &&
+-          Drupal.toolbar.models.toolbarModel.get('activeTab') === null &&
+-          !toolbarState.orientation
+-        ) {
+-          Drupal.toolbar.models.toolbarModel.set({
+-            activeTab: $(
+-              '.toolbar-bar .toolbar-tab:not(.home-toolbar-tab) a',
+-            ).get(0),
+-          });
+-        }
+ 
+         $(window).on({
+           'dialog:aftercreate': (event, dialog, $element, settings) => {

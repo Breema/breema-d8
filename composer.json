@@ -131,7 +131,7 @@
         "[#2648950-253] Use form element of type date instead textfield when selecting a date in an exposed filter" : "assets/patch/2648950-253.9_5_x.date-views-exposed-filter.patch",
         "[#2648950-224] Fix conflicts between #2648950 and #2625136" : "assets/patch/2648950-224.changes-for-2625136.DO-NOT-TEST.patch",
         "[#2868014-79] Views date filter datetime granularity option" : "assets/patch/2868014-79.patch",
-        "[#2801501-15] Don't force the 'Manage' tray open in the toolbar on every page load" : "assets/patch/2801501-15.no-auto-open-toolbar.9.5.x.do-not-test.patch"
+        "[#2801501-24] Don't force the 'Manage' tray open in the toolbar on every page load" : "assets/patch/2801501-24.no-auto-open-toolbar.10.1.x.do-not-test.patch"
       },
       "drupal/entity_embed": {
         "[#3077225-3] Logs flooded with warning messages 'Invalid display settings encountered'" : "https://www.drupal.org/files/issues/2019-08-26/3077225-reduce-invalid-config-logs.patch"
