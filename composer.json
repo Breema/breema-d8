@@ -128,7 +128,7 @@
         "[DotComHost]: Add Plesk redirect" : "assets/patch/dotcomhost-plesk-redirect.patch",
         "[#2135445-80] Toolbar displays Manage tab even if the user is not permitted to see it" : "assets/patch/2135445-80.patch",
         "[#2419131-182] Fix #states for 'datetime' form elements" : "assets/patch/2419131-182.D10_5_x.patch",
-        "[#2648950-253] Use form element of type date instead textfield when selecting a date in an exposed filter" : "assets/patch/2648950-253.9_5_x.date-views-exposed-filter.patch",
+        "[#2648950-298] Use form element of type date instead textfield when selecting a date in an exposed filter" : "assets/patch/2648950-298.D10_5_x.patch",
         "[#2648950-224] Fix conflicts between #2648950 and #2625136" : "assets/patch/2648950-224.changes-for-2625136.DO-NOT-TEST.patch",
         "[#2868014-79] Views date filter datetime granularity option" : "assets/patch/2868014-79.patch",
         "[#2801501-24] Don't force the 'Manage' tray open in the toolbar on every page load" : "assets/patch/2801501-24.no-auto-open-toolbar.10.1.x.do-not-test.patch"

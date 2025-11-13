@@ -1,8 +1,8 @@
 diff --git a/core/lib/Drupal/Core/Datetime/Element/Datetime.php b/core/lib/Drupal/Core/Datetime/Element/Datetime.php
-index d42b3a0ed1..37cb5263a7 100644
+index e877971bd92..e3523447cfd 100644
 --- a/core/lib/Drupal/Core/Datetime/Element/Datetime.php
 +++ b/core/lib/Drupal/Core/Datetime/Element/Datetime.php
-@@ -74,10 +74,18 @@ public static function valueCallback(&$element, $input, FormStateInterface $form
+@@ -79,10 +79,18 @@ public static function valueCallback(&$element, $input, FormStateInterface $form
      $element += ['#date_timezone' => date_default_timezone_get()];
  
      if ($input !== FALSE) {
@@ -24,20 +24,18 @@ index d42b3a0ed1..37cb5263a7 100644
        // Seconds will be omitted in a post in case there's no entry.
        if (!empty($time_input) && strlen($time_input) == 5) {
 diff --git a/core/modules/datetime/src/Plugin/views/filter/Date.php b/core/modules/datetime/src/Plugin/views/filter/Date.php
-index f73a675fef..a67e7e6ab9 100644
+index d401917b626..213ad3fe864 100644
 --- a/core/modules/datetime/src/Plugin/views/filter/Date.php
 +++ b/core/modules/datetime/src/Plugin/views/filter/Date.php
-@@ -4,7 +4,9 @@
- 
- use Drupal\Component\Datetime\DateTimePlus;
- use Drupal\Core\Datetime\DateFormatterInterface;
-+use Drupal\Core\Form\FormStateInterface;
+@@ -7,6 +7,7 @@
+ use Drupal\Core\Datetime\DrupalDateTime;
+ use Drupal\Core\Form\FormStateInterface;
  use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 +use Drupal\Core\Render\Element;
  use Drupal\datetime\Plugin\Field\FieldType\DateTimeItem;
  use Drupal\datetime\Plugin\Field\FieldType\DateTimeItemInterface;
- use Drupal\views\FieldAPIHandlerTrait;
-@@ -179,4 +181,59 @@ protected function getOffset($time, $timezone) {
+ use Drupal\views\Attribute\ViewsFilter;
+@@ -230,4 +231,59 @@ protected function getOffset($time, $timezone) {
      return $origin_offset;
    }
  
@@ -97,122 +95,13 @@ index f73a675fef..a67e7e6ab9 100644
 +  }
 +
  }
-diff --git a/core/modules/datetime/tests/modules/datetime_test/test_views/views.view.test_filter_datetime_exposed.yml b/core/modules/datetime/tests/modules/datetime_test/test_views/views.view.test_filter_datetime_exposed.yml
-new file mode 100644
-index 0000000000..747225b93d
---- /dev/null
-+++ b/core/modules/datetime/tests/modules/datetime_test/test_views/views.view.test_filter_datetime_exposed.yml
-@@ -0,0 +1,103 @@
-+langcode: und
-+status: true
-+dependencies:
-+  module:
-+    - node
-+id: test_filter_datetime_exposed
-+label: ''
-+module: views
-+description: ''
-+tag: ''
-+base_table: node_field_data
-+base_field: nid
-+display:
-+  default:
-+    display_options:
-+      access:
-+        type: none
-+      cache:
-+        type: none
-+      exposed_form:
-+        type: basic
-+      fields:
-+        nid:
-+          field: nid
-+          id: nid
-+          table: node_field_data
-+          plugin_id: node
-+      filters:
-+        field_date_value:
-+          id: field_date_value
-+          table: node__field_date
-+          field: field_date_value
-+          relationship: none
-+          group_type: group
-+          admin_label: ''
-+          operator: '='
-+          value:
-+            min: ''
-+            max: ''
-+            value: ''
-+            type: date
-+          group: 1
-+          exposed: true
-+          expose:
-+            operator_id: field_date_value_op
-+            label: 'Date (field_date)'
-+            description: ''
-+            use_operator: false
-+            operator: field_date_value_op
-+            identifier: field_date_value
-+            required: false
-+            remember: false
-+            multiple: false
-+            remember_roles:
-+              authenticated: authenticated
-+              anonymous: '0'
-+          is_grouped: false
-+          group_info:
-+            label: ''
-+            description: ''
-+            identifier: ''
-+            optional: true
-+            widget: select
-+            multiple: false
-+            remember: false
-+            default_group: All
-+            default_group_multiple: {  }
-+            group_items: {  }
-+          plugin_id: datetime
-+      sorts:
-+        id:
-+          field: nid
-+          id: nid
-+          order: ASC
-+          relationship: none
-+          table: node_field_data
-+          plugin_id: numeric
-+      pager:
-+        type: full
-+      query:
-+        options:
-+          query_comment: ''
-+        type: views_query
-+      style:
-+        type: default
-+      row:
-+        type: fields
-+    display_plugin: default
-+    display_title: Master
-+    id: default
-+    position: 0
-+    cache_metadata:
-+      max-age: 0
-+  page_1:
-+    display_plugin: page
-+    id: page_1
-+    display_title: Page
-+    position: 1
-+    display_options:
-+      display_extenders: {  }
-+      path: test-filter-datetime-exposed
-+    cache_metadata:
-+      max-age: 0
 diff --git a/core/modules/datetime/tests/src/Functional/DateFilterTest.php b/core/modules/datetime/tests/src/Functional/DateFilterTest.php
-index a7d7d524c4..da11a40f08 100644
+index 87896594408..c97ae2ac372 100644
 --- a/core/modules/datetime/tests/src/Functional/DateFilterTest.php
 +++ b/core/modules/datetime/tests/src/Functional/DateFilterTest.php
-@@ -87,14 +87,18 @@ public function testLimitExposedOperators() {
-     $this->drupalGet('test_exposed_filter_datetime');
-     $this->assertSession()->statusCodeEquals(200);
+@@ -95,14 +95,18 @@ public function testLimitExposedOperators(): void {
+     $this->assertSession()->pageTextNotContains('Exception: DateTime object not set.');
+ 
      $this->assertSession()->optionExists('edit-field-date-value-op', '=');
 +    $this->assertSession()->optionExists('edit-field-date-value-op', '!=');
      $this->assertSession()->optionNotExists('edit-field-date-value-op', '>');
@@ -232,7 +121,7 @@ index a7d7d524c4..da11a40f08 100644
  
      $edit = [];
      $edit['options[operator]'] = '>';
-@@ -112,9 +116,12 @@ public function testLimitExposedOperators() {
+@@ -120,9 +124,12 @@ public function testLimitExposedOperators(): void {
      $this->assertSession()->optionExists('edit-field-date-value-op', '>');
      $this->assertSession()->optionExists('edit-field-date-value-op', '>=');
  
@@ -250,7 +139,7 @@ index a7d7d524c4..da11a40f08 100644
      $edit = [];
 diff --git a/core/modules/datetime/tests/src/Functional/Handler/FilterDateTest.php b/core/modules/datetime/tests/src/Functional/Handler/FilterDateTest.php
 new file mode 100644
-index 0000000000..b70834a366
+index 00000000000..2813fd06abc
 --- /dev/null
 +++ b/core/modules/datetime/tests/src/Functional/Handler/FilterDateTest.php
 @@ -0,0 +1,106 @@
@@ -294,7 +183,7 @@ index 0000000000..b70834a366
 +  /**
 +   * {@inheritdoc}
 +   */
-+  protected function setUp($import_test_views = TRUE): void {
++  protected function setUp($import_test_views = TRUE, $modules = ['views_test_config']): void {
 +    parent::setUp($import_test_views);
 +
 +    // Add a 'datetime' date field to page node bundle.
@@ -360,22 +249,26 @@ index 0000000000..b70834a366
 +  }
 +
 +}
+diff --git a/core/modules/datetime/tests/src/Functional/Handler/FilterDateTest.php.~1~ b/core/modules/datetime/tests/src/Functional/Handler/FilterDateTest.php.~1~
+new file mode 100644
+index 00000000000..e69de29bb2d
 diff --git a/core/modules/views/src/Plugin/views/filter/Date.php b/core/modules/views/src/Plugin/views/filter/Date.php
-index 9aa8168f08..5a638fcc93 100644
+index 84d776c4b64..a5e119c108e 100644
 --- a/core/modules/views/src/Plugin/views/filter/Date.php
 +++ b/core/modules/views/src/Plugin/views/filter/Date.php
-@@ -2,7 +2,9 @@
+@@ -2,8 +2,10 @@
  
  namespace Drupal\views\Plugin\views\filter;
  
 +use Drupal\Core\Datetime\DrupalDateTime;
  use Drupal\Core\Form\FormStateInterface;
+ use Drupal\views\Attribute\ViewsFilter;
 +use Drupal\Core\Render\Element;
  
  /**
   * Filter to handle dates stored as a timestamp.
 @@ -19,6 +21,12 @@ protected function defineOptions() {
-     // value is already set up properly, we're just adding our new field to it.
+     // Value is already set up properly, we're just adding our new field to it.
      $options['value']['contains']['type']['default'] = 'date';
  
 +    // We have to remove all the placeholder-related options, since those are
@@ -497,986 +390,8 @@ index 9aa8168f08..5a638fcc93 100644
 +  }
 +
  }
-diff --git a/core/modules/views/tests/modules/views_test_config/test_views/views.view.test_filter_date_between_exposed.yml b/core/modules/views/tests/modules/views_test_config/test_views/views.view.test_filter_date_between_exposed.yml
-new file mode 100644
-index 0000000000..34301a1c55
---- /dev/null
-+++ b/core/modules/views/tests/modules/views_test_config/test_views/views.view.test_filter_date_between_exposed.yml
-@@ -0,0 +1,319 @@
-+langcode: en
-+status: true
-+dependencies:
-+  module:
-+    - node
-+    - user
-+id: test_filter_date_between_exposed
-+label: test_filter_date_between_exposed
-+module: views
-+description: ''
-+tag: ''
-+base_table: node_field_data
-+base_field: nid
-+display:
-+  default:
-+    display_plugin: default
-+    id: default
-+    display_title: Default
-+    position: 0
-+    display_options:
-+      access:
-+        type: perm
-+        options:
-+          perm: 'access content'
-+      cache:
-+        type: tag
-+        options: {  }
-+      query:
-+        type: views_query
-+        options:
-+          disable_sql_rewrite: false
-+          distinct: false
-+          replica: false
-+          query_comment: ''
-+          query_tags: {  }
-+      exposed_form:
-+        type: basic
-+        options:
-+          submit_button: Apply
-+          reset_button: false
-+          reset_button_label: Reset
-+          exposed_sorts_label: 'Sort by'
-+          expose_sort_order: true
-+          sort_asc_label: Asc
-+          sort_desc_label: Desc
-+      pager:
-+        type: mini
-+        options:
-+          items_per_page: 10
-+          offset: 0
-+          id: 0
-+          total_pages: null
-+          expose:
-+            items_per_page: false
-+            items_per_page_label: 'Items per page'
-+            items_per_page_options: '5, 10, 25, 50'
-+            items_per_page_options_all: false
-+            items_per_page_options_all_label: '- All -'
-+            offset: false
-+            offset_label: Offset
-+          tags:
-+            previous: ‹‹
-+            next: ››
-+      style:
-+        type: default
-+      row:
-+        type: fields
-+      fields:
-+        title:
-+          id: title
-+          table: node_field_data
-+          field: title
-+          settings:
-+            link_to_entity: true
-+          plugin_id: field
-+          relationship: none
-+          group_type: group
-+          admin_label: ''
-+          label: ''
-+          exclude: false
-+          alter:
-+            alter_text: false
-+            text: ''
-+            make_link: false
-+            path: ''
-+            absolute: false
-+            external: false
-+            replace_spaces: false
-+            path_case: none
-+            trim_whitespace: false
-+            alt: ''
-+            rel: ''
-+            link_class: ''
-+            prefix: ''
-+            suffix: ''
-+            target: ''
-+            nl2br: false
-+            max_length: 0
-+            word_boundary: true
-+            ellipsis: true
-+            more_link: false
-+            more_link_text: ''
-+            more_link_path: ''
-+            strip_tags: false
-+            trim: false
-+            preserve_tags: ''
-+            html: false
-+          element_type: ''
-+          element_class: ''
-+          element_label_type: ''
-+          element_label_class: ''
-+          element_label_colon: true
-+          element_wrapper_type: ''
-+          element_wrapper_class: ''
-+          element_default_classes: true
-+          empty: ''
-+          hide_empty: false
-+          empty_zero: false
-+          hide_alter_empty: true
-+          click_sort_column: value
-+          type: string
-+          group_column: value
-+          group_columns: {  }
-+          group_rows: true
-+          delta_limit: 0
-+          delta_offset: 0
-+          delta_reversed: false
-+          delta_first_last: false
-+          multi_type: separator
-+          separator: ', '
-+          field_api_classes: false
-+      filters:
-+        status:
-+          value: '1'
-+          table: node_field_data
-+          field: status
-+          plugin_id: boolean
-+          entity_type: node
-+          entity_field: status
-+          id: status
-+          expose:
-+            operator: ''
-+          group: 1
-+        created:
-+          id: created
-+          table: node_field_data
-+          field: created
-+          relationship: none
-+          group_type: group
-+          admin_label: ''
-+          operator: '='
-+          value:
-+            min: ''
-+            max: ''
-+            value: ''
-+            type: date
-+          group: 1
-+          exposed: true
-+          expose:
-+            operator_id: created_op
-+            label: 'Authored on'
-+            description: ''
-+            use_operator: false
-+            operator: created_op
-+            identifier: created
-+            required: false
-+            remember: false
-+            multiple: false
-+            remember_roles:
-+              authenticated: authenticated
-+              anonymous: '0'
-+              administrator: '0'
-+          is_grouped: false
-+          group_info:
-+            label: ''
-+            description: ''
-+            identifier: ''
-+            optional: true
-+            widget: select
-+            multiple: false
-+            remember: false
-+            default_group: All
-+            default_group_multiple: {  }
-+            group_items: {  }
-+          entity_type: node
-+          entity_field: created
-+          plugin_id: date
-+      sorts:
-+        created:
-+          id: created
-+          table: node_field_data
-+          field: created
-+          order: ASC
-+          entity_type: node
-+          entity_field: created
-+          plugin_id: date
-+          relationship: none
-+          group_type: group
-+          admin_label: ''
-+          exposed: false
-+          expose:
-+            label: ''
-+          granularity: second
-+      title: test_filter_date_exposed
-+      header: {  }
-+      footer: {  }
-+      empty: {  }
-+      relationships: {  }
-+      arguments: {  }
-+      display_extenders: {  }
-+    cache_metadata:
-+      max-age: -1
-+      contexts:
-+        - 'languages:language_content'
-+        - 'languages:language_interface'
-+        - url
-+        - url.query_args
-+        - 'user.node_grants:view'
-+        - user.permissions
-+      tags: {  }
-+  page_1:
-+    display_plugin: page
-+    id: page_1
-+    display_title: Page
-+    position: 1
-+    display_options:
-+      display_extenders: {  }
-+      path: test-filter-date-exposed
-+    cache_metadata:
-+      max-age: -1
-+      contexts:
-+        - 'languages:language_content'
-+        - 'languages:language_interface'
-+        - url
-+        - url.query_args
-+        - 'user.node_grants:view'
-+        - user.permissions
-+      tags: {  }
-+  page_2:
-+    display_plugin: page
-+    id: page_2
-+    display_title: Page
-+    position: 1
-+    display_options:
-+      display_extenders: {  }
-+      path: test-filter-date-between-exposed
-+      filters:
-+        status:
-+          value: '1'
-+          table: node_field_data
-+          field: status
-+          plugin_id: boolean
-+          entity_type: node
-+          entity_field: status
-+          id: status
-+          expose:
-+            operator: ''
-+          group: 1
-+        created:
-+          id: created
-+          table: node_field_data
-+          field: created
-+          relationship: none
-+          group_type: group
-+          admin_label: ''
-+          operator: between
-+          value:
-+            min: ''
-+            max: ''
-+            value: ''
-+            type: date
-+          group: 1
-+          exposed: true
-+          expose:
-+            operator_id: created_op
-+            label: 'Authored on'
-+            description: ''
-+            use_operator: false
-+            operator: created_op
-+            identifier: created
-+            required: false
-+            remember: false
-+            multiple: false
-+            remember_roles:
-+              authenticated: authenticated
-+              anonymous: '0'
-+              administrator: '0'
-+          is_grouped: false
-+          group_info:
-+            label: ''
-+            description: ''
-+            identifier: ''
-+            optional: true
-+            widget: select
-+            multiple: false
-+            remember: false
-+            default_group: All
-+            default_group_multiple: {  }
-+            group_items: {  }
-+          entity_type: node
-+          entity_field: created
-+          plugin_id: date
-+      defaults:
-+        filters: false
-+        filter_groups: false
-+      filter_groups:
-+        operator: AND
-+        groups:
-+          1: AND
-+    cache_metadata:
-+      max-age: -1
-+      contexts:
-+        - 'languages:language_content'
-+        - 'languages:language_interface'
-+        - url
-+        - url.query_args
-+        - 'user.node_grants:view'
-+        - user.permissions
-+      tags: {  }
-diff --git a/core/modules/views/tests/modules/views_test_config/test_views/views.view.test_filter_date_exposed_operators.yml b/core/modules/views/tests/modules/views_test_config/test_views/views.view.test_filter_date_exposed_operators.yml
-new file mode 100644
-index 0000000000..b98159b108
---- /dev/null
-+++ b/core/modules/views/tests/modules/views_test_config/test_views/views.view.test_filter_date_exposed_operators.yml
-@@ -0,0 +1,322 @@
-+langcode: en
-+status: true
-+dependencies:
-+  module:
-+    - node
-+    - user
-+id: test_filter_date_exposed_operators
-+label: test_filter_date_exposed_operators
-+module: views
-+description: ''
-+tag: ''
-+base_table: node_field_data
-+base_field: nid
-+display:
-+  default:
-+    display_plugin: default
-+    id: default
-+    display_title: Default
-+    position: 0
-+    display_options:
-+      access:
-+        type: perm
-+        options:
-+          perm: 'access content'
-+      cache:
-+        type: tag
-+        options: {  }
-+      query:
-+        type: views_query
-+        options:
-+          disable_sql_rewrite: false
-+          distinct: false
-+          replica: false
-+          query_comment: ''
-+          query_tags: {  }
-+      exposed_form:
-+        type: basic
-+        options:
-+          submit_button: Apply
-+          reset_button: false
-+          reset_button_label: Reset
-+          exposed_sorts_label: 'Sort by'
-+          expose_sort_order: true
-+          sort_asc_label: Asc
-+          sort_desc_label: Desc
-+      pager:
-+        type: mini
-+        options:
-+          items_per_page: 10
-+          offset: 0
-+          id: 0
-+          total_pages: null
-+          expose:
-+            items_per_page: false
-+            items_per_page_label: 'Items per page'
-+            items_per_page_options: '5, 10, 25, 50'
-+            items_per_page_options_all: false
-+            items_per_page_options_all_label: '- All -'
-+            offset: false
-+            offset_label: Offset
-+          tags:
-+            previous: ‹‹
-+            next: ››
-+      style:
-+        type: default
-+      row:
-+        type: fields
-+      fields:
-+        title:
-+          id: title
-+          table: node_field_data
-+          field: title
-+          settings:
-+            link_to_entity: true
-+          plugin_id: field
-+          relationship: none
-+          group_type: group
-+          admin_label: ''
-+          label: ''
-+          exclude: false
-+          alter:
-+            alter_text: false
-+            text: ''
-+            make_link: false
-+            path: ''
-+            absolute: false
-+            external: false
-+            replace_spaces: false
-+            path_case: none
-+            trim_whitespace: false
-+            alt: ''
-+            rel: ''
-+            link_class: ''
-+            prefix: ''
-+            suffix: ''
-+            target: ''
-+            nl2br: false
-+            max_length: 0
-+            word_boundary: true
-+            ellipsis: true
-+            more_link: false
-+            more_link_text: ''
-+            more_link_path: ''
-+            strip_tags: false
-+            trim: false
-+            preserve_tags: ''
-+            html: false
-+          element_type: ''
-+          element_class: ''
-+          element_label_type: ''
-+          element_label_class: ''
-+          element_label_colon: true
-+          element_wrapper_type: ''
-+          element_wrapper_class: ''
-+          element_default_classes: true
-+          empty: ''
-+          hide_empty: false
-+          empty_zero: false
-+          hide_alter_empty: true
-+          click_sort_column: value
-+          type: string
-+          group_column: value
-+          group_columns: {  }
-+          group_rows: true
-+          delta_limit: 0
-+          delta_offset: 0
-+          delta_reversed: false
-+          delta_first_last: false
-+          multi_type: separator
-+          separator: ', '
-+          field_api_classes: false
-+      filters:
-+        status:
-+          value: '1'
-+          table: node_field_data
-+          field: status
-+          plugin_id: boolean
-+          entity_type: node
-+          entity_field: status
-+          id: status
-+          expose:
-+            operator: ''
-+          group: 1
-+        created:
-+          id: created
-+          table: node_field_data
-+          field: created
-+          relationship: none
-+          group_type: group
-+          admin_label: ''
-+          operator: '='
-+          value:
-+            min: ''
-+            max: ''
-+            value: ''
-+            type: date
-+          group: 1
-+          exposed: true
-+          expose:
-+            operator_id: created_op
-+            label: 'Authored on'
-+            description: ''
-+            use_operator: true
-+            operator: created_op
-+            identifier: created
-+            required: false
-+            remember: false
-+            multiple: false
-+            remember_roles:
-+              authenticated: authenticated
-+              anonymous: '0'
-+              administrator: '0'
-+            placeholder: ''
-+            min_placeholder: ''
-+            max_placeholder: ''
-+          is_grouped: false
-+          group_info:
-+            label: ''
-+            description: ''
-+            identifier: ''
-+            optional: true
-+            widget: select
-+            multiple: false
-+            remember: false
-+            default_group: All
-+            default_group_multiple: {  }
-+            group_items: {  }
-+          entity_type: node
-+          entity_field: created
-+          plugin_id: date
-+      sorts:
-+        created:
-+          id: created
-+          table: node_field_data
-+          field: created
-+          order: ASC
-+          entity_type: node
-+          entity_field: created
-+          plugin_id: date
-+          relationship: none
-+          group_type: group
-+          admin_label: ''
-+          exposed: false
-+          expose:
-+            label: ''
-+          granularity: second
-+      title: test_filter_date_exposed
-+      header: {  }
-+      footer: {  }
-+      empty: {  }
-+      relationships: {  }
-+      arguments: {  }
-+      display_extenders: {  }
-+    cache_metadata:
-+      max-age: -1
-+      contexts:
-+        - 'languages:language_content'
-+        - 'languages:language_interface'
-+        - url
-+        - url.query_args
-+        - 'user.node_grants:view'
-+        - user.permissions
-+      tags: {  }
-+  page_1:
-+    display_plugin: page
-+    id: page_1
-+    display_title: Page
-+    position: 1
-+    display_options:
-+      display_extenders: {  }
-+      path: test-filter-date-exposed-operators
-+    cache_metadata:
-+      max-age: -1
-+      contexts:
-+        - 'languages:language_content'
-+        - 'languages:language_interface'
-+        - url
-+        - url.query_args
-+        - 'user.node_grants:view'
-+        - user.permissions
-+      tags: {  }
-+  page_2:
-+    display_plugin: page
-+    id: page_2
-+    display_title: Page
-+    position: 1
-+    display_options:
-+      display_extenders: {  }
-+      path: test-filter-date-between-exposed
-+      filters:
-+        status:
-+          value: '1'
-+          table: node_field_data
-+          field: status
-+          plugin_id: boolean
-+          entity_type: node
-+          entity_field: status
-+          id: status
-+          expose:
-+            operator: ''
-+          group: 1
-+        created:
-+          id: created
-+          table: node_field_data
-+          field: created
-+          relationship: none
-+          group_type: group
-+          admin_label: ''
-+          operator: between
-+          value:
-+            min: ''
-+            max: ''
-+            value: ''
-+            type: date
-+          group: 1
-+          exposed: true
-+          expose:
-+            operator_id: created_op
-+            label: 'Authored on'
-+            description: ''
-+            use_operator: false
-+            operator: created_op
-+            identifier: created
-+            required: false
-+            remember: false
-+            multiple: false
-+            remember_roles:
-+              authenticated: authenticated
-+              anonymous: '0'
-+              administrator: '0'
-+          is_grouped: false
-+          group_info:
-+            label: ''
-+            description: ''
-+            identifier: ''
-+            optional: true
-+            widget: select
-+            multiple: false
-+            remember: false
-+            default_group: All
-+            default_group_multiple: {  }
-+            group_items: {  }
-+          entity_type: node
-+          entity_field: created
-+          plugin_id: date
-+      defaults:
-+        filters: false
-+        filter_groups: false
-+      filter_groups:
-+        operator: AND
-+        groups:
-+          1: AND
-+    cache_metadata:
-+      max-age: -1
-+      contexts:
-+        - 'languages:language_content'
-+        - 'languages:language_interface'
-+        - url
-+        - url.query_args
-+        - 'user.node_grants:view'
-+        - user.permissions
-+      tags: {  }
-diff --git a/core/modules/views/tests/modules/views_test_config/test_views/views.view.test_filter_date_not_between_exposed.yml b/core/modules/views/tests/modules/views_test_config/test_views/views.view.test_filter_date_not_between_exposed.yml
-new file mode 100644
-index 0000000000..064e69ca20
---- /dev/null
-+++ b/core/modules/views/tests/modules/views_test_config/test_views/views.view.test_filter_date_not_between_exposed.yml
-@@ -0,0 +1,319 @@
-+langcode: en
-+status: true
-+dependencies:
-+  module:
-+    - node
-+    - user
-+id: test_filter_date_not_between_exposed
-+label: test_filter_date_not_between_exposed
-+module: views
-+description: ''
-+tag: ''
-+base_table: node_field_data
-+base_field: nid
-+display:
-+  default:
-+    display_plugin: default
-+    id: default
-+    display_title: Default
-+    position: 0
-+    display_options:
-+      access:
-+        type: perm
-+        options:
-+          perm: 'access content'
-+      cache:
-+        type: tag
-+        options: {  }
-+      query:
-+        type: views_query
-+        options:
-+          disable_sql_rewrite: false
-+          distinct: false
-+          replica: false
-+          query_comment: ''
-+          query_tags: {  }
-+      exposed_form:
-+        type: basic
-+        options:
-+          submit_button: Apply
-+          reset_button: false
-+          reset_button_label: Reset
-+          exposed_sorts_label: 'Sort by'
-+          expose_sort_order: true
-+          sort_asc_label: Asc
-+          sort_desc_label: Desc
-+      pager:
-+        type: mini
-+        options:
-+          items_per_page: 10
-+          offset: 0
-+          id: 0
-+          total_pages: null
-+          expose:
-+            items_per_page: false
-+            items_per_page_label: 'Items per page'
-+            items_per_page_options: '5, 10, 25, 50'
-+            items_per_page_options_all: false
-+            items_per_page_options_all_label: '- All -'
-+            offset: false
-+            offset_label: Offset
-+          tags:
-+            previous: ‹‹
-+            next: ››
-+      style:
-+        type: default
-+      row:
-+        type: fields
-+      fields:
-+        title:
-+          id: title
-+          table: node_field_data
-+          field: title
-+          settings:
-+            link_to_entity: true
-+          plugin_id: field
-+          relationship: none
-+          group_type: group
-+          admin_label: ''
-+          label: ''
-+          exclude: false
-+          alter:
-+            alter_text: false
-+            text: ''
-+            make_link: false
-+            path: ''
-+            absolute: false
-+            external: false
-+            replace_spaces: false
-+            path_case: none
-+            trim_whitespace: false
-+            alt: ''
-+            rel: ''
-+            link_class: ''
-+            prefix: ''
-+            suffix: ''
-+            target: ''
-+            nl2br: false
-+            max_length: 0
-+            word_boundary: true
-+            ellipsis: true
-+            more_link: false
-+            more_link_text: ''
-+            more_link_path: ''
-+            strip_tags: false
-+            trim: false
-+            preserve_tags: ''
-+            html: false
-+          element_type: ''
-+          element_class: ''
-+          element_label_type: ''
-+          element_label_class: ''
-+          element_label_colon: true
-+          element_wrapper_type: ''
-+          element_wrapper_class: ''
-+          element_default_classes: true
-+          empty: ''
-+          hide_empty: false
-+          empty_zero: false
-+          hide_alter_empty: true
-+          click_sort_column: value
-+          type: string
-+          group_column: value
-+          group_columns: {  }
-+          group_rows: true
-+          delta_limit: 0
-+          delta_offset: 0
-+          delta_reversed: false
-+          delta_first_last: false
-+          multi_type: separator
-+          separator: ', '
-+          field_api_classes: false
-+      filters:
-+        status:
-+          value: '1'
-+          table: node_field_data
-+          field: status
-+          plugin_id: boolean
-+          entity_type: node
-+          entity_field: status
-+          id: status
-+          expose:
-+            operator: ''
-+          group: 1
-+        created:
-+          id: created
-+          table: node_field_data
-+          field: created
-+          relationship: none
-+          group_type: group
-+          admin_label: ''
-+          operator: '='
-+          value:
-+            min: ''
-+            max: ''
-+            value: ''
-+            type: date
-+          group: 1
-+          exposed: true
-+          expose:
-+            operator_id: created_op
-+            label: 'Authored on'
-+            description: ''
-+            use_operator: false
-+            operator: created_op
-+            identifier: created
-+            required: false
-+            remember: false
-+            multiple: false
-+            remember_roles:
-+              authenticated: authenticated
-+              anonymous: '0'
-+              administrator: '0'
-+          is_grouped: false
-+          group_info:
-+            label: ''
-+            description: ''
-+            identifier: ''
-+            optional: true
-+            widget: select
-+            multiple: false
-+            remember: false
-+            default_group: All
-+            default_group_multiple: {  }
-+            group_items: {  }
-+          entity_type: node
-+          entity_field: created
-+          plugin_id: date
-+      sorts:
-+        created:
-+          id: created
-+          table: node_field_data
-+          field: created
-+          order: ASC
-+          entity_type: node
-+          entity_field: created
-+          plugin_id: date
-+          relationship: none
-+          group_type: group
-+          admin_label: ''
-+          exposed: false
-+          expose:
-+            label: ''
-+          granularity: second
-+      title: test_filter_date_exposed
-+      header: {  }
-+      footer: {  }
-+      empty: {  }
-+      relationships: {  }
-+      arguments: {  }
-+      display_extenders: {  }
-+    cache_metadata:
-+      max-age: -1
-+      contexts:
-+        - 'languages:language_content'
-+        - 'languages:language_interface'
-+        - url
-+        - url.query_args
-+        - 'user.node_grants:view'
-+        - user.permissions
-+      tags: {  }
-+  page_1:
-+    display_plugin: page
-+    id: page_1
-+    display_title: Page
-+    position: 1
-+    display_options:
-+      display_extenders: {  }
-+      path: test-filter-date-exposed
-+    cache_metadata:
-+      max-age: -1
-+      contexts:
-+        - 'languages:language_content'
-+        - 'languages:language_interface'
-+        - url
-+        - url.query_args
-+        - 'user.node_grants:view'
-+        - user.permissions
-+      tags: {  }
-+  page_2:
-+    display_plugin: page
-+    id: page_2
-+    display_title: Page
-+    position: 1
-+    display_options:
-+      display_extenders: {  }
-+      path: test-filter-date-not-between-exposed
-+      filters:
-+        status:
-+          value: '1'
-+          table: node_field_data
-+          field: status
-+          plugin_id: boolean
-+          entity_type: node
-+          entity_field: status
-+          id: status
-+          expose:
-+            operator: ''
-+          group: 1
-+        created:
-+          id: created
-+          table: node_field_data
-+          field: created
-+          relationship: none
-+          group_type: group
-+          admin_label: ''
-+          operator: 'not between'
-+          value:
-+            min: ''
-+            max: ''
-+            value: ''
-+            type: date
-+          group: 1
-+          exposed: true
-+          expose:
-+            operator_id: created_op
-+            label: 'Authored on'
-+            description: ''
-+            use_operator: false
-+            operator: created_op
-+            identifier: created
-+            required: false
-+            remember: false
-+            multiple: false
-+            remember_roles:
-+              authenticated: authenticated
-+              anonymous: '0'
-+              administrator: '0'
-+          is_grouped: false
-+          group_info:
-+            label: ''
-+            description: ''
-+            identifier: ''
-+            optional: true
-+            widget: select
-+            multiple: false
-+            remember: false
-+            default_group: All
-+            default_group_multiple: {  }
-+            group_items: {  }
-+          entity_type: node
-+          entity_field: created
-+          plugin_id: date
-+      defaults:
-+        filters: false
-+        filter_groups: false
-+      filter_groups:
-+        operator: AND
-+        groups:
-+          1: AND
-+    cache_metadata:
-+      max-age: -1
-+      contexts:
-+        - 'languages:language_content'
-+        - 'languages:language_interface'
-+        - url
-+        - url.query_args
-+        - 'user.node_grants:view'
-+        - user.permissions
-+      tags: {  }
 diff --git a/core/modules/views/tests/modules/views_test_config/test_views/views.view.test_filter_placeholder_text.yml b/core/modules/views/tests/modules/views_test_config/test_views/views.view.test_filter_placeholder_text.yml
-index 6eda868404..83223126ac 100644
+index 6eda8684042..e1d4801cac3 100644
 --- a/core/modules/views/tests/modules/views_test_config/test_views/views.view.test_filter_placeholder_text.yml
 +++ b/core/modules/views/tests/modules/views_test_config/test_views/views.view.test_filter_placeholder_text.yml
 @@ -206,10 +206,10 @@ display:
@@ -1579,45 +494,29 @@ index 6eda868404..83223126ac 100644
        sorts: {  }
        title: 'Placeholder text test'
        header: {  }
-@@ -313,12 +311,12 @@ display:
+@@ -313,7 +311,7 @@ display:
          groups:
            1: AND
      cache_metadata:
 -      max-age: 0
 +      max-age: -1
        contexts:
--        - 'languages:language_content'
--        - 'languages:language_interface'
--        - url
--        - 'user.node_grants:view'
-+      - 'languages:language_content'
-+      - 'languages:language_interface'
-+      - url
-+      - 'user.node_grants:view'
-       tags: {  }
-   page_1:
-     display_plugin: page
-@@ -329,10 +327,10 @@ display:
+         - 'languages:language_content'
+         - 'languages:language_interface'
+@@ -329,7 +327,7 @@ display:
        display_extenders: {  }
        path: placeholder-text-test
      cache_metadata:
 -      max-age: 0
 +      max-age: -1
        contexts:
--        - 'languages:language_content'
--        - 'languages:language_interface'
--        - url
--        - 'user.node_grants:view'
-+      - 'languages:language_content'
-+      - 'languages:language_interface'
-+      - url
-+      - 'user.node_grants:view'
-       tags: {  }
+         - 'languages:language_content'
+         - 'languages:language_interface'
 diff --git a/core/modules/views/tests/src/Functional/Handler/FilterDateTest.php b/core/modules/views/tests/src/Functional/Handler/FilterDateTest.php
-index 4869101917..cefbd8bf38 100644
+index 6cdc4d67393..a8eaca0449a 100644
 --- a/core/modules/views/tests/src/Functional/Handler/FilterDateTest.php
 +++ b/core/modules/views/tests/src/Functional/Handler/FilterDateTest.php
-@@ -22,7 +22,11 @@ class FilterDateTest extends ViewTestBase {
+@@ -24,7 +24,11 @@ class FilterDateTest extends ViewTestBase {
     *
     * @var array
     */
@@ -1629,8 +528,8 @@ index 4869101917..cefbd8bf38 100644
 +  ];
  
    /**
-    * Modules to enable.
-@@ -90,6 +94,8 @@ public function testDateFilter() {
+    * {@inheritdoc}
+@@ -103,6 +107,8 @@ public function testDateFilter(): void {
      $this->_testUiValidation();
      $this->_testFilterDateUI();
      $this->_testFilterDatetimeUI();
@@ -1639,7 +538,7 @@ index 4869101917..cefbd8bf38 100644
    }
  
    /**
-@@ -282,7 +288,8 @@ protected function _testFilterDateUI() {
+@@ -295,7 +301,8 @@ protected function _testFilterDateUI() {
      $this->assertCount(1, $results);
      $this->assertEquals($this->nodes[3]->id(), $results[0]->getText());
      $this->submitForm([
@@ -1649,7 +548,7 @@ index 4869101917..cefbd8bf38 100644
      ], 'Apply');
      $results = $this->cssSelect('.view-content .field-content');
      $this->assertCount(2, $results);
-@@ -343,7 +350,203 @@ public function testExposedFilter() {
+@@ -356,7 +363,203 @@ public function testExposedFilter(): void {
      $this->submitForm([], 'Save');
  
      $this->drupalGet('exposed-date-filter');
@@ -1855,10 +754,10 @@ index 4869101917..cefbd8bf38 100644
  
  }
 diff --git a/core/modules/views/tests/src/Functional/Handler/FilterPlaceholderTextTest.php b/core/modules/views/tests/src/Functional/Handler/FilterPlaceholderTextTest.php
-index 84a371be34..470e424af4 100644
+index 7adc5c6cc94..2ab997f0383 100644
 --- a/core/modules/views/tests/src/Functional/Handler/FilterPlaceholderTextTest.php
 +++ b/core/modules/views/tests/src/Functional/Handler/FilterPlaceholderTextTest.php
-@@ -44,23 +44,23 @@ public function testPlaceholderText() {
+@@ -46,23 +46,23 @@ public function testPlaceholderText(): void {
      $this->assertEquals('title placeholder', $results[0]->getAttribute('placeholder'));
  
      // Numeric filter that has no placeholders configured.
@@ -1891,3 +790,17 @@ index 84a371be34..470e424af4 100644
    }
  
  }
+diff --git a/core/modules/views/views.views.inc b/core/modules/views/views.views.inc
+index ebde44706bb..2e90d5146af 100644
+--- a/core/modules/views/views.views.inc
++++ b/core/modules/views/views.views.inc
+@@ -605,6 +605,9 @@ function views_field_default_views_data(FieldStorageConfigInterface $field_stora
+         if ($field_storage->getType() == 'boolean') {
+           $filter = 'boolean';
+         }
++        elseif ($field_storage->getType() == 'timestamp') {
++          $filter = 'date';
++        }
+         break;
+ 
+       case 'blob':
