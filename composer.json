@@ -85,7 +85,7 @@
     "drupal/view_unpublished": "^1.0",
     "drupal/views_contextual_filters_or": "^1.0",
     "drupal/xmlsitemap": "^1.0@alpha",
-    "mglaman/composer-drupal-lenient": "*",
+    "mglaman/composer-drupal-lenient": "^1.0",
     "phpseclib/phpseclib": "^2.0",
     "symfony/mime": "^5.4",
     "woothemes/flexslider": "~2.0"
@@ -182,6 +182,9 @@
         ".eslintrc.json",
         "web.config"
       ]
+    },
+    "drupal-lenient": {
+      "allowed-list": ["drupal/geotimezone"]
     }
   },
   "config": {
