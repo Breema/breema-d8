@@ -1,56 +1,46 @@
-diff --git a/core/modules/settings_tray/tests/src/FunctionalJavascript/SettingsTrayBlockFormTest.php b/core/modules/settings_tray/tests/src/FunctionalJavascript/SettingsTrayBlockFormTest.php
-index d505a0b..bd23c50 100644
---- a/core/modules/settings_tray/tests/src/FunctionalJavascript/SettingsTrayBlockFormTest.php
-+++ b/core/modules/settings_tray/tests/src/FunctionalJavascript/SettingsTrayBlockFormTest.php
-@@ -30,6 +30,7 @@ protected function setUp() {
- 
-     $user = $this->createUser([
-       'administer blocks',
-+      'access administration pages',
-       'access contextual links',
-       'access toolbar',
-       'administer nodes',
 diff --git a/core/modules/toolbar/tests/src/Functional/ToolbarAdminMenuTest.php b/core/modules/toolbar/tests/src/Functional/ToolbarAdminMenuTest.php
-index 9585c86..ec3f87e 100644
+index 9585c86..dbb368a 100644
 --- a/core/modules/toolbar/tests/src/Functional/ToolbarAdminMenuTest.php
 +++ b/core/modules/toolbar/tests/src/Functional/ToolbarAdminMenuTest.php
-@@ -395,6 +395,19 @@ public function testExternalLink() {
+@@ -395,6 +395,33 @@ public function testExternalLink() {
    }
  
    /**
-+   * Tests that there is no Manage tab in the Toolbar for authenticated users.
++   * Tests the Manage tray in the Toolbar for various authenticated users.
 +   *
 +   * The authorized user should not have a Manage tab simply with the 'access
-+   * toolbar' permission. They need 'access administration pages' for that.
++   * toolbar' permission. They need 'access administration pages' or another
++   * common administrative permission for that.
 +   */
 +  public function testEmptyMenuTray() {
 +    // Log out the admin user because we're testing restricted access.
 +    $this->drupalLogout();
 +    $this->drupalLogin($this->drupalCreateUser(['access toolbar']));
++    $this->assertResponse(200);
++    // @todo The toolbar div itself still has the id "toolbar-administration".
++    // @see https://www.drupal.org/project/drupal/issues/1044090
++    $this->assertSession()->elementExists('css', 'div[id=toolbar-administration]');
 +    $this->assertSession()->elementNotExists('css', 'a[id=toolbar-item-administration]');
++
++    // Try again with a user that can access the content overview.
++    $this->drupalLogout();
++    $this->drupalLogin($this->drupalCreateUser(['access toolbar', 'access content overview']));
++    $this->assertResponse(200);
++    // @todo The toolbar div itself still has the id "toolbar-administration".
++    // @see https://www.drupal.org/project/drupal/issues/1044090
++    $this->assertSession()->elementExists('css', 'div[id=toolbar-administration]');
++    $this->assertSession()->elementExists('css', 'a[id=toolbar-item-administration]');
 +  }
 +
 +  /**
     * Get the hash value from the admin menu subtrees route path.
     *
     * @return string
-diff --git a/core/modules/toolbar/tests/src/FunctionalJavascript/ToolbarIntegrationTest.php b/core/modules/toolbar/tests/src/FunctionalJavascript/ToolbarIntegrationTest.php
-index fd16398..c3cda91 100644
---- a/core/modules/toolbar/tests/src/FunctionalJavascript/ToolbarIntegrationTest.php
-+++ b/core/modules/toolbar/tests/src/FunctionalJavascript/ToolbarIntegrationTest.php
-@@ -22,6 +22,7 @@ class ToolbarIntegrationTest extends WebDriverTestBase {
-   public function testToolbarToggling() {
-     $admin_user = $this->drupalCreateUser([
-       'access toolbar',
-+      'access administration pages',
-       'administer site configuration',
-       'access content overview',
-     ]);
 diff --git a/core/modules/toolbar/toolbar.module b/core/modules/toolbar/toolbar.module
-index 044d749..6a900c6 100644
+index 7df073f..fdb8617 100644
 --- a/core/modules/toolbar/toolbar.module
 +++ b/core/modules/toolbar/toolbar.module
-@@ -159,6 +159,18 @@ function toolbar_toolbar() {
+@@ -159,6 +159,35 @@ function toolbar_toolbar() {
      '#weight' => -20,
    ];
  
@@ -62,7 +52,24 @@ index 044d749..6a900c6 100644
 +  // we can safely do this here and it'll still be cached correctly.
 +  // @see toolbar_prerender_toolbar_administration_tray()
 +  // @see toolbar_page_top()
-+  if (!\Drupal::currentUser()->hasPermission('access administration pages')) {
++  $current_user = \Drupal::currentUser();
++  $current_user_is_admin = FALSE;
++  // @todo Make this array configurable somehow?
++  $admin_permissions = [
++    'access administration pages',
++    'access content overview',
++    'access media overview',
++    'administer blocks',
++    'administer comments',
++    'administer nodes',
++  ];
++  foreach ($admin_permissions as $admin_permission) {
++    if ($current_user->hasPermission($admin_permission)) {
++      $current_user_is_admin = TRUE;
++      break;
++    }
++  }
++  if (!$current_user_is_admin) {
 +    return $items;
 +  }
 +

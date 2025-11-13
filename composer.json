@@ -126,7 +126,7 @@
       },
       "drupal/core": {
         "[DotComHost]: Add Plesk redirect" : "assets/patch/dotcomhost-plesk-redirect.patch",
-        "[#2135445-39] Toolbar displays Manage tab even if the user is not permitted to see it" : "assets/patch/2135445-39.no-empty-manage-tray.patch",
+        "[#2135445-80] Toolbar displays Manage tab even if the user is not permitted to see it" : "assets/patch/2135445-80.patch",
         "[#2419131-169] Fix #states for 'datetime' form elements" : "assets/patch/2419131-169.datetime-states.9_5_x.patch",
         "[#2648950-253] Use form element of type date instead textfield when selecting a date in an exposed filter" : "assets/patch/2648950-253.9_5_x.date-views-exposed-filter.patch",
         "[#2648950-224] Fix conflicts between #2648950 and #2625136" : "assets/patch/2648950-224.changes-for-2625136.DO-NOT-TEST.patch",
