@@ -85,6 +85,7 @@
     "drupal/view_unpublished": "^1.0",
     "drupal/views_contextual_filters_or": "^1.0",
     "drupal/xmlsitemap": "^1.0@alpha",
+    "drush/drush": "^12.5",
     "mglaman/composer-drupal-lenient": "^1.0",
     "phpseclib/phpseclib": "^2.0",
     "woothemes/flexslider": "~2.0"
