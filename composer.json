@@ -133,7 +133,6 @@
         "[#2825860-38] Notice: Undefined index in Views acceptExposedInput()" : "assets/patch/2825860-38.exposed-filter-notice.patch",
         "[#2868014-79] Views date filter datetime granularity option" : "assets/patch/2868014-79.patch",
         "[#2801501-15] Don't force the 'Manage' tray open in the toolbar on every page load" : "assets/patch/2801501-15.no-auto-open-toolbar.9.5.x.do-not-test.patch",
-        "[#2853188-14] Add negated regular expressions for views filters (string and integer)" : "assets/patch/2853188-14.9_5_x.patch",
         "[#2951268-46] Improve rendering of account link in the toolbar" : "assets/patch/2951268-46.patch"
       },
       "drupal/entity_embed": {
