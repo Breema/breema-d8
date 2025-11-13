@@ -1,8 +1,8 @@
 diff --git a/core/includes/theme.inc b/core/includes/theme.inc
-index 1af98c6753..3fdd3a6220 100644
+index fbf78cf66b3..6e051a6e060 100644
 --- a/core/includes/theme.inc
 +++ b/core/includes/theme.inc
-@@ -603,6 +603,12 @@ function template_preprocess_datetime_form(&$variables) {
+@@ -535,6 +535,12 @@ function template_preprocess_datetime_form(&$variables) {
   */
  function template_preprocess_datetime_wrapper(&$variables) {
    $element = $variables['element'];
@@ -15,7 +15,7 @@ index 1af98c6753..3fdd3a6220 100644
  
    if (!empty($element['#title'])) {
      $variables['title'] = $element['#title'];
-@@ -612,6 +618,19 @@ function template_preprocess_datetime_wrapper(&$variables) {
+@@ -544,6 +550,19 @@ function template_preprocess_datetime_wrapper(&$variables) {
        $variables['title'] = ['#markup' => $variables['title']];
      }
    }
@@ -36,10 +36,10 @@ index 1af98c6753..3fdd3a6220 100644
    // Suppress error messages.
    $variables['errors'] = NULL;
 diff --git a/core/lib/Drupal/Core/Datetime/Element/Datetime.php b/core/lib/Drupal/Core/Datetime/Element/Datetime.php
-index 845fe259b4..ac23d323cb 100644
+index e877971bd92..a1d4400f9af 100644
 --- a/core/lib/Drupal/Core/Datetime/Element/Datetime.php
 +++ b/core/lib/Drupal/Core/Datetime/Element/Datetime.php
-@@ -268,6 +268,7 @@ public static function processDatetime(&$element, FormStateInterface $form_state
+@@ -266,6 +266,7 @@ public static function processDatetime(&$element, FormStateInterface $form_state
          '#size' => max(12, strlen($element['#value']['date'])),
          '#error_no_message' => TRUE,
          '#date_date_format' => $element['#date_date_format'],
@@ -47,7 +47,7 @@ index 845fe259b4..ac23d323cb 100644
        ];
  
        // Allows custom callbacks to alter the element.
-@@ -299,6 +300,7 @@ public static function processDatetime(&$element, FormStateInterface $form_state
+@@ -296,6 +297,7 @@ public static function processDatetime(&$element, FormStateInterface $form_state
          '#required' => $element['#required'],
          '#size' => 12,
          '#error_no_message' => TRUE,
@@ -55,96 +55,22 @@ index 845fe259b4..ac23d323cb 100644
        ];
  
        // Allows custom callbacks to alter the element.
-diff --git a/core/misc/states.es6.js b/core/misc/states.es6.js
-index 69cc4b3458..09781ec45e 100644
---- a/core/misc/states.es6.js
-+++ b/core/misc/states.es6.js
-@@ -687,7 +687,11 @@
-         .toggleClass('form-disabled', e.value)
-         .find('select, input, textarea')
+diff --git a/core/misc/states.js b/core/misc/states.js
+index 6db3494cd7b..a8cd1daf1c9 100644
+--- a/core/misc/states.js
++++ b/core/misc/states.js
+@@ -701,6 +701,9 @@
+         .find(tagsSupportDisable)
+         .addBack(tagsSupportDisable)
          .prop('disabled', e.value);
--
-+      // A complex form element, like 'datetime' (one made up of multiple
-+      // sub-elements) may have a label for the element as a whole.
 +      $(e.target)
 +        .closest('.js-complex-form-item')
 +        .toggleClass('form-disabled', e.value);
-       // Note: WebKit nightlies don't reflect that change correctly.
-       // See https://bugs.webkit.org/show_bug.cgi?id=23789
-     }
-@@ -701,16 +705,28 @@
-           .attr({ required: 'required', 'aria-required': 'true' })
-           .closest('.js-form-item, .js-form-wrapper')
-           .find(label);
-+        // A complex form element, like 'datetime' (one made up of multiple
-+        // sub-elements) may have a label for the element as a whole.
-+        const $complexLabel = $(e.target)
-+          .closest('.js-complex-form-item')
-+          .children('label');
-         // Avoids duplicate required markers on initialization.
-         if (!$label.hasClass('js-form-required').length) {
-           $label.addClass('js-form-required form-required');
-         }
-+        if (!$complexLabel.hasClass('js-form-required').length) {
-+          $complexLabel.addClass('js-form-required form-required');
-+        }
-       } else {
-         $(e.target)
-           .removeAttr('required aria-required')
-           .closest('.js-form-item, .js-form-wrapper')
-           .find('label.js-form-required')
-           .removeClass('js-form-required form-required');
-+        $(e.target)
-+          .closest('.js-complex-form-item')
-+          .children('label')
-+          .removeClass('js-form-required form-required');
-       }
-     }
-   });
-@@ -720,6 +736,22 @@
-       $(e.target)
-         .closest('.js-form-item, .js-form-submit, .js-form-wrapper')
-         .toggle(e.value);
-+      // A complex form element, like 'datetime' (one made up of multiple
-+      // sub-elements) may have a label for the element as a whole.
-+      const $complexLabel = $(e.target)
-+        .closest('.js-complex-form-item')
-+        .children('label');
-+      // If there is a label, toggle the visibility of the label too.
-+      if ($complexLabel.length) {
-+        $complexLabel.toggle(e.value);
-+      }
-+      const $complexDescription = $(e.target)
-+        .closest('.js-complex-form-item')
-+        .children('div.description, div.form-item__description');
-+      // If there is a description, toggle the visibility of the description too.
-+      if ($complexDescription.length) {
-+        $complexDescription.toggle(e.value);
-+      }
      }
    });
  
-diff --git a/core/misc/states.js b/core/misc/states.js
-index 15987aca87..458db78306 100644
---- a/core/misc/states.js
-+++ b/core/misc/states.js
-@@ -298,6 +298,7 @@
-   $document.on('state:disabled', function (e) {
-     if (e.trigger) {
-       $(e.target).closest('.js-form-item, .js-form-submit, .js-form-wrapper').toggleClass('form-disabled', e.value).find('select, input, textarea').prop('disabled', e.value);
-+      $(e.target).closest('.js-complex-form-item').toggleClass('form-disabled', e.value);
-     }
-   });
-   $document.on('state:required', function (e) {
-@@ -333,4 +334,4 @@
-       }
-     }
-   });
--})(jQuery, Drupal);
-\ No newline at end of file
-+})(jQuery, Drupal);
 diff --git a/core/modules/system/templates/datetime-wrapper.html.twig b/core/modules/system/templates/datetime-wrapper.html.twig
-index a14da8937b..81f00604ff 100644
+index a14da8937bd..81f00604ffa 100644
 --- a/core/modules/system/templates/datetime-wrapper.html.twig
 +++ b/core/modules/system/templates/datetime-wrapper.html.twig
 @@ -5,8 +5,16 @@
@@ -213,7 +139,7 @@ index a14da8937b..81f00604ff 100644
 +</div>
 diff --git a/core/modules/system/tests/modules/datetime_states_test/datetime_states_test.info.yml b/core/modules/system/tests/modules/datetime_states_test/datetime_states_test.info.yml
 new file mode 100644
-index 0000000000..65d61142dc
+index 00000000000..65d61142dcb
 --- /dev/null
 +++ b/core/modules/system/tests/modules/datetime_states_test/datetime_states_test.info.yml
 @@ -0,0 +1,5 @@
@@ -222,9 +148,12 @@ index 0000000000..65d61142dc
 +description: 'Provides an example demonstrating how form #states affect datetime elements.'
 +package: Testing
 +version: VERSION
+diff --git a/core/modules/system/tests/modules/datetime_states_test/datetime_states_test.info.yml.~1~ b/core/modules/system/tests/modules/datetime_states_test/datetime_states_test.info.yml.~1~
+new file mode 100644
+index 00000000000..e69de29bb2d
 diff --git a/core/modules/system/tests/modules/datetime_states_test/datetime_states_test.routing.yml b/core/modules/system/tests/modules/datetime_states_test/datetime_states_test.routing.yml
 new file mode 100644
-index 0000000000..6594e48a8b
+index 00000000000..6594e48a8b2
 --- /dev/null
 +++ b/core/modules/system/tests/modules/datetime_states_test/datetime_states_test.routing.yml
 @@ -0,0 +1,13 @@
@@ -241,9 +170,12 @@ index 0000000000..6594e48a8b
 +    _form: '\Drupal\datetime_states_test\Form\DatetimeStatesTestForm'
 +  requirements:
 +    _access: 'TRUE'
+diff --git a/core/modules/system/tests/modules/datetime_states_test/datetime_states_test.routing.yml.~1~ b/core/modules/system/tests/modules/datetime_states_test/datetime_states_test.routing.yml.~1~
+new file mode 100644
+index 00000000000..e69de29bb2d
 diff --git a/core/modules/system/tests/modules/datetime_states_test/src/Form/DatetimeStatesTestForm.php b/core/modules/system/tests/modules/datetime_states_test/src/Form/DatetimeStatesTestForm.php
 new file mode 100644
-index 0000000000..186711ce4a
+index 00000000000..186711ce4a3
 --- /dev/null
 +++ b/core/modules/system/tests/modules/datetime_states_test/src/Form/DatetimeStatesTestForm.php
 @@ -0,0 +1,72 @@
@@ -319,9 +251,12 @@ index 0000000000..186711ce4a
 +  }
 +
 +}
+diff --git a/core/modules/system/tests/modules/datetime_states_test/src/Form/DatetimeStatesTestForm.php.~1~ b/core/modules/system/tests/modules/datetime_states_test/src/Form/DatetimeStatesTestForm.php.~1~
+new file mode 100644
+index 00000000000..e69de29bb2d
 diff --git a/core/modules/system/tests/src/FunctionalJavascript/DatetimeStatesTest.php b/core/modules/system/tests/src/FunctionalJavascript/DatetimeStatesTest.php
 new file mode 100644
-index 0000000000..e9b2ac0a95
+index 00000000000..e9b2ac0a95b
 --- /dev/null
 +++ b/core/modules/system/tests/src/FunctionalJavascript/DatetimeStatesTest.php
 @@ -0,0 +1,115 @@
@@ -440,71 +375,11 @@ index 0000000000..e9b2ac0a95
 +  }
 +
 +}
-diff --git a/core/themes/bartik/templates/datetime-wrapper.html.twig b/core/themes/bartik/templates/datetime-wrapper.html.twig
-new file mode 100644
-index 0000000000..ec8a33d71c
---- /dev/null
-+++ b/core/themes/bartik/templates/datetime-wrapper.html.twig
-@@ -0,0 +1,54 @@
-+{#
-+/**
-+ * @file
-+ * Theme override of a datetime form wrapper.
-+ *
-+ * Available variables:
-+ * - content: The form element to be output, usually a datelist, or datetime.
-+ * - label: A rendered label element.
-+ * - label_display: Label display setting. It can have these values:
-+ *   - before: The label is output before the element. This is the default.
-+ *     The label includes the #title and the required marker, if #required.
-+ *   - after: The label is output after the element. For example, this is used
-+ *     for radio and checkbox #type elements. If the #title is empty but the
-+ *     field is #required, the label will contain only the required marker.
-+ *   - invisible: Labels are critical for screen readers to enable them to
-+ *     properly navigate through forms but can be visually distracting. This
-+ *     property hides the label for everyone except screen readers.
-+ * - description: Description text for the form element.
-+ * - required: An indicator for whether the associated form element is required.
-+ *
-+ * @see template_preprocess_datetime_wrapper()
-+ */
-+#}
-+{%
-+set container_classes = [
-+'js-form-item',
-+'form-item',
-+'js-form-type-' ~ type|clean_class,
-+'form-type-' ~ type|clean_class,
-+'js-form-item-' ~ name|clean_class,
-+'form-item-' ~ name|clean_class,
-+'js-complex-form-item',
-+disabled == 'disabled' ? 'form-disabled',
-+]
-+%}
-+<div{{ attributes.addClass(container_classes) }}>
-+  {% if label_display in ['before', 'invisible'] %}
-+    {{ label }}
-+  {% endif %}
-+  {{ content }}
-+  {% if errors %}
-+    <div class="form-item--error-message">
-+      <strong>{{ errors }}</strong>
-+    </div>
-+  {% endif %}
-+  {% if description %}
-+    <div{{ description_attributes.addClass('description') }}>
-+      {{ description }}
-+    </div>
-+  {% endif %}
-+  {% if label_display == 'after' %}
-+    {{ label }}
-+  {% endif %}
-+</div>
 diff --git a/core/themes/claro/templates/datetime-wrapper.html.twig b/core/themes/claro/templates/datetime-wrapper.html.twig
-index 4215b28ff2..5bed20f79c 100644
+index 229e8b60396..4d50759da10 100644
 --- a/core/themes/claro/templates/datetime-wrapper.html.twig
 +++ b/core/themes/claro/templates/datetime-wrapper.html.twig
-@@ -8,17 +8,15 @@
+@@ -6,17 +6,15 @@
   * @see template_preprocess_form_element()
   */
  #}
@@ -529,7 +404,7 @@ index 4215b28ff2..5bed20f79c 100644
  {% endif %}
  {{ content }}
  {% if errors %}
-@@ -31,4 +29,7 @@
+@@ -29,4 +27,7 @@
      {{ description }}
    </div>
  {% endif %}
@@ -537,76 +412,3 @@ index 4215b28ff2..5bed20f79c 100644
 +  {{ label }}
 +{% endif %}
  </div>
-diff --git a/core/themes/seven/css/components/form.css b/core/themes/seven/css/components/form.css
-index 3fe0e72992..99c51fd1e9 100644
---- a/core/themes/seven/css/components/form.css
-+++ b/core/themes/seven/css/components/form.css
-@@ -107,6 +107,8 @@ label[for] {
- .form-disabled input.form-number,
- .form-disabled input.form-color,
- .form-disabled input.form-file,
-+.form-disabled input.form-date,
-+.form-disabled input.form-time,
- .form-disabled textarea.form-textarea,
- .form-disabled select.form-select {
-   border-color: #d4d4d4;
-diff --git a/core/themes/seven/templates/datetime-wrapper.html.twig b/core/themes/seven/templates/datetime-wrapper.html.twig
-new file mode 100644
-index 0000000000..ec8a33d71c
---- /dev/null
-+++ b/core/themes/seven/templates/datetime-wrapper.html.twig
-@@ -0,0 +1,54 @@
-+{#
-+/**
-+ * @file
-+ * Theme override of a datetime form wrapper.
-+ *
-+ * Available variables:
-+ * - content: The form element to be output, usually a datelist, or datetime.
-+ * - label: A rendered label element.
-+ * - label_display: Label display setting. It can have these values:
-+ *   - before: The label is output before the element. This is the default.
-+ *     The label includes the #title and the required marker, if #required.
-+ *   - after: The label is output after the element. For example, this is used
-+ *     for radio and checkbox #type elements. If the #title is empty but the
-+ *     field is #required, the label will contain only the required marker.
-+ *   - invisible: Labels are critical for screen readers to enable them to
-+ *     properly navigate through forms but can be visually distracting. This
-+ *     property hides the label for everyone except screen readers.
-+ * - description: Description text for the form element.
-+ * - required: An indicator for whether the associated form element is required.
-+ *
-+ * @see template_preprocess_datetime_wrapper()
-+ */
-+#}
-+{%
-+set container_classes = [
-+'js-form-item',
-+'form-item',
-+'js-form-type-' ~ type|clean_class,
-+'form-type-' ~ type|clean_class,
-+'js-form-item-' ~ name|clean_class,
-+'form-item-' ~ name|clean_class,
-+'js-complex-form-item',
-+disabled == 'disabled' ? 'form-disabled',
-+]
-+%}
-+<div{{ attributes.addClass(container_classes) }}>
-+  {% if label_display in ['before', 'invisible'] %}
-+    {{ label }}
-+  {% endif %}
-+  {{ content }}
-+  {% if errors %}
-+    <div class="form-item--error-message">
-+      <strong>{{ errors }}</strong>
-+    </div>
-+  {% endif %}
-+  {% if description %}
-+    <div{{ description_attributes.addClass('description') }}>
-+      {{ description }}
-+    </div>
-+  {% endif %}
-+  {% if label_display == 'after' %}
-+    {{ label }}
-+  {% endif %}
-+</div>
